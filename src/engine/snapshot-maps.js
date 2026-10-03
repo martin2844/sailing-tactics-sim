@@ -1,0 +1,601 @@
+// Explicit original state-copy tables extracted by tools/extract_snapshot_maps.py.
+export const SNAPSHOT_MAPS = Object.freeze({
+  "save": {
+    "routine": 4513760,
+    "sourceSha256": "30120b7c678e0562974b202f431a8c224912296a1fa863b0204d1b7a4cf5bf6e",
+    "arrays": [
+      {
+        "source": 4867756,
+        "destination": 4890916,
+        "stride": 4
+      },
+      {
+        "source": 4892084,
+        "destination": 4892868,
+        "stride": 4
+      },
+      {
+        "source": 4878156,
+        "destination": 4880628,
+        "stride": 4
+      },
+      {
+        "source": 4868236,
+        "destination": 4872828,
+        "stride": 4
+      },
+      {
+        "source": 4875068,
+        "destination": 4899468,
+        "stride": 4
+      },
+      {
+        "source": 4874004,
+        "destination": 4899148,
+        "stride": 4
+      },
+      {
+        "source": 4888972,
+        "destination": 4897100,
+        "stride": 4
+      },
+      {
+        "source": 4888844,
+        "destination": 4896972,
+        "stride": 4
+      },
+      {
+        "source": 4879068,
+        "destination": 4866676,
+        "stride": 4
+      },
+      {
+        "source": 4870764,
+        "destination": 4897932,
+        "stride": 4
+      },
+      {
+        "source": 4873876,
+        "destination": 4886028,
+        "stride": 4
+      },
+      {
+        "source": 4874132,
+        "destination": 4865972,
+        "stride": 4
+      },
+      {
+        "source": 4866972,
+        "destination": 4878596,
+        "stride": 4
+      },
+      {
+        "source": 4880084,
+        "destination": 4866116,
+        "stride": 4
+      },
+      {
+        "source": 4892260,
+        "destination": 4898276,
+        "stride": 4
+      },
+      {
+        "source": 4866548,
+        "destination": 4872964,
+        "stride": 4
+      },
+      {
+        "source": 4880756,
+        "destination": 4892740,
+        "stride": 4
+      },
+      {
+        "source": 4897652,
+        "destination": 4893092,
+        "stride": 4
+      },
+      {
+        "source": 4871204,
+        "destination": 4898060,
+        "stride": 4
+      },
+      {
+        "source": 4898844,
+        "destination": 4894932,
+        "stride": 4
+      },
+      {
+        "source": 4878436,
+        "destination": 4865804,
+        "stride": 4
+      },
+      {
+        "source": 4892468,
+        "destination": 4884628,
+        "stride": 4
+      },
+      {
+        "source": 4868840,
+        "destination": 4894672,
+        "stride": 8
+      },
+      {
+        "source": 4868592,
+        "destination": 4894424,
+        "stride": 8
+      },
+      {
+        "source": 4878800,
+        "destination": 4874824,
+        "stride": 8
+      }
+    ],
+    "scalars": [
+      {
+        "source": 4873088,
+        "destination": 4868436
+      },
+      {
+        "source": 4876152,
+        "destination": 4900924
+      },
+      {
+        "source": 4869092,
+        "destination": 4865960
+      },
+      {
+        "source": 4897508,
+        "destination": 4867124
+      },
+      {
+        "source": 4901352,
+        "destination": 4892664
+      },
+      {
+        "source": 4877728,
+        "destination": 4865768
+      },
+      {
+        "source": 4877732,
+        "destination": 4865772
+      },
+      {
+        "source": 4896952,
+        "destination": 4892992
+      },
+      {
+        "source": 4896956,
+        "destination": 4892996
+      },
+      {
+        "source": 4898544,
+        "destination": 4894392
+      },
+      {
+        "source": 4898548,
+        "destination": 4894396
+      },
+      {
+        "source": 4892232,
+        "destination": 4895088
+      },
+      {
+        "source": 4892236,
+        "destination": 4895092
+      },
+      {
+        "source": 4880616,
+        "destination": 4892032
+      },
+      {
+        "source": 4880620,
+        "destination": 4892036
+      },
+      {
+        "source": 4884756,
+        "destination": 4878748
+      },
+      {
+        "source": 4884760,
+        "destination": 4878752
+      },
+      {
+        "source": 4869628,
+        "destination": 4898572
+      },
+      {
+        "source": 4869632,
+        "destination": 4898576
+      },
+      {
+        "source": 4868460,
+        "destination": 4898244
+      },
+      {
+        "source": 4868464,
+        "destination": 4898248
+      },
+      {
+        "source": 4876364,
+        "destination": 4872812
+      },
+      {
+        "source": 4876368,
+        "destination": 4872816
+      },
+      {
+        "source": 4898716,
+        "destination": 4869276
+      },
+      {
+        "source": 4898720,
+        "destination": 4869280
+      },
+      {
+        "source": 4866952,
+        "destination": 4898972
+      },
+      {
+        "source": 4866956,
+        "destination": 4899000
+      },
+      {
+        "source": 4788676,
+        "destination": 4869264
+      },
+      {
+        "source": 4788680,
+        "destination": 4900932
+      },
+      {
+        "source": 4897236,
+        "destination": 4892704
+      },
+      {
+        "source": 4880212,
+        "destination": 4892668
+      },
+      {
+        "source": 4869080,
+        "destination": 4876320
+      },
+      {
+        "source": 4897220,
+        "destination": 4899280
+      },
+      {
+        "source": 4877220,
+        "destination": 4892068
+      },
+      {
+        "source": 4877224,
+        "destination": 4892072
+      },
+      {
+        "source": 4892640,
+        "destination": 4880880
+      },
+      {
+        "source": 4788672,
+        "destination": 4893240
+      },
+      {
+        "source": 4897644,
+        "destination": 4895060
+      },
+      {
+        "source": 4895052,
+        "destination": 4875188
+      },
+      {
+        "source": 4899320,
+        "destination": 4895128
+      },
+      {
+        "source": 4899324,
+        "destination": 4895132
+      }
+    ]
+  },
+  "restore": {
+    "routine": 4512704,
+    "sourceSha256": "f334d9e9d69839578ec7b1d8d7d89c763f776f05ad8a2fa2ea69b2c167df0a0f",
+    "arrays": [
+      {
+        "source": 4890916,
+        "destination": 4867756,
+        "stride": 4
+      },
+      {
+        "source": 4892868,
+        "destination": 4892084,
+        "stride": 4
+      },
+      {
+        "source": 4880628,
+        "destination": 4878156,
+        "stride": 4
+      },
+      {
+        "source": 4872828,
+        "destination": 4868236,
+        "stride": 4
+      },
+      {
+        "source": 4899468,
+        "destination": 4875068,
+        "stride": 4
+      },
+      {
+        "source": 4899148,
+        "destination": 4874004,
+        "stride": 4
+      },
+      {
+        "source": 4897100,
+        "destination": 4888972,
+        "stride": 4
+      },
+      {
+        "source": 4896972,
+        "destination": 4888844,
+        "stride": 4
+      },
+      {
+        "source": 4866676,
+        "destination": 4879068,
+        "stride": 4
+      },
+      {
+        "source": 4897932,
+        "destination": 4870764,
+        "stride": 4
+      },
+      {
+        "source": 4886028,
+        "destination": 4873876,
+        "stride": 4
+      },
+      {
+        "source": 4865972,
+        "destination": 4874132,
+        "stride": 4
+      },
+      {
+        "source": 4878596,
+        "destination": 4866972,
+        "stride": 4
+      },
+      {
+        "source": 4866116,
+        "destination": 4880084,
+        "stride": 4
+      },
+      {
+        "source": 4898276,
+        "destination": 4892260,
+        "stride": 4
+      },
+      {
+        "source": 4872964,
+        "destination": 4866548,
+        "stride": 4
+      },
+      {
+        "source": 4892740,
+        "destination": 4880756,
+        "stride": 4
+      },
+      {
+        "source": 4893092,
+        "destination": 4897652,
+        "stride": 4
+      },
+      {
+        "source": 4898060,
+        "destination": 4871204,
+        "stride": 4
+      },
+      {
+        "source": 4894932,
+        "destination": 4898844,
+        "stride": 4
+      },
+      {
+        "source": 4865804,
+        "destination": 4878436,
+        "stride": 4
+      },
+      {
+        "source": 4884628,
+        "destination": 4892468,
+        "stride": 4
+      },
+      {
+        "source": 4894672,
+        "destination": 4868840,
+        "stride": 8
+      },
+      {
+        "source": 4894424,
+        "destination": 4868592,
+        "stride": 8
+      },
+      {
+        "source": 4874824,
+        "destination": 4878800,
+        "stride": 8
+      }
+    ],
+    "scalars": [
+      {
+        "source": 4868436,
+        "destination": 4873088
+      },
+      {
+        "source": 4900924,
+        "destination": 4876152
+      },
+      {
+        "source": 4867124,
+        "destination": 4897508
+      },
+      {
+        "source": 4892664,
+        "destination": 4901352
+      },
+      {
+        "source": 4865772,
+        "destination": 4877732
+      },
+      {
+        "source": 4892992,
+        "destination": 4896952
+      },
+      {
+        "source": 4894392,
+        "destination": 4898544
+      },
+      {
+        "source": 4894396,
+        "destination": 4898548
+      },
+      {
+        "source": 4895092,
+        "destination": 4892236
+      },
+      {
+        "source": 4892032,
+        "destination": 4880616
+      },
+      {
+        "source": 4878748,
+        "destination": 4884756
+      },
+      {
+        "source": 4865960,
+        "destination": 4869092
+      },
+      {
+        "source": 4878752,
+        "destination": 4884760
+      },
+      {
+        "source": 4898576,
+        "destination": 4869632
+      },
+      {
+        "source": 4865768,
+        "destination": 4877728
+      },
+      {
+        "source": 4898244,
+        "destination": 4868460
+      },
+      {
+        "source": 4872812,
+        "destination": 4876364
+      },
+      {
+        "source": 4892996,
+        "destination": 4896956
+      },
+      {
+        "source": 4872816,
+        "destination": 4876368
+      },
+      {
+        "source": 4869280,
+        "destination": 4898720
+      },
+      {
+        "source": 4895088,
+        "destination": 4892232
+      },
+      {
+        "source": 4898972,
+        "destination": 4866952
+      },
+      {
+        "source": 4869264,
+        "destination": 4788676
+      },
+      {
+        "source": 4892036,
+        "destination": 4880620
+      },
+      {
+        "source": 4900932,
+        "destination": 4788680
+      },
+      {
+        "source": 4892704,
+        "destination": 4897236
+      },
+      {
+        "source": 4898572,
+        "destination": 4869628
+      },
+      {
+        "source": 4892668,
+        "destination": 4880212
+      },
+      {
+        "source": 4876320,
+        "destination": 4869080
+      },
+      {
+        "source": 4898248,
+        "destination": 4868464
+      },
+      {
+        "source": 4899280,
+        "destination": 4897220
+      },
+      {
+        "source": 4892068,
+        "destination": 4877220
+      },
+      {
+        "source": 4869276,
+        "destination": 4898716
+      },
+      {
+        "source": 4892072,
+        "destination": 4877224
+      },
+      {
+        "source": 4880880,
+        "destination": 4892640
+      },
+      {
+        "source": 4899000,
+        "destination": 4866956
+      },
+      {
+        "source": 4895060,
+        "destination": 4897644
+      },
+      {
+        "source": 4875188,
+        "destination": 4895052
+      },
+      {
+        "source": 4895128,
+        "destination": 4899320
+      },
+      {
+        "source": 4895132,
+        "destination": 4899324
+      },
+      {
+        "source": 4895128,
+        "destination": 4900904
+      },
+      {
+        "source": 4895132,
+        "destination": 4900908
+      }
+    ]
+  }
+});

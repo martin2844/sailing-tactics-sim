@@ -1,0 +1,15 @@
+004570b0 PUSH EBP
+004570b1 MOV EBP,ESP
+004570b3 ADD ESP,-0xc
+004570b6 FSTCW word ptr [EBP + -0x2]
+004570ba WAIT
+004570bb MOV AX,word ptr [EBP + -0x2]
+004570bf OR AH,0xc
+004570c2 MOV word ptr [EBP + -0x4],AX
+004570c6 FLDCW word ptr [EBP + -0x4]
+004570c9 FISTP qword ptr [EBP + -0xc]
+004570cc FLDCW word ptr [EBP + -0x2]
+004570cf MOV EAX,dword ptr [EBP + -0xc]
+004570d2 MOV EDX,dword ptr [EBP + -0x8]
+004570d5 LEAVE
+004570d6 RET

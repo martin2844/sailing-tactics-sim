@@ -1,0 +1,92 @@
+{
+  "routines": {
+    "updateCollisionAvoidance": 4358096,
+    "avoidAiCollision": 4358336,
+    "warnHumanRightOfWay": 4359904,
+    "requestRightOfWaySound": 4360752
+  },
+  "globals": {
+    "feedbackCode": {
+      "address": 4788632,
+      "type": "I32"
+    },
+    "feedbackTime": {
+      "address": 4788636,
+      "type": "I32"
+    },
+    "feedbackDistance": {
+      "address": 4869228,
+      "type": "I32"
+    },
+    "closehauledOverride": {
+      "address": 4901296,
+      "type": "I32"
+    },
+    "lastRightOfWaySound": {
+      "address": 4901384,
+      "type": "I32"
+    },
+    "resetTime": {
+      "address": 4866408,
+      "type": "I32"
+    }
+  },
+  "indexed": {
+    "collisionTime": {
+      "address": 4880752,
+      "type": "I32",
+      "stride": 4
+    },
+    "collisionX": {
+      "address": 4888968,
+      "type": "I32",
+      "stride": 4
+    },
+    "collisionY": {
+      "address": 4888840,
+      "type": "I32",
+      "stride": 4
+    },
+    "startDistance": {
+      "address": 4870760,
+      "type": "I32",
+      "stride": 4
+    },
+    "relativeTargetAngle": {
+      "address": 4897384,
+      "type": "I32",
+      "stride": 4
+    },
+    "avoidanceTurnState": {
+      "address": 4892256,
+      "type": "I32",
+      "stride": 4
+    },
+    "rightOfWayWarning": {
+      "address": 4869752,
+      "type": "I32",
+      "stride": 4
+    },
+    "spinnakerHoldFlag": {
+      "address": 4880080,
+      "type": "I32",
+      "stride": 4
+    },
+    "speedOverride": {
+      "address": 4874128,
+      "type": "I32",
+      "stride": 4
+    },
+    "speedTenths": {
+      "address": 4878432,
+      "type": "I32",
+      "stride": 4
+    },
+    "tackSlowFlag": {
+      "address": 4867752,
+      "type": "I32",
+      "stride": 4
+    }
+  },
+  "note": "Merge encounter/boat-option typed globals and indexed maps. No new RNG or floating globals. Void return contract."
+}

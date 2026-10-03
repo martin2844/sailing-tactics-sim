@@ -1,0 +1,111 @@
+{
+  "routines": {
+    "selectBoatColor": {
+      "address": 4285472,
+      "argumentTypes": [
+        "CDC*",
+        "I32"
+      ],
+      "returnType": "void"
+    },
+    "drawCatamaranPanels": {
+      "address": 4291552,
+      "argumentTypes": [
+        "CDC*"
+      ],
+      "returnType": "void"
+    },
+    "drawInteriorPanel": {
+      "address": 4301904,
+      "argumentTypes": [
+        "CDC*",
+        "I32"
+      ],
+      "returnType": "void"
+    },
+    "selectSailColor": {
+      "address": 4304752,
+      "argumentTypes": [
+        "CDC*",
+        "I32"
+      ],
+      "returnType": "void"
+    },
+    "drawWakePoint": {
+      "address": 4300112,
+      "argumentTypes": [
+        "CDC*",
+        "I32",
+        "I32",
+        "I32"
+      ],
+      "returnType": "void"
+    },
+    "drawSailCurve": {
+      "address": 4281744,
+      "argumentTypes": [
+        "CDC*",
+        "I32",
+        "I32",
+        "I32",
+        "I32",
+        "I32",
+        "I32",
+        "I32",
+        "I32",
+        "I32",
+        "I32"
+      ],
+      "returnType": "void"
+    }
+  },
+  "addresses": {
+    "selectBoatColor": 4285472,
+    "drawCatamaranPanels": 4291552,
+    "drawInteriorPanel": 4301904,
+    "selectSailColor": 4304752,
+    "drawWakePoint": 4300112,
+    "drawSailCurve": 4281744,
+    "monochromeFlag": 4901164,
+    "playerColorFlag": 4901136,
+    "alternateColorFlag": 4901260,
+    "humanBoatCount": 4788544,
+    "boatClass": 4788616,
+    "simplifiedBoatFlag": 4901160,
+    "boardFlag": 4901124,
+    "player1Warning": 4866244,
+    "player2Warning": 4866248,
+    "pixelX": 4891040,
+    "pixelY": 4891296,
+    "polygonPoints": 4869288
+  },
+  "trace": {
+    "selectObject": {
+      "handle": "U32"
+    },
+    "selectStockObject": {
+      "index": "I32"
+    },
+    "moveTo": {
+      "x": "I32",
+      "y": "I32"
+    },
+    "lineTo": {
+      "x": "I32",
+      "y": "I32"
+    },
+    "polygon": {
+      "points": [
+        {
+          "x": "I32",
+          "y": "I32"
+        }
+      ]
+    },
+    "setPixel": {
+      "x": "I32",
+      "y": "I32",
+      "color": "U32"
+    }
+  }
+}

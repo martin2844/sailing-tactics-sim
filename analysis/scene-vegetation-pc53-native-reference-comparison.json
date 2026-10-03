@@ -1,0 +1,516 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-scene-vegetation-pc53.json": "6f366bde6b62bb11887783a1e6e36467d3d8b944936ec933cd9a991f51372ad6"
+  },
+  "runner_source_sha256": "45515a39787e7514b31a5ddb9413cf4420f1b61aae6178321698af84d6ef7735",
+  "runner_sha256": "4a4c66e97f5f02ab6bbb6047cfda2b6c3f481552ca05cfaec79b86023e1f9510",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-udhlexq2/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x027f",
+  "protocol_command_limit": 131072,
+  "groups": {
+    "drawScene": {
+      "cases": 24,
+      "exact_matches": 24,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "drawing_requests_compared": 34516,
+  "sound_requests_compared": 0,
+  "cstring_runtime_cases": 24,
+  "library_runtime_evidence": {
+    "artifact": "analysis/scene-vegetation-pc53-native-reference-comparison-runtime-evidence.json.gz",
+    "sha256": "934baf1ede16aa47181fba7f18c5e35ea0c83ba13ba535ee433fc1f62ad1f71a",
+    "encoding": "gzip JSON array",
+    "records": 24,
+    "scope": "Exact raw original CRT allocator bookkeeping before/after bytes; comparison-only normalizations are declared in this report."
+  },
+  "hud_cstring_pointer_evidence": [],
+  "runner_path": "analysis/native-runners/scene-vegetation-pc53-native-reference-comparison.exe",
+  "verifier_source_sha256": "51d6dc0f2f296c164936c48b73beb580fc663c2b8d4690f2361ec8f0de7c7e8f",
+  "host_cpu_model": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "a32205be12d0724aed155d3865c32988b1b3834b5baacc650b3ecf8ba816a622",
+    "native_cstring_runtime.h": "94e6533fa68ad572e90835b222208e47b4fb8631ed4bfa6ebcccf5dad0f95f76"
+  },
+  "cstring_runtime_normalizations": [
+    {
+      "address": 4849568,
+      "size": 128,
+      "purpose": "Original CRT lock-pointer table"
+    },
+    {
+      "address": 4849760,
+      "size": 8228,
+      "purpose": "Original CRT small-block-heap root/descriptors"
+    },
+    {
+      "address": 4910024,
+      "size": 96,
+      "purpose": "Four original CRT critical sections"
+    },
+    {
+      "address": 4914668,
+      "size": 4,
+      "purpose": "Original CRT heap handle"
+    },
+    {
+      "address": 4910132,
+      "size": 4,
+      "purpose": "Original SBH free-page counter; writes in 0045bc60/0045bb30"
+    }
+  ],
+  "cstring_runtime_scope": "For fixed drawing calls requiring strings, original CRT startup leaves 0x45b700 and 0x45b3c0 initialize locks/heap; original CString and formatter instructions execute. Only these declared allocator bookkeeping ranges are normalized to prepared comparison bytes. Their raw before/after differences are retained separately; game state and text remain exact.",
+  "hud_cstring_pointer_normalization": {
+    "address": 4878408,
+    "size": 4,
+    "scope": "Only fixed HUD routines56\u201362 and complete frame129. Original constructor46bd7a initializes the object before the call; original destructor46bec5 releases it after recording evidence. The host allocation pointer is normalized to prepared bytes for state comparisons; actual pointer and complete cp1252 text are recorded, and fixture hudText is strict."
+  },
+  "original_routine_addresses": [
+    "00404880"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "shoreline_stack_evidence": [
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 0,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 11409356,
+          "previousX": -1072365560,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 1,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 1706,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 2,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 1321,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 3,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 1894,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 4,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 1065,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 5,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 956,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 6,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 1572,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 7,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 2056,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 8,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 1092,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 9,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 987,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 10,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 1509,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 11,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 1597,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 12,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 1109,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 13,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 1816,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 14,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 142,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 15,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 1288,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 16,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 102,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 17,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 2514,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 18,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 236,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 19,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 109,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 20,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 299,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 21,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 890,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 22,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 1,
+          "centerProjectedY": 4887788,
+          "previousX": 112,
+          "previousTreeY": 0
+        }
+      ]
+    },
+    {
+      "fixture": "original-scene-vegetation-pc53.json",
+      "group": "drawScene",
+      "index": 23,
+      "routine": 128,
+      "observations": [
+        {
+          "entryEsp": 6945304,
+          "first": 0,
+          "last": 36,
+          "camera": 2,
+          "centerProjectedY": 4887788,
+          "previousX": 1407,
+          "previousTreeY": 0
+        }
+      ]
+    }
+  ],
+  "loaded_original_text_unchanged": true,
+  "function_cases": 24,
+  "exact_function_cases": 24,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 0.9360480489849579
+}

@@ -1,0 +1,126 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "x87_control_word": "0x027f",
+  "initialStack": {
+    "centerProjectedY": 4887788,
+    "previousX": 2134,
+    "previousTreeY": 26214432
+  },
+  "context": {
+    "first": 0,
+    "last": 36,
+    "camera": 1,
+    "course": 7,
+    "island": 1,
+    "class": 6,
+    "variant": 0,
+    "basicShore": 0
+  },
+  "sampleCount": 3,
+  "selectedSample": 2,
+  "observations": [
+    {
+      "log": "analysis/shore-stack-live6.jsonl",
+      "sha256": "a634d022bf2684137bdd93111ce7082c81981d04bbbc97ae43b14682a217ec6e",
+      "entry": {
+        "event": "shore-entry",
+        "entryEsp": 2290976,
+        "first": 0,
+        "centerProjectedY": 4620707,
+        "previousX": 2288124,
+        "previousTreeY": 16842784,
+        "course": 7,
+        "island": 1,
+        "class": 6
+      },
+      "consumedReads": []
+    },
+    {
+      "log": "analysis/shore-stack-live-consumed.jsonl",
+      "sha256": "ef7c90af42ef92d063808b216cd0d3f54da6a37cc5d2d41b8c7cfbf337aeb83a",
+      "entry": {
+        "event": "shore-entry",
+        "entryEsp": 2290976,
+        "first": 0,
+        "last": 36,
+        "camera": 1,
+        "centerProjectedY": 4887788,
+        "previousX": 1894,
+        "previousTreeY": 26214432,
+        "course": 7,
+        "island": 1,
+        "class": 6,
+        "basicShore": 0,
+        "controlWord": "027f",
+        "textUnchanged": true,
+        "unrelatedFlag4ac948": 0
+      },
+      "consumedReads": [
+        {
+          "event": "consumed-retained-input",
+          "field": "previousX",
+          "instruction": 4380264,
+          "address": 2288076,
+          "value": 1894,
+          "index": 0
+        },
+        {
+          "event": "consumed-retained-input",
+          "field": "previousTreeY",
+          "instruction": 4380285,
+          "address": 2290248,
+          "value": 26214432,
+          "index": 0
+        }
+      ]
+    },
+    {
+      "log": "analysis/shore-stack-live-consumed2.jsonl",
+      "sha256": "e861db4d0d342f4969b438ff54b9160ac410ccb00919609eae77e16eed4277fa",
+      "entry": {
+        "event": "shore-entry",
+        "entryEsp": 2290976,
+        "first": 0,
+        "last": 36,
+        "camera": 1,
+        "centerProjectedY": 4887788,
+        "previousX": 2134,
+        "previousTreeY": 26214432,
+        "course": 7,
+        "island": 1,
+        "class": 6,
+        "variant": 0,
+        "basicShore": 0,
+        "controlWord": "027f",
+        "textUnchanged": true
+      },
+      "consumedReads": [
+        {
+          "event": "consumed-retained-input",
+          "field": "previousX",
+          "instruction": 4380264,
+          "address": 2288076,
+          "value": 2134,
+          "index": 0
+        },
+        {
+          "event": "consumed-retained-input",
+          "field": "previousTreeY",
+          "instruction": 4380285,
+          "address": 2290248,
+          "value": 26214432,
+          "index": 0
+        }
+      ]
+    }
+  ],
+  "normalUiPath": [
+    "N key: original reset",
+    "WM_COMMAND32801: original Round the Island",
+    "WM_COMMAND32771: original Start",
+    "Space key: dismiss original start screen"
+  ],
+  "method": "Intact original normal Wine loader/MFC lifetime; read-only hardware execution breakpoints at original shoreline entry/first-tree predecessor reads. No original instructions, game data, stack bytes, demo gates or x87 control word were patched. Owned debug registers cleared on detach.",
+  "scope": "Selected concrete initial-race caller context from one owned live application. Repeated normal reinitializations have different retained stack values. This is an explicit reproducible-environment reference, not a universal historical startup value or cross-machine guarantee. centerProjectedY entry is recorded but variant0 recomputes it before use; priorX/priorY selected values were independently observed at actual consuming instructions.",
+  "variantFlagAddress": 4884044
+}

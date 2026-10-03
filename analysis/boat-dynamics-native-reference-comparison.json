@@ -1,0 +1,51 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-boat-dynamics.json": "5abcbc5dea441178fc8e0be8774a8acb1ee3925d248fc3efbf6eb702042dca58"
+  },
+  "runner_source_sha256": "c1d5a99101408e8a58e57d62b7ed9a61e4f91c0bf055218c78db28981caa6001",
+  "runner_sha256": "73d986bc20c42b62481b01823073ab3ba34f7af44a3f9c075d2cbc37155727ad",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-5yq2uppe/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "updateBoatDynamics": {
+      "cases": 4098,
+      "exact_matches": 4098,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 4098,
+  "exact_function_cases": 4098,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 8.784114206995582
+}

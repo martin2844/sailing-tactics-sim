@@ -1,0 +1,123 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-native-frame-chains-p53.json": "913508329be93a481a7603f44a38a11fa0c7c5d168c623f0e76031982f83fb0a"
+  },
+  "x87_control_word": "0x027f",
+  "capture_complete": true,
+  "comparison_complete": true,
+  "all_fixture_cases_match": true,
+  "native_initializations": 3,
+  "retained_native_frames": 300,
+  "original_routine_addresses": [
+    "00415a60",
+    "0042e080",
+    "00417790",
+    "00403c62",
+    "00413f00",
+    "00404020"
+  ],
+  "actual_normalized_configurations": [
+    {
+      "selector": 12,
+      "boatClass": 6,
+      "course": 1,
+      "weather": 0,
+      "island": 0,
+      "humans": 1,
+      "boats": 5,
+      "speedLevel": 8,
+      "speedDivisor": 171,
+      "view1": 2,
+      "view2": 2,
+      "startMode": 5
+    },
+    {
+      "selector": 14,
+      "boatClass": 7,
+      "course": 8,
+      "weather": 0,
+      "island": 0,
+      "humans": 2,
+      "boats": 5,
+      "speedLevel": 8,
+      "speedDivisor": 171,
+      "view1": 2,
+      "view2": 2,
+      "startMode": 1
+    },
+    {
+      "selector": 12,
+      "boatClass": 6,
+      "course": 6,
+      "weather": 5,
+      "island": 0,
+      "humans": 1,
+      "boats": 5,
+      "speedLevel": 8,
+      "speedDivisor": 171,
+      "view1": 2,
+      "view2": 2,
+      "startMode": 1
+    }
+  ],
+  "groups": {
+    "initializeNativeFrameChain": {
+      "cases": 3,
+      "exact_matches": 3,
+      "different_cases": 0
+    },
+    "drawSimulationFrame": {
+      "cases": 300,
+      "exact_matches": 300,
+      "different_cases": 0
+    }
+  },
+  "differences": [],
+  "comparison_fields": [
+    "rngState",
+    "sounds",
+    "mutableBlockHash",
+    "imageChanges",
+    "drawingCommands",
+    "hudText",
+    "elapsedPaintTicks"
+  ],
+  "raw_observations_retained": [
+    "residualEAX",
+    "hudCStringDataPointer",
+    "libraryRuntimeChanges",
+    "entryEsp"
+  ],
+  "confirmation": {
+    "native_header": [
+      2,
+      4194304,
+      22,
+      358,
+      639,
+      1
+    ],
+    "elapsed_seconds": 1.5349962399923243,
+    "process_exit_code": 0,
+    "loaded_original_text_unchanged": true,
+    "original_file_unchanged": true,
+    "stderr": ""
+  },
+  "native_runner_sha256": "1a10508688ca195b055171d0166c13e177ca6d0b6ee0438bbcc31844bdbe2581",
+  "platform": "Linux-6.18.49-x86_64-with-glibc2.42",
+  "scope": "Three original-initialized retained native chains. No CPU emulation and no JavaScript output supplies expected values or next-frame input. Original CRT/CString, game globals and RNG remain live for100frames perprofile. Fixed reviewed calibration prefix and owned GDI/timer/cursor/whitepixel host; original indeterminate shoreline stack observations remain explicit. Original entrypoint/MFC window lifetime and Canvas raster are separate host concerns.",
+  "native_header": [
+    2,
+    4194304,
+    22,
+    358,
+    639,
+    1
+  ],
+  "elapsed_seconds": 1.5349962399923243,
+  "process_exit_code": 0,
+  "loaded_original_text_unchanged": true,
+  "original_file_unchanged": true,
+  "stderr": ""
+}

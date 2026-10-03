@@ -1,0 +1,22 @@
+{
+  "name": "tact-preservation",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Posey Sailing Tactics Simulator 2002 native JavaScript browser port and preservation workbench",
+  "scripts": {
+    "restore:evidence": "node tools/restore-evidence.js",
+    "prestart": "node tools/restore-evidence.js --workbench",
+    "pretest": "node tools/restore-evidence.js",
+    "pretest:2002": "node tools/restore-evidence.js",
+    "prestatus:2002": "node tools/restore-evidence.js",
+    "build": "node tools/build-browser.js",
+    "start": "node tools/serve.js",
+    "test": "node tools/test-2002.js",
+    "test:2002": "node tools/test-2002.js",
+    "check:browser": "node tools/check-browser.js",
+    "check:play": "node tools/check-play-browser.js",
+    "check:font": "node tools/check-system-font-browser.js",
+    "status:2002": "node tools/report-2002-status.js"
+  }
+}

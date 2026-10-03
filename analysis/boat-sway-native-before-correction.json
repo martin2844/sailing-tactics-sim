@@ -1,0 +1,1090 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-boat-sway.json": "fed94880ed9b2cdc6224f94112dab15d3f176f06e5bd3eace03f9d2183f16841"
+  },
+  "runner_source_sha256": "75440e57678b148c8016b09f6c24aeb647f2f53fdfe9f73fb09b1270afeb0434",
+  "runner_sha256": "966a1ff8152f8b4eb4e933c077a8752908b61b811059f58c145c01074438492a",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-izx7s6am/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "updateBoatSway": {
+      "cases": 1536,
+      "exact_matches": 1509,
+      "different_cases": 27,
+      "different_fields": {
+        "mutableBlockHash": 27,
+        "imageChanges": 27
+      }
+    }
+  },
+  "differences": [
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 93,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "8ddcc3bb2e28cfd13ed80ff5ef6753c6eed68dd57d99f7c2bf03800ed243307a",
+          "native": "31e3ecf8ecc8d2351a4e943382b62dd399bbb8a27799a0611c85151ced607715"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "57f3a430",
+              "after": "e6b9fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "57f3a430",
+              "after": "f0b7fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 94,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "901971c9ae38ca6e6386b8a8c1907262908c2869bb550746884662372519984d",
+          "native": "c236301ceda0e4dbe9d16676ebdacebd1fe6771ccfbcaa16f89f3949ad642c2e"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "45092c3b",
+              "after": "48812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "45092c3b",
+              "after": "46812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 191,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "c82a83cef9aac77009bd4ec370fc78772aea79f180b473d426cd55fad1bf44b3",
+          "native": "fef61baa1084d2833ade07b51cf074b508bfd48137c6a8e5de5ed0e5b84c07e1"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "02683473",
+              "after": "c24e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "02683473",
+              "after": "da4e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 192,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "b5876218745ecdfdabd0f6cab6ece6096f6fa59e6f5e01189e13262d39320207",
+          "native": "11d511229f0beee93d353daa3da9a8c5557a3a7e87afd8c09c998cb17e7bc001"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "502390bd",
+              "after": "c76c99ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "502390bd",
+              "after": "dc5099ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 193,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "76af488a54e5be0a4162e4f35bb69dbe31f5be6e81be0cfb30621356d6e70d81",
+          "native": "7ed4f3d059cd3eb32e79dee4a682d885e2304a10eb12514f4c5fc172ce416f59"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "d74a939a",
+              "after": "d6a3541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873085,
+              "before": "4a939a",
+              "after": "b2541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 290,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "e7f800168ded840cbee730e9705912a0e1688eae15ee0473c2dd859377bb85aa",
+          "native": "7bef8427fc55b7a42269f82aeee88b49806b1818b7c16d005052c8164e68eb34"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "72b884d8",
+              "after": "06b5dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "72b884d8",
+              "after": "ddb4dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 477,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "67248ef58e583d144e89bcae418804b858faade739bd71df3db634249eb6013c",
+          "native": "346ea0c0a58bce6509f2f21ad1d8b992db3ad9af6a4e4fa3ffc0cf814189d227"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "97d52796",
+              "after": "e6b9fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "97d52796",
+              "after": "f0b7fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 478,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "b977adabc0cec32837297f979d0f3d1a4763bdbe971473bc991f9f868ca72856",
+          "native": "14e26f39f43f321e1dc3782d89de25576733ca3ff646d7bca29a3cb6cbccd7a0"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "38ead4bd",
+              "after": "48812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "38ead4bd",
+              "after": "46812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 479,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "f50f7923bb9358ab79b3ee889f7a5afb7e6044d3de4d9c73eb347b2657f23c05",
+          "native": "cdb440adcf503761b8313676b422a5e64bceb2c1cede3204078dd1652a313dc6"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "b76c1470",
+              "after": "c24e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "b76c1470",
+              "after": "da4e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 576,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "92cf68daa6f6d85f90b17b582bbe05aea38faf931feff267d912b4d7dd85d1c2",
+          "native": "8fc6562ab0d1add227ced54e510963efd977c35b6e9a1c226d95df31d25dd4d7"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "effd4e50",
+              "after": "c76c99ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "effd4e50",
+              "after": "dc5099ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 577,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "f07278f8a70940cf82c09ff6348327eed38b72507c8d0e1222b7aed9f854234b",
+          "native": "9ad013e6ea94cf7144fe82c2c54190f3556e93ad29f8b52d33527ecb62a90a56"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "f92b8e10",
+              "after": "d6a3541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "f92b8e10",
+              "after": "d7b2541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 578,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "d0a25ed7dca0fa1ae12788dfb0758f37f028389ac8418bdc8a69adea149e5c53",
+          "native": "2e376839fc5c13dff8cb0742ba463d77c68caf41217ae4229fcbc76f84435b54"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "6cd847e6",
+              "after": "06b5dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "6cd847e6",
+              "after": "ddb4dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 765,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "f1235f450e1e72fbe4e74271bad749bd8743e821d0b53109b1acbe3fe1348143",
+          "native": "f62e538458f6cbac92289d6e1b653adee75f997ff1d04f10b1147745798824fa"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "003b1192",
+              "after": "e6b9fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "003b1192",
+              "after": "f0b7fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 862,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "9e157d5defa97d92b94c76be70c5beaf81fa7f923d058b8e3f530007d630fbe0",
+          "native": "1b407fd8a09db25fc22cc3de4d26ed508dff64d5b765c4251ac6cb5be0878593"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "c75776",
+              "after": "48812e"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "c75776",
+              "after": "46812e"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 863,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "9454b6f7f3982684b48002de66ca60b8b3eaa92188695f6bded8abfb7453075d",
+          "native": "7be83b91c52c0c60a8e570f8f25d4dc116b2e4c08f891f2f3c87dabb43c96f35"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "a6df5b36",
+              "after": "c24e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "a6df5b36",
+              "after": "da4e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 864,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "91007a322e502a40fbcc71c5a0f796ce2bb27d1deb5a72f90fb5ae46ed67ff50",
+          "native": "8173c6b6bf7bed7b910ed1050d5379bf845ccc7e6d3cdd1083561d032aa72421"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "a0f24239",
+              "after": "c76c99ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "a0f24239",
+              "after": "dc5099ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 961,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "d694893952cbb8730363e6dd851c9c56ff98cf738e5f65a1983b3163f15644bd",
+          "native": "acf5dee8cf20bfd59a6d3d86bb21e1e0d116b20a6307c931964cc8701552e3e8"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "1b2e5b89",
+              "after": "d6a3541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "1b2e5b89",
+              "after": "d7b2541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 962,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "60e546ec525e549e74401cbcfa4ec27307150fe4ad03af869a86e369c0affbbd",
+          "native": "8187dc7751f10c938c2ee617c7c3c37621f2bc464b73b9effb4451d7f9b730df"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "b293fa9b",
+              "after": "06b5dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "b293fa9b",
+              "after": "ddb4dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1149,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "aa787207817bd44b35f35c606d4535f2871d8b79071c54d8fcd3035e625778f6",
+          "native": "4877c0ba880d5bd3379e21a441e8afe42b8806e20582f07e76b882135cdd52d5"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "ecd2556a",
+              "after": "e6b9fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "ecd2556a",
+              "after": "f0b7fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1150,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "191dd4b629aacd81ab6e234b55bee9259a46fd9eaa0feb4fa107a37f6292b950",
+          "native": "9c1683c007744b6ed4dcab9f7b4228656e4af7ab434c8243c67ce04f3e280860"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "59938cec",
+              "after": "48812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "59938cec",
+              "after": "46812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1247,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "dfc1ed3fa85c0aa2e7800605f55c1e6caa5b66159cf4faf1545f89664e23fc97",
+          "native": "088c97ae82eaf8101d79b8e62e31f5fd6592ac090cb149909763f28a84ead77e"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "acbee6d4",
+              "after": "c24e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "acbee6d4",
+              "after": "da4e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1248,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "419426a3235eb05c241a4f89bb214c64c9453dd96d9b9be5a05c2bd77bd5f70e",
+          "native": "43393b51d1ed3b49e5cde0c10093ef670b18444d69f47da2f0061224459d488e"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "abdbc9c7",
+              "after": "c76c99ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "abdbc9c7",
+              "after": "dc5099ca"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1249,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "a7a64ad0915af83e6797827273826ecf32a7d7d5b4d64b8a1a704125aea93913",
+          "native": "5d61eddddae8b65c7e9597a814f171a78f090297a1a1a4b71d20e8fce6514811"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "13154a4d",
+              "after": "d6a3541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "13154a4d",
+              "after": "d7b2541b"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1346,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "ae0416ad2982aa292c761370296d1a1cb10a884aa5db2861de3582adafc173c2",
+          "native": "2a761e2d3f7db61be44ad55274deda81a1b62df21e28ead98d6144c240450a7f"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "90e7373d",
+              "after": "06b5dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "90e7373d",
+              "after": "ddb4dc76"
+            },
+            {
+              "address": 4901228,
+              "before": "00",
+              "after": "01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1533,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "e1225aeb9ef1db408b7e25c1987a98e637f4bfdf5e3fd9ee9ac630f9ff2003f9",
+          "native": "48b8fec22f6e1169e87468e0f8109598e5b454489bd77fea3ebe63f4243046b7"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "8d4b884c",
+              "after": "e6b9fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "8d4b884c",
+              "after": "f0b7fc88"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1534,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "99a88be0d76c1450931d22a3a01a195d5479e740b2e6d8b224815eb126ac0bf8",
+          "native": "9391588a8458e05cd57b0c459e0c6db5ca61dfe6515500fc48250224a92f7f01"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "40bfc1c4",
+              "after": "48812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "40bfc1c4",
+              "after": "46812e3d"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-boat-sway.json",
+      "group": "updateBoatSway",
+      "index": 1535,
+      "routine": 47,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "619eb44d97fdf354ed33e24360ce83b9ebf52966510ac62fcde840207063a3ca",
+          "native": "6b62d9bffe02861d43276a48dd8b003f3508ca73313f5055493c379655d7c82b"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4873084,
+              "before": "c734434a",
+              "after": "c24e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ],
+          "native": [
+            {
+              "address": 4873084,
+              "before": "c734434a",
+              "after": "da4e5e3c"
+            },
+            {
+              "address": 4901228,
+              "before": "ffffff7f",
+              "after": "00000080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "comparison_complete": true,
+  "drawing_requests_compared": 0,
+  "sound_requests_compared": 0,
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "4f3e8ca82430b09cff11ef0bd60f0ae57eff61b979c5e862462f5619eeaf815d"
+  },
+  "original_routine_addresses": [
+    "004304d0"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 1536,
+  "exact_function_cases": 1509,
+  "all_fixture_cases_match": false,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 6.708084492012858
+}

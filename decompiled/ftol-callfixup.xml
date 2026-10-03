@@ -1,0 +1,17 @@
+<callfixup name="tact_ftol_x87_pop">
+  <pcode>
+    <body><![CDATA[
+      local converted:8 = trunc(ST0);
+      EAX = converted[0,32];
+      EDX = converted[32,32];
+      ST0 = ST1;
+      ST1 = ST2;
+      ST2 = ST3;
+      ST3 = ST4;
+      ST4 = ST5;
+      ST5 = ST6;
+      ST6 = ST7;
+      ESP = ESP + 4;
+    ]]></body>
+  </pcode>
+</callfixup>

@@ -1,0 +1,75 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-avoidance.json": "71c1590b2193f5d7e90a01b322c626c86304bccfdbd03bcbb2e5a8c34196f279"
+  },
+  "runner_source_sha256": "1235c9a00d6adfe11e0926d1050176cf169ed21a285813ef2eed042f699c0190",
+  "runner_sha256": "65596c299efce9049208bde500d28bcced8c60f42cd5eeaa54c7db93ea26a358",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-zbo1d2bl/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "updateCollisionAvoidance": {
+      "cases": 1087,
+      "exact_matches": 1087,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "avoidAiCollision": {
+      "cases": 2120,
+      "exact_matches": 2120,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "warnHumanRightOfWay": {
+      "cases": 2120,
+      "exact_matches": 2120,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "requestRightOfWaySound": {
+      "cases": 360,
+      "exact_matches": 360,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "original_routine_addresses": [
+    "00427fd0",
+    "004280c0",
+    "004286e0",
+    "00428a30"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 5687,
+  "exact_function_cases": 5687,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 9.836786289000884
+}

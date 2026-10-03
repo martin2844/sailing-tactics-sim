@@ -1,0 +1,4816 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-target-bearing.json": "5638bd59d4f0593edc35e0981f4a538287a7aa210dc83a4c022ad11b9af3e5cb"
+  },
+  "runner_source_sha256": "c1d5a99101408e8a58e57d62b7ed9a61e4f91c0bf055218c78db28981caa6001",
+  "runner_sha256": "25b5d8b7773afbc7241b103e33524666019bb618c07ce6abc172cc5819003c8e",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-ynl5vm4k/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "targetRelativeBearing": {
+      "cases": 2289,
+      "exact_matches": 2051,
+      "different_cases": 238,
+      "different_fields": {
+        "returnValue": 238,
+        "returnBits": 238,
+        "returnExtendedBits": 238
+      }
+    }
+  },
+  "differences": [
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 3,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.9774204297374136,
+          "native": -3.977420429737414
+        },
+        "returnBits": {
+          "fixture": "cf5061cdc1d10fc0",
+          "native": "d05061cdc1d10fc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078860a6b0e8efe00c0",
+          "native": "0080860a6b0e8efe00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 34,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.2043149394587034,
+          "native": -1.2043149394587032
+        },
+        "returnBits": {
+          "fixture": "1af3f0bddf44f3bf",
+          "native": "19f3f0bddf44f3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d09887effd269affbf",
+          "native": "00c89887effd269affbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 45,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -5.445479981564073,
+          "native": -5.445479981564074
+        },
+        "returnBits": {
+          "fixture": "8c5c7fe72bc815c0",
+          "native": "8d5c7fe72bc815c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060e4fa3b5f41ae01c0",
+          "native": "0068e4fa3b5f41ae01c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 53,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.323384852846891,
+          "native": -1.3233848528468912
+        },
+        "returnBits": {
+          "fixture": "99fc6f98952cf5bf",
+          "native": "9afc6f98952cf5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c8e47fc3ac64a9ffbf",
+          "native": "00d0e47fc3ac64a9ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 54,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.2337633750168224,
+          "native": -1.2337633750168226
+        },
+        "returnBits": {
+          "fixture": "87322baa7ebdf3bf",
+          "native": "88322baa7ebdf3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038945951f5eb9dffbf",
+          "native": "0040945951f5eb9dffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 68,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -5.379090389033664,
+          "native": -5.3790903890336645
+        },
+        "returnBits": {
+          "fixture": "90825c45308415c0",
+          "native": "91825c45308415c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "008014e42a8221ac01c0",
+          "native": "008814e42a8221ac01c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 89,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2471745262876818,
+          "native": 0.24717452628768188
+        },
+        "returnBits": {
+          "fixture": "55aa67356aa3cf3f",
+          "native": "58aa67356aa3cf3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a8523dab511bfdfc3f",
+          "native": "00c0523dab511bfdfc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 93,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -5.420603495779241,
+          "native": -5.42060349577924
+        },
+        "returnBits": {
+          "fixture": "09d2cbaeb2ae15c0",
+          "native": "08d2cbaeb2ae15c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048905e769575ad01c0",
+          "native": "0040905e769575ad01c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 108,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.9024668240584626,
+          "native": -1.9024668240584623
+        },
+        "returnBits": {
+          "fixture": "b7e5700d8170febf",
+          "native": "b6e5700d8170febf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b82d876b0884f3ffbf",
+          "native": "00b02d876b0884f3ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 109,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.408619193375157,
+          "native": -2.4086191933751566
+        },
+        "returnBits": {
+          "fixture": "7b83c023da4403c0",
+          "native": "7a83c023da4403c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d81b041ed1269a00c0",
+          "native": "00d01b041ed1269a00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 110,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.9147715626918513,
+          "native": -2.914771562691851
+        },
+        "returnBits": {
+          "fixture": "1a94c8c0735107c0",
+          "native": "1994c8c0735107c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0a044069e8bba00c0",
+          "native": "00c8a044069e8bba00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 114,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.19584806056281065,
+          "native": 0.19584806056281054
+        },
+        "returnBits": {
+          "fixture": "23188d9b8c11c93f",
+          "native": "1f188d9b8c11c93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018c168dc648cc8fc3f",
+          "native": "00f8c068dc648cc8fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 115,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.14348747063349743,
+          "native": 0.14348747063349734
+        },
+        "returnBits": {
+          "fixture": "50d9e024cc5dc23f",
+          "native": "4dd9e024cc5dc23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080ca062761ee92fc3f",
+          "native": "0068ca062761ee92fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 118,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.8275039128096626,
+          "native": -2.827503912809662
+        },
+        "returnBits": {
+          "fixture": "e4a2165fba9e06c0",
+          "native": "e3a2165fba9e06c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "002017b5f8d2f5b400c0",
+          "native": "001817b5f8d2f5b400c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 140,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.3954089081810834,
+          "native": -3.395408908181083
+        },
+        "returnBits": {
+          "fixture": "837a4925cc290bc0",
+          "native": "827a4925cc290bc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018d44b2a614ed900c0",
+          "native": "0010d44b2a614ed900c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 150,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.8756741601940166,
+          "native": 0.8756741601940167
+        },
+        "returnBits": {
+          "fixture": "c289ffd08505ec3f",
+          "native": "c389ffd08505ec3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00104efc872e2ce0fe3f",
+          "native": "00184efc872e2ce0fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 151,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3695217908773223,
+          "native": 0.36952179087732234
+        },
+        "returnBits": {
+          "fixture": "8c8ebeb93ea6d73f",
+          "native": "8d8ebeb93ea6d73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "006074f4cdf531bdfd3f",
+          "native": "006874f4cdf531bdfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 152,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.13663057843937204,
+          "native": -0.136630578439372
+        },
+        "returnBits": {
+          "fixture": "daec035d1c7dc1bf",
+          "native": "d9ec035d1c7dc1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0661fe8e2e88bfcbf",
+          "native": "00c8661fe8e2e88bfcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 160,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6981305135152596,
+          "native": 0.6981305135152597
+        },
+        "returnBits": {
+          "fixture": "40687ccd1557e63f",
+          "native": "41687ccd1557e63f"
+        },
+        "returnExtendedBits": {
+          "fixture": "000042e36baeb8b2fe3f",
+          "native": "000842e36baeb8b2fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 177,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.18933642661231265,
+          "native": -0.18933642661231273
+        },
+        "returnBits": {
+          "fixture": "c4e51e102d3cc8bf",
+          "native": "c7e51e102d3cc8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00202ef78068e1c1fcbf",
+          "native": "00382ef78068e1c1fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 202,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.09973354327167158,
+          "native": 0.09973354327167153
+        },
+        "returnBits": {
+          "fixture": "f680aa322388b93f",
+          "native": "f280aa322388b93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b00754951941ccfb3f",
+          "native": "00900754951941ccfb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 213,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.49195481227830007,
+          "native": 0.4919548122783001
+        },
+        "returnBits": {
+          "fixture": "6a167609307cdf3f",
+          "native": "6b167609307cdf3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0050b3b04b80e1fbfd3f",
+          "native": "0058b3b04b80e1fbfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 214,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.014197557038394277,
+          "native": -0.014197557038394188
+        },
+        "returnBits": {
+          "fixture": "ead14dd99b138dbf",
+          "native": "b7d14dd99b138dbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00508f6ecade9ce8f8bf",
+          "native": "00b88d6ecade9ce8f8bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 215,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5203499263550886,
+          "native": -0.5203499263550885
+        },
+        "returnBits": {
+          "fixture": "c47985e3b4a6e0bf",
+          "native": "c37985e3b4a6e0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0020ce2b1ca73585febf",
+          "native": "0018ce2b1ca73585febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 240,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5727105162844018,
+          "native": -0.5727105162844017
+        },
+        "returnBits": {
+          "fixture": "79893001a553e2bf",
+          "native": "78893001a553e2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c84b8409289d92febf",
+          "native": "00c04b8409289d92febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 262,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2443173630433789,
+          "native": 0.24431736304337887
+        },
+        "returnBits": {
+          "fixture": "fbe10e96ca45cf3f",
+          "native": "fae10e96ca45cf3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d80f77b0542efafc3f",
+          "native": "00d00f77b0542efafc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 299,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.487642663703367,
+          "native": 0.48764266370336695
+        },
+        "returnBits": {
+          "fixture": "df602f938935df3f",
+          "native": "de602f938935df3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f8067b994cacf9fd3f",
+          "native": "00f0067b994cacf9fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 304,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.648967204439918,
+          "native": -2.6489672044399186
+        },
+        "returnBits": {
+          "fixture": "ccf7b9b7153105c0",
+          "native": "cdf7b9b7153105c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060becfbdad88a900c0",
+          "native": "0068becfbdad88a900c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 319,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8403021973423968,
+          "native": -1.840302197342397
+        },
+        "returnBits": {
+          "fixture": "037b85b7e071fdbf",
+          "native": "047b85b7e071fdbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018d82bbc058febffbf",
+          "native": "0020d82bbc058febffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 324,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.9220265147152582,
+          "native": 1.9220265147152584
+        },
+        "returnBits": {
+          "fixture": "4af3ebdf9ec0fe3f",
+          "native": "4bf3ebdf9ec0fe3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00509a5ffff604f6ff3f",
+          "native": "00589a5ffff604f6ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 325,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.3286064955163752,
+          "native": 1.3286064955163754
+        },
+        "returnBits": {
+          "fixture": "a0ef77e2f841f53f",
+          "native": "a1ef77e2f841f53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00007dbf13c70faaff3f",
+          "native": "00087dbf13c70faaff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 326,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6653723564117413,
+          "native": 0.6653723564117414
+        },
+        "returnBits": {
+          "fixture": "a66dcef7ba4ae53f",
+          "native": "a76dcef7ba4ae53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00306d73bed755aafe3f",
+          "native": "00386d73bed755aafe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 327,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3268530349520912,
+          "native": 0.3268530349520913
+        },
+        "returnBits": {
+          "fixture": "c7ecedfd28ebd43f",
+          "native": "c8ecedfd28ebd43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038666fef4759a7fd3f",
+          "native": "0040666fef4759a7fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 328,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.807880108899368,
+          "native": -2.8078801088993677
+        },
+        "returnBits": {
+          "fixture": "5f7eb6d8897606c0",
+          "native": "5e7eb6d8897606c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f8f2b3c54eb4b300c0",
+          "native": "00f0f2b3c54eb4b300c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 362,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.256278388390688,
+          "native": 1.2562783883906878
+        },
+        "returnBits": {
+          "fixture": "16f40c5eb719f43f",
+          "native": "15f40c5eb719f43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b0a067f0bacda0ff3f",
+          "native": "00a8a067f0bacda0ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 366,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8295575756807201,
+          "native": -0.8295575756807202
+        },
+        "returnBits": {
+          "fixture": "de533654bc8beabf",
+          "native": "df533654bc8beabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f09eb2a1e25dd4febf",
+          "native": "00f89eb2a1e25dd4febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 367,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.27104461643471256,
+          "native": -0.2710446164347126
+        },
+        "returnBits": {
+          "fixture": "5a03d684cb58d1bf",
+          "native": "5b03d684cb58d1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d01ab0265cc68afdbf",
+          "native": "00d81ab0265cc68afdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 403,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.17278288346753476,
+          "native": -0.1727828834675348
+        },
+        "returnBits": {
+          "fixture": "2b9ce6e0bf1dc6bf",
+          "native": "2c9ce6e0bf1dc6bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0058e13407ffedb0fcbf",
+          "native": "0060e13407ffedb0fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 410,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5704321541865991,
+          "native": -0.5704321541865992
+        },
+        "returnBits": {
+          "fixture": "4a2fdaeefa40e2bf",
+          "native": "4b2fdaeefa40e2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00507ad176d70792febf",
+          "native": "00587ad176d70792febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 411,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.161089936055315,
+          "native": 2.1610899360553146
+        },
+        "returnBits": {
+          "fixture": "17943885e9490140",
+          "native": "16943885e9490140"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b8a0c4294c4f8a0040",
+          "native": "00b0a0c4294c4f8a0040"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 471,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.743778759883681,
+          "native": -6.74377875988368
+        },
+        "returnBits": {
+          "fixture": "afa3a423a1f91ac0",
+          "native": "aea3a423a1f91ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00781d251d09cdd701c0",
+          "native": "00701d251d09cdd701c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 528,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.4135810788053928,
+          "native": -0.4135810788053929
+        },
+        "returnBits": {
+          "fixture": "fbaaedc51c78dabf",
+          "native": "fdaaedc51c78dabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d8576d2fe6c0d3fdbf",
+          "native": "00e8576d2fe6c0d3fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 529,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.9197334481220871,
+          "native": -0.9197334481220872
+        },
+        "returnBits": {
+          "fixture": "fa1717d7746eedbf",
+          "native": "fb1717d7746eedbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0bfb8b8a673ebfebf",
+          "native": "00d8bfb8b8a673ebfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 530,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.4258858174387814,
+          "native": -1.4258858174387816
+        },
+        "returnBits": {
+          "fixture": "3bad9ba56dd0f6bf",
+          "native": "3cad9ba56dd0f6bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d869dd2c6d83b6ffbf",
+          "native": "00e069dd2c6d83b6ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 535,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.7997284556982753,
+          "native": 1.799728455698275
+        },
+        "returnBits": {
+          "fixture": "8f79ae10b0cbfc3f",
+          "native": "8e79ae10b0cbfc3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078cc7385805de6ff3f",
+          "native": "0070cc7385805de6ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 536,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.1570740576100413,
+          "native": -3.157074057610042
+        },
+        "returnBits": {
+          "fixture": "95e1230bb04109c0",
+          "native": "96e1230bb04109c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a80c1f59800dca00c0",
+          "native": "00b00c1f59800dca00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 537,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.3570356544580688,
+          "native": 1.3570356544580686
+        },
+        "returnBits": {
+          "fixture": "2c74b6046bb6f53f",
+          "native": "2b74b6046bb6f53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060a1b32558b3adff3f",
+          "native": "0058a1b32558b3adff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 539,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.44234527741649476,
+          "native": 0.442345277416495
+        },
+        "returnBits": {
+          "fixture": "22cf0291624fdc3f",
+          "native": "26cf0291624fdc3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0010791688147be2fd3f",
+          "native": "0030791688147be2fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 549,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.49268919205648637,
+          "native": 0.49268919205648626
+        },
+        "returnBits": {
+          "fixture": "db6abe3f3888df3f",
+          "native": "d96abe3f3888df3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d856f3fdc141fcfd3f",
+          "native": "00c856f3fdc141fcfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 550,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.013463177260207966,
+          "native": -0.013463177260208067
+        },
+        "returnBits": {
+          "fixture": "c443431095928bbf",
+          "native": "fe43431095928bbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00201e1a82a894dcf8bf",
+          "native": "00f01f1a82a894dcf8bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 551,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5196155465769022,
+          "native": -0.5196155465769023
+        },
+        "returnBits": {
+          "fixture": "8b4f61c8b0a0e0bf",
+          "native": "8c4f61c8b0a0e0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00587c0a43860585febf",
+          "native": "00607c0a43860585febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 559,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.9385002660114079,
+          "native": -0.938500266011408
+        },
+        "returnBits": {
+          "fixture": "30cdb9b53108eebf",
+          "native": "31cdb9b53108eebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "008069cead8d41f0febf",
+          "native": "008869cead8d41f0febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 570,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -7.19775389017525,
+          "native": -7.197753890175249
+        },
+        "returnBits": {
+          "fixture": "80d6ebfe7fca1cc0",
+          "native": "7fd6ebfe7fca1cc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000b45ef7ff53e601c0",
+          "native": "00f8b35ef7ff53e601c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 576,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.9299810673890665,
+          "native": -3.929981067389066
+        },
+        "returnBits": {
+          "fixture": "84aef2e999700fc0",
+          "native": "83aef2e999700fc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "002074954fcf84fb00c0",
+          "native": "001874954fcf84fb00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 597,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.848449753919138,
+          "native": -3.8484497539191382
+        },
+        "returnBits": {
+          "fixture": "390e4b06a0c90ec0",
+          "native": "3a0e4b06a0c90ec0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c8715832004df600c0",
+          "native": "00d0715832004df600c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 598,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.255029734720255,
+          "native": -3.2550297347202553
+        },
+        "returnBits": {
+          "fixture": "640c91074d0a0ac0",
+          "native": "650c91074d0a0ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "002063883c6852d000c0",
+          "native": "002863883c6852d000c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 599,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.8414010183995637,
+          "native": 1.8414010183995635
+        },
+        "returnBits": {
+          "fixture": "378e0dea6076fd3f",
+          "native": "368e0dea6076fd3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b8716c5007b3ebff3f",
+          "native": "00b0716c5007b3ebff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 600,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.750294345911034,
+          "native": 0.7502943459110342
+        },
+        "returnBits": {
+          "fixture": "a6f8c1496902e83f",
+          "native": "a7f8c1496902e83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0030c50f4e4a13c0fe3f",
+          "native": "0038c50f4e4a13c0fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 602,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.7293277403279396,
+          "native": -0.7293277403279397
+        },
+        "returnBits": {
+          "fixture": "45c51821a756e7bf",
+          "native": "46c51821a756e7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00282ac60839b5bafebf",
+          "native": "00302ac60839b5bafebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 620,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.06550391492958953,
+          "native": 0.06550391492958949
+        },
+        "returnBits": {
+          "fixture": "01ef6154ddc4b03f",
+          "native": "feee6154ddc4b03f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0008780fa3ea2686fb3f",
+          "native": "00f0770fa3ea2686fb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 622,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.02997210531172286,
+          "native": 0.029972105311722834
+        },
+        "returnBits": {
+          "fixture": "16aa6cf001b19e3f",
+          "native": "0eaa6cf001b19e3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b05065830f88f5f93f",
+          "native": "00705065830f88f5f93f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 635,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.872486696574518,
+          "native": 1.8724866965745177
+        },
+        "returnBits": {
+          "fixture": "dab83f9cb4f5fd3f",
+          "native": "d9b83f9cb4f5fd3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0c6fde1a4adefff3f",
+          "native": "00c8c6fde1a4adefff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 642,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.7273763151986308,
+          "native": -1.727376315198631
+        },
+        "returnBits": {
+          "fixture": "169cda5855a3fbbf",
+          "native": "179cda5855a3fbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b0e0d4c6aa1addffbf",
+          "native": "00b8e0d4c6aa1addffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 644,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8970768171511616,
+          "native": -1.8970768171511614
+        },
+        "returnBits": {
+          "fixture": "ca9f7a386d5afebf",
+          "native": "c99f7a386d5afebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0050fed4c369d3f2ffbf",
+          "native": "0048fed4c369d3f2ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 654,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.3234591906550942,
+          "native": -0.3234591906550941
+        },
+        "returnBits": {
+          "fixture": "92125d2d8eb3d4bf",
+          "native": "90125d2d8eb3d4bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "009094e86a719ca5fdbf",
+          "native": "008094e86a719ca5fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 655,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8296115599717885,
+          "native": -0.8296115599717884
+        },
+        "returnBits": {
+          "fixture": "c5cbce8a2d8ceabf",
+          "native": "c4cbce8a2d8ceabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00285e76566c61d4febf",
+          "native": "00205e76566c61d4febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 656,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.3357639292884829,
+          "native": -1.3357639292884826
+        },
+        "returnBits": {
+          "fixture": "218777ff495ff5bf",
+          "native": "208777ff495ff5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "000839bcfb4ffaaaffbf",
+          "native": "000039bcfb4ffaaaffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 661,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -7.205370542458214,
+          "native": -7.205370542458215
+        },
+        "returnBits": {
+          "fixture": "e2adcda74cd21cc0",
+          "native": "e3adcda74cd21cc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00106f6d3e6592e601c0",
+          "native": "00186f6d3e6592e601c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 663,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4791235568814471,
+          "native": 1.4791235568814474
+        },
+        "returnBits": {
+          "fixture": "c0c878767daaf73f",
+          "native": "c1c878767daaf73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "000046c6b3eb53bdff3f",
+          "native": "000846c6b3eb53bdff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 677,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.33116247846333946,
+          "native": 0.33116247846333957
+        },
+        "returnBits": {
+          "fixture": "e663aa1bc431d53f",
+          "native": "e863aa1bc431d53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00301f53dd208ea9fd3f",
+          "native": "00401f53dd208ea9fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 681,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.0021678993215826,
+          "native": -2.002167899321582
+        },
+        "returnBits": {
+          "fixture": "6c7f859a700400c0",
+          "native": "6b7f859a700400c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060fb2bd484238000c0",
+          "native": "0058fb2bd484238000c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 682,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.8951180767670817,
+          "native": 0.8951180767670818
+        },
+        "returnBits": {
+          "fixture": "b0bc38aacea4ec3f",
+          "native": "b1bc38aacea4ec3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080e5c5517526e5fe3f",
+          "native": "0088e5c5517526e5fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 683,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.4936868873090137,
+          "native": 0.4936868873090139
+        },
+        "returnBits": {
+          "fixture": "3933dde29098df3f",
+          "native": "3c33dde29098df3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c899e91687c4fcfd3f",
+          "native": "00e099e91687c4fcfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 686,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.826907058600492,
+          "native": -1.8269070586004919
+        },
+        "returnBits": {
+          "fixture": "a95458e5023bfdbf",
+          "native": "a85458e5023bfdbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048a5c22a17d8e9ffbf",
+          "native": "0040a5c22a17d8e9ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 702,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.11345530402898857,
+          "native": 0.11345530402898876
+        },
+        "returnBits": {
+          "fixture": "f4bb5c24680bbd3f",
+          "native": "02bc5c24680bbd3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0dfe522415be8fb3f",
+          "native": "0010e0e522415be8fb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 704,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.23563001386405272,
+          "native": 0.2356300138640529
+        },
+        "returnBits": {
+          "fixture": "e545c0d11f29ce3f",
+          "native": "ec45c0d11f29ce3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00282f028efe48f1fc3f",
+          "native": "00602f028efe48f1fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 705,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.4765666376915327,
+          "native": -1.4765666376915325
+        },
+        "returnBits": {
+          "fixture": "3dffb35604a0f7bf",
+          "native": "3cffb35604a0f7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e8f99fb52200bdffbf",
+          "native": "00e0f99fb52200bdffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 706,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5497788350756454,
+          "native": -0.5497788350756452
+        },
+        "returnBits": {
+          "fixture": "1cda95c8c997e1bf",
+          "native": "1ada95c8c997e1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e0d0ae444ebe8cfebf",
+          "native": "00d0d0ae444ebe8cfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 707,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.4580995659978893,
+          "native": -2.4580995659978897
+        },
+        "returnBits": {
+          "fixture": "8c2ef21a30aa03c0",
+          "native": "8d2ef21a30aa03c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00607491d780519d00c0",
+          "native": "00687491d780519d00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 738,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.2275458173171403,
+          "native": -3.2275458173171407
+        },
+        "returnBits": {
+          "fixture": "eabf9d8a03d209c0",
+          "native": "ebbf9d8a03d209c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0050ffed541c90ce00c0",
+          "native": "0058ffed541c90ce00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 760,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.149375763944469,
+          "native": 1.1493757639444693
+        },
+        "returnBits": {
+          "fixture": "de4d4fd7d763f23f",
+          "native": "df4d4fd7d763f23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f06e7ababe1e93ff3f",
+          "native": "00f86e7ababe1e93ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 761,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6432233946277748,
+          "native": 0.6432233946277749
+        },
+        "returnBits": {
+          "fixture": "40597e3a4995e43f",
+          "native": "41597e3a4995e43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000caf2d349aaa4fe3f",
+          "native": "0008caf2d349aaa4fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 766,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.4857911601372518,
+          "native": -2.485791160137252
+        },
+        "returnBits": {
+          "fixture": "9ccdcb79e6e203c0",
+          "native": "9dcdcb79e6e203c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e06c5ece33179f00c0",
+          "native": "00e86c5ece33179f00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 769,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.32155344305897277,
+          "native": -0.3215534430589729
+        },
+        "returnBits": {
+          "fixture": "e7af76e45494d4bf",
+          "native": "e9af76e45494d4bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00387fb523a7a2a4fdbf",
+          "native": "00487fb523a7a2a4fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 786,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.05409016960964218,
+          "native": 0.05409016960964221
+        },
+        "returnBits": {
+          "fixture": "ee5a04ebb4b1ab3f",
+          "native": "f35a04ebb4b1ab3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070d72258a78dddfa3f",
+          "native": "0098d72258a78dddfa3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 787,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.46951572968348987,
+          "native": -0.4695157296834898
+        },
+        "returnBits": {
+          "fixture": "beaefcb38b0cdebf",
+          "native": "bdaefcb38b0cdebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f075e59f5d64f0fdbf",
+          "native": "00e875e59f5d64f0fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 789,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.468784783027343,
+          "native": -1.4687847830273428
+        },
+        "returnBits": {
+          "fixture": "3570ff782480f7bf",
+          "native": "3470ff782480f7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a881fbc72301bcffbf",
+          "native": "00a081fbc72301bcffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 791,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.574291865509347,
+          "native": 0.5742918655093471
+        },
+        "returnBits": {
+          "fixture": "541697559960e23f",
+          "native": "551697559960e23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0b2b8acca0493fe3f",
+          "native": "00a8b2b8acca0493fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 802,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -5.306000894855664,
+          "native": -5.306000894855665
+        },
+        "returnBits": {
+          "fixture": "a8ce6f4c583915c0",
+          "native": "a9ce6f4c583915c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040757e63c2caa901c0",
+          "native": "0048757e63c2caa901c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 810,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.080897146398855,
+          "native": -3.0808971463988546
+        },
+        "returnBits": {
+          "fixture": "82fb3067ada508c0",
+          "native": "81fb3067ada508c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0010dc87396b2dc500c0",
+          "native": "0008dc87396b2dc500c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 828,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.285819432254237,
+          "native": -0.2858194322542369
+        },
+        "returnBits": {
+          "fixture": "92f78596dd4ad2bf",
+          "native": "90f78596dd4ad2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090bc2fb4ec5692fdbf",
+          "native": "0080bc2fb4ec5692fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 829,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3425076468975215,
+          "native": 0.34250764689752156
+        },
+        "returnBits": {
+          "fixture": "5d818331a5ebd53f",
+          "native": "5e818331a5ebd53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e80a1c8c295daffd3f",
+          "native": "00f00a1c8c295daffd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 831,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8716769452922437,
+          "native": -1.8716769452922435
+        },
+        "returnBits": {
+          "fixture": "61514b8663f2fdbf",
+          "native": "60514b8663f2fdbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00088b5a321c93efffbf",
+          "native": "00008b5a321c93efffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 850,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6818426587196819,
+          "native": 0.6818426587196817
+        },
+        "returnBits": {
+          "fixture": "c7ff06b2a7d1e53f",
+          "native": "c6ff06b2a7d1e53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038fe37903d8daefe3f",
+          "native": "0030fe37903d8daefe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 854,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8450051225886773,
+          "native": -0.8450051225886774
+        },
+        "returnBits": {
+          "fixture": "1f11cf2e480aebbf",
+          "native": "2011cf2e480aebbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f88878764152d8febf",
+          "native": "00008978764152d8febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 866,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.0419436420204145,
+          "native": -3.041943642020415
+        },
+        "returnBits": {
+          "fixture": "c205568ce65508c0",
+          "native": "c305568ce65508c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00102eb06234afc200c0",
+          "native": "00182eb06234afc200c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 873,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.2627280129344527,
+          "native": -0.26272801293445275
+        },
+        "returnBits": {
+          "fixture": "80fad22789d0d0bf",
+          "native": "81fad22789d0d0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000d4973e498486fdbf",
+          "native": "0008d4973e498486fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 885,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.6518566313793515,
+          "native": 1.6518566313793517
+        },
+        "returnBits": {
+          "fixture": "da471738016efa3f",
+          "native": "db471738016efa3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d03ebac00970d3ff3f",
+          "native": "00d83ebac00970d3ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 886,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.1457042620626572,
+          "native": 1.1457042620626574
+        },
+        "returnBits": {
+          "fixture": "9c2607fecd54f23f",
+          "native": "9d2607fecd54f23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e03439f06fa692ff3f",
+          "native": "00e83439f06fa692ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 887,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6395518927459628,
+          "native": 0.639551892745963
+        },
+        "returnBits": {
+          "fixture": "bb0aee873577e43f",
+          "native": "bd0aee873577e43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d855703facb9a3fe3f",
+          "native": "00e855703facb9a3fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 891,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.3900473634742225,
+          "native": -1.3900473634742228
+        },
+        "returnBits": {
+          "fixture": "7934e04da23df6bf",
+          "native": "7a34e04da23df6bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c8a3016f12edb1ffbf",
+          "native": "00d0a3016f12edb1ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 892,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.9661791833448716,
+          "native": 0.9661791833448715
+        },
+        "returnBits": {
+          "fixture": "cc59519bf0eaee3f",
+          "native": "cb59519bf0eaee3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060ce8ada8457f7fe3f",
+          "native": "0058ce8ada8457f7fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 896,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.12350359341348548,
+          "native": -0.12350359341348542
+        },
+        "returnBits": {
+          "fixture": "273fa676ee9dbfbf",
+          "native": "233fa676ee9dbfbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038f931b573effcfbbf",
+          "native": "0018f931b573effcfbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 954,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.67857664036271,
+          "native": -6.678576640362709
+        },
+        "returnBits": {
+          "fixture": "e4bf78cbdcb61ac0",
+          "native": "e3bf78cbdcb61ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0020ffc55be6b6d501c0",
+          "native": "0018ffc55be6b6d501c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 971,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.830806543772268,
+          "native": -2.8308065437722685
+        },
+        "returnBits": {
+          "fixture": "fe6fb6e67da506c0",
+          "native": "ff6fb6e67da506c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f07fb335ef2bb500c0",
+          "native": "00f87fb335ef2bb500c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 997,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.037593311195761425,
+          "native": 0.037593311195761335
+        },
+        "returnBits": {
+          "fixture": "c8ae44346e3fa33f",
+          "native": "bbae44346e3fa33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00407625a271fb99fa3f",
+          "native": "00d87525a271fb99fa3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 998,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5034661180738084,
+          "native": -0.5034661180738085
+        },
+        "returnBits": {
+          "fixture": "b3acf8f9641ce0bf",
+          "native": "b4acf8f9641ce0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "009865c5cf27e380febf",
+          "native": "00a065c5cf27e380febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1021,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.141805333436828,
+          "native": -3.1418053334368286
+        },
+        "returnBits": {
+          "fixture": "9013acd56a2209c0",
+          "native": "9113acd56a2209c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00809c60ad5613c900c0",
+          "native": "00889c60ad5613c900c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1074,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.45916267957743806,
+          "native": -0.4591626795774381
+        },
+        "returnBits": {
+          "fixture": "720b15ddeb62ddbf",
+          "native": "730b15ddeb62ddbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00905ba8e85e17ebfdbf",
+          "native": "00985ba8e85e17ebfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1084,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.10034626229109034,
+          "native": -0.10034626229109025
+        },
+        "returnBits": {
+          "fixture": "08ead0ea4ab0b9bf",
+          "native": "02ead0ea4ab0b9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00405087565782cdfbbf",
+          "native": "00105087565782cdfbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1106,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.112036862836685,
+          "native": -3.1120368628366855
+        },
+        "returnBits": {
+          "fixture": "d7a32e9573e508c0",
+          "native": "d8a32e9573e508c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b81e75a99c2bc700c0",
+          "native": "00c01e75a99c2bc700c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1116,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.1345670413462217,
+          "native": -3.134567041346222
+        },
+        "returnBits": {
+          "fixture": "ad9c8de2971309c0",
+          "native": "ae9c8de2971309c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068e56c14bf9cc800c0",
+          "native": "0070e56c14bf9cc800c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1122,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2081818203917976,
+          "native": 0.20818182039179764
+        },
+        "returnBits": {
+          "fixture": "9a2d1aafb3a5ca3f",
+          "native": "9b2d1aafb3a5ca3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d06cd1789d2dd5fc3f",
+          "native": "00d86cd1789d2dd5fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1126,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.6161099333961388,
+          "native": -1.616109933396139
+        },
+        "returnBits": {
+          "fixture": "a0d5ea1696dbf9bf",
+          "native": "a1d5ea1696dbf9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000ad56b7b0dcceffbf",
+          "native": "0008ad56b7b0dcceffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1146,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.6467930873208418,
+          "native": -1.6467930873208416
+        },
+        "returnBits": {
+          "fixture": "742655b54359fabf",
+          "native": "732655b54359fabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a033a9aa1dcad2ffbf",
+          "native": "009833a9aa1dcad2ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1147,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.3666009925919311,
+          "native": -1.366600992591931
+        },
+        "returnBits": {
+          "fixture": "d3d09d0099ddf5bf",
+          "native": "d2d09d0099ddf5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "009886ee04c8ecaeffbf",
+          "native": "009086ee04c8ecaeffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1180,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.223002194895709,
+          "native": -2.2230021948957095
+        },
+        "returnBits": {
+          "fixture": "371bf05fb5c801c0",
+          "native": "381bf05fb5c801c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b8d980ffaa458e00c0",
+          "native": "00c0d980ffaa458e00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1188,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.07643563979502947,
+          "native": -0.0764356397950297
+        },
+        "returnBits": {
+          "fixture": "03222b3d4991b3bf",
+          "native": "13222b3d4991b3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00181059e9498a9cfbbf",
+          "native": "00981059e9498a9cfbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1189,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.5295067500384039,
+          "native": 1.5295067500384036
+        },
+        "returnBits": {
+          "fixture": "aed1e611dc78f83f",
+          "native": "add1e611dc78f83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00708d368fe0c6c3ff3f",
+          "native": "00688d368fe0c6c3ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1200,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.38558419989552556,
+          "native": 0.38558419989552567
+        },
+        "returnBits": {
+          "fixture": "7ff5195a69add83f",
+          "native": "81f5195a69add83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f8abcfd04a6bc5fd3f",
+          "native": "0008accfd04a6bc5fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1201,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.12056816942116876,
+          "native": -0.12056816942116866
+        },
+        "returnBits": {
+          "fixture": "e73d9a388eddbebf",
+          "native": "e03d9a388eddbebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038efd1c471ecf6fbbf",
+          "native": "0000efd1c471ecf6fbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1202,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.626720538737863,
+          "native": -0.6267205387378629
+        },
+        "returnBits": {
+          "fixture": "398a333b180ee4bf",
+          "native": "388a333b180ee4bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c8519cd9c170a0febf",
+          "native": "00c0519cd9c170a0febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1206,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.6607426365328255,
+          "native": -2.660742636532825
+        },
+        "returnBits": {
+          "fixture": "b4d9776f334905c0",
+          "native": "b3d9776f334905c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0cdbe7b9b49aa00c0",
+          "native": "0098cdbe7b9b49aa00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1207,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.0342569271289253,
+          "native": 2.0342569271289257
+        },
+        "returnBits": {
+          "fixture": "0771ed7e28460040",
+          "native": "0871ed7e28460040"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038886bf74331820040",
+          "native": "0040886bf74331820040"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1208,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.8003708763443274,
+          "native": -2.800370876344327
+        },
+        "returnBits": {
+          "fixture": "d78e94d8286706c0",
+          "native": "d68e94d8286706c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b876a4c44639b300c0",
+          "native": "00b076a4c44639b300c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1209,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.99720253490992,
+          "native": 1.9972025349099198
+        },
+        "returnBits": {
+          "fixture": "8ed22ea58af4ff3f",
+          "native": "8dd22ea58af4ff3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "007094762955a4ffff3f",
+          "native": "006894762955a4ffff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1211,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.8191917482209501,
+          "native": 0.8191917482209499
+        },
+        "returnBits": {
+          "fixture": "b062f89cd136ea3f",
+          "native": "ae62f89cd136ea3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "008015c3e78cb6d1fe3f",
+          "native": "007015c3e78cb6d1fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1248,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.7573559744436146,
+          "native": 0.7573559744436147
+        },
+        "returnBits": {
+          "fixture": "134cb598423ce83f",
+          "native": "144cb598423ce83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "009860aac514e2c1fe3f",
+          "native": "00a060aac514e2c1fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1249,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3035641950562335,
+          "native": 0.3035641950562336
+        },
+        "returnBits": {
+          "fixture": "97328084986dd33f",
+          "native": "99328084986dd33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b8940124c46c9bfd3f",
+          "native": "00c8940124c46c9bfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1251,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.7313672658956849,
+          "native": -0.7313672658956848
+        },
+        "returnBits": {
+          "fixture": "82610c535c67e7bf",
+          "native": "81610c535c67e7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00100c6398e23abbfebf",
+          "native": "00080c6398e23abbfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1253,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.44905461395570645,
+          "native": -0.44905461395570634
+        },
+        "returnBits": {
+          "fixture": "c6b043904fbddcbf",
+          "native": "c4b043904fbddcbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0030861d827ceae5fdbf",
+          "native": "0020861d827ceae5fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1269,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -8.074926762408063,
+          "native": -8.074926762408062
+        },
+        "returnBits": {
+          "fixture": "8d46f4cc5c2620c0",
+          "native": "8c46f4cc5c2620c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "006834a267e6328102c0",
+          "native": "006034a267e6328102c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1284,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.9991570966080522,
+          "native": 0.9991570966080521
+        },
+        "returnBits": {
+          "fixture": "c5eeaf4d18f9ef3f",
+          "native": "c4eeaf4d18f9ef3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0028767f6dc2c8fffe3f",
+          "native": "0020767f6dc2c8fffe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1285,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.49300472729135786,
+          "native": 0.4930047272913578
+        },
+        "returnBits": {
+          "fixture": "91581fb3638ddf3f",
+          "native": "90581fb3638ddf3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0088c4fa981d6bfcfd3f",
+          "native": "0080c4fa981d6bfcfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1286,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.013147642025336467,
+          "native": -0.013147642025336522
+        },
+        "returnBits": {
+          "fixture": "fe8c25a426ed8abf",
+          "native": "1e8d25a426ed8abf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f0672c213569d7f8bf",
+          "native": "00f0682c213569d7f8bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1290,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.9440294840543704,
+          "native": -1.9440294840543706
+        },
+        "returnBits": {
+          "fixture": "889207a9be1affbf",
+          "native": "899207a9be1affbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040943c48f5d5f8ffbf",
+          "native": "0048943c48f5d5f8ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1291,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.2458882849968609,
+          "native": -1.245888284996861
+        },
+        "returnBits": {
+          "fixture": "297fe88d28eff3bf",
+          "native": "2a7fe88d28eff3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048f9436f44799fffbf",
+          "native": "0050f9436f44799fffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1294,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.9115459530762728,
+          "native": 0.9115459530762727
+        },
+        "returnBits": {
+          "fixture": "9470286b622bed3f",
+          "native": "9370286b622bed3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0844359135be9fe3f",
+          "native": "0098844359135be9fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1334,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.081359507640235,
+          "native": -3.0813595076402356
+        },
+        "returnBits": {
+          "fixture": "8d4444d09fa608c0",
+          "native": "8e4444d09fa608c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068242282fe34c500c0",
+          "native": "0070242282fe34c500c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1353,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.9487938606398547,
+          "native": -3.948793860639855
+        },
+        "returnBits": {
+          "fixture": "04c0503c21970fc0",
+          "native": "05c0503c21970fc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00200086e209b9fc00c0",
+          "native": "00280086e209b9fc00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1354,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.5227531939150096,
+          "native": -1.5227531939150099
+        },
+        "returnBits": {
+          "fixture": "86e9fb73325df8bf",
+          "native": "87e9fb73325df8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00304cdf9f93e9c2ffbf",
+          "native": "00384cdf9f93e9c2ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1376,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.6478906715218076,
+          "native": -1.6478906715218073
+        },
+        "returnBits": {
+          "fixture": "411dd99bc25dfabf",
+          "native": "401dd99bc25dfabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0008eac8de14eed2ffbf",
+          "native": "0000eac8de14eed2ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1410,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.2263280063987416,
+          "native": 1.2263280063987414
+        },
+        "returnBits": {
+          "fixture": "706c9a1d0a9ff33f",
+          "native": "6f6c9a1d0a9ff33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "008063d3ec50f89cff3f",
+          "native": "007863d3ec50f89cff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1411,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.7201756370820472,
+          "native": 0.7201756370820471
+        },
+        "returnBits": {
+          "fixture": "639614c7ad0be73f",
+          "native": "629614c7ad0be73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018b3a4386e5db8fe3f",
+          "native": "0010b3a4386e5db8fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1412,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.21402326776535294,
+          "native": 0.21402326776535277
+        },
+        "returnBits": {
+          "fixture": "9b4fd14b1d65cb3f",
+          "native": "954fd14b1d65cb3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d87c8a5eea28dbfc3f",
+          "native": "00a87c8a5eea28dbfc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1417,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.4643918477974402,
+          "native": 2.4643918477974407
+        },
+        "returnBits": {
+          "fixture": "588db61213b70340",
+          "native": "598db61213b70340"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c06ab49598b89d0040",
+          "native": "00c86ab49598b89d0040"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1418,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.36308000838547266,
+          "native": -0.3630800083854725
+        },
+        "returnBits": {
+          "fixture": "6d3576eeb33cd7bf",
+          "native": "6a3576eeb33cd7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068abb1739fe5b9fdbf",
+          "native": "0050abb1739fe5b9fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1437,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.2744357241052857,
+          "native": -0.27443572410528566
+        },
+        "returnBits": {
+          "fixture": "d4b8f8da5a90d1bf",
+          "native": "d3b8f8da5a90d1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0c6c5d7d6828cfdbf",
+          "native": "0098c6c5d7d6828cfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1441,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.42101971037307284,
+          "native": 0.4210197103730729
+        },
+        "returnBits": {
+          "fixture": "f484c1a7fcf1da3f",
+          "native": "f584c1a7fcf1da3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0270c3ee58fd7fd3f",
+          "native": "00a8270c3ee58fd7fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1442,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.380381289574268,
+          "native": 2.3803812895742684
+        },
+        "returnBits": {
+          "fixture": "b3da7558050b0340",
+          "native": "b4da7558050b0340"
+        },
+        "returnExtendedBits": {
+          "fixture": "0098d5aec32a58980040",
+          "native": "00a0d5aec32a58980040"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1459,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6864754567071469,
+          "native": 0.686475456707147
+        },
+        "returnBits": {
+          "fixture": "240b82609bf7e53f",
+          "native": "250b82609bf7e53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0020591004dbbcaffe3f",
+          "native": "0028591004dbbcaffe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1460,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.7395652100176984,
+          "native": -1.7395652100176981
+        },
+        "returnBits": {
+          "fixture": "f190645442d5fbbf",
+          "native": "f090645442d5fbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00888724a312aadeffbf",
+          "native": "00808724a312aadeffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1461,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.07855723842641125,
+          "native": 0.07855723842641148
+        },
+        "returnBits": {
+          "fixture": "8fcfe7c1531cb43f",
+          "native": "9fcfe7c1531cb43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00787c3e0f9ee2a0fb3f",
+          "native": "00f87c3e0f9ee2a0fb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1462,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.4500111477085964,
+          "native": -3.450011147708596
+        },
+        "returnBits": {
+          "fixture": "66f3d1719f990bc0",
+          "native": "65f3d1719f990bc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00309b8f8efbccdc00c0",
+          "native": "00289b8f8efbccdc00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1463,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.8862250546471142,
+          "native": 1.8862250546471144
+        },
+        "returnBits": {
+          "fixture": "c5aea952fa2dfe3f",
+          "native": "c6aea952fa2dfe3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0028764d95d26ff1ff3f",
+          "native": "0030764d95d26ff1ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1473,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6723701191965341,
+          "native": 0.6723701191965342
+        },
+        "returnBits": {
+          "fixture": "2e3718570e84e53f",
+          "native": "2f3718570e84e53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070b9c1b87220acfe3f",
+          "native": "0078b9c1b87220acfe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1474,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.16621774987983978,
+          "native": 0.1662177498798399
+        },
+        "returnBits": {
+          "fixture": "c6d2df8b9f46c53f",
+          "native": "cad2df8b9f46c53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "003096fe5efc34aafc3f",
+          "native": "005096fe5efc34aafc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1475,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.33993461943685455,
+          "native": -0.33993461943685443
+        },
+        "returnBits": {
+          "fixture": "969b50227dc1d5bf",
+          "native": "949b50227dc1d5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b0dc8412e90baefdbf",
+          "native": "00a0dc8412e90baefdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1482,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.477426832015351,
+          "native": 2.4774268320153507
+        },
+        "returnBits": {
+          "fixture": "1ae9ad28c5d10340",
+          "native": "19e9ad28c5d10340"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0486f45298e9e0040",
+          "native": "00c8486f45298e9e0040"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1483,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.48386080559766226,
+          "native": -0.48386080559766215
+        },
+        "returnBits": {
+          "fixture": "4fecf64f93f7debf",
+          "native": "4decf64f93f7debf"
+        },
+        "returnExtendedBits": {
+          "fixture": "007862b77f9abcf7fdbf",
+          "native": "006862b77f9abcf7fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1494,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8919936024192355,
+          "native": -0.8919936024192356
+        },
+        "returnBits": {
+          "fixture": "0f38d42a368becbf",
+          "native": "1038d42a368becbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078c0a156b159e4febf",
+          "native": "0080c0a156b159e4febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1526,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.05460289575093545,
+          "native": -0.054602895750935396
+        },
+        "returnBits": {
+          "fixture": "dec90827e9f4abbf",
+          "native": "d6c90827e9f4abbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f04e463849a7dffabf",
+          "native": "00b04e463849a7dffabf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1545,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.0073689778772455285,
+          "native": -0.00736897787724552
+        },
+        "returnBits": {
+          "fixture": "64b0cdefee2e7ebf",
+          "native": "5ab0cdefee2e7ebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0020836d7e7777f1f7bf",
+          "native": "00d0826d7e7777f1f7bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1567,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.279556591105471,
+          "native": -6.279556591105472
+        },
+        "returnBits": {
+          "fixture": "8bb74015441e19c0",
+          "native": "8cb74015441e19c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0058bc05aa20f2c801c0",
+          "native": "0060bc05aa20f2c801c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1569,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.43386882730962234,
+          "native": -0.4338688273096224
+        },
+        "returnBits": {
+          "fixture": "e51d03c281c4dbbf",
+          "native": "e61d03c281c4dbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0028ef18100e24defdbf",
+          "native": "0030ef18100e24defdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1572,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.43386882730962234,
+          "native": -0.4338688273096224
+        },
+        "returnBits": {
+          "fixture": "e51d03c281c4dbbf",
+          "native": "e61d03c281c4dbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0028ef18100e24defdbf",
+          "native": "0030ef18100e24defdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1587,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -4.228920607032576,
+          "native": -4.228920607032577
+        },
+        "returnBits": {
+          "fixture": "6e57e2296aea10c0",
+          "native": "6f57e2296aea10c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070bb124f51538701c0",
+          "native": "0078bb124f51538701c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1600,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.2366538071484223,
+          "native": -2.2366538071484228
+        },
+        "returnBits": {
+          "fixture": "326951c0aae401c0",
+          "native": "336951c0aae401c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090498b0256258f00c0",
+          "native": "0098498b0256258f00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1605,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -4.772830362369795,
+          "native": -4.7728303623697945
+        },
+        "returnBits": {
+          "fixture": "b8efaed7601713c0",
+          "native": "b7efaed7601713c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c07d77bd06bb9801c0",
+          "native": "00b87d77bd06bb9801c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1607,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3934145106557746,
+          "native": 0.39341451065577465
+        },
+        "returnBits": {
+          "fixture": "1275420eb42dd93f",
+          "native": "1375420eb42dd93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090a81372a06dc9fd3f",
+          "native": "0098a81372a06dc9fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1608,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.00476286867345271,
+          "native": -0.004762868673452642
+        },
+        "returnBits": {
+          "fixture": "3c8000d33a8273bf",
+          "native": "ed7f00d33a8273bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e0010498d6119cf7bf",
+          "native": "0068ff0398d6119cf7bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1609,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.4260519723251693,
+          "native": 0.42605197232516917
+        },
+        "returnBits": {
+          "fixture": "051be27d6f44db3f",
+          "native": "031be27d6f44db3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0028d810ef7b23dafd3f",
+          "native": "0018d810ef7b23dafd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1620,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.47034158472168314,
+          "native": 0.4703415847216831
+        },
+        "returnBits": {
+          "fixture": "33051597131ade3f",
+          "native": "32051597131ade3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "009829a8b89cd0f0fd3f",
+          "native": "009029a8b89cd0f0fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1621,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.03581078459501119,
+          "native": -0.035810784595011226
+        },
+        "returnBits": {
+          "fixture": "30fe5b89ca55a2bf",
+          "native": "35fe5b89ca55a2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080f1df4a54ae92fabf",
+          "native": "00a8f1df4a54ae92fabf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1622,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5419631539117055,
+          "native": -0.5419631539117056
+        },
+        "returnBits": {
+          "fixture": "5f02b61cc357e1bf",
+          "native": "6002b61cc357e1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f812b0e518be8afebf",
+          "native": "000013b0e518be8afebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1628,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.20426990752560514,
+          "native": 0.20426990752560525
+        },
+        "returnBits": {
+          "fixture": "c890302e8425ca3f",
+          "native": "cc90302e8425ca3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040868471212cd1fc3f",
+          "native": "0060868471212cd1fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1631,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.421142925244966,
+          "native": -2.4211429252449665
+        },
+        "returnBits": {
+          "fixture": "83f3962e805e03c0",
+          "native": "84f3962e805e03c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00189cb77401f49a00c0",
+          "native": "00209cb77401f49a00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1662,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8555796357888952,
+          "native": -1.855579635788895
+        },
+        "returnBits": {
+          "fixture": "ed63ad4574b0fdbf",
+          "native": "ec63ad4574b0fdbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00681f6b2da283edffbf",
+          "native": "00601f6b2da283edffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1664,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.867884374422284,
+          "native": -2.8678843744222835
+        },
+        "returnBits": {
+          "fixture": "35d3e65c6df106c0",
+          "native": "34d3e65c6df106c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a89936e76a8bb700c0",
+          "native": "00a09936e76a8bb700c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1669,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.05525313901891612,
+          "native": -0.05525313901891607
+        },
+        "returnBits": {
+          "fixture": "1bd82cb2234aacbf",
+          "native": "14d82cb2234aacbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d8c066911d51e2fabf",
+          "native": "00a0c066911d51e2fabf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1670,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.47413785845342177,
+          "native": -0.4741378584534217
+        },
+        "returnBits": {
+          "fixture": "4d96f6504658debf",
+          "native": "4c96f6504658debf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068b2b48732c2f2fdbf",
+          "native": "0060b2b48732c2f2fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1671,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.1357770436447681,
+          "native": -0.13577704364476811
+        },
+        "returnBits": {
+          "fixture": "693c00652461c1bf",
+          "native": "6a3c00652461c1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048e3012823098bfcbf",
+          "native": "0050e3012823098bfcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1690,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.73332709209937,
+          "native": -6.733327092099369
+        },
+        "returnBits": {
+          "fixture": "ad59174cedee1ac0",
+          "native": "ac59174cedee1ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068cdba606a77d701c0",
+          "native": "0060cdba606a77d701c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1706,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.25997980981717006,
+          "native": 0.25997980981717
+        },
+        "returnBits": {
+          "fixture": "2e3e325b82a3d03f",
+          "native": "2d3e325b82a3d03f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070f191d9121c85fd3f",
+          "native": "0068f191d9121c85fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1714,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.016657845208197634,
+          "native": 0.01665784520819768
+        },
+        "returnBits": {
+          "fixture": "916c9011c10e913f",
+          "native": "9e6c9011c10e913f"
+        },
+        "returnExtendedBits": {
+          "fixture": "008864838c087688f93f",
+          "native": "00f064838c087688f93f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1735,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.609227857376872,
+          "native": -6.6092278573768715
+        },
+        "returnBits": {
+          "fixture": "b8fb6c6dd96f1ac0",
+          "native": "b7fb6c6dd96f1ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c0dd676bcb7ed301c0",
+          "native": "00b8dd676bcb7ed301c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1746,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.4624285302666,
+          "native": -2.4624285302666005
+        },
+        "returnBits": {
+          "fixture": "f1dbb1ba0db303c0",
+          "native": "f2dbb1ba0db303c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0088df8ed56d989d00c0",
+          "native": "0090df8ed56d989d00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1799,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.115984323833021,
+          "native": -3.1159843238330214
+        },
+        "returnBits": {
+          "fixture": "26b16d3089ed08c0",
+          "native": "27b16d3089ed08c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0030896d83496cc700c0",
+          "native": "0038896d83496cc700c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1815,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.516009464149577,
+          "native": -6.516009464149576
+        },
+        "returnBits": {
+          "fixture": "b1cbf3c864101ac0",
+          "native": "b0cbf3c864101ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00885d9e472683d001c0",
+          "native": "00805d9e472683d001c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1819,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.9346050840538243,
+          "native": -1.934605084053824
+        },
+        "returnBits": {
+          "fixture": "eefbea7524f4febf",
+          "native": "edfbea7524f4febf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070df57af23a1f7ffbf",
+          "native": "0068df57af23a1f7ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1831,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.6166873818032674,
+          "native": 1.6166873818032672
+        },
+        "returnBits": {
+          "fixture": "e2368b96f3ddf93f",
+          "native": "e1368b96f3ddf93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0010b759b49cefceff3f",
+          "native": "0008b759b49cefceff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1836,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.9193563565361597,
+          "native": -0.9193563565361595
+        },
+        "returnBits": {
+          "fixture": "232996055e6bedbf",
+          "native": "222996055e6bedbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "001849b12cf05aebfebf",
+          "native": "001049b12cf05aebfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1838,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.961419363779375,
+          "native": -2.9614193637793744
+        },
+        "returnBits": {
+          "fixture": "6a63a9a2fcb007c0",
+          "native": "6963a9a2fcb007c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00501b4b15e587bd00c0",
+          "native": "00481b4b15e587bd00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1872,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.1169005565305998,
+          "native": -1.1169005565305996
+        },
+        "returnBits": {
+          "fixture": "15ee321ed3def1bf",
+          "native": "14ee321ed3def1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a87097f198f68effbf",
+          "native": "00a07097f198f68effbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1874,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.1292052951639886,
+          "native": -2.129205295163988
+        },
+        "returnBits": {
+          "fixture": "499829c99c0801c0",
+          "native": "489829c99c0801c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048c24c49e6448800c0",
+          "native": "0040c24c49e6448800c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1878,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -4.175012035185724,
+          "native": -4.175012035185725
+        },
+        "returnBits": {
+          "fixture": "c91dde5a36b310c0",
+          "native": "ca1dde5a36b310c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048eef0d6b2998501c0",
+          "native": "0050eef0d6b2998501c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1879,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.0487422191122072,
+          "native": 0.04874221911220712
+        },
+        "returnBits": {
+          "fixture": "6df40a7abdf4a83f",
+          "native": "62f40a7abdf4a83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068a357d0eba5c7fa3f",
+          "native": "0010a357d0eba5c7fa3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1881,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.5756837360589586,
+          "native": 0.5756837360589587
+        },
+        "returnBits": {
+          "fixture": "5acb664c006ce23f",
+          "native": "5bcb664c006ce23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d05a3663026093fe3f",
+          "native": "00d85a3663026093fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1882,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -4.066547122548577,
+          "native": -4.0665471225485765
+        },
+        "returnBits": {
+          "fixture": "c8f4cbed244410c0",
+          "native": "c7f4cbed244410c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040a65f6e27218201c0",
+          "native": "0038a65f6e27218201c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1893,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.1360858037017305,
+          "native": -3.13608580370173
+        },
+        "returnBits": {
+          "fixture": "5cca6227b41609c0",
+          "native": "5bca6227b41609c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e052163ba1b5c800c0",
+          "native": "00d852163ba1b5c800c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1894,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.642238173018425,
+          "native": -3.6422381730184243
+        },
+        "returnBits": {
+          "fixture": "fbda6ac44d230dc0",
+          "native": "fada6ac44d230dc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d8d756236e1ae900c0",
+          "native": "00d0d756236e1ae900c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1920,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.3635239186646735,
+          "native": 1.3635239186646733
+        },
+        "returnBits": {
+          "fixture": "16a8df74fed0f53f",
+          "native": "15a8df74fed0f53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b040fda6f387aeff3f",
+          "native": "00a840fda6f387aeff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1921,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.43848682991347354,
+          "native": 0.4384868299134734
+        },
+        "returnBits": {
+          "fixture": "16208d102b10dc3f",
+          "native": "13208d102b10dc3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b00069845881e0fd3f",
+          "native": "00980069845881e0fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1923,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.26421026255206626,
+          "native": -0.2642102625520664
+        },
+        "returnBits": {
+          "fixture": "ca6f3b29d2e8d0bf",
+          "native": "cd6f3b29d2e8d0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00507edb49914687fdbf",
+          "native": "00687edb49914687fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1925,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.27027756219916066,
+          "native": -0.27027756219916077
+        },
+        "returnBits": {
+          "fixture": "683b9f423a4cd1bf",
+          "native": "6a3b9f423a4cd1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040dbf914d2618afdbf",
+          "native": "0050dbf914d2618afdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1945,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.677113026120187,
+          "native": -6.677113026120186
+        },
+        "returnBits": {
+          "fixture": "f686fb1d5db51ac0",
+          "native": "f586fb1d5db51ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b037dcefe8aad501c0",
+          "native": "00a837dcefe8aad501c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1956,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.482978947439653,
+          "native": -2.4829789474396535
+        },
+        "returnBits": {
+          "fixture": "4c47ff1024dd03c0",
+          "native": "4d47ff1024dd03c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00603afa8720e99e00c0",
+          "native": "00683afa8720e99e00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 1985,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.522904690779653,
+          "native": -3.5229046907796535
+        },
+        "returnBits": {
+          "fixture": "bd968ea7e82e0cc0",
+          "native": "be968ea7e82e0cc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e8b5743c4577e100c0",
+          "native": "00f0b5743c4577e100c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2005,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.93772144840811,
+          "native": -6.937721448408109
+        },
+        "returnBits": {
+          "fixture": "adae260d3ac01bc0",
+          "native": "acae260d3ac01bc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068753569d001de01c0",
+          "native": "0060753569d001de01c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2007,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.3661383419128454,
+          "native": -3.366138341912846
+        },
+        "returnBits": {
+          "fixture": "639e62f0d9ed0ac0",
+          "native": "649e62f0d9ed0ac0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018f31483cf6ed700c0",
+          "native": "0020f31483cf6ed700c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2029,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.39912045594872586,
+          "native": 0.3991204559487258
+        },
+        "returnBits": {
+          "fixture": "81b85d86308bd93f",
+          "native": "80b85d86308bd93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0008c4ed328459ccfd3f",
+          "native": "0000c4ed328459ccfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2042,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.2451298296899795,
+          "native": 1.2451298296899798
+        },
+        "returnBits": {
+          "fixture": "21ae9c410decf33f",
+          "native": "22ae9c410decf33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "000871e50c6a609fff3f",
+          "native": "001071e50c6a609fff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2046,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.6261841322115625,
+          "native": -0.6261841322115627
+        },
+        "returnBits": {
+          "fixture": "fded234eb309e4bf",
+          "native": "feed234eb309e4bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e86f1f719a4da0febf",
+          "native": "00f06f1f719a4da0febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2049,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.3118609875277163,
+          "native": -2.311860987527716
+        },
+        "returnBits": {
+          "fixture": "71a332f9b07e02c0",
+          "native": "70a332f9b07e02c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00881b95c987f59300c0",
+          "native": "00801b95c987f59300c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2050,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.2518508185412616,
+          "native": -2.251850818541262
+        },
+        "returnBits": {
+          "fixture": "2ad8a85cca0302c0",
+          "native": "2bd8a85cca0302c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0050c146e5521e9000c0",
+          "native": "0058c146e5521e9000c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2061,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.44026012350549154,
+          "native": -0.4402601235054915
+        },
+        "returnBits": {
+          "fixture": "b1180ccc382ddcbf",
+          "native": "b0180ccc382ddcbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0088c56060c669e1fdbf",
+          "native": "0080c56060c669e1fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2063,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.4525648621388803,
+          "native": -1.45256486213888
+        },
+        "returnBits": {
+          "fixture": "a94823a7b43df7bf",
+          "native": "a84823a7b43df7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048451a39a5edb9ffbf",
+          "native": "0040451a39a5edb9ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2068,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.6715542365904004,
+          "native": -0.6715542365904006
+        },
+        "returnBits": {
+          "fixture": "2aac744f5f7de5bf",
+          "native": "2cac744f5f7de5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "005061a57bfaeaabfebf",
+          "native": "006061a57bfaeaabfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2069,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.4272048169202721,
+          "native": -0.4272048169202723
+        },
+        "returnBits": {
+          "fixture": "6a7057df5257dbbf",
+          "native": "6d7057df5257dbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "005083bbfa96badafdbf",
+          "native": "006883bbfa96badafdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2070,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.1492832394531152,
+          "native": 1.1492832394531154
+        },
+        "returnBits": {
+          "fixture": "4eac74d27663f23f",
+          "native": "4fac74d27663f23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "007062a593b61b93ff3f",
+          "native": "007862a593b61b93ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2082,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3768831870651331,
+          "native": 0.37688318706513313
+        },
+        "returnBits": {
+          "fixture": "09d9b6a8da1ed83f",
+          "native": "0ad9b6a8da1ed83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048c8b645d5f6c0fd3f",
+          "native": "0050c8b645d5f6c0fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2083,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.12926918225156123,
+          "native": -0.12926918225156117
+        },
+        "returnBits": {
+          "fixture": "df57137fe48bc0bf",
+          "native": "dd57137fe48bc0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f8be9af8235f84fcbf",
+          "native": "00e8be9af8235f84fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2093,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.0300797375532342,
+          "native": 2.030079737553234
+        },
+        "returnBits": {
+          "fixture": "da8108729a3d0040",
+          "native": "d98108729a3d0040"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d00e4490d3ec810040",
+          "native": "00c80e4490d3ec810040"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2109,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.38282272493704916,
+          "native": -0.38282272493704933
+        },
+        "returnBits": {
+          "fixture": "724bf1e22a80d8bf",
+          "native": "754bf1e22a80d8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00905b8a175701c4fdbf",
+          "native": "00a85b8a175701c4fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2111,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.779105123052068,
+          "native": -1.7791051230520682
+        },
+        "returnBits": {
+          "fixture": "9a79faee3677fcbf",
+          "native": "9b79faee3677fcbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0ccd377b7b9e3ffbf",
+          "native": "00d8ccd377b7b9e3ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2113,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.2663224666841597,
+          "native": -0.2663224666841598
+        },
+        "returnBits": {
+          "fixture": "144e26636d0bd1bf",
+          "native": "164e26636d0bd1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a07032196b5b88fdbf",
+          "native": "00b07032196b5b88fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2114,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.8280869825755874,
+          "native": 1.8280869825755872
+        },
+        "returnBits": {
+          "fixture": "ce7cc622d83ffd3f",
+          "native": "cd7cc622d83ffd3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070e63316c1fee9ff3f",
+          "native": "0068e63316c1fee9ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2133,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8548492873254253,
+          "native": -0.8548492873254252
+        },
+        "returnBits": {
+          "fixture": "9f4a82e4ec5aebbf",
+          "native": "9e4a82e4ec5aebbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f854122467d7dafebf",
+          "native": "00f054122467d7dafebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2135,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6444576719215254,
+          "native": 0.6444576719215255
+        },
+        "returnBits": {
+          "fixture": "5ee511b2659fe43f",
+          "native": "5fe511b2659fe43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f02a8f902dfba4fe3f",
+          "native": "00f82a8f902dfba4fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2154,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3817692644737738,
+          "native": 0.38176926447377385
+        },
+        "returnBits": {
+          "fixture": "f019625ae86ed83f",
+          "native": "f119625ae86ed83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080cf10d34277c3fd3f",
+          "native": "0088cf10d34277c3fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2188,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.024262688472057,
+          "native": -6.0242626884720565
+        },
+        "returnBits": {
+          "fixture": "89007651d81818c0",
+          "native": "88007651d81818c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "004804b08bc2c6c001c0",
+          "native": "004004b08bc2c6c001c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2217,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2027220294927144,
+          "native": 0.20272202949271442
+        },
+        "returnBits": {
+          "fixture": "5acb6ca3cbf2c93f",
+          "native": "5bcb6ca3cbf2c93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d05a661b5d96cffc3f",
+          "native": "00d85a661b5d96cffc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2230,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.209511353880521,
+          "native": -3.2095113538805204
+        },
+        "returnBits": {
+          "fixture": "cd75e84914ad09c0",
+          "native": "cc75e84914ad09c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068ae434fa268cd00c0",
+          "native": "0060ae434fa268cd00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2231,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.715663723197215,
+          "native": -3.7156637231972147
+        },
+        "returnBits": {
+          "fixture": "6c86f0e6adb90dc0",
+          "native": "6b86f0e6adb90dc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00603384376fcded00c0",
+          "native": "00583384376fcded00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2236,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -4.216197986917711,
+          "native": -4.21619798691771
+        },
+        "returnBits": {
+          "fixture": "26174d0163dd10c0",
+          "native": "25174d0163dd10c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0030b9680a18eb8601c0",
+          "native": "0028b9680a18eb8601c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2258,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.047281727450655286,
+          "native": 0.04728172745065527
+        },
+        "returnBits": {
+          "fixture": "90a932824f35a83f",
+          "native": "8ea932824f35a83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00804c95117caac1fa3f",
+          "native": "00704c95117caac1fa3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2273,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -4.526528290558801,
+          "native": -4.5265282905588
+        },
+        "returnBits": {
+          "fixture": "b079713b2a1b12c0",
+          "native": "af79713b2a1b12c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080cd8bdb51d99001c0",
+          "native": "0078cd8bdb51d99001c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-target-bearing.json",
+      "group": "targetRelativeBearing",
+      "index": 2278,
+      "routine": 4,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.9812623046041784,
+          "native": -3.981262304604179
+        },
+        "returnBits": {
+          "fixture": "8e94180da0d90fc0",
+          "native": "8f94180da0d90fc0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0070a4c46800cdfe00c0",
+          "native": "0078a4c46800cdfe00c0"
+        }
+      }
+    }
+  ],
+  "comparison_complete": true,
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 2289,
+  "exact_function_cases": 2051,
+  "all_fixture_cases_match": false,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 2.3769476669840515
+}

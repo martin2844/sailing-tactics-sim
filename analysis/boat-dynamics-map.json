@@ -1,0 +1,332 @@
+{
+  "routine": 4361312,
+  "globals": {
+    "player1SpinnakerControl": {
+      "address": 4866952,
+      "type": "I32"
+    },
+    "penaltyDuration": {
+      "address": 4879940,
+      "type": "I32"
+    },
+    "player2SpinnakerControl": {
+      "address": 4866956,
+      "type": "I32"
+    },
+    "humanBoatCount": {
+      "address": 4788544,
+      "type": "I32"
+    },
+    "refreshFlag": {
+      "address": 4874400,
+      "type": "I32"
+    },
+    "twoPlayerMode": {
+      "address": 4901292,
+      "type": "I32"
+    },
+    "spatialVariant": {
+      "address": 4884044,
+      "type": "I32"
+    },
+    "player1Depth": {
+      "address": 4892440,
+      "type": "I32"
+    },
+    "time": {
+      "address": 4873088,
+      "type": "I32"
+    },
+    "boatClass": {
+      "address": 4788616,
+      "type": "I32"
+    },
+    "spinnakerThreshold": {
+      "address": 4895104,
+      "type": "I32"
+    },
+    "skiffFlag": {
+      "address": 4901132,
+      "type": "I32"
+    },
+    "sportBoatFlag": {
+      "address": 4901128,
+      "type": "I32"
+    },
+    "course": {
+      "address": 4788628,
+      "type": "I32"
+    },
+    "catamaranFlag": {
+      "address": 4901120,
+      "type": "I32"
+    },
+    "boardFlag": {
+      "address": 4901124,
+      "type": "I32"
+    },
+    "closehauledAngle": {
+      "address": 4869808,
+      "type": "I32"
+    },
+    "sailArea": {
+      "address": 4873104,
+      "type": "I32"
+    },
+    "downwindTrim": {
+      "address": 4873084,
+      "type": "I32"
+    },
+    "tackPenaltyDuration": {
+      "address": 4901332,
+      "type": "I32"
+    },
+    "optimistFlag": {
+      "address": 4901140,
+      "type": "I32"
+    },
+    "length": {
+      "address": 4873124,
+      "type": "I32"
+    },
+    "displacement": {
+      "address": 4869868,
+      "type": "I32"
+    },
+    "heelWarning": {
+      "address": 4874740,
+      "type": "I32"
+    },
+    "player1Vmg": {
+      "address": 4878784,
+      "type": "I32"
+    }
+  },
+  "doubleGlobals": {
+    "percentageScale": {
+      "address": 4738248,
+      "type": "F64"
+    },
+    "powerScale": {
+      "address": 4738376,
+      "type": "F64"
+    },
+    "interferenceScale": {
+      "address": 4739480,
+      "type": "F64"
+    },
+    "heelDragDefault": {
+      "address": 4738904,
+      "type": "F64"
+    },
+    "heelDragClass2": {
+      "address": 4738288,
+      "type": "F64"
+    },
+    "heelDragClass8": {
+      "address": 4739488,
+      "type": "F64"
+    },
+    "heelDragCatamaran": {
+      "address": 4739496,
+      "type": "F64"
+    },
+    "ten": {
+      "address": 4738392,
+      "type": "F64"
+    },
+    "sportAngleOffset": {
+      "address": 4738496,
+      "type": "F64"
+    },
+    "classAngleOffset": {
+      "address": 4738624,
+      "type": "F64"
+    },
+    "degreeFactor": {
+      "address": 4738368,
+      "type": "F64"
+    },
+    "one": {
+      "address": 4738576,
+      "type": "F64"
+    },
+    "percentage": {
+      "address": 4739104,
+      "type": "F64"
+    },
+    "half": {
+      "address": 4738472,
+      "type": "F64"
+    },
+    "hullRatioScale": {
+      "address": 4739032,
+      "type": "F64"
+    },
+    "zero": {
+      "address": 4738584,
+      "type": "F64"
+    },
+    "resistanceBoundary": {
+      "address": 4739504,
+      "type": "F64"
+    },
+    "resistanceSqrtScale": {
+      "address": 4739528,
+      "type": "F64"
+    },
+    "resistanceBase": {
+      "address": 4738912,
+      "type": "F64"
+    },
+    "resistanceLinearScale": {
+      "address": 4739512,
+      "type": "F64"
+    },
+    "resistanceLinearFactor": {
+      "address": 4739520,
+      "type": "F64"
+    },
+    "heelDragLaser": {
+      "address": 4738888,
+      "type": "F64"
+    },
+    "aiComparisonScale": {
+      "address": 4739024,
+      "type": "F64"
+    },
+    "aiClassSpeedOffset": {
+      "address": 4739536,
+      "type": "F64"
+    },
+    "accelerationScale": {
+      "address": 4893000,
+      "type": "F64"
+    },
+    "upperSpeedLimit": {
+      "address": 4739544,
+      "type": "F64"
+    },
+    "lowerSpeedLimit": {
+      "address": 4738400,
+      "type": "F64"
+    },
+    "raceTime": {
+      "address": 4899320,
+      "type": "F64"
+    }
+  },
+  "indexed": {
+    "speedTenths": {
+      "address": 4878432,
+      "type": "I32",
+      "stride": 4
+    },
+    "heelAngle": {
+      "address": 4878024,
+      "type": "I32",
+      "stride": 4
+    },
+    "smoothSpeed": {
+      "address": 4878792,
+      "type": "F64",
+      "stride": 8
+    },
+    "previousMetric": {
+      "address": 4867344,
+      "type": "F64",
+      "stride": 8
+    },
+    "spinnaker": {
+      "address": 4897648,
+      "type": "I32",
+      "stride": 4
+    },
+    "sailAngle": {
+      "address": 4880360,
+      "type": "I32",
+      "stride": 4
+    },
+    "spinnakerDelay": {
+      "address": 4866800,
+      "type": "I32",
+      "stride": 4
+    },
+    "bearingToTarget": {
+      "address": 4897792,
+      "type": "I32",
+      "stride": 4
+    },
+    "spinnakerHoldFlag": {
+      "address": 4880080,
+      "type": "I32",
+      "stride": 4
+    },
+    "sailTrim": {
+      "address": 4880232,
+      "type": "I32",
+      "stride": 4
+    },
+    "jibSetting": {
+      "address": 4869880,
+      "type": "I32",
+      "stride": 4
+    },
+    "sailingMode": {
+      "address": 4866416,
+      "type": "I32",
+      "stride": 4
+    },
+    "spinnakerPenalty": {
+      "address": 4900336,
+      "type": "I32",
+      "stride": 4
+    },
+    "depowerSetting": {
+      "address": 4883920,
+      "type": "I32",
+      "stride": 4
+    },
+    "depowerActual": {
+      "address": 4885160,
+      "type": "I32",
+      "stride": 4
+    },
+    "tackStartTime": {
+      "address": 4864536,
+      "type": "I32",
+      "stride": 4
+    },
+    "crewTrim": {
+      "address": 4900072,
+      "type": "I32",
+      "stride": 4
+    },
+    "speedScalePercent": {
+      "address": 4878280,
+      "type": "I32",
+      "stride": 4
+    },
+    "speedOverride": {
+      "address": 4874128,
+      "type": "I32",
+      "stride": 4
+    },
+    "preTackSpeed": {
+      "address": 4900208,
+      "type": "I32",
+      "stride": 4
+    },
+    "tackSlowFlag": {
+      "address": 4867752,
+      "type": "I32",
+      "stride": 4
+    },
+    "boardSlowFlag": {
+      "address": 4893984,
+      "type": "I32",
+      "stride": 4
+    }
+  },
+  "note": "Combine with existing encounter/current/boat-option typed maps and synthetic shoreline/boundary geometry. Full connected original428c60; unchangedcodeauthority required. Void EAX ignored by original callers."
+}

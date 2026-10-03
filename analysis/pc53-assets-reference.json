@@ -1,0 +1,43 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "x87_control_word": "0x027f",
+  "startup_observation": "analysis/startup-precision-live.jsonl",
+  "preserved_precision64_asset_sha256": {
+    "trig-tables.json": "f12cf5fb348331d379cfd4a4c955a6d73ca26b322fd6c58414efb6c5294596ce",
+    "x87-trig.json": "495c3cba4b992dc078bb17f2ff3836f1e3c0ba7b2e1f821913380f5dd5e82aea",
+    "x87-stored-trig.json": "045338121ae6f9c8c8a05fbcc23bfffe30ae7a4a943942c18d9fa17e80e4d189",
+    "x87-force-trig.json": "127296124a41572139d10cdf1eb292f0b81a9267c35f69fe5eda6435cb13c83a",
+    "x87-hull-trig.json": "584d9a1324fd7bba49616afe7156b5df42cf12022810c04625e5555c1780a59d",
+    "x87-raw-trig.json": "95c56c3b55c70488c1305d136bfb78ec9a742e0275c9e8e9374a87518ed0bad4",
+    "boat-calibration.json": "fb85f32b662c98e289004941a08de3923e89621f5c42033328086a678c69f77c"
+  },
+  "precision53_asset_sha256": {
+    "trig-tables.json": "d0efc0b04fb42e3a9e72458ebbc3bbed4ab013ea697d6f466cfe8d5d4fd2655b",
+    "x87-trig.json": "4344f7ffefa44b07155c68a87cc9dacbc072bdb37ba7244622d69130f8e1c422",
+    "x87-stored-trig.json": "c75c0bbda055fe8c50ae44d9a44fee2521b8799705e0653cce5d4b077b386961",
+    "x87-force-trig.json": "3a534004fa3362a4b6532f5c89c555fe627820688b0b03afba20e45390cc52d4",
+    "x87-hull-trig.json": "4876fca0f00a21dd32a80035b1d883ae58c85f899814462813073f7f20be3c84",
+    "x87-raw-trig.json": "c31700a86903a37d02926b49be8e3b543eb6c497743acb956c4906a233d1c811",
+    "boat-calibration.json": "17e4a58906df8073cdc467f2ea74c550497f19e35a9e76a35cea9dc47597810c"
+  },
+  "counts": {
+    "extendedAngles": 2161,
+    "storedAngles": 2161,
+    "hullAngles": 10,
+    "rawAngles": 257,
+    "forceCalls": 73124,
+    "forceDistinctRadians": 887,
+    "originalIntegerTablePairs": 362,
+    "originalBoatCalibrations": 100
+  },
+  "standalone_probe_repeatable": true,
+  "original_file_unchanged": true,
+  "native_original_text_unchanged": true,
+  "native_initialization": {
+    "protocol_version": 2,
+    "base": "0x400000",
+    "tlsIndex": 22,
+    "imports": 358,
+    "control_word": "0x27f"
+  }
+}

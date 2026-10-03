@@ -1,0 +1,1849 @@
+{
+  "url": "http://127.0.0.1:8765/play.html",
+  "checkedAt": "2026-10-03T01:54:12.844Z",
+  "scope": "Actual production menu buttons, original keyboard progression and dialog controls. No game-state writes or test fixtures supplied. Fresh preferences per profile preserve original demo gates.",
+  "tutorialSelectors": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    300,
+    400,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
+    512,
+    513,
+    514,
+    601,
+    602,
+    603,
+    604,
+    701
+  ],
+  "renderedTutorialSelectors": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    101,
+    102,
+    300,
+    501,
+    502
+  ],
+  "disabledTutorialSelectors": [
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    400,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
+    512,
+    513,
+    514,
+    601,
+    701
+  ],
+  "boatSelectors": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "checks": [
+    {
+      "name": "tutorial1: Help / Simulator Operation",
+      "command": 32862,
+      "selector": 1,
+      "state": {
+        "ready": true,
+        "frames": 30,
+        "error": null,
+        "application": 2,
+        "tutorial": 1,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial2: Help / What You See (Sailing Views)",
+      "command": 32924,
+      "selector": 2,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 2,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial3: Help / View Control",
+      "command": 32864,
+      "selector": 3,
+      "state": {
+        "ready": true,
+        "frames": 33,
+        "error": null,
+        "application": 2,
+        "tutorial": 3,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial4: Help / Steering",
+      "command": 32865,
+      "selector": 4,
+      "state": {
+        "ready": true,
+        "frames": 34,
+        "error": null,
+        "application": 2,
+        "tutorial": 4,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial5: Help / Sail Control",
+      "command": 32866,
+      "selector": 5,
+      "state": {
+        "ready": true,
+        "frames": 36,
+        "error": null,
+        "application": 2,
+        "tutorial": 5,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial6: Help / Key Command Summary      ?",
+      "command": 32925,
+      "selector": 6,
+      "state": {
+        "ready": true,
+        "frames": 35,
+        "error": null,
+        "application": 2,
+        "tutorial": 6,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial101: Coach / Rules Tutorial / Introduction",
+      "command": 32928,
+      "selector": 101,
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 101,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial102: Coach / Rules Tutorial / Opposite Tacks",
+      "command": 32931,
+      "selector": 102,
+      "state": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 102,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial300: Coach / Coach               Y",
+      "command": 32923,
+      "selector": 300,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 300,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial501: Coach / Tactics + Strategy Tutorial / Introduction",
+      "command": 32940,
+      "selector": 501,
+      "state": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 501,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial502: Coach / Tactics + Strategy Tutorial / Wind Shift Effects - Concepts",
+      "command": 32941,
+      "selector": 502,
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 502,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial7: Help / New Features",
+      "command": 32868,
+      "selector": 7,
+      "state": {
+        "ready": true,
+        "frames": 28,
+        "error": null,
+        "application": 2,
+        "tutorial": 7,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial8: Help / Tips for First Use",
+      "command": 32869,
+      "selector": 8,
+      "state": {
+        "ready": true,
+        "frames": 34,
+        "error": null,
+        "application": 2,
+        "tutorial": 8,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset6: Option / Boat Type / 505",
+      "command": 32783,
+      "selector": 6,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 6,
+        "boatClass": 3,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.6992360270392,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset15: Option / Boat Type / America's Cup",
+      "command": 32792,
+      "selector": 15,
+      "state": {
+        "ready": true,
+        "frames": 18,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 15,
+        "boatClass": 8,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.13751118152018,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset3: Option / Boat Type / Board",
+      "command": 32881,
+      "selector": 3,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 3,
+        "boatClass": 1,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.0523593306318,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset5: Option / Boat Type / JY15",
+      "command": 32784,
+      "selector": 5,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 5,
+        "boatClass": 2,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.74334916738772,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset12: Option / Boat Type / Keelboat",
+      "command": 32789,
+      "selector": 12,
+      "state": {
+        "ready": true,
+        "frames": 18,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.9337743645896,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset2: Option / Boat Type / Laser",
+      "command": 32782,
+      "selector": 2,
+      "state": {
+        "ready": true,
+        "frames": 20,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 2,
+        "boatClass": 1,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.4406888343428,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset9: Option / Boat Type / Lightning",
+      "command": 32788,
+      "selector": 9,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 9,
+        "boatClass": 5,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.81335055802066,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset14: Option / Boat Type / Offshore Racer",
+      "command": 32791,
+      "selector": 14,
+      "state": {
+        "ready": true,
+        "frames": 18,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 14,
+        "boatClass": 7,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.14188746450543,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset1: Option / Boat Type / Optimist",
+      "command": 32781,
+      "selector": 1,
+      "state": {
+        "ready": true,
+        "frames": 20,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 1,
+        "boatClass": 1,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.30493583133097,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset7: Option / Boat Type / Skiff",
+      "command": 32786,
+      "selector": 7,
+      "state": {
+        "ready": true,
+        "frames": 18,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 7,
+        "boatClass": 3,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.98310907808008,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset11: Option / Boat Type / Spinnaker Catamaran",
+      "command": 32794,
+      "selector": 11,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 11,
+        "boatClass": 10,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.03456539476093,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset13: Option / Boat Type / Sport Boat",
+      "command": 32790,
+      "selector": 13,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 13,
+        "boatClass": 7,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.9337743645896,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset8: Option / Boat Type / Thistle",
+      "command": 32787,
+      "selector": 8,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 8,
+        "boatClass": 4,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.79221795573696,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset10: Option / Boat Type / Tornado Catamaran",
+      "command": 32793,
+      "selector": 10,
+      "state": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 10,
+        "boatClass": 9,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.22073923685656,
+        "modal": false
+      }
+    },
+    {
+      "name": "boat preset4: Option / Boat Type / Snipe",
+      "command": 32897,
+      "selector": 4,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 4,
+        "boatClass": 2,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.7690058479532,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Close in View             1",
+      "command": 32825,
+      "state": {
+        "ready": true,
+        "frames": 18,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 1,
+        "time": -169.9337743645896,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Wide View                  2",
+      "command": 32826,
+      "state": {
+        "ready": true,
+        "frames": 20,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.70728411042543,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / High Viewpoint           3",
+      "command": 32827,
+      "state": {
+        "ready": true,
+        "frames": 25,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 3,
+        "time": -169.14105847501503,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Change Viewpoint      V",
+      "command": 32912,
+      "state": {
+        "ready": true,
+        "frames": 28,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 1,
+        "time": -168.8013230937688,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Automatic View           0",
+      "command": 32835,
+      "state": {
+        "ready": true,
+        "frames": 29,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -168.6880779666867,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look Ahead      up arrow",
+      "command": 32828,
+      "state": {
+        "ready": true,
+        "frames": 32,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -168.34834258544046,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look Right        right arrow",
+      "command": 32829,
+      "state": {
+        "ready": true,
+        "frames": 33,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -168.23509745835838,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look Left          left arrow",
+      "command": 32830,
+      "state": {
+        "ready": true,
+        "frames": 36,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -167.89536207711214,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look Astern      down arrow",
+      "command": 32831,
+      "state": {
+        "ready": true,
+        "frames": 39,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -167.5556266958659,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look to Windward      5",
+      "command": 32832,
+      "state": {
+        "ready": true,
+        "frames": 43,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -167.10264618753757,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look to Leeward        7",
+      "command": 32833,
+      "state": {
+        "ready": true,
+        "frames": 46,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -166.76291080629133,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Hide Sails                   U",
+      "command": 32913,
+      "state": {
+        "ready": true,
+        "frames": 47,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -166.64966567920925,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Zoom  In Tactical        Z",
+      "command": 32898,
+      "state": {
+        "ready": true,
+        "frames": 50,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -166.309930297963,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Zoom Out Tactical       X",
+      "command": 32899,
+      "state": {
+        "ready": true,
+        "frames": 53,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -165.97019491671676,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Bow Up Orientation",
+      "command": 32914,
+      "state": {
+        "ready": true,
+        "frames": 56,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -165.63045953547052,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Wind Up Orientation",
+      "command": 32916,
+      "state": {
+        "ready": true,
+        "frames": 59,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -165.29072415422428,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Same Orientation as Sailing View",
+      "command": 32915,
+      "state": {
+        "ready": true,
+        "frames": 62,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.95098877297804,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Show Tracks          ~",
+      "command": 32919,
+      "state": {
+        "ready": true,
+        "frames": 65,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.6112533917318,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Show laylines, Equal Line",
+      "command": 32918,
+      "state": {
+        "ready": true,
+        "frames": 68,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.27151801048555,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Wind Chart             [",
+      "command": 32902,
+      "state": {
+        "ready": true,
+        "frames": 70,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.27151801048555,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Tide Chart               ]    ",
+      "command": 32903,
+      "state": {
+        "ready": true,
+        "frames": 74,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.27151801048555,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Tide @ +1 hour      +",
+      "command": 32904,
+      "state": {
+        "ready": true,
+        "frames": 78,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.27151801048555,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: Top view / Race Course           R",
+      "command": 32905,
+      "state": {
+        "ready": true,
+        "frames": 79,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -164.27151801048555,
+        "modal": false
+      }
+    },
+    {
+      "name": "weather forecast toggles through the original menu",
+      "command": 32907,
+      "shown": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      },
+      "restored": {
+        "ready": true,
+        "frames": 20,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -169.82052923750751,
+        "modal": false
+      }
+    },
+    {
+      "name": "coach advice uses the original live race menu",
+      "command": 32923,
+      "state": {
+        "ready": true,
+        "frames": 19,
+        "error": null,
+        "application": 2,
+        "tutorial": 300,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "original modal131: every radio, immediate stores and deferred tail",
+      "command": 32779,
+      "radioCount": 7,
+      "tested": [
+        {
+          "control": 1000,
+          "address": 4901192,
+          "value": 7
+        },
+        {
+          "control": 1001,
+          "address": 4901192,
+          "value": 4
+        },
+        {
+          "control": 1002,
+          "address": 4901192,
+          "value": 2
+        },
+        {
+          "control": 1003,
+          "address": 4901192,
+          "value": 0
+        },
+        {
+          "control": 1004,
+          "address": 4901192,
+          "value": -2
+        },
+        {
+          "control": 1005,
+          "address": 4901192,
+          "value": -4
+        },
+        {
+          "control": 1006,
+          "address": 4901192,
+          "value": -7
+        }
+      ],
+      "state": {
+        "ready": true,
+        "frames": 10,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 2,
+        "view": 2,
+        "time": -170.04701949167168,
+        "modal": false
+      }
+    },
+    {
+      "name": "original modal132: every radio, immediate stores and deferred tail",
+      "command": 32823,
+      "radioCount": 15,
+      "tested": [
+        {
+          "control": 1008,
+          "address": 4901144,
+          "value": 20
+        },
+        {
+          "control": 1009,
+          "address": 4901144,
+          "value": 25
+        },
+        {
+          "control": 1010,
+          "address": 4901144,
+          "value": 30
+        },
+        {
+          "control": 1011,
+          "address": 4901144,
+          "value": 35
+        },
+        {
+          "control": 1012,
+          "address": 4901144,
+          "value": 40
+        },
+        {
+          "control": 1013,
+          "address": 4901144,
+          "value": 50
+        },
+        {
+          "control": 1015,
+          "address": 4901148,
+          "value": 11
+        },
+        {
+          "control": 1016,
+          "address": 4901148,
+          "value": 10
+        },
+        {
+          "control": 1017,
+          "address": 4901148,
+          "value": 9
+        },
+        {
+          "control": 1018,
+          "address": 4901148,
+          "value": 8
+        },
+        {
+          "control": 1020,
+          "address": 4901152,
+          "value": 11
+        },
+        {
+          "control": 1021,
+          "address": 4901152,
+          "value": 10
+        },
+        {
+          "control": 1022,
+          "address": 4901152,
+          "value": 9
+        },
+        {
+          "control": 1024,
+          "address": 4901156,
+          "value": 80
+        },
+        {
+          "control": 1025,
+          "address": 4901156,
+          "value": 100
+        }
+      ],
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.33984720540786,
+        "modal": false
+      }
+    },
+    {
+      "name": "Look at Other Boat is enabled in the original two-player context",
+      "command": 32834,
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 2,
+        "view": 2,
+        "time": -169.9337743645896,
+        "modal": false
+      }
+    },
+    {
+      "name": "mobile tutorial and original setup dialog remain usable",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": 6,
+      "dialogLayout": {
+        "scrollLeft": 0,
+        "title": "Design Options",
+        "dialogLeft": 10,
+        "titleLeft": 15,
+        "lengthLeft": 65,
+        "viewportWidth": 390
+      }
+    }
+  ],
+  "gates": [
+    {
+      "name": "tutorial103: Coach / Rules Tutorial / Same Tack",
+      "command": 32929,
+      "reason": "Original command32929 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial104: Coach / Rules Tutorial / Overtaking",
+      "command": 32930,
+      "reason": "Original command32930 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial105: Coach / Rules Tutorial / Marks and Obstructions",
+      "command": 32932,
+      "reason": "Original command32932 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial106: Coach / Rules Tutorial / Rounding a Windward Mark",
+      "command": 32933,
+      "reason": "Original command32933 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial107: Coach / Rules Tutorial / Tacking for Obstructions",
+      "command": 32934,
+      "reason": "Original command32934 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial108: Coach / Rules Tutorial / Same Tack Before Starting",
+      "command": 32935,
+      "reason": "Original command32935 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial109: Coach / Rules Tutorial / Room at a Starting Mark",
+      "command": 32936,
+      "reason": "Original command32936 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial110: Coach / Rules Tutorial / Miscellaneous",
+      "command": 32937,
+      "reason": "Original command32937 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial400: Control / Show Race Results",
+      "command": 32939,
+      "reason": "Original command32939 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial503: Coach / Tactics + Strategy Tutorial / Lifts",
+      "command": 32942,
+      "reason": "Original command32942 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial504: Coach / Tactics + Strategy Tutorial / Headers",
+      "command": 32943,
+      "reason": "Original command32943 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial505: Coach / Tactics + Strategy Tutorial / Death by Layline",
+      "command": 32955,
+      "reason": "Original command32955 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.16026461875376,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial506: Coach / Tactics + Strategy Tutorial / Strategy for Oscillating Winds",
+      "command": 32944,
+      "reason": "Original command32944 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial507: Coach / Tactics + Strategy Tutorial / Strategy for One Side Favored",
+      "command": 32945,
+      "reason": "Original command32945 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 13,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial508: Coach / Tactics + Strategy Tutorial / Downwind Strategy",
+      "command": 32954,
+      "reason": "Original command32954 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial509: Coach / Tactics + Strategy Tutorial / Wind Prediction - 1",
+      "command": 32946,
+      "reason": "Original command32946 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial510: Coach / Tactics + Strategy Tutorial / Wind Prediction - 2",
+      "command": 32947,
+      "reason": "Original command32947 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial511: Coach / Tactics + Strategy Tutorial / Currents",
+      "command": 32948,
+      "reason": "Original command32948 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial512: Coach / Tactics + Strategy Tutorial / Wind Interference from Other Boats",
+      "command": 32949,
+      "reason": "Original command32949 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial513: Coach / Tactics + Strategy Tutorial / Starting",
+      "command": 32950,
+      "reason": "Original command32950 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial514: Coach / Tactics + Strategy Tutorial / Mark Rounding",
+      "command": 32951,
+      "reason": "Original command32951 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 14,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial601: Coach / Glossary",
+      "command": 32926,
+      "reason": "Original command32926 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 16,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "tutorial701: Coach / Bibliography",
+      "command": 32956,
+      "reason": "Original command32956 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 15,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "glossary pages602–604 via original + keyboard navigation",
+      "command": 32926,
+      "reason": "Original command32926 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 13,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -170.27350974583584,
+        "modal": false
+      }
+    },
+    {
+      "name": "view/chart: 3D view / Look at Other Boat     9",
+      "command": 32834,
+      "reason": "Original command32834 is disabled for this preserved demo/state",
+      "state": {
+        "ready": true,
+        "frames": 46,
+        "error": null,
+        "application": 2,
+        "tutorial": 0,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "weather": 0,
+        "humans": 1,
+        "view": 2,
+        "time": -166.76291080629133,
+        "modal": false
+      }
+    }
+  ],
+  "failures": [],
+  "exceptions": [],
+  "requests": 6953
+}

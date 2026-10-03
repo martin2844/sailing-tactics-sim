@@ -1,0 +1,83 @@
+{
+  "url": "http://127.0.0.1:8766/play.html",
+  "checkedAt": "2026-10-03T01:54:08.327Z",
+  "checks": [
+    {
+      "name": "original startup screen",
+      "ready": true,
+      "frames": 1,
+      "error": null,
+      "app": 0,
+      "view": 0,
+      "notice": 0,
+      "time": 0,
+      "lock": 0
+    },
+    {
+      "name": "observed original startup floating precision",
+      "controlWord": "0x027f"
+    },
+    {
+      "name": "preserved first Space demo notice",
+      "ready": true,
+      "frames": 2,
+      "error": null,
+      "app": 0,
+      "view": 0,
+      "notice": 1,
+      "time": 0,
+      "lock": 0
+    },
+    {
+      "name": "connected race advances under actual keyboard events",
+      "ready": true,
+      "frames": 8,
+      "error": null,
+      "app": 2,
+      "view": 0,
+      "notice": 1,
+      "time": -170.16026461875376,
+      "lock": 0
+    },
+    {
+      "name": "original controls tutorial",
+      "ready": true,
+      "frames": 12,
+      "error": null,
+      "app": 2,
+      "view": 6,
+      "notice": 1,
+      "time": -169.82052923750751,
+      "lock": 1
+    },
+    {
+      "name": "original F freeze stops continuous invalidation",
+      "ready": true,
+      "frames": 13,
+      "error": null,
+      "app": 2,
+      "view": 0,
+      "notice": 1,
+      "time": -169.70728411042543,
+      "lock": 1
+    },
+    {
+      "name": "status-bar command keeps original demo counter unchanged",
+      "passed": true
+    },
+    {
+      "name": "original About resource pauses and resumes the active race asynchronously",
+      "passed": true
+    },
+    {
+      "name": "results screen renders original completed-race branch",
+      "passed": true
+    },
+    {
+      "name": "production loads data and native JavaScript without EXE or test fixtures",
+      "requests": 111,
+      "passed": true
+    }
+  ],
+  "exceptions": []
+}

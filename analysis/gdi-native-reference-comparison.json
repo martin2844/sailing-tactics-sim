@@ -1,0 +1,247 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-gdi-primitives.json": "fbe3c8b6523758ef3da286bb3f10fed30861fbe436f0cccd4fa20eab3cc1c19c",
+    "original-boat-panels.json": "137900c6ad774948c59e0850fa85d8e18fffe9150805486151fb63e36717e738"
+  },
+  "runner_source_sha256": "823f2ce9a33bff3bc1a4dd29df626918217fe9e7bb1c2aa556d0150991a17a62",
+  "runner_sha256": "32289fdb6afcdb277b978f3582ac6fe65b49d9662a9e93169400f34a855813d6",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-sl630qyo/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "selectBoatColor": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawCatamaranPanels": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawInteriorPanel": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "selectSailColor": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawWakePoint": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawSailCurve": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "selectHeadingColor": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawHeadingIndicator": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawCircle": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawCourseMark": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawChartBoat": {
+      "cases": 448,
+      "exact_matches": 448,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawChartCatamaran": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawEllipseMarker": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawHullPortSide": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawHullStarboardSide": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawHullStern": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawWakeSegment": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawStarboardInnerPanel": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawStarboardOuterPanel": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawPortInnerPanel": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawPortOuterPanel": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawCatamaranCrossbar": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawWakeBurst": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawSideSpray": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawRudder": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawCatamaranRudders": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawSteeringArc": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawTelltale": {
+      "cases": 160,
+      "exact_matches": 160,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "4f3e8ca82430b09cff11ef0bd60f0ae57eff61b979c5e862462f5619eeaf815d"
+  },
+  "original_routine_addresses": [
+    "00415590",
+    "00415de0",
+    "00416070",
+    "00416300",
+    "00416420",
+    "004166e0",
+    "00417570",
+    "00417be0",
+    "00417d30",
+    "00417eb0",
+    "00417fb0",
+    "00418580",
+    "00418890",
+    "00418a10",
+    "004194b0",
+    "00419640",
+    "004198f0",
+    "00419b40",
+    "00419ca0",
+    "00419d50",
+    "0041a450",
+    "0041af70",
+    "00423640",
+    "00423670",
+    "00423830",
+    "00423aa0",
+    "00424890"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 4416,
+  "exact_function_cases": 4416,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 8.97220136600663
+}

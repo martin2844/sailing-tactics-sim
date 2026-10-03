@@ -1,0 +1,86 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-boat-renderer.json": "f5bc7cd643adb90f2bc8d7afd5078c0b763df572d9492d3e56e8a138d6a18ed9"
+  },
+  "runner_source_sha256": "7009c9c11c2378936cb11ee520b1ebd0435791b271d4bfb6f8732ab439e61a3f",
+  "runner_sha256": "60bdf6bd75525e259ee427e12d86c41fc680b8c4e289be032ac9851573a0828f",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-249b77oc/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "drawBoat": {
+      "cases": 1440,
+      "exact_matches": 1440,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "drawing_requests_compared": 94948,
+  "sound_requests_compared": 0,
+  "cstring_runtime_cases": 0,
+  "library_runtime_evidence": [],
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "4f3e8ca82430b09cff11ef0bd60f0ae57eff61b979c5e862462f5619eeaf815d",
+    "native_cstring_runtime.h": "d9e2ca43801ce90e6d98c2dad17b338b4ec5f9e05f43b1621f2c9f7d7570dd96"
+  },
+  "cstring_runtime_normalizations": [
+    {
+      "address": 4849568,
+      "size": 128,
+      "purpose": "Original CRT lock-pointer table"
+    },
+    {
+      "address": 4849760,
+      "size": 8228,
+      "purpose": "Original CRT small-block-heap root/descriptors"
+    },
+    {
+      "address": 4910024,
+      "size": 96,
+      "purpose": "Four original CRT critical sections"
+    },
+    {
+      "address": 4914668,
+      "size": 4,
+      "purpose": "Original CRT heap handle"
+    }
+  ],
+  "cstring_runtime_scope": "For fixed drawing calls requiring strings, original CRT startup leaves 0x45b700 and 0x45b3c0 initialize locks/heap; original CString and formatter instructions execute. Only these declared allocator bookkeeping ranges are normalized to prepared comparison bytes. Their raw before/after differences are retained separately; game state and text remain exact.",
+  "original_routine_addresses": [
+    "00411000"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 1440,
+  "exact_function_cases": 1440,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 7.0365683550189715
+}

@@ -1,0 +1,60 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-boat-sway.json": "798b8224177249b4de2ead8fb7ffd91d7315f8a16527ea103883d6d6fa70bda1"
+  },
+  "runner_source_sha256": "75440e57678b148c8016b09f6c24aeb647f2f53fdfe9f73fb09b1270afeb0434",
+  "runner_sha256": "deabbefa2b546548aaaefeb6563a14e2ed4f8873a6d7774491a76477f508dcf5",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-lgri_wkm/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "updateBoatSway": {
+      "cases": 1536,
+      "exact_matches": 1536,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "drawing_requests_compared": 0,
+  "sound_requests_compared": 0,
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "4f3e8ca82430b09cff11ef0bd60f0ae57eff61b979c5e862462f5619eeaf815d"
+  },
+  "original_routine_addresses": [
+    "004304d0"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 1536,
+  "exact_function_cases": 1536,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 6.786088007007493
+}

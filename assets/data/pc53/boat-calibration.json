@@ -1,0 +1,545 @@
+{
+  "provenance": {
+    "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+    "authoritative_engine": "native-x87",
+    "engine": "native-x87",
+    "control_word": "0x027f",
+    "x87_control_word": "0x027f",
+    "architecture": "x86_64",
+    "cpu": {
+      "vendor_id": "AuthenticAMD",
+      "cpu family": "25",
+      "model": "80",
+      "model name": "AMD Ryzen 7 5700G with Radeon Graphics",
+      "stepping": "0",
+      "microcode": "0xa500012"
+    },
+    "probe_source": "tools/native_reference_pc53.c",
+    "probe_sha256": "79248c2054cf2b8b79aaf0b1af1341b6f625640bd36f2766492be0e6bdeab55e",
+    "compiler": "/nix/store/qhwms7m1mjhfnrm1n3aaxd45ghsvfk19-i686-w64-mingw32-gcc-15.2.0/bin/i686-w64-mingw32-gcc",
+    "note": "Separate current-hardware reference for actual startup precision53. Precision64 reference files remain unchanged. No historical CPU equivalence claim.",
+    "original_runner_source_sha256": "bb0441d73e1ebb9429d850eb9f2a4f0f9f717ad3d1711192011a91e0bc987e2c",
+    "runner_sha256": "bfd4b75e6033fb67f71e59888fa15953cfa54349d3e35d0d9c2eddf4f7209d1d",
+    "runner_path": "analysis/native-runners/pc53-assets.exe",
+    "compiler_flags": [
+      "-B/tmp/tact-native-toolchain-0uehbuwg/",
+      "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+      "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+      "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-mfpmath=387",
+      "-static",
+      "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+    ],
+    "original_text_unchanged": true,
+    "mapping": "Fixed SHA-checked preserved image in owned host PE section at original0x400000; actual original instructions, IAT/TLS runtime glue, no original entrypoint."
+  },
+  "routine": "0x417790",
+  "formula": "Original integer length1..100 retained by selector0/class11; original sqrt(15/length) binary64 store underCW027f",
+  "lengths": {
+    "1": {
+      "value": 3.872983346207417,
+      "bits": "da4e4fb1defb0e40",
+      "referenceEngine": "native-x87"
+    },
+    "2": {
+      "value": 2.7386127875258306,
+      "bits": "8fa536d2ade80540",
+      "referenceEngine": "native-x87"
+    },
+    "3": {
+      "value": 2.23606797749979,
+      "bits": "a8f4979b77e30140",
+      "referenceEngine": "native-x87"
+    },
+    "4": {
+      "value": 1.9364916731037085,
+      "bits": "da4e4fb1defbfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "5": {
+      "value": 1.7320508075688772,
+      "bits": "aa4c58e87ab6fb3f",
+      "referenceEngine": "native-x87"
+    },
+    "6": {
+      "value": 1.5811388300841898,
+      "bits": "535bda3a584cf93f",
+      "referenceEngine": "native-x87"
+    },
+    "7": {
+      "value": 1.4638501094227998,
+      "bits": "9d78a317ee6bf73f",
+      "referenceEngine": "native-x87"
+    },
+    "8": {
+      "value": 1.3693063937629153,
+      "bits": "8fa536d2ade8f53f",
+      "referenceEngine": "native-x87"
+    },
+    "9": {
+      "value": 1.2909944487358056,
+      "bits": "91348acbe9a7f43f",
+      "referenceEngine": "native-x87"
+    },
+    "10": {
+      "value": 1.224744871391589,
+      "bits": "2e2109148e98f33f",
+      "referenceEngine": "native-x87"
+    },
+    "11": {
+      "value": 1.1677484162422844,
+      "bits": "67769bf618aff23f",
+      "referenceEngine": "native-x87"
+    },
+    "12": {
+      "value": 1.118033988749895,
+      "bits": "a8f4979b77e3f13f",
+      "referenceEngine": "native-x87"
+    },
+    "13": {
+      "value": 1.0741723110591492,
+      "bits": "d948244ecf2ff13f",
+      "referenceEngine": "native-x87"
+    },
+    "14": {
+      "value": 1.0350983390135313,
+      "bits": "0750a346c38ff03f",
+      "referenceEngine": "native-x87"
+    },
+    "15": {
+      "value": 1.0,
+      "bits": "000000000000f03f",
+      "referenceEngine": "native-x87"
+    },
+    "16": {
+      "value": 0.9682458365518543,
+      "bits": "da4e4fb1defbee3f",
+      "referenceEngine": "native-x87"
+    },
+    "17": {
+      "value": 0.9393364366277243,
+      "bits": "693b68490b0fee3f",
+      "referenceEngine": "native-x87"
+    },
+    "18": {
+      "value": 0.9128709291752769,
+      "bits": "bfdc48183d36ed3f",
+      "referenceEngine": "native-x87"
+    },
+    "19": {
+      "value": 0.8885233166386386,
+      "bits": "f4485673c86eec3f",
+      "referenceEngine": "native-x87"
+    },
+    "20": {
+      "value": 0.8660254037844386,
+      "bits": "aa4c58e87ab6eb3f",
+      "referenceEngine": "native-x87"
+    },
+    "21": {
+      "value": 0.8451542547285166,
+      "bits": "a14b84ef800beb3f",
+      "referenceEngine": "native-x87"
+    },
+    "22": {
+      "value": 0.8257228238447705,
+      "bits": "7c2b7f45526cea3f",
+      "referenceEngine": "native-x87"
+    },
+    "23": {
+      "value": 0.8075728530872482,
+      "bits": "67b52406a3d7e93f",
+      "referenceEngine": "native-x87"
+    },
+    "24": {
+      "value": 0.7905694150420949,
+      "bits": "535bda3a584ce93f",
+      "referenceEngine": "native-x87"
+    },
+    "25": {
+      "value": 0.7745966692414834,
+      "bits": "48723ff47ec9e83f",
+      "referenceEngine": "native-x87"
+    },
+    "26": {
+      "value": 0.7595545253127499,
+      "bits": "f5e7b74a454ee83f",
+      "referenceEngine": "native-x87"
+    },
+    "27": {
+      "value": 0.7453559924999299,
+      "bits": "354675cff4d9e73f",
+      "referenceEngine": "native-x87"
+    },
+    "28": {
+      "value": 0.7319250547113999,
+      "bits": "9d78a317ee6be73f",
+      "referenceEngine": "native-x87"
+    },
+    "29": {
+      "value": 0.7191949522280763,
+      "bits": "6492e821a503e73f",
+      "referenceEngine": "native-x87"
+    },
+    "30": {
+      "value": 0.7071067811865476,
+      "bits": "cd3b7f669ea0e63f",
+      "referenceEngine": "native-x87"
+    },
+    "31": {
+      "value": 0.6956083436402524,
+      "bits": "c14ed86d6c42e63f",
+      "referenceEngine": "native-x87"
+    },
+    "32": {
+      "value": 0.6846531968814576,
+      "bits": "8fa536d2ade8e53f",
+      "referenceEngine": "native-x87"
+    },
+    "33": {
+      "value": 0.674199862463242,
+      "bits": "11ea07970b93e53f",
+      "referenceEngine": "native-x87"
+    },
+    "34": {
+      "value": 0.6642111641550714,
+      "bits": "4ee475c53741e53f",
+      "referenceEngine": "native-x87"
+    },
+    "35": {
+      "value": 0.6546536707079771,
+      "bits": "2ab53c41ecf2e43f",
+      "referenceEngine": "native-x87"
+    },
+    "36": {
+      "value": 0.6454972243679028,
+      "bits": "91348acbe9a7e43f",
+      "referenceEngine": "native-x87"
+    },
+    "37": {
+      "value": 0.6367145399670133,
+      "bits": "e478c12bf75fe43f",
+      "referenceEngine": "native-x87"
+    },
+    "38": {
+      "value": 0.6282808624375432,
+      "bits": "cbe69b77e01ae43f",
+      "referenceEngine": "native-x87"
+    },
+    "39": {
+      "value": 0.6201736729460423,
+      "bits": "2897647576d8e33f",
+      "referenceEngine": "native-x87"
+    },
+    "40": {
+      "value": 0.6123724356957945,
+      "bits": "2e2109148e98e33f",
+      "referenceEngine": "native-x87"
+    },
+    "41": {
+      "value": 0.6048583789091339,
+      "bits": "b30a84f5ff5ae33f",
+      "referenceEngine": "native-x87"
+    },
+    "42": {
+      "value": 0.5976143046671968,
+      "bits": "435bc508a81fe33f",
+      "referenceEngine": "native-x87"
+    },
+    "43": {
+      "value": 0.5906244232186183,
+      "bits": "a72bbe3065e6e23f",
+      "referenceEngine": "native-x87"
+    },
+    "44": {
+      "value": 0.5838742081211422,
+      "bits": "67769bf618afe23f",
+      "referenceEngine": "native-x87"
+    },
+    "45": {
+      "value": 0.5773502691896257,
+      "bits": "1c339045a779e23f",
+      "referenceEngine": "native-x87"
+    },
+    "46": {
+      "value": 0.5710402407201608,
+      "bits": "55fad22ef645e23f",
+      "referenceEngine": "native-x87"
+    },
+    "47": {
+      "value": 0.564932682866032,
+      "bits": "993cabb4ed13e23f",
+      "referenceEngine": "native-x87"
+    },
+    "48": {
+      "value": 0.5590169943749475,
+      "bits": "a8f4979b77e3e13f",
+      "referenceEngine": "native-x87"
+    },
+    "49": {
+      "value": 0.5532833351724882,
+      "bits": "c69abf407fb4e13f",
+      "referenceEngine": "native-x87"
+    },
+    "50": {
+      "value": 0.5477225575051661,
+      "bits": "7284f874f186e13f",
+      "referenceEngine": "native-x87"
+    },
+    "51": {
+      "value": 0.5423261445466404,
+      "bits": "affed25bbc5ae13f",
+      "referenceEngine": "native-x87"
+    },
+    "52": {
+      "value": 0.5370861555295746,
+      "bits": "d948244ecf2fe13f",
+      "referenceEngine": "native-x87"
+    },
+    "53": {
+      "value": 0.5319951765989315,
+      "bits": "b2e8a3bf1a06e13f",
+      "referenceEngine": "native-x87"
+    },
+    "54": {
+      "value": 0.5270462766947299,
+      "bits": "e23c3c2790dde03f",
+      "referenceEngine": "native-x87"
+    },
+    "55": {
+      "value": 0.5222329678670935,
+      "bits": "dd3abce921b6e03f",
+      "referenceEngine": "native-x87"
+    },
+    "56": {
+      "value": 0.5175491695067657,
+      "bits": "0750a346c38fe03f",
+      "referenceEngine": "native-x87"
+    },
+    "57": {
+      "value": 0.512989176042577,
+      "bits": "5fc1c946686ae03f",
+      "referenceEngine": "native-x87"
+    },
+    "58": {
+      "value": 0.5085476277156078,
+      "bits": "c2e6afac0546e03f",
+      "referenceEngine": "native-x87"
+    },
+    "59": {
+      "value": 0.5042194840896107,
+      "bits": "c57745e69022e03f",
+      "referenceEngine": "native-x87"
+    },
+    "60": {
+      "value": 0.5,
+      "bits": "000000000000e03f",
+      "referenceEngine": "native-x87"
+    },
+    "61": {
+      "value": 0.4958847036804647,
+      "bits": "573b393293bcdf3f",
+      "referenceEngine": "native-x87"
+    },
+    "62": {
+      "value": 0.4918693768379647,
+      "bits": "c011dbb1c97adf3f",
+      "referenceEngine": "native-x87"
+    },
+    "63": {
+      "value": 0.4879500364742666,
+      "bits": "7c4b2fca923adf3f",
+      "referenceEngine": "native-x87"
+    },
+    "64": {
+      "value": 0.4841229182759271,
+      "bits": "da4e4fb1defbde3f",
+      "referenceEngine": "native-x87"
+    },
+    "65": {
+      "value": 0.4803844614152614,
+      "bits": "6f3fd2779ebede3f",
+      "referenceEngine": "native-x87"
+    },
+    "66": {
+      "value": 0.4767312946227962,
+      "bits": "1c9ed8f9c382de3f",
+      "referenceEngine": "native-x87"
+    },
+    "67": {
+      "value": 0.47316022340738384,
+      "bits": "8a6053d14148de3f",
+      "referenceEngine": "native-x87"
+    },
+    "68": {
+      "value": 0.46966821831386213,
+      "bits": "693b68490b0fde3f",
+      "referenceEngine": "native-x87"
+    },
+    "69": {
+      "value": 0.4662524041201569,
+      "bits": "2228d85214d7dd3f",
+      "referenceEngine": "native-x87"
+    },
+    "70": {
+      "value": 0.4629100498862757,
+      "bits": "0415507951a0dd3f",
+      "referenceEngine": "native-x87"
+    },
+    "71": {
+      "value": 0.4596385597769217,
+      "bits": "203c8ed9b76add3f",
+      "referenceEngine": "native-x87"
+    },
+    "72": {
+      "value": 0.45643546458763845,
+      "bits": "bfdc48183d36dd3f",
+      "referenceEngine": "native-x87"
+    },
+    "73": {
+      "value": 0.45329841391162456,
+      "bits": "f50fc559d702dd3f",
+      "referenceEngine": "native-x87"
+    },
+    "74": {
+      "value": 0.45022516889074815,
+      "bits": "a0320e3a7dd0dc3f",
+      "referenceEngine": "native-x87"
+    },
+    "75": {
+      "value": 0.4472135954999579,
+      "bits": "d9edbfc5259fdc3f",
+      "referenceEngine": "native-x87"
+    },
+    "76": {
+      "value": 0.4442616583193193,
+      "bits": "f4485673c86edc3f",
+      "referenceEngine": "native-x87"
+    },
+    "77": {
+      "value": 0.4413674147523748,
+      "bits": "c96af81c5d3fdc3f",
+      "referenceEngine": "native-x87"
+    },
+    "78": {
+      "value": 0.4385290096535146,
+      "bits": "84c8b3fadb10dc3f",
+      "referenceEngine": "native-x87"
+    },
+    "79": {
+      "value": 0.4357446703305951,
+      "bits": "2f7a1e9d3de3db3f",
+      "referenceEngine": "native-x87"
+    },
+    "80": {
+      "value": 0.4330127018922193,
+      "bits": "aa4c58e87ab6db3f",
+      "referenceEngine": "native-x87"
+    },
+    "81": {
+      "value": 0.4303314829119352,
+      "bits": "c1f0620f8d8adb3f",
+      "referenceEngine": "native-x87"
+    },
+    "82": {
+      "value": 0.42769946138415077,
+      "bits": "fd59ca8f6d5fdb3f",
+      "referenceEngine": "native-x87"
+    },
+    "83": {
+      "value": 0.4251151509488518,
+      "bits": "c500972d1635db3f",
+      "referenceEngine": "native-x87"
+    },
+    "84": {
+      "value": 0.4225771273642583,
+      "bits": "a14b84ef800bdb3f",
+      "referenceEngine": "native-x87"
+    },
+    "85": {
+      "value": 0.42008402520840293,
+      "bits": "76e5751ba8e2da3f",
+      "referenceEngine": "native-x87"
+    },
+    "86": {
+      "value": 0.4176345347922784,
+      "bits": "8e3b273386bada3f",
+      "referenceEngine": "native-x87"
+    },
+    "87": {
+      "value": 0.41522739926869984,
+      "bits": "e3c710f11593da3f",
+      "referenceEngine": "native-x87"
+    },
+    "88": {
+      "value": 0.41286141192238524,
+      "bits": "7c2b7f45526cda3f",
+      "referenceEngine": "native-x87"
+    },
+    "89": {
+      "value": 0.41053541362798,
+      "bits": "cd72d8533646da3f",
+      "referenceEngine": "native-x87"
+    },
+    "90": {
+      "value": 0.408248290463863,
+      "bits": "3e2c0c70bd20da3f",
+      "referenceEngine": "native-x87"
+    },
+    "91": {
+      "value": 0.40599897147057507,
+      "bits": "9a3f2b1ce3fbd93f",
+      "referenceEngine": "native-x87"
+    },
+    "92": {
+      "value": 0.4037864265436241,
+      "bits": "67b52406a3d7d93f",
+      "referenceEngine": "native-x87"
+    },
+    "93": {
+      "value": 0.4016096644512494,
+      "bits": "73d7a405f9b3d93f",
+      "referenceEngine": "native-x87"
+    },
+    "94": {
+      "value": 0.3994677309684806,
+      "bits": "eb48141ae190d93f",
+      "referenceEngine": "native-x87"
+    },
+    "95": {
+      "value": 0.39735970711951313,
+      "bits": "83e4b468576ed93f",
+      "referenceEngine": "native-x87"
+    },
+    "96": {
+      "value": 0.39528470752104744,
+      "bits": "535bda3a584cd93f",
+      "referenceEngine": "native-x87"
+    },
+    "97": {
+      "value": 0.39324187881980727,
+      "bits": "f7b63cfcdf2ad93f",
+      "referenceEngine": "native-x87"
+    },
+    "98": {
+      "value": 0.3912303982179758,
+      "bits": "5a066339eb09d93f",
+      "referenceEngine": "native-x87"
+    },
+    "99": {
+      "value": 0.3892494720807615,
+      "bits": "df9d249e76e9d83f",
+      "referenceEngine": "native-x87"
+    },
+    "100": {
+      "value": 0.3872983346207417,
+      "bits": "48723ff47ec9d83f",
+      "referenceEngine": "native-x87"
+    }
+  }
+}

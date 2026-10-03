@@ -1,0 +1,22 @@
+{
+  "sourceSha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "imageBase": 4194304,
+  "imageSize": 1118208,
+  "scope": "Original read-only constants and initial mutable data. Executable sections and import code are excluded; all game routines execute as native JavaScript.",
+  "segments": [
+    {
+      "section": ".rdata",
+      "file": "original-constants.bin",
+      "address": 4726784,
+      "size": 58880,
+      "sha256": "12f5d2b0f95db10c47ce6ff1c214819a232057ed6b5b8ad82e2bd719ca334a6b"
+    },
+    {
+      "section": ".data",
+      "file": "original-initial-state.bin",
+      "address": 4788224,
+      "size": 129608,
+      "sha256": "2475ec2b740474b8e4b0f086828ac64da1f03cea5fcacaeee02897a00f09e06f"
+    }
+  ]
+}

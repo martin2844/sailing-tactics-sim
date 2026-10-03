@@ -1,0 +1,280 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "engine": "Native i386 instructions under Wine on the host CPU; original executable code is unchanged.",
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "x87_control_word": "0x037f",
+  "runner_image_base": "0x00300000",
+  "original_image_base_required": "0x00400000",
+  "fixture_sha256": {
+    "original-global-wind.json": "6c75b43bf4dce4309b42b8044fe14f69569a24a1ff5be5d019057e1972f740fd",
+    "original-boat-options.json": "e243673abd5dbaac2b04c1d7bf8cc083cecdcc7c859d28570feaeec7efccaf39",
+    "original-apparent-wind.json": "1ad945b9bf2c51e599d3e1a2f0b6a95dcd2a582f425f08aaf1dc15667c19f2ac",
+    "original-angles.json": "8aa2d4ba7bd2db629031683b46c8d674a9bc8a406574b8c6b654b11eb33fc4a4",
+    "original-current.json": "cb65f34220e02902a0e23504fe2dfcc711826f1a740b1f52b34e1da9bcab8e70",
+    "original-movement-helpers.json": "9ad5e14dcfdc286607ef0df13fe5e31f76bcbc329430bda42cf10ac5b41e1c25",
+    "original-steering.json": "4b157070edb17fae34c21d325540f05ef2b7342a4d7db5b9086c371daae7c79e",
+    "original-encounter-leaves.json": "769eded4bba92b428a05de9ee29e3387b0581ddae955b3a2b995e0c10fe0a8ff"
+  },
+  "runner_source_sha256": "a67740542762a0508c54723f8a87b74a63519ce3075aabe101c614714f148f72",
+  "runner_sha256": "e107b5ae754070f9521a845ed98d310290e318666900ee841f41c37520410bb0",
+  "compiler": "/nix/store/qhwms7m1mjhfnrm1n3aaxd45ghsvfk19-i686-w64-mingw32-gcc-15.2.0/bin/i686-w64-mingw32-gcc",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-0ozghrzs/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "scope": "Full isolated original global-wind, boat-options, apparent-wind, bearing, radian-wrap, six current, two movement-helper, and three steering routines. Finite fixture domain; current geometry and movement inputs are synthetic. Not full race, historical CPU, UI, or sound-playback parity.",
+  "mapping": "Manual in-process mapping of this exact SHA256-checked image into an explicit host-owned PE data section linked at its original base, copying unchanged headers/raw sections and zero-initialized BSS with original section protections. No original entrypoint or whole Windows lifecycle.",
+  "loader_limitation": "Wine LoadLibraryA and LoadLibraryExA(DONT_RESOLVE_DLL_REFERENCES) mapped the relocation-stripped EXE at 0x00ea0000 instead of its required preferred base.",
+  "import_initialization": "Only original import-address-table data resolved with LoadLibrary/GetProcAddress.",
+  "tls_initialization": "TlsAlloc/TlsSetValue for isolated original CRT 0x74-byte thread block; original TLS index data set to allocated slot. Original TLS accessor instructions are executed.",
+  "startup_original_initializer": "00415a60 (trigonometric lookup data)",
+  "original_routine_addresses": [
+    "0041b5d0",
+    "00417790",
+    "00429df0",
+    "0041bb10",
+    "00413cd0",
+    "00421560",
+    "00420b70",
+    "00420c40",
+    "00420d10",
+    "00421ae0",
+    "00421b80",
+    "00428ab0",
+    "0042a3b0",
+    "0042ba00",
+    "0042b7f0",
+    "0042bda0",
+    "00421c40",
+    "00428af0",
+    "0044da90",
+    "0042a8a0",
+    "0042a950",
+    "0042abb0",
+    "00426f50"
+  ],
+  "current_geometry": "Synthetic shorelineX[64], shorelineY[64], radialBoundary[181] from original-current.json; explicitly not recovered course geometry.",
+  "groups": {
+    "random_table": {
+      "cases": 1,
+      "exact_matches": 1,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "wind": {
+      "cases": 824,
+      "exact_matches": 824,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "wind_chain": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "boat": {
+      "cases": 852,
+      "exact_matches": 852,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "apparent_wind": {
+      "cases": 1960,
+      "exact_matches": 1960,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "bearing": {
+      "cases": 4145,
+      "exact_matches": 4145,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "radian_wrap": {
+      "cases": 528,
+      "exact_matches": 528,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "synthetic_geometry": {
+      "cases": 1,
+      "exact_matches": 1,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "current": {
+      "cases": 2510,
+      "exact_matches": 2510,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "current_shorelineMetric": {
+      "cases": 256,
+      "exact_matches": 256,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "current_ellipticalMetric": {
+      "cases": 256,
+      "exact_matches": 256,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "current_radialMetric": {
+      "cases": 256,
+      "exact_matches": 256,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "current_shoreDirections": {
+      "cases": 256,
+      "exact_matches": 256,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "current_attenuationDistance": {
+      "cases": 256,
+      "exact_matches": 256,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "movement_distance": {
+      "cases": 686,
+      "exact_matches": 686,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "movement_prestart": {
+      "cases": 1178,
+      "exact_matches": 1178,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "sound_recorder_binding": {
+      "cases": 1,
+      "exact_matches": 1,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "steering_updatePlayer1Rudder": {
+      "cases": 1782,
+      "exact_matches": 1782,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "steering_updatePlayer1Steering": {
+      "cases": 1782,
+      "exact_matches": 1782,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "steering_updatePlayer2Steering": {
+      "cases": 1782,
+      "exact_matches": 1782,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "steering_chain_updatePlayer1Rudder": {
+      "cases": 48,
+      "exact_matches": 48,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "steering_chain_updatePlayer1Steering": {
+      "cases": 48,
+      "exact_matches": 48,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "steering_chain_updatePlayer2Steering": {
+      "cases": 48,
+      "exact_matches": 48,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_resetBoat": {
+      "cases": 848,
+      "exact_matches": 848,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_relativeProjection": {
+      "cases": 1007,
+      "exact_matches": 1007,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_aheadAstern": {
+      "cases": 627,
+      "exact_matches": 627,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_respawnNearStart": {
+      "cases": 524,
+      "exact_matches": 524,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_shiftPenaltyPosition": {
+      "cases": 1988,
+      "exact_matches": 1988,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_checkNearRaceMarks": {
+      "cases": 3721,
+      "exact_matches": 3721,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "encounter_signedStartDistance": {
+      "cases": 400,
+      "exact_matches": 400,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "text_integrity": {
+      "cases": 1,
+      "exact_matches": 1,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "sound_initialization": "Only the known PlaySoundA IAT data slot at 004b1c18 is subsequently rebound to a host-owned stdcall recorder. Ordered resource/module/flags arguments are captured and BOOL1 returned, matching the CPU fixture environment; no actual audio playback.",
+  "protocol_command_limit": 65536,
+  "protocol_commands": 28700,
+  "sound_requests_compared": 1823,
+  "movement_original_image_unchanged_every_call": true,
+  "fixed_encounter_schema_sha256": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+  "encounter_scope": "Seven complete leaves, synthetic endpoints/boat inputs, full I64 and m80 returns, RNG/sound requests, every final mapped-image byte change. Independent cases restore original initialized writable data before applying inputs.",
+  "process_exit_code": 0,
+  "native_initialization": {
+    "protocol_version": 2,
+    "module_base": "0x400000",
+    "isolated_tls_index": 22,
+    "resolved_original_imports": 358,
+    "x87_control_word": "0x37f",
+    "mapping_mode": "fixed preserved image copied into dedicated host PE section at 0x400000"
+  },
+  "loaded_original_text_unchanged": true,
+  "comparison_complete": true,
+  "all_fixture_cases_match": true,
+  "function_cases": 28696,
+  "exact_function_cases": 28696,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 8.301219299988588
+}

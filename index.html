@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087777">
+  <title>Posey · Port workbench</title>
+  <link rel="icon" href="assets/images/group_icon-128-1033.ico">
+  <link rel="stylesheet" href="src/browser.css">
+  <script type="module" src="src/browser.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workbench</a>
+  <div class="desktop">
+    <div class="window">
+      <header class="title-bar">
+        <img src="assets/images/icon-1-1033.png" alt="" width="24" height="24">
+        <h1>Posey Sailing Tactics</h1>
+        <span class="title-caption">Preservation project</span>
+      </header>
+      <nav class="menu-bar" aria-label="Workbench sections">
+        <a href="play.html">Play the simulator</a>
+        <a href="#wind">Numerical tools</a>
+        <a href="#resources">Original resources</a>
+        <a href="#source">Recovered source</a>
+        <a href="README.md">Project notes</a>
+      </nav>
+      <main id="main">
+        <div class="project-status">
+          <div>
+            <h2>Preservation workbench</h2>
+            <p><a href="play.html">Play the native JavaScript simulator</a>, or inspect the original files and numerical comparisons below.</p>
+          </div>
+          <span class="edition">2002 demo</span>
+        </div>
+        <div id="load-error" class="error-box" role="alert" hidden></div>
+        <noscript><p class="error-box">Enable JavaScript to use the numerical tools and file browsers.</p></noscript>
+        <div class="top-grid">
+          <section id="wind" class="group">
+            <h2 class="group-title">Apparent wind</h2>
+            <p class="description">The recovered vector routine, running in JavaScript with its original integer tables.</p>
+            <div class="wind-layout">
+              <form id="wind-form">
+                <label for="boat-speed">Boat speed <span>(knots)</span></label>
+                <input id="boat-speed" name="speed" type="number" min="0" max="20" step="0.1" value="5.2" required>
+                <label for="true-wind">True wind <span>(knots)</span></label>
+                <input id="true-wind" name="wind" type="number" min="0" max="40" step="1" value="17" required>
+                <label for="wind-angle">Angle to true wind <span>(degrees)</span></label>
+                <input id="wind-angle" name="angle" type="number" min="0" max="361" step="1" value="90" required>
+                <button id="calculate-wind" type="submit" disabled>Calculate wind</button>
+                <p id="wind-error" class="inline-error" role="alert"></p>
+              </form>
+              <div class="wind-result">
+                <svg viewBox="0 0 240 230" role="img" aria-labelledby="wind-diagram-title" class="wind-diagram">
+                  <title id="wind-diagram-title">True and apparent angles relative to the boat</title>
+                  <circle cx="120" cy="108" r="77" fill="none" class="compass-ring"/>
+                  <path d="M120 28V188M40 108H200" class="compass-axis"/>
+                  <text x="120" y="18" text-anchor="middle">0°</text>
+                  <text x="213" y="112" text-anchor="middle">90°</text>
+                  <text x="120" y="208" text-anchor="middle">180°</text>
+                  <text x="18" y="112" text-anchor="middle">270°</text>
+                  <line id="true-vector" x1="120" y1="108" x2="197" y2="108" class="true-vector"/>
+                  <line id="apparent-vector" x1="120" y1="108" x2="180" y2="65" class="apparent-vector"/>
+                  <path d="M120 90L126 114L120 120L114 114Z" class="boat-symbol"/>
+                </svg>
+                <div class="diagram-key"><span class="true-key">True angle</span><span class="apparent-key">Apparent angle</span></div>
+              </div>
+            </div>
+            <div class="wind-outputs" aria-live="polite">
+              <div><span>Apparent wind</span><output id="apparent-knots">—</output><span>knots</span></div>
+              <div><span>Apparent angle</span><output id="apparent-angle">—</output><span>degrees</span></div>
+              <div><span>Returned pressure</span><output id="wind-pressure">—</output><span>native value</span></div>
+            </div>
+            <p class="footnote">This is a single recovered routine. Inputs use boat slot 1; outputs preserve the original truncation and angle rules. Sample agreement does not establish full x87 equivalence.</p>
+            <details class="evidence"><summary>Routine and fields</summary><p><code>FUN_00429df0</code> reads angle <code>004a7bcc</code> and wind <code>004a633c</code>; writes speed <code>004ab9ec</code> and angle <code>004a47fc</code>. Boat speed is supplied in tenths of a knot.</p></details>
+          </section>
+          <aside class="side-pane">
+            <section class="group verification-group">
+              <h2 class="group-title">Verification</h2>
+              <p id="verification-status" role="status">Loading original execution traces…</p>
+              <ul id="verification-results" class="verification-list"></ul>
+              <p class="footnote">These workbench comparisons cover the early numerical routines. The playable simulator has separate checks for initialization, boat dynamics, tactics, rules, input, and drawing. See the <a href="analysis/port-status.json">port status</a>, <a href="analysis/native-reference-index.json">native comparison index</a>, <a href="analysis/native-reference-comparison.json">early native routine report</a>, and <a href="analysis/x87-reference-comparison.json">x87 report</a> for measured scope and limitations.</p>
+            </section>
+            <section id="resources" class="group asset-group">
+              <h2 class="group-title">Original resources</h2>
+              <label for="asset-select">Preview a recovered file</label>
+              <select id="asset-select" disabled><option>Loading resources…</option></select>
+              <div id="asset-preview" class="asset-preview"><p>Loading the original images and sounds…</p></div>
+              <p id="asset-description" class="footnote"></p>
+              <a id="asset-download" class="file-link" hidden download>Download original resource bytes</a>
+            </section>
+          </aside>
+        </div>
+        <section class="group integer-group">
+          <h2 class="group-title">Integer routines</h2>
+          <div class="integer-grid">
+            <form id="heading-form" class="mini-tool">
+              <h3>Heading wrap</h3>
+              <label for="heading-input">Signed 32-bit angle</label>
+              <input id="heading-input" type="number" min="-2147483648" max="2147483647" step="1" value="720" required>
+              <button type="submit">Wrap once</button>
+              <p>Result: <output id="heading-output">360</output>°</p>
+              <p class="footnote">One revolution is removed or added. An input of 720 stays at 360, as in the original.</p>
+            </form>
+            <form id="speed-form" class="mini-tool">
+              <h3>Simulator speed</h3>
+              <label for="speed-level">Original speed level</label>
+              <select id="speed-level"></select>
+              <p>Divisor: <output id="speed-output">256</output></p>
+              <p class="footnote">The recovered 15-level mapping. This changes a native timing divisor; it does not run a browser race.</p>
+            </form>
+            <form id="rng-form" class="mini-tool">
+              <h3>Original random generator</h3>
+              <label for="rng-seed">Unsigned 32-bit seed</label>
+              <input id="rng-seed" type="number" min="0" max="4294967295" step="1" value="1" required>
+              <div class="button-row"><button type="submit">Set seed</button><button id="next-random" type="button">Next value</button></div>
+              <p>Value: <output id="rng-output">—</output> <span class="rng-state">State: <output id="rng-state">1</output></span></p>
+              <p class="footnote">The original seeded generator. Each click advances the stored state once.</p>
+            </form>
+          </div>
+        </section>
+        <section class="group global-wind-group" id="changing-wind">
+          <h2 class="group-title">Changing wind and tide</h2>
+          <p class="description">Step through the recovered environmental update using the original tables and seeded random state.</p>
+          <div class="global-wind-layout">
+            <form id="global-wind-form">
+              <div class="global-wind-inputs">
+                <div><label for="global-hour">Hour</label><select id="global-hour" disabled><option value="recorded">Recorded hours</option></select></div>
+                <div><label for="global-weather">Weather setting</label><select id="global-weather" disabled></select></div>
+                <div><label for="global-shore">Shore setting</label><select id="global-shore" disabled></select></div>
+                <div><label for="global-tide-phase">Tide phase hour</label><input id="global-tide-phase" type="number" min="0" max="23" step="1" value="7" required disabled></div>
+                <div><label for="global-base-direction">Base wind direction</label><input id="global-base-direction" type="number" min="0" max="359" step="1" value="270" required disabled></div>
+                <div><label for="global-base-strength">Base wind strength</label><input id="global-base-strength" type="number" min="0" max="22" step="1" value="17" required disabled></div>
+              </div>
+              <div class="button-row"><button id="global-next" type="submit" disabled>Next recorded update</button><button id="global-advance" type="button" disabled>Advance 20 updates</button><button id="global-reset" type="button" disabled>Reset sequence</button></div>
+              <p id="global-wind-error" class="inline-error" role="alert"></p>
+              <p class="footnote">Weather and shore values retain their native codes. Controls change the inputs for subsequent updates.</p>
+            </form>
+            <div class="global-wind-results" aria-live="polite">
+              <dl class="global-current-values">
+                <div><dt>Wind strength</dt><dd><output id="global-strength-output">—</output></dd></div>
+                <div><dt>Wind direction</dt><dd><output id="global-direction-output">—</output>°</dd></div>
+                <div><dt>Tide value</dt><dd><output id="global-tide-output">—</output></dd></div>
+                <div><dt>Native seconds</dt><dd><output id="global-time-output">—</output></dd></div>
+              </dl>
+              <p class="global-state-line">Hour: <output id="global-hour-output">—</output> <span>Random state: <output id="global-rng-output">—</output></span></p>
+              <figure class="global-history">
+                <svg viewBox="0 0 520 175" role="img" aria-labelledby="global-history-title">
+                  <title id="global-history-title">Actual wind strength after each recorded update</title>
+                  <path d="M40 25H505M40 85H505M40 145H505" class="history-grid"/>
+                  <path d="M40 20V145H505" class="history-axis"/>
+                  <text x="30" y="29" text-anchor="end">24</text><text x="30" y="89" text-anchor="end">12</text><text x="30" y="149" text-anchor="end">0</text>
+                  <text x="40" y="166">Update 1</text><text x="500" y="166" text-anchor="end">Update 64</text>
+                  <polyline id="global-history-line" points="" class="history-line"/>
+                  <circle id="global-history-dot" cx="40" cy="145" r="3" class="history-dot"/>
+                </svg>
+                <figcaption id="global-history-caption">Waiting for the first update.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <p id="global-sequence-status" role="status">Loading the recorded wind sequence…</p>
+          <p class="footnote">Clock, drift, and integration inputs replay the captured 64-update sequence. Reset restores its original inputs, random table, and seed 2002. This workbench exposes the environmental routine independently of the playable simulator.</p>
+          <details class="evidence"><summary>Clock inputs and complete native state</summary><p>Completed updates: <output id="global-step-output">—</output>. Recorded dt: <output id="global-dt">—</output>; drift clock: <output id="global-drift-clock">—</output>. Original routine: <code>FUN_0041b5d0</code>.</p><pre id="global-wind-native-state" tabindex="0" aria-label="Native wind output fields"></pre></details>
+        </section>
+        <section class="group boat-group" id="boat-setup">
+          <h2 class="group-title">Native boat setup</h2>
+          <p class="description">Apply the original boat presets and inspect their resulting values.</p>
+          <div class="boat-layout">
+            <form id="boat-form">
+              <label for="boat-selector">Original boat choice</label>
+              <select id="boat-selector" disabled><option>Loading original setup…</option></select>
+              <details class="boat-overrides">
+                <summary>Native overrides</summary>
+                <label for="boat-length-override">Length override <span>(0 uses preset)</span></label>
+                <input id="boat-length-override" type="number" min="0" max="50" step="1" value="0" required>
+                <label for="boat-displacement-override">Displacement override</label>
+                <input id="boat-displacement-override" type="number" min="0" max="11" step="1" value="0" required>
+                <label for="boat-sail-area-override">Sail area override</label>
+                <input id="boat-sail-area-override" type="number" min="0" max="11" step="1" value="0" required>
+                <label for="boat-sail-percent-override">Sail percent override <span>(0 uses preset)</span></label>
+                <input id="boat-sail-percent-override" type="number" min="0" max="2147483647" step="1" value="0" required>
+                <p class="footnote">The routine accepts length 20–50 for adjustable classes and displacement/sail area 8–11. Presets can replace these overrides.</p>
+              </details>
+              <div class="button-row"><button type="submit" id="apply-boat" disabled>Apply setup</button><button type="button" id="reset-boat" disabled>Reset setup</button></div>
+              <p id="boat-error" class="inline-error" role="alert"></p>
+            </form>
+            <div class="boat-output" aria-live="polite">
+              <dl class="boat-results">
+                <div><dt>Native class</dt><dd><output id="boat-class">—</output></dd></div>
+                <div><dt>Length value</dt><dd><output id="boat-length">—</output></dd></div>
+                <div><dt>Displacement value</dt><dd><output id="boat-displacement">—</output></dd></div>
+                <div><dt>Sail area value</dt><dd><output id="boat-sail-area">—</output></dd></div>
+                <div><dt>Sail percent</dt><dd><output id="boat-sail-percent">—</output></dd></div>
+                <div><dt>Rig code</dt><dd><output id="boat-rig">—</output></dd></div>
+                <div><dt>Course code</dt><dd><output id="boat-course">—</output></dd></div>
+                <div><dt>Offshore course flag</dt><dd><output id="boat-offshore-flag">—</output></dd></div>
+              </dl>
+              <p>Native time factor: <output id="boat-time-factor">—</output></p>
+              <p id="boat-retained" class="footnote"></p>
+              <details class="evidence"><summary>Type flags and routine result</summary><dl id="boat-flags" class="boat-flags"></dl><p>Residual EAX: <output id="boat-return-value">—</output>. Original routine: <code>FUN_00417790</code>.</p></details>
+            </div>
+          </div>
+          <p class="footnote">This applies native setup values in an isolated memory image. It does not start a sailing simulation. Values retain the original integer conventions; captured time factors preserve their stored binary64 bits.</p>
+        </section>
+        <div class="research-grid">
+          <section class="group menus-group">
+            <h2 class="group-title">Recovered menu tree</h2>
+            <p class="description">The simulator's original command labels, preserved for the interface port.</p>
+            <div id="menu-tree" class="menu-tree">Loading menu resource…</div>
+          </section>
+          <section id="source" class="group source-group">
+            <h2 class="group-title">Decompiled functions</h2>
+            <label for="function-search">Find a name, address, or signature</label>
+            <input id="function-search" type="search" placeholder="e.g. 00429df0, rand, CDialog" disabled>
+            <p id="function-count" class="footnote" aria-live="polite">Loading the function index…</p>
+            <div class="source-layout">
+              <div id="function-list" class="function-list" aria-label="Matching functions"></div>
+              <div class="source-view">
+                <p id="function-title">Select a recovered function.</p>
+                <pre id="function-code" tabindex="0" aria-label="Recovered decompiler output"></pre>
+              </div>
+            </div>
+            <p class="footnote">Decompiler output is an analysis artifact. Names, types, and source structure may be inferred; translation and parity work remain.</p>
+          </section>
+        </div>
+      </main>
+      <footer class="status-bar"><span id="load-status" role="status">Loading workbench…</span><span>Local files · Native JavaScript</span></footer>
+    </div>
+  </div>
+</body>
+</html>

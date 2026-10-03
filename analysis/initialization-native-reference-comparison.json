@@ -1,0 +1,153 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-initialization.json": "04b3546af39207e8f3bd4ef955f13f4bb3d30937f1b5a257522a2331a81e2448"
+  },
+  "runner_source_sha256": "dc7f3321bc7e8ab24eacf87bce86a97fb0a55be82401387fc0f6765558c12e8f",
+  "runner_sha256": "1b044974faf7f75353dd1ee87d141beb0241fcc6b04535c19e20b76a20758fae",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-e_g_3k50/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "initializeCurvedHull": {
+      "cases": 56,
+      "exact_matches": 56,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeFlatHull": {
+      "cases": 56,
+      "exact_matches": 56,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeWind": {
+      "cases": 64,
+      "exact_matches": 64,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeTide": {
+      "cases": 64,
+      "exact_matches": 64,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeWindSources": {
+      "cases": 64,
+      "exact_matches": 64,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "respawnWindPatch": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeShoreline": {
+      "cases": 32,
+      "exact_matches": 32,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeEllipse": {
+      "cases": 64,
+      "exact_matches": 64,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeAdvancedTerrain": {
+      "cases": 30,
+      "exact_matches": 30,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeCourseConfiguration": {
+      "cases": 69,
+      "exact_matches": 69,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeCourse": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeBoats": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "placeStartingBoats": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "initializeRace": {
+      "cases": 69,
+      "exact_matches": 69,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "integratePositions": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "recordTrails": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "advanceRaceTarget": {
+      "cases": 36,
+      "exact_matches": 36,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "projectPoint": {
+      "cases": 96,
+      "exact_matches": 96,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 916,
+  "exact_function_cases": 916,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 6.311948120011948
+}

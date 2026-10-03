@@ -1,0 +1,1547 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-connected-frames-p53.json": "3bfe6e688bd4f3407e5d77719f35fb8c46cb8ecd67832f497778ec09e081f5fa"
+  },
+  "runner_source_sha256": "9416d09e5d80f8ea224d01dda75334a87046b68d39fb1ef1b25793f6fabda392",
+  "runner_sha256": "89de257a4757e3d2e714d42b42c697126505aebb705a456cc865fd237ec682c4",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-j9vh9pxv/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x027f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "drawSimulationFrame": {
+      "cases": 180,
+      "exact_matches": 180,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "drawing_requests_compared": 437044,
+  "sound_requests_compared": 389,
+  "cstring_runtime_cases": 180,
+  "library_runtime_evidence": {
+    "artifact": "analysis/connected-frames-p53-native-reference-comparison-runtime-evidence.json.gz",
+    "sha256": "84c220ec5321a3040f493010ed9d7571802bcd8b559b5a59e7bcd2c72e517a9d",
+    "encoding": "gzip JSON array",
+    "records": 180,
+    "scope": "Exact raw original CRT allocator bookkeeping before/after bytes; comparison-only normalizations are declared in this report."
+  },
+  "hud_cstring_pointer_evidence": [
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 0,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 1,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 2,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 3,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 4,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 5,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 6,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 7,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 8,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 9,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 10,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 11,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 12,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 13,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 14,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 15,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 16,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 17,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 18,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 19,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 20,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 21,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 22,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 23,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 24,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 25,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 26,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 27,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 28,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 29,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 30,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 31,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 32,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 33,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 34,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 35,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 36,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 37,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 38,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 39,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 40,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 41,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 42,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 43,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 44,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 45,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 46,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 47,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 48,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 49,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 50,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 51,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 52,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 53,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 54,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 55,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 56,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 57,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 58,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 59,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 60,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 61,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 62,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 63,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 64,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 65,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 66,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 67,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 68,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 69,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 70,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 71,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 72,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 73,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 74,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 75,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 76,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 77,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 78,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 79,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 80,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 81,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 82,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 83,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 84,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 85,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 86,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 87,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 88,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 89,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 90,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 91,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 92,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 93,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 94,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 95,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 96,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 97,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 98,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 99,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 100,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 101,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 102,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 103,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 104,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 105,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 106,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 107,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 108,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 109,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 110,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 111,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 112,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 113,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 114,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 115,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 116,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 117,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 118,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 119,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 120,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 121,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 122,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 123,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 124,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 125,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 126,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 127,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 128,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 129,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 130,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 131,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 132,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 133,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 134,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 135,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 136,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 137,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 138,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 139,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 140,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 141,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 142,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 143,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 144,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 145,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 146,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 147,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 148,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 149,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 150,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 151,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 152,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 153,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 154,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 155,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 156,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 157,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 158,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 159,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 160,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 161,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 162,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 163,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 164,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 165,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 166,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 167,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 168,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 169,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 170,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 171,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 172,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 173,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 174,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 175,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 176,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 177,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 178,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    },
+    {
+      "fixture": "original-connected-frames-p53.json",
+      "group": "drawSimulationFrame",
+      "index": 179,
+      "routine": 129,
+      "actual_data_pointer": 4847036,
+      "actual_text": ""
+    }
+  ],
+  "runner_path": "analysis/native-runners/connected-frames-p53-native-reference-comparison.exe",
+  "verifier_source_sha256": "743de52ebd44cbd2603b1e8d0e8115e65b93bc66090f3f3dfca457e3e1525c77",
+  "host_cpu_model": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "a9222975cb18f9b100aaa24aa56fde933ba0892912e26fe7cfefa126a1079cd9",
+    "native_cstring_runtime.h": "94e6533fa68ad572e90835b222208e47b4fb8631ed4bfa6ebcccf5dad0f95f76"
+  },
+  "cstring_runtime_normalizations": [
+    {
+      "address": 4849568,
+      "size": 128,
+      "purpose": "Original CRT lock-pointer table"
+    },
+    {
+      "address": 4849760,
+      "size": 8228,
+      "purpose": "Original CRT small-block-heap root/descriptors"
+    },
+    {
+      "address": 4910024,
+      "size": 96,
+      "purpose": "Four original CRT critical sections"
+    },
+    {
+      "address": 4914668,
+      "size": 4,
+      "purpose": "Original CRT heap handle"
+    },
+    {
+      "address": 4910132,
+      "size": 4,
+      "purpose": "Original SBH free-page counter; writes in 0045bc60/0045bb30"
+    }
+  ],
+  "cstring_runtime_scope": "For fixed drawing calls requiring strings, original CRT startup leaves 0x45b700 and 0x45b3c0 initialize locks/heap; original CString and formatter instructions execute. Only these declared allocator bookkeeping ranges are normalized to prepared comparison bytes. Their raw before/after differences are retained separately; game state and text remain exact.",
+  "hud_cstring_pointer_normalization": {
+    "address": 4878408,
+    "size": 4,
+    "scope": "Only fixed HUD routines56\u201362 and complete frame129. Original constructor46bd7a initializes the object before the call; original destructor46bec5 releases it after recording evidence. The host allocation pointer is normalized to prepared bytes for state comparisons; actual pointer and complete cp1252 text are recorded, and fixture hudText is strict."
+  },
+  "original_routine_addresses": [
+    "00404020"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 180,
+  "exact_function_cases": 180,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 1.962302821018966
+}

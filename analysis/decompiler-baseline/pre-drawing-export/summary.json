@@ -1,0 +1,36 @@
+{
+  "cancelled": false, 
+  "decompiled": 4268, 
+  "defined_data": 8148, 
+  "elapsed_seconds": 34.98100018501282, 
+  "expected_functions": 4268, 
+  "export_complete": true, 
+  "external_functions": 356, 
+  "failed": 0, 
+  "failures": [], 
+  "functions": 4268, 
+  "ghidra_version": "12.0.4", 
+  "image_base": "00400000", 
+  "language": "x86:LE:32:default", 
+  "program": "Tact02Demo.exe", 
+  "recovery_evidence": [
+    {
+      "file": "../analysis/function-recovery.json", 
+      "sha256": "866b88328ce30a629b7aaa11d1aa55b2cfabf1b4416f3883589e07149eac222b"
+    }, 
+    {
+      "file": "../analysis/catch-continuation-repairs.json", 
+      "sha256": "5edfdac3ab184547e57ebe65087ccc29759143448d56bbaae47be8ffcf1f9116"
+    }, 
+    {
+      "file": "../analysis/decompilation-coverage.json", 
+      "sha256": "fcda1f5c7ad4385ca2e6e767f51e977faf6b6c71ba5d16422425d0a0a8ad366e"
+    }
+  ], 
+  "scope": "Functions recovered by Ghidra analysis; undiscovered code and inferred semantics still require review.", 
+  "signature_corrections": {
+    "file": "signature-corrections.json", 
+    "sha256": "054cbc1306971fc059d084dca2667a5a06e987c937c2d8050511b6a5b9ab61d1"
+  }, 
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea"
+}

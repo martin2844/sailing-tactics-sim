@@ -1,0 +1,5770 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-projection.json": "3af969d12892b0721cf5767b1c4bf3ba594949086b7c0b30fbf5e639145ff2dc"
+  },
+  "runner_source_sha256": "1639e7fb7e7fac8401fe3b4a7cfdcca261cdd275d05844b0edf2d94467d90743",
+  "runner_sha256": "830e2998de507efb82bba673d8632542867e0665f9cee21f81a6d115afbb3b6e",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-lne465lv/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "nearCourseMark": {
+      "cases": 512,
+      "exact_matches": 512,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "updatePlayer1Camera": {
+      "cases": 512,
+      "exact_matches": 512,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "updatePlayer2Camera": {
+      "cases": 512,
+      "exact_matches": 512,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "projectedSize": {
+      "cases": 512,
+      "exact_matches": 512,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "cameraRelativeBearing": {
+      "cases": 512,
+      "exact_matches": 305,
+      "different_cases": 207,
+      "different_fields": {
+        "returnValue": 179,
+        "returnBits": 179,
+        "returnExtendedBits": 179,
+        "mutableBlockHash": 39,
+        "imageChanges": 39
+      }
+    },
+    "projectDistantPoint": {
+      "cases": 512,
+      "exact_matches": 512,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "projectScenePoint": {
+      "cases": 512,
+      "exact_matches": 500,
+      "different_cases": 12,
+      "different_fields": {
+        "mutableBlockHash": 12,
+        "imageChanges": 12
+      }
+    }
+  },
+  "differences": [
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 0,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.5375029436738394,
+          "native": 0.5375029436738403
+        },
+        "returnBits": {
+          "fixture": "e0a6925f3933e13f",
+          "native": "e8a6925f3933e13f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00003795fcca9989fe3f",
+          "native": "00403795fcca9989fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 3,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.30723667763687446,
+          "native": 0.30723667763687434
+        },
+        "returnBits": {
+          "fixture": "a440a506c4a9d33f",
+          "native": "a240a506c4a9d33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0020052a35204e9dfd3f",
+          "native": "0010052a35204e9dfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 5,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.0823276204082504,
+          "native": 1.0823276204082495
+        },
+        "returnBits": {
+          "fixture": "006053c43651f13f",
+          "native": "fc5f53c43651f13f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000009b22b6898aff3f",
+          "native": "00e0ff9a22b6898aff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 6,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "24949b661a1e5c36c502887497c0b24836ff9b2973b4c4b3415ed7ac47f1344b",
+          "native": "9bb6b6a0c01fc8b3dcaeade5ba81f8c87c5282e3c0d7c18f9518ac7e1ccbb02a"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "60f97701d35d5140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "17"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "61f97701d35d5140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "17"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 10,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.575017052743837,
+          "native": -0.5750170527438369
+        },
+        "returnBits": {
+          "fixture": "b2aa85298a66e2bf",
+          "native": "b1aa85298a66e2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090552d4c513493febf",
+          "native": "0088552d4c513493febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 13,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.365771472729491,
+          "native": 2.3657714727294907
+        },
+        "returnBits": {
+          "fixture": "9f76099819ed0240",
+          "native": "9e76099819ed0240"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f8b44bc0cc68970040",
+          "native": "00f0b44bc0cc68970040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 15,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.15601038190693514,
+          "native": 0.15601038190693528
+        },
+        "returnBits": {
+          "fixture": "8f3910f025f8c33f",
+          "native": "943910f025f8c33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078cc81802fc19ffc3f",
+          "native": "00a0cc81802fc19ffc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 20,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -5.204170427930421e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "0000000000008ebc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000f0c8bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 22,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.13640988895904146,
+          "native": 0.13640988895904158
+        },
+        "returnBits": {
+          "fixture": "af0cf715e175c13f",
+          "native": "b30cf715e175c13f"
+        },
+        "returnExtendedBits": {
+          "fixture": "007865b8af08af8bfc3f",
+          "native": "009865b8af08af8bfc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 23,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.5185418020542736,
+          "native": -2.518541802054274
+        },
+        "returnBits": {
+          "fixture": "c2748b3ef92504c0",
+          "native": "c3748b3ef92504c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0010a65bf4c92fa100c0",
+          "native": "0018a65bf4c92fa100c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 26,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "643f36ac058a87e4862e6b9947cb2e797577ce1305bc5ee7486d0e8e2a92d6cb",
+          "native": "b2fb6bf474a726c7eaaef502fd18a46a81b5e7592e59438105357c37ba6b9349"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "6b7f98b1aade5540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "6effffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "6a7f98b1aade5540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "6effffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 27,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.8636801680327688,
+          "native": 0.8636801680327687
+        },
+        "returnBits": {
+          "fixture": "e2f17c9744a3eb3f",
+          "native": "e1f17c9744a3eb3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00108fe7bb241addfe3f",
+          "native": "00088fe7bb241addfe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 29,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.45522599166623545,
+          "native": -0.4552259916662354
+        },
+        "returnBits": {
+          "fixture": "bab89f326c22ddbf",
+          "native": "b9b89f326c22ddbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0c5fd946113e9fdbf",
+          "native": "00c8c5fd946113e9fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 30,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "628fba0b1614671da54ec6106f53fc1b1d8775a618d4d0a3e93140f45f6d933c",
+          "native": "43c2932eb7730b756ae43274938644803fe3c349ba314e52fb09ff8bf0bf1d70"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b2e4b2bd96d85d40"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "b8ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b1e4b2bd96d85d40"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "b8ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 36,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.33884798969052177,
+          "native": -0.3388479896905218
+        },
+        "returnBits": {
+          "fixture": "0e50827aafafd5bf",
+          "native": "0f50827aafafd5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00708012d47b7dadfdbf",
+          "native": "00788012d47b7dadfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 39,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.930972076149381,
+          "native": 1.9309720761493812
+        },
+        "returnBits": {
+          "fixture": "21d0c8f942e5fe3f",
+          "native": "22d0c8f942e5fe3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00088146ce172af7ff3f",
+          "native": "00108146ce172af7ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 41,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.11760048828114093,
+          "native": -0.1176004882811411
+        },
+        "returnBits": {
+          "fixture": "eb3f29cb101bbebf",
+          "native": "f73f29cb101bbebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0058ff495986d8f0fbbf",
+          "native": "00b8ff495986d8f0fbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 43,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.1683554671326606,
+          "native": -0.1683554671326607
+        },
+        "returnBits": {
+          "fixture": "a102b804ac8cc5bf",
+          "native": "a402b804ac8cc5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "000815c0256065acfcbf",
+          "native": "002015c0256065acfcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 46,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.0644611483188628,
+          "native": 0.06446114831886275
+        },
+        "returnBits": {
+          "fixture": "0c62e49b8680b03f",
+          "native": "0962e49b8680b03f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00601023df340484fb3f",
+          "native": "00481023df340484fb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 48,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.395174954148575,
+          "native": 0.39517495414857495
+        },
+        "returnBits": {
+          "fixture": "2d0d11e48b4ad93f",
+          "native": "2c0d11e48b4ad93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00686988205f54cafd3f",
+          "native": "00606988205f54cafd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 50,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.1163626406917047e-16,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000080ae3c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000f4ca3f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 53,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "e93f6dc61d7932526e0499070d14cf4db2363307b0b26fdb2e8f0706efc3eecf",
+          "native": "4f004f3b5107f78b7a9e2db880908d2d605d7dccc2a7af9159d579f18c3f4c59"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "f665bda079669140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "40"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "f565bda079669140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "40"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 55,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.7755575615628914e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000080bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000080c8bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 56,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6483996619290604,
+          "native": 0.6483996619290595
+        },
+        "returnBits": {
+          "fixture": "f020d7a5b0bfe43f",
+          "native": "e820d7a5b0bfe43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "008007b92e85fda5fe3f",
+          "native": "004007b92e85fda5fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 61,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "c946712578687c5dc20b8f560be00dcc6d0869e7baf819315ef421445fd3596c",
+          "native": "fc3e14ad16804d7581c8f9166df88e5c320de4d7fc26aa3e6c00095ddc627b16"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "27b699d586976240"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "47"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "28b699d586976240"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "47"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": 1.2444468919067093,
+          "native": 1.2444468919067102
+        },
+        "returnBits": {
+          "fixture": "1492e52441e9f33f",
+          "native": "1892e52441e9f33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0902c27094a9fff3f",
+          "native": "00c0902c27094a9fff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 63,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4264445890902784,
+          "native": 1.4264445890902782
+        },
+        "returnBits": {
+          "fixture": "b62ebb8fb7d2f63f",
+          "native": "b52ebb8fb7d2f63f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b075d97dbc95b6ff3f",
+          "native": "00a875d97dbc95b6ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 64,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6ad6d3e9f51224beb0a60816d7e3e924bc4f3bb391fb5fea7f399a2f4e05ba9a",
+          "native": "52d95763eb14732fb951fcbf642333e29115f59e0010e171d2e157b3b2c12576"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "316805b5c96d7940"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "306805b5c96d7940"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 65,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "950c9e487c547cb9451418a3f63bee6241480b6d1eca5d6ef8cf4004f538d967",
+          "native": "d0249c76b764fc622538354a9aca1c561c38775fb5a89f4415924faf4e6a058b"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ef6ce5097ce75040"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "83"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ee6ce5097ce75040"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "83"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": 2.291898797034896,
+          "native": 2.2918987970348965
+        },
+        "returnBits": {
+          "fixture": "8f0d5809cf550240",
+          "native": "900d5809cf550240"
+        },
+        "returnExtendedBits": {
+          "fixture": "00786cc04a78ae920040",
+          "native": "00806cc04a78ae920040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 71,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.16497042959821684,
+          "native": -0.16497042959821773
+        },
+        "returnBits": {
+          "fixture": "8038f743c01dc5bf",
+          "native": "a038f743c01dc5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000c4b91f02eea8fcbf",
+          "native": "0000c5b91f02eea8fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 81,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.7405850496317226,
+          "native": -1.7405850496317223
+        },
+        "returnBits": {
+          "fixture": "523281b56fd9fbbf",
+          "native": "513281b56fd9fbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00909209ac7dcbdeffbf",
+          "native": "00889209ac7dcbdeffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 82,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.2407414174396088,
+          "native": 1.2407414174396085
+        },
+        "returnBits": {
+          "fixture": "03222bac13daf33f",
+          "native": "02222bac13daf33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00181059619dd09eff3f",
+          "native": "00101059619dd09eff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 84,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.5582338441214074,
+          "native": 2.558233844121407
+        },
+        "returnBits": {
+          "fixture": "a92c404e43770440",
+          "native": "a82c404e43770440"
+        },
+        "returnExtendedBits": {
+          "fixture": "00486501721abaa30040",
+          "native": "00406501721abaa30040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 85,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4692820412776086e-05,
+          "native": 1.4692820413664265e-05
+        },
+        "returnBits": {
+          "fixture": "000070dc25d0ee3e",
+          "native": "000078dc25d0ee3e"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000080e32e81f6ee3f",
+          "native": "000000c0e32e81f6ee3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 88,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8639127639022521,
+          "native": -1.863912763902252
+        },
+        "returnBits": {
+          "fixture": "0eeab83096d2fdbf",
+          "native": "0deab83096d2fdbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "007050c785b194eeffbf",
+          "native": "006850c785b194eeffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 89,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2869583917053535,
+          "native": 0.2869583917053534
+        },
+        "returnBits": {
+          "fixture": "ebfbebba865dd23f",
+          "native": "eafbebba865dd23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0058df5fd735ec92fd3f",
+          "native": "0050df5fd735ec92fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 93,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.1147346200264896,
+          "native": -1.1147346200264894
+        },
+        "returnBits": {
+          "fixture": "62b90bf8f3d5f1bf",
+          "native": "61b90bf8f3d5f1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0010cb5dc09faf8effbf",
+          "native": "0008cb5dc09faf8effbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 96,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.004965093806266457,
+          "native": 0.004965093806266375
+        },
+        "returnBits": {
+          "fixture": "2cd14f384756743f",
+          "native": "ced04f384756743f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060897ec239b2a2f73f",
+          "native": "0070867ec239b2a2f73f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 98,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.19521538826728974,
+          "native": 0.19521538826728968
+        },
+        "returnBits": {
+          "fixture": "8658245ed1fcc83f",
+          "native": "8458245ed1fcc83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0030c422f18ae6c7fc3f",
+          "native": "0020c422f18ae6c7fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 103,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.9120192852847148,
+          "native": 0.9120192852847147
+        },
+        "returnBits": {
+          "fixture": "07d07311432fed3f",
+          "native": "06d07311432fed3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0038809e8b187ae9fe3f",
+          "native": "0030809e8b187ae9fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 104,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.26012493155783556,
+          "native": 0.26012493155783467
+        },
+        "returnBits": {
+          "fixture": "b0917a0ae3a5d03f",
+          "native": "a0917a0ae3a5d03f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00808dd453182f85fd3f",
+          "native": "00008dd453182f85fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 108,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4958866329929215,
+          "native": 1.4958866329929217
+        },
+        "returnBits": {
+          "fixture": "83a673d226eff73f",
+          "native": "84a673d226eff73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018349d933679bfff3f",
+          "native": "0020349d933679bfff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 110,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.245004513516506e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000092bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000090c9bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 114,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8826813747019147,
+          "native": -1.8826813747019149
+        },
+        "returnBits": {
+          "fixture": "f4205281761ffebf",
+          "native": "f5205281761ffebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a007910ab4fbf0ffbf",
+          "native": "00a807910ab4fbf0ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 115,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -7.979727989493313e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000097bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000b8c9bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 120,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 3.0017767121097036,
+          "native": 3.001776712109703
+        },
+        "returnBits": {
+          "fixture": "a33e4382a3030840",
+          "native": "a23e4382a3030840"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018f519121c1dc00040",
+          "native": "0010f519121c1dc00040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 126,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "52b89ed9424e373ef834a20be920ee0ec16a36312ae8e4f222ac598f7c58ae01",
+          "native": "cb335c0db2de99a5ca445df4acf82e761c6874b0362dd1ce1e1890d883ed9559"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "173cb5d2eca94340"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e9ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "163cb5d2eca94340"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e9ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 127,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.475372574058349,
+          "native": 2.4753725740583485
+        },
+        "returnBits": {
+          "fixture": "b3f7d72290cd0340",
+          "native": "b2f7d72290cd0340"
+        },
+        "returnExtendedBits": {
+          "fixture": "0098bdbf16816c9e0040",
+          "native": "0090bdbf16816c9e0040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 130,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.6334712066209978,
+          "native": 1.6334712066209969
+        },
+        "returnBits": {
+          "fixture": "485136b4b222fa3f",
+          "native": "445136b4b222fa3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00408ab2a19515d1ff3f",
+          "native": "00208ab2a19515d1ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 131,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "07914d7c25de8d6324fc3482e78c67d45727b7ae39d5c3c0c617d123de8acbc1",
+          "native": "701e8001fa87137cd42b62661a8882ecb8d43d6e3b4753c4ea378e456d4c8035"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d78c15bc6ce44d40"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e5ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d88c15bc6ce44d40"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e5ffffff"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": -0.4779407737235742,
+          "native": -0.47794077372357424
+        },
+        "returnBits": {
+          "fixture": "fd5424e69496debf",
+          "native": "fe5424e69496debf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e8a72231a7b4f4fdbf",
+          "native": "00f0a72231a7b4f4fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 132,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 3.021585549765896,
+          "native": 3.0215855497658954
+        },
+        "returnBits": {
+          "fixture": "527c720b352c0840",
+          "native": "517c720b352c0840"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090e2935ba861c10040",
+          "native": "0088e2935ba861c10040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 133,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.5699830542426234,
+          "native": -1.5699830542426232
+        },
+        "returnBits": {
+          "fixture": "b0f0138da61ef9bf",
+          "native": "aff0138da61ef9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080859f6834f5c8ffbf",
+          "native": "0078859f6834f5c8ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 135,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.392811829382321,
+          "native": 2.3928118293823215
+        },
+        "returnBits": {
+          "fixture": "986e45877a240340",
+          "native": "996e45877a240340"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c0742b3ad423990040",
+          "native": "00c8742b3ad423990040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 137,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.4920572832618086,
+          "native": -2.492057283261807
+        },
+        "returnBits": {
+          "fixture": "d2f19ababbef03c0",
+          "native": "cef19ababbef03c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00908ed7d4dd7d9f00c0",
+          "native": "00708ed7d4dd7d9f00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 138,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.9862705088334205,
+          "native": -0.9862705088334204
+        },
+        "returnBits": {
+          "fixture": "bc5c8e2b878fefbf",
+          "native": "bb5c8e2b878fefbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e0e5725c397cfcfebf",
+          "native": "00d8e5725c397cfcfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 141,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.6167998550377418,
+          "native": -0.6167998550377417
+        },
+        "returnBits": {
+          "fixture": "8c11b20cd3bce3bf",
+          "native": "8b11b20cd3bce3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00608c906598e69dfebf",
+          "native": "00588c906598e69dfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 143,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.2671958844712872,
+          "native": -0.2671958844712873
+        },
+        "returnBits": {
+          "fixture": "ad845bc4bc19d1bf",
+          "native": "ae845bc4bc19d1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "006825dc22e6cd88fdbf",
+          "native": "007025dc22e6cd88fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 144,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.7349871590066779,
+          "native": 0.7349871590066778
+        },
+        "returnBits": {
+          "fixture": "7c3c5dca0385e73f",
+          "native": "7b3c5dca0385e73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e0e3e9521e28bcfe3f",
+          "native": "00d8e3e9521e28bcfe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 148,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.7357934620210336,
+          "native": -0.7357934620210335
+        },
+        "returnBits": {
+          "fixture": "ecb5ffba9e8be7bf",
+          "native": "ebb5ffba9e8be7bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060affdd7f55cbcfebf",
+          "native": "0058affdd7f55cbcfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 151,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.15946516993394044,
+          "native": 0.15946516993394036
+        },
+        "returnBits": {
+          "fixture": "58d2dbcc5a69c43f",
+          "native": "55d2dbcc5a69c43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c092de66d64aa3fc3f",
+          "native": "00a892de66d64aa3fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 153,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.00020205773075841066,
+          "native": -0.0002020577307584149
+        },
+        "returnBits": {
+          "fixture": "00dde6b0ee7b2abf",
+          "native": "9cdde6b0ee7b2abf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000e8368775dfd3f2bf",
+          "native": "00e0ec368775dfd3f2bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 160,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8828107488407917,
+          "native": -0.8828107488407918
+        },
+        "returnBits": {
+          "fixture": "d482da53fc3fecbf",
+          "native": "d582da53fc3fecbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a016d49ee2ffe1febf",
+          "native": "00a816d49ee2ffe1febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 161,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6a8c3a4703c6fd37a367edc909cf41860bba190768234ad34372a95558a7cfdc",
+          "native": "42e631df053dc18e54c5d97086ac7101bbf8c15d9193de63fcde332b57c56f2b"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "aa679130a1fa4c40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "1b"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "a9679130a1fa4c40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "1b"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 165,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.14967288163501236,
+          "native": -0.14967288163501227
+        },
+        "returnBits": {
+          "fixture": "f037dc217b28c3bf",
+          "native": "ed37dc217b28c3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0080bfe10ed94399fcbf",
+          "native": "0068bfe10ed94399fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 170,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.469446951953614e-18,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000050bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000080c5bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 173,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.848971470776566,
+          "native": -2.8489714707765663
+        },
+        "returnBits": {
+          "fixture": "6ac7f18db1ca06c0",
+          "native": "6bc7f18db1ca06c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00503b8e6f8c55b600c0",
+          "native": "00583b8e6f8c55b600c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 175,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 6.938893903907228e-18,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000603c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000080c63f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 183,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6314a394b6c1f6b2649aa1f06f3662d05af233076fef4227f64ae5e406435cf0",
+          "native": "2c6d368d09a8c722aba13ff9724400d66fd49cd6c9581ce9fe65ec3747ba0655"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "069452a9d9b2a440"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "6dffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "079452a9d9b2a440"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "6dffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 184,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.939071990315608,
+          "native": -2.9390719903156084
+        },
+        "returnBits": {
+          "fixture": "19f6f72c388307c0",
+          "native": "1af6f72c388307c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c8b0bf67c119bc00c0",
+          "native": "00d0b0bf67c119bc00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 186,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.4141711226198518,
+          "native": -0.41417112261985173
+        },
+        "returnBits": {
+          "fixture": "4264a698c781dabf",
+          "native": "4164a698c781dabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00102233c53c0ed4fdbf",
+          "native": "00082233c53c0ed4fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 188,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.1900533473122235,
+          "native": -1.1900533473122237
+        },
+        "returnBits": {
+          "fixture": "a538f360750af3bf",
+          "native": "a638f360750af3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0028c59907ab5398ffbf",
+          "native": "0030c59907ab5398ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 189,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.1887859149636637,
+          "native": 0.18878591496366376
+        },
+        "returnBits": {
+          "fixture": "90705b09232ac83f",
+          "native": "92705b09232ac83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "008084db4a1851c1fc3f",
+          "native": "009084db4a1851c1fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 191,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.21477801448101574,
+          "native": -0.2147780144810157
+        },
+        "returnBits": {
+          "fixture": "6c420c92d87dcbbf",
+          "native": "6a420c92d87dcbbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060136290c4eedbfcbf",
+          "native": "0050136290c4eedbfcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 193,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.46658381026119805,
+          "native": -0.466583810261198
+        },
+        "returnBits": {
+          "fixture": "f78d7a5782dcddbf",
+          "native": "f68d7a5782dcddbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b86fd4bb12e4eefdbf",
+          "native": "00b06fd4bb12e4eefdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 196,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.24172539749414979,
+          "native": -0.2417253974941498
+        },
+        "returnBits": {
+          "fixture": "f0cb6c9adbf0cebf",
+          "native": "f1cb6c9adbf0cebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00805f66d3dc86f7fcbf",
+          "native": "00885f66d3dc86f7fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 197,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.338963556149955,
+          "native": -1.3389635561499542
+        },
+        "returnBits": {
+          "fixture": "dc32c30c656cf5bf",
+          "native": "d832c30c656cf5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e09619662863abffbf",
+          "native": "00c09619662863abffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 198,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.09689785970738764,
+          "native": 0.09689785970738782
+        },
+        "returnBits": {
+          "fixture": "59e17e524cceb83f",
+          "native": "66e17e524cceb83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c80af7936272c6fb3f",
+          "native": "00300bf7936272c6fb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 201,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.49012994851626734,
+          "native": 0.4901299485162674
+        },
+        "returnBits": {
+          "fixture": "d8b8ea004a5edf3f",
+          "native": "d9b8ea004a5edf3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c0c6550750f2fafd3f",
+          "native": "00c8c6550750f2fafd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 205,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.0816681711721685e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000783c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000c0c73f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 206,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.43220189522976055,
+          "native": 0.4322018952297606
+        },
+        "returnBits": {
+          "fixture": "8ffc512332a9db3f",
+          "native": "90fc512332a9db3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078e48f1a9149ddfd3f",
+          "native": "0080e48f1a9149ddfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 208,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3756192071323754,
+          "native": 0.3756192071323753
+        },
+        "returnBits": {
+          "fixture": "1c839824250ad83f",
+          "native": "1a839824250ad83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e018c4242951c0fd3f",
+          "native": "00d018c4242951c0fd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 210,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "9eb148eca7d42eabd89e40eba823a7dd4969a172fe796993d386fcfab584ed20",
+          "native": "112e2f751d3ae3a21f4f0d0ff44105a200d21439b1bea65fb2203e8840cd93cb"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e5ef2fffebfc5f40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "41"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e6ef2fffebfc5f40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "41"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 211,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6b3c33b6b2b7e8e177d3375c93472fc6b1acff8b4e4548a64304e56a6280c06c",
+          "native": "87c7b3b32ed0ca16e31aaeca9a5abd306cffc5a2f2a3a051d065260abaa87897"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "df2c953ec3b26440"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "38"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "de2c953ec3b26440"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "38"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 214,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.0945028794055285,
+          "native": -1.0945028794055287
+        },
+        "returnBits": {
+          "fixture": "11cb86731583f1bf",
+          "native": "12cb86731583f1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "008858369cab188cffbf",
+          "native": "009058369cab188cffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 216,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "40e1525fa94279ed81d3eeac90e1d6787bb14a7a16b719a801cae3bf46df5e97",
+          "native": "3cb70190d3e7f5bb1a20e92f4c2c77b94504ea1749ebe52a7e09c34aac6aa056"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "c0bfd26bee914740"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "1b"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "c1bfd26bee914740"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "1b"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 219,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.124565784682114,
+          "native": -2.1245657846821135
+        },
+        "returnBits": {
+          "fixture": "35489b581cff00c0",
+          "native": "34489b581cff00c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a841dac4e2f88700c0",
+          "native": "00a041dac4e2f88700c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 220,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.22396628895931367,
+          "native": 0.22396628895931364
+        },
+        "returnBits": {
+          "fixture": "6f4d3e67edaacc3f",
+          "native": "6e4d3e67edaacc3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00786bf2396b57e5fc3f",
+          "native": "00706bf2396b57e5fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 221,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.1098044809073917,
+          "native": 0.10980448090739259
+        },
+        "returnBits": {
+          "fixture": "c095737e251cbc3f",
+          "native": "0096737e251cbc3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000ae9cf32be1e0fb3f",
+          "native": "0000b09cf32be1e0fb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 222,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.528530216928865,
+          "native": 1.528530216928866
+        },
+        "returnBits": {
+          "fixture": "2484ca19dc74f83f",
+          "native": "2884ca19dc74f83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00202154cee0a6c3ff3f",
+          "native": "00402154cee0a6c3ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 224,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8575342788088551,
+          "native": -0.8575342788088549
+        },
+        "returnBits": {
+          "fixture": "f6da55baeb70ebbf",
+          "native": "f4da55baeb70ebbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b0d7aed25d87dbfebf",
+          "native": "00a0d7aed25d87dbfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 225,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.9578709277818507,
+          "native": 0.9578709277818506
+        },
+        "returnBits": {
+          "fixture": "5c9793eee0a6ee3f",
+          "native": "5b9793eee0a6ee3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e0ba9c740737f5fe3f",
+          "native": "00d8ba9c740737f5fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 227,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.2915528201970665,
+          "native": 2.291552820197067
+        },
+        "returnBits": {
+          "fixture": "7b6c1ea519550240",
+          "native": "7c6c1ea519550240"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d863f328cda8920040",
+          "native": "00e063f328cda8920040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 233,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "9f759055479c0e8a32da1bcbdcb5057fb7627671cbb084e6703f0e3f25bac9f9",
+          "native": "5bd67cf8afdfe1e530a7508bfa54e8e8ad07c02fb1310c9ad170040371643fc6"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e8a8268f0ae39040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "a0ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e9a8268f0ae39040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "a0ffffff"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": -1.6755523356651258,
+          "native": -1.675552335665126
+        },
+        "returnBits": {
+          "fixture": "a9b046f70fcffabf",
+          "native": "aab046f70fcffabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00488535ba7f78d6ffbf",
+          "native": "00508535ba7f78d6ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 240,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "dec8a540fec204d27dbe3b5edc45b055a66029f9504457ac2a62fc076b0a94ad",
+          "native": "329db4a5e1714a3e7bf201d9176ba09a3503b3019e37e839fa626b6ced376c31"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d7fc8e9b6fd36340"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "dcffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d6fc8e9b6fd36340"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "dcffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 241,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8867190802324654,
+          "native": -0.8867190802324653
+        },
+        "returnBits": {
+          "fixture": "f0cd4ab10060ecbf",
+          "native": "efcd4ab10060ecbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00806f568a0500e3febf",
+          "native": "00786f568a0500e3febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 243,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.4268563697527314,
+          "native": -1.4268563697527317
+        },
+        "returnBits": {
+          "fixture": "14d6425867d4f6bf",
+          "native": "15d6425867d4f6bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a0b016c23aa3b6ffbf",
+          "native": "00a8b016c23aa3b6ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 244,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.1385593075580282,
+          "native": -0.13855930755802814
+        },
+        "returnBits": {
+          "fixture": "4e5242b74fbcc1bf",
+          "native": "4c5242b74fbcc1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00709212ba7de28dfcbf",
+          "native": "00609212ba7de28dfcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 246,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.09550518222847906,
+          "native": -0.09550518222847908
+        },
+        "returnBits": {
+          "fixture": "1a1445120773b8bf",
+          "native": "1b1445120773b8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0a028923898c3fbbf",
+          "native": "00d8a028923898c3fbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 247,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "d9b94cc9d3ab3bee6efa6e18adc4eecb8e203442c0d5ffdd08655feefe64c8cb",
+          "native": "b576ae61b88800848b0a12b99a706685ef26676030612341c45d3ee1669c98ff"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "33fcfdbb7de69040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "acffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "32fcfdbb7de69040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "acffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 248,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.1022385333928082,
+          "native": -0.10223853339280822
+        },
+        "returnBits": {
+          "fixture": "502850f54d2cbabf",
+          "native": "522850f54d2cbabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00804281aa6f62d1fbbf",
+          "native": "00904281aa6f62d1fbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 251,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.1437723274606772,
+          "native": 0.14377232746067725
+        },
+        "returnBits": {
+          "fixture": "76b741b22167c23f",
+          "native": "78b741b22167c23f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b0bb0d920d3993fc3f",
+          "native": "00c0bb0d920d3993fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 252,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.9626925237144448,
+          "native": -0.9626925237144457
+        },
+        "returnBits": {
+          "fixture": "c0a12e8d60ceeebf",
+          "native": "c8a12e8d60ceeebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000e75690473f6febf",
+          "native": "00400e75690473f6febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 255,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.5746149876934226,
+          "native": -1.5746149876934223
+        },
+        "returnBits": {
+          "fixture": "80f43e7c9f31f9bf",
+          "native": "7ff43e7c9f31f9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000a4f7e1fb8cc9ffbf",
+          "native": "00f8a3f7e1fb8cc9ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 260,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.0816681711721685e-16,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000ae3c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000f0ca3f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 262,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.5841223969924312,
+          "native": -1.5841223969924314
+        },
+        "returnBits": {
+          "fixture": "1219ffb99058f9bf",
+          "native": "1319ffb99058f9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090c8f8cf85c4caffbf",
+          "native": "0098c8f8cf85c4caffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 263,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.9357040830719985,
+          "native": 1.9357040830719987
+        },
+        "returnBits": {
+          "fixture": "487238d8a4f8fe3f",
+          "native": "497238d8a4f8fe3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "004092c3c126c5f7ff3f",
+          "native": "004892c3c126c5f7ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 265,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.122502256758253e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000082bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000090c8bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 266,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "a990e6a4e2e3c91570e5028bdd8a32e787207909744b747c6d7fae21fee44d99",
+          "native": "a4791daeb57c920faad084de03f541bb4e709911a9751ef3f13a05bd201337a0"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ae6b8ea752176240"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "4a"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ad6b8ea752176240"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "4a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 267,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8430483108828785,
+          "native": -0.8430483108828783
+        },
+        "returnBits": {
+          "fixture": "8314867340faeabf",
+          "native": "8214867340faeabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018a4309c03d2d7febf",
+          "native": "0010a4309c03d2d7febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 268,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4960895338669815,
+          "native": 1.4960895338669813
+        },
+        "returnBits": {
+          "fixture": "8d8b3d94fbeff73f",
+          "native": "8c8b3d94fbeff73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00685ceca1dc7fbfff3f",
+          "native": "00605ceca1dc7fbfff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 269,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8984247841286261,
+          "native": -0.8984247841286263
+        },
+        "returnBits": {
+          "fixture": "26f23755e5bfecbf",
+          "native": "27f23755e5bfecbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "003091bfa92affe5febf",
+          "native": "003891bfa92affe5febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 271,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "0c82decfd911f066956130896c64d849d3dc7bcb27f3eab2c1010eaffbba19c6",
+          "native": "1f036941159c20fd8fa9992f1b2aa5f5b7e8418a6bbc762ae25e0d96b9e16cdf"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "3312597c71485940"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "78"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "3412597c71485940"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "78"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 280,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "55d3fb5d1554e7a2e4ad8c57134ee88cacea190e1f02e4e54980ac2cc0fefd60",
+          "native": "bc85755c8749c7d392a347f571261cc2d183cd83003d5a926a032a0c909fcece"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e46a5c71eff0a040"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "4b"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e56a5c71eff0a040"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "4b"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 281,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "9acece38e4cf32def61957c2d67a7348db19fe405f18dc66b7d06bda05e9062f",
+          "native": "618a14dd3465cb6ddbae54ef2b2df39d13ee50f3009bbc3331894b1a54a047c8"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b996741e9b784940"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e4ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ba96741e9b784940"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e4ffffff"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": -0.49090392042790376,
+          "native": -0.4909039204279038
+        },
+        "returnBits": {
+          "fixture": "7cd3ed46f86adfbf",
+          "native": "7dd3ed46f86adfbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e09b6e37c257fbfdbf",
+          "native": "00e89b6e37c257fbfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 282,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.6915025303896196,
+          "native": 2.691502530389619
+        },
+        "returnBits": {
+          "fixture": "4fff887a32880540",
+          "native": "4eff887a32880540"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078fa47d49341ac0040",
+          "native": "0070fa47d49341ac0040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 288,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.2933823259790556,
+          "native": -1.2933823259790558
+        },
+        "returnBits": {
+          "fixture": "0cdf74aab1b1f4bf",
+          "native": "0ddf74aab1b1f4bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060f8a6538d8da5ffbf",
+          "native": "0068f8a6538d8da5ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 293,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.566336418773717,
+          "native": -0.5663364187737168
+        },
+        "returnBits": {
+          "fixture": "0a57a58d6d1fe2bf",
+          "native": "0857a58d6d1fe2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0050b82a6d6cfb90febf",
+          "native": "0040b82a6d6cfb90febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 295,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4692820412776086e-05,
+          "native": 1.4692820413664265e-05
+        },
+        "returnBits": {
+          "fixture": "000070dc25d0ee3e",
+          "native": "000078dc25d0ee3e"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000080e32e81f6ee3f",
+          "native": "000000c0e32e81f6ee3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 296,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5969654792324781,
+          "native": -0.5969654792324782
+        },
+        "returnBits": {
+          "fixture": "6c9f4459571ae3bf",
+          "native": "6d9f4459571ae3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060fb24cabad298febf",
+          "native": "0068fb24cabad298febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 298,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.045643859410803,
+          "native": -1.0456438594108028
+        },
+        "returnBits": {
+          "fixture": "04ec360ef5baf0bf",
+          "native": "03ec360ef5baf0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "002060b771a8d785ffbf",
+          "native": "001860b771a8d785ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 301,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.06128897569558018,
+          "native": -0.06128897569558019
+        },
+        "returnBits": {
+          "fixture": "c98a6fc44461afbf",
+          "native": "cb8a6fc44461afbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0048567c23260afbfabf",
+          "native": "0058567c23260afbfabf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 303,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.3076412052294068,
+          "native": -0.30764120522940674
+        },
+        "returnBits": {
+          "fixture": "5b30d7bc64b0d3bf",
+          "native": "5a30d7bc64b0d3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d882b9e625839dfdbf",
+          "native": "00d082b9e625839dfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 308,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.9795997022296061,
+          "native": 0.9795997022296062
+        },
+        "returnBits": {
+          "fixture": "7eeb8779e158ef3f",
+          "native": "7feb8779e158ef3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f05b3fcc0bc7fafe3f",
+          "native": "00f85b3fcc0bc7fafe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 310,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.192605903316741,
+          "native": -1.1926059033167409
+        },
+        "returnBits": {
+          "fixture": "e9307cede914f3bf",
+          "native": "e8307cede914f3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "004887e16b4fa798ffbf",
+          "native": "004087e16b4fa798ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 313,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.7211465393614631,
+          "native": 1.721146539361463
+        },
+        "returnBits": {
+          "fixture": "a0e522f4d089fb3f",
+          "native": "9fe522f4d089fb3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00002d17a1874edcff3f",
+          "native": "00f82c17a1874edcff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 315,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.4557315313993992,
+          "native": -0.4557315313993993
+        },
+        "returnBits": {
+          "fixture": "5f73c795b42addbf",
+          "native": "6173c795b42addbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f89a3baea455e9fdbf",
+          "native": "00089b3baea455e9fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 318,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.331247330576279,
+          "native": 2.3312473305762786
+        },
+        "returnBits": {
+          "fixture": "09b31d0065a60240",
+          "native": "08b31d0065a60240"
+        },
+        "returnExtendedBits": {
+          "fixture": "004898ed002833950040",
+          "native": "004098ed002833950040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 320,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -6.591949208711867e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000093bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000098c9bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 322,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.47000482341812194,
+          "native": -0.47000482341812183
+        },
+        "returnBits": {
+          "fixture": "f7c1621c8f14debf",
+          "native": "f5c1621c8f14debf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b80f16e378a4f0fdbf",
+          "native": "00a80f16e378a4f0fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 325,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.7755575615628914e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000803c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000000000000080c83f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 330,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "5b14185dfb29889b154363c161760351b626fb47194af00807058779af89aa42",
+          "native": "5619fe8e81f8d09b5935bb1896a65c65b6b0f4c29c3844855eafeba23b7283dc"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "f63c15f367935440"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "94ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "f53c15f367935440"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "94ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 331,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "ba9976e8ea29d5611e0016dbbafe4293993fc32642a5c6d25d56c077649afbb8",
+          "native": "2676a6b0c0816ca38ed4543826fd19ed868c03c979556bc7a798c9c6e4568b19"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "86de8b5221055740"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "79ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "87de8b5221055740"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "79ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 333,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.8920037363110245,
+          "native": -2.892003736311025
+        },
+        "returnBits": {
+          "fixture": "deecdadad22207c0",
+          "native": "dfecdadad22207c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f066d7d69616b900c0",
+          "native": "00f866d7d69616b900c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 336,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.46949274586872797,
+          "native": -0.4694927458687279
+        },
+        "returnBits": {
+          "fixture": "89c94d4d2b0cdebf",
+          "native": "88c94d4d2b0cdebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00484c6e6a5a61f0fdbf",
+          "native": "00404c6e6a5a61f0fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 341,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "c00f510d77f2d149d36278b03c5cc5ce7f58472442012e871c4261cad6900379",
+          "native": "6e10a2ac7a760e80577150aa6b92264846fca1383c5729c6e0db218b213f8ee6"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "947e245134c45340"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "efffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "957e245134c45340"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "efffffff"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": -0.30589644749071626,
+          "native": -0.3058964474907164
+        },
+        "returnBits": {
+          "fixture": "71da7bb1ce93d3bf",
+          "native": "74da7bb1ce93d3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0088d3de8b759e9cfdbf",
+          "native": "00a0d3de8b759e9cfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 343,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.7669615359621978,
+          "native": -0.7669615359621981
+        },
+        "returnBits": {
+          "fixture": "13ec47ebf28ae8bf",
+          "native": "15ec47ebf28ae8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0098603f5a9757c4febf",
+          "native": "00a8603f5a9757c4febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 345,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.0485234972594952,
+          "native": -3.048523497259495
+        },
+        "returnBits": {
+          "fixture": "60898e49606308c0",
+          "native": "5f898e49606308c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00004b744c021bc300c0",
+          "native": "00f84a744c021bc300c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 346,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.5484834708538691,
+          "native": -0.548483470853869
+        },
+        "returnBits": {
+          "fixture": "92d836352d8de1bf",
+          "native": "91d836352d8de1bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090c4b6a969698cfebf",
+          "native": "0088c4b6a969698cfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 348,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.2009337362073818,
+          "native": -0.20093373620738167
+        },
+        "returnBits": {
+          "fixture": "f23ed65832b8c9bf",
+          "native": "ed3ed65832b8c9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090f7b1c692c1cdfcbf",
+          "native": "0068f7b1c692c1cdfcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 351,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.18353507147207496,
+          "native": 0.18353507147207498
+        },
+        "returnBits": {
+          "fixture": "711fd2c4137ec73f",
+          "native": "721fd2c4137ec73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0088fb90269ef0bbfc3f",
+          "native": "0090fb90269ef0bbfc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 353,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.5115837494189243,
+          "native": 0.5115837494189244
+        },
+        "returnBits": {
+          "fixture": "396b1de2e45ee03f",
+          "native": "3a6b1de2e45ee03f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c859eb1027f782fe3f",
+          "native": "00d059eb1027f782fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 355,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 6.938893903907228e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000943c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000a0c93f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 356,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2086881289237078,
+          "native": 0.20868812892370775
+        },
+        "returnBits": {
+          "fixture": "843765e84ab6ca3f",
+          "native": "823765e84ab6ca3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0020bc294357b2d5fc3f",
+          "native": "0010bc294357b2d5fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 358,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.06809557585111417,
+          "native": 0.06809557585111418
+        },
+        "returnBits": {
+          "fixture": "1267482fb66eb13f",
+          "native": "1367482fb66eb13f"
+        },
+        "returnExtendedBits": {
+          "fixture": "009038437ab1758bfb3f",
+          "native": "009838437ab1758bfb3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 360,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6913187b9dc863aad3598b737f1f1c6f8f7dca3cf293239ea6219a84b4903b48",
+          "native": "21685f9448817e3a9c11d920a42c28e8b02a0088d0a45f4277228104143f741a"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "0ffa8e23bcfd6140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "33"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "10fa8e23bcfd6140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "33"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 363,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.804104755804637,
+          "native": 0.8041047558046371
+        },
+        "returnBits": {
+          "fixture": "bea597e539bbe93f",
+          "native": "bfa597e539bbe93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f02dbd2ccfd9cdfe3f",
+          "native": "00f82dbd2ccfd9cdfe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 364,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.36859345290188106,
+          "native": 0.36859345290188195
+        },
+        "returnBits": {
+          "fixture": "50ee6efe0897d73f",
+          "native": "60ee6efe0897d73f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00807277f347b8bcfd3f",
+          "native": "00007377f347b8bcfd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 370,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.0817377792229774,
+          "native": -0.08173777922297744
+        },
+        "returnBits": {
+          "fixture": "4e409c60c4ecb4bf",
+          "native": "51409c60c4ecb4bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "007002e2042366a7fbbf",
+          "native": "008802e2042366a7fbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 371,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "82616c5ade34497399d79531a00013623a56c777611d24145e48aad5580d615b",
+          "native": "eb722741cd21e9d7b2ecf8b728f349ac247baf914ef7dd5038d378470af884c0"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "19b3b5a510304240"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "13"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "18b3b5a510304240"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "13"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 373,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "383fe2240a3ee69f013448cda69c359189fee17e5a1f5b60a2bf0a821526bede",
+          "native": "c6578379bedbcb63aa67e0ca3d8f4f15512d20ce0e3a2d60964c703bb93d73c4"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "5998a1db9f678f40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "a4"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "5898a1db9f678f40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "a4"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": 2.879300389824048,
+          "native": 2.8793003898240475
+        },
+        "returnBits": {
+          "fixture": "153c8da4ce080740",
+          "native": "143c8da4ce080740"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a8e069247546b80040",
+          "native": "00a0e069247546b80040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 376,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 3.1378031745709625,
+          "native": 3.137803174570963
+        },
+        "returnBits": {
+          "fixture": "c189008d381a0940",
+          "native": "c289008d381a0940"
+        },
+        "returnExtendedBits": {
+          "fixture": "00084e0468c4d1c80040",
+          "native": "00104e0468c4d1c80040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 378,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "e59037d30aee53bf1dccd0a90b75ddefd930bfd9eef49a62427c2d3a15e7b1f0",
+          "native": "b1bdc4b680f6f4e36608770146a329b090d392531a8224417eaf54ad4efa64c5"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d330461cc1219040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "61ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d230461cc1219040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "61ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 379,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.4271508646476679,
+          "native": 0.42715086464766777
+        },
+        "returnBits": {
+          "fixture": "b9ab87947056db3f",
+          "native": "b7ab87947056db3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c85d3da484b3dafd3f",
+          "native": "00b85d3da484b3dafd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 380,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.0,
+          "native": -3.3881317890172014e-21
+        },
+        "returnBits": {
+          "fixture": "0000000000000000",
+          "native": "000000000000b0bb"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000000000",
+          "native": "0000000000000080bbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 381,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.3766100447992566,
+          "native": -2.376610044799256
+        },
+        "returnBits": {
+          "fixture": "2f108e204c0303c0",
+          "native": "2e108e204c0303c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078817004611a9800c0",
+          "native": "0070817004611a9800c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 382,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.625824744797975,
+          "native": 0.6258247447979749
+        },
+        "returnBits": {
+          "fixture": "48ea7d9dc106e43f",
+          "native": "47ea7d9dc106e43f"
+        },
+        "returnExtendedBits": {
+          "fixture": "004052efeb0c36a0fe3f",
+          "native": "003852efeb0c36a0fe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 384,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.2350222160759591,
+          "native": 0.2350222160759592
+        },
+        "returnBits": {
+          "fixture": "ad99f03d3515ce3f",
+          "native": "b099f03d3515ce3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068cd84efa9a9f0fc3f",
+          "native": "0080cd84efa9a9f0fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 385,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4692820412776086e-05,
+          "native": 1.4692820413664265e-05
+        },
+        "returnBits": {
+          "fixture": "000070dc25d0ee3e",
+          "native": "000078dc25d0ee3e"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000080e32e81f6ee3f",
+          "native": "000000c0e32e81f6ee3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 389,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.32989011247060407,
+          "native": -0.329890112470604
+        },
+        "returnBits": {
+          "fixture": "be70156beb1cd5bf",
+          "native": "bd70156beb1cd5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00f085ab585be7a8fdbf",
+          "native": "00e885ab585be7a8fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 390,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "346e6b35a7dce9a73c6304a996f9e3f74fb09295800d4a808acbba0b273c013a",
+          "native": "2b482a94b7a2cf9cc8cd10ba300cb8fe71c3c3b3a59e2fd65f64d0d032848632"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e02744611a376240"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "cfffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e12744611a376240"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "cfffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 394,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.8004662984985473,
+          "native": 1.8004662984985476
+        },
+        "returnBits": {
+          "fixture": "7a9fd9bfb5cefc3f",
+          "native": "7b9fd9bfb5cefc3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0fbccfead75e6ff3f",
+          "native": "00d8fbccfead75e6ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 395,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "b65db48ffce4411c1c04d7399e4d388e7aef6dc4106bc8a9b09ed60b89b657d1",
+          "native": "cd6da989d2f975b19202ffa048b0f8d90d09f727fa606fad548fddcbd2eb4f8a"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "13f9e1b6f45e6540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "edffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "14f9e1b6f45e6540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "edffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 396,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "301e280dc99770f80e138201844fbaa36898f629f7f3bb728467a048565708ff",
+          "native": "c2c74dca4f906af7e004db38e7b6faff64ff8bd88e2f06d26bedeeb1274560bb"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "03b5a908c2315540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "f5ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "02b5a908c2315540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "f5ffffff"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": -0.19358594938408222,
+          "native": -0.1935859493840821
+        },
+        "returnBits": {
+          "fixture": "63edc8a46cc7c8bf",
+          "native": "5fedc8a46cc7c8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00186b4726653bc6fcbf",
+          "native": "00f86a4726653bc6fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 398,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.40017198154048134,
+          "native": -0.40017198154048156
+        },
+        "returnBits": {
+          "fixture": "037b5ff16a9cd9bf",
+          "native": "077b5ff16a9cd9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0018d8fb8a57e3ccfdbf",
+          "native": "0038d8fb8a57e3ccfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 401,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.04413875139551993,
+          "native": 0.04413875139552002
+        },
+        "returnBits": {
+          "fixture": "d1c675bb5a99a63f",
+          "native": "dec675bb5a99a63f"
+        },
+        "returnExtendedBits": {
+          "fixture": "008836aedbd5cab4fa3f",
+          "native": "00f036aedbd5cab4fa3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 403,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.3110625884710907,
+          "native": 0.31106258847109053
+        },
+        "returnBits": {
+          "fixture": "28841f0f73e8d33f",
+          "native": "25841f0f73e8d33f"
+        },
+        "returnExtendedBits": {
+          "fixture": "004021fc7898439ffd3f",
+          "native": "002821fc7898439ffd3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 405,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.890187326923108,
+          "native": -1.8901873269231082
+        },
+        "returnBits": {
+          "fixture": "af2c0711353efebf",
+          "native": "b02c0711353efebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0078653988a8f1f1ffbf",
+          "native": "0080653988a8f1f1ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 410,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.8735013540549517e-16,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000abbc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000d8cabf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 413,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.6179679476333275,
+          "native": 1.6179679476333277
+        },
+        "returnBits": {
+          "fixture": "6cfbd05b32e3f93f",
+          "native": "6dfbd05b32e3f93f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060db87de9219cfff3f",
+          "native": "0068db87de9219cfff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 414,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.3045683858725625,
+          "native": 2.304568385872563
+        },
+        "returnBits": {
+          "fixture": "cdbec58cc16f0240",
+          "native": "cebec58cc16f0240"
+        },
+        "returnExtendedBits": {
+          "fixture": "0068f62d660c7e930040",
+          "native": "0070f62d660c7e930040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 415,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.734723475976807e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "000000000000743c",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000a0c73f",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 421,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "aebabe729d36342c81c61d806f63c2fa97b68e823dfcb097dbc90e3316ece020",
+          "native": "067b6f950d81436d97f41038cac1f59be5fe959dab3ab5ca29b117d67b441645"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b90d874093b25d40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "63"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b80d874093b25d40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "63"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 425,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.029616990418319,
+          "native": -3.0296169904183183
+        },
+        "returnBits": {
+          "fixture": "60052ad5a73c08c0",
+          "native": "5f052ad5a73c08c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "00002b50a93ee5c100c0",
+          "native": "00f82a50a93ee5c100c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 426,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "bb75e2ba8a456b4b5679ebeead12199ad3eeeb7c10bf79830d949cf647cc751a",
+          "native": "4a9d5d6819c2137583dcb58bfa2b81215e3b6f63893f92deb4d490269b963c66"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "dc1cf745aeb93f40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "02"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "dd1cf745aeb93f40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "02"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": 0.04861570872630416,
+          "native": 0.04861570872630505
+        },
+        "returnBits": {
+          "fixture": "00491a7e28e4a83f",
+          "native": "80491a7e28e4a83f"
+        },
+        "returnExtendedBits": {
+          "fixture": "000048d2f04321c7fa3f",
+          "native": "00004cd2f04321c7fa3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 430,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.0266377401458853,
+          "native": 1.026637740145885
+        },
+        "returnBits": {
+          "fixture": "3941ecb11b6df03f",
+          "native": "3841ecb11b6df03f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c809628fdd6883ff3f",
+          "native": "00c009628fdd6883ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 431,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "7727551628eaea5df28c1031bb5453b00fded25e05add3a92d4c9ebae93819d6",
+          "native": "47317dfc32120ac8330d5941d0087edd4779dccfe70d9e8095ce98997a9cc975"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "71998d3f272c4540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e7ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "70998d3f272c4540"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e7ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 432,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.363875019574146,
+          "native": 2.3638750195741456
+        },
+        "returnBits": {
+          "fixture": "f237674e37e90240",
+          "native": "f137674e37e90240"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090bf3973ba49970040",
+          "native": "0088bf3973ba49970040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 433,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.2094496065722247,
+          "native": -2.2094496065722242
+        },
+        "returnBits": {
+          "fixture": "281a53eaf3ac01c0",
+          "native": "271a53eaf3ac01c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040d198529f678d00c0",
+          "native": "0038d198529f678d00c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 434,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -2.8842118136405084,
+          "native": -2.884211813640509
+        },
+        "returnBits": {
+          "fixture": "2895b2a4dd1207c0",
+          "native": "2995b2a4dd1207c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040a99425ed96b800c0",
+          "native": "0048a99425ed96b800c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 438,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.605468809290505,
+          "native": -1.6054688092905047
+        },
+        "returnBits": {
+          "fixture": "9869ea0f00b0f9bf",
+          "native": "9769ea0f00b0f9bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c04c537f0080cdffbf",
+          "native": "00b84c537f0080cdffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 444,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.03208712317337793,
+          "native": -0.032087123173377904
+        },
+        "returnBits": {
+          "fixture": "02054e31b96da0bf",
+          "native": "fe044e31b96da0bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "001028708ac96d83fabf",
+          "native": "00f027708ac96d83fabf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 446,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.8326990501682978,
+          "native": -0.8326990501682977
+        },
+        "returnBits": {
+          "fixture": "60427c7a78a5eabf",
+          "native": "5f427c7a78a5eabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "000013e2d3c32bd5febf",
+          "native": "00f812e2d3c32bd5febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 451,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.2827819711214691,
+          "native": -0.28278197112146913
+        },
+        "returnBits": {
+          "fixture": "3a5e778d1919d2bf",
+          "native": "3b5e778d1919d2bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0f1ba6bccc890fdbf",
+          "native": "00d8f1ba6bccc890fdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 453,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.6156998685768468,
+          "native": -0.6156998685768469
+        },
+        "returnBits": {
+          "fixture": "bd0cf635d0b3e3bf",
+          "native": "be0cf635d0b3e3bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e865b0af819e9dfebf",
+          "native": "00f065b0af819e9dfebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 454,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "5665f0c8481bd2d8942857805c13e13231d814aa8b14dbff066525e947a941b5",
+          "native": "7451f0138d658269565c32aad4021a8f51a880f50045474b09d3e151f03f005e"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "84a8e0270aefbb40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "6c"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "83a8e0270aefbb40"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "6c"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 457,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.6671628227743165,
+          "native": -0.6671628227743174
+        },
+        "returnBits": {
+          "fixture": "08871dd96559e5bf",
+          "native": "10871dd96559e5bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "004038ecc82ecbaafebf",
+          "native": "008038ecc82ecbaafebf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 458,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.6769521528866302,
+          "native": 0.6769521528866301
+        },
+        "returnBits": {
+          "fixture": "165bb38f97a9e53f",
+          "native": "155bb38f97a9e53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00b0d89a7dbc4cadfe3f",
+          "native": "00a8d89a7dbc4cadfe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 460,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.5048612051252166,
+          "native": -1.5048612051252168
+        },
+        "returnBits": {
+          "fixture": "e182d057e913f8bf",
+          "native": "e282d057e913f8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00081784be4a9fc0ffbf",
+          "native": "00101784be4a9fc0ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 463,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 1.4071009732684487,
+          "native": 1.4071009732684485
+        },
+        "returnBits": {
+          "fixture": "60b9654f7c83f63f",
+          "native": "5fb9654f7c83f63f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0000cb2d7be21bb4ff3f",
+          "native": "00f8ca2d7be21bb4ff3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 465,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.7629063613131623,
+          "native": -0.7629063613131621
+        },
+        "returnBits": {
+          "fixture": "3503f899ba69e8bf",
+          "native": "3403f899ba69e8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00a819c0cfd44dc3febf",
+          "native": "00a019c0cfd44dc3febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 468,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 2.007053261695865,
+          "native": 2.0070532616958645
+        },
+        "returnBits": {
+          "fixture": "ce82c2f0710e0040",
+          "native": "cd82c2f0710e0040"
+        },
+        "returnExtendedBits": {
+          "fixture": "00701614868f73800040",
+          "native": "00681614868f73800040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 470,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.734723475976807e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000074bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000a0c7bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 472,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.774982555701465,
+          "native": -0.7749825557014649
+        },
+        "returnBits": {
+          "fixture": "51aa7637a8cce8bf",
+          "native": "50aa7637a8cce8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "008852b5bb4165c6febf",
+          "native": "008052b5bb4165c6febf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 475,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -3.469446951953614e-17,
+          "native": 0.0
+        },
+        "returnBits": {
+          "fixture": "00000000000084bc",
+          "native": "0000000000000000"
+        },
+        "returnExtendedBits": {
+          "fixture": "00000000000000a0c8bf",
+          "native": "00000000000000000000"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 476,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "2caf49d49dc8103bc50c34b8d9536980556811afd5209df401587734432a3dce",
+          "native": "dc2694835404949b521eb127e02cb2c6f3a1f78df3adfd2fd9a780e6872bee4c"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876329,
+              "before": "00000000000000",
+              "after": "c4e97b3b685840"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "7d"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ffc3e97b3b685840"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "7d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 477,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.048707336634421186,
+          "native": -0.048707336634421304
+        },
+        "returnBits": {
+          "fixture": "9217d7032bf0a8bf",
+          "native": "a317d7032bf0a8bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0090bcb81e5881c7fabf",
+          "native": "0018bdb81e5881c7fabf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 480,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "c594a8b602033f486d62bdea5910d2146a9267ff5747614b192c4c32126391d4",
+          "native": "b43e1acbbdadce94740e73135f01aef2e7a2bc4a3a633a73f0c19b5971225acc"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "8fadf76ab8c05040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "7cffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "8eadf76ab8c05040"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "7cffffff"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": -2.3135377771183294,
+          "native": -2.31353777711833
+        },
+        "returnBits": {
+          "fixture": "25451618208202c0",
+          "native": "26451618208202c0"
+        },
+        "returnExtendedBits": {
+          "fixture": "002829b2c000119400c0",
+          "native": "003029b2c000119400c0"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 483,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 3.06995305427904,
+          "native": 3.0699530542790394
+        },
+        "returnBits": {
+          "fixture": "0012038c438f0840",
+          "native": "ff11038c438f0840"
+        },
+        "returnExtendedBits": {
+          "fixture": "00009018601c7ac40040",
+          "native": "00f88f18601c7ac40040"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 485,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "26f7b30e933a17810d2338f43912df4a6b558f4c267ca825cfa585a97fdec22e",
+          "native": "dd05b71f3da0e22738cc87c3caf30a9c40b42fdee016ef0941b45f90f64e5da4"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "068a7d9d740a5b40"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "aeffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "078a7d9d740a5b40"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "aeffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 486,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.49220155991249914,
+          "native": -0.4922015599124992
+        },
+        "returnBits": {
+          "fixture": "d051b7f83a80dfbf",
+          "native": "d151b7f83a80dfbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00808ebac5d701fcfdbf",
+          "native": "00888ebac5d701fcfdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 497,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.969911069658738,
+          "native": -1.9699110696587363
+        },
+        "returnBits": {
+          "fixture": "0c674378c184ffbf",
+          "native": "04674378c184ffbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0060381bc20b26fcffbf",
+          "native": "0020381bc20b26fcffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 498,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.4996866735200727,
+          "native": -0.49968667352007257
+        },
+        "returnBits": {
+          "fixture": "e80141d0ddfadfbf",
+          "native": "e60141d0ddfadfbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00400f0882eed6fffdbf",
+          "native": "00300f0882eed6fffdbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 499,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -1.6693122846971158,
+          "native": -1.669312284697116
+        },
+        "returnBits": {
+          "fixture": "ca5c59cc80b5fabf",
+          "native": "cb5c59cc80b5fabf"
+        },
+        "returnExtendedBits": {
+          "fixture": "0050e6ca6206acd5ffbf",
+          "native": "0058e6ca6206acd5ffbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 501,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.1226244718142632,
+          "native": -0.12262447181426316
+        },
+        "returnBits": {
+          "fixture": "3aac21405164bfbf",
+          "native": "37ac21405164bfbf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00d0610d018a22fbfbbf",
+          "native": "00b8610d018a22fbfbbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 503,
+      "routine": 38,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "55e7661b52febf28f45f7c2f290611a4b1cc3839d4ad1bd5bad705c59c3596df",
+          "native": "bceec0e3844eacaad305d90fad4b99f2afc0ca765a111e4ed48b9a7e148c3b04"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "cd3ec1e2f9ec9140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "0c"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "cc3ec1e2f9ec9140"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "0c"
+            }
+          ]
+        },
+        "returnValue": {
+          "fixture": 0.21276638098492673,
+          "native": 0.21276638098492695
+        },
+        "returnBits": {
+          "fixture": "685f02c4ed3bcb3f",
+          "native": "705f02c4ed3bcb3f"
+        },
+        "returnExtendedBits": {
+          "fixture": "0040fb12206edfd9fc3f",
+          "native": "0080fb12206edfd9fc3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 506,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.012261997479277746,
+          "native": -0.012261997479277665
+        },
+        "returnBits": {
+          "fixture": "9cce4171d11c89bf",
+          "native": "6dce4171d11c89bf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e0740e8a8be6c8f8bf",
+          "native": "0068730e8a8be6c8f8bf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 508,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": -0.23928924943662713,
+          "native": -0.2392892494366271
+        },
+        "returnBits": {
+          "fixture": "7dae4eb607a1cebf",
+          "native": "7cae4eb607a1cebf"
+        },
+        "returnExtendedBits": {
+          "fixture": "00e87375b23d08f5fcbf",
+          "native": "00e07375b23d08f5fcbf"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "cameraRelativeBearing",
+      "index": 510,
+      "routine": 38,
+      "fields": {
+        "returnValue": {
+          "fixture": 0.67048408252949,
+          "native": 0.6704840825294909
+        },
+        "returnBits": {
+          "fixture": "b87cde089b74e53f",
+          "native": "c07cde089b74e53f"
+        },
+        "returnExtendedBits": {
+          "fixture": "00c0e5f346d8a4abfe3f",
+          "native": "0000e6f346d8a4abfe3f"
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 131,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "b0724487f29ad890d6bc8a971357a1f9331ca046a633f8ef9d7ce3099e4da62a",
+          "native": "03d9e16c9473d94bf1e8185b52faa35391ddf977647922066efca5c958273127"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d78c15bc6ce44d40"
+            },
+            {
+              "address": 4881572,
+              "before": "00000000",
+              "after": "b4feffff"
+            },
+            {
+              "address": 4893348,
+              "before": "0000",
+              "after": "0e03"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e5ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d88c15bc6ce44d40"
+            },
+            {
+              "address": 4881572,
+              "before": "00000000",
+              "after": "b4feffff"
+            },
+            {
+              "address": 4893348,
+              "before": "0000",
+              "after": "0e03"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e5ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 211,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "7db541c184f59df1d368790ec6aff44ea9524f60e2e8f6fc445924acb33ebdc3",
+          "native": "fa2a9358b9d331f7a2b4da6ca365f081fab042b1595f0a02ecfc4a0fd870f837"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "df2c953ec3b26440"
+            },
+            {
+              "address": 4881604,
+              "before": "0000",
+              "after": "d705"
+            },
+            {
+              "address": 4893380,
+              "before": "0000",
+              "after": "d101"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "38"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "de2c953ec3b26440"
+            },
+            {
+              "address": 4881604,
+              "before": "0000",
+              "after": "d705"
+            },
+            {
+              "address": 4893380,
+              "before": "0000",
+              "after": "d101"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "38"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 216,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "a7e74e290304ab296e8cef5c8cae2deb3bb24f592a80a6e4ea96ad1a2e816443",
+          "native": "21fb115ca5c42f5198c3d7586b7a8a35e823b3f2ec1842bbb24e399872eb4d3f"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "c0bfd26bee914740"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "c602"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "5b02"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "1b"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "c1bfd26bee914740"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "c602"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "5b02"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "1b"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 240,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6612850a25ff81e5303c4ac5c4f3c948fa2345c27feee025278d89d86246c87d",
+          "native": "3748de87b24ccb8fb332db2b1469831e0ec03854064b85563cfdc403e110b420"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d7fc8e9b6fd36340"
+            },
+            {
+              "address": 4881576,
+              "before": "00",
+              "after": "92"
+            },
+            {
+              "address": 4893352,
+              "before": "00",
+              "after": "da"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "dcffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d6fc8e9b6fd36340"
+            },
+            {
+              "address": 4881576,
+              "before": "00",
+              "after": "92"
+            },
+            {
+              "address": 4893352,
+              "before": "00",
+              "after": "da"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "dcffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 280,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "7f11ead391bc7cb7b6e47b638d6083ff5026165c65acaf3fa57dfc41bb5aa2fa",
+          "native": "f30b84094e154aef2dd4edec8fc1cabdc6d0aeacf38600b0da802640baff6ba0"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e46a5c71eff0a040"
+            },
+            {
+              "address": 4881592,
+              "before": "0000",
+              "after": "1c03"
+            },
+            {
+              "address": 4893368,
+              "before": "00",
+              "after": "4a"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "4b"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "e56a5c71eff0a040"
+            },
+            {
+              "address": 4881592,
+              "before": "0000",
+              "after": "1c03"
+            },
+            {
+              "address": 4893368,
+              "before": "00",
+              "after": "4a"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "4b"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 360,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "b8f8c19179e8b27bd6800fb85fff29eca255c1b458bf1a7a5c4f0babe21b1915",
+          "native": "6c80a12fc829b229b52749bcb4b6a66d7ec0a05713ab6099a7f806a7227c869c"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "0ffa8e23bcfd6140"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "1f03"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "2801"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "33"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "10fa8e23bcfd6140"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "1f03"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "2801"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "33"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 371,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "0e3ad6a53a8387746314cb56afa1ea7f00045eaee94556bcc042cd96e90cd2a7",
+          "native": "d05fda94d64d393e9856826795ca5e8cc153e5ac3f59db5975919bd4543eff0b"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "19b3b5a510304240"
+            },
+            {
+              "address": 4881524,
+              "before": "0000",
+              "after": "4b04"
+            },
+            {
+              "address": 4893300,
+              "before": "0000",
+              "after": "a904"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "13"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "18b3b5a510304240"
+            },
+            {
+              "address": 4881524,
+              "before": "0000",
+              "after": "4b04"
+            },
+            {
+              "address": 4893300,
+              "before": "0000",
+              "after": "a904"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "13"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 395,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6c437339c8539925759638e1f25ae5d19b04e91c91c236dd4c4e10bf7b490295",
+          "native": "f9cc104fcf0a9409760259ec22037f175a9f8a2cb33357855ae749ac68c4c9c9"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "13f9e1b6f45e6540"
+            },
+            {
+              "address": 4881620,
+              "before": "00",
+              "after": "64"
+            },
+            {
+              "address": 4893396,
+              "before": "0000",
+              "after": "1601"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "edffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "14f9e1b6f45e6540"
+            },
+            {
+              "address": 4881620,
+              "before": "00",
+              "after": "64"
+            },
+            {
+              "address": 4893396,
+              "before": "0000",
+              "after": "1601"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "edffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 396,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "8214157764ed4e3117cc71e235b8c819675dcc99676a090ff29160a163fefc94",
+          "native": "ecbf3db40698b97a5eefc9548360d90c1f9064544a1dfcccf720b0b8a33aba5d"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "03b5a908c2315540"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "3701"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "3e01"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "f5ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "02b5a908c2315540"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "3701"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "3e01"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "f5ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 431,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "80bafd47dc43520ce03287e277e561f45c440b972abc72fa59ef47f6ecc072fa",
+          "native": "9e8ad7a4399fd99317b8d6e674439925227587a0bd7fc47d7a87d390e8abd999"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "71998d3f272c4540"
+            },
+            {
+              "address": 4881620,
+              "before": "00000000",
+              "after": "3efeffff"
+            },
+            {
+              "address": 4893396,
+              "before": "0000",
+              "after": "3204"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e7ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "70998d3f272c4540"
+            },
+            {
+              "address": 4881620,
+              "before": "00000000",
+              "after": "3efeffff"
+            },
+            {
+              "address": 4893396,
+              "before": "0000",
+              "after": "3204"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "e7ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 476,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "ee106cfd770d8aa424568cf579ffdd67e526fd4d53b514034ef9d66fb75d7ffe",
+          "native": "00c13a334e94c04f20cb254ab5ea51dfc7d70f398f63e84c5abbe154b83db777"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876329,
+              "before": "00000000000000",
+              "after": "c4e97b3b685840"
+            },
+            {
+              "address": 4881512,
+              "before": "0000",
+              "after": "3318"
+            },
+            {
+              "address": 4893288,
+              "before": "0000",
+              "after": "290e"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "7d"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "ffc3e97b3b685840"
+            },
+            {
+              "address": 4881512,
+              "before": "0000",
+              "after": "3318"
+            },
+            {
+              "address": 4893288,
+              "before": "0000",
+              "after": "290e"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "7d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-projection.json",
+      "group": "projectScenePoint",
+      "index": 503,
+      "routine": 40,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "756a8e21a84e8d47aa86d60159b4db11870efcdcea092e3f3efeccb955010023",
+          "native": "0261266afd7a93af1536bb0d6332fa559193bc675de40d349a1424005386282b"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "cd3ec1e2f9ec9140"
+            },
+            {
+              "address": 4881620,
+              "before": "0000",
+              "after": "0d02"
+            },
+            {
+              "address": 4893396,
+              "before": "00",
+              "after": "41"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "0c"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "cc3ec1e2f9ec9140"
+            },
+            {
+              "address": 4881620,
+              "before": "0000",
+              "after": "0d02"
+            },
+            {
+              "address": 4893396,
+              "before": "00",
+              "after": "41"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "0c"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "comparison_complete": true,
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "4f3e8ca82430b09cff11ef0bd60f0ae57eff61b979c5e862462f5619eeaf815d"
+  },
+  "original_routine_addresses": [
+    "004060a0",
+    "00415ac0",
+    "00415c40",
+    "0042ad00",
+    "0042bfc0",
+    "0042c210",
+    "0042c2e0"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 3584,
+  "exact_function_cases": 3365,
+  "all_fixture_cases_match": false,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 3.3656753659888636
+}

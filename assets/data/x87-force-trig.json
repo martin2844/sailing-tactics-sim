@@ -1,0 +1,3410 @@
+{
+  "provenance": {
+    "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+    "authoritative_engine": "native-x87",
+    "control_word": "0x037f",
+    "probe_source": "tools/capture_force_trig_native.c",
+    "probe_sha256": "216d36f741393f7f415e1cb2ba0816762954c2165b62a6291b27e90abde17208",
+    "note": "Local hardware reference; no historical CPU equivalence claim."
+  },
+  "degreeFactorAddress": 4738368,
+  "degreeFactorBits": "3152cb9156df913f",
+  "sportOffsetAddress": 4738496,
+  "sportOffsetBits": "9a9999999999e93f",
+  "classOffsetAddress": 4738624,
+  "classOffsetBits": "9a9999999999c9bf",
+  "construction": "FILD lever; optionally FSUB sportOffset; optionally FSUB classOffset; FILD force; FADDP; FMUL degreeFactor; FSIN",
+  "domains": {
+    "lever": [
+      0,
+      100
+    ],
+    "force": [
+      0,
+      180
+    ],
+    "sportFlag": [
+      0,
+      1
+    ],
+    "class2or6": [
+      0,
+      1
+    ]
+  },
+  "capturedCalls": 73124,
+  "radians": {
+    "00000000000000000000": {
+      "sineBits": "00000000000000000000"
+    },
+    "93434ff71654c4e4f63f": {
+      "sineBits": "adfdec77a435c4e4f63f"
+    },
+    "93434ff71654c4e4f8bf": {
+      "sineBits": "07e0ee24f06cc2e4f8bf"
+    },
+    "ae727b39113f93abf8bf": {
+      "sineBits": "a5d5499f8c7192abf8bf"
+    },
+    "0088915a8eb4fa8ef93f": {
+      "sineBits": "bbed131cd3d8f88ef93f"
+    },
+    "72707b39113f93abf93f": {
+      "sineBits": "e707f046020990abf93f"
+    },
+    "b4314ff71654c4e4f63f": {
+      "sineBits": "cfebec77a435c4e4f63f"
+    },
+    "a33a4ff71654c4e4f73f": {
+      "sineBits": "b8bf5c084ddac3e4f73f"
+    },
+    "0088915a8eb4fa8efa3f": {
+      "sineBits": "ea23f9a2b745f38efa3f"
+    },
+    "397c06cacff9469dfa3f": {
+      "sineBits": "504a886c2a153d9dfa3f"
+    },
+    "366e7b39113f93abf93f": {
+      "sineBits": "ab05f046020990abf93f"
+    },
+    "a956651894c92bc8f93f": {
+      "sineBits": "e079adc830b026c8f93f"
+    },
+    "004cda87d50e78d6fa3f": {
+      "sineBits": "59b9ac0f3ef95ed6fa3f"
+    },
+    "39404ff71654c4e4fa3f": {
+      "sineBits": "354bbd8fcde2a5e4fa3f"
+    },
+    "1b7b06cacff9469dfa3f": {
+      "sineBits": "3249886c2a153d9dfa3f"
+    },
+    "546f7b39113f93abfa3f": {
+      "sineBits": "045b70d20c6786abfa3f"
+    },
+    "0088915a8eb4fa8efb3f": {
+      "sineBits": "ab15259897fadc8efb3f"
+    },
+    "1d024c122fd72096fb3f": {
+      "sineBits": "eda8ef61eb6dfe95fb3f"
+    },
+    "1b3f4ff71654c4e4fa3f": {
+      "sineBits": "174abd8fcde2a5e4fa3f"
+    },
+    "5433c466589910f3fa3f": {
+      "sineBits": "fab9bf67c615ecf2fa3f"
+    },
+    "00ea35f1b161b9b2fb3f": {
+      "sineBits": "985b178e85547fb2fb3f"
+    },
+    "1d64f0a85284dfb9fb3f": {
+      "sineBits": "21ee6f1a0b389eb9fb3f"
+    },
+    "8e014c122fd72096fb3f": {
+      "sineBits": "5fa8ef61eb6dfe95fb3f"
+    },
+    "aa7b06cacff9469dfb3f": {
+      "sineBits": "abd50bd477691f9dfb3f"
+    },
+    "004cda87d50e78d6fb3f": {
+      "sineBits": "a93eed5d07c313d6fb3f"
+    },
+    "1dc6943f76319eddfb3f": {
+      "sineBits": "8803c38997882fddfb3f"
+    },
+    "8e63f0a85284dfb9fb3f": {
+      "sineBits": "93ed6f1a0b389eb9fb3f"
+    },
+    "aaddaa60f3a605c1fb3f": {
+      "sineBits": "35aea4a25687bcc0fb3f"
+    },
+    "00ae7e1ef9bb36fafb3f": {
+      "sineBits": "a7c3155ed17f97f9fb3f"
+    },
+    "0e941ceb4c6fae80fc3f": {
+      "sineBits": "cdea2ba0c1cc5780fc3f"
+    },
+    "8ec5943f76319eddfb3f": {
+      "sineBits": "f902c38997882fddfb3f"
+    },
+    "aa3f4ff71654c4e4fb3f": {
+      "sineBits": "dab11c94869d4ae4fb3f"
+    },
+    "0088915a8eb4fa8efc3f": {
+      "sineBits": "eb719095f2e2838efc3f"
+    },
+    "0ec56eb6dec58d92fc3f": {
+      "sineBits": "a036e0920cd30d92fc3f"
+    },
+    "c7931ceb4c6fae80fc3f": {
+      "sineBits": "87ea2ba0c1cc5780fc3f"
+    },
+    "d5d0f9469d804184fc3f": {
+      "sineBits": "bf98f3541d73e383fc3f"
+    },
+    "00b9e325200bdaa0fc3f": {
+      "sineBits": "9b20da78e4e830a0fc3f"
+    },
+    "0ef6c081701c6da4fc3f": {
+      "sineBits": "e5ba77de9975b8a3fc3f"
+    },
+    "c7c46eb6dec58d92fc3f": {
+      "sineBits": "5a36e0920cd30d92fc3f"
+    },
+    "d5014c122fd72096fc3f": {
+      "sineBits": "52e444a6844e9795fc3f"
+    },
+    "00ea35f1b161b9b2fc3f": {
+      "sineBits": "b666194ddf70d1b1fc3f"
+    },
+    "0e27134d02734cb6fc3f": {
+      "sineBits": "8a1da624ba5356b5fc3f"
+    },
+    "c7f5c081701c6da4fc3f": {
+      "sineBits": "9fba77de9975b8a3fc3f"
+    },
+    "d5329eddc02d00a8fc3f": {
+      "sineBits": "8049fbc4917f3fa7fc3f"
+    },
+    "001b88bc43b898c4fc3f": {
+      "sineBits": "3dffe468fd1a64c3fc3f"
+    },
+    "0e58651894c92bc8fc3f": {
+      "sineBits": "2b1f28e8bc0de6c6fc3f"
+    },
+    "c726134d02734cb6fc3f": {
+      "sineBits": "441da624ba5356b5fc3f"
+    },
+    "d563f0a85284dfb9fc3f": {
+      "sineBits": "473cf019c6a5dab8fc3f"
+    },
+    "004cda87d50e78d6fc3f": {
+      "sineBits": "b3ef4cf66d88e7d4fc3f"
+    },
+    "0e89b7e325200bdafc3f": {
+      "sineBits": "0122b2f90b4566d8fc3f"
+    },
+    "c757651894c92bc8fc3f": {
+      "sineBits": "e51e28e8bc0de6c6fc3f"
+    },
+    "d5944274e4dabecbfc3f": {
+      "sineBits": "b69ade6ca76167cafc3f"
+    },
+    "007d2c53676557e8fc3f": {
+      "sineBits": "9629584e905b5ae6fc3f"
+    },
+    "0eba09afb776eaebfc3f": {
+      "sineBits": "6cebdace469cd5e9fc3f"
+    },
+    "c788b7e325200bdafc3f": {
+      "sineBits": "bb21b2f90b4566d8fc3f"
+    },
+    "d5c5943f76319eddfc3f": {
+      "sineBits": "e4cb154ddb54e4dbfc3f"
+    },
+    "00ae7e1ef9bb36fafc3f": {
+      "sineBits": "429fc93c0f38bbf7fc3f"
+    },
+    "0eeb5b7a49cdc9fdfc3f": {
+      "sineBits": "92d5e0c05db732fbfc3f"
+    },
+    "c7b909afb776eaebfc3f": {
+      "sineBits": "26ebdace469cd5e9fc3f"
+    },
+    "d5f6e60a08887deffc3f": {
+      "sineBits": "7eccbb63422250edfc3f"
+    },
+    "806fe87445090b86fd3f": {
+      "sineBits": "fc3f06157e618484fd3f"
+    },
+    "070ed7a2ed91d487fd3f": {
+      "sineBits": "54c49498d61d3e86fd3f"
+    },
+    "c7ea5b7a49cdc9fdfc3f": {
+      "sineBits": "4dd5e0c05db732fbfc3f"
+    },
+    "eb931ceb4c6fae80fd3f": {
+      "sineBits": "5dbb7cad136ea9fefc3f"
+    },
+    "0088915a8eb4fa8efd3f": {
+      "sineBits": "64a9941475d1208dfd3f"
+    },
+    "87268088363dc490fd3f": {
+      "sineBits": "f52faf480c68d88efd3f"
+    },
+    "e30dd7a2ed91d487fd3f": {
+      "sineBits": "31c49498d61d3e86fd3f"
+    },
+    "6bacc5d0951a9e89fd3f": {
+      "sineBits": "a931c4ccfb6ef787fd3f"
+    },
+    "80a03a40d75fea97fd3f": {
+      "sineBits": "35ebd3730440b295fd3f"
+    },
+    "073f296e7fe8b399fd3f": {
+      "sineBits": "88ea84a6928e6797fd3f"
+    },
+    "63268088363dc490fd3f": {
+      "sineBits": "d32faf480c68d88efd3f"
+    },
+    "ebc46eb6dec58d92fd3f": {
+      "sineBits": "0a2ae085918c8f90fd3f"
+    },
+    "00b9e325200bdaa0fd3f": {
+      "sineBits": "41f2a1be1f02389efd3f"
+    },
+    "8757d253c893a3a2fd3f": {
+      "sineBits": "d9564ec98ae6ea9ffd3f"
+    },
+    "e33e296e7fe8b399fd3f": {
+      "sineBits": "66ea84a6928e6797fd3f"
+    },
+    "6bdd179c27717d9bfd3f": {
+      "sineBits": "bcadfd1f39641c99fd3f"
+    },
+    "80d18c0b69b6c9a9fd3f": {
+      "sineBits": "800caf8ca36db1a6fd3f"
+    },
+    "07707b39113f93abfd3f": {
+      "sineBits": "8618e27c01c661a8fd3f"
+    },
+    "6357d253c893a3a2fd3f": {
+      "sineBits": "b7564ec98ae6ea9ffd3f"
+    },
+    "ebf5c081701c6da4fd3f": {
+      "sineBits": "b3cc22c6414b9da1fd3f"
+    },
+    "00ea35f1b161b9b2fd3f": {
+      "sineBits": "48d509c662d91daffd3f"
+    },
+    "8788241f5aea82b4fd3f": {
+      "sineBits": "4cb07e82fc83cbb0fd3f"
+    },
+    "e36f7b39113f93abfd3f": {
+      "sineBits": "6418e27c01c661a8fd3f"
+    },
+    "6b0e6a67b9c75cadfd3f": {
+      "sineBits": "e97d0300e99711aafd3f"
+    },
+    "8002dfd6fa0ca9bbfd3f": {
+      "sineBits": "40db75d4339d7cb7fd3f"
+    },
+    "07a1cd04a39572bdfd3f": {
+      "sineBits": "1e062abe877827b9fd3f"
+    },
+    "6388241f5aea82b4fd3f": {
+      "sineBits": "2ab07e82fc83cbb0fd3f"
+    },
+    "eb26134d02734cb6fd3f": {
+      "sineBits": "7856feee67a178b2fd3f"
+    },
+    "001b88bc43b898c4fd3f": {
+      "sineBits": "c4a085c0fd11cdbffd3f"
+    },
+    "87b976eaeb4062c6fd3f": {
+      "sineBits": "d0d09f4fc2fc74c1fd3f"
+    },
+    "e3a0cd04a39572bdfd3f": {
+      "sineBits": "fd052abe877827b9fd3f"
+    },
+    "6b3fbc324b1e3cbffd3f": {
+      "sineBits": "f8717a7700c0d1bafd3f"
+    },
+    "803331a28c6388cdfd3f": {
+      "sineBits": "672b7239c5910ec8fd3f"
+    },
+    "07d21fd034ec51cffd3f": {
+      "sineBits": "4a63c995eb6ab3c9fd3f"
+    },
+    "63b976eaeb4062c6fd3f": {
+      "sineBits": "aed09f4fc2fc74c1fd3f"
+    },
+    "eb57651894c92bc8fd3f": {
+      "sineBits": "f1cb9f550a4d1cc3fd3f"
+    },
+    "004cda87d50e78d6fd3f": {
+      "sineBits": "b8ffab86b97740d0fd3f"
+    },
+    "87eac8b57d9741d8fd3f": {
+      "sineBits": "c213bb1b701ee2d1fd3f"
+    },
+    "e3d11fd034ec51cffd3f": {
+      "sineBits": "2963c995eb6ab3c9fd3f"
+    },
+    "6b700efedc741bd1fd3f": {
+      "sineBits": "69e6641c00a357cbfd3f"
+    },
+    "8064836d1eba67dffd3f": {
+      "sineBits": "0a232362412062d8fd3f"
+    },
+    "0703729bc64231e1fd3f": {
+      "sineBits": "0832356ef67300dafd3f"
+    },
+    "63eac8b57d9741d8fd3f": {
+      "sineBits": "a213bb1b701ee2d1fd3f"
+    },
+    "eb88b7e325200bdafd3f": {
+      "sineBits": "164aee1d8c1d83d3fd3f"
+    },
+    "007d2c53676557e8fd3f": {
+      "sineBits": "f28d45ba07e972e0fd3f"
+    },
+    "871b1b810fee20eafd3f": {
+      "sineBits": "0a57a8d86bc90de2fd3f"
+    },
+    "e302729bc64231e1fd3f": {
+      "sineBits": "e831356ef67300dafd3f"
+    },
+    "6ba160c96ecbfae2fd3f": {
+      "sineBits": "96313e3c95199edbfd3f"
+    },
+    "8095d538b01047f1fd3f": {
+      "sineBits": "f95eb55a083172e8fd3f"
+    },
+    "0734c466589910f3fd3f": {
+      "sineBits": "60c0be08117e09eafd3f"
+    },
+    "631b1b810fee20eafd3f": {
+      "sineBits": "ea56a8d86bc90de2fd3f"
+    },
+    "ebb909afb776eaebfd3f": {
+      "sineBits": "d78934a14bf5a7e3fd3f"
+    },
+    "00ae7e1ef9bb36fafd3f": {
+      "sineBits": "bf15ba7a9c585ff0fd3f"
+    },
+    "874c6d4ca14400fcfd3f": {
+      "sineBits": "71676e9786f2f2f1fd3f"
+    },
+    "e333c466589910f3fd3f": {
+      "sineBits": "40c0be08117e09eafd3f"
+    },
+    "6bd2b2940022daf4fd3f": {
+      "sineBits": "b95ee15c3510a0ebfd3f"
+    },
+    "40e31302a1339381fe3f": {
+      "sineBits": "382b723087c139f8fd3f"
+    },
+    "84320b19f5f77782fe3f": {
+      "sineBits": "13949976d988c9f9fd3f"
+    },
+    "634c6d4ca14400fcfd3f": {
+      "sineBits": "52676e9786f2f2f1fd3f"
+    },
+    "ebea5b7a49cdc9fdfd3f": {
+      "sineBits": "92cb2de93acb85f3fd3f"
+    },
+    "806fe87445090b86fe3f": {
+      "sineBits": "d63de6e380670080fe3f"
+    },
+    "c4bedf8b99cdef86fe3f": {
+      "sineBits": "36e722a14752c680fe3f"
+    },
+    "72320b19f5f77782fe3f": {
+      "sineBits": "f3939976d988c9f9fd3f"
+    },
+    "b581023049bc5c83fe3f": {
+      "sineBits": "7d9be191b38858fbfd3f"
+    },
+    "c0fbbce7e9de828afe3f": {
+      "sineBits": "399529fee3f2d983fe3f"
+    },
+    "044bb4fe3da3678bfe3f": {
+      "sineBits": "8ba5393a59d59d84fe3f"
+    },
+    "b2bedf8b99cdef86fe3f": {
+      "sineBits": "26e722a14752c680fe3f"
+    },
+    "f50dd7a2ed91d487fe3f": {
+      "sineBits": "91f606e038d68b81fe3f"
+    },
+    "0088915a8eb4fa8efe3f": {
+      "sineBits": "f6f6690a1236a987fe3f"
+    },
+    "44d78871e278df8ffe3f": {
+      "sineBits": "6d9b503def006b88fe3f"
+    },
+    "f24ab4fe3da3678bfe3f": {
+      "sineBits": "7ca5393a59d59d84fe3f"
+    },
+    "359aab1592674c8cfe3f": {
+      "sineBits": "52b4f393e74d6185fe3f"
+    },
+    "401466cd328a7293fe3f": {
+      "sineBits": "0a06fa6ffde46d8bfe3f"
+    },
+    "84635de4864e5794fe3f": {
+      "sineBits": "5cd206d625892d8cfe3f"
+    },
+    "32d78871e278df8ffe3f": {
+      "sineBits": "5e9b503def006b88fe3f"
+    },
+    "75268088363dc490fe3f": {
+      "sineBits": "5a720e6cdc5e2c89fe3f"
+    },
+    "80a03a40d75fea97fe3f": {
+      "sineBits": "015e60c86bb4278ffe3f"
+    },
+    "c4ef31572b24cf98fe3f": {
+      "sineBits": "a928e18fed22e58ffe3f"
+    },
+    "72635de4864e5794fe3f": {
+      "sineBits": "4dd206d625892d8cfe3f"
+    },
+    "b5b254fbda123c95fe3f": {
+      "sineBits": "6ddcdc945dbdec8cfe3f"
+    },
+    "c02c0fb37b35629cfe3f": {
+      "sineBits": "299027bdfb59d692fe3f"
+    },
+    "047c06cacff9469dfe3f": {
+      "sineBits": "acf8c03011849193fe3f"
+    },
+    "b2ef31572b24cf98fe3f": {
+      "sineBits": "9a28e18fed22e58ffe3f"
+    },
+    "f53e296e7fe8b399fe3f": {
+      "sineBits": "7cb7d2c7861ea290fe3f"
+    },
+    "00b9e325200bdaa0fe3f": {
+      "sineBits": "cecfc0d42a8c7996fe3f"
+    },
+    "4408db3c74cfbea1fe3f": {
+      "sineBits": "0b2b56823b633297fe3f"
+    },
+    "f27b06cacff9469dfe3f": {
+      "sineBits": "9df8c03011849193fe3f"
+    },
+    "35cbfde023be2b9efe3f": {
+      "sineBits": "4a866a224f384c94fe3f"
+    },
+    "4045b898c4e051a5fe3f": {
+      "sineBits": "1b82052e5b02119afe3f"
+    },
+    "8494afaf18a536a6fe3f": {
+      "sineBits": "472d190afd77c79afe3f"
+    },
+    "3208db3c74cfbea1fe3f": {
+      "sineBits": "fc2a56823b633297fe3f"
+    },
+    "7557d253c893a3a2fe3f": {
+      "sineBits": "b36222ec8ec1ea97fe3f"
+    },
+    "80d18c0b69b6c9a9fe3f": {
+      "sineBits": "1f41e529d9749c9dfe3f"
+    },
+    "c4208422bd7aaeaafe3f": {
+      "sineBits": "93a25aafd17a509efe3f"
+    },
+    "7294afaf18a536a6fe3f": {
+      "sineBits": "392d190afd77c79afe3f"
+    },
+    "b5e3a6c66c691ba7fe3f": {
+      "sineBits": "dac9e94a05727d9bfe3f"
+    },
+    "c05d617e0d8c41aefe3f": {
+      "sineBits": "5e45cf02e19c1ba1fe3f"
+    },
+    "04ad5895615026affe3f": {
+      "sineBits": "960af84e2625cda1fe3f"
+    },
+    "b2208422bd7aaeaafe3f": {
+      "sineBits": "85a25aafd17a509efe3f"
+    },
+    "f56f7b39113f93abfe3f": {
+      "sineBits": "0f788ee55d02049ffe3f"
+    },
+    "00ea35f1b161b9b2fe3f": {
+      "sineBits": "0b966751a4348ea4fe3f"
+    },
+    "44392d0806269eb3fe3f": {
+      "sineBits": "2508463c5e313da5fe3f"
+    },
+    "f2ac5895615026affe3f": {
+      "sineBits": "880af84e2625cda1fe3f"
+    },
+    "35fc4facb5140bb0fe3f": {
+      "sineBits": "9dd8b773362c7ea2fe3f"
+    },
+    "40760a64563731b7fe3f": {
+      "sineBits": "60d5197e4ff7f3a7fe3f"
+    },
+    "84c5017baafb15b8fe3f": {
+      "sineBits": "3b69c2aed85aa0a8fe3f"
+    },
+    "32392d0806269eb3fe3f": {
+      "sineBits": "1808463c5e313da5fe3f"
+    },
+    "7588241f5aea82b4fe3f": {
+      "sineBits": "f9fd013b24aaeba5fe3f"
+    },
+    "8002dfd6fa0ca9bbfe3f": {
+      "sineBits": "98fc1c1f0fa14cabfe3f"
+    },
+    "c451d6ed4ed18dbcfe3f": {
+      "sineBits": "f890211cf65df6abfe3f"
+    },
+    "72c5017baafb15b8fe3f": {
+      "sineBits": "2d69c2aed85aa0a8fe3f"
+    },
+    "b514f991febffab8fe3f": {
+      "sineBits": "8a8fca78b9374ca9fe3f"
+    },
+    "c08eb3499fe220c0fe3f": {
+      "sineBits": "68e17c4215ef97aefe3f"
+    },
+    "04deaa60f3a605c1fe3f": {
+      "sineBits": "d36c4c7e1df83eaffe3f"
+    },
+    "b251d6ed4ed18dbcfe3f": {
+      "sineBits": "eb90211cf65df6abfe3f"
+    },
+    "f5a0cd04a39572bdfe3f": {
+      "sineBits": "b19b43b88a919facfe3f"
+    },
+    "001b88bc43b898c4fe3f": {
+      "sineBits": "d5edbfa39e9fd5b1fe3f"
+    },
+    "446a7fd3977c7dc5fe3f": {
+      "sineBits": "5baee584c1e779b2fe3f"
+    },
+    "f2ddaa60f3a605c1fe3f": {
+      "sineBits": "c66c4c7e1df83eaffe3f"
+    },
+    "352da277476beac1fe3f": {
+      "sineBits": "8fc661143475e5affe3f"
+    },
+    "40a75c2fe88d10c9fe3f": {
+      "sineBits": "180ac1ccf77105b5fe3f"
+    },
+    "84f653463c52f5c9fe3f": {
+      "sineBits": "db9beeb165eca6b5fe3f"
+    },
+    "326a7fd3977c7dc5fe3f": {
+      "sineBits": "4eaee584c1e779b2fe3f"
+    },
+    "75b976eaeb4062c6fe3f": {
+      "sineBits": "13e03c655ea11db3fe3f"
+    },
+    "803331a28c6388cdfe3f": {
+      "sineBits": "99575721822627b8fe3f"
+    },
+    "c48228b9e0276dcefe3f": {
+      "sineBits": "c56a2561a3c6c5b8fe3f"
+    },
+    "72f653463c52f5c9fe3f": {
+      "sineBits": "cf9beeb165eca6b5fe3f"
+    },
+    "b5454b5d9016dacafe3f": {
+      "sineBits": "4f867b58c4d547b6fe3f"
+    },
+    "c0bf0515313900d2fe3f": {
+      "sineBits": "220367d5b87e3abbfe3f"
+    },
+    "040ffd2b85fde4d2fe3f": {
+      "sineBits": "92bfb8b92e38d6bbfe3f"
+    },
+    "b28228b9e0276dcefe3f": {
+      "sineBits": "b86a2561a3c6c5b8fe3f"
+    },
+    "f5d11fd034ec51cffe3f": {
+      "sineBits": "431b647437d363b9fe3f"
+    },
+    "004cda87d50e78d6fe3f": {
+      "sineBits": "5223f8cc353d3fbefe3f"
+    },
+    "449bd19e29d35cd7fe3f": {
+      "sineBits": "679fed89db03d8befe3f"
+    },
+    "f20efd2b85fde4d2fe3f": {
+      "sineBits": "85bfb8b92e38d6bbfe3f"
+    },
+    "355ef442d9c1c9d3fe3f": {
+      "sineBits": "bfff2e05a55b71bcfe3f"
+    },
+    "40d8aefa79e4efdafe3f": {
+      "sineBits": "3f4ff265b62535c1fe3f"
+    },
+    "8427a611cea8d4dbfe3f": {
+      "sineBits": "efd7560ca2edcac1fe3f"
+    },
+    "329bd19e29d35cd7fe3f": {
+      "sineBits": "5b9fed89db03d8befe3f"
+    },
+    "75eac8b57d9741d8fe3f": {
+      "sineBits": "0bb737f41a3270bffe3f"
+    },
+    "8064836d1eba67dffe3f": {
+      "sineBits": "61571d2b20fd1bc4fe3f"
+    },
+    "c4b37a84727e4ce0fe3f": {
+      "sineBits": "bda13e96a3baaec4fe3f"
+    },
+    "7227a611cea8d4dbfe3f": {
+      "sineBits": "e3d7560ca2edcac1fe3f"
+    },
+    "b5769d28226db9dcfe3f": {
+      "sineBits": "c550ac88cc1a60c2fe3f"
+    },
+    "c0f057e0c28fdfe3fe3f": {
+      "sineBits": "b45009708589f3c6fe3f"
+    },
+    "04404ff71654c4e4fe3f": {
+      "sineBits": "d008e52e2f3183c7fe3f"
+    },
+    "b2b37a84727e4ce0fe3f": {
+      "sineBits": "b2a13e96a3baaec4fe3f"
+    },
+    "f502729bc64231e1fe3f": {
+      "sineBits": "c0375c1117db40c5fe3f"
+    },
+    "007d2c53676557e8fe3f": {
+      "sineBits": "11ef81d52992bbc9fe3f"
+    },
+    "44cc236abb293ce9fe3f": {
+      "sineBits": "3c75370fc61848cafe3f"
+    },
+    "f23f4ff71654c4e4fe3f": {
+      "sineBits": "c508e52e2f3183c7fe3f"
+    },
+    "358f460e6b18a9e5fe3f": {
+      "sineBits": "664d4977863912c8fe3f"
+    },
+    "400901c60b3bcfecfe3f": {
+      "sineBits": "070033b686df73ccfe3f"
+    },
+    "8458f8dc5fffb3edfe3f": {
+      "sineBits": "cf83a709203afdccfe3f"
+    },
+    "32cc236abb293ce9fe3f": {
+      "sineBits": "3175370fc61848cafe3f"
+    },
+    "751b1b810fee20eafe3f": {
+      "sineBits": "f908a0b8d9fdd3cafe3f"
+    },
+    "8095d538b01047f1fe3f": {
+      "sineBits": "bbb2257b4f3b1ccffe3f"
+    },
+    "c4e4cc4f04d52bf2fe3f": {
+      "sineBits": "183bc9d92f5fa2cffe3f"
+    },
+    "7258f8dc5fffb3edfe3f": {
+      "sineBits": "c483a709203afdccfe3f"
+    },
+    "b5a7eff3b3c398eefe3f": {
+      "sineBits": "6729bd4b07f185cdfe3f"
+    },
+    "c021aaab54e6bef5fe3f": {
+      "sineBits": "933bc0d77570b4d1fe3f"
+    },
+    "0471a1c2a8aaa3f6fe3f": {
+      "sineBits": "ce8c625b275337d2fe3f"
+    },
+    "b2e4cc4f04d52bf2fe3f": {
+      "sineBits": "0e3bc9d92f5fa2cffe3f"
+    },
+    "f533c466589910f3fe3f": {
+      "sineBits": "1f66e96941dd27d0fe3f"
+    },
+    "00ae7e1ef9bb36fafe3f": {
+      "sineBits": "454bf3ec2d4b3cd4fe3f"
+    },
+    "44fd75354d801bfbfe3f": {
+      "sineBits": "d4fd97a87be2bbd4fe3f"
+    },
+    "f270a1c2a8aaa3f6fe3f": {
+      "sineBits": "c38c625b275337d2fe3f"
+    },
+    "35c098d9fc6e88f7fe3f": {
+      "sineBits": "8f707541fa8db9d2fe3f"
+    },
+    "403a53919d91aefefe3f": {
+      "sineBits": "8fc04253f298b3d6fe3f"
+    },
+    "84894aa8f15593fffe3f": {
+      "sineBits": "ee3fe41ee9da2fd7fe3f"
+    },
+    "32fd75354d801bfbfe3f": {
+      "sineBits": "cafd97a87be2bbd4fe3f"
+    },
+    "754c6d4ca14400fcfe3f": {
+      "sineBits": "4383e20ee8cf3ad5fe3f"
+    },
+    "40e31302a1339381ff3f": {
+      "sineBits": "95f1580b88281ad9fe3f"
+    },
+    "e28a8f0dcb950582ff3f": {
+      "sineBits": "587f8a4a770b93d9fe3f"
+    },
+    "72894aa8f15593fffe3f": {
+      "sineBits": "e43fe41ee9da2fd7fe3f"
+    },
+    "5beca0df220d3c80ff3f": {
+      "sineBits": "e7adc51c0971abd7fe3f"
+    },
+    "60297e3b731ecf83ff3f": {
+      "sineBits": "67e6d55402ca6fdbfe3f"
+    },
+    "02d1f9469d804184ff3f": {
+      "sineBits": "172435b87c44e5dbfe3f"
+    },
+    "d98a8f0dcb950582ff3f": {
+      "sineBits": "4e7f8a4a770b93d9fe3f"
+    },
+    "7b320b19f5f77782ff3f": {
+      "sineBits": "ca0516aaa7400bdafe3f"
+    },
+    "806fe87445090b86ff3f": {
+      "sineBits": "46e00d6bc64eb4ddfe3f"
+    },
+    "221764806f6b7d86ff3f": {
+      "sineBits": "4eca74aca25726defe3f"
+    },
+    "f9d0f9469d804184ff3f": {
+      "sineBits": "0d2435b87c44e5dbfe3f"
+    },
+    "9b787552c7e2b384ff3f": {
+      "sineBits": "51e197b65d0f5adcfe3f"
+    },
+    "a0b552ae17f44688ff3f": {
+      "sineBits": "e2916c278f89e7dffe3f"
+    },
+    "425dceb94156b988ff3f": {
+      "sineBits": "723ed5c0e81756e0fe3f"
+    },
+    "191764806f6b7d86ff3f": {
+      "sineBits": "45ca74aca25726defe3f"
+    },
+    "bbbedf8b99cdef86ff3f": {
+      "sineBits": "7c4919b518af97defe3f"
+    },
+    "c0fbbce7e9de828aff3f": {
+      "sineBits": "bc7a3489704e09e2fe3f"
+    },
+    "62a338f31341f58aff3f": {
+      "sineBits": "94594066a85974e2fe3f"
+    },
+    "395dceb94156b988ff3f": {
+      "sineBits": "6a3ed5c0e81756e0fe3f"
+    },
+    "db044ac56bb82b89ff3f": {
+      "sineBits": "5dd735231df3c3e0fe3f"
+    },
+    "e0412721bcc9be8cff3f": {
+      "sineBits": "caeb5322db7219e4fe3f"
+    },
+    "82e9a22ce62b318dff3f": {
+      "sineBits": "d1ae684c98f280e4fe3f"
+    },
+    "59a338f31341f58aff3f": {
+      "sineBits": "8c594066a85974e2fe3f"
+    },
+    "fb4ab4fe3da3678bff3f": {
+      "sineBits": "de435a060ab0dee2fe3f"
+    },
+    "0088915a8eb4fa8eff3f": {
+      "sineBits": "c7540b699fcd17e6fe3f"
+    },
+    "a22f0d66b8166d8fff3f": {
+      "sineBits": "8115f8adcfb97be6fe3f"
+    },
+    "79e9a22ce62b318dff3f": {
+      "sineBits": "c9ae684c98f280e4fe3f"
+    },
+    "1b911e38108ea38dff3f": {
+      "sineBits": "2206c24ddcbbe7e4fe3f"
+    },
+    "20cefb93609f3691ff3f": {
+      "sineBits": "469822eef03604e8fe3f"
+    },
+    "c275779f8a01a991ff3f": {
+      "sineBits": "493b4081c98764e8fe3f"
+    },
+    "992f0d66b8166d8fff3f": {
+      "sineBits": "7915f8adcfb97be6fe3f"
+    },
+    "3bd78871e278df8fff3f": {
+      "sineBits": "64782b19f2eddee6fe3f"
+    },
+    "401466cd328a7293ff3f": {
+      "sineBits": "5c486d776988dee9fe3f"
+    },
+    "e2bbe1d85cece493ff3f": {
+      "sineBits": "348e2d8d67363beafe3f"
+    },
+    "b975779f8a01a991ff3f": {
+      "sineBits": "413b4081c98764e8fe3f"
+    },
+    "5b1df3aab4631b92ff3f": {
+      "sineBits": "f31b01e40d1fc4e8fe3f"
+    },
+    "605ad0060575ae95ff3f": {
+      "sineBits": "a9d65ffe0b9da6ebfe3f"
+    },
+    "02024c122fd72096ff3f": {
+      "sineBits": "9ef83e62f5a0ffebfe3f"
+    },
+    "d9bbe1d85cece493ff3f": {
+      "sineBits": "2d8e2d8d67363beafe3f"
+    },
+    "7b635de4864e5794ff3f": {
+      "sineBits": "9cbab894592997eafe3f"
+    },
+    "80a03a40d75fea97ff3f": {
+      "sineBits": "13f0799247515cedfe3f"
+    },
+    "2248b64b01c25c98ff3f": {
+      "sineBits": "741747372ba4b1edfe3f"
+    },
+    "f9014c122fd72096ff3f": {
+      "sineBits": "97f83e62f5a0ffebfe3f"
+    },
+    "9ba9c71d59399396ff3f": {
+      "sineBits": "db4e2b7069e857ecfe3f"
+    },
+    "a0e6a479a94a269aff3f": {
+      "sineBits": "eb6e4c1ffa82ffeefe3f"
+    },
+    "428e2085d3ac989aff3f": {
+      "sineBits": "76c6bda9301e51effe3f"
+    },
+    "1948b64b01c25c98ff3f": {
+      "sineBits": "6e1747372ba4b1edfe3f"
+    },
+    "bbef31572b24cf98ff3f": {
+      "sineBits": "70cbaaf03e3906eefe3f"
+    },
+    "c02c0fb37b35629cff3f": {
+      "sineBits": "ee84e315731190f0fe3f"
+    },
+    "62d48abea597d49cff3f": {
+      "sineBits": "d9156b619feeddf0fe3f"
+    },
+    "398e2085d3ac989aff3f": {
+      "sineBits": "70c6bda9301e51effe3f"
+    },
+    "db359c90fd0e0b9bff3f": {
+      "sineBits": "550f9d804bfaa1effe3f"
+    },
+    "e07279ec4d209e9eff3f": {
+      "sineBits": "cbf95ff975dd0df2fe3f"
+    },
+    "821af5f77782109fff3f": {
+      "sineBits": "a7f8369785f657f2fe3f"
+    },
+    "59d48abea597d49cff3f": {
+      "sineBits": "d3156b619feeddf0fe3f"
+    },
+    "fb7b06cacff9469dff3f": {
+      "sineBits": "708b6518730b2bf1fe3f"
+    },
+    "00b9e325200bdaa0ff3f": {
+      "sineBits": "0e9a8cce3cc978f3fe3f"
+    },
+    "a2605f314a6d4ca1ff3f": {
+      "sineBits": "413beb7e6818bff3fe3f"
+    },
+    "791af5f77782109fff3f": {
+      "sineBits": "a1f8369785f657f2fe3f"
+    },
+    "1bc27003a2e4829fff3f": {
+      "sineBits": "435c69bf0e4ea1f2fe3f"
+    },
+    "20ff4d5ff2f515a3ff3f": {
+      "sineBits": "88353f6e7ab8d0f4fe3f"
+    },
+    "c2a6c96a1c5888a3ff3f": {
+      "sineBits": "7995b793463813f5fe3f"
+    },
+    "99605f314a6d4ca1ff3f": {
+      "sineBits": "3b3beb7e6818bff3fe3f"
+    },
+    "3b08db3c74cfbea1ff3f": {
+      "sineBits": "c0dafbefeea404f4fe3f"
+    },
+    "4045b898c4e051a5ff3f": {
+      "sineBits": "61d356ba5c9015f6fe3f"
+    },
+    "e2ec33a4ee42c4a5ff3f": {
+      "sineBits": "6ef349c7993b54f6fe3f"
+    },
+    "b9a6c96a1c5888a3ff3f": {
+      "sineBits": "7395b793463813f5fe3f"
+    },
+    "5b4e457646bafaa3ff3f": {
+      "sineBits": "14ec03de5df454f5fe3f"
+    },
+    "608b22d296cb8da7ff3f": {
+      "sineBits": "a20c2bb58e3747f7fe3f"
+    },
+    "02339eddc02d00a8ff3f": {
+      "sineBits": "bf5b4f93590982f7fe3f"
+    },
+    "d9ec33a4ee42c4a5ff3f": {
+      "sineBits": "6af349c7993b54f6fe3f"
+    },
+    "7b94afaf18a536a6ff3f": {
+      "sineBits": "d9a02ca0212292f6fe3f"
+    },
+    "80d18c0b69b6c9a9ff3f": {
+      "sineBits": "0fcc427b3a9665f8fe3f"
+    },
+    "2279081793183caaff3f": {
+      "sineBits": "4e2834edfc899cf8fe3f"
+    },
+    "f9329eddc02d00a8ff3f": {
+      "sineBits": "bb5b4f93590982f7fe3f"
+    },
+    "9bda19e9ea8f72a8ff3f": {
+      "sineBits": "1800763b7e15bcf7fe3f"
+    },
+    "a017f7443ba105acff3f": {
+      "sineBits": "8b032b1f0b9670f9fe3f"
+    },
+    "42bf7250650378acff3f": {
+      "sineBits": "e698fc1b7ca7a3f9fe3f"
+    },
+    "1979081793183caaff3f": {
+      "sineBits": "4a2834edfc899cf8fe3f"
+    },
+    "bb208422bd7aaeaaff3f": {
+      "sineBits": "e829fd9037b7d2f8fe3f"
+    },
+    "c05d617e0d8c41aeff3f": {
+      "sineBits": "a43b48672e2268fafe3f"
+    },
+    "6205dd8937eeb3aeff3f": {
+      "sineBits": "fc1b1170524d97fafe3f"
+    },
+    "39bf7250650378acff3f": {
+      "sineBits": "e298fc1b7ca7a3f9fe3f"
+    },
+    "db66ee5b8f65eaacff3f": {
+      "sineBits": "1d50d52d93f1d5f9fe3f"
+    },
+    "e0a3cbb7df767db0ff3f": {
+      "sineBits": "3939806d56274cfbfe3f"
+    },
+    "824b47c309d9efb0ff3f": {
+      "sineBits": "a301dcdc7f6877fbfe3f"
+    },
+    "5905dd8937eeb3aeff3f": {
+      "sineBits": "f81b1170524d97fafe3f"
+    },
+    "fbac5895615026afff3f": {
+      "sineBits": "0759cdfc59b0c5fafe3f"
+    },
+    "00ea35f1b161b9b2ff3f": {
+      "sineBits": "1f4f9b20bb931cfcfe3f"
+    },
+    "a291b1fcdbc32bb3ff3f": {
+      "sineBits": "6ea718748ae743fcfe3f"
+    },
+    "794b47c309d9efb0ff3f": {
+      "sineBits": "a001dcdc7f6877fbfe3f"
+    },
+    "1bf3c2ce333b62b1ff3f": {
+      "sineBits": "a85800dad9e0a1fbfe3f"
+    },
+    "2030a02a844cf5b4ff3f": {
+      "sineBits": "4d4e3fa71b57d9fcfe3f"
+    },
+    "c2d71b36aeae67b5ff3f": {
+      "sineBits": "d588b6c27fbafcfcfe3f"
+    },
+    "9991b1fcdbc32bb3ff3f": {
+      "sineBits": "6ba718748ae743fcfe3f"
+    },
+    "3b392d0806269eb3ff3f": {
+      "sineBits": "d9671108e7716afcfe3f"
+    },
+    "40760a64563731b7ff3f": {
+      "sineBits": "ed6568a4bf6282fdfe3f"
+    },
+    "e21d866f8099a3b7ff3f": {
+      "sineBits": "35ff340ff6d2a1fdfe3f"
+    },
+    "b9d71b36aeae67b5ff3f": {
+      "sineBits": "d388b6c27fbafcfcfe3f"
+    },
+    "5b7f9741d810dab5ff3f": {
+      "sineBits": "58bef586dd531ffdfe3f"
+    },
+    "60bc749d28226db9ff3f": {
+      "sineBits": "b0a5465d78a917fefe3f"
+    },
+    "0264f0a85284dfb9ff3f": {
+      "sineBits": "dbdd5e790d2433fefe3f"
+    },
+    "d91d866f8099a3b7ff3f": {
+      "sineBits": "33ff340ff6d2a1fdfe3f"
+    },
+    "7bc5017baafb15b8ff3f": {
+      "sineBits": "8354324ca278c0fdfe3f"
+    },
+    "8002dfd6fa0ca9bbff3f": {
+      "sineBits": "e93769c0a11f99fefe3f"
+    },
+    "22aa5ae2246f1bbcff3f": {
+      "sineBits": "f3794ffb70a2b0fefe3f"
+    },
+    "f963f0a85284dfb9ff3f": {
+      "sineBits": "d8dd5e790d2433fefe3f"
+    },
+    "9b0b6cb47ce651baff3f": {
+      "sineBits": "42b3745ca4d34dfefe3f"
+    },
+    "a0484910cdf7e4bdff3f": {
+      "sineBits": "a1cd224e23bb06fffe3f"
+    },
+    "42f0c41bf75957beff3f": {
+      "sineBits": "6b13ad4b57441afffe3f"
+    },
+    "19aa5ae2246f1bbcff3f": {
+      "sineBits": "f2794ffb70a2b0fefe3f"
+    },
+    "bb51d6ed4ed18dbcff3f": {
+      "sineBits": "a1fc70c6dd59c7fefe3f"
+    },
+    "c08eb3499fe220c0ff3f": {
+      "sineBits": "441d15e2707360fffe3f"
+    },
+    "62362f55c94493c0ff3f": {
+      "sineBits": "64fa06a1830170fffe3f"
+    },
+    "39f0c41bf75957beff3f": {
+      "sineBits": "6a13ad4b57441afffe3f"
+    },
+    "db97402721bcc9beff3f": {
+      "sineBits": "c69cf17ed4012dfffe3f"
+    },
+    "e0d41d8371cd5cc2ff3f": {
+      "sineBits": "76bcd35d8b41a6fffe3f"
+    },
+    "827c998e9b2fcfc2ff3f": {
+      "sineBits": "1a35485646d3b1fffe3f"
+    },
+    "59362f55c94493c0ff3f": {
+      "sineBits": "63fa06a1830170fffe3f"
+    },
+    "fbddaa60f3a605c1ff3f": {
+      "sineBits": "327a071e9bc37efffe3f"
+    },
+    "001b88bc43b898c4ff3f": {
+      "sineBits": "790691340120d8fffe3f"
+    },
+    "a2c203c86d1a0bc5ff3f": {
+      "sineBits": "35d331707db4dffffe3f"
+    },
+    "797c998e9b2fcfc2ff3f": {
+      "sineBits": "1935485646d3b1fffe3f"
+    },
+    "1b24159ac59141c3ff3f": {
+      "sineBits": "61e44b7dd198bcfffe3f"
+    },
+    "2061f2f515a3d4c6ff3f": {
+      "sineBits": "d02acad7ee0af6fffe3f"
+    },
+    "c2086e01400547c7ff3f": {
+      "sineBits": "ef85d20395a1f9fffe3f"
+    },
+    "99c203c86d1a0bc5ff3f": {
+      "sineBits": "35d331707db4dffffe3f"
+    },
+    "3b6a7fd3977c7dc5ff3f": {
+      "sineBits": "77e92737a57ce6fffe3f"
+    },
+    "40a75c2fe88d10c9ff3f": {
+      "sineBits": "a3eae904fffffffffe3f"
+    },
+    "e24ed83a12f082c9ff3f": {
+      "sineBits": "5a7ff37d8798fffffe3f"
+    },
+    "b9086e01400547c7ff3f": {
+      "sineBits": "ef85d20395a1f9fffe3f"
+    },
+    "5bb0e90c6a67b9c7ff3f": {
+      "sineBits": "08261707d26bfcfffe3f"
+    },
+    "60edc668ba784ccbff3f": {
+      "sineBits": "f8f6dbf36afef5fffe3f"
+    },
+    "02954274e4dabecbff3f": {
+      "sineBits": "ff0675cbdd98f1fffe3f"
+    },
+    "d94ed83a12f082c9ff3f": {
+      "sineBits": "5b7ff37d8798fffffe3f"
+    },
+    "7bf653463c52f5c9ff3f": {
+      "sineBits": "478dde0aa264fefffe3f"
+    },
+    "803331a28c6388cdff3f": {
+      "sineBits": "064e8d66fa06d8fffe3f"
+    },
+    "22dbacadb6c5facdff3f": {
+      "sineBits": "f89d9762afa3cffffe3f"
+    },
+    "f9944274e4dabecbff3f": {
+      "sineBits": "ff0675cbdd98f1fffe3f"
+    },
+    "9b3cbe7f0e3d31ccff3f": {
+      "sineBits": "c013b2e4ed66ecfffe3f"
+    },
+    "a0799bdb5e4ec4cfff3f": {
+      "sineBits": "19625899031ca6fffe3f"
+    },
+    "422117e788b036d0ff3f": {
+      "sineBits": "3ef9302da2bb99fffe3f"
+    },
+    "19dbacadb6c5facdff3f": {
+      "sineBits": "f89d9762afa3cffffe3f"
+    },
+    "bb8228b9e0276dceff3f": {
+      "sineBits": "e19246be1c74c6fffe3f"
+    },
+    "c0bf0515313900d2ff3f": {
+      "sineBits": "0d415e146b4160fffe3f"
+    },
+    "626781205b9b72d2ff3f": {
+      "sineBits": "2a85ce53eae44ffffe3f"
+    },
+    "392117e788b036d0ff3f": {
+      "sineBits": "3ff9302da2bb99fffe3f"
+    },
+    "dbc892f2b212a9d0ff3f": {
+      "sineBits": "08a8cf2c248f8cfffe3f"
+    },
+    "e005704e03243cd4ff3f": {
+      "sineBits": "b25fd05da37c06fffe3f"
+    },
+    "82adeb592d86aed4ff3f": {
+      "sineBits": "8a91c9e94925f2fefe3f"
+    },
+    "596781205b9b72d2ff3f": {
+      "sineBits": "2b85ce53eae44ffffe3f"
+    },
+    "fb0efd2b85fde4d2ff3f": {
+      "sineBits": "45beebf587bc3efffe3f"
+    },
+    "004cda87d50e78d6ff3f": {
+      "sineBits": "7918318dacd498fefe3f"
+    },
+    "a2f35593ff70ead6ff3f": {
+      "sineBits": "b1b1537a108480fefe3f"
+    },
+    "79adeb592d86aed4ff3f": {
+      "sineBits": "8b91c9e94925f2fefe3f"
+    },
+    "1b55676557e820d5ff3f": {
+      "sineBits": "2fde82b55902ddfefe3f"
+    },
+    "209244c1a7f9b3d8ff3f": {
+      "sineBits": "705893bf135217fefe3f"
+    },
+    "c239c0ccd15b26d9ff3f": {
+      "sineBits": "4d4784761a0afbfdfe3f"
+    },
+    "99f35593ff70ead6ff3f": {
+      "sineBits": "b3b1537a108480fefe3f"
+    },
+    "3b9bd19e29d35cd7ff3f": {
+      "sineBits": "184b9f64386867fefe3f"
+    },
+    "40d8aefa79e4efdaff3f": {
+      "sineBits": "6c60e46cf2fe81fdfe3f"
+    },
+    "e27f2a06a44662dbff3f": {
+      "sineBits": "98997284d0c161fdfe3f"
+    },
+    "b939c0ccd15b26d9ff3f": {
+      "sineBits": "4f4784761a0afbfdfe3f"
+    },
+    "5be13bd8fbbd98d9ff3f": {
+      "sineBits": "466049c14ff7ddfdfe3f"
+    },
+    "601e19344ccf2bddff3f": {
+      "sineBits": "6dea4c9eede6d8fcfe3f"
+    },
+    "02c6943f76319eddff3f": {
+      "sineBits": "77446aaf26b7b4fcfe3f"
+    },
+    "d97f2a06a44662dbff3f": {
+      "sineBits": "9b997284d0c161fdfe3f"
+    },
+    "7b27a611cea8d4dbff3f": {
+      "sineBits": "7e8b729757ba40fdfe3f"
+    },
+    "8064836d1eba67dfff3f": {
+      "sineBits": "3b6cb90535171cfcfe3f"
+    },
+    "220cff78481cdadfff3f": {
+      "sineBits": "c1334a799bf7f3fbfe3f"
+    },
+    "f9c5943f76319eddff3f": {
+      "sineBits": "7a446aaf26b7b4fcfe3f"
+    },
+    "9b6d104ba09310deff3f": {
+      "sineBits": "bcabfdea92bd8ffcfe3f"
+    },
+    "a0aaeda6f0a4a3e1ff3f": {
+      "sineBits": "1d989bf6819e4bfbfe3f"
+    },
+    "425269b21a0716e2ff3f": {
+      "sineBits": "92c620cd36921ffbfe3f"
+    },
+    "190cff78481cdadfff3f": {
+      "sineBits": "c4334a799bf7f3fbfe3f"
+    },
+    "bbb37a84727e4ce0ff3f": {
+      "sineBits": "bd83f502cf0ecbfbfe3f"
+    },
+    "c0f057e0c28fdfe3ff3f": {
+      "sineBits": "e9a2f93f168d67fafe3f"
+    },
+    "6298d3ebecf151e4ff3f": {
+      "sineBits": "a51c1ad3889737fafe3f"
+    },
+    "395269b21a0716e2ff3f": {
+      "sineBits": "96c620cd36921ffbfe3f"
+    },
+    "dbf9e4bd446988e2ff3f": {
+      "sineBits": "1057045662bdf2fafe3f"
+    },
+    "e036c219957a1be6ff3f": {
+      "sineBits": "863be2e7baf46ff9fe3f"
+    },
+    "82de3d25bfdc8de6ff3f": {
+      "sineBits": "0bf4d7a5a8193cf9fe3f"
+    },
+    "5998d3ebecf151e4ff3f": {
+      "sineBits": "a81c1ad3889737fafe3f"
+    },
+    "fb3f4ff71654c4e4ff3f": {
+      "sineBits": "4d2e42582bda06fafe3f"
+    },
+    "007d2c53676557e8ff3f": {
+      "sineBits": "e7825ec8bee864f8fe3f"
+    },
+    "a224a85e91c7c9e8ff3f": {
+      "sineBits": "67e04ce9322c2df8fe3f"
+    },
+    "79de3d25bfdc8de6ff3f": {
+      "sineBits": "0ff4d7a5a8193cf9fe3f"
+    },
+    "1b86b930e93e00e7ff3f": {
+      "sineBits": "1ca3712a8f7707f9fe3f"
+    },
+    "20c3968c395093eaff3f": {
+      "sineBits": "9db4fd0df57d46f7fe3f"
+    },
+    "c26a129863b205ebff3f": {
+      "sineBits": "3e05374348e40af7fe3f"
+    },
+    "9924a85e91c7c9e8ff3f": {
+      "sineBits": "6be04ce9322c2df8fe3f"
+    },
+    "3bcc236abb293ce9ff3f": {
+      "sineBits": "0f77c52a78a9f4f7fe3f"
+    },
+    "400901c60b3bcfecff3f": {
+      "sineBits": "148f1898b3ca14f6fe3f"
+    },
+    "e2b07cd1359d41edff3f": {
+      "sineBits": "8ddb58b58b58d5f5fe3f"
+    },
+    "b96a129863b205ebff3f": {
+      "sineBits": "4305374348e40af7fe3f"
+    },
+    "5b128ea38d1478ebff3f": {
+      "sineBits": "55984b675485cef6fe3f"
+    },
+    "604f6bffdd250befff3f": {
+      "sineBits": "e6e6ec3ad1e6cff4fe3f"
+    },
+    "02f7e60a08887defff3f": {
+      "sineBits": "b5e690d920a18cf4fe3f"
+    },
+    "d9b07cd1359d41edff3f": {
+      "sineBits": "92db58b58b58d5f5fe3f"
+    },
+    "7b58f8dc5fffb3edff3f": {
+      "sineBits": "7c951cf2132295f5fe3f"
+    },
+    "8095d538b01047f1ff3f": {
+      "sineBits": "e52ab4e3a3eb77f3fe3f"
+    },
+    "223d5144da72b9f1ff3f": {
+      "sineBits": "7596f3ffa9d730f3fe3f"
+    },
+    "f9f6e60a08887defff3f": {
+      "sineBits": "bbe690d920a18cf4fe3f"
+    },
+    "9b9e621632eaefefff3f": {
+      "sineBits": "dcdc7017279848f4fe3f"
+    },
+    "a0db3f7282fb82f3ff3f": {
+      "sineBits": "b0f5d99efef30cf2fe3f"
+    },
+    "4283bb7dac5df5f3ff3f": {
+      "sineBits": "33ea0c2f4617c2f1fe3f"
+    },
+    "193d5144da72b9f1ff3f": {
+      "sineBits": "7a96f3ffa9d730f3fe3f"
+    },
+    "bbe4cc4f04d52bf2ff3f": {
+      "sineBits": "457dbf757c01e9f2fe3f"
+    },
+    "c021aaab54e6bef5ff3f": {
+      "sineBits": "0e1e7a802f1c8ff0fe3f"
+    },
+    "62c925b77e4831f6ff3f": {
+      "sineBits": "ddbd71068f7c40f0fe3f"
+    },
+    "3983bb7dac5df5f3ff3f": {
+      "sineBits": "39ea0c2f4617c2f1fe3f"
+    },
+    "db2a3789d6bf67f4ff3f": {
+      "sineBits": "b6730cf87e7976f1fe3f"
+    },
+    "e06714e526d1faf7ff3f": {
+      "sineBits": "9c08506ffd81feeefe3f"
+    },
+    "820f90f050336df8ff3f": {
+      "sineBits": "1ff9ca839625aceefe3f"
+    },
+    "59c925b77e4831f6ff3f": {
+      "sineBits": "e3bd71068f7c40f0fe3f"
+    },
+    "fb70a1c2a8aaa3f6ff3f": {
+      "sineBits": "13e58eb2131df1effe3f"
+    },
+    "00ae7e1ef9bb36faff3f": {
+      "sineBits": "8d4b43d2a5445bedfe3f"
+    },
+    "a255fa29231ea9faff3f": {
+      "sineBits": "462787aae43105edfe3f"
+    },
+    "790f90f050336df8ff3f": {
+      "sineBits": "26f9ca839625aceefe3f"
+    },
+    "1bb70bfc7a95dff8ff3f": {
+      "sineBits": "daf2d9a1970a59eefe3f"
+    },
+    "20f4e857cba672fcff3f": {
+      "sineBits": "a1ffbf20da84a5ebfe3f"
+    },
+    "c29b6463f508e5fcff3f": {
+      "sineBits": "f147610e75c24bebfe3f"
+    },
+    "9955fa29231ea9faff3f": {
+      "sineBits": "4d2787aae43105edfe3f"
+    },
+    "3bfd75354d801bfbff3f": {
+      "sineBits": "8b26b54cdd61aeecfe3f"
+    },
+    "403a53919d91aefeff3f": {
+      "sineBits": "bc600b56bd64dde9fe3f"
+    },
+    "e2e1ce9cc7f320ffff3f": {
+      "sineBits": "0aefed40b4f97fe9fe3f"
+    },
+    "b99b6463f508e5fcff3f": {
+      "sineBits": "f847610e75c24bebfe3f"
+    },
+    "5b43e06e1f6b57fdff3f": {
+      "sineBits": "bab8d3482a44f1eafe3f"
+    },
+    "30c05ee5373e75800040": {
+      "sineBits": "9aa3c747e10703e8fe3f"
+    },
+    "01941ceb4c6fae800040": {
+      "sineBits": "ef0c62227dfba1e7fe3f"
+    },
+    "d9e1ce9cc7f320ffff3f": {
+      "sineBits": "11efed40b4f97fe9fe3f"
+    },
+    "7b894aa8f15593ffff3f": {
+      "sineBits": "403e9ca234d421e9fe3f"
+    },
+    "40e31302a13393810040": {
+      "sineBits": "6425dcdf439316e6fe3f"
+    },
+    "11b7d107b664cc810040": {
+      "sineBits": "22f6c81516edb1e5fe3f"
+    },
+    "fc931ceb4c6fae800040": {
+      "sineBits": "f70c62227dfba1e7fe3f"
+    },
+    "cd67daf061a0e7800040": {
+      "sineBits": "9d873428203640e7fe3f"
+    },
+    "5006c91e0a29b1820040": {
+      "sineBits": "1a55f9394c2d18e4fe3f"
+    },
+    "21da86241f5aea820040": {
+      "sineBits": "1a7ce1182ef5afe3fe3f"
+    },
+    "0cb7d107b664cc810040": {
+      "sineBits": "2bf6c81516edb1e5fe3f"
+    },
+    "dd8a8f0dcb9505820040": {
+      "sineBits": "5cbc07987b8f4ce5fe3f"
+    },
+    "60297e3b731ecf830040": {
+      "sineBits": "78edf1a4c7fd07e2fe3f"
+    },
+    "31fd3b41884f08840040": {
+      "sineBits": "c51edcbfd93b9ce1fe3f"
+    },
+    "1cda86241f5aea820040": {
+      "sineBits": "237ce1182ef5afe3fe3f"
+    },
+    "edad442a348b23830040": {
+      "sineBits": "8cf5feb23d0747e3fe3f"
+    },
+    "704c3358dc13ed840040": {
+      "sineBits": "63482588e62de6dffe3f"
+    },
+    "4120f15df14426850040": {
+      "sineBits": "988f361590ea76dffe3f"
+    },
+    "2cfd3b41884f08840040": {
+      "sineBits": "cf1edcbfd93b9ce1fe3f"
+    },
+    "fdd0f9469d8041840040": {
+      "sineBits": "8acfa632c2c52fe1fe3f"
+    },
+    "806fe87445090b860040": {
+      "sineBits": "77c2382d39e8b2ddfe3f"
+    },
+    "5143a67a5a3a44860040": {
+      "sineBits": "cbebf25d272c40ddfe3f"
+    },
+    "3c20f15df14426850040": {
+      "sineBits": "a28f361590ea76dffe3f"
+    },
+    "0df4ae6306765f850040": {
+      "sineBits": "ae9b7ea3c6f406dffe3f"
+    },
+    "90929d91aefe28870040": {
+      "sineBits": "314e606eac586edbfe3f"
+    },
+    "61665b97c32f62870040": {
+      "sineBits": "393b6bc2d12cf8dafe3f"
+    },
+    "4c43a67a5a3a44860040": {
+      "sineBits": "d5ebf25d272c40ddfe3f"
+    },
+    "1d1764806f6b7d860040": {
+      "sineBits": "4206b02367bfccdcfe3f"
+    },
+    "a0b552ae17f446880040": {
+      "sineBits": "007a784986ac18d9fe3f"
+    },
+    "718910b42c2580880040": {
+      "sineBits": "01e403dc191a9fd8fe3f"
+    },
+    "5c665b97c32f62870040": {
+      "sineBits": "433b6bc2d12cf8dafe3f"
+    },
+    "2d3a199dd8609b870040": {
+      "sineBits": "ed2b70061b5281dafe3f"
+    },
+    "b0d807cb80e964890040": {
+      "sineBits": "1b4b36586212b2d6fe3f"
+    },
+    "81acc5d0951a9e890040": {
+      "sineBits": "d6e00128df2235d6fe3f"
+    },
+    "6c8910b42c2580880040": {
+      "sineBits": "0ce403dc191a9fd8fe3f"
+    },
+    "3d5dceb94156b9880040": {
+      "sineBits": "913b4d5cb1da24d8fe3f"
+    },
+    "c0fbbce7e9de828a0040": {
+      "sineBits": "5468b32d2eba3ad4fe3f"
+    },
+    "91cf7aedfe0fbc8a0040": {
+      "sineBits": "ea9fcb5f5277bad3fe3f"
+    },
+    "7cacc5d0951a9e890040": {
+      "sineBits": "e1e00128df2235d6fe3f"
+    },
+    "4d8083d6aa4bd7890040": {
+      "sineBits": "03dead604d88b7d5fe3f"
+    },
+    "d01e720453d4a08b0040": {
+      "sineBits": "05249f9925d5b2d1fe3f"
+    },
+    "a1f22f0a6805da8b0040": {
+      "sineBits": "3b83ddb6f1482fd1fe3f"
+    },
+    "8ccf7aedfe0fbc8a0040": {
+      "sineBits": "f59fcb5f5277bad3fe3f"
+    },
+    "5da338f31341f58a0040": {
+      "sineBits": "55b4c9cc628b39d3fe3f"
+    },
+    "e0412721bcc9be8c0040": {
+      "sineBits": "27025fd1ce951acffe3f"
+    },
+    "b115e526d1faf78c0040": {
+      "sineBits": "0008bdfe84ca93cefe3f"
+    },
+    "9cf22f0a6805da8b0040": {
+      "sineBits": "4683ddb6f1482fd1fe3f"
+    },
+    "6dc6ed0f7d36138c0040": {
+      "sineBits": "cc4e6410b215abd0fe3f"
+    },
+    "f064dc3d25bfdc8d0040": {
+      "sineBits": "3d606b7ff62f72ccfe3f"
+    },
+    "c1389a433af0158e0040": {
+      "sineBits": "0da237b11930e8cbfe3f"
+    },
+    "ac15e526d1faf78c0040": {
+      "sineBits": "0c08bdfe84ca93cefe3f"
+    },
+    "7de9a22ce62b318d0040": {
+      "sineBits": "940a9670445a0ccefe3f"
+    },
+    "0088915a8eb4fa8e0040": {
+      "sineBits": "dde636b9abd8b9c9fe3f"
+    },
+    "d15b4f60a3e5338f0040": {
+      "sineBits": "3c593ce1feae2cc9fe3f"
+    },
+    "bc389a433af0158e0040": {
+      "sineBits": "19a237b11930e8cbfe3f"
+    },
+    "8d0c58494f214f8e0040": {
+      "sineBits": "364af00c688d5dcbfe3f"
+    },
+    "10ab4677f7a918900040": {
+      "sineBits": "ff68f1db3bc6f1c6fe3f"
+    },
+    "e17e047d0cdb51900040": {
+      "sineBits": "e331a112c17d61c6fe3f"
+    },
+    "cc5b4f60a3e5338f0040": {
+      "sineBits": "48593ce1feae2cc9fe3f"
+    },
+    "9d2f0d66b8166d8f0040": {
+      "sineBits": "b27c4ccbabe49ec8fe3f"
+    },
+    "20cefb93609f36910040": {
+      "sineBits": "22cb78502e301ac4fe3f"
+    },
+    "f1a1b99975d06f910040": {
+      "sineBits": "f35d27f925d486c3fe3f"
+    },
+    "dc7e047d0cdb51900040": {
+      "sineBits": "ef31a112c17d61c6fe3f"
+    },
+    "ad52c282210c8b900040": {
+      "sineBits": "e960972adb96d0c5fe3f"
+    },
+    "30f1b0b0c99454920040": {
+      "sineBits": "cf7bcc36404f33c1fe3f"
+    },
+    "01c56eb6dec58d920040": {
+      "sineBits": "b622131f28eb9cc0fe3f"
+    },
+    "eca1b99975d06f910040": {
+      "sineBits": "005e27f925d486c3fe3f"
+    },
+    "bd75779f8a01a9910040": {
+      "sineBits": "65e6ebfcf9dbf2c2fe3f"
+    },
+    "401466cd328a72930040": {
+      "sineBits": "ecef59f95f5d3dbefe3f"
+    },
+    "11e823d347bbab930040": {
+      "sineBits": "7e46ae73f2fca3bdfe3f"
+    },
+    "fcc46eb6dec58d920040": {
+      "sineBits": "c322131f28eb9cc0fe3f"
+    },
+    "cd982cbcf3f6c6920040": {
+      "sineBits": "63f9520940ed05c0fe3f"
+    },
+    "50371bea9b7f90940040": {
+      "sineBits": "8a777ac8a89538bbfe3f"
+    },
+    "210bd9efb0b0c9940040": {
+      "sineBits": "99ba0dc2db449cbafe3f"
+    },
+    "0ce823d347bbab930040": {
+      "sineBits": "8c46ae73f2fca3bdfe3f"
+    },
+    "ddbbe1d85cece4930040": {
+      "sineBits": "3d6e7f9514050abdfe3f"
+    },
+    "605ad0060575ae950040": {
+      "sineBits": "009b7cfe5d3425b8fe3f"
+    },
+    "312e8e0c1aa6e7950040": {
+      "sineBits": "8f0f751062ff85b7fe3f"
+    },
+    "1c0bd9efb0b0c9940040": {
+      "sineBits": "a6ba0dc2db449cbafe3f"
+    },
+    "edde96f5c5e102950040": {
+      "sineBits": "d21fdfd7095fffb9fe3f"
+    },
+    "707d85236e6acc960040": {
+      "sineBits": "8104956ce67603b5fe3f"
+    },
+    "41514329839b05970040": {
+      "sineBits": "af14b4e8256a61b4fe3f"
+    },
+    "2c2e8e0c1aa6e7950040": {
+      "sineBits": "9d0f751062ff85b7fe3f"
+    },
+    "fd014c122fd720960040": {
+      "sineBits": "e72c5c52d837e6b6fe3f"
+    },
+    "80a03a40d75fea970040": {
+      "sineBits": "61c71491c79bd3b1fe3f"
+    },
+    "5174f845ec9023980040": {
+      "sineBits": "57cfdc89e5c32eb1fe3f"
+    },
+    "3c514329839b05970040": {
+      "sineBits": "bd14b4e8256a61b4fe3f"
+    },
+    "0d25012f98cc3e970040": {
+      "sineBits": "f8112b165acdbeb3fe3f"
+    },
+    "90c3ef5c405508990040": {
+      "sineBits": "f49b44b7a0e295aefe3f"
+    },
+    "6197ad62558641990040": {
+      "sineBits": "e9bab103784ceeadfe3f"
+    },
+    "4c74f845ec9023980040": {
+      "sineBits": "66cfdc89e5c32eb1fe3f"
+    },
+    "1d48b64b01c25c980040": {
+      "sineBits": "122704f1855e89b0fe3f"
+    },
+    "a0e6a479a94a269a0040": {
+      "sineBits": "4d654601268c4aabfe3f"
+    },
+    "71ba627fbe7b5f9a0040": {
+      "sineBits": "e2fe2d3cc844a0aafe3f"
+    },
+    "5c97ad62558641990040": {
+      "sineBits": "f7bab103784ceeadfe3f"
+    },
+    "2d6b6b686ab77a990040": {
+      "sineBits": "02cc28846a2b46adfe3f"
+    },
+    "b0095a961240449b0040": {
+      "sineBits": "c70c605c1bdaf1a7fe3f"
+    },
+    "81dd179c27717d9b0040": {
+      "sineBits": "fafd8adfcfee44a7fe3f"
+    },
+    "6cba627fbe7b5f9a0040": {
+      "sineBits": "f1fe2d3cc844a0aafe3f"
+    },
+    "3d8e2085d3ac989a0040": {
+      "sineBits": "974896452975f5a9fe3f"
+    },
+    "c02c0fb37b35629c0040": {
+      "sineBits": "586e14604f0f8ca4fe3f"
+    },
+    "9100cdb890669b9c0040": {
+      "sineBits": "5e4e283b928ddca3fe3f"
+    },
+    "7cdd179c27717d9b0040": {
+      "sineBits": "09fe8adfcfee44a7fe3f"
+    },
+    "4db1d5a13ca2b69b0040": {
+      "sineBits": "311aca6bf17d97a6fe3f"
+    },
+    "d04fc4cfe42a809d0040": {
+      "sineBits": "a5b77018966f19a1fe3f"
+    },
+    "a12382d5f95bb99d0040": {
+      "sineBits": "d7d0bc03176567a0fe3f"
+    },
+    "8c00cdb890669b9c0040": {
+      "sineBits": "6d4e283b928ddca3fe3f"
+    },
+    "5dd48abea597d49c0040": {
+      "sineBits": "b5137dc4fa882ca3fe3f"
+    },
+    "e07279ec4d209e9e0040": {
+      "sineBits": "1f3bf6bbc33f9a9dfe3f"
+    },
+    "b14637f26251d79e0040": {
+      "sineBits": "183a390765bae59cfe3f"
+    },
+    "9c2382d5f95bb99d0040": {
+      "sineBits": "e7d0bc03176567a0fe3f"
+    },
+    "6df73fdb0e8df29d0040": {
+      "sineBits": "1459bc7680dab49ffe3f"
+    },
+    "f0952e09b715bc9f0040": {
+      "sineBits": "5b4f8a4da7c50e9afe3f"
+    },
+    "c169ec0ecc46f59f0040": {
+      "sineBits": "d1f6c5ca7cd35799fe3f"
+    },
+    "ac4637f26251d79e0040": {
+      "sineBits": "283a390765bae59cfe3f"
+    },
+    "7d1af5f77782109f0040": {
+      "sineBits": "4cdbc8b0bbb7309cfe3f"
+    },
+    "00b9e325200bdaa00040": {
+      "sineBits": "ab61d72a05487796fe3f"
+    },
+    "d18ca12b353c13a10040": {
+      "sineBits": "61e0471553f7bd95fe3f"
+    },
+    "bc69ec0ecc46f59f0040": {
+      "sineBits": "e1f6c5ca7cd35799fe3f"
+    },
+    "8d3daa14e1772ea00040": {
+      "sineBits": "ac8d2742de66a098fe3f"
+    },
+    "10dc98428900f8a10040": {
+      "sineBits": "72e98b87910ed492fe3f"
+    },
+    "e1af56489e3131a20040": {
+      "sineBits": "aabcd866cb6d1892fe3f"
+    },
+    "cc8ca12b353c13a10040": {
+      "sineBits": "71e0471553f7bd95fe3f"
+    },
+    "9d605f314a6d4ca10040": {
+      "sineBits": "92184e220d2f0495fe3f"
+    },
+    "20ff4d5ff2f515a30040": {
+      "sineBits": "ab67e5d5ea61258ffe3f"
+    },
+    "f1d20b6507274fa30040": {
+      "sineBits": "d3ffa15db27f678efe3f"
+    },
+    "dcaf56489e3131a20040": {
+      "sineBits": "bbbcd866cb6d1892fe3f"
+    },
+    "ad83144eb3626aa20040": {
+      "sineBits": "e75059e45a585c91fe3f"
+    },
+    "3022037c5beb33a40040": {
+      "sineBits": "6613f71c948b6b8bfe3f"
+    },
+    "01f6c081701c6da40040": {
+      "sineBits": "72ba8908b876ab8afe3f"
+    },
+    "ecd20b6507274fa30040": {
+      "sineBits": "e4ffa15db27f678efe3f"
+    },
+    "bda6c96a1c5888a30040": {
+      "sineBits": "33363c18c22ba98dfe3f"
+    },
+    "4045b898c4e051a50040": {
+      "sineBits": "ba401d3defd5a687fe3f"
+    },
+    "1119769ed9118ba50040": {
+      "sineBits": "6f0923286a9de486fe3f"
+    },
+    "fcf5c081701c6da40040": {
+      "sineBits": "83ba8908b876ab8afe3f"
+    },
+    "cdc97e87854da6a40040": {
+      "sineBits": "fcaad7991ff3ea89fe3f"
+    },
+    "50686db52dd66fa60040": {
+      "sineBits": "8df30f23378cd783fe3f"
+    },
+    "213c2bbb4207a9a60040": {
+      "sineBits": "1ebf545e2e3f1383fe3f"
+    },
+    "0c19769ed9118ba50040": {
+      "sineBits": "800923286a9de486fe3f"
+    },
+    "ddec33a4ee42c4a50040": {
+      "sineBits": "56846cce2cf92186fe3f"
+    },
+    "608b22d296cb8da70040": {
+      "sineBits": "c8d410d4f3f4fbfffd3f"
+    },
+    "315fe0d7abfcc6a70040": {
+      "sineBits": "2dac549a78506ffefd3f"
+    },
+    "1c3c2bbb4207a9a60040": {
+      "sineBits": "2fbf545e2e3f1383fe3f"
+    },
+    "ed0fe9c05738e2a60040": {
+      "sineBits": "dbeddad079894e82fe3f"
+    },
+    "70aed7eeffc0aba80040": {
+      "sineBits": "e67eddda25db34f8fd3f"
+    },
+    "418295f414f2e4a80040": {
+      "sineBits": "ec1c894a2f4ba4f6fd3f"
+    },
+    "2c5fe0d7abfcc6a70040": {
+      "sineBits": "50ac549a78506ffefd3f"
+    },
+    "fd329eddc02d00a80040": {
+      "sineBits": "f9ec461acfe0e1fcfd3f"
+    },
+    "80d18c0b69b6c9a90040": {
+      "sineBits": "ab0d0c9549665af0fd3f"
+    },
+    "51a54a117ee702aa0040": {
+      "sineBits": "3ebac048140ac6eefd3f"
+    },
+    "3c8295f414f2e4a80040": {
+      "sineBits": "0f1d894a2f4ba4f6fd3f"
+    },
+    "0d5653fa29231ea90040": {
+      "sineBits": "17d23e9743f612f5fd3f"
+    },
+    "90f44128d2abe7aa0040": {
+      "sineBits": "d2201da526336de8fd3f"
+    },
+    "61c8ff2de7dc20ab0040": {
+      "sineBits": "7024d8083b2ad5e6fd3f"
+    },
+    "4ca54a117ee702aa0040": {
+      "sineBits": "61bac048140ac6eefd3f"
+    },
+    "1d79081793183caa0040": {
+      "sineBits": "7cb0ce5832ef30edfd3f"
+    },
+    "a017f7443ba105ac0040": {
+      "sineBits": "df53aedbfadf6de0fd3f"
+    },
+    "71ebb44a50d23eac0040": {
+      "sineBits": "f8a047b72a4ad2defd3f"
+    },
+    "5cc8ff2de7dc20ab0040": {
+      "sineBits": "9424d8083b2ad5e6fd3f"
+    },
+    "2d9cbd33fc0d5aab0040": {
+      "sineBits": "d903c026fa683ce5fd3f"
+    },
+    "b03aac61a49623ad0040": {
+      "sineBits": "e2d56ee06d0c5dd8fd3f"
+    },
+    "810e6a67b9c75cad0040": {
+      "sineBits": "a4335fdcd109bed6fd3f"
+    },
+    "6cebb44a50d23eac0040": {
+      "sineBits": "1ca147b72a4ad2defd3f"
+    },
+    "3dbf7250650378ac0040": {
+      "sineBits": "34bfcd0a6b0236ddfd3f"
+    },
+    "c05d617e0d8c41ae0040": {
+      "sineBits": "186edcbe84593bd0fd3f"
+    },
+    "91311f8422bd7aae0040": {
+      "sineBits": "fcad7ce3790a99cefd3f"
+    },
+    "7c0e6a67b9c75cad0040": {
+      "sineBits": "c8335fdcd109bed6fd3f"
+    },
+    "4de2276dcef895ad0040": {
+      "sineBits": "cac631eeb95b1ed5fd3f"
+    },
+    "d080169b76815faf0040": {
+      "sineBits": "277ac157956909c8fd3f"
+    },
+    "a154d4a08bb298af0040": {
+      "sineBits": "dbaf3487baee63c6fd3f"
+    },
+    "8c311f8422bd7aae0040": {
+      "sineBits": "20ae7ce3790a99cefd3f"
+    },
+    "5d05dd8937eeb3ae0040": {
+      "sineBits": "c8ff5d1b7416f6ccfd3f"
+    },
+    "e0a3cbb7df767db00040": {
+      "sineBits": "9a926eb839e0c7bffd3f"
+    },
+    "b17789bdf4a7b6b00040": {
+      "sineBits": "62b069236d5a1fbefd3f"
+    },
+    "9c54d4a08bb298af0040": {
+      "sineBits": "00b03487baee63c6fd3f"
+    },
+    "6d2892a6a0e3d1af0040": {
+      "sineBits": "865edaa472d5bdc4fd3f"
+    },
+    "f0c680d4486c9bb10040": {
+      "sineBits": "9f8eac58436277b7fd3f"
+    },
+    "c19a3eda5d9dd4b10040": {
+      "sineBits": "c32e4eee9ff2cbb5fd3f"
+    },
+    "ac7789bdf4a7b6b00040": {
+      "sineBits": "88b069236d5a1fbefd3f"
+    },
+    "7d4b47c309d9efb00040": {
+      "sineBits": "f27343b2cd3c76bcfd3f"
+    },
+    "00ea35f1b161b9b20040": {
+      "sineBits": "be986540ae9518affd3f"
+    },
+    "d1bdf3f6c692f2b20040": {
+      "sineBits": "2f1f5119895d6aadfd3f"
+    },
+    "bc9a3eda5d9dd4b10040": {
+      "sineBits": "e82e4eee9ff2cbb5fd3f"
+    },
+    "8d6efcdf72ce0db20040": {
+      "sineBits": "81ff66b4cff11fb4fd3f"
+    },
+    "100deb0d1b57d7b30040": {
+      "sineBits": "0ceb05169421aca6fd3f"
+    },
+    "e1e0a813308810b40040": {
+      "sineBits": "f888f5da7942fba4fd3f"
+    },
+    "ccbdf3f6c692f2b20040": {
+      "sineBits": "541f5119895d6aadfd3f"
+    },
+    "9d91b1fcdbc32bb30040": {
+      "sineBits": "a5fb7d81e89abbabfd3f"
+    },
+    "2030a02a844cf5b40040": {
+      "sineBits": "249a96161fae329efd3f"
+    },
+    "f1035e30997d2eb50040": {
+      "sineBits": "bd179862d1497f9cfd3f"
+    },
+    "dce0a813308810b40040": {
+      "sineBits": "1e89f5da7942fba4fd3f"
+    },
+    "adb4661945b949b40040": {
+      "sineBits": "9477855aa0df49a3fd3f"
+    },
+    "30535547ed4113b60040": {
+      "sineBits": "e39296f87ce4ac95fd3f"
+    },
+    "0127134d02734cb60040": {
+      "sineBits": "1c1a27b7ef1cf793fd3f"
+    },
+    "ec035e30997d2eb50040": {
+      "sineBits": "e3179862d1497f9cfd3f"
+    },
+    "bdd71b36aeae67b50040": {
+      "sineBits": "075ab9da8a68cb9afd3f"
+    },
+    "40760a64563731b70040": {
+      "sineBits": "2a9797bad16e1b8dfd3f"
+    },
+    "114ac8696b686ab70040": {
+      "sineBits": "9f0cd3812866638bfd3f"
+    },
+    "fc26134d02734cb60040": {
+      "sineBits": "421a27b7ef1cf793fd3f"
+    },
+    "cdfad05217a485b60040": {
+      "sineBits": "0fdd35d239df4092fd3f"
+    },
+    "5099bf80bf2c4fb80040": {
+      "sineBits": "049aa65e2af87e84fd3f"
+    },
+    "216d7d86d45d88b80040": {
+      "sineBits": "905fbfc5b5d0c482fd3f"
+    },
+    "0c4ac8696b686ab70040": {
+      "sineBits": "c50cd3812866638bfd3f"
+    },
+    "dd1d866f8099a3b70040": {
+      "sineBits": "5e33c60c30eeaa89fd3f"
+    },
+    "60bc749d28226db90040": {
+      "sineBits": "92b51027df58b0f7fc3f"
+    },
+    "319032a33d53a6b90040": {
+      "sineBits": "0843790b551138f4fc3f"
+    },
+    "1c6d7d86d45d88b80040": {
+      "sineBits": "b75fbfc5b5d0c482fd3f"
+    },
+    "ed403b8ce98ec1b80040": {
+      "sineBits": "1553e805d4400a81fd3f"
+    },
+    "70df29ba91178bba0040": {
+      "sineBits": "6013a999b0704fe6fc3f"
+    },
+    "41b3e7bfa648c4ba0040": {
+      "sineBits": "463e2db2ca75d3e2fc3f"
+    },
+    "2c9032a33d53a6b90040": {
+      "sineBits": "5643790b551138f4fc3f"
+    },
+    "fd63f0a85284dfb90040": {
+      "sineBits": "dfb21e16c506bff0fc3f"
+    },
+    "8002dfd6fa0ca9bb0040": {
+      "sineBits": "912cf695b892dcd4fc3f"
+    },
+    "51d69cdc0f3ee2bb0040": {
+      "sineBits": "0ab504e1052a5dd1fc3f"
+    },
+    "3cb3e7bfa648c4ba0040": {
+      "sineBits": "943e2db2ca75d3e2fc3f"
+    },
+    "0d87a5c5bb79fdba0040": {
+      "sineBits": "e6b95e9ac2c556dffc3f"
+    },
+    "902594f36302c7bc0040": {
+      "sineBits": "b21281284d1b59c3fc3f"
+    },
+    "61f951f9783300bd0040": {
+      "sineBits": "b7f27118a18ad6bffc3f"
+    },
+    "4cd69cdc0f3ee2bb0040": {
+      "sineBits": "58b504e1052a5dd1fc3f"
+    },
+    "1daa5ae2246f1bbc0040": {
+      "sineBits": "1da33dc5221addcdfc3f"
+    },
+    "a0484910cdf7e4bd0040": {
+      "sineBits": "b0ef7ebf0f68c6b1fc3f"
+    },
+    "711c0716e2281ebe0040": {
+      "sineBits": "37e29bc87cf540aefc3f"
+    },
+    "5cf951f9783300bd0040": {
+      "sineBits": "06f37118a18ad6bffc3f"
+    },
+    "2dcd0fff8d6439bd0040": {
+      "sineBits": "8bb5b574c36053bcfc3f"
+    },
+    "b06bfe2c36ed02bf0040": {
+      "sineBits": "8d67fce6d1d725a0fc3f"
+    },
+    "813fbc324b1e3cbf0040": {
+      "sineBits": "73969f08a4c99d9cfc3f"
+    },
+    "6c1c0716e2281ebe0040": {
+      "sineBits": "86e29bc87cf540aefc3f"
+    },
+    "3df0c41bf75957be0040": {
+      "sineBits": "87177a03c3f7baaafc3f"
+    },
+    "c08eb3499fe220c00040": {
+      "sineBits": "4ec351ed79ca788efc3f"
+    },
+    "9162714fb4135ac00040": {
+      "sineBits": "80b287363167ee8afc3f"
+    },
+    "7c3fbc324b1e3cbf0040": {
+      "sineBits": "c2969f08a4c99d9cfc3f"
+    },
+    "4d137a38604f75bf0040": {
+      "sineBits": "a84764fb643e1599fc3f"
+    },
+    "d0b1686608d83ec10040": {
+      "sineBits": "121804e4ce4181f9fb3f"
+    },
+    "a185266c1d0978c10040": {
+      "sineBits": "df633804655e68f2fb3f"
+    },
+    "8c62714fb4135ac00040": {
+      "sineBits": "d0b287363167ee8afc3f"
+    },
+    "5d362f55c94493c00040": {
+      "sineBits": "7f9e04b1f6946387fc3f"
+    },
+    "e0d41d8371cd5cc20040": {
+      "sineBits": "9ed751c2af79fdd5fb3f"
+    },
+    "b1a8db8886fe95c20040": {
+      "sineBits": "36705dc91c07e1cefb3f"
+    },
+    "9c85266c1d0978c10040": {
+      "sineBits": "7e643804655e68f2fb3f"
+    },
+    "6d59e471323ab1c10040": {
+      "sineBits": "ca62f19467b94eebfb3f"
+    },
+    "f0f7d29fdac27ac30040": {
+      "sineBits": "b75c39bb950169b2fb3f"
+    },
+    "c1cb90a5eff3b3c30040": {
+      "sineBits": "9b111210d08d49abfb3f"
+    },
+    "aca8db8886fe95c20040": {
+      "sineBits": "d5705dc91c07e1cefb3f"
+    },
+    "7d7c998e9b2fcfc20040": {
+      "sineBits": "1619586755efc3c7fb3f"
+    },
+    "001b88bc43b898c40040": {
+      "sineBits": "7a29d637cd9fc68efb3f"
+    },
+    "d1ee45c258e9d1c40040": {
+      "sineBits": "b43a493d07b9a487fb3f"
+    },
+    "bccb90a5eff3b3c30040": {
+      "sineBits": "3a121210d08d49abfb3f"
+    },
+    "8d9f4eab0425edc30040": {
+      "sineBits": "e65a5204429129a4fb3f"
+    },
+    "103e3dd9acadb6c50040": {
+      "sineBits": "d17563c1703732d6fa3f"
+    },
+    "e111fbdec1deefc50040": {
+      "sineBits": "10bc4dbdaaa0eac7fa3f"
+    },
+    "ccee45c258e9d1c40040": {
+      "sineBits": "533b493d07b9a487fb3f"
+    },
+    "9dc203c86d1a0bc50040": {
+      "sineBits": "3ade4395ef658280fb3f"
+    },
+    "2061f2f515a3d4c60040": {
+      "sineBits": "c89733482f7bc68efa3f"
+    },
+    "f134b0fb2ad40dc70040": {
+      "sineBits": "eb280c5a41387c80fa3f"
+    },
+    "dc11fbdec1deefc50040": {
+      "sineBits": "4fbd4dbdaaa0eac7fa3f"
+    },
+    "ade5b8e4d60f29c60040": {
+      "sineBits": "48d95ea93f6aa2b9fa3f"
+    },
+    "3084a7127f98f2c70040": {
+      "sineBits": "ad1385ac48399f8ef93f"
+    },
+    "0158651894c92bc80040": {
+      "sineBits": "a3dc3cf4572b0fe4f83f"
+    },
+    "ec34b0fb2ad40dc70040": {
+      "sineBits": "2b2a0c5a41387c80fa3f"
+    },
+    "bd086e01400547c70040": {
+      "sineBits": "a7f46434721d63e4f93f"
+    },
+    "40a75c2fe88d10c90040": {
+      "sineBits": "1eb799faf20d46b3f0bf"
+    },
+    "117b1a35fdbe49c90040": {
+      "sineBits": "f1a14870ba4c91e7f6bf"
+    },
+    "fc57651894c92bc80040": {
+      "sineBits": "a3e13cf4572b0fe4f83f"
+    },
+    "cd2b231ea9fa64c80040": {
+      "sineBits": "59f27a42002edfaaf83f"
+    },
+    "50ca114c51832eca0040": {
+      "sineBits": "8a38d0295978528ff9bf"
+    },
+    "219ecf5166b467ca0040": {
+      "sineBits": "82bad139fea6e9abf9bf"
+    },
+    "0c7b1a35fdbe49c90040": {
+      "sineBits": "f18d4870ba4c91e7f6bf"
+    },
+    "dd4ed83a12f082c90040": {
+      "sineBits": "599728c928642ae6f7bf"
+    },
+    "60edc668ba784ccb0040": {
+      "sineBits": "86de179c3b10208ffabf"
+    },
+    "31c1846ecfa985cb0040": {
+      "sineBits": "5231637736de699dfabf"
+    },
+    "1c9ecf5166b467ca0040": {
+      "sineBits": "02b8d139fea6e9abf9bf"
+    },
+    "ed718d577be5a0ca0040": {
+      "sineBits": "0af537105b4c80c8f9bf"
+    },
+    "70107c85236e6acc0040": {
+      "sineBits": "7a19e9cb04bb8bd6fabf"
+    },
+    "41e4398b389fa3cc0040": {
+      "sineBits": "6a2f309a69a2d2e4fabf"
+    },
+    "2cc1846ecfa985cb0040": {
+      "sineBits": "1230637736de699dfabf"
+    },
+    "fd944274e4dabecb0040": {
+      "sineBits": "5778882b7d2eb3abfabf"
+    },
+    "803331a28c6388cd0040": {
+      "sineBits": "fc1c7c975d55f38efbbf"
+    },
+    "5107efa7a194c1cd0040": {
+      "sineBits": "75ec3fbc42c71496fbbf"
+    },
+    "3ce4398b389fa3cc0040": {
+      "sineBits": "2b2e309a69a2d2e4fabf"
+    },
+    "0db8f7904dd0dccc0040": {
+      "sineBits": "f17c730414d318f3fabf"
+    },
+    "9056e6bef558a6ce0040": {
+      "sineBits": "cf6c63e86fa795b2fbbf"
+    },
+    "612aa4c40a8adfce0040": {
+      "sineBits": "0bb32aa02d89b4b9fbbf"
+    },
+    "4c07efa7a194c1cd0040": {
+      "sineBits": "d5eb3fbc42c71496fbbf"
+    },
+    "1ddbacadb6c5facd0040": {
+      "sineBits": "85db83b04ec1359dfbbf"
+    },
+    "a0799bdb5e4ec4cf0040": {
+      "sineBits": "74e7c969580c2ad6fbbf"
+    },
+    "714d59e1737ffdcf0040": {
+      "sineBits": "02c90fb5c7cf45ddfbbf"
+    },
+    "5c2aa4c40a8adfce0040": {
+      "sineBits": "6cb22aa02d89b4b9fbbf"
+    },
+    "2dfe61ca1fbb18cf0040": {
+      "sineBits": "0d4f8a819fd6d2c0fbbf"
+    },
+    "b09c50f8c743e2d00040": {
+      "sineBits": "e2ddbe31ccbdadf9fbbf"
+    },
+    "81700efedc741bd10040": {
+      "sineBits": "c80af82882ea6280fcbf"
+    },
+    "6c4d59e1737ffdcf0040": {
+      "sineBits": "63c80fb5c7cf45ddfbbf"
+    },
+    "3d2117e788b036d00040": {
+      "sineBits": "e124871484e260e4fbbf"
+    },
+    "c0bf0515313900d20040": {
+      "sineBits": "994a92df66fb8e8efcbf"
+    },
+    "9193c31a466a39d20040": {
+      "sineBits": "db25cfa317ea1892fcbf"
+    },
+    "7c700efedc741bd10040": {
+      "sineBits": "780af82882ea6280fcbf"
+    },
+    "4d44cc03f2a554d10040": {
+      "sineBits": "4f5c381c988fee83fcbf"
+    },
+    "d0e2ba319a2e1ed30040": {
+      "sineBits": "59aac921f2f93ba0fcbf"
+    },
+    "a1b67837af5f57d30040": {
+      "sineBits": "e01f75121285c3a3fcbf"
+    },
+    "8c93c31a466a39d20040": {
+      "sineBits": "8c25cfa317ea1892fcbf"
+    },
+    "5d6781205b9b72d20040": {
+      "sineBits": "f579fda21d64a295fcbf"
+    },
+    "e005704e03243cd40040": {
+      "sineBits": "b2597667a979dcb1fcbf"
+    },
+    "b1d92d54185575d40040": {
+      "sineBits": "ee00d0adc25a61b5fcbf"
+    },
+    "9cb67837af5f57d30040": {
+      "sineBits": "911f75121285c3a3fcbf"
+    },
+    "6d8a363dc49090d30040": {
+      "sineBits": "9964efae6b8d4aa7fcbf"
+    },
+    "f028256b6c195ad50040": {
+      "sineBits": "d3e028aca71a6fc3fcbf"
+    },
+    "c1fce270814a93d50040": {
+      "sineBits": "12ef06a1790bf1c6fcbf"
+    },
+    "acd92d54185575d40040": {
+      "sineBits": "9f00d0adc25a61b5fcbf"
+    },
+    "7dadeb592d86aed40040": {
+      "sineBits": "21898c4304abe5b8fcbf"
+    },
+    "004cda87d50e78d60040": {
+      "sineBits": "68af18d01c7ef2d4fcbf"
+    },
+    "d11f988dea3fb1d60040": {
+      "sineBits": "13936376a13871d8fcbf"
+    },
+    "bcfce270814a93d50040": {
+      "sineBits": "c3ee06a1790bf1c6fcbf"
+    },
+    "8dd0a076967bccd50040": {
+      "sineBits": "d43c6ad46d5d72cafcbf"
+    },
+    "106f8fa43e0496d70040": {
+      "sineBits": "b28993f3684665e6fcbf"
+    },
+    "e1424daa5335cfd70040": {
+      "sineBits": "1f612e6eda84e0e9fcbf"
+    },
+    "cc1f988dea3fb1d60040": {
+      "sineBits": "c5926376a13871d8fcbf"
+    },
+    "9df35593ff70ead60040": {
+      "sineBits": "8875daad4e46efdbfcbf"
+    },
+    "209244c1a7f9b3d80040": {
+      "sineBits": "2313b3ba3717c6f7fcbf"
+    },
+    "f16502c7bc2aedd80040": {
+      "sineBits": "ecfb63bd15943dfbfcbf"
+    },
+    "dc424daa5335cfd70040": {
+      "sineBits": "d1602e6eda84e0e9fcbf"
+    },
+    "ad160bb0686608d80040": {
+      "sineBits": "e3181f4788085bedfcbf"
+    },
+    "30b5f9dd10efd1d90040": {
+      "sineBits": "c5159cbbcdca8984fdbf"
+    },
+    "0189b7e325200bda0040": {
+      "sineBits": "98e51159d8854386fdbf"
+    },
+    "ec6502c7bc2aedd80040": {
+      "sineBits": "9ffb63bd15943dfbfcbf"
+    },
+    "bd39c0ccd15b26d90040": {
+      "sineBits": "5176097c5248b4fefcbf"
+    },
+    "40d8aefa79e4efda0040": {
+      "sineBits": "e9eb361b1434268dfdbf"
+    },
+    "11ac6c008f1529db0040": {
+      "sineBits": "5ef5dcdd47c9dd8efdbf"
+    },
+    "fc88b7e325200bda0040": {
+      "sineBits": "71e51159d8854386fdbf"
+    },
+    "cd5c75e93a5144da0040": {
+      "sineBits": "0635f355abd5fc87fdbf"
+    },
+    "50fb6317e3d90ddc0040": {
+      "sineBits": "e9ce7b58879bb795fdbf"
+    },
+    "21cf211df80a47dc0040": {
+      "sineBits": "3f6714aa9ce86c97fdbf"
+    },
+    "0cac6c008f1529db0040": {
+      "sineBits": "38f5dcdd47c9dd8efdbf"
+    },
+    "dd7f2a06a44662db0040": {
+      "sineBits": "46decc5d65ec9490fdbf"
+    },
+    "601e19344ccf2bdd0040": {
+      "sineBits": "93c9388d1b563d9efdbf"
+    },
+    "31f2d639610065dd0040": {
+      "sineBits": "36ac8c64f838f09ffdbf"
+    },
+    "1ccf211df80a47dc0040": {
+      "sineBits": "186714aa9ce86c97fdbf"
+    },
+    "eda2df220d3c80dc0040": {
+      "sineBits": "7fc866fcc5bc2199fdbf"
+    },
+    "7041ce50b5c449de0040": {
+      "sineBits": "b67065e7adb9b6a6fdbf"
+    },
+    "41158c56caf582de0040": {
+      "sineBits": "30540d71681067a8fdbf"
+    },
+    "2cf2d639610065dd0040": {
+      "sineBits": "10ac8c64f838f09ffdbf"
+    },
+    "fdc5943f76319edd0040": {
+      "sineBits": "578f0eee1c9ca2a1fdbf"
+    },
+    "8064836d1eba67df0040": {
+      "sineBits": "4717a3ed111d23affdbf"
+    },
+    "5138417333eba0df0040": {
+      "sineBits": "1ad10e31f3c5d0b0fdbf"
+    },
+    "3c158c56caf582de0040": {
+      "sineBits": "0a540d71681067a8fdbf"
+    },
+    "0de9495cdf26bcde0040": {
+      "sineBits": "3b421254a8e016aafdbf"
+    },
+    "9087388a87af85e00040": {
+      "sineBits": "aa1687b01ed881b7fdbf"
+    },
+    "615bf68f9ce0bee00040": {
+      "sineBits": "47820d31a5b12cb9fdbf"
+    },
+    "4c38417333eba0df0040": {
+      "sineBits": "f5d00e31f3c5d0b0fdbf"
+    },
+    "1d0cff78481cdadf0040": {
+      "sineBits": "1021b1f1a1e17db2fdbf"
+    },
+    "a0aaeda6f0a4a3e10040": {
+      "sineBits": "c8cca7e7bb43d2bffdbf"
+    },
+    "717eabac05d6dce10040": {
+      "sineBits": "02f96a419e2c7ac1fdbf"
+    },
+    "5c5bf68f9ce0bee00040": {
+      "sineBits": "22820d31a5b12cb9fdbf"
+    },
+    "2d2fb495b111f8e00040": {
+      "sineBits": "ebe46c554cf7d6bafdbf"
+    },
+    "b0cda2c3599ac1e20040": {
+      "sineBits": "b28566f9eeb913c8fdbf"
+    },
+    "81a160c96ecbfae20040": {
+      "sineBits": "49ffd7791e91b8c9fdbf"
+    },
+    "6c7eabac05d6dce10040": {
+      "sineBits": "ddf86a419e2c7ac1fdbf"
+    },
+    "3d5269b21a0716e20040": {
+      "sineBits": "a7d5b4edff7a21c3fdbf"
+    },
+    "c0f057e0c28fdfe30040": {
+      "sineBits": "e82e72ece79545d0fdbf"
+    },
+    "91c415e6d7c018e40040": {
+      "sineBits": "27964326933ae7d1fdbf"
+    },
+    "7ca160c96ecbfae20040": {
+      "sineBits": "24ffd7791e91b8c9fdbf"
+    },
+    "4d751ecf83fc33e30040": {
+      "sineBits": "6589e50738c75ccbfdbf"
+    },
+    "d0130dfd2b85fde40040": {
+      "sineBits": "476f00420e3467d8fdbf"
+    },
+    "a1e7ca0241b636e50040": {
+      "sineBits": "00e24c9ca38505dafdbf"
+    },
+    "8cc415e6d7c018e40040": {
+      "sineBits": "02964326933ae7d1fdbf"
+    },
+    "5d98d3ebecf151e40040": {
+      "sineBits": "95db99b89f3788d3fdbf"
+    },
+    "e036c219957a1be60040": {
+      "sineBits": "5a8fbcb70df277e0fdbf"
+    },
+    "b10a801faaab54e60040": {
+      "sineBits": "05d037f83dd012e2fdbf"
+    },
+    "9ce7ca0241b636e50040": {
+      "sineBits": "dce14c9ca38505dafdbf"
+    },
+    "6dbb880856e76fe50040": {
+      "sineBits": "106e4bac1e29a3dbfdbf"
+    },
+    "f0597736fe6f39e70040": {
+      "sineBits": "d8826df0e22e77e8fdbf"
+    },
+    "c12d353c13a172e70040": {
+      "sineBits": "d92866c0a3790eeafdbf"
+    },
+    "ac0a801faaab54e60040": {
+      "sineBits": "e1cf37f83dd012e2fdbf"
+    },
+    "7dde3d25bfdc8de60040": {
+      "sineBits": "8adf42dfe5f9ace3fdbf"
+    },
+    "007d2c53676557e80040": {
+      "sineBits": "c35c5602e84a64f0fdbf"
+    },
+    "d150ea587c9690e80040": {
+      "sineBits": "50c1586e76e2f7f1fdbf"
+    },
+    "bc2d353c13a172e70040": {
+      "sineBits": "b62866c0a3790eeafdbf"
+    },
+    "8d01f34128d2abe70040": {
+      "sineBits": "bdcfd93b7c09a5ebfdbf"
+    },
+    "10a0e16fd05a75e90040": {
+      "sineBits": "238456eae0a73ef8fdbf"
+    },
+    "e1739f75e58baee90040": {
+      "sineBits": "688a3edcc36ccef9fdbf"
+    },
+    "cc50ea587c9690e80040": {
+      "sineBits": "2dc1586e76e2f7f1fdbf"
+    },
+    "9d24a85e91c7c9e80040": {
+      "sineBits": "2aca121ecbb88af3fdbf"
+    },
+    "20c3968c395093ea0040": {
+      "sineBits": "b38f68f183d40280febf"
+    },
+    "f19654924e81ccea0040": {
+      "sineBits": "d9b20c4b09bec880febf"
+    },
+    "dc739f75e58baee90040": {
+      "sineBits": "458a3edcc36ccef9fdbf"
+    },
+    "ad475d7bfabce7e90040": {
+      "sineBits": "aa448dbb2a6a5dfbfdbf"
+    },
+    "30e64ba9a245b1eb0040": {
+      "sineBits": "dcafb2ce8c59dc83febf"
+    },
+    "01ba09afb776eaeb0040": {
+      "sineBits": "3f6dc106b73aa084febf"
+    },
+    "ec9654924e81ccea0040": {
+      "sineBits": "c8b20c4b09bec880febf"
+    },
+    "bd6a129863b205eb0040": {
+      "sineBits": "75036f37b7408e81febf"
+    },
+    "400901c60b3bcfec0040": {
+      "sineBits": "30ce41af3096ab87febf"
+    },
+    "11ddbecb206c08ed0040": {
+      "sineBits": "53898e57b95f6d88febf"
+    },
+    "fcb909afb776eaeb0040": {
+      "sineBits": "2e6dc106b73aa084febf"
+    },
+    "cd8dc7b4cca723ec0040": {
+      "sineBits": "7545ab72f8b16385febf"
+    },
+    "502cb6e27430eded0040": {
+      "sineBits": "e9c3f67c623e708bfebf"
+    },
+    "210074e8896126ee0040": {
+      "sineBits": "9b715fec2ce12f8cfebf"
+    },
+    "0cddbecb206c08ed0040": {
+      "sineBits": "42898e57b95f6d88febf"
+    },
+    "ddb07cd1359d41ed0040": {
+      "sineBits": "701a241750bc2e89febf"
+    },
+    "604f6bffdd250bef0040": {
+      "sineBits": "4d1a9957e8062a8ffebf"
+    },
+    "31232905f35644ef0040": {
+      "sineBits": "bf0ab6d70274e78ffebf"
+    },
+    "1c0074e8896126ee0040": {
+      "sineBits": "8a715fec2ce12f8cfebf"
+    },
+    "edd331ee9e925fee0040": {
+      "sineBits": "1f5169d50414ef8cfebf"
+    },
+    "7072201c471b29f00040": {
+      "sineBits": "ad8f9c7261a5d892febf"
+    },
+    "4146de215c4c62f00040": {
+      "sineBits": "ead3166a06ce9393febf"
+    },
+    "2c232905f35644ef0040": {
+      "sineBits": "af0ab6d70274e78ffebf"
+    },
+    "fdf6e60a08887def0040": {
+      "sineBits": "9c61a7ee326ea490febf"
+    },
+    "8095d538b01047f10040": {
+      "sineBits": "7d02f9e14bd07b96febf"
+    },
+    "5169933ec54180f10040": {
+      "sineBits": "612970fbe2a53497febf"
+    },
+    "3c46de215c4c62f00040": {
+      "sineBits": "d9d3166a06ce9393febf"
+    },
+    "0d1a9c27717d9bf00040": {
+      "sineBits": "927cb50bd2804e94febf"
+    },
+    "90b88a55190665f20040": {
+      "sineBits": "d5f7a0550a3f139afebf"
+    },
+    "618c485b2e379ef20040": {
+      "sineBits": "662309a329b3c99afebf"
+    },
+    "4c69933ec54180f10040": {
+      "sineBits": "502970fbe2a53497febf"
+    },
+    "1d3d5144da72b9f10040": {
+      "sineBits": "63860703bb02ed97febf"
+    },
+    "a0db3f7282fb82f30040": {
+      "sineBits": "d04d24c3e9a99e9dfebf"
+    },
+    "71affd77972cbcf30040": {
+      "sineBits": "3ee885dd56ae529efebf"
+    },
+    "5c8c485b2e379ef20040": {
+      "sineBits": "562309a329b3c99afebf"
+    },
+    "2d6006614368d7f20040": {
+      "sineBits": "57bd108dadab7f9bfebf"
+    },
+    "b0fef48eebf0a0f40040": {
+      "sineBits": "0a0e0efd26ca1da1febf"
+    },
+    "81d2b2940022daf40040": {
+      "sineBits": "dcad9020d850cfa1febf"
+    },
+    "6caffd77972cbcf30040": {
+      "sineBits": "2ee885dd56ae529efebf"
+    },
+    "3d83bb7dac5df5f30040": {
+      "sineBits": "9028a5e65534069ffebf"
+    },
+    "c021aaab54e6bef50040": {
+      "sineBits": "36c18d37f45990a4febf"
+    },
+    "91f567b16917f8f50040": {
+      "sineBits": "3e16b85b11553fa5febf"
+    },
+    "7cd2b2940022daf40040": {
+      "sineBits": "cdad9020d850cfa1febf"
+    },
+    "4da6709a155313f50040": {
+      "sineBits": "dc54e960525680a2febf"
+    },
+    "d0445fc8bddbdcf60040": {
+      "sineBits": "491afe797e14f6a7febf"
+    },
+    "a1181dced20c16f70040": {
+      "sineBits": "860815666276a2a8febf"
+    },
+    "8cf567b16917f8f50040": {
+      "sineBits": "2f16b85b11553fa5febf"
+    },
+    "5dc925b77e4831f60040": {
+      "sineBits": "b95461de38cceda5febf"
+    },
+    "e06714e526d1faf70040": {
+      "sineBits": "8b4ddcfcf2b54eabfebf"
+    },
+    "b13bd2ea3b0234f80040": {
+      "sineBits": "bca84b582c71f8abfebf"
+    },
+    "9c181dced20c16f70040": {
+      "sineBits": "760815666276a2a8febf"
+    },
+    "6decdad3e73d4ff70040": {
+      "sineBits": "b671b13c9c514ea9febf"
+    },
+    "f08ac90190c618f90040": {
+      "sineBits": "8beec47384fb99aefebf"
+    },
+    "c15e8707a5f751f90040": {
+      "sineBits": "32987cd2d60241affebf"
+    },
+    "ac3bd2ea3b0234f80040": {
+      "sineBits": "ada84b582c71f8abfebf"
+    },
+    "7d0f90f050336df80040": {
+      "sineBits": "d27ea4aa11a3a1acfebf"
+    },
+    "00ae7e1ef9bb36fa0040": {
+      "sineBits": "b0be0c4370a3d7b1febf"
+    },
+    "d1813c240eed6ffa0040": {
+      "sineBits": "0439bd2dd5e97bb2febf"
+    },
+    "bc5e8707a5f751f90040": {
+      "sineBits": "23987cd2d60241affebf"
+    },
+    "8d32450dba288bf90040": {
+      "sineBits": "51450dea357ee7affebf"
+    },
+    "10d1333b62b154fb0040": {
+      "sineBits": "286d8da0036d07b5febf"
+    },
+    "e1a4f14077e28dfb0040": {
+      "sineBits": "f447af98abe5a8b5febf"
+    },
+    "cc813c240eed6ffa0040": {
+      "sineBits": "f538bd2dd5e97bb2febf"
+    },
+    "9d55fa29231ea9fa0040": {
+      "sineBits": "8a171a7db2a11fb3febf"
+    },
+    "20f4e857cba672fc0040": {
+      "sineBits": "4ce83f9fa01829b8febf"
+    },
+    "f1c7a65de0d7abfc0040": {
+      "sineBits": "9bc0d11ef4b6c7b8febf"
+    },
+    "dca4f14077e28dfb0040": {
+      "sineBits": "e647af98abe5a8b5febf"
+    },
+    "ad78af468c13c7fb0040": {
+      "sineBits": "ab2fb3be42cd49b6febf"
+    },
+    "30179e74349c90fd0040": {
+      "sineBits": "8c873f25c3673cbbfebf"
+    },
+    "01eb5b7a49cdc9fd0040": {
+      "sineBits": "aca8269a631fd8bbfebf"
+    },
+    "ecc7a65de0d7abfc0040": {
+      "sineBits": "8dc0d11ef4b6c7b8febf"
+    },
+    "bd9b6463f508e5fc0040": {
+      "sineBits": "be227ee5b8c165b9febf"
+    },
+    "403a53919d91aefe0040": {
+      "sineBits": "1f04d3cb051d41befebf"
+    },
+    "110e1197b2c2e7fe0040": {
+      "sineBits": "990fcb8ecee1d9befebf"
+    },
+    "fcea5b7a49cdc9fd0040": {
+      "sineBits": "9ea8269a631fd8bbfebf"
+    },
+    "cdbe19805efe02fe0040": {
+      "sineBits": "8e5a22f1024173bcfebf"
+    },
+    "505d08ae0687ccff0040": {
+      "sineBits": "5ced19a926fc36c1febf"
+    },
+    "9018e3d90ddc02800140": {
+      "sineBits": "2f4820f02dc2ccc1febf"
+    },
+    "0c0e1197b2c2e7fe0040": {
+      "sineBits": "8b0fcb8ecee1d9befebf"
+    },
+    "dde1ce9cc7f320ff0040": {
+      "sineBits": "2f3b6c812f0e72bffebf"
+    },
+    "30c05ee5373e75800140": {
+      "sineBits": "0304ff020cca1dc4febf"
+    },
+    "18aa3d68c2d691800140": {
+      "sineBits": "a92127cfa385b0c4febf"
+    },
+    "8e18e3d90ddc02800140": {
+      "sineBits": "254820f02dc2ccc1febf"
+    },
+    "7702c25c98741f800140": {
+      "sineBits": "b852ee9672ed61c2febf"
+    },
+    "b851b973ec3804810140": {
+      "sineBits": "7bad11ebc84cf5c6febf"
+    },
+    "a03b98f676d120810140": {
+      "sineBits": "b3acaff17ff284c7febf"
+    },
+    "16aa3d68c2d691800140": {
+      "sineBits": "9f2127cfa385b0c4febf"
+    },
+    "ff931ceb4c6fae800140": {
+      "sineBits": "0bb3c13c2aa442c5febf"
+    },
+    "40e31302a13393810140": {
+      "sineBits": "2b7deac2a14bbdc9febf"
+    },
+    "28cdf2842bccaf810140": {
+      "sineBits": "dce7015244d049cafebf"
+    },
+    "9e3b98f676d120810140": {
+      "sineBits": "a9acaff17ff284c7febf"
+    },
+    "87257779016a3d810140": {
+      "sineBits": "5d5e081be3f813c8febf"
+    },
+    "c8746e90552e22820140": {
+      "sineBits": "61a6c0a8108f75ccfebf"
+    },
+    "b05e4d13e0c63e820140": {
+      "sineBits": "3484a586a9e7feccfebf"
+    },
+    "26cdf2842bccaf810140": {
+      "sineBits": "d2e7015244d049cafebf"
+    },
+    "0fb7d107b664cc810140": {
+      "sineBits": "f27ed6f15cb3d5cafebf"
+    },
+    "5006c91e0a29b1820140": {
+      "sineBits": "6d04d8cbc9e01dcffebf"
+    },
+    "38f0a7a194c1cd820140": {
+      "sineBits": "c2cff011a302a4cffebf"
+    },
+    "ae5e4d13e0c63e820140": {
+      "sineBits": "2a84a586a9e7feccfebf"
+    },
+    "97482c966a5f5b820140": {
+      "sineBits": "e6f928fc8e9c87cdfebf"
+    },
+    "d89723adbe2340830140": {
+      "sineBits": "f94871a8bf0bb6d1febf"
+    },
+    "c081023049bc5c830140": {
+      "sineBits": "06b7089963ec38d2febf"
+    },
+    "36f0a7a194c1cd820140": {
+      "sineBits": "b9cff011a302a4cffebf"
+    },
+    "1fda86241f5aea820140": {
+      "sineBits": "b8ca913aac7e29d0febf"
+    },
+    "60297e3b731ecf830140": {
+      "sineBits": "64c9e72a27dc3dd4febf"
+    },
+    "48135dbefdb6eb830140": {
+      "sineBits": "ecb8fd016171bdd4febf"
+    },
+    "be81023049bc5c830140": {
+      "sineBits": "fdb6089963ec38d2febf"
+    },
+    "a76be1b2d35479830140": {
+      "sineBits": "4f7a44a52725bbd2febf"
+    },
+    "e8bad8c927195e840140": {
+      "sineBits": "8953aab97b1fb5d6febf"
+    },
+    "d0a4b74cb2b17a840140": {
+      "sineBits": "8299b378585f31d7febf"
+    },
+    "46135dbefdb6eb830140": {
+      "sineBits": "e3b8fd016171bdd4febf"
+    },
+    "2ffd3b41884f08840140": {
+      "sineBits": "ccef2e45b85c3cd5febf"
+    },
+    "704c3358dc13ed840140": {
+      "sineBits": "5568be2583a41bd9febf"
+    },
+    "583612db66ac09850140": {
+      "sineBits": "ec96435a528594d9febf"
+    },
+    "cea4b74cb2b17a840140": {
+      "sineBits": "7a99b378585f31d7febf"
+    },
+    "b78e96cf3c4a97840140": {
+      "sineBits": "7ccbcc335df3acd7febf"
+    },
+    "f8dd8de6900e7c850140": {
+      "sineBits": "c2367f81513b71dbfebf"
+    },
+    "e0c76c691ba798850140": {
+      "sineBits": "98e18a06a6b3e6dbfebf"
+    },
+    "563612db66ac09850140": {
+      "sineBits": "e396435a528594d9febf"
+    },
+    "3f20f15df14426850140": {
+      "sineBits": "f274658161b80cdafebf"
+    },
+    "806fe87445090b860140": {
+      "sineBits": "39b44bdd4cb5b5ddfebf"
+    },
+    "6859c7f7cfa127860140": {
+      "sineBits": "5a1c9997fdbb27defebf"
+    },
+    "dec76c691ba798850140": {
+      "sineBits": "90e18a06a6b3e6dbfebf"
+    },
+    "c7b14beca53fb5850140": {
+      "sineBits": "d4036701607c5bdcfebf"
+    },
+    "08014303fa039a860140": {
+      "sineBits": "bf37d9e930e5e8dffebf"
+    },
+    "f0ea2186849cb6860140": {
+      "sineBits": "7ab2b47e597157e0febf"
+    },
+    "6659c7f7cfa127860140": {
+      "sineBits": "521c9997fdbb27defebf"
+    },
+    "4f43a67a5a3a44860140": {
+      "sineBits": "db2f92fc461199defebf"
+    },
+    "90929d91aefe28870140": {
+      "sineBits": "730be27f129f0ae2febf"
+    },
+    "787c7c14399745870140": {
+      "sineBits": "53e1ac0614a875e2febf"
+    },
+    "eeea2186849cb6860140": {
+      "sineBits": "73b2b47e597157e0febf"
+    },
+    "d7d400090f35d3860140": {
+      "sineBits": "2b7fadc85b4ac5e0febf"
+    },
+    "1824f81f63f9b7870140": {
+      "sineBits": "ce7be90c63b81ae4febf"
+    },
+    "000ed7a2ed91d4870140": {
+      "sineBits": "ca6733bbe43582e4febf"
+    },
+    "767c7c14399745870140": {
+      "sineBits": "4be1ac0614a875e2febf"
+    },
+    "5f665b97c32f62870140": {
+      "sineBits": "9dfa77453efcdfe2febf"
+    },
+    "a0b552ae17f446880140": {
+      "sineBits": "5805d1e4f30719e6febf"
+    },
+    "889f3131a28c63880140": {
+      "sineBits": "9be8f9b4e3f17ce6febf"
+    },
+    "fe0dd7a2ed91d4870140": {
+      "sineBits": "c36733bbe43582e4febf"
+    },
+    "e7f7b525782af1870140": {
+      "sineBits": "b4c5953eecfce8e4febf"
+    },
+    "2847ad3ccceed5880140": {
+      "sineBits": "3860fc77f96505e8febf"
+    },
+    "10318cbf5687f2880140": {
+      "sineBits": "ed2b51ca8cb465e8febf"
+    },
+    "869f3131a28c63880140": {
+      "sineBits": "94e8f9b4e3f17ce6febf"
+    },
+    "6f8910b42c2580880140": {
+      "sineBits": "5e1333b2c423e0e6febf"
+    },
+    "b0d807cb80e964890140": {
+      "sineBits": "e44cc46d0eacdfe9febf"
+    },
+    "98c2e64d0b8281890140": {
+      "sineBits": "ab910aa4c2573ceafebf"
+    },
+    "0e318cbf5687f2880140": {
+      "sineBits": "e62b51ca8cb465e8febf"
+    },
+    "f71a6b42e11f0f890140": {
+      "sineBits": "73111cfc8a49c5e8febf"
+    },
+    "386a625935e4f3890140": {
+      "sineBits": "ff2dfaa236b5a7ebfebf"
+    },
+    "205441dcbf7c108a0140": {
+      "sineBits": "d12f5eb6d1b600ecfebf"
+    },
+    "96c2e64d0b8281890140": {
+      "sineBits": "a5910aa4c2573ceafebf"
+    },
+    "7facc5d0951a9e890140": {
+      "sineBits": "c08a0ae5694898eafebf"
+    },
+    "c0fbbce7e9de828a0140": {
+      "sineBits": "24a9400ce25d5dedfebf"
+    },
+    "a8e59b6a74779f8a0140": {
+      "sineBits": "83469a1d73aeb2edfebf"
+    },
+    "1e5441dcbf7c108a0140": {
+      "sineBits": "cb2f5eb6d1b600ecfebf"
+    },
+    "073e205f4a152d8a0140": {
+      "sineBits": "1e2aec95f6fb58ecfebf"
+    },
+    "488d17769ed9118b0140": {
+      "sineBits": "aabaff7bef8300effebf"
+    },
+    "3077f6f828722e8b0140": {
+      "sineBits": "10e7625ecf1c52effebf"
+    },
+    "a6e59b6a74779f8a0140": {
+      "sineBits": "7d469a1d73aeb2edfebf"
+    },
+    "8fcf7aedfe0fbc8a0140": {
+      "sineBits": "cd78e66e334107eefebf"
+    },
+    "d01e720453d4a08b0140": {
+      "sineBits": "4bdfbc4baf0691f0febf"
+    },
+    "b8085187dd6cbd8b0140": {
+      "sineBits": "8ee24a0981e1def0febf"
+    },
+    "2e77f6f828722e8b0140": {
+      "sineBits": "0ae7625ecf1c52effebf"
+    },
+    "1761d57bb30a4b8b0140": {
+      "sineBits": "3fe6dfc192f6a2effebf"
+    },
+    "58b0cc9207cf2f8c0140": {
+      "sineBits": "b131a2e8e5c60ef2febf"
+    },
+    "409aab1592674c8c0140": {
+      "sineBits": "ea50914197dd58f2febf"
+    },
+    "b6085187dd6cbd8b0140": {
+      "sineBits": "89e24a0981e1def0febf"
+    },
+    "9ff22f0a6805da8b0140": {
+      "sineBits": "3b605770f9fb2bf1febf"
+    },
+    "e0412721bcc9be8c0140": {
+      "sineBits": "2f990143cea679f3febf"
+    },
+    "c82b06a44662db8c0140": {
+      "sineBits": "2841d12698f3bff3febf"
+    },
+    "3e9aab1592674c8c0140": {
+      "sineBits": "e550914197dd58f2febf"
+    },
+    "27848a981c00698c0140": {
+      "sineBits": "ec3e566cc132a2f2febf"
+    },
+    "68d381af70c44d8d0140": {
+      "sineBits": "3c6aa3201c8ad1f4febf"
+    },
+    "50bd6032fb5c6a8d0140": {
+      "sineBits": "c6677321830714f5febf"
+    },
+    "c62b06a44662db8c0140": {
+      "sineBits": "2341d12698f3bff3febf"
+    },
+    "af15e526d1faf78c0140": {
+      "sineBits": "72894a1cbc7d05f4febf"
+    },
+    "f064dc3d25bfdc8d0140": {
+      "sineBits": "3b20b251fe5516f6febf"
+    },
+    "d84ebbc0af57f98d0140": {
+      "sineBits": "cee7b311d3fe54f6febf"
+    },
+    "4ebd6032fb5c6a8d0140": {
+      "sineBits": "c1677321830714f5febf"
+    },
+    "37a73fb585f5868d0140": {
+      "sineBits": "3bdc99a134c155f5febf"
+    },
+    "78f636ccd9b96b8e0140": {
+      "sineBits": "d52217c820f147f7febf"
+    },
+    "60e0154f6452888e0140": {
+      "sineBits": "a59e106180c082f7febf"
+    },
+    "d64ebbc0af57f98d0140": {
+      "sineBits": "cae7b311d3fe54f6febf"
+    },
+    "bf389a433af0158e0140": {
+      "sineBits": "fd82bf01f2e292f6febf"
+    },
+    "0088915a8eb4fa8e0140": {
+      "sineBits": "32d71e91ae4366f8febf"
+    },
+    "e87170dd184d178f0140": {
+      "sineBits": "45a9f6f502359df8febf"
+    },
+    "5ee0154f6452888e0140": {
+      "sineBits": "a19e106180c082f7febf"
+    },
+    "47caf4d1eeeaa48e0140": {
+      "sineBits": "2da4ca3139cabcf7febf"
+    },
+    "8819ece842af898f0140": {
+      "sineBits": "bb8e3cb1533771f9febf"
+    },
+    "7003cb6bcd47a68f0140": {
+      "sineBits": "9e2b88095446a4f9febf"
+    },
+    "e67170dd184d178f0140": {
+      "sineBits": "41a9f6f502359df8febf"
+    },
+    "cf5b4f60a3e5338f0140": {
+      "sineBits": "36ab1304cf5fd3f8febf"
+    },
+    "10ab4677f7a918900140": {
+      "sineBits": "8139c9e13eb768fafebf"
+    },
+    "f89425fa814235900140": {
+      "sineBits": "e0b755dfefdf97fafebf"
+    },
+    "6e03cb6bcd47a68f0140": {
+      "sineBits": "9b2b88095446a4f9febf"
+    },
+    "57eda9ee57e0c28f0140": {
+      "sineBits": "5d7102f8f98dd6f9febf"
+    },
+    "983ca105aca4a7900140": {
+      "sineBits": "aa199a3023b04cfbfebf"
+    },
+    "80268088363dc4900140": {
+      "sineBits": "2e0be95ed7ee77fbfebf"
+    },
+    "f69425fa814235900140": {
+      "sineBits": "ddb755dfefdf97fafebf"
+    },
+    "df7e047d0cdb51900140": {
+      "sineBits": "b5fac0eb8340c6fafebf"
+    },
+    "20cefb93609f36910140": {
+      "sineBits": "4b0f4f8139101dfcfebf"
+    },
+    "08b8da16eb3753910140": {
+      "sineBits": "f42f018f916144fcfebf"
+    },
+    "7e268088363dc4900140": {
+      "sineBits": "2b0be95ed7ee77fbfebf"
+    },
+    "67105f0bc1d5e0900140": {
+      "sineBits": "25f5b8afbb64a2fbfebf"
+    },
+    "a85f5622159ac5910140": {
+      "sineBits": "b5703af041c7d9fcfebf"
+    },
+    "904935a59f32e2910140": {
+      "sineBits": "ff7262f22c28fdfcfebf"
+    },
+    "06b8da16eb3753910140": {
+      "sineBits": "f22f018f916144fcfebf"
+    },
+    "efa1b99975d06f910140": {
+      "sineBits": "5282bc7b76e96afcfebf"
+    },
+    "30f1b0b0c99454920140": {
+      "sineBits": "fec1c61685c682fdfebf"
+    },
+    "18db8f33542d71920140": {
+      "sineBits": "d2f71ec64034a2fdfebf"
+    },
+    "8e4935a59f32e2910140": {
+      "sineBits": "fd7262f22c28fdfcfebf"
+    },
+    "773314282acbfe910140": {
+      "sineBits": "fc32bd4511bf1ffdfebf"
+    },
+    "b8820b3f7e8fe3920140": {
+      "sineBits": "c3ff4031d50018fefebf"
+    },
+    "a06ceac1082800930140": {
+      "sineBits": "431a3f21ee7833fefebf"
+    },
+    "16db8f33542d71920140": {
+      "sineBits": "d0f71ec64034a2fdfebf"
+    },
+    "ffc46eb6dec58d920140": {
+      "sineBits": "f779f6f971d7c0fdfebf"
+    },
+    "401466cd328a72930140": {
+      "sineBits": "0094f0258f6a99fefebf"
+    },
+    "28fe4450bd228f930140": {
+      "sineBits": "a12eb3f5e0eab0fefebf"
+    },
+    "9e6ceac1082800930140": {
+      "sineBits": "411a3f21ee7833fefebf"
+    },
+    "8756c94493c01c930140": {
+      "sineBits": "e43e739408264efefebf"
+    },
+    "c8a5c05be78401940140": {
+      "sineBits": "d270686d9bf906fffebf"
+    },
+    "b08f9fde711d1e940140": {
+      "sineBits": "02977af250801afffebf"
+    },
+    "26fe4450bd228f930140": {
+      "sineBits": "a02eb3f5e0eab0fefebf"
+    },
+    "0fe823d347bbab930140": {
+      "sineBits": "809cd81bd09fc7fefebf"
+    },
+    "50371bea9b7f90940140": {
+      "sineBits": "3333ffdb6ea560fffebf"
+    },
+    "3821fa6c2618ad940140": {
+      "sineBits": "d68aee46023170fffebf"
+    },
+    "ae8f9fde711d1e940140": {
+      "sineBits": "01977af250801afffebf"
+    },
+    "97797e61fcb53a940140": {
+      "sineBits": "df3b627d4f3b2dfffebf"
+    },
+    "d8c87578507a1f950140": {
+      "sineBits": "bf975e4c0b67a6fffebf"
+    },
+    "c0b254fbda123c950140": {
+      "sineBits": "1b56214746f6b1fffebf"
+    },
+    "3621fa6c2618ad940140": {
+      "sineBits": "d58aee46023170fffebf"
+    },
+    "1f0bd9efb0b0c9940140": {
+      "sineBits": "e424ff499af07efffebf"
+    },
+    "605ad0060575ae950140": {
+      "sineBits": "81f41c2b0039d8fffebf"
+    },
+    "4844af898f0dcb950140": {
+      "sineBits": "be3e45f1fbcadffffebf"
+    },
+    "beb254fbda123c950140": {
+      "sineBits": "1a56214746f6b1fffebf"
+    },
+    "a79c337e65ab58950140": {
+      "sineBits": "a044805451b9bcfffebf"
+    },
+    "e8eb2a95b96f3d960140": {
+      "sineBits": "e0d455e36a17f6fffebf"
+    },
+    "d0d5091844085a960140": {
+      "sineBits": "03a9105490abf9fffebf"
+    },
+    "4644af898f0dcb950140": {
+      "sineBits": "be3e45f1fbcadffffebf"
+    },
+    "2f2e8e0c1aa6e7950140": {
+      "sineBits": "c753cc30a390e6fffebf"
+    },
+    "707d85236e6acc960140": {
+      "sineBits": "c43f392cf7fffffffebf"
+    },
+    "586764a6f802e9960140": {
+      "sineBits": "d57e17d6fe95fffffebf"
+    },
+    "ced5091844085a960140": {
+      "sineBits": "03a9105490abf9fffebf"
+    },
+    "b7bfe89acea076960140": {
+      "sineBits": "c0310f944c73fcfffebf"
+    },
+    "f80ee0b122655b970140": {
+      "sineBits": "8a9b8b37dff1f5fffebf"
+    },
+    "e0f8be34adfd77970140": {
+      "sineBits": "aa49145ed189f1fffebf"
+    },
+    "566764a6f802e9960140": {
+      "sineBits": "d57e17d6fe95fffffebf"
+    },
+    "3f514329839b05970140": {
+      "sineBits": "3434dd95985ffefffebf"
+    },
+    "80a03a40d75fea970140": {
+      "sineBits": "868f12c1ebedd7fffebf"
+    },
+    "688a19c361f806980140": {
+      "sineBits": "bbda1d5c2088cffffebf"
+    },
+    "def8be34adfd77970140": {
+      "sineBits": "aa49145ed189f1fffebf"
+    },
+    "c7e29db7379694970140": {
+      "sineBits": "b45645d26055ecfffebf"
+    },
+    "083295ce8b5a79980140": {
+      "sineBits": "22afedfe73f6a5fffebf"
+    },
+    "f01b745116f395980140": {
+      "sineBits": "b1c9c8b3929399fffebf"
+    },
+    "668a19c361f806980140": {
+      "sineBits": "bcda1d5c2088cffffebf"
+    },
+    "4f74f845ec9023980140": {
+      "sineBits": "47a2cf6c0d56c6fffebf"
+    },
+    "90c3ef5c405508990140": {
+      "sineBits": "0e27dc725d0f60fffebf"
+    },
+    "78adcedfcaed24990140": {
+      "sineBits": "597e36875db04ffffebf"
+    },
+    "ee1b745116f395980140": {
+      "sineBits": "b2c9c8b3929399fffebf"
+    },
+    "d70553d4a08bb2980140": {
+      "sineBits": "1b9167f494648cfffebf"
+    },
+    "18554aebf44f97990140": {
+      "sineBits": "6d11739c1b3e06fffebf"
+    },
+    "003f296e7fe8b3990140": {
+      "sineBits": "52e615e343e4f1fefebf"
+    },
+    "76adcedfcaed24990140": {
+      "sineBits": "5a7e36875db04ffffebf"
+    },
+    "5f97ad62558641990140": {
+      "sineBits": "0c9f34287c853efffebf"
+    },
+    "a0e6a479a94a269a0140": {
+      "sineBits": "d7814a8caf8998fefebf"
+    },
+    "88d083fc33e3429a0140": {
+      "sineBits": "86639c4b963680fefebf"
+    },
+    "fe3e296e7fe8b3990140": {
+      "sineBits": "54e615e343e4f1fefebf"
+    },
+    "e72808f10981d0990140": {
+      "sineBits": "e3a3659dd5bedcfefebf"
+    },
+    "2878ff075e45b59a0140": {
+      "sineBits": "bdc52958a7fa16fefebf"
+    },
+    "1062de8ae8ddd19a0140": {
+      "sineBits": "caeb7f2a32b0fafdfebf"
+    },
+    "86d083fc33e3429a0140": {
+      "sineBits": "88639c4b963680fefebf"
+    },
+    "6fba627fbe7b5f9a0140": {
+      "sineBits": "1a00f645411867fefebf"
+    },
+    "b0095a961240449b0140": {
+      "sineBits": "92c03d701d9b81fdfebf"
+    },
+    "98f338199dd8609b0140": {
+      "sineBits": "cbbcfd1d815b61fdfebf"
+    },
+    "0e62de8ae8ddd19a0140": {
+      "sineBits": "cceb7f2a32b0fafdfebf"
+    },
+    "f74bbd0d7376ee9a0140": {
+      "sineBits": "601076d8eb9addfdfebf"
+    },
+    "389bb424c73ad39b0140": {
+      "sineBits": "4bb566d5b776d8fcfebf"
+    },
+    "208593a751d3ef9b0140": {
+      "sineBits": "3f71fb287844b4fcfebf"
+    },
+    "96f338199dd8609b0140": {
+      "sineBits": "cdbcfd1d815b61fdfebf"
+    },
+    "7fdd179c27717d9b0140": {
+      "sineBits": "92c6e2188e5140fdfebf"
+    },
+    "c02c0fb37b35629c0140": {
+      "sineBits": "b337ad30a79a1bfcfebf"
+    },
+    "a816ee3506ce7e9c0140": {
+      "sineBits": "37ad52c49678f3fbfebf"
+    },
+    "1e8593a751d3ef9b0140": {
+      "sineBits": "4271fb287844b4fcfebf"
+    },
+    "076f722adc6b0c9c0140": {
+      "sineBits": "a5b09a026c488ffcfebf"
+    }
+  }
+}

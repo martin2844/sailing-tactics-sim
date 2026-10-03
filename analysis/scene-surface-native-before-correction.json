@@ -1,0 +1,651 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-scene-surface.json": "e6b0c4ffe26151ecbeba9cfb72a7413ecd4cd0679426428408fcaee4d7bbb61e"
+  },
+  "runner_source_sha256": "6d949c318b200b1c65ea00482b36ae524754572bddece2f8bdbc8993462e793f",
+  "runner_sha256": "b7453cf78c000c133af8006e5bd904eaf35e5f620223ab9d3ebedd1b5abe1ec4",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-ux_56w2m/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "drawSky": {
+      "cases": 512,
+      "exact_matches": 512,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawRippleSegment": {
+      "cases": 256,
+      "exact_matches": 256,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawWaterRipples": {
+      "cases": 384,
+      "exact_matches": 384,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawLargeWaves": {
+      "cases": 384,
+      "exact_matches": 384,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "drawSceneWindPatch": {
+      "cases": 512,
+      "exact_matches": 503,
+      "different_cases": 9,
+      "different_fields": {
+        "mutableBlockHash": 9,
+        "imageChanges": 9
+      }
+    }
+  },
+  "differences": [
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 31,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "48bef7769f816495f18262ca2c0c2256f9592ab1c64aad27b40168d0446dab3e",
+          "native": "4e767b70c7fc3789d738f6649d3b35cf8e6eda69dfbbdb70571a4caeba536d91"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b33c3d3293f75340"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "4d36"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "5a"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "b23c3d3293f75340"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "4d36"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "5a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 173,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "d6d411d744b2e79f25c2d715e99971cb24b82045d6f10807475f05e8c78fc72e",
+          "native": "106f71c86548fea4d9b704a14dd5638dd62df0bd1b3d7813f6f27a6d0dd34b4a"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "9168f5c857557d40"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "450c"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "8511"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "76"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "9268f5c857557d40"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "450c"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "8511"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "76"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 180,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "7353dff1bb8f335830b6cdda316a1f0e53e2c524115f1b537b03f67331ad56aa",
+          "native": "1d7406b53f0f73f74be2e8f323de8ea6e6e92aec1cd28e2e231d0b55c81f4871"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "26a9df64b90c7e40"
+            },
+            {
+              "address": 4881480,
+              "before": "00000000",
+              "after": "54fbffff"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "ff0a"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "97ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "27a9df64b90c7e40"
+            },
+            {
+              "address": 4881480,
+              "before": "00000000",
+              "after": "54fbffff"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "ff0a"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "97ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 192,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "a183e5bb2bcee0bf8b2d49f34a080cb9388491218f2f5196779a0f5ddc6e5b88",
+          "native": "291e8fe4ef9456f52c5a843c413c87de84ba032e8d0f2dc9c0c9dc8345948e09"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "c48fa14df91e9840"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "ed01"
+            },
+            {
+              "address": 4893256,
+              "before": "00",
+              "after": "10"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "2a"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "c38fa14df91e9840"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "ed01"
+            },
+            {
+              "address": 4893256,
+              "before": "00",
+              "after": "10"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "2a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 193,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "d5b7034b86022abed1d4914ca25a03303c98bd7c8929bd62aacc61238222956c",
+          "native": "87c96d3ec6b751d0d9b186ee371a36dc02410efee169ed84e3b45c9ddaf522b9"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "636bc4c3bd404d40"
+            },
+            {
+              "address": 4881480,
+              "before": "00000000",
+              "after": "b0deffff"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "8511"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "8dffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "656bc4c3bd404d40"
+            },
+            {
+              "address": 4881480,
+              "before": "00000000",
+              "after": "b0deffff"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "8511"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "8dffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 283,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "86f894096ba958862bd961f2d5cf84d302b51e50625c2cad3a0c50f23854ae02",
+          "native": "dd622357a76bc86deaa63ba50966ae6876e4f8fe41953168c075c141abb4ad41"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "bbdf35295f2e5340"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "1138"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "5d"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "badf35295f2e5340"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "1138"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "5d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 353,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "6e9e22b006240bd7404802e4bb73596917b1a6eedcd2a925f7230c9d84201e45",
+          "native": "ea553e0532a18521501be5301886987888b75890312308f7b01fda48569269cb"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d6af0727e4f28240"
+            },
+            {
+              "address": 4881480,
+              "before": "00",
+              "after": "8d"
+            },
+            {
+              "address": 4893256,
+              "before": "00",
+              "after": "64"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "d3ffffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d7af0727e4f28240"
+            },
+            {
+              "address": 4881480,
+              "before": "00",
+              "after": "8d"
+            },
+            {
+              "address": 4893256,
+              "before": "00",
+              "after": "64"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "d3ffffff"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 391,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "f5443de3658fbd0e539f5ca228326418b40dfccf7519bebd50486171e9e241d4",
+          "native": "ff328207569c8b3c72a6bf04e16f9e7b94efda2e953692ae26e9ee0b61be2157"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d3e6982603ae4940"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "db4b"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "7f"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "d5e6982603ae4940"
+            },
+            {
+              "address": 4881480,
+              "before": "0000",
+              "after": "db4b"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00",
+              "after": "7f"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fixture": "original-scene-surface.json",
+      "group": "drawSceneWindPatch",
+      "index": 443,
+      "routine": 67,
+      "fields": {
+        "mutableBlockHash": {
+          "fixture": "015f82fc4ec8b9577a4d5628a7a705f233d48bc0e169327b0e048bcf1117d1cf",
+          "native": "50a615a1463155760dd6d23a0b1375bfdea97d69eb517daf7fc61681ea469b1d"
+        },
+        "imageChanges": {
+          "fixture": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "022b79ccc54a7d40"
+            },
+            {
+              "address": 4881480,
+              "before": "00000000",
+              "after": "c3eeffff"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "8affffff"
+            }
+          ],
+          "native": [
+            {
+              "address": 4876328,
+              "before": "0000000000000000",
+              "after": "032b79ccc54a7d40"
+            },
+            {
+              "address": 4881480,
+              "before": "00000000",
+              "after": "c3eeffff"
+            },
+            {
+              "address": 4893256,
+              "before": "0000",
+              "after": "341d"
+            },
+            {
+              "address": 4900460,
+              "before": "00000000",
+              "after": "8affffff"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "comparison_complete": true,
+  "drawing_requests_compared": 109690,
+  "sound_requests_compared": 0,
+  "cstring_runtime_cases": 0,
+  "library_runtime_evidence": [],
+  "hud_cstring_pointer_evidence": [],
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "37c9587d79c15fdb8ed8279b89fd9a7587e9be65d20b6ed6bc11273692e14ab2",
+    "native_cstring_runtime.h": "94e6533fa68ad572e90835b222208e47b4fb8631ed4bfa6ebcccf5dad0f95f76"
+  },
+  "cstring_runtime_normalizations": [
+    {
+      "address": 4849568,
+      "size": 128,
+      "purpose": "Original CRT lock-pointer table"
+    },
+    {
+      "address": 4849760,
+      "size": 8228,
+      "purpose": "Original CRT small-block-heap root/descriptors"
+    },
+    {
+      "address": 4910024,
+      "size": 96,
+      "purpose": "Four original CRT critical sections"
+    },
+    {
+      "address": 4914668,
+      "size": 4,
+      "purpose": "Original CRT heap handle"
+    },
+    {
+      "address": 4910132,
+      "size": 4,
+      "purpose": "Original SBH free-page counter; writes in 0045bc60/0045bb30"
+    }
+  ],
+  "cstring_runtime_scope": "For fixed drawing calls requiring strings, original CRT startup leaves 0x45b700 and 0x45b3c0 initialize locks/heap; original CString and formatter instructions execute. Only these declared allocator bookkeeping ranges are normalized to prepared comparison bytes. Their raw before/after differences are retained separately; game state and text remain exact.",
+  "hud_cstring_pointer_normalization": {
+    "address": 4878408,
+    "size": 4,
+    "scope": "Only fixed HUD routines56\u201362. Original constructor46bd7a initializes the object before the call; original destructor46bec5 releases it after recording evidence. The host allocation pointer is normalized to prepared bytes for state comparisons; actual pointer and complete cp1252 text are recorded, and fixture hudText is strict."
+  },
+  "original_routine_addresses": [
+    "004060f0",
+    "0042f930",
+    "0042fe00",
+    "0042fe40",
+    "00431b30"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 2048,
+  "exact_function_cases": 2039,
+  "all_fixture_cases_match": false,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 7.366378845996223
+}

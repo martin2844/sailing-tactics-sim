@@ -1,0 +1,3304 @@
+{
+  "source": "original/Tact02Demo.exe",
+  "entryLayout": [
+    "message_u32",
+    "code_u32",
+    "first_command_u32",
+    "last_command_u32",
+    "signature_u32",
+    "handler_pointer_u32"
+  ],
+  "scope": "WM_COMMAND entries whose IDs appear in the extracted menu; does not include all other MFC message handlers.",
+  "entries": [
+    {
+      "entryAddress": "0x4822b0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 59393,
+      "label": "Hide Menu Item Help",
+      "signatureId": 44,
+      "handlerAddress": "0x00401340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482588",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 57664,
+      "label": "&About  This Simulator",
+      "signatureId": 12,
+      "handlerAddress": "0x00401760",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x482898",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32771,
+      "label": "Start          spacebar",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f760",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4828b0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32771,
+      "label": "Start          spacebar",
+      "signatureId": 44,
+      "handlerAddress": "0x00450080",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4828c8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32777,
+      "label": "Another Race             &N",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f790",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4828e0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32777,
+      "label": "Another Race             &N",
+      "signatureId": 44,
+      "handlerAddress": "0x00453a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4828f8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32776,
+      "label": "No Header / Lift Info",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f7e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482910",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32776,
+      "label": "No Header / Lift Info",
+      "signatureId": 44,
+      "handlerAddress": "0x0044f810",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482928",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32783,
+      "label": "505",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f850",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482940",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32783,
+      "label": "505",
+      "signatureId": 44,
+      "handlerAddress": "0x0044f880",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482958",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32792,
+      "label": "America's Cup",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f950",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482970",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32792,
+      "label": "America's Cup",
+      "signatureId": 44,
+      "handlerAddress": "0x0044f980",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482988",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32881,
+      "label": "Board",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f9d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4829a0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32881,
+      "label": "Board",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fa00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4829b8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32784,
+      "label": "JY15",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fa50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4829d0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32784,
+      "label": "JY15",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fa80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4829e8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32789,
+      "label": "Keelboat",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fad0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a00",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32789,
+      "label": "Keelboat",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fb00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a18",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32782,
+      "label": "Laser",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fb50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a30",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32782,
+      "label": "Laser",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fb80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a48",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32788,
+      "label": "Lightning",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fbd0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a60",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32788,
+      "label": "Lightning",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fc00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a78",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32791,
+      "label": "Offshore Racer",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fc50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482a90",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32791,
+      "label": "Offshore Racer",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fc80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482aa8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32781,
+      "label": "Optimist",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fcc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ac0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32781,
+      "label": "Optimist",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fcf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ad8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32786,
+      "label": "Skiff",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fd40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482af0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32786,
+      "label": "Skiff",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fd70",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b08",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32794,
+      "label": "Spinnaker Catamaran",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fdc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b20",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32794,
+      "label": "Spinnaker Catamaran",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fdf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b38",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32790,
+      "label": "Sport Boat",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fe40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b50",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32790,
+      "label": "Sport Boat",
+      "signatureId": 44,
+      "handlerAddress": "0x0044fe80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b68",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32787,
+      "label": "Thistle",
+      "signatureId": 12,
+      "handlerAddress": "0x0044fed0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b80",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32787,
+      "label": "Thistle",
+      "signatureId": 44,
+      "handlerAddress": "0x0044ff00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482b98",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32793,
+      "label": "Tornado Catamaran",
+      "signatureId": 12,
+      "handlerAddress": "0x0044ff50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482bb0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32793,
+      "label": "Tornado Catamaran",
+      "signatureId": 44,
+      "handlerAddress": "0x0044ff80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482bc8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32823,
+      "label": "Design",
+      "signatureId": 12,
+      "handlerAddress": "0x0044ffd0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x482be0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32823,
+      "label": "Design",
+      "signatureId": 44,
+      "handlerAddress": "0x00450040",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482c28",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32807,
+      "label": "10",
+      "signatureId": 12,
+      "handlerAddress": "0x004500a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482c40",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32807,
+      "label": "10",
+      "signatureId": 44,
+      "handlerAddress": "0x004500d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482c58",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32808,
+      "label": "15",
+      "signatureId": 12,
+      "handlerAddress": "0x00450120",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482c70",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32808,
+      "label": "15",
+      "signatureId": 44,
+      "handlerAddress": "0x00450150",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482c88",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32809,
+      "label": "20",
+      "signatureId": 12,
+      "handlerAddress": "0x004501a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ca0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32809,
+      "label": "20",
+      "signatureId": 44,
+      "handlerAddress": "0x004501d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482cb8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32810,
+      "label": "25",
+      "signatureId": 12,
+      "handlerAddress": "0x00450220",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482cd0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32810,
+      "label": "25",
+      "signatureId": 44,
+      "handlerAddress": "0x00450250",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ce8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32805,
+      "label": "2  Match Racing",
+      "signatureId": 12,
+      "handlerAddress": "0x004502a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d00",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32805,
+      "label": "2  Match Racing",
+      "signatureId": 44,
+      "handlerAddress": "0x004502e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d18",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32811,
+      "label": "30",
+      "signatureId": 12,
+      "handlerAddress": "0x00450320",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d30",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32811,
+      "label": "30",
+      "signatureId": 44,
+      "handlerAddress": "0x00450350",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d48",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32806,
+      "label": "5",
+      "signatureId": 12,
+      "handlerAddress": "0x004503a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d60",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32806,
+      "label": "5",
+      "signatureId": 44,
+      "handlerAddress": "0x004503d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d78",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32824,
+      "label": "No Series Scoring.",
+      "signatureId": 12,
+      "handlerAddress": "0x00450420",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482d90",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32824,
+      "label": "No Series Scoring.",
+      "signatureId": 44,
+      "handlerAddress": "0x00450440",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482da8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32778,
+      "label": "One Player",
+      "signatureId": 12,
+      "handlerAddress": "0x00450480",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482dc0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32778,
+      "label": "One Player",
+      "signatureId": 44,
+      "handlerAddress": "0x004504b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482dd8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32820,
+      "label": "Gold Cup",
+      "signatureId": 12,
+      "handlerAddress": "0x004504f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482df0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32820,
+      "label": "Gold Cup",
+      "signatureId": 44,
+      "handlerAddress": "0x00450530",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e08",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32818,
+      "label": "Triangle",
+      "signatureId": 12,
+      "handlerAddress": "0x004505a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e20",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32818,
+      "label": "Triangle",
+      "signatureId": 44,
+      "handlerAddress": "0x004505d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e38",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32819,
+      "label": "Triangle Twice Around",
+      "signatureId": 12,
+      "handlerAddress": "0x00450630",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e50",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32819,
+      "label": "Triangle Twice Around",
+      "signatureId": 44,
+      "handlerAddress": "0x00450670",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e68",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32816,
+      "label": "Windward / Leeward",
+      "signatureId": 12,
+      "handlerAddress": "0x004506d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e80",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32816,
+      "label": "Windward / Leeward",
+      "signatureId": 44,
+      "handlerAddress": "0x00450700",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482e98",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32817,
+      "label": "Windward / Leeward Twice Around",
+      "signatureId": 12,
+      "handlerAddress": "0x00450770",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482eb0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32817,
+      "label": "Windward / Leeward Twice Around",
+      "signatureId": 44,
+      "handlerAddress": "0x004507b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ec8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32802,
+      "label": "Distance Race - Along Shore",
+      "signatureId": 12,
+      "handlerAddress": "0x00450820",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ee0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32802,
+      "label": "Distance Race - Along Shore",
+      "signatureId": 44,
+      "handlerAddress": "0x00450860",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482ef8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32799,
+      "label": "Round Lake",
+      "signatureId": 12,
+      "handlerAddress": "0x004508c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482f10",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32799,
+      "label": "Round Lake",
+      "signatureId": 44,
+      "handlerAddress": "0x004508f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482f28",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32803,
+      "label": "River Mouth North",
+      "signatureId": 12,
+      "handlerAddress": "0x00450930",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482f40",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32803,
+      "label": "River Mouth North",
+      "signatureId": 44,
+      "handlerAddress": "0x00450960",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482f58",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32804,
+      "label": "River Mouth South",
+      "signatureId": 12,
+      "handlerAddress": "0x004509a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482f70",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32804,
+      "label": "River Mouth South",
+      "signatureId": 44,
+      "handlerAddress": "0x004509d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482f88",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32801,
+      "label": "Round the Island",
+      "signatureId": 12,
+      "handlerAddress": "0x00450a10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482fa0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32801,
+      "label": "Round the Island",
+      "signatureId": 44,
+      "handlerAddress": "0x00450a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482fb8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32796,
+      "label": "Shoreline to the East",
+      "signatureId": 12,
+      "handlerAddress": "0x00450a90",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482fd0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32796,
+      "label": "Shoreline to the East",
+      "signatureId": 44,
+      "handlerAddress": "0x00450ac0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x482fe8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32795,
+      "label": "Shoreline to the North",
+      "signatureId": 12,
+      "handlerAddress": "0x00450b00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483000",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32795,
+      "label": "Shoreline to the North",
+      "signatureId": 44,
+      "handlerAddress": "0x00450b30",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483018",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32797,
+      "label": "Shoreline to the South",
+      "signatureId": 12,
+      "handlerAddress": "0x00450b70",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483030",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32797,
+      "label": "Shoreline to the South",
+      "signatureId": 44,
+      "handlerAddress": "0x00450ba0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483048",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32798,
+      "label": "Shoreline to the West",
+      "signatureId": 12,
+      "handlerAddress": "0x00450be0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483060",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32798,
+      "label": "Shoreline to the West",
+      "signatureId": 44,
+      "handlerAddress": "0x00450c10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483078",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32800,
+      "label": "Sound",
+      "signatureId": 12,
+      "handlerAddress": "0x00450c50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483090",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32800,
+      "label": "Sound",
+      "signatureId": 44,
+      "handlerAddress": "0x00450c80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4830a8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32821,
+      "label": "Short Course",
+      "signatureId": 12,
+      "handlerAddress": "0x00450cc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4830c0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32821,
+      "label": "Short Course",
+      "signatureId": 44,
+      "handlerAddress": "0x00450cf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4830d8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32815,
+      "label": "Tidal Currents",
+      "signatureId": 12,
+      "handlerAddress": "0x00450d40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4830f0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32815,
+      "label": "Tidal Currents",
+      "signatureId": 44,
+      "handlerAddress": "0x00450d70",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483108",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32779,
+      "label": "Two Players",
+      "signatureId": 12,
+      "handlerAddress": "0x00450db0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483120",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32779,
+      "label": "Two Players",
+      "signatureId": 44,
+      "handlerAddress": "0x00450e30",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483138",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32822,
+      "label": "Wheel Steering",
+      "signatureId": 12,
+      "handlerAddress": "0x00450e80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483150",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32822,
+      "label": "Wheel Steering",
+      "signatureId": 44,
+      "handlerAddress": "0x00450ea0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483168",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32812,
+      "label": "Light",
+      "signatureId": 12,
+      "handlerAddress": "0x00450ef0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483180",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32812,
+      "label": "Light",
+      "signatureId": 44,
+      "handlerAddress": "0x00450f20",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483198",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32813,
+      "label": "Moderate",
+      "signatureId": 12,
+      "handlerAddress": "0x00450f60",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4831b0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32813,
+      "label": "Moderate",
+      "signatureId": 44,
+      "handlerAddress": "0x00450f90",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4831c8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32814,
+      "label": "Strong",
+      "signatureId": 12,
+      "handlerAddress": "0x00450fd0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4831e0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32814,
+      "label": "Strong",
+      "signatureId": 44,
+      "handlerAddress": "0x00451000",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4831f8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32882,
+      "label": "1",
+      "signatureId": 12,
+      "handlerAddress": "0x00451040",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483210",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32882,
+      "label": "1",
+      "signatureId": 44,
+      "handlerAddress": "0x00451060",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483228",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32891,
+      "label": "10",
+      "signatureId": 12,
+      "handlerAddress": "0x004510a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483240",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32891,
+      "label": "10",
+      "signatureId": 44,
+      "handlerAddress": "0x004510b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483258",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32892,
+      "label": "11",
+      "signatureId": 12,
+      "handlerAddress": "0x004510f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483270",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32892,
+      "label": "11",
+      "signatureId": 44,
+      "handlerAddress": "0x00451100",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483288",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32893,
+      "label": "12",
+      "signatureId": 12,
+      "handlerAddress": "0x00451140",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4832a0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32893,
+      "label": "12",
+      "signatureId": 44,
+      "handlerAddress": "0x00451150",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4832b8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32894,
+      "label": "13",
+      "signatureId": 12,
+      "handlerAddress": "0x00451190",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4832d0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32894,
+      "label": "13",
+      "signatureId": 44,
+      "handlerAddress": "0x004511a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4832e8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32895,
+      "label": "14",
+      "signatureId": 12,
+      "handlerAddress": "0x004511e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483300",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32895,
+      "label": "14",
+      "signatureId": 44,
+      "handlerAddress": "0x004511f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483318",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32896,
+      "label": "15",
+      "signatureId": 12,
+      "handlerAddress": "0x00451230",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483330",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32896,
+      "label": "15",
+      "signatureId": 44,
+      "handlerAddress": "0x00451240",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483348",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32883,
+      "label": "2",
+      "signatureId": 12,
+      "handlerAddress": "0x00451280",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483360",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32883,
+      "label": "2",
+      "signatureId": 44,
+      "handlerAddress": "0x00451290",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483378",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32884,
+      "label": "3",
+      "signatureId": 12,
+      "handlerAddress": "0x004512d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483390",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32884,
+      "label": "3",
+      "signatureId": 44,
+      "handlerAddress": "0x004512e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4833a8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32885,
+      "label": "4",
+      "signatureId": 12,
+      "handlerAddress": "0x00451320",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4833c0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32886,
+      "label": "5",
+      "signatureId": 12,
+      "handlerAddress": "0x00451370",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4833d8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32886,
+      "label": "5",
+      "signatureId": 44,
+      "handlerAddress": "0x00451380",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4833f0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32885,
+      "label": "4",
+      "signatureId": 44,
+      "handlerAddress": "0x00451330",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483408",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32887,
+      "label": "6",
+      "signatureId": 12,
+      "handlerAddress": "0x004513c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483420",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32887,
+      "label": "6",
+      "signatureId": 44,
+      "handlerAddress": "0x004513d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483438",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32888,
+      "label": "7",
+      "signatureId": 12,
+      "handlerAddress": "0x00451410",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483450",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32888,
+      "label": "7",
+      "signatureId": 44,
+      "handlerAddress": "0x00451420",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483468",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32889,
+      "label": "8",
+      "signatureId": 12,
+      "handlerAddress": "0x00451460",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483480",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32889,
+      "label": "8",
+      "signatureId": 44,
+      "handlerAddress": "0x00451470",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483498",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32890,
+      "label": "9",
+      "signatureId": 12,
+      "handlerAddress": "0x004514b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4834b0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32890,
+      "label": "9",
+      "signatureId": 44,
+      "handlerAddress": "0x004514c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4834c8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32897,
+      "label": "Snipe",
+      "signatureId": 12,
+      "handlerAddress": "0x0044f8d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4834e0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32897,
+      "label": "Snipe",
+      "signatureId": 44,
+      "handlerAddress": "0x0044f900",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4834f8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32825,
+      "label": "Close in View             &1",
+      "signatureId": 12,
+      "handlerAddress": "0x00451500",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483510",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32825,
+      "label": "Close in View             &1",
+      "signatureId": 44,
+      "handlerAddress": "0x00451530",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483528",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32827,
+      "label": "High Viewpoint           &3",
+      "signatureId": 12,
+      "handlerAddress": "0x00451570",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483540",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32827,
+      "label": "High Viewpoint           &3",
+      "signatureId": 44,
+      "handlerAddress": "0x004515a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483558",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32826,
+      "label": "Wide View                  &2",
+      "signatureId": 12,
+      "handlerAddress": "0x004515e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483570",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32826,
+      "label": "Wide View                  &2",
+      "signatureId": 44,
+      "handlerAddress": "0x00451610",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483588",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32828,
+      "label": "Look Ahead      up arrow",
+      "signatureId": 12,
+      "handlerAddress": "0x00451650",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4835a0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32828,
+      "label": "Look Ahead      up arrow",
+      "signatureId": 44,
+      "handlerAddress": "0x00401340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4835b8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32831,
+      "label": "Look Astern      down arrow",
+      "signatureId": 12,
+      "handlerAddress": "0x00451670",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4835d0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32831,
+      "label": "Look Astern      down arrow",
+      "signatureId": 44,
+      "handlerAddress": "0x00401340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4835e8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32830,
+      "label": "Look Left          left arrow",
+      "signatureId": 12,
+      "handlerAddress": "0x004516a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483600",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32830,
+      "label": "Look Left          left arrow",
+      "signatureId": 44,
+      "handlerAddress": "0x00401340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483618",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32829,
+      "label": "Look Right        right arrow",
+      "signatureId": 12,
+      "handlerAddress": "0x004516d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483630",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32829,
+      "label": "Look Right        right arrow",
+      "signatureId": 44,
+      "handlerAddress": "0x00401340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483648",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32907,
+      "label": "Weather Forecast      &W",
+      "signatureId": 12,
+      "handlerAddress": "0x00451700",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483660",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32907,
+      "label": "Weather Forecast      &W",
+      "signatureId": 44,
+      "handlerAddress": "0x00452bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483678",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32908,
+      "label": "Marks to Starboard",
+      "signatureId": 12,
+      "handlerAddress": "0x00451750",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483690",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32908,
+      "label": "Marks to Starboard",
+      "signatureId": 44,
+      "handlerAddress": "0x00451770",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4836c0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32905,
+      "label": "Race Course           &R",
+      "signatureId": 12,
+      "handlerAddress": "0x00452610",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4836d8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32850,
+      "label": "Automatic Sheet (max speed)     &A",
+      "signatureId": 12,
+      "handlerAddress": "0x004526b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4836f0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32850,
+      "label": "Automatic Sheet (max speed)     &A",
+      "signatureId": 44,
+      "handlerAddress": "0x004526e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483708",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32851,
+      "label": "Max Luff                                      &S",
+      "signatureId": 12,
+      "handlerAddress": "0x00452720",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483720",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32851,
+      "label": "Max Luff                                      &S",
+      "signatureId": 44,
+      "handlerAddress": "0x00452750",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483768",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32842,
+      "label": "10 to Port               <  or Left Click",
+      "signatureId": 12,
+      "handlerAddress": "0x004528f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483780",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32842,
+      "label": "10 to Port               <  or Left Click",
+      "signatureId": 44,
+      "handlerAddress": "0x00452bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483798",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32841,
+      "label": "10 to Starboard      >  or Right Click",
+      "signatureId": 12,
+      "handlerAddress": "0x00452930",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4837b0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32841,
+      "label": "10 to Starboard      >  or Right Click",
+      "signatureId": 44,
+      "handlerAddress": "0x00452bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4837c8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32843,
+      "label": "Closehauled       &C",
+      "signatureId": 12,
+      "handlerAddress": "0x00452970",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4837e0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32843,
+      "label": "Closehauled       &C",
+      "signatureId": 44,
+      "handlerAddress": "0x004529b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4837f8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32849,
+      "label": "Reach        &H",
+      "signatureId": 12,
+      "handlerAddress": "0x00452a00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483810",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32849,
+      "label": "Reach        &H",
+      "signatureId": 44,
+      "handlerAddress": "0x00452bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483828",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32845,
+      "label": "Foot                     +",
+      "signatureId": 12,
+      "handlerAddress": "0x00452a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483840",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32845,
+      "label": "Foot                     +",
+      "signatureId": 44,
+      "handlerAddress": "0x00452a80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483858",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32847,
+      "label": "Jibe                        &J",
+      "signatureId": 12,
+      "handlerAddress": "0x00452ad0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483870",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32847,
+      "label": "Jibe                        &J",
+      "signatureId": 44,
+      "handlerAddress": "0x00452bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483888",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32844,
+      "label": "Pinch                   -",
+      "signatureId": 12,
+      "handlerAddress": "0x00452b10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4838a0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32844,
+      "label": "Pinch                   -",
+      "signatureId": 44,
+      "handlerAddress": "0x00452b50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4838b8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32846,
+      "label": "Tack           &T",
+      "signatureId": 12,
+      "handlerAddress": "0x00452ba0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4838d0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32846,
+      "label": "Tack           &T",
+      "signatureId": 44,
+      "handlerAddress": "0x00452bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4838e8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32848,
+      "label": "Run  Downwind     &D",
+      "signatureId": 12,
+      "handlerAddress": "0x00452c10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483900",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32848,
+      "label": "Run  Downwind     &D",
+      "signatureId": 44,
+      "handlerAddress": "0x00452c50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483918",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32872,
+      "label": "&1   slowest",
+      "signatureId": 12,
+      "handlerAddress": "0x00452c90",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483930",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32872,
+      "label": "&1   slowest",
+      "signatureId": 44,
+      "handlerAddress": "0x00452cc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483948",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32873,
+      "label": "&2",
+      "signatureId": 12,
+      "handlerAddress": "0x00452cf0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483960",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32873,
+      "label": "&2",
+      "signatureId": 44,
+      "handlerAddress": "0x00452d20",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483978",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32874,
+      "label": "&3",
+      "signatureId": 12,
+      "handlerAddress": "0x00452d50",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483990",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32874,
+      "label": "&3",
+      "signatureId": 44,
+      "handlerAddress": "0x00452d80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4839a8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32875,
+      "label": "&4",
+      "signatureId": 12,
+      "handlerAddress": "0x00452db0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x4839c0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32875,
+      "label": "&4",
+      "signatureId": 44,
+      "handlerAddress": "0x00452de0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4839d8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32876,
+      "label": "&5",
+      "signatureId": 12,
+      "handlerAddress": "0x00452e10",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x4839f0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32876,
+      "label": "&5",
+      "signatureId": 44,
+      "handlerAddress": "0x00452e40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483a08",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32877,
+      "label": "&6",
+      "signatureId": 12,
+      "handlerAddress": "0x00452e70",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483a20",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32877,
+      "label": "&6",
+      "signatureId": 44,
+      "handlerAddress": "0x00452ea0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483a38",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32878,
+      "label": "&7",
+      "signatureId": 12,
+      "handlerAddress": "0x00452ed0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483a50",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32878,
+      "label": "&7",
+      "signatureId": 44,
+      "handlerAddress": "0x00452f00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483a68",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32879,
+      "label": "&8",
+      "signatureId": 12,
+      "handlerAddress": "0x00452f30",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483a80",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32879,
+      "label": "&8",
+      "signatureId": 44,
+      "handlerAddress": "0x00452f60",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483a98",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32880,
+      "label": "&9",
+      "signatureId": 12,
+      "handlerAddress": "0x00452f90",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483ab0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32880,
+      "label": "&9",
+      "signatureId": 44,
+      "handlerAddress": "0x00452fc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ac8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32909,
+      "label": "1&0 ",
+      "signatureId": 12,
+      "handlerAddress": "0x00452ff0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x483ae0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32909,
+      "label": "1&0 ",
+      "signatureId": 44,
+      "handlerAddress": "0x00453020",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483af8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32833,
+      "label": "Look to Leeward        &7",
+      "signatureId": 12,
+      "handlerAddress": "0x004532e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483b10",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32833,
+      "label": "Look to Leeward        &7",
+      "signatureId": 44,
+      "handlerAddress": "0x00453310",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483b28",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32832,
+      "label": "Look to Windward      &5",
+      "signatureId": 12,
+      "handlerAddress": "0x00453350",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483b40",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32832,
+      "label": "Look to Windward      &5",
+      "signatureId": 44,
+      "handlerAddress": "0x00453380",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483b58",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32852,
+      "label": "Sheet In 20%                   &I",
+      "signatureId": 12,
+      "handlerAddress": "0x004533c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483b70",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32852,
+      "label": "Sheet In 20%                   &I",
+      "signatureId": 44,
+      "handlerAddress": "0x00453a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483b88",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32853,
+      "label": "Sheet Out 20%                &O",
+      "signatureId": 12,
+      "handlerAddress": "0x00453400",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ba0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32853,
+      "label": "Sheet Out 20%                &O",
+      "signatureId": 44,
+      "handlerAddress": "0x00401340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483bb8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32859,
+      "label": "#1 Genoa",
+      "signatureId": 12,
+      "handlerAddress": "0x00453440",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483bd0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32859,
+      "label": "#1 Genoa",
+      "signatureId": 44,
+      "handlerAddress": "0x00453470",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483be8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32860,
+      "label": "#2 Genoa",
+      "signatureId": 12,
+      "handlerAddress": "0x004534d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c00",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32860,
+      "label": "#2 Genoa",
+      "signatureId": 44,
+      "handlerAddress": "0x00453500",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c18",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32861,
+      "label": "#3 Blade",
+      "signatureId": 12,
+      "handlerAddress": "0x00453570",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c30",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32861,
+      "label": "#3 Blade",
+      "signatureId": 44,
+      "handlerAddress": "0x004535a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c48",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32856,
+      "label": "Baggy                 F3",
+      "signatureId": 12,
+      "handlerAddress": "0x00453610",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c60",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32856,
+      "label": "Baggy                 F3",
+      "signatureId": 44,
+      "handlerAddress": "0x00453640",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c78",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32854,
+      "label": "Flat                     F1",
+      "signatureId": 12,
+      "handlerAddress": "0x00453670",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483c90",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32854,
+      "label": "Flat                     F1",
+      "signatureId": 44,
+      "handlerAddress": "0x004536a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ca8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32855,
+      "label": "Medium              F2",
+      "signatureId": 12,
+      "handlerAddress": "0x004536d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483cc0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32855,
+      "label": "Medium              F2",
+      "signatureId": 44,
+      "handlerAddress": "0x00453700",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483cd8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32858,
+      "label": "Spin Down           P",
+      "signatureId": 12,
+      "handlerAddress": "0x00453730",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483cf0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32858,
+      "label": "Spin Down           P",
+      "signatureId": 44,
+      "handlerAddress": "0x00453750",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d08",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32857,
+      "label": "Spin Up (wing)     &P",
+      "signatureId": 12,
+      "handlerAddress": "0x00453790",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d20",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32857,
+      "label": "Spin Up (wing)     &P",
+      "signatureId": 44,
+      "handlerAddress": "0x004537c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d38",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32910,
+      "label": "Freeze                       F",
+      "signatureId": 12,
+      "handlerAddress": "0x00453800",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d50",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32910,
+      "label": "Freeze                       F",
+      "signatureId": 44,
+      "handlerAddress": "0x00453840",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d68",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32902,
+      "label": "Wind Chart             [",
+      "signatureId": 12,
+      "handlerAddress": "0x00453880",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d80",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32902,
+      "label": "Wind Chart             [",
+      "signatureId": 44,
+      "handlerAddress": "0x004538d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483d98",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32903,
+      "label": "Tide Chart               ]    ",
+      "signatureId": 12,
+      "handlerAddress": "0x00453910",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483db0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32903,
+      "label": "Tide Chart               ]    ",
+      "signatureId": 44,
+      "handlerAddress": "0x00453960",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483dc8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32904,
+      "label": "Tide @ +1 hour      +",
+      "signatureId": 12,
+      "handlerAddress": "0x004539a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483de0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32904,
+      "label": "Tide @ +1 hour      +",
+      "signatureId": 44,
+      "handlerAddress": "0x004539d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483df8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32912,
+      "label": "Change Viewpoint      &V",
+      "signatureId": 12,
+      "handlerAddress": "0x00453a00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483e10",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32912,
+      "label": "Change Viewpoint      &V",
+      "signatureId": 44,
+      "handlerAddress": "0x00453a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483e28",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32834,
+      "label": "Look at Other Boat     &9",
+      "signatureId": 12,
+      "handlerAddress": "0x00453a60",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483e40",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32834,
+      "label": "Look at Other Boat     &9",
+      "signatureId": 44,
+      "handlerAddress": "0x00453a90",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483e58",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32913,
+      "label": "Hide Sails                   &U",
+      "signatureId": 12,
+      "handlerAddress": "0x00453ae0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483e70",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32913,
+      "label": "Hide Sails                   &U",
+      "signatureId": 44,
+      "handlerAddress": "0x00453b10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483e88",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32914,
+      "label": "Bow Up Orientation",
+      "signatureId": 12,
+      "handlerAddress": "0x00453b50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ea0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32914,
+      "label": "Bow Up Orientation",
+      "signatureId": 44,
+      "handlerAddress": "0x00453b80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483eb8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32916,
+      "label": "Wind Up Orientation",
+      "signatureId": 12,
+      "handlerAddress": "0x00453bc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ed0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32916,
+      "label": "Wind Up Orientation",
+      "signatureId": 44,
+      "handlerAddress": "0x00453bf0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ee8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32919,
+      "label": "Show Tracks          ~",
+      "signatureId": 12,
+      "handlerAddress": "0x00453c30",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f00",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32919,
+      "label": "Show Tracks          ~",
+      "signatureId": 44,
+      "handlerAddress": "0x00453c60",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f18",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32918,
+      "label": "Show laylines, Equal Line",
+      "signatureId": 12,
+      "handlerAddress": "0x00453ca0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f30",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32918,
+      "label": "Show laylines, Equal Line",
+      "signatureId": 44,
+      "handlerAddress": "0x00453cd0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f48",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32905,
+      "label": "Race Course           &R",
+      "signatureId": 44,
+      "handlerAddress": "0x00452670",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f60",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32915,
+      "label": "Same Orientation as Sailing View",
+      "signatureId": 12,
+      "handlerAddress": "0x00453d10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f78",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32915,
+      "label": "Same Orientation as Sailing View",
+      "signatureId": 44,
+      "handlerAddress": "0x00453d30",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483f90",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32862,
+      "label": "Simulator Operation",
+      "signatureId": 12,
+      "handlerAddress": "0x00453d70",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483fa8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32862,
+      "label": "Simulator Operation",
+      "signatureId": 44,
+      "handlerAddress": "0x00453da0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483fc0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32924,
+      "label": "What You See (Sailing Views)",
+      "signatureId": 12,
+      "handlerAddress": "0x00453de0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483fd8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32924,
+      "label": "What You See (Sailing Views)",
+      "signatureId": 44,
+      "handlerAddress": "0x00453e10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x483ff0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32864,
+      "label": "View Control",
+      "signatureId": 12,
+      "handlerAddress": "0x00453e70",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484008",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32864,
+      "label": "View Control",
+      "signatureId": 44,
+      "handlerAddress": "0x00453ea0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484020",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32865,
+      "label": "Steering",
+      "signatureId": 12,
+      "handlerAddress": "0x00453ee0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484038",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32865,
+      "label": "Steering",
+      "signatureId": 44,
+      "handlerAddress": "0x00453f10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484050",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32866,
+      "label": "Sail Control",
+      "signatureId": 12,
+      "handlerAddress": "0x00453f50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484068",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32866,
+      "label": "Sail Control",
+      "signatureId": 44,
+      "handlerAddress": "0x00453f80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484080",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32835,
+      "label": "Automatic View           &0",
+      "signatureId": 12,
+      "handlerAddress": "0x00453fc0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484098",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32835,
+      "label": "Automatic View           &0",
+      "signatureId": 44,
+      "handlerAddress": "0x00453ff0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4840b0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32925,
+      "label": "Key Command Summary      &?",
+      "signatureId": 12,
+      "handlerAddress": "0x00454030",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4840c8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32925,
+      "label": "Key Command Summary      &?",
+      "signatureId": 44,
+      "handlerAddress": "0x00454060",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4840e0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32927,
+      "label": "Night Race",
+      "signatureId": 12,
+      "handlerAddress": "0x004540a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4840f8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32927,
+      "label": "Night Race",
+      "signatureId": 44,
+      "handlerAddress": "0x004540e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484110",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32928,
+      "label": "Introduction",
+      "signatureId": 12,
+      "handlerAddress": "0x00454130",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484128",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32928,
+      "label": "Introduction",
+      "signatureId": 44,
+      "handlerAddress": "0x00454160",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484140",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32929,
+      "label": "Same Tack",
+      "signatureId": 12,
+      "handlerAddress": "0x004541a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484158",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32929,
+      "label": "Same Tack",
+      "signatureId": 44,
+      "handlerAddress": "0x004541e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484170",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32931,
+      "label": "Opposite Tacks",
+      "signatureId": 12,
+      "handlerAddress": "0x00454230",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484188",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32931,
+      "label": "Opposite Tacks",
+      "signatureId": 44,
+      "handlerAddress": "0x00454270",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4841a0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32930,
+      "label": "Overtaking",
+      "signatureId": 12,
+      "handlerAddress": "0x004542b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4841b8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32930,
+      "label": "Overtaking",
+      "signatureId": 44,
+      "handlerAddress": "0x004542f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4841d0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32932,
+      "label": "Marks and Obstructions",
+      "signatureId": 12,
+      "handlerAddress": "0x00454340",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4841e8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32932,
+      "label": "Marks and Obstructions",
+      "signatureId": 44,
+      "handlerAddress": "0x00454380",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484200",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32933,
+      "label": "Rounding a Windward Mark",
+      "signatureId": 12,
+      "handlerAddress": "0x004543d0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484218",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32933,
+      "label": "Rounding a Windward Mark",
+      "signatureId": 44,
+      "handlerAddress": "0x00454410",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484230",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32934,
+      "label": "Tacking for Obstructions",
+      "signatureId": 12,
+      "handlerAddress": "0x00454460",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484248",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32934,
+      "label": "Tacking for Obstructions",
+      "signatureId": 44,
+      "handlerAddress": "0x004544a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484260",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32935,
+      "label": "Same Tack Before Starting",
+      "signatureId": 12,
+      "handlerAddress": "0x004544f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484278",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32935,
+      "label": "Same Tack Before Starting",
+      "signatureId": 44,
+      "handlerAddress": "0x00454530",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484290",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32936,
+      "label": "Room at a Starting Mark",
+      "signatureId": 12,
+      "handlerAddress": "0x00454580",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4842a8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32936,
+      "label": "Room at a Starting Mark",
+      "signatureId": 44,
+      "handlerAddress": "0x004545c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4842c0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32937,
+      "label": "Miscellaneous",
+      "signatureId": 12,
+      "handlerAddress": "0x00454610",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4842d8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32937,
+      "label": "Miscellaneous",
+      "signatureId": 44,
+      "handlerAddress": "0x00454650",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4842f0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32923,
+      "label": "Coach               &Y",
+      "signatureId": 12,
+      "handlerAddress": "0x004546a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484308",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32923,
+      "label": "Coach               &Y",
+      "signatureId": 44,
+      "handlerAddress": "0x004546f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484320",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32938,
+      "label": "Southern Hemisphere",
+      "signatureId": 12,
+      "handlerAddress": "0x00454740",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484338",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32938,
+      "label": "Southern Hemisphere",
+      "signatureId": 44,
+      "handlerAddress": "0x00454760",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484350",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32939,
+      "label": "Show Race Results",
+      "signatureId": 12,
+      "handlerAddress": "0x004547a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484368",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32939,
+      "label": "Show Race Results",
+      "signatureId": 44,
+      "handlerAddress": "0x004547e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484380",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32940,
+      "label": "Introduction",
+      "signatureId": 12,
+      "handlerAddress": "0x00454830",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484398",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32940,
+      "label": "Introduction",
+      "signatureId": 44,
+      "handlerAddress": "0x00454870",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4843b0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32941,
+      "label": "Wind Shift Effects - Concepts",
+      "signatureId": 12,
+      "handlerAddress": "0x004548b0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4843c8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32941,
+      "label": "Wind Shift Effects - Concepts",
+      "signatureId": 44,
+      "handlerAddress": "0x004548f0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4843e0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32942,
+      "label": "Lifts",
+      "signatureId": 12,
+      "handlerAddress": "0x00454930",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4843f8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32942,
+      "label": "Lifts",
+      "signatureId": 44,
+      "handlerAddress": "0x00454970",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484410",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32943,
+      "label": "Headers",
+      "signatureId": 12,
+      "handlerAddress": "0x004549c0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484428",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32943,
+      "label": "Headers",
+      "signatureId": 44,
+      "handlerAddress": "0x00454a00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484440",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32955,
+      "label": "Death by Layline",
+      "signatureId": 12,
+      "handlerAddress": "0x00454a50",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484458",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32955,
+      "label": "Death by Layline",
+      "signatureId": 44,
+      "handlerAddress": "0x00454a90",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484470",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32944,
+      "label": "Strategy for Oscillating Winds",
+      "signatureId": 12,
+      "handlerAddress": "0x00454ae0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484488",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32944,
+      "label": "Strategy for Oscillating Winds",
+      "signatureId": 44,
+      "handlerAddress": "0x00454b20",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4844a0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32945,
+      "label": "Strategy for One Side Favored",
+      "signatureId": 12,
+      "handlerAddress": "0x00454b70",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4844b8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32945,
+      "label": "Strategy for One Side Favored",
+      "signatureId": 44,
+      "handlerAddress": "0x00454bb0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4844d0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32954,
+      "label": "Downwind Strategy",
+      "signatureId": 12,
+      "handlerAddress": "0x00454c00",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4844e8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32954,
+      "label": "Downwind Strategy",
+      "signatureId": 44,
+      "handlerAddress": "0x00454c40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484500",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32946,
+      "label": "Wind Prediction - 1",
+      "signatureId": 12,
+      "handlerAddress": "0x00454c90",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484518",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32946,
+      "label": "Wind Prediction - 1",
+      "signatureId": 44,
+      "handlerAddress": "0x00454cd0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484530",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32947,
+      "label": "Wind Prediction - 2",
+      "signatureId": 12,
+      "handlerAddress": "0x00454d20",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484548",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32947,
+      "label": "Wind Prediction - 2",
+      "signatureId": 44,
+      "handlerAddress": "0x00454d60",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484560",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32948,
+      "label": "Currents",
+      "signatureId": 12,
+      "handlerAddress": "0x00454db0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484578",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32948,
+      "label": "Currents",
+      "signatureId": 44,
+      "handlerAddress": "0x00454df0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484590",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32949,
+      "label": "Wind Interference from Other Boats",
+      "signatureId": 12,
+      "handlerAddress": "0x00454e40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4845a8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32949,
+      "label": "Wind Interference from Other Boats",
+      "signatureId": 44,
+      "handlerAddress": "0x00454e80",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4845c0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32950,
+      "label": "Starting",
+      "signatureId": 12,
+      "handlerAddress": "0x00454ed0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4845d8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32950,
+      "label": "Starting",
+      "signatureId": 44,
+      "handlerAddress": "0x00454f10",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4845f0",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32951,
+      "label": "Mark Rounding",
+      "signatureId": 12,
+      "handlerAddress": "0x00454f60",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484608",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32951,
+      "label": "Mark Rounding",
+      "signatureId": 44,
+      "handlerAddress": "0x00454fa0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484620",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32926,
+      "label": "Glossary",
+      "signatureId": 12,
+      "handlerAddress": "0x00454ff0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484698",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32898,
+      "label": "Zoom  In Tactical        &Z",
+      "signatureId": 44,
+      "handlerAddress": "0x00453a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4846c8",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32899,
+      "label": "Zoom Out Tactical       &X",
+      "signatureId": 44,
+      "handlerAddress": "0x00453a40",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484998",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32969,
+      "label": "11",
+      "signatureId": 12,
+      "handlerAddress": "0x00453050",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x4849b0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32969,
+      "label": "11",
+      "signatureId": 44,
+      "handlerAddress": "0x00453080",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4849c8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32970,
+      "label": "12",
+      "signatureId": 12,
+      "handlerAddress": "0x004530b0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x4849e0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32970,
+      "label": "12",
+      "signatureId": 44,
+      "handlerAddress": "0x004530e0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x4849f8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32971,
+      "label": "13",
+      "signatureId": 12,
+      "handlerAddress": "0x00453110",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x484a10",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32971,
+      "label": "13",
+      "signatureId": 44,
+      "handlerAddress": "0x00453140",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484a28",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32972,
+      "label": "14",
+      "signatureId": 12,
+      "handlerAddress": "0x00453170",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x484a40",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32972,
+      "label": "14",
+      "signatureId": 44,
+      "handlerAddress": "0x004531a0",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484a58",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32973,
+      "label": "15      fastest ",
+      "signatureId": 12,
+      "handlerAddress": "0x004531d0",
+      "recognized": true
+    },
+    {
+      "entryAddress": "0x484a70",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32973,
+      "label": "15      fastest ",
+      "signatureId": 44,
+      "handlerAddress": "0x00453200",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484a88",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32974,
+      "label": "Faster             page up",
+      "signatureId": 12,
+      "handlerAddress": "0x00453230",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484aa0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32974,
+      "label": "Faster             page up",
+      "signatureId": 44,
+      "handlerAddress": "0x00453280",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484ab8",
+      "message": "0x111",
+      "code": 0,
+      "commandId": 32975,
+      "label": "Slower            page dn",
+      "signatureId": 12,
+      "handlerAddress": "0x00453290",
+      "recognized": false
+    },
+    {
+      "entryAddress": "0x484ad0",
+      "message": "0x111",
+      "code": -1,
+      "commandId": 32975,
+      "label": "Slower            page dn",
+      "signatureId": 44,
+      "handlerAddress": "0x00453280",
+      "recognized": false
+    }
+  ]
+}

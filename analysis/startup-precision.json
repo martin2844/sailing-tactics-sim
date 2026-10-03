@@ -1,0 +1,93 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "engine": "Live intact Windows executable launched normally under Wine11.0; original CRT, MFC and application lifecycle execute.",
+  "observed_x87_control_word": "0x027f",
+  "arithmetic_precision_bits": 53,
+  "rounding": "nearest-even",
+  "exception_masks": "all six masked",
+  "observed_points": {
+    "00457054": "after original CRT __setdefaultprecision through _controlfp",
+    "00403bb0": "before original paint/application wrapper",
+    "00404020": "before complete numerical/rendering frame",
+    "00404880": "before complete scene composition"
+  },
+  "observations": [
+    {
+      "log": "analysis/startup-precision-live.jsonl",
+      "event": "hardware-breakpoint",
+      "address": "00457054",
+      "threadId": 316,
+      "controlWord": "027f",
+      "statusWord": "0000",
+      "textUnchanged": true
+    },
+    {
+      "log": "analysis/startup-precision-live.jsonl",
+      "event": "hardware-breakpoint",
+      "address": "00403bb0",
+      "threadId": 316,
+      "controlWord": "027f",
+      "statusWord": "0000",
+      "textUnchanged": true
+    },
+    {
+      "log": "analysis/startup-precision-frame.jsonl",
+      "event": "hardware-breakpoint",
+      "address": "00403bb0",
+      "threadId": 316,
+      "controlWord": "027f",
+      "statusWord": "0000",
+      "textUnchanged": true
+    },
+    {
+      "log": "analysis/startup-precision-frame2.jsonl",
+      "event": "hardware-breakpoint",
+      "address": "00403bb0",
+      "threadId": 316,
+      "controlWord": "027f",
+      "statusWord": "0100",
+      "textUnchanged": true
+    },
+    {
+      "log": "analysis/startup-precision-frame2.jsonl",
+      "event": "hardware-breakpoint",
+      "address": "00404020",
+      "threadId": 316,
+      "controlWord": "027f",
+      "statusWord": "0120",
+      "textUnchanged": true
+    },
+    {
+      "log": "analysis/startup-precision-frame2.jsonl",
+      "event": "hardware-breakpoint",
+      "address": "00404880",
+      "threadId": 316,
+      "controlWord": "027f",
+      "statusWord": "0120",
+      "textUnchanged": true
+    }
+  ],
+  "all_required_points_observed": true,
+  "target_text_unchanged_at_every_point": true,
+  "original_file_unchanged": true,
+  "probe_source": "tools/native_startup_precision_2002.c",
+  "probe_source_sha256": "891fce1a0b9de2c97e5bb675474d100ecdf4ab0bc9f5657faecbac08e54b4f8b",
+  "probe_executable": "analysis/native-startup-precision-2002.exe",
+  "probe_executable_sha256": "183ecb91d35ca10c2e55611c7121605bd5aebfdf5517098e843dd5134f5e098c",
+  "trace_sha256": {
+    "analysis/startup-precision-live.jsonl": "4a5943b46dd79986ef1ce19c6aeac97668ee7899d818fa8eba9123210419e3f8",
+    "analysis/startup-precision-frame.jsonl": "cadda788ad45b2fe14783c83c2f06689e498ed459b134689eb6848025a4b50b7",
+    "analysis/startup-precision-frame2.jsonl": "f2c01f378947cd69062974230560c7551d871138611e85c6f903c0723ec0f598"
+  },
+  "wine_prefix": "/home/martin/.local/share/posey-simulator/wineprefix",
+  "windows_process_id": 312,
+  "linux_process_id": 2936360,
+  "breakpoint_method": "DR0..DR3 hardware execution breakpoints and GetThreadContext(CONTEXT_FLOATING_POINT); no INT3 or target memory writes, no target x87 control-word writes.",
+  "normal_user_input": "Normal Space key events delivered only to the owned original window0x4800001 using xdotool; original notice/start gates execute unchanged.",
+  "cleanup": "Only probe hardware debug registers were cleared; debugger detached and normally running original app was left intact. No wineserver/global process termination.",
+  "scope": "Actual live startup and first connected frame/scene retain027f on this host. Existing isolated037f fixtures remain separate precision64 evidence, not whole-app precision proof.",
+  "references": [
+    "https://learn.microsoft.com/en-us/windows/win32/debug/writing-the-debugger-s-main-loop",
+    "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getthreadcontext"
+  ]
+}

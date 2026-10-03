@@ -1,0 +1,907 @@
+{
+  "callfixup": {
+    "limitations": "This models dataflow for finite representable numeric inputs. x87 exception flags, masked invalid conversions and hardware traps require separate reference testing; do not infer them from this simplified p-code.", 
+    "name": "tact_ftol_x87_pop", 
+    "reason": "Model truncate-to-signed-64-bit plus x87 stack pop; preserve the pressure result below the consumed ST0.", 
+    "xml": "<callfixup name=\"tact_ftol_x87_pop\">\n  <pcode>\n    <body><![CDATA[\n      local converted:8 = trunc(ST0);\n      EAX = converted[0,32];\n      EDX = converted[32,32];\n      ST0 = ST1;\n      ST1 = ST2;\n      ST2 = ST3;\n      ST3 = ST4;\n      ST4 = ST5;\n      ST5 = ST6;\n      ST6 = ST7;\n      ESP = ESP + 4;\n    ]]></body>\n  </pcode>\n</callfixup>"
+  }, 
+  "changes": [
+    {
+      "after": {
+        "address": "004570b0", 
+        "call_fixup": "tact_ftol_x87_pop", 
+        "calling_convention": "__stdcall", 
+        "custom_storage": true, 
+        "name": "__ftol", 
+        "parameters": [
+          {
+            "name": "x87_value", 
+            "storage": "ST0:10", 
+            "type": "float10"
+          }
+        ], 
+        "return_storage": "EDX:4,EAX:4", 
+        "return_type": "longlong", 
+        "signature": "longlong __stdcall __ftol(float10 x87_value)"
+      }, 
+      "before": {
+        "address": "004570b0", 
+        "call_fixup": null, 
+        "calling_convention": "__stdcall", 
+        "custom_storage": false, 
+        "name": "__ftol", 
+        "parameters": [], 
+        "return_storage": "EDX:4,EAX:4", 
+        "return_type": "longlong", 
+        "signature": "longlong __stdcall __ftol(void)"
+      }, 
+      "reason": "Runtime body reads ST0, converts with FISTP under truncation rounding, and returns signed 64-bit integer in EDX:EAX; former no-argument prototype discarded caller arithmetic."
+    }, 
+    {
+      "after": {
+        "address": "00429df0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00429df0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "double", 
+        "signature": "double __cdecl FUN_00429df0(int param_1, int param_2)"
+      }, 
+      "before": {
+        "address": "00429df0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00429df0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00429df0(int param_1, int param_2)"
+      }, 
+      "reason": "Apparent-wind helper leaves a floating result in ST0 which its caller consumes; void inference omitted the magnitude calculation and return."
+    }, 
+    {
+      "after": {
+        "address": "00413cd0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00413cd0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "double", 
+        "signature": "double __cdecl FUN_00413cd0(double param_1)"
+      }, 
+      "before": {
+        "address": "00413cd0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00413cd0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00413cd0(double param_1)"
+      }, 
+      "reason": "Angle-normalization helper accepts an IEEE double on the stack and returns an x87 floating value in ST0; lock its floating return for callers."
+    }, 
+    {
+      "after": {
+        "address": "0041bb10", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_0041bb10", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "EAX:4", 
+        "return_type": "int", 
+        "signature": "int __cdecl FUN_0041bb10(int param_1, int param_2)"
+      }, 
+      "before": {
+        "address": "0041bb10", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_0041bb10", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_0041bb10(int param_1, int param_2)"
+      }, 
+      "reason": "Bearing helper converts the x87 atan2 angle to degrees, calls integer angle wrapping at 00413cb0, then returns its EAX result; former void inference hid that return."
+    }, 
+    {
+      "after": {
+        "address": "00420b70", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00420b70", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00420b70(int param_1, int param_2, int param_3)"
+      }, 
+      "before": {
+        "address": "00420b70", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00420b70", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00420b70(int param_1, int param_2, int param_3)"
+      }, 
+      "reason": "Shoreline metric returns its unrounded x87 ST0 scalar; optional FST qword cachedMetric does not pop or round the remaining ST0 value consumed by caller __ftol."
+    }, 
+    {
+      "after": {
+        "address": "00420c40", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00420c40", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00420c40(int param_1, int param_2, int param_3)"
+      }, 
+      "before": {
+        "address": "00420c40", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00420c40", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00420c40(int param_1, int param_2, int param_3)"
+      }, 
+      "reason": "Elliptical metric returns an unrounded x87 ST0 scalar; original x-axis FST qword spill followed by FMUL rounded memory must not erase the preserved extended return."
+    }, 
+    {
+      "after": {
+        "address": "00420d10", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00420d10", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00420d10(int param_1, int param_2, int param_3)"
+      }, 
+      "before": {
+        "address": "00420d10", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00420d10", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00420d10(int param_1, int param_2, int param_3)"
+      }, 
+      "reason": "Radial metric returns unrounded x87 ST0 and conditionally FST qword cachedMetric without a pop; __ftol caller requires the original extended scalar."
+    }, 
+    {
+      "after": {
+        "address": "00428ab0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00428ab0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x10]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00428ab0(int param_1, double param_2, double param_3)"
+      }, 
+      "before": {
+        "address": "00428ab0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00428ab0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x10]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00428ab0(int param_1, double param_2, double param_3)"
+      }, 
+      "reason": "Distance-to-boat accepts one int followed by two packed stack doubles and returns unrounded x87 sqrt in ST0; full m80 return verified against original native instructions."
+    }, 
+    {
+      "after": {
+        "address": "00426f50", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00426f50", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00426f50(int param_1)"
+      }, 
+      "before": {
+        "address": "00426f50", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00426f50", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_00426f50(int param_1)"
+      }, 
+      "reason": "Signed-start-distance returns stored binary64 position sqrt minus an unrounded reference sqrt in ST0; original native m80 returns confirm extended result."
+    }, 
+    {
+      "after": {
+        "address": "00412f60", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00412f60", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "void", 
+        "signature": "void __cdecl FUN_00412f60(double param_1, double param_2)"
+      }, 
+      "before": {
+        "address": "00412f60", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00412f60", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "undefined4"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "undefined4"
+          }, 
+          {
+            "name": "param_4", 
+            "storage": "Stack[0x10]:4", 
+            "type": "undefined4"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00412f60(int param_1, undefined4 param_2, undefined4 param_3, undefined4 param_4)"
+      }, 
+      "reason": "Curved-hull original stack contract is two packed doubles, not four integers; routine writes geometry and callers do not consume a return. Full native geometry verified."
+    }, 
+    {
+      "after": {
+        "address": "00413100", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00413100", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "void", 
+        "signature": "void __cdecl FUN_00413100(double param_1, double param_2)"
+      }, 
+      "before": {
+        "address": "00413100", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00413100", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00413100(double param_1, double param_2)"
+      }, 
+      "reason": "Flat-hull original stack contract is two packed doubles with no observed API return; full native geometry verified."
+    }, 
+    {
+      "after": {
+        "address": "004139d0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_004139d0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_004139d0(int param_1)"
+      }, 
+      "before": {
+        "address": "004139d0", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_004139d0", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "ST0:10", 
+        "return_type": "float10", 
+        "signature": "float10 __cdecl FUN_004139d0(int param_1)"
+      }, 
+      "reason": "Crew selector returns the original unrounded x87 scale in ST0; finite original native m80 returns verified."
+    }, 
+    {
+      "after": {
+        "address": "00413a20", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00413a20", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x14]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_4", 
+            "storage": "Stack[0x1c]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_5", 
+            "storage": "Stack[0x24]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_6", 
+            "storage": "Stack[0x28]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_7", 
+            "storage": "Stack[0x2c]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_8", 
+            "storage": "Stack[0x30]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_9", 
+            "storage": "Stack[0x34]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "void", 
+        "signature": "void __cdecl FUN_00413a20(double param_1, double param_2, double param_3, double param_4, int param_5, int param_6, int param_7, int param_8, int param_9)"
+      }, 
+      "before": {
+        "address": "00413a20", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00413a20", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x14]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_4", 
+            "storage": "Stack[0x1c]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_5", 
+            "storage": "Stack[0x24]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_6", 
+            "storage": "Stack[0x28]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_7", 
+            "storage": "Stack[0x2c]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_8", 
+            "storage": "Stack[0x30]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_9", 
+            "storage": "Stack[0x34]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00413a20(double param_1, double param_2, double param_3, double param_4, int param_5, int param_6, int param_7, int param_8, int param_9)"
+      }, 
+      "reason": "Crew geometry writer takes four packed doubles then five ints; verified caller words and original native full-state fixtures establish this stack layout."
+    }, 
+    {
+      "after": {
+        "address": "00413370", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00413370", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x10]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "void", 
+        "signature": "void __cdecl FUN_00413370(double param_1, int param_2, int param_3)"
+      }, 
+      "before": {
+        "address": "00413370", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00413370", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "undefined4"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "undefined4"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_4", 
+            "storage": "Stack[0x10]:4", 
+            "type": "int"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00413370(undefined4 param_1, undefined4 param_2, int param_3, int param_4)"
+      }, 
+      "reason": "Full crew geometry takes width double followed by boat/screenY ints; original native full-state fixtures verify the contract."
+    }, 
+    {
+      "after": {
+        "address": "00414010", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": true, 
+        "name": "FUN_00414010", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x10]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_4", 
+            "storage": "Stack[0x14]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_5", 
+            "storage": "Stack[0x18]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_6", 
+            "storage": "Stack[0x1c]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "void", 
+        "signature": "void __cdecl FUN_00414010(double param_1, int param_2, int param_3, int param_4, int param_5, double param_6)"
+      }, 
+      "before": {
+        "address": "00414010", 
+        "call_fixup": null, 
+        "calling_convention": "__cdecl", 
+        "custom_storage": false, 
+        "name": "FUN_00414010", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:8", 
+            "type": "double"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0xc]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0x10]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_4", 
+            "storage": "Stack[0x14]:4", 
+            "type": "int"
+          }, 
+          {
+            "name": "param_5", 
+            "storage": "Stack[0x18]:4", 
+            "type": "uint"
+          }, 
+          {
+            "name": "param_6", 
+            "storage": "Stack[0x1c]:8", 
+            "type": "double"
+          }
+        ], 
+        "return_storage": "<UNASSIGNED>", 
+        "return_type": "undefined", 
+        "signature": "undefined __cdecl FUN_00414010(double param_1, int param_2, int param_3, int param_4, uint param_5, double param_6)"
+      }, 
+      "reason": "Sail geometry takes height double, boat/index/curvature/view-heading ints, then width-scale double; full unchanged native calls verify exact output stores."
+    }
+  ], 
+  "preview_results": [
+    {
+      "address": "004570b0", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00429df0", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00413cd0", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00428c60", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "0041bb10", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00420b70", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00420c40", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00420d10", 
+      "decompiled": true, 
+      "message": ""
+    }, 
+    {
+      "address": "00421560", 
+      "decompiled": true, 
+      "message": ""
+    }
+  ], 
+  "registers": {
+    "EAX": {
+      "address": "register:00000000", 
+      "bytes": 4
+    }, 
+    "EDX": {
+      "address": "register:00000008", 
+      "bytes": 4
+    }, 
+    "ST0": {
+      "address": "register:00001100", 
+      "bytes": 10
+    }
+  }, 
+  "scope": "Analyst-supplied decompiler signatures inferred from original x87 instructions and callers; not original source declarations.", 
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea"
+}

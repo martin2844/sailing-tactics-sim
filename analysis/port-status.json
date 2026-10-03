@@ -1,0 +1,114 @@
+{
+  "target": "Posey Sailing Tactics Simulator 2002 demo",
+  "sourceSha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "checkedAt": "2026-10-03T01:55:15.188Z",
+  "fullGamePlayable": true,
+  "demoOnly": true,
+  "fullGameBehaviorIdenticalVerified": false,
+  "player": "play.html",
+  "standaloneBuild": "dist/",
+  "decompilation": {
+    "functionsAndFunclets": 4268,
+    "failures": 0,
+    "textBytes": 526336,
+    "functionBytes": 512283,
+    "functionCoveragePercent": 97.33003252675097,
+    "undefinedBytes": 12526,
+    "unassignedInstructions": 0,
+    "scope": "Recovered pseudo-C; browser host supplies Windows services."
+  },
+  "extractedResources": 66,
+  "menuCommands": 192,
+  "tutorialPages": 39,
+  "translatedSubsystems": [
+    "Application and preference initialization",
+    "Course, terrain and race initialization",
+    "Wind and current",
+    "Player controls and menu/dialog routing",
+    "Opponent tactics and encounters",
+    "Boat steering, sails and dynamics",
+    "Position integration and race rules",
+    "Complete frame and paint ordering",
+    "Course, shore, boat and chart drawing",
+    "HUD, screens and tutorials",
+    "Original audio requests and resources"
+  ],
+  "verification": {
+    "passed2002Tests": 352,
+    "testLog": "analysis/validation-2002-full.log",
+    "testLogSha256": "47e01f57c1fcf68d5e6a79f7d079b8269574b5e4da62574e7263d78288d12c78",
+    "independentNativeVerificationCases": 98775,
+    "uniqueNativeOriginalRoutineAddresses": 209,
+    "nativeReferenceScope": "Independent isolated datasets plus three actual original-initialized retained100-frame chains under live startupCW027f. Repeated subset reports are excluded. The three initialization cases are lifetimes of a reviewed connected prefix; function/address counts exclude its calibration fragment. Full Windows lifecycle and raster identity remain separately scoped.",
+    "nativeReports": [
+      {
+        "report": "analysis/native-reference-comparison.json",
+        "control_word": "0x037f",
+        "cases": 28696,
+        "routines": 23,
+        "sha256": "71580338599782f68882cc0d165b577d9f88aacd4bbd8763139038d9b63996c9",
+        "scope": "Full isolated original global-wind, boat-options, apparent-wind, bearing, radian-wrap, six current, two movement-helper, and three steering routines. Finite fixture domain; current geometry and movement inputs are synthetic. Not full race, historical CPU, UI, or sound-playback parity."
+      },
+      {
+        "report": "analysis/native-state-reference-comparison.json",
+        "control_word": "0x037f",
+        "cases": 68612,
+        "routines": 183,
+        "sha256": "6570a60f535dc41c04ee3805670a3481e324f60412a3dbe6c622b6e98aad1b67",
+        "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim."
+      },
+      {
+        "report": "analysis/screens-p53-native-reference-comparison.json",
+        "control_word": "0x027f",
+        "cases": 936,
+        "routines": 7,
+        "sha256": "c766c4d47a8e9a5fddb4faae38684c22415b1630f67491ad2365ff4fcdc03198",
+        "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim."
+      },
+      {
+        "report": "analysis/connected-frames-p53-native-reference-comparison.json",
+        "control_word": "0x027f",
+        "cases": 180,
+        "routines": 1,
+        "sha256": "0ef4e97457327c50f6ee14b50321659c841ba407fa41055462680ae9eea4bf71",
+        "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim."
+      },
+      {
+        "report": "analysis/scene-vegetation-native-reference-comparison.json",
+        "control_word": "0x037f",
+        "cases": 24,
+        "routines": 1,
+        "sha256": "f42ff4ab56d1419663d143a0f7eb3a8a3f876461a48e6857c33825199cda90cb",
+        "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim."
+      },
+      {
+        "report": "analysis/scene-vegetation-pc53-native-reference-comparison.json",
+        "control_word": "0x027f",
+        "cases": 24,
+        "routines": 1,
+        "sha256": "caaa5fbca90d1ace07e74f626e8430d1bcf1bb58ebca21dfe870697dd489f60f",
+        "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim."
+      },
+      {
+        "report": "analysis/native-frame-chains-p53-reference-comparison.json",
+        "control_word": "0x027f",
+        "cases": 303,
+        "routines": 5,
+        "sha256": "f2d1209fcaf5f3ebf2cd057408935176953d5d4b5188edea5f832fe6101961ca",
+        "scope": "Three original-initialized retained native chains. No CPU emulation and no JavaScript output supplies expected values or next-frame input. Original CRT/CString, game globals and RNG remain live for100frames perprofile. Fixed reviewed calibration prefix and owned GDI/timer/cursor/whitepixel host; original indeterminate shoreline stack observations remain explicit. Original entrypoint/MFC window lifetime and Canvas raster are separate host concerns."
+      }
+    ],
+    "applicationControlWord": "0x027f",
+    "startupReference": "analysis/startup-precision.json",
+    "playableBrowserReport": "analysis/play-browser-check/report.json",
+    "fontPixelCases": 80
+  },
+  "boundaries": [
+    "Finite recorded domains; no proof for every possible input or historical CPU",
+    "Canvas shape rasterization differs from Windows GDI; measured System text is pixel-verified",
+    "Browser audio scheduling and OS beep differ from Windows",
+    "Browser host supplies device, window, modal and storage services; no full Windows MFC lifetime claim",
+    "Shoreline starts from one measured original stack context; caller histories differ",
+    "Original demo notices and restrictions are retained"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "provenance": {
+    "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+    "authoritative_engine": "native-x87",
+    "control_word": "0x037f",
+    "architecture": "x86_64",
+    "probe_source": "tools/capture_stored_trig_native.c",
+    "probe_sha256": "0af494e91772c38d40427625acfee8fc5bffc972d6db8e617c946ce81ca0c3b5",
+    "compiler": "gcc (GCC) 15.2.0",
+    "note": "Actual local hardware; this does not establish equivalence to every historical CPU."
+  },
+  "degreeFactorAddress": 4738368,
+  "degreeFactorBits": "3152cb9156df913f",
+  "optimistScaleAddress": 4738496,
+  "optimistScaleBits": "9a9999999999e93f",
+  "optimistScale": 0.8,
+  "construction": "FILD i32; FMUL original binary64 hull scale; FMUL original binary64 degree factor; FSIN/FCOS; FSTP m80",
+  "variants": {
+    "standard": {
+      "29": {
+        "sineBits": "382b723087c139f8fd3f",
+        "cosineBits": "1a9763b3bbdbe6dffe3f",
+        "referenceEngine": "native-x87"
+      },
+      "58": {
+        "sineBits": "95f1580b88281ad9fe3f",
+        "cosineBits": "7e0dd1280106a887fe3f",
+        "referenceEngine": "native-x87"
+      },
+      "87": {
+        "sineBits": "76bcd35d8b41a6fffe3f",
+        "cosineBits": "12c1b33a589848d6fa3f",
+        "referenceEngine": "native-x87"
+      },
+      "116": {
+        "sineBits": "6425dcdf439316e6fe3f",
+        "cosineBits": "e18d27958b6d75e0fdbf",
+        "referenceEngine": "native-x87"
+      },
+      "145": {
+        "sineBits": "72e98b87910ed492fe3f",
+        "cosineBits": "3e8dc78d1b3eb5d1febf",
+        "referenceEngine": "native-x87"
+      }
+    },
+    "optimist": {
+      "29": {
+        "sineBits": "3e66c995eb6ab3c9fd3f",
+        "cosineBits": "d473f99ab54f4cebfe3f",
+        "referenceEngine": "native-x87"
+      },
+      "58": {
+        "sineBits": "861d647437d363b9fe3f",
+        "cosineBits": "7b2a57ae2d628ab0fe3f",
+        "referenceEngine": "native-x87"
+      },
+      "87": {
+        "sineBits": "d982b2110a17f2effe3f",
+        "cosineBits": "60527fe0480176b2fd3f",
+        "referenceEngine": "native-x87"
+      },
+      "116": {
+        "sineBits": "a4cd238f3eb0b1fffe3f",
+        "cosineBits": "67bf252c66c62dc8fabf",
+        "referenceEngine": "native-x87"
+      },
+      "145": {
+        "sineBits": "d821dcdf439316e6fe3f",
+        "cosineBits": "6e9c27958b6d75e0fdbf",
+        "referenceEngine": "native-x87"
+      }
+    }
+  }
+}

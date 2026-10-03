@@ -1,0 +1,16 @@
+:root{font-family:Arial,Helvetica,sans-serif;color:#000;background:#008080;font-size:13px;color-scheme:light}
+*{box-sizing:border-box}body{margin:0;padding:12px}.simulator{width:min(1040px,100%);margin:auto;background:#c0c0c0;padding:3px;border:2px outset #eee}
+.title-bar{display:flex;align-items:center;gap:6px;padding:4px 6px;background:#000080;color:#fff;font-weight:bold}.title-bar a{margin-left:auto;font-weight:normal;color:#fff;font-size:11px}
+.menu-bar{display:flex;flex-wrap:wrap;gap:0;position:relative;z-index:5;min-height:26px;padding:2px}
+button{font:inherit;cursor:pointer;color:#000;background:#c0c0c0;border:2px outset #eee;padding:3px 9px}button:active{border-style:inset}button:disabled{color:#7f7f7f;cursor:default}
+.menu-root{position:relative}.menu-toggle{border:0;padding:4px 7px;background:transparent}.menu-toggle[aria-expanded=true],.menu-toggle:hover{background:#000080;color:#fff}
+.menu-popup{position:absolute;top:100%;left:0;min-width:245px;background:#c0c0c0;border:2px outset #eee;padding:2px;box-shadow:2px 2px 0 #444;max-height:80vh;overflow:auto}
+.menu-popup[hidden]{display:none}.menu-popup .menu-popup{position:static;margin:0 0 2px 20px;box-shadow:none;border:1px inset #eee;min-width:0;max-height:none}
+.menu-command,.menu-submenu{display:block;text-align:left;border:0;padding:4px 7px;width:100%;white-space:pre;font-size:12px;background:transparent}.menu-command:hover:enabled,.menu-submenu:hover{background:#000080;color:#fff}.menu-command::before{content:' ';display:inline-block;width:15px}.menu-command[aria-checked=true]::before{content:'✓'}
+.menu-popup hr{border:0;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:4px 2px}
+#canvas-wrap{background:#fff;border:1px inset #eee;overflow:hidden}canvas{display:block;width:100%;height:auto;outline:none;touch-action:none}canvas:focus-visible{outline:2px solid #000080;outline-offset:-2px}
+footer{display:flex;align-items:center;gap:4px;min-height:26px;padding-top:3px}#status{flex:1;font-size:11px;padding-left:4px}footer button{font-size:11px;padding:2px 7px}#error{margin:8px;color:#8b0000;white-space:pre-wrap}
+dialog{padding:3px;border:2px outset #eee;background:#c0c0c0;max-width:calc(100vw - 20px);overflow:auto}dialog::backdrop{background:rgba(0,0,0,.15)}dialog form{margin:0}dialog h1{font-size:13px;background:#000080;color:#fff;margin:0;padding:5px 7px;font-weight:bold}#dialog-controls{position:relative;font-size:13px}
+.dialog-control{position:absolute;margin:0}.dialog-radio{display:flex;align-items:center;gap:3px;white-space:nowrap}.dialog-radio input{margin:0}.dialog-group{border:1px solid #808080;border-radius:0;padding:0;pointer-events:none}.dialog-group legend{padding:0 3px;font-size:12px}.dialog-static{font-size:12px}.dialog-icon{width:32px;height:32px}
+.simulator:fullscreen{width:100%;padding:3px;display:flex;flex-direction:column} .simulator:fullscreen #canvas-wrap{flex:1;display:flex;align-items:center;justify-content:center}.simulator:fullscreen canvas{max-height:100%;width:auto;max-width:100%}
+@media(max-width:600px){body{padding:0}.simulator{border-width:0;padding:0}.title-bar a{font-size:10px}.menu-toggle{padding:4px 5px;font-size:12px}.menu-popup{max-width:calc(100vw - 8px);min-width:200px}.menu-command,.menu-submenu{white-space:normal}footer{padding:3px}.title-bar{font-size:12px}}

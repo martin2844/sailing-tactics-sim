@@ -1,0 +1,106 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-shore-exceptional.json": "e52779a0c926dc1b94504be92b63f1cd26c5abbafe6e5bc82027afe78c2c0158"
+  },
+  "runner_source_sha256": "9416d09e5d80f8ea224d01dda75334a87046b68d39fb1ef1b25793f6fabda392",
+  "runner_sha256": "ee1928a8c9670967fb947879cfba53e264bde68b03d784dd549173356feef9bc",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-om_gy4ry/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "drawShoreSegment": {
+      "cases": 128,
+      "exact_matches": 128,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "drawing_requests_compared": 3429,
+  "sound_requests_compared": 0,
+  "cstring_runtime_cases": 128,
+  "library_runtime_evidence": {
+    "artifact": "analysis/shore-exceptional-native-reference-comparison-runtime-evidence.json.gz",
+    "sha256": "c215b3f495f4db10118cf0e4e4cdd4ad31c5a471306b19d09fbe8ff3c8597336",
+    "encoding": "gzip JSON array",
+    "records": 128,
+    "scope": "Exact raw original CRT allocator bookkeeping before/after bytes; comparison-only normalizations are declared in this report."
+  },
+  "hud_cstring_pointer_evidence": [],
+  "runner_path": "analysis/native-runners/shore-exceptional-native-reference-comparison.exe",
+  "verifier_source_sha256": "743de52ebd44cbd2603b1e8d0e8115e65b93bc66090f3f3dfca457e3e1525c77",
+  "host_cpu_model": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "runtime_header_sha256": {
+    "native_encounter_schema.h": "0c16a7efb7807bece9f2e69a7cc09e9f6ef78942b9e0334e78bd86d833891402",
+    "native_gdi_trace.h": "a9222975cb18f9b100aaa24aa56fde933ba0892912e26fe7cfefa126a1079cd9",
+    "native_cstring_runtime.h": "94e6533fa68ad572e90835b222208e47b4fb8631ed4bfa6ebcccf5dad0f95f76"
+  },
+  "cstring_runtime_normalizations": [
+    {
+      "address": 4849568,
+      "size": 128,
+      "purpose": "Original CRT lock-pointer table"
+    },
+    {
+      "address": 4849760,
+      "size": 8228,
+      "purpose": "Original CRT small-block-heap root/descriptors"
+    },
+    {
+      "address": 4910024,
+      "size": 96,
+      "purpose": "Four original CRT critical sections"
+    },
+    {
+      "address": 4914668,
+      "size": 4,
+      "purpose": "Original CRT heap handle"
+    },
+    {
+      "address": 4910132,
+      "size": 4,
+      "purpose": "Original SBH free-page counter; writes in 0045bc60/0045bb30"
+    }
+  ],
+  "cstring_runtime_scope": "For fixed drawing calls requiring strings, original CRT startup leaves 0x45b700 and 0x45b3c0 initialize locks/heap; original CString and formatter instructions execute. Only these declared allocator bookkeeping ranges are normalized to prepared comparison bytes. Their raw before/after differences are retained separately; game state and text remain exact.",
+  "hud_cstring_pointer_normalization": {
+    "address": 4878408,
+    "size": 4,
+    "scope": "Only fixed HUD routines56\u201362 and complete frame129. Original constructor46bd7a initializes the object before the call; original destructor46bec5 releases it after recording evidence. The host allocation pointer is normalized to prepared bytes for state comparisons; actual pointer and complete cp1252 text are recorded, and fixture hudText is strict."
+  },
+  "original_routine_addresses": [
+    "0042d8a0"
+  ],
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 128,
+  "exact_function_cases": 128,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 1.2805899950035382
+}

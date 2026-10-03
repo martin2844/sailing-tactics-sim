@@ -1,0 +1,257 @@
+{
+  "changes": [
+    {
+      "after": {
+        "address": "0046c0db", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "char *"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __stdcall FUN_0046c0db(TactCString * param_1, TactCString * param_2, char * param_3)"
+      }, 
+      "before": {
+        "address": "0046c0db", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "char *"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __stdcall FUN_0046c0db(TactCString * param_1, TactCString * param_2, char * param_3)"
+      }, 
+      "reason": "Original concat reads out*, CString* left, ANSI right at entry stack +4/+8/+12 and returns out* in EAX."
+    }, 
+    {
+      "after": {
+        "address": "0046c075", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "TactCString *"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __stdcall FUN_0046c075(TactCString * param_1, TactCString * param_2, TactCString * param_3)"
+      }, 
+      "before": {
+        "address": "0046c075", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "TactCString *"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __stdcall FUN_0046c075(TactCString * param_1, TactCString * param_2, TactCString * param_3)"
+      }, 
+      "reason": "Original concat reads out*, CString* left, CString* right at entry stack +4/+8/+12 and returns out* in EAX."
+    }, 
+    {
+      "after": {
+        "address": "0046c14f", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "char *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "TactCString *"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __stdcall FUN_0046c14f(TactCString * param_1, char * param_2, TactCString * param_3)"
+      }, 
+      "before": {
+        "address": "0046c14f", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "char *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "TactCString *"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __stdcall FUN_0046c14f(TactCString * param_1, char * param_2, TactCString * param_3)"
+      }, 
+      "reason": "Original concat reads out*, ANSI left, CString* right at entry stack +4/+8/+12 and returns out* in EAX."
+    }, 
+    {
+      "after": {
+        "address": "00413d00", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __cdecl FUN_00413d00(TactCString * param_1, int param_2)"
+      }, 
+      "before": {
+        "address": "00413d00", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __cdecl FUN_00413d00(TactCString * param_1, int param_2)"
+      }, 
+      "reason": "Game decimal integer formatter receives out* and signed I32; original _itoa base ten supplies the string and out* is returned in EAX."
+    }, 
+    {
+      "after": {
+        "address": "00413d90", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:8", 
+            "type": "double"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __cdecl FUN_00413d90(TactCString * param_1, double param_2)"
+      }, 
+      "before": {
+        "address": "00413d90", 
+        "customStorage": true, 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "TactCString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:8", 
+            "type": "double"
+          }
+        ], 
+        "returnStorage": "EAX:4", 
+        "signature": "TactCString * __cdecl FUN_00413d90(TactCString * param_1, double param_2)"
+      }, 
+      "reason": "Game fractional formatter receives out* at entry +4 and unaligned IEEE F64 at +8; original x87 truncation/concatenation formats the value, then returns out* in EAX."
+    }
+  ], 
+  "previews": [
+    {
+      "address": "00413d00", 
+      "decompiled": true
+    }, 
+    {
+      "address": "00413d90", 
+      "decompiled": true
+    }, 
+    {
+      "address": "00409760", 
+      "decompiled": true
+    }, 
+    {
+      "address": "0040db30", 
+      "decompiled": true
+    }, 
+    {
+      "address": "0040c3b0", 
+      "decompiled": true
+    }, 
+    {
+      "address": "0040e9a0", 
+      "decompiled": true
+    }
+  ], 
+  "scope": "Analyst signatures from original stack accesses/callers; CString layout is opaque except its four-byte data pointer. No original source declaration or executable patch.", 
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea"
+}

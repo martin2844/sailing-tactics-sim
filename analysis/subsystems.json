@@ -1,0 +1,862 @@
+{
+  "schemaVersion": 1,
+  "imageBase": "0x00400000",
+  "status": "partial_analysis_with_native_verified_helpers",
+  "functions": [
+    {
+      "address": "0x00404020",
+      "name": "frameUpdateAndRender",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00411000",
+      "name": "renderBoat",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00412f60",
+      "name": "buildMonohullOutline",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00413100",
+      "name": "buildCatamaranOutline",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00413cb0",
+      "name": "correctDegreesOnce",
+      "confidence": "fully_mapped"
+    },
+    {
+      "address": "0x00413cd0",
+      "name": "correctRadiansOnce",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 528
+    },
+    {
+      "address": "0x00413f00",
+      "name": "initializeRace",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00414010",
+      "name": "buildSailGeometryAndResetAITrim",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00415a20",
+      "name": "gameScaledRandom",
+      "confidence": "fully_mapped"
+    },
+    {
+      "address": "0x00415a60",
+      "name": "initializeTrigTables",
+      "confidence": "fully_mapped"
+    },
+    {
+      "address": "0x00417790",
+      "name": "initializeBoatOptions",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 852,
+      "calibratedLengthCases": 38
+    },
+    {
+      "address": "0x0041b5d0",
+      "name": "updateGlobalWind",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0041ba60",
+      "name": "scheduleWindShift",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 320
+    },
+    {
+      "address": "0x0041bb10",
+      "name": "vectorBearing",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 4145
+    },
+    {
+      "address": "0x00420b70",
+      "name": "sampleShorelineMetric",
+      "confidence": "native_fixture_verified",
+      "source": "src/engine/current.js",
+      "test": "tests/current.test.js"
+    },
+    {
+      "address": "0x00420c40",
+      "name": "sampleSpatialMetric",
+      "confidence": "native_fixture_verified",
+      "source": "src/engine/current.js",
+      "test": "tests/current.test.js"
+    },
+    {
+      "address": "0x00420d10",
+      "name": "sampleBoundaryMetric",
+      "confidence": "native_fixture_verified",
+      "source": "src/engine/current.js",
+      "test": "tests/current.test.js"
+    },
+    {
+      "address": "0x00421560",
+      "name": "sampleCurrent",
+      "confidence": "native_fixture_verified",
+      "source": "src/engine/current.js",
+      "test": "tests/current.test.js"
+    },
+    {
+      "address": "0x00421ae0",
+      "name": "updateShoreDirections",
+      "confidence": "native_fixture_verified",
+      "source": "src/engine/current.js",
+      "test": "tests/current.test.js"
+    },
+    {
+      "address": "0x00421b80",
+      "name": "sampleUpstreamDistance",
+      "confidence": "native_fixture_verified",
+      "source": "src/engine/current.js",
+      "test": "tests/current.test.js"
+    },
+    {
+      "address": "0x00421c40",
+      "name": "resetBoat",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 848,
+      "source": "src/engine/penalties.js",
+      "test": "tests/encounter-leaves.test.js"
+    },
+    {
+      "address": "0x004249a0",
+      "name": "updateTacticsNavigation",
+      "confidence": "partial"
+    },
+    {
+      "address": "0x004255b0",
+      "name": "updateTack",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 328
+    },
+    {
+      "address": "0x004269d0",
+      "name": "setClosehauledHeading",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 600
+    },
+    {
+      "address": "0x00426ad0",
+      "name": "updateMarkNavigation",
+      "confidence": "strong_evidence"
+    },
+    {
+      "address": "0x00426f50",
+      "name": "signedStartDistance",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 400,
+      "source": "src/engine/penalties.js",
+      "test": "tests/encounter-leaves.test.js"
+    },
+    {
+      "address": "0x00427fd0",
+      "name": "updateCollisionAvoidance",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/avoidance.js"
+    },
+    {
+      "address": "0x004280c0",
+      "name": "avoidAiCollision",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/avoidance.js"
+    },
+    {
+      "address": "0x004286e0",
+      "name": "warnHumanRightOfWay",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/avoidance.js"
+    },
+    {
+      "address": "0x00428a30",
+      "name": "requestRightOfWaySound",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/avoidance.js"
+    },
+    {
+      "address": "0x00428af0",
+      "name": "relativeProjection",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 1007,
+      "source": "src/engine/encounter-geometry.js",
+      "test": "tests/encounter-leaves.test.js"
+    },
+    {
+      "address": "0x00428c60",
+      "name": "updateBoatDynamics",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/boat-dynamics.js",
+      "debugFullImageEmulatorCases": 300
+    },
+    {
+      "address": "0x00429df0",
+      "name": "calculateApparentWind",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 1960
+    },
+    {
+      "address": "0x00429f40",
+      "name": "updateInterference",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/interference.js"
+    },
+    {
+      "address": "0x0042a280",
+      "name": "spinnakerAnglePenalty",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 305
+    },
+    {
+      "address": "0x0042a2d0",
+      "name": "updateMarkStartPenalties",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/penalties.js"
+    },
+    {
+      "address": "0x0042a530",
+      "name": "collisionPenalty",
+      "confidence": "complete_translation_pending_native_validation",
+      "source": "src/engine/penalties.js"
+    },
+    {
+      "address": "0x0042a8a0",
+      "name": "respawnNearStart",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 524,
+      "source": "src/engine/penalties.js",
+      "test": "tests/encounter-leaves.test.js"
+    },
+    {
+      "address": "0x0042a950",
+      "name": "shiftPenaltyPosition",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 1988,
+      "source": "src/engine/penalties.js",
+      "test": "tests/encounter-leaves.test.js",
+      "nativeCorrections": {
+        "cases": 1738,
+        "reason": "Native x87 transcendental output differs from Unicorn; corrected original-code Wine reference retained with original emulator baseline"
+      }
+    },
+    {
+      "address": "0x0042abb0",
+      "name": "checkNearRaceMarks",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 3721,
+      "source": "src/engine/penalties.js",
+      "test": "tests/encounter-leaves.test.js"
+    },
+    {
+      "address": "0x0042adb0",
+      "name": "integrateTimeAndPositions",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0042b7f0",
+      "name": "updatePlayer1Steering",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0042bda0",
+      "name": "updatePlayer2Steering",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00430f90",
+      "name": "displayPenalty",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0044da90",
+      "name": "aheadAstern",
+      "confidence": "native_fixture_verified",
+      "nativeFixtureCases": 627,
+      "source": "src/engine/encounter-geometry.js",
+      "test": "tests/encounter-leaves.test.js"
+    },
+    {
+      "address": "0x0044e380",
+      "name": "setSpeedDivisor",
+      "confidence": "fully_mapped"
+    },
+    {
+      "address": "0x00456ed0",
+      "name": "crtSrand",
+      "confidence": "fully_mapped"
+    },
+    {
+      "address": "0x00456ee0",
+      "name": "crtRand",
+      "confidence": "fully_mapped"
+    }
+  ],
+  "globals": [
+    {
+      "address": "0x00491140",
+      "name": "humanPlayerCount",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0049116c",
+      "name": "simulationSpeedLevel",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00491170",
+      "name": "simulationSpeedDivisor",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0049118c",
+      "name": "boatCount",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004aa948",
+      "name": "timeStepSeconds",
+      "type": "float64",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac1f8",
+      "name": "elapsedSeconds",
+      "type": "float64",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a5b80",
+      "name": "elapsedIntegerSeconds",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a76c8",
+      "name": "previousElapsedIntegerSeconds",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ab0c0",
+      "name": "boatScaleTimeFactor",
+      "type": "float64",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a49e8",
+      "name": "boatX",
+      "type": "float64",
+      "stride": 8,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a4ae0",
+      "name": "boatY",
+      "type": "float64",
+      "stride": 8,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac018",
+      "name": "boatHeadingDegrees",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a71c8",
+      "name": "boatSpeedTenths",
+      "type": "float64",
+      "stride": 8,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a7060",
+      "name": "boatQuantizedSpeedTenths",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a6338",
+      "name": "boatTrueWindKnots",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004aa5b0",
+      "name": "boatTrueWindDirection",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a7bc8",
+      "name": "boatAngleToTrueWind",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ab9e8",
+      "name": "boatApparentWindKnots",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a47f8",
+      "name": "boatApparentWindAngle",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a7868",
+      "name": "boatAirStatus",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a89c0",
+      "name": "boatPenaltyStatus",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004abf18",
+      "name": "boatPenaltyTime",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004aa730",
+      "name": "boatTackSign",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a5420",
+      "name": "boatRaceProgress",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "partial"
+    },
+    {
+      "address": "0x004a54a0",
+      "name": "sinDegreesTimes100",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a3450",
+      "name": "cosDegreesTimes100",
+      "type": "int32",
+      "stride": 4,
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00491144",
+      "name": "boatSelector",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00491188",
+      "name": "boatClass",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a5ba4",
+      "name": "boatLengthScale",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a4eec",
+      "name": "displacementCoefficient",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a5b90",
+      "name": "relativeSailAreaCoefficient",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac900",
+      "name": "catamaranFlag",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac904",
+      "name": "boardFlag",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac908",
+      "name": "sportBoatFlag",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac90c",
+      "name": "skiffFlag",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac910",
+      "name": "jy15Flag",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac914",
+      "name": "optimistFlag",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a6ec8",
+      "name": "boatHeelDegrees",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004a77e8",
+      "name": "boatSailSheetAngle",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004a8aa8",
+      "name": "boatLuffingPercent",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004ac5f0",
+      "name": "boatSpinnakerAnglePenalty",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004ac1e8",
+      "name": "boatClosehauledOffset",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004a7648",
+      "name": "boatFinishingPlace",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004abb70",
+      "name": "boatSpinnakerState",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004a52e8",
+      "name": "player1ClosehauledAngle",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ab180",
+      "name": "spinnakerMinimumWindAngle",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004911c4",
+      "name": "windTargetRandomCursor",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004911c8",
+      "name": "windTimeRandomCursor",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004a9450",
+      "name": "windRandomTable",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004abae4",
+      "name": "nextWindShiftIntegerTime",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac9e8",
+      "name": "nextWindShiftTargetDegrees",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004aa1a0",
+      "name": "boatScreenX",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004aa2a0",
+      "name": "boatScreenY",
+      "type": "int32",
+      "confidence": "confirmed",
+      "stride": 4
+    },
+    {
+      "address": "0x004ac918",
+      "name": "boatLengthOverride",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac91c",
+      "name": "displacementOverride",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac920",
+      "name": "sailAreaOverride",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac924",
+      "name": "sailPercentOverride",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00491150",
+      "name": "sailRigPercent",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x0049114c",
+      "name": "sailPlanSelector",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x00491194",
+      "name": "courseSelector",
+      "type": "int32",
+      "confidence": "confirmed"
+    },
+    {
+      "address": "0x004ac990",
+      "name": "class7CourseOptionFlag",
+      "type": "int32",
+      "confidence": "confirmed"
+    }
+  ],
+  "constants": {
+    "degreesToRadians": 0.017453529976437735,
+    "radiansToDegrees": 57.295,
+    "radianHalfRevolution": 3.1416,
+    "radianRevolution": 6.2832,
+    "pressureCoefficient": 0.012,
+    "pressureToApparentStrength": 0.8333333333333334,
+    "speedDisplayScale": 0.1,
+    "timeStepCoefficient": 25,
+    "speedDivisors": [
+      2919,
+      1946,
+      1297,
+      865,
+      577,
+      384,
+      256,
+      171,
+      114,
+      76,
+      51,
+      34,
+      23,
+      15,
+      10
+    ]
+  },
+  "penaltyStatus": {
+    "1": "hit_mark_rule31",
+    "2": "over_early_rule29_1",
+    "3": "failure_to_give_room_rule18_2a",
+    "4": "port_tack_rule10",
+    "5": "windward_boat_rule11",
+    "6": "overtaking_boat_rule12",
+    "7": "tacked_too_close_rule13",
+    "10": "aground",
+    "11": "finished"
+  },
+  "airStatus": {
+    "0": "clear_air",
+    "2": "blanketed",
+    "3": "backwinded",
+    "12": "blanketed"
+  },
+  "frameCallOrder": [
+    "0x0041b5d0",
+    "0x0041e9c0",
+    "0x004249a0",
+    "0x0042b7f0",
+    "0x0042bda0",
+    "0x00428c60",
+    "0x0042adb0"
+  ],
+  "caveats": [
+    "Analyst-assigned function names; stripped symbols.",
+    "Parallel global arrays, typically indexed from boat 1.",
+    "Full simulation equivalence requires native replay fixtures.",
+    "Exact x87 floating-point intermediate behavior can differ from JS double.",
+    "Initial recognized-function export omitted hundreds of MFC indirect handlers; static message-map recovery expands coverage.",
+    "Rendering writes AI simulation globals."
+  ],
+  "behavioralQuirks": [
+    {
+      "function": "0x00428c60",
+      "address": "0x00428d56",
+      "behavior": "Apparent wind uses entry angle before current heading-wind angle recomputation."
+    },
+    {
+      "function": "0x00428c60",
+      "address": "0x00429690",
+      "behavior": "Drag term uses fixed boat1 angle at0x004a7bcc for every boat."
+    },
+    {
+      "function": "0x00411000",
+      "calls": "0x00414010",
+      "behavior": "Rendering resets several AI sail/control globals and clears spinnaker angle penalty."
+    },
+    {
+      "function": "0x004269d0",
+      "behavior": "Nonzero catamaran selects one branch; later light-wind branch requires exactly1."
+    },
+    {
+      "function": "0x00404020",
+      "behavior": "Dynamics consume existing dt before integration computes next dt; boat update order must be preserved."
+    }
+  ],
+  "nativeVerification": {
+    "reference": "Unicorn2.1.4 executing original instructions, x87 control word0x037f",
+    "totalNewNumericalCases": 9076,
+    "integerHelperCases": 1553,
+    "apparentWindCases": 1960,
+    "radianCases": 528,
+    "bearingCases": 4145,
+    "checks": "Exact integer fields and EAX; exact binary64 return bits where returned.",
+    "limits": "Bounded fixture parity, not complete x87 or full-game equivalence.",
+    "boatOptionsCases": 852,
+    "boatCalibrationCases": 38
+  },
+  "decompilerCorrections": "decompiled/signature-corrections.json",
+  "indirectHandlerRecovery": "analysis/message-map-candidates.json",
+  "boatSelectors": {
+    "1": "Optimist",
+    "2": "Laser",
+    "3": "Board",
+    "4": "Snipe",
+    "5": "JY15",
+    "6": "505",
+    "7": "Skiff",
+    "8": "Thistle",
+    "9": "Lightning",
+    "10": "Tornado Catamaran",
+    "11": "Spinnaker Catamaran",
+    "12": "Keelboat",
+    "13": "Sport Boat",
+    "14": "Offshore Racer",
+    "15": "America's Cup"
+  },
+  "boatCalibration": {
+    "source": "assets/data/boat-calibration.json",
+    "verifiedLengths": [
+      11,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      61
+    ],
+    "binary64SqrtDifferences": [
+      29,
+      35
+    ],
+    "fallback": "Math.sqrt(15/length) outside captured domain; arbitrary-domain x87 parity and exception semantics unverified."
+  }
+}

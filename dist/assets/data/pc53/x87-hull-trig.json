@@ -1,0 +1,84 @@
+{
+  "provenance": {
+    "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+    "authoritative_engine": "native-x87",
+    "engine": "native-x87",
+    "control_word": "0x027f",
+    "x87_control_word": "0x027f",
+    "architecture": "x86_64",
+    "cpu": {
+      "vendor_id": "AuthenticAMD",
+      "cpu family": "25",
+      "model": "80",
+      "model name": "AMD Ryzen 7 5700G with Radeon Graphics",
+      "stepping": "0",
+      "microcode": "0xa500012"
+    },
+    "probe_source": "tools/capture_pc53_native.c",
+    "probe_sha256": "20053bc7ab74804b40555bc8fb29f2ba615d574c8136f92d779f988fb043b6f7",
+    "compiler": "gcc (GCC) 15.2.0",
+    "note": "Separate current-hardware reference for actual startup precision53. Precision64 reference files remain unchanged. No historical CPU equivalence claim."
+  },
+  "degreeFactorAddress": 4738368,
+  "degreeFactorBits": "3152cb9156df913f",
+  "optimistScaleAddress": 4738496,
+  "optimistScaleBits": "9a9999999999e93f",
+  "optimistScale": 0.8,
+  "construction": "FILD i32; FMUL original binary64 hull scale; FMUL original binary64 degree factor, precision53; FSIN/FCOS; FSTP m80",
+  "variants": {
+    "standard": {
+      "29": {
+        "sineBits": "8925723087c139f8fd3f",
+        "cosineBits": "ae9863b3bbdbe6dffe3f",
+        "referenceEngine": "native-x87"
+      },
+      "58": {
+        "sineBits": "24ee580b88281ad9fe3f",
+        "cosineBits": "0113d1280106a887fe3f",
+        "referenceEngine": "native-x87"
+      },
+      "87": {
+        "sineBits": "cabcd35d8b41a6fffe3f",
+        "cosineBits": "355db33a589848d6fa3f",
+        "referenceEngine": "native-x87"
+      },
+      "116": {
+        "sineBits": "172bdcdf439316e6fe3f",
+        "cosineBits": "837627958b6d75e0fdbf",
+        "referenceEngine": "native-x87"
+      },
+      "145": {
+        "sineBits": "8bdc8b87910ed492fe3f",
+        "cosineBits": "4796c78d1b3eb5d1febf",
+        "referenceEngine": "native-x87"
+      }
+    },
+    "optimist": {
+      "29": {
+        "sineBits": "c868c995eb6ab3c9fd3f",
+        "cosineBits": "4873f99ab54f4cebfe3f",
+        "referenceEngine": "native-x87"
+      },
+      "58": {
+        "sineBits": "6e1f647437d363b9fe3f",
+        "cosineBits": "7b2857ae2d628ab0fe3f",
+        "referenceEngine": "native-x87"
+      },
+      "87": {
+        "sineBits": "e682b2110a17f2effe3f",
+        "cosineBits": "1c527fe0480176b2fd3f",
+        "referenceEngine": "native-x87"
+      },
+      "116": {
+        "sineBits": "5fcd238f3eb0b1fffe3f",
+        "cosineBits": "ac17262c66c62dc8fabf",
+        "referenceEngine": "native-x87"
+      },
+      "145": {
+        "sineBits": "172bdcdf439316e6fe3f",
+        "cosineBits": "837627958b6d75e0fdbf",
+        "referenceEngine": "native-x87"
+      }
+    }
+  }
+}

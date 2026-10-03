@@ -1,0 +1,260 @@
+{
+  "provenance": {
+    "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+    "engine": "Unicorn",
+    "engine_version": "2.1.4",
+    "x87_control_word": "0x037f",
+    "tls_accessor_stub": "0x459ed0",
+    "note": "Reference outputs from original instructions under CPU emulation; not a full-game or original-CPU parity proof.",
+    "authoritative_engine": "native-x87",
+    "native_verification": {
+      "engine": "native-x87",
+      "architecture": "x86_64",
+      "cpu": {
+        "vendor_id": "AuthenticAMD",
+        "cpu family": "25",
+        "model": "80",
+        "model name": "AMD Ryzen 7 5700G with Radeon Graphics",
+        "stepping": "0",
+        "microcode": "0xa500012"
+      },
+      "control_word": "0x037f",
+      "probe_source": "tools/capture_x87_native.c",
+      "probe_sha256": "4abb850b09e3e0cbcb38c33e5d3d0388833bde40f7c6e424bd1a676af553cfe1",
+      "compiler": "gcc (GCC) 15.2.0",
+      "note": "Actual local x87 instructions; current-hardware evidence, not historical CPU equivalence."
+    }
+  },
+  "routine": "0x417790",
+  "formula": "sqrt(15 / integer boat length), x87 intermediate then binary64 store",
+  "lengths": {
+    "11": {
+      "value": 1.1677484162422844,
+      "bits": "67769bf618aff23f",
+      "extendedBits": "1839b3dbb4c77895ff3f",
+      "referenceEngine": "native-x87"
+    },
+    "14": {
+      "value": 1.0350983390135313,
+      "bits": "0750a346c38ff03f",
+      "extendedBits": "3438801a351a7e84ff3f",
+      "referenceEngine": "native-x87"
+    },
+    "40": {
+      "value": 0.6123724356957945,
+      "bits": "2e2109148e98e33f",
+      "extendedBits": "e8730949a070c49cfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "15": {
+      "value": 1.0,
+      "bits": "000000000000f03f",
+      "extendedBits": "0000000000000080ff3f",
+      "referenceEngine": "native-x87"
+    },
+    "18": {
+      "value": 0.9128709291752769,
+      "bits": "bfdc48183d36ed3f",
+      "extendedBits": "b0f4e546c2e8b1e9fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "30": {
+      "value": 0.7071067811865476,
+      "bits": "cd3b7f669ea0e63f",
+      "extendedBits": "8464def933f304b5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "16": {
+      "value": 0.9682458365518543,
+      "bits": "da4e4fb1defbee3f",
+      "extendedBits": "8ccd767a8af5def7fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "17": {
+      "value": 0.9393364366277243,
+      "bits": "693b68490b0fee3f",
+      "extendedBits": "5746db414b5a78f0fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "37": {
+      "value": 0.6367145399670133,
+      "bits": "e478c12bf75fe43f",
+      "extendedBits": "b21fc70b5eb9ffa2fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "25": {
+      "value": 0.7745966692414834,
+      "bits": "48723ff47ec9e83f",
+      "extendedBits": "0a3e92fba1f74bc6fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "20": {
+      "value": 0.8660254037844386,
+      "bits": "aa4c58e87ab6eb3f",
+      "extendedBits": "9e5365c242d7b3ddfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "50": {
+      "value": 0.5477225575051661,
+      "bits": "7284f874f186e13f",
+      "extendedBits": "d09223c4a78b378cfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "61": {
+      "value": 0.4958847036804647,
+      "bits": "573b393293bcdf3f",
+      "extendedBits": "dbb6dac99199e4fdfd3f",
+      "referenceEngine": "native-x87"
+    },
+    "21": {
+      "value": 0.8451542547285166,
+      "bits": "a14b84ef800beb3f",
+      "extendedBits": "3f085d227c075cd8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "22": {
+      "value": 0.8257228238447705,
+      "bits": "7c2b7f45526cea3f",
+      "extendedBits": "d4de5bf92b9262d3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "23": {
+      "value": 0.8075728530872482,
+      "bits": "67b52406a3d7e93f",
+      "extendedBits": "2839ab253118bdcefe3f",
+      "referenceEngine": "native-x87"
+    },
+    "24": {
+      "value": 0.7905694150420949,
+      "bits": "535bda3a584ce93f",
+      "extendedBits": "9094dad2d6c162cafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "26": {
+      "value": 0.7595545253127499,
+      "bits": "f5e7b74a454ee83f",
+      "extendedBits": "39ab3fbf552a72c2fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "27": {
+      "value": 0.7453559924999299,
+      "bits": "354675cff4d9e73f",
+      "extendedBits": "0fa831aa7ba6cfbefe3f",
+      "referenceEngine": "native-x87"
+    },
+    "28": {
+      "value": 0.7319250547113999,
+      "bits": "9d78a317ee6be73f",
+      "extendedBits": "afe6c41bbd705fbbfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "29": {
+      "value": 0.7191949522280762,
+      "bits": "6392e821a503e73f",
+      "extendedBits": "591b93440f291db8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "31": {
+      "value": 0.6956083436402524,
+      "bits": "c14ed86d6c42e63f",
+      "extendedBits": "e00a76c26e6313b2fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "32": {
+      "value": 0.6846531968814576,
+      "bits": "8fa536d2ade8e53f",
+      "extendedBits": "84772cb5916e45affe3f",
+      "referenceEngine": "native-x87"
+    },
+    "33": {
+      "value": 0.674199862463242,
+      "bits": "11ea07970b93e53f",
+      "extendedBits": "698b503fb85c98acfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "34": {
+      "value": 0.6642111641550714,
+      "bits": "4ee475c53741e53f",
+      "extendedBits": "467322af2bbe09aafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "35": {
+      "value": 0.6546536707079772,
+      "bits": "2bb53c41ecf2e43f",
+      "extendedBits": "1d54a9e5096297a7fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "36": {
+      "value": 0.6454972243679028,
+      "bits": "91348acbe9a7e43f",
+      "extendedBits": "0889a4515c4e3fa5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "38": {
+      "value": 0.6282808624375432,
+      "bits": "cbe69b77e01ae43f",
+      "extendedBits": "f65a36dfbc03d7a0fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "39": {
+      "value": 0.6201736729460423,
+      "bits": "2897647576d8e33f",
+      "extendedBits": "f73db924abb3c39efe3f",
+      "referenceEngine": "native-x87"
+    },
+    "41": {
+      "value": 0.6048583789091339,
+      "bits": "b30a84f5ff5ae33f",
+      "extendedBits": "7b995520acffd79afe3f",
+      "referenceEngine": "native-x87"
+    },
+    "42": {
+      "value": 0.5976143046671968,
+      "bits": "435bc508a81fe33f",
+      "extendedBits": "ac1ada2a4640fd98fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "43": {
+      "value": 0.5906244232186183,
+      "bits": "a72bbe3065e6e23f",
+      "extendedBits": "553a5df185293397fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "44": {
+      "value": 0.5838742081211422,
+      "bits": "67769bf618afe23f",
+      "extendedBits": "1839b3dbb4c77895fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "45": {
+      "value": 0.5773502691896257,
+      "bits": "1c339045a779e23f",
+      "extendedBits": "69e298812c3acd93fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "46": {
+      "value": 0.5710402407201608,
+      "bits": "55fad22ef645e23f",
+      "extendedBits": "52a4d29776b12f92fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "47": {
+      "value": 0.564932682866032,
+      "bits": "993cabb4ed13e23f",
+      "extendedBits": "02cae459a56d9f90fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "48": {
+      "value": 0.5590169943749475,
+      "bits": "a8f4979b77e3e13f",
+      "extendedBits": "0b3ea5bfdcbc1b8ffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "49": {
+      "value": 0.5532833351724882,
+      "bits": "c69abf407fb4e13f",
+      "extendedBits": "502cd6fc05faa38dfe3f",
+      "referenceEngine": "native-x87"
+    }
+  }
+}

@@ -1,0 +1,1300 @@
+{
+  "provenance": {
+    "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+    "authoritative_engine": "native-x87",
+    "control_word": "0x037f",
+    "architecture": "x86_64",
+    "probe_source": "tools/capture_stored_trig_native.c",
+    "probe_sha256": "0af494e91772c38d40427625acfee8fc5bffc972d6db8e617c946ce81ca0c3b5",
+    "compiler": "gcc (GCC) 15.2.0",
+    "note": "Actual local hardware; this does not establish equivalence to every historical CPU."
+  },
+  "construction": "FILD i32; FSIN/FCOS; FSTP m80, without a degree factor",
+  "angles": {
+    "-128": {
+      "sineBits": "659da3c969ed95b8febf",
+      "cosineBits": "8351a1aede9e61b1febf",
+      "referenceEngine": "native-x87"
+    },
+    "-127": {
+      "sineBits": "d78e94e9b948fef8febf",
+      "cosineBits": "2ca0cb94608befedfc3f",
+      "referenceEngine": "native-x87"
+    },
+    "-126": {
+      "sineBits": "92e3737fb88ef4a8fdbf",
+      "cosineBits": "a846169acdf1a8f1fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-125": {
+      "sineBits": "1ee6643ad9d3b49dfe3f",
+      "cosineBits": "d3267c3e84a8a7c9fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-124": {
+      "sineBits": "a106e7bda557e5fefe3f",
+      "cosineBits": "c5356dc0647301befbbf",
+      "referenceEngine": "native-x87"
+    },
+    "-123": {
+      "sineBits": "2a31f4a7677878ebfd3f",
+      "cosineBits": "77ad3c1b26ee51e3febf",
+      "referenceEngine": "native-x87"
+    },
+    "-122": {
+      "sineBits": "42a5da239c5457fffdbf",
+      "cosineBits": "c7253b51b572e4ddfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-121": {
+      "sineBits": "a63046efc45ab2fffebf",
+      "cosineBits": "5b83dc51207e53c7fabf",
+      "referenceEngine": "native-x87"
+    },
+    "-120": {
+      "sineBits": "b4903be23fefa294febf",
+      "cosineBits": "d345e76f012a6ed0fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-119": {
+      "sineBits": "7c23c18daaad28befd3f",
+      "cosineBits": "d28727d9e54bb0edfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-118": {
+      "sineBits": "a78ed547a43761fbfe3f",
+      "cosineBits": "2bb781888f24abc1fc3f",
+      "referenceEngine": "native-x87"
+    },
+    "-117": {
+      "sineBits": "dd09a06f540b90b0fe3f",
+      "cosineBits": "6e242df4126f5eb9febf",
+      "referenceEngine": "native-x87"
+    },
+    "-116": {
+      "sineBits": "943dcfe6425d57f2fcbf",
+      "cosineBits": "7056b9cc0b44baf8febf",
+      "referenceEngine": "native-x87"
+    },
+    "-115": {
+      "sineBits": "387e851ed00c08f2febf",
+      "cosineBits": "95999145f48ad0a6fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-114": {
+      "sineBits": "ca9239638979f4c8febf",
+      "cosineBits": "0bf2c22322e7989efe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-113": {
+      "sineBits": "af5c21989c4e07c7fb3f",
+      "cosineBits": "82f43d5a55cbc9fefe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-112": {
+      "sineBits": "ce9cdc567ec0d6e3fe3f",
+      "cosineBits": "b8902e264fc874e9fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-111": {
+      "sineBits": "8cdcf27d653e53ddfe3f",
+      "cosineBits": "fac91f8597bea680febf",
+      "referenceEngine": "native-x87"
+    },
+    "-110": {
+      "sineBits": "5a68c66777cf37b5fa3f",
+      "cosineBits": "b229b135f9d3bffffebf",
+      "referenceEngine": "native-x87"
+    },
+    "-109": {
+      "sineBits": "43c8b5c0200b16d1febf",
+      "cosineBits": "6732dd47306ab693febf",
+      "referenceEngine": "native-x87"
+    },
+    "-108": {
+      "sineBits": "930ad41842fa43edfebf",
+      "cosineBits": "fc0ba37c43cb42c0fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-107": {
+      "sineBits": "cf07c124f76c37bdfcbf",
+      "cosineBits": "0bce280b547197fbfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-106": {
+      "sineBits": "672a0261c90226bafe3f",
+      "cosineBits": "d8e9114a2595bdaffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-105": {
+      "sineBits": "ed6d5768160075f8fe3f",
+      "cosineBits": "1e6d369410f8bdf6fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "-104": {
+      "sineBits": "a339ed7c0eb1aba4fd3f",
+      "cosineBits": "bdbb16ce23f165f2febf",
+      "referenceEngine": "native-x87"
+    },
+    "-103": {
+      "sineBits": "e0971ed3d52e7c9ffebf",
+      "cosineBits": "bcaa73fc994840c8febf",
+      "referenceEngine": "native-x87"
+    },
+    "-102": {
+      "sineBits": "8d13a811f6f7acfefebf",
+      "cosineBits": "21bdf0f1582a0cd0fb3f",
+      "referenceEngine": "native-x87"
+    },
+    "-101": {
+      "sineBits": "2f5964c289ec6fe7fdbf",
+      "cosineBits": "5e1ce69c5f6e5ae4fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-100": {
+      "sineBits": "36c06d62bc2da181fe3f",
+      "cosineBits": "21fbfe32fbedc0dcfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-99": {
+      "sineBits": "b63724c5e204ccfffe3f",
+      "cosineBits": "bf6e89c82f381ba3fa3f",
+      "referenceEngine": "native-x87"
+    },
+    "-98": {
+      "sineBits": "159f70518427c992fe3f",
+      "cosineBits": "a0b62786dbdfbcd1febf",
+      "referenceEngine": "native-x87"
+    },
+    "-97": {
+      "sineBits": "82e608dd10f25bc2fdbf",
+      "cosineBits": "a05e14a80d78d6ecfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-96": {
+      "sineBits": "77dc0a630f68ccfbfebf",
+      "cosineBits": "8f3694a17bc2c2b8fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "-95": {
+      "sineBits": "938988665f3deaaefebf",
+      "cosineBits": "989f69e08ca7ecbafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-94": {
+      "sineBits": "66945873235623fbfc3f",
+      "cosineBits": "8e1302a6327d2ef8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-93": {
+      "sineBits": "6a66a122509ec2f2fe3f",
+      "cosineBits": "ed977fadc70386a2fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-92": {
+      "sineBits": "70316f579d168bc7fe3f",
+      "cosineBits": "f1712289d0a95ea0febf",
+      "referenceEngine": "native-x87"
+    },
+    "-91": {
+      "sineBits": "11078a0b06fb0fd9fbbf",
+      "cosineBits": "23aaa7e4acdd8efefebf",
+      "referenceEngine": "native-x87"
+    },
+    "-90": {
+      "sineBits": "e332c3e520f7dce4febf",
+      "cosineBits": "ae2b53f3aee769e5fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-89": {
+      "sineBits": "2604304132822ddcfebf",
+      "cosineBits": "838dc3317bf69a82fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-88": {
+      "sineBits": "e4431e3389cffd90fabf",
+      "cosineBits": "420679f771edd6fffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-87": {
+      "sineBits": "22794e995ba762d2fe3f",
+      "cosineBits": "d624f98d6c28db91fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-86": {
+      "sineBits": "7d4aee18d5c567ecfe3f",
+      "cosineBits": "a0049f2b611f74c4fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-85": {
+      "sineBits": "45755b35d52a4db4fc3f",
+      "cosineBits": "36abdb52921b00fcfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-84": {
+      "sineBits": "b35464755e5cb2bbfebf",
+      "cosineBits": "1612290f120516aefebf",
+      "referenceEngine": "native-x87"
+    },
+    "-83": {
+      "sineBits": "80a2b108bbbbe6f7febf",
+      "cosineBits": "08cc1ef1d67187fffc3f",
+      "referenceEngine": "native-x87"
+    },
+    "-82": {
+      "sineBits": "a28e976ee1855fa0fdbf",
+      "cosineBits": "e0406625de131ef3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-81": {
+      "sineBits": "aeb9438def5640a1fe3f",
+      "cosineBits": "679d670b7ce4d4c6fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-80": {
+      "sineBits": "ca456377a07c6ffefe3f",
+      "cosineBits": "d0546b7911b512e2fbbf",
+      "referenceEngine": "native-x87"
+    },
+    "-79": {
+      "sineBits": "4e6712ad57bc62e3fd3f",
+      "cosineBits": "23c222a21a5a5ee5febf",
+      "referenceEngine": "native-x87"
+    },
+    "-78": {
+      "sineBits": "5367a65093179483febf",
+      "cosineBits": "3fa215e5c7fb98dbfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-77": {
+      "sineBits": "cc8406cc988de0fffebf",
+      "cosineBits": "d1747fe68859bffdf9bf",
+      "referenceEngine": "native-x87"
+    },
+    "-76": {
+      "sineBits": "53cf577e1a6eec90febf",
+      "cosineBits": "5ce1d32ccc6007d3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-75": {
+      "sineBits": "980e532584508bc6fd3f",
+      "cosineBits": "2969a78326e4f7ebfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-74": {
+      "sineBits": "42c7e17c9a8b32fcfe3f",
+      "cosineBits": "cc78e746bdabd6affc3f",
+      "referenceEngine": "native-x87"
+    },
+    "-73": {
+      "sineBits": "ddff4fae4ded40adfe3f",
+      "cosineBits": "774bf456402077bcfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-72": {
+      "sineBits": "4219210cc422f581fdbf",
+      "cosineBits": "7c634fac0bbc9df7febf",
+      "referenceEngine": "native-x87"
+    },
+    "-71": {
+      "sineBits": "501ea86f585178f3febf",
+      "cosineBits": "194350631e3a389efdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-70": {
+      "sineBits": "5a8864f81fb31dc6febf",
+      "cosineBits": "7a76372f113521a2fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-69": {
+      "sineBits": "a1debc35ea4c14ebfb3f",
+      "cosineBits": "2a217411f9d44efefe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-68": {
+      "sineBits": "659dcfbba696dee5fe3f",
+      "cosineBits": "6198bd5d1e6d5ae1fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-67": {
+      "sineBits": "5fbe0bc67a5b03dbfe3f",
+      "cosineBits": "4ef5cff3c48f8c84febf",
+      "referenceEngine": "native-x87"
+    },
+    "-66": {
+      "sineBits": "b100238746ce81d9f93f",
+      "cosineBits": "29e0b2e74ae5e8fffebf",
+      "referenceEngine": "native-x87"
+    },
+    "-65": {
+      "sineBits": "ee530bce590babd3febf",
+      "cosineBits": "323fc393c0f9fc8ffebf",
+      "referenceEngine": "native-x87"
+    },
+    "-64": {
+      "sineBits": "dcc30e8691d386ebfebf",
+      "cosineBits": "a77fc7caca82a1c8fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-63": {
+      "sineBits": "086a2066ee4a5fabfcbf",
+      "cosineBits": "088a9f22e7b763fcfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-62": {
+      "sineBits": "f07b62f135f23abdfe3f",
+      "cosineBits": "637333cd23f76aacfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-61": {
+      "sineBits": "85503f45827e53f7fe3f",
+      "cosineBits": "fb1544cccae52584fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-60": {
+      "sineBits": "381306374223109cfd3f",
+      "cosineBits": "2796422b4b56d1f3febf",
+      "referenceEngine": "native-x87"
+    },
+    "-59": {
+      "sineBits": "4d5966c8144301a3febf",
+      "cosineBits": "b3780d46748365c5febf",
+      "referenceEngine": "native-x87"
+    },
+    "-58": {
+      "sineBits": "986fb29de0e62cfefebf",
+      "cosineBits": "26e329af00b714f4fb3f",
+      "referenceEngine": "native-x87"
+    },
+    "-57": {
+      "sineBits": "6c021dea9efc50dffdbf",
+      "cosineBits": "cbbb859620ac5de6fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-56": {
+      "sineBits": "00d2c828d15d8485fe3f",
+      "cosineBits": "5cc445f50aa26cdafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-55": {
+      "sineBits": "d15e03957df4effffe3f",
+      "cosineBits": "5d458b5fd02b43b5f93f",
+      "referenceEngine": "native-x87"
+    },
+    "-54": {
+      "sineBits": "f94c3e2e92cc0c8ffe3f",
+      "cosineBits": "2b35016632a64dd4febf",
+      "referenceEngine": "native-x87"
+    },
+    "-53": {
+      "sineBits": "c282c56387b3b6cafdbf",
+      "cosineBits": "b077c442a79414ebfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-52": {
+      "sineBits": "3b35262539a093fcfebf",
+      "cosineBits": "9b59ab44240ee7a6fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "-51": {
+      "sineBits": "80118412a72394abfebf",
+      "cosineBits": "b60c83e743d1fdbdfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-50": {
+      "sineBits": "a142fee62fff5586fd3f",
+      "cosineBits": "47cce71f7e0308f7fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-49": {
+      "sineBits": "84b53e13442229f4fe3f",
+      "cosineBits": "a62fca991144e799fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-48": {
+      "sineBits": "6d067c626556acc4fe3f",
+      "cosineBits": "47435fbdda7fe0a3febf",
+      "referenceEngine": "native-x87"
+    },
+    "-47": {
+      "sineBits": "aeb1b7d7c6e713fdfbbf",
+      "cosineBits": "788effa982b209fefebf",
+      "referenceEngine": "native-x87"
+    },
+    "-46": {
+      "sineBits": "9285c510e599dbe6febf",
+      "cosineBits": "31494caa766d46ddfdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-45": {
+      "sineBits": "0817d8ec39d0d4d9febf",
+      "cosineBits": "35f581d779807b86fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-44": {
+      "sineBits": "e80882edaca00391f9bf",
+      "cosineBits": "fe1f2ac427bbf5fffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-43": {
+      "sineBits": "7297883a8530efd4fe3f",
+      "cosineBits": "70790d9bc3e71b8efe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-42": {
+      "sineBits": "36687f60fa27a1eafe3f",
+      "cosineBits": "632bad820de0caccfdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-41": {
+      "sineBits": "a93f8eae1bfb6da2fc3f",
+      "cosineBits": "2ef966055344c2fcfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-40": {
+      "sineBits": "8afcf71370bcbfbefebf",
+      "cosineBits": "49750c41eb73bcaafebf",
+      "referenceEngine": "native-x87"
+    },
+    "-39": {
+      "sineBits": "b74d3720604bbbf6febf",
+      "cosineBits": "d0b81464246c8588fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-38": {
+      "sineBits": "5ce7d43c529fbd97fdbf",
+      "cosineBits": "b1ad6574d2b47ff4fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-37": {
+      "sineBits": "5475487f44eabea4fe3f",
+      "cosineBits": "f35c0c01e12cf2c3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-36": {
+      "sineBits": "bd1c0e670c38e5fdfe3f",
+      "cosineBits": "a061cd19d8e90883fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "-35": {
+      "sineBits": "0d3d5f6644c23adbfd3f",
+      "cosineBits": "113ba584525f58e7febf",
+      "referenceEngine": "native-x87"
+    },
+    "-34": {
+      "sineBits": "0206edc381f67187febf",
+      "cosineBits": "10b5bf8ecae63bd9febf",
+      "referenceEngine": "native-x87"
+    },
+    "-33": {
+      "sineBits": "79bd110b4239fafffebf",
+      "cosineBits": "76bffbb2c7b686d9f8bf",
+      "referenceEngine": "native-x87"
+    },
+    "-32": {
+      "sineBits": "732d2b138a4c2a8dfebf",
+      "cosineBits": "c72947ef82a98fd5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-31": {
+      "sineBits": "fc05e407b205decefd3f",
+      "cosineBits": "ddff50091f8e2ceafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-30": {
+      "sineBits": "5de581e4f8a3effcfe3f",
+      "cosineBits": "2991d2829217f49dfc3f",
+      "referenceEngine": "native-x87"
+    },
+    "-29": {
+      "sineBits": "4c354f3605e9e3a9fe3f",
+      "cosineBits": "b93b728ac1b280bffebf",
+      "referenceEngine": "native-x87"
+    },
+    "-28": {
+      "sineBits": "7eaca628da29b48afdbf",
+      "cosineBits": "970028c18a566df6febf",
+      "referenceEngine": "native-x87"
+    },
+    "-27": {
+      "sineBits": "eb7ed12d870dd5f4febf",
+      "cosineBits": "0ea9f6ceca379395fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-26": {
+      "sineBits": "731b2c19d60737c3febf",
+      "cosineBits": "0a674f8d34819ca5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-25": {
+      "sineBits": "b4e704f498378787fc3f",
+      "cosineBits": "c6f827a8ac77bffdfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-24": {
+      "sineBits": "8074a0c8c8fbd3e7fe3f",
+      "cosineBits": "08cf0453a8fd2dd9fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-23": {
+      "sineBits": "d90fe82381e6a1d8fe3f",
+      "cosineBits": "5e92938facbe6788febf",
+      "referenceEngine": "native-x87"
+    },
+    "-22": {
+      "sineBits": "d19ecf75fb140591f83f",
+      "cosineBits": "10d066a5c66efdfffebf",
+      "referenceEngine": "native-x87"
+    },
+    "-21": {
+      "sineBits": "6b65bf865d102fd6febf",
+      "cosineBits": "2fcbbab91bfc378cfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-20": {
+      "sineBits": "25ffe6e9aac7b6e9febf",
+      "cosineBits": "a2fb4125cb21f0d0fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-19": {
+      "sineBits": "257426ac47697999fcbf",
+      "cosineBits": "b8c21284f0be1bfdfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-18": {
+      "sineBits": "9d33f19840b340c0fe3f",
+      "cosineBits": "d47d23e90a840aa9fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-17": {
+      "sineBits": "775b411462251ef6fe3f",
+      "cosineBits": "1837c7fa8335e28cfdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-16": {
+      "sineBits": "21bf07f942106893fd3f",
+      "cosineBits": "b69e7bb1f42b29f5febf",
+      "referenceEngine": "native-x87"
+    },
+    "-15": {
+      "sineBits": "e94217768e4379a6febf",
+      "cosineBits": "369527e534e87ac2febf",
+      "referenceEngine": "native-x87"
+    },
+    "-14": {
+      "sineBits": "ea24f2e2937198fdfebf",
+      "cosineBits": "db64076561d7048cfc3f",
+      "referenceEngine": "native-x87"
+    },
+    "-13": {
+      "sineBits": "d430280e442220d7fdbf",
+      "cosineBits": "73b96530a96e4ee8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-12": {
+      "sineBits": "4e2a2dbbbed75c89fe3f",
+      "cosineBits": "a0152f5b23d006d8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-11": {
+      "sineBits": "ad569f74b15bfffffe3f",
+      "cosineBits": "20fb7e710f720591f73f",
+      "referenceEngine": "native-x87"
+    },
+    "-10": {
+      "sineBits": "cf927a9aaff7448bfe3f",
+      "cosineBits": "05f958634864cdd6febf",
+      "referenceEngine": "native-x87"
+    },
+    "-9": {
+      "sineBits": "91847c61b03101d3fdbf",
+      "cosineBits": "825bcb3035d53fe9febf",
+      "referenceEngine": "native-x87"
+    },
+    "-8": {
+      "sineBits": "50d77b46019546fdfebf",
+      "cosineBits": "7c9c7c19fbf5fd94fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "-7": {
+      "sineBits": "1e425068134630a8febf",
+      "cosineBits": "b0ba00c9f6bcffc0fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-6": {
+      "sineBits": "d3011685558c0f8ffd3f",
+      "cosineBits": "d7ab17c14bb8cdf5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "-5": {
+      "sineBits": "1399c904af0f7cf5fe3f",
+      "cosineBits": "9fca565a832b3c91fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "-4": {
+      "sineBits": "8773f5e0eecebdc1fe3f",
+      "cosineBits": "230626d9363055a7febf",
+      "referenceEngine": "native-x87"
+    },
+    "-3": {
+      "sineBits": "79daaab66dc38190fcbf",
+      "cosineBits": "08932e2ff42570fdfebf",
+      "referenceEngine": "native-x87"
+    },
+    "-2": {
+      "sineBits": "fd2ea28d56b7c7e8febf",
+      "cosineBits": "2225909bba3211d5fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "-1": {
+      "sineBits": "2170674878a46ad7febf",
+      "cosineBits": "925c34a87d40518afe3f",
+      "referenceEngine": "native-x87"
+    },
+    "0": {
+      "sineBits": "00000000000000000000",
+      "cosineBits": "0000000000000080ff3f",
+      "referenceEngine": "native-x87"
+    },
+    "1": {
+      "sineBits": "2170674878a46ad7fe3f",
+      "cosineBits": "925c34a87d40518afe3f",
+      "referenceEngine": "native-x87"
+    },
+    "2": {
+      "sineBits": "fd2ea28d56b7c7e8fe3f",
+      "cosineBits": "2225909bba3211d5fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "3": {
+      "sineBits": "79daaab66dc38190fc3f",
+      "cosineBits": "08932e2ff42570fdfebf",
+      "referenceEngine": "native-x87"
+    },
+    "4": {
+      "sineBits": "8773f5e0eecebdc1febf",
+      "cosineBits": "230626d9363055a7febf",
+      "referenceEngine": "native-x87"
+    },
+    "5": {
+      "sineBits": "1399c904af0f7cf5febf",
+      "cosineBits": "9fca565a832b3c91fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "6": {
+      "sineBits": "d3011685558c0f8ffdbf",
+      "cosineBits": "d7ab17c14bb8cdf5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "7": {
+      "sineBits": "1e425068134630a8fe3f",
+      "cosineBits": "b0ba00c9f6bcffc0fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "8": {
+      "sineBits": "50d77b46019546fdfe3f",
+      "cosineBits": "7c9c7c19fbf5fd94fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "9": {
+      "sineBits": "91847c61b03101d3fd3f",
+      "cosineBits": "825bcb3035d53fe9febf",
+      "referenceEngine": "native-x87"
+    },
+    "10": {
+      "sineBits": "cf927a9aaff7448bfebf",
+      "cosineBits": "05f958634864cdd6febf",
+      "referenceEngine": "native-x87"
+    },
+    "11": {
+      "sineBits": "ad569f74b15bfffffebf",
+      "cosineBits": "20fb7e710f720591f73f",
+      "referenceEngine": "native-x87"
+    },
+    "12": {
+      "sineBits": "4e2a2dbbbed75c89febf",
+      "cosineBits": "a0152f5b23d006d8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "13": {
+      "sineBits": "d430280e442220d7fd3f",
+      "cosineBits": "73b96530a96e4ee8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "14": {
+      "sineBits": "ea24f2e2937198fdfe3f",
+      "cosineBits": "db64076561d7048cfc3f",
+      "referenceEngine": "native-x87"
+    },
+    "15": {
+      "sineBits": "e94217768e4379a6fe3f",
+      "cosineBits": "369527e534e87ac2febf",
+      "referenceEngine": "native-x87"
+    },
+    "16": {
+      "sineBits": "21bf07f942106893fdbf",
+      "cosineBits": "b69e7bb1f42b29f5febf",
+      "referenceEngine": "native-x87"
+    },
+    "17": {
+      "sineBits": "775b411462251ef6febf",
+      "cosineBits": "1837c7fa8335e28cfdbf",
+      "referenceEngine": "native-x87"
+    },
+    "18": {
+      "sineBits": "9d33f19840b340c0febf",
+      "cosineBits": "d47d23e90a840aa9fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "19": {
+      "sineBits": "257426ac47697999fc3f",
+      "cosineBits": "b8c21284f0be1bfdfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "20": {
+      "sineBits": "25ffe6e9aac7b6e9fe3f",
+      "cosineBits": "a2fb4125cb21f0d0fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "21": {
+      "sineBits": "6b65bf865d102fd6fe3f",
+      "cosineBits": "2fcbbab91bfc378cfebf",
+      "referenceEngine": "native-x87"
+    },
+    "22": {
+      "sineBits": "d19ecf75fb140591f8bf",
+      "cosineBits": "10d066a5c66efdfffebf",
+      "referenceEngine": "native-x87"
+    },
+    "23": {
+      "sineBits": "d90fe82381e6a1d8febf",
+      "cosineBits": "5e92938facbe6788febf",
+      "referenceEngine": "native-x87"
+    },
+    "24": {
+      "sineBits": "8074a0c8c8fbd3e7febf",
+      "cosineBits": "08cf0453a8fd2dd9fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "25": {
+      "sineBits": "b4e704f498378787fcbf",
+      "cosineBits": "c6f827a8ac77bffdfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "26": {
+      "sineBits": "731b2c19d60737c3fe3f",
+      "cosineBits": "0a674f8d34819ca5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "27": {
+      "sineBits": "eb7ed12d870dd5f4fe3f",
+      "cosineBits": "0ea9f6ceca379395fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "28": {
+      "sineBits": "7eaca628da29b48afd3f",
+      "cosineBits": "970028c18a566df6febf",
+      "referenceEngine": "native-x87"
+    },
+    "29": {
+      "sineBits": "4c354f3605e9e3a9febf",
+      "cosineBits": "b93b728ac1b280bffebf",
+      "referenceEngine": "native-x87"
+    },
+    "30": {
+      "sineBits": "5de581e4f8a3effcfebf",
+      "cosineBits": "2991d2829217f49dfc3f",
+      "referenceEngine": "native-x87"
+    },
+    "31": {
+      "sineBits": "fc05e407b205decefdbf",
+      "cosineBits": "ddff50091f8e2ceafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "32": {
+      "sineBits": "732d2b138a4c2a8dfe3f",
+      "cosineBits": "c72947ef82a98fd5fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "33": {
+      "sineBits": "79bd110b4239fafffe3f",
+      "cosineBits": "76bffbb2c7b686d9f8bf",
+      "referenceEngine": "native-x87"
+    },
+    "34": {
+      "sineBits": "0206edc381f67187fe3f",
+      "cosineBits": "10b5bf8ecae63bd9febf",
+      "referenceEngine": "native-x87"
+    },
+    "35": {
+      "sineBits": "0d3d5f6644c23adbfdbf",
+      "cosineBits": "113ba584525f58e7febf",
+      "referenceEngine": "native-x87"
+    },
+    "36": {
+      "sineBits": "bd1c0e670c38e5fdfebf",
+      "cosineBits": "a061cd19d8e90883fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "37": {
+      "sineBits": "5475487f44eabea4febf",
+      "cosineBits": "f35c0c01e12cf2c3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "38": {
+      "sineBits": "5ce7d43c529fbd97fd3f",
+      "cosineBits": "b1ad6574d2b47ff4fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "39": {
+      "sineBits": "b74d3720604bbbf6fe3f",
+      "cosineBits": "d0b81464246c8588fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "40": {
+      "sineBits": "8afcf71370bcbfbefe3f",
+      "cosineBits": "49750c41eb73bcaafebf",
+      "referenceEngine": "native-x87"
+    },
+    "41": {
+      "sineBits": "a93f8eae1bfb6da2fcbf",
+      "cosineBits": "2ef966055344c2fcfebf",
+      "referenceEngine": "native-x87"
+    },
+    "42": {
+      "sineBits": "36687f60fa27a1eafebf",
+      "cosineBits": "632bad820de0caccfdbf",
+      "referenceEngine": "native-x87"
+    },
+    "43": {
+      "sineBits": "7297883a8530efd4febf",
+      "cosineBits": "70790d9bc3e71b8efe3f",
+      "referenceEngine": "native-x87"
+    },
+    "44": {
+      "sineBits": "e80882edaca00391f93f",
+      "cosineBits": "fe1f2ac427bbf5fffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "45": {
+      "sineBits": "0817d8ec39d0d4d9fe3f",
+      "cosineBits": "35f581d779807b86fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "46": {
+      "sineBits": "9285c510e599dbe6fe3f",
+      "cosineBits": "31494caa766d46ddfdbf",
+      "referenceEngine": "native-x87"
+    },
+    "47": {
+      "sineBits": "aeb1b7d7c6e713fdfb3f",
+      "cosineBits": "788effa982b209fefebf",
+      "referenceEngine": "native-x87"
+    },
+    "48": {
+      "sineBits": "6d067c626556acc4febf",
+      "cosineBits": "47435fbdda7fe0a3febf",
+      "referenceEngine": "native-x87"
+    },
+    "49": {
+      "sineBits": "84b53e13442229f4febf",
+      "cosineBits": "a62fca991144e799fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "50": {
+      "sineBits": "a142fee62fff5586fdbf",
+      "cosineBits": "47cce71f7e0308f7fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "51": {
+      "sineBits": "80118412a72394abfe3f",
+      "cosineBits": "b60c83e743d1fdbdfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "52": {
+      "sineBits": "3b35262539a093fcfe3f",
+      "cosineBits": "9b59ab44240ee7a6fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "53": {
+      "sineBits": "c282c56387b3b6cafd3f",
+      "cosineBits": "b077c442a79414ebfebf",
+      "referenceEngine": "native-x87"
+    },
+    "54": {
+      "sineBits": "f94c3e2e92cc0c8ffebf",
+      "cosineBits": "2b35016632a64dd4febf",
+      "referenceEngine": "native-x87"
+    },
+    "55": {
+      "sineBits": "d15e03957df4effffebf",
+      "cosineBits": "5d458b5fd02b43b5f93f",
+      "referenceEngine": "native-x87"
+    },
+    "56": {
+      "sineBits": "00d2c828d15d8485febf",
+      "cosineBits": "5cc445f50aa26cdafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "57": {
+      "sineBits": "6c021dea9efc50dffd3f",
+      "cosineBits": "cbbb859620ac5de6fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "58": {
+      "sineBits": "986fb29de0e62cfefe3f",
+      "cosineBits": "26e329af00b714f4fb3f",
+      "referenceEngine": "native-x87"
+    },
+    "59": {
+      "sineBits": "4d5966c8144301a3fe3f",
+      "cosineBits": "b3780d46748365c5febf",
+      "referenceEngine": "native-x87"
+    },
+    "60": {
+      "sineBits": "381306374223109cfdbf",
+      "cosineBits": "2796422b4b56d1f3febf",
+      "referenceEngine": "native-x87"
+    },
+    "61": {
+      "sineBits": "85503f45827e53f7febf",
+      "cosineBits": "fb1544cccae52584fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "62": {
+      "sineBits": "f07b62f135f23abdfebf",
+      "cosineBits": "637333cd23f76aacfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "63": {
+      "sineBits": "086a2066ee4a5fabfc3f",
+      "cosineBits": "088a9f22e7b763fcfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "64": {
+      "sineBits": "dcc30e8691d386ebfe3f",
+      "cosineBits": "a77fc7caca82a1c8fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "65": {
+      "sineBits": "ee530bce590babd3fe3f",
+      "cosineBits": "323fc393c0f9fc8ffebf",
+      "referenceEngine": "native-x87"
+    },
+    "66": {
+      "sineBits": "b100238746ce81d9f9bf",
+      "cosineBits": "29e0b2e74ae5e8fffebf",
+      "referenceEngine": "native-x87"
+    },
+    "67": {
+      "sineBits": "5fbe0bc67a5b03dbfebf",
+      "cosineBits": "4ef5cff3c48f8c84febf",
+      "referenceEngine": "native-x87"
+    },
+    "68": {
+      "sineBits": "659dcfbba696dee5febf",
+      "cosineBits": "6198bd5d1e6d5ae1fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "69": {
+      "sineBits": "a1debc35ea4c14ebfbbf",
+      "cosineBits": "2a217411f9d44efefe3f",
+      "referenceEngine": "native-x87"
+    },
+    "70": {
+      "sineBits": "5a8864f81fb31dc6fe3f",
+      "cosineBits": "7a76372f113521a2fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "71": {
+      "sineBits": "501ea86f585178f3fe3f",
+      "cosineBits": "194350631e3a389efdbf",
+      "referenceEngine": "native-x87"
+    },
+    "72": {
+      "sineBits": "4219210cc422f581fd3f",
+      "cosineBits": "7c634fac0bbc9df7febf",
+      "referenceEngine": "native-x87"
+    },
+    "73": {
+      "sineBits": "ddff4fae4ded40adfebf",
+      "cosineBits": "774bf456402077bcfebf",
+      "referenceEngine": "native-x87"
+    },
+    "74": {
+      "sineBits": "42c7e17c9a8b32fcfebf",
+      "cosineBits": "cc78e746bdabd6affc3f",
+      "referenceEngine": "native-x87"
+    },
+    "75": {
+      "sineBits": "980e532584508bc6fdbf",
+      "cosineBits": "2969a78326e4f7ebfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "76": {
+      "sineBits": "53cf577e1a6eec90fe3f",
+      "cosineBits": "5ce1d32ccc6007d3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "77": {
+      "sineBits": "cc8406cc988de0fffe3f",
+      "cosineBits": "d1747fe68859bffdf9bf",
+      "referenceEngine": "native-x87"
+    },
+    "78": {
+      "sineBits": "5367a65093179483fe3f",
+      "cosineBits": "3fa215e5c7fb98dbfebf",
+      "referenceEngine": "native-x87"
+    },
+    "79": {
+      "sineBits": "4e6712ad57bc62e3fdbf",
+      "cosineBits": "23c222a21a5a5ee5febf",
+      "referenceEngine": "native-x87"
+    },
+    "80": {
+      "sineBits": "ca456377a07c6ffefebf",
+      "cosineBits": "d0546b7911b512e2fbbf",
+      "referenceEngine": "native-x87"
+    },
+    "81": {
+      "sineBits": "aeb9438def5640a1febf",
+      "cosineBits": "679d670b7ce4d4c6fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "82": {
+      "sineBits": "a28e976ee1855fa0fd3f",
+      "cosineBits": "e0406625de131ef3fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "83": {
+      "sineBits": "80a2b108bbbbe6f7fe3f",
+      "cosineBits": "08cc1ef1d67187fffc3f",
+      "referenceEngine": "native-x87"
+    },
+    "84": {
+      "sineBits": "b35464755e5cb2bbfe3f",
+      "cosineBits": "1612290f120516aefebf",
+      "referenceEngine": "native-x87"
+    },
+    "85": {
+      "sineBits": "45755b35d52a4db4fcbf",
+      "cosineBits": "36abdb52921b00fcfebf",
+      "referenceEngine": "native-x87"
+    },
+    "86": {
+      "sineBits": "7d4aee18d5c567ecfebf",
+      "cosineBits": "a0049f2b611f74c4fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "87": {
+      "sineBits": "22794e995ba762d2febf",
+      "cosineBits": "d624f98d6c28db91fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "88": {
+      "sineBits": "e4431e3389cffd90fa3f",
+      "cosineBits": "420679f771edd6fffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "89": {
+      "sineBits": "2604304132822ddcfe3f",
+      "cosineBits": "838dc3317bf69a82fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "90": {
+      "sineBits": "e332c3e520f7dce4fe3f",
+      "cosineBits": "ae2b53f3aee769e5fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "91": {
+      "sineBits": "11078a0b06fb0fd9fb3f",
+      "cosineBits": "23aaa7e4acdd8efefebf",
+      "referenceEngine": "native-x87"
+    },
+    "92": {
+      "sineBits": "70316f579d168bc7febf",
+      "cosineBits": "f1712289d0a95ea0febf",
+      "referenceEngine": "native-x87"
+    },
+    "93": {
+      "sineBits": "6a66a122509ec2f2febf",
+      "cosineBits": "ed977fadc70386a2fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "94": {
+      "sineBits": "66945873235623fbfcbf",
+      "cosineBits": "8e1302a6327d2ef8fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "95": {
+      "sineBits": "938988665f3deaaefe3f",
+      "cosineBits": "989f69e08ca7ecbafe3f",
+      "referenceEngine": "native-x87"
+    },
+    "96": {
+      "sineBits": "77dc0a630f68ccfbfe3f",
+      "cosineBits": "8f3694a17bc2c2b8fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "97": {
+      "sineBits": "82e608dd10f25bc2fd3f",
+      "cosineBits": "a05e14a80d78d6ecfebf",
+      "referenceEngine": "native-x87"
+    },
+    "98": {
+      "sineBits": "159f70518427c992febf",
+      "cosineBits": "a0b62786dbdfbcd1febf",
+      "referenceEngine": "native-x87"
+    },
+    "99": {
+      "sineBits": "b63724c5e204ccfffebf",
+      "cosineBits": "bf6e89c82f381ba3fa3f",
+      "referenceEngine": "native-x87"
+    },
+    "100": {
+      "sineBits": "36c06d62bc2da181febf",
+      "cosineBits": "21fbfe32fbedc0dcfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "101": {
+      "sineBits": "2f5964c289ec6fe7fd3f",
+      "cosineBits": "5e1ce69c5f6e5ae4fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "102": {
+      "sineBits": "8d13a811f6f7acfefe3f",
+      "cosineBits": "21bdf0f1582a0cd0fb3f",
+      "referenceEngine": "native-x87"
+    },
+    "103": {
+      "sineBits": "e0971ed3d52e7c9ffe3f",
+      "cosineBits": "bcaa73fc994840c8febf",
+      "referenceEngine": "native-x87"
+    },
+    "104": {
+      "sineBits": "a339ed7c0eb1aba4fdbf",
+      "cosineBits": "bdbb16ce23f165f2febf",
+      "referenceEngine": "native-x87"
+    },
+    "105": {
+      "sineBits": "ed6d5768160075f8febf",
+      "cosineBits": "1e6d369410f8bdf6fcbf",
+      "referenceEngine": "native-x87"
+    },
+    "106": {
+      "sineBits": "672a0261c90226bafebf",
+      "cosineBits": "d8e9114a2595bdaffe3f",
+      "referenceEngine": "native-x87"
+    },
+    "107": {
+      "sineBits": "cf07c124f76c37bdfc3f",
+      "cosineBits": "0bce280b547197fbfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "108": {
+      "sineBits": "930ad41842fa43edfe3f",
+      "cosineBits": "fc0ba37c43cb42c0fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "109": {
+      "sineBits": "43c8b5c0200b16d1fe3f",
+      "cosineBits": "6732dd47306ab693febf",
+      "referenceEngine": "native-x87"
+    },
+    "110": {
+      "sineBits": "5a68c66777cf37b5fabf",
+      "cosineBits": "b229b135f9d3bffffebf",
+      "referenceEngine": "native-x87"
+    },
+    "111": {
+      "sineBits": "8cdcf27d653e53ddfebf",
+      "cosineBits": "fac91f8597bea680febf",
+      "referenceEngine": "native-x87"
+    },
+    "112": {
+      "sineBits": "ce9cdc567ec0d6e3febf",
+      "cosineBits": "b8902e264fc874e9fd3f",
+      "referenceEngine": "native-x87"
+    },
+    "113": {
+      "sineBits": "af5c21989c4e07c7fbbf",
+      "cosineBits": "82f43d5a55cbc9fefe3f",
+      "referenceEngine": "native-x87"
+    },
+    "114": {
+      "sineBits": "ca9239638979f4c8fe3f",
+      "cosineBits": "0bf2c22322e7989efe3f",
+      "referenceEngine": "native-x87"
+    },
+    "115": {
+      "sineBits": "387e851ed00c08f2fe3f",
+      "cosineBits": "95999145f48ad0a6fdbf",
+      "referenceEngine": "native-x87"
+    },
+    "116": {
+      "sineBits": "943dcfe6425d57f2fc3f",
+      "cosineBits": "7056b9cc0b44baf8febf",
+      "referenceEngine": "native-x87"
+    },
+    "117": {
+      "sineBits": "dd09a06f540b90b0febf",
+      "cosineBits": "6e242df4126f5eb9febf",
+      "referenceEngine": "native-x87"
+    },
+    "118": {
+      "sineBits": "a78ed547a43761fbfebf",
+      "cosineBits": "2bb781888f24abc1fc3f",
+      "referenceEngine": "native-x87"
+    },
+    "119": {
+      "sineBits": "7c23c18daaad28befdbf",
+      "cosineBits": "d28727d9e54bb0edfe3f",
+      "referenceEngine": "native-x87"
+    },
+    "120": {
+      "sineBits": "b4903be23fefa294fe3f",
+      "cosineBits": "d345e76f012a6ed0fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "121": {
+      "sineBits": "a63046efc45ab2fffe3f",
+      "cosineBits": "5b83dc51207e53c7fabf",
+      "referenceEngine": "native-x87"
+    },
+    "122": {
+      "sineBits": "42a5da239c5457fffd3f",
+      "cosineBits": "c7253b51b572e4ddfebf",
+      "referenceEngine": "native-x87"
+    },
+    "123": {
+      "sineBits": "2a31f4a7677878ebfdbf",
+      "cosineBits": "77ad3c1b26ee51e3febf",
+      "referenceEngine": "native-x87"
+    },
+    "124": {
+      "sineBits": "a106e7bda557e5fefebf",
+      "cosineBits": "c5356dc0647301befbbf",
+      "referenceEngine": "native-x87"
+    },
+    "125": {
+      "sineBits": "1ee6643ad9d3b49dfebf",
+      "cosineBits": "d3267c3e84a8a7c9fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "126": {
+      "sineBits": "92e3737fb88ef4a8fd3f",
+      "cosineBits": "a846169acdf1a8f1fe3f",
+      "referenceEngine": "native-x87"
+    },
+    "127": {
+      "sineBits": "d78e94e9b948fef8fe3f",
+      "cosineBits": "2ca0cb94608befedfc3f",
+      "referenceEngine": "native-x87"
+    },
+    "128": {
+      "sineBits": "659da3c969ed95b8fe3f",
+      "cosineBits": "8351a1aede9e61b1febf",
+      "referenceEngine": "native-x87"
+    }
+  }
+}

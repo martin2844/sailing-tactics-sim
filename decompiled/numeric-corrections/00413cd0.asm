@@ -1,0 +1,12 @@
+00413cd0 FLD double ptr [ESP + 0x4]
+00413cd4 FCOM double ptr [0x00484ed8]
+00413cda FNSTSW AX
+00413cdc TEST AH,0x41
+00413cdf JNZ 0x00413ce7
+00413ce1 FSUB double ptr [0x00484ee0]
+00413ce7 FCOM double ptr [0x00484ee8]
+00413ced FNSTSW AX
+00413cef TEST AH,0x1
+00413cf2 JZ 0x00413cfa
+00413cf4 FSUB double ptr [0x00484ef0]
+00413cfa RET

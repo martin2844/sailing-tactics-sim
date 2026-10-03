@@ -1,0 +1,63 @@
+{
+  "source_sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+  "fixture_sha256": {
+    "original-connected-encounters.json": "f5cb610e4d41433b56774e1c95c448056ed74bc154c127d50869dd0382080a4a"
+  },
+  "runner_source_sha256": "1dda3587b0dd01ef44d9da40e594edfdbc4d360124a47d0504ac39d9f37e8705",
+  "runner_sha256": "7ce21c8cb7d1b14bf2b82172f5a09719aa9ff5770cfa668850c7ba4e89597713",
+  "compiler_flags": [
+    "-B/tmp/tact-native-toolchain-7b7fhs60/",
+    "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+    "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+    "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-mfpmath=387",
+    "-static",
+    "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+  ],
+  "wine_version": "wine-11.0",
+  "host_machine": "x86_64",
+  "scope": "Fixed reviewed original routines, finite synthetic prepared states, complete mutable block bytes/hash plus RNG and ordered sound requests. No whole Windows lifecycle or full UI claim.",
+  "mapping": "Unchanged original instructions at preferred base in dedicated host-owned PE section. IAT runtime glue and isolated CRT TLS data initialized; original entrypoint is not run.",
+  "tls_hash_normalization": "Only 0x49fe40..0x49fe43 uses original on-disk TLS-index bytes when hashing/comparing; actual runtime keeps its allocated slot.",
+  "x87_control_word": "0x037f",
+  "protocol_command_limit": 65536,
+  "groups": {
+    "collisionPenalty": {
+      "cases": 978,
+      "exact_matches": 978,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "updateMarkStartPenalties": {
+      "cases": 1384,
+      "exact_matches": 1384,
+      "different_cases": 0,
+      "different_fields": {}
+    },
+    "updateInterference": {
+      "cases": 4352,
+      "exact_matches": 4352,
+      "different_cases": 0,
+      "different_fields": {}
+    }
+  },
+  "differences": [],
+  "comparison_complete": true,
+  "process_exit_code": 0,
+  "native_initialization": {
+    "base": "0x400000",
+    "runtime_tls_index": 22,
+    "imports_resolved": 358
+  },
+  "loaded_original_text_unchanged": true,
+  "function_cases": 6714,
+  "exact_function_cases": 6714,
+  "all_fixture_cases_match": true,
+  "original_file_unchanged": true,
+  "elapsed_seconds": 10.746803859015927
+}
