@@ -1,0 +1,510 @@
+{
+  "format": 1,
+  "status": "exact",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "nativeOriginalCalls": 63,
+  "retainedFullFrames": 35,
+  "realControllerCalls": 22,
+  "originalInitializerAndOptionsCalls": 6,
+  "orderedDrawingEvents": 49633,
+  "orderedUiCallbacks": 33,
+  "orderedSoundRequests": 6,
+  "nativeExpectedFilesChanged": false,
+  "tests": {
+    "command": "node --test versions/2010-en/tests/retained-controllers.test.js",
+    "tests": 4,
+    "passed": 4,
+    "failed": 0,
+    "durationMs": 26913.540839,
+    "log": "versions/2010-en/analysis/retained-controllers-production-replay.log",
+    "logSha256": "6a7a2e9ce1ec5e6ad19040611f5ec729edf29384aec9dc36ac7bec24d54400a6"
+  },
+  "comparison": {
+    "mutableBytes": 394632,
+    "fields": [
+      "Complete normalized original mutable block and hash",
+      "Retained original global CString text",
+      "RNG state",
+      "Ordered UI callbacks, sounds and GDI",
+      "Exact consumed pixel input sequence",
+      "Measured original caller predecessor bytes retained through actual POINT aliases"
+    ]
+  },
+  "profiles": [
+    {
+      "name": "standard-course1-constructor-graphics-normal-start",
+      "frames": 25,
+      "controllerCalls": 14,
+      "originalInitializerCalls": 3,
+      "actualNativeStart": {
+        "time": -170,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 1,
+        "venue": 0,
+        "humans": 1,
+        "boats": 12,
+        "paintCounter": 0,
+        "stage": 1,
+        "frozen": 0,
+        "view": 2,
+        "steering1": 0,
+        "snapshotRequest": 0,
+        "heading1": 0,
+        "island": 0,
+        "shorelineVariant": 1,
+        "configurationControl4da188": 6
+      },
+      "status": "exact"
+    },
+    {
+      "name": "course1-to-round-island-constructor-graphics-normal-start",
+      "frames": 10,
+      "controllerCalls": 8,
+      "originalInitializerCalls": 3,
+      "actualNativeStart": {
+        "time": -170,
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "humans": 1,
+        "boats": 12,
+        "paintCounter": 0,
+        "stage": 1,
+        "frozen": 0,
+        "view": 2,
+        "steering1": 0,
+        "snapshotRequest": 0,
+        "heading1": 0,
+        "island": 1,
+        "shorelineVariant": 0,
+        "configurationControl4da188": 3
+      },
+      "status": "exact",
+      "actualConsumedShoreInputs": {
+        "initialStack": {
+          "previousX": 12484608,
+          "previousTreeY": 40
+        },
+        "consumedPairs": 20,
+        "source": "unchanged original440400 actual X/Y reads in already allocated frame",
+        "stackInputsSuppliedToNative": false,
+        "perFrameSeedReplacement": false
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-controller-start-frames.json",
+      "sha256": "3ea4cf73b6f5c6c21ddadabbde0fc18e5aaa7b13664e8f96f8c792729a2b5638",
+      "calls": 42,
+      "nativeAuthority": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "73e60e30f42caebe479519bbd4d7c7722879a22e8236d76aef2bd89eee1c0d72",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-1qzdbjy1/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host."
+      }
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-island-controller-shore-frames.json",
+      "sha256": "f08a586e7d14289224d2f6824a3cb56a9fd4c8633b05f6ee4f241928ff7985ef",
+      "calls": 21,
+      "nativeAuthority": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "b137852071cdf45d800e5ebdaac250314f8b1a89b898f38c90f9006366ade3a0",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          },
+          {
+            "path": "versions/2010-en/tools/native_retained_shore_reads.h",
+            "sha256": "c794186a6459a6ff0e2a633527e28ea437e4da32b24e67d7e4f4dd2ec187fb22"
+          }
+        ],
+        "runnerSha256": "524f78dac8357d38e7010f8b6201c59c097abf14b524f70d512d402b6f05b3a8",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-iiro9iad/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host.",
+        "shoreObserver": {
+          "targetGameMemoryWrites": 0,
+          "stackInputsSupplied": false,
+          "scope": "Actual consumed predecessor X/Y bytes inside the already allocated original440400 frame; fixed hardware execution points and owned VEH. No trap at entry can overwrite the future original local frame. Bounded oracle caller context is distinct from the intact application caller.",
+          "rawObservations": "analysis/native-runners/mixed-capture-an05ewk1/native-stderr.log",
+          "rawObservationsSha256": "043ca1c8c6303f902d685030bd1c9c5150e13fc17828c7ddb5a33e583e320733",
+          "consumedPairs": 20
+        }
+      }
+    }
+  ],
+  "sourceSnapshot": {
+    "record": "versions/2010-en/analysis/final-retained-production-source-snapshot.json",
+    "sources": [
+      {
+        "path": "src/engine/integer-core.js",
+        "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633"
+      },
+      {
+        "path": "src/runtime/atan.js",
+        "sha256": "e790c4353052bca3c438190ec2f03d742a13c87eec6af921b08bf2dde5db71b0"
+      },
+      {
+        "path": "src/runtime/c-types.js",
+        "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
+      },
+      {
+        "path": "src/runtime/float80.js",
+        "sha256": "a71e5aff8342af6bf603d03b07a827a3f71aaa6ba97effb09760fca1c224d5bc"
+      },
+      {
+        "path": "src/runtime/index.js",
+        "sha256": "cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72"
+      },
+      {
+        "path": "src/runtime/memory.js",
+        "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
+      },
+      {
+        "path": "src/runtime/original-data.js",
+        "sha256": "e01adcb3fff46e27d840edbc88b028594b50cd7862d7bfafe22ea94610b0410c"
+      },
+      {
+        "path": "src/runtime/transcendentals.js",
+        "sha256": "f74b7269d8e6e29704eb18ecd370157d71d44e266dea1338d53f217dd6c493bb"
+      },
+      {
+        "path": "versions/2010-en/src/engine/ai-functions.js",
+        "sha256": "a8270c25cb6bdcca931e487c722dc166b150893c186c3d1a09f3e2f893e53618"
+      },
+      {
+        "path": "versions/2010-en/src/engine/ai-geometry.js",
+        "sha256": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f"
+      },
+      {
+        "path": "versions/2010-en/src/engine/ai.js",
+        "sha256": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913"
+      },
+      {
+        "path": "versions/2010-en/src/engine/apparent-wind.js",
+        "sha256": "bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b"
+      },
+      {
+        "path": "versions/2010-en/src/engine/application.js",
+        "sha256": "a58b3fa5d69004e53d0b090ab8e89b375a99e1b48f8ae2e393e14945658dcf5c"
+      },
+      {
+        "path": "versions/2010-en/src/engine/boat-dynamics.js",
+        "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+      },
+      {
+        "path": "versions/2010-en/src/engine/boat-options.js",
+        "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252"
+      },
+      {
+        "path": "versions/2010-en/src/engine/configuration.js",
+        "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5"
+      },
+      {
+        "path": "versions/2010-en/src/engine/controller-values.js",
+        "sha256": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0"
+      },
+      {
+        "path": "versions/2010-en/src/engine/course.js",
+        "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97"
+      },
+      {
+        "path": "versions/2010-en/src/engine/current.js",
+        "sha256": "5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117"
+      },
+      {
+        "path": "versions/2010-en/src/engine/custom-venue.js",
+        "sha256": "074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b"
+      },
+      {
+        "path": "versions/2010-en/src/engine/dialogs.js",
+        "sha256": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7"
+      },
+      {
+        "path": "versions/2010-en/src/engine/frame.js",
+        "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+      },
+      {
+        "path": "versions/2010-en/src/engine/initialization.js",
+        "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39"
+      },
+      {
+        "path": "versions/2010-en/src/engine/integration.js",
+        "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f"
+      },
+      {
+        "path": "versions/2010-en/src/engine/keyboard.js",
+        "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf"
+      },
+      {
+        "path": "versions/2010-en/src/engine/menu-controller.js",
+        "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+      },
+      {
+        "path": "versions/2010-en/src/engine/mouse.js",
+        "sha256": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b"
+      },
+      {
+        "path": "versions/2010-en/src/engine/movement-history.js",
+        "sha256": "7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c"
+      },
+      {
+        "path": "versions/2010-en/src/engine/movement.js",
+        "sha256": "e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a"
+      },
+      {
+        "path": "versions/2010-en/src/engine/native-trig.js",
+        "sha256": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181"
+      },
+      {
+        "path": "versions/2010-en/src/engine/penalties.js",
+        "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496"
+      },
+      {
+        "path": "versions/2010-en/src/engine/port.js",
+        "sha256": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856"
+      },
+      {
+        "path": "versions/2010-en/src/engine/race-targets.js",
+        "sha256": "f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8"
+      },
+      {
+        "path": "versions/2010-en/src/engine/snapshot-maps.js",
+        "sha256": "e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f"
+      },
+      {
+        "path": "versions/2010-en/src/engine/snapshots.js",
+        "sha256": "9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c"
+      },
+      {
+        "path": "versions/2010-en/src/engine/spatial-metrics.js",
+        "sha256": "a3f67ff26558b0a1b2e8b3567a168f611674b31fc5dc20096cb75ce9bf77bee7"
+      },
+      {
+        "path": "versions/2010-en/src/engine/starting-positions.js",
+        "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2"
+      },
+      {
+        "path": "versions/2010-en/src/engine/steering.js",
+        "sha256": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f"
+      },
+      {
+        "path": "versions/2010-en/src/engine/terrain.js",
+        "sha256": "da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8"
+      },
+      {
+        "path": "versions/2010-en/src/engine/venue-definitions.js",
+        "sha256": "5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a"
+      },
+      {
+        "path": "versions/2010-en/src/engine/venue-geometry.js",
+        "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314"
+      },
+      {
+        "path": "versions/2010-en/src/engine/wave-motion.js",
+        "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a"
+      },
+      {
+        "path": "versions/2010-en/src/engine/waypoints.js",
+        "sha256": "e58e55a83ca7cc73513ecb8df7d34607c1a8c0d59f4a0c5d3dd9405a532dc3f4"
+      },
+      {
+        "path": "versions/2010-en/src/engine/wind-initialization.js",
+        "sha256": "f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c"
+      },
+      {
+        "path": "versions/2010-en/src/engine/wind.js",
+        "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8"
+      },
+      {
+        "path": "versions/2010-en/src/render/chart.js",
+        "sha256": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088"
+      },
+      {
+        "path": "versions/2010-en/src/render/dependencies.js",
+        "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+      },
+      {
+        "path": "versions/2010-en/src/render/drawing-functions.js",
+        "sha256": "e9ff2d3a23ee56d9b72ed2db53d8698e47660bc625fdbe2b1ed00e1344da4a4e"
+      },
+      {
+        "path": "versions/2010-en/src/render/gdi.js",
+        "sha256": "2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae"
+      },
+      {
+        "path": "versions/2010-en/src/render/host.js",
+        "sha256": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68"
+      },
+      {
+        "path": "versions/2010-en/src/render/hud.js",
+        "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c"
+      },
+      {
+        "path": "versions/2010-en/src/render/index.js",
+        "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b"
+      },
+      {
+        "path": "versions/2010-en/src/render/paint-lifecycle.js",
+        "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+      },
+      {
+        "path": "versions/2010-en/src/render/render-functions.js",
+        "sha256": "17f30bcf699e21430150fcadcc5413daf7b9e19e76b9418fb6bbac47eec5f125"
+      },
+      {
+        "path": "versions/2010-en/src/render/sail-geometry.js",
+        "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281"
+      },
+      {
+        "path": "versions/2010-en/src/render/scene-depth.js",
+        "sha256": "834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4"
+      },
+      {
+        "path": "versions/2010-en/src/render/scene.js",
+        "sha256": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace"
+      },
+      {
+        "path": "versions/2010-en/src/render/screen-helper-functions.js",
+        "sha256": "3aa39b8dad44cfe29aacb3ff8519b869f477db57ec62d1e6a8396d32d8a063f9"
+      },
+      {
+        "path": "versions/2010-en/src/render/screens.js",
+        "sha256": "c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d"
+      },
+      {
+        "path": "versions/2010-en/src/render/shore-stack.js",
+        "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1"
+      },
+      {
+        "path": "versions/2010-en/src/render/text.js",
+        "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00"
+      },
+      {
+        "path": "versions/2010-en/src/render/tutorial-controls.js",
+        "sha256": "39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8"
+      },
+      {
+        "path": "versions/2010-en/src/render/tutorial-pages.js",
+        "sha256": "1f22be29cc024453caf2c08154b54a158cbfb636c944ede3d4bc8aa946f79394"
+      },
+      {
+        "path": "versions/2010-en/src/render/typed-c.js",
+        "sha256": "883e5b23e4e72d768a325a192b0662322add605b611f73b12ee40f42bac0911f"
+      },
+      {
+        "path": "versions/2010-en/src/runtime/browser-clock.js",
+        "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+      },
+      {
+        "path": "versions/2010-en/src/runtime/original-data.js",
+        "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
+      },
+      {
+        "path": "versions/2010-en/tests/native-state.js",
+        "sha256": "b51d89ee99eba4c640f9e748675c32109237cfaa9e64dcf2bd4af269c9206d20"
+      },
+      {
+        "path": "versions/2010-en/tests/retained-controllers.test.js",
+        "sha256": "ffc00fa7c36e360e451a47ee8e2ea9bd09f82ac7468130d702bd6953965d23e5"
+      },
+      {
+        "path": "versions/2010-en/tests/retained-frames.test.js",
+        "sha256": "7375a2ec7b5f7ae0d259fa09dd718a2d88364be33035d2e509ae89e9fd948812"
+      }
+    ],
+    "dataAssets": [
+      {
+        "path": "versions/2010-en/assets/data/x87-trig.json",
+        "sha256": "9e4543a6da92c2e56a162e133f5dfbc41e8e1ce1936ace3fa7dbdda99761d361"
+      },
+      {
+        "path": "versions/2010-en/assets/data/x87-stored-trig.json",
+        "sha256": "6746c78774b8f06ed4b328f97ada290ba543d67f9c1a7792d3657ec99fdd88a1"
+      }
+    ],
+    "sourceWasStableAcrossReplay": true,
+    "finishedUtc": "2026-10-03T19:15:00.064008+00:00"
+  },
+  "limits": [
+    "Finite declared original keyboard/menu/CCmdUI sequences, explicit window/GDI/menu/cursor/unit-tick/white-pixel bindings.",
+    "The original420c00\u219241be70 start prefix is executed; stage2 and paint phase counter1..60 are explicit original404510 caller stores. FullWindowsMFCpaintallocation lifetime is separate.",
+    "RoundIsland uses its actual measured bounded native caller stack; intact normalUI has a separately measured initial caller seed. No arbitrary uninitialized C words are set tozero.",
+    "This finite native continuation proof does not claim unrestricted Windows platform/raster equivalence; browser host behavior is checked independently."
+  ],
+  "previousPassingSnapshot": "versions/2010-en/analysis/retained-source-proof-history/f3cd25a2ad0f860ea91fa27a470364b9aa19d09b1910b61b0ed1f570a05cc441.json"
+}

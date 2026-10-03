@@ -1,7 +1,9 @@
-# Tact: Posey Sailing Tactics Simulator 2002
+# Tact: Posey Sailing Tactics Simulator
 
-The preserved 2002 demo, reconstructed in native JavaScript for the browser.
-The player includes the original simulation, boat presets, opponents, race
+The preserved 2002 demo and supplied 2010 English edition, reconstructed in
+native JavaScript for the browser. The [2010 edition notes](versions/2010-en/README.md)
+describe its target, reconstruction and independent native comparisons.
+The 2002 player includes the original simulation, boat presets, opponents, race
 rules, menus, keyboard and mouse controls, tutorial pages, procedural graphics,
 preferences, and nine extracted sounds. The original demo notices and limits
 remain part of the game.
@@ -19,6 +21,12 @@ Node serves the files; no npm installation, Wine, Windows executable, or x86
 emulator is needed to play. `npm start` restores the small reference set used
 by the separate workbench. The browser requires localhost or HTTPS for asset
 SHA-256 verification. `TACT_PORT` and `TACT_HOST` configure the local server.
+
+For the 2010 English edition, open
+<http://127.0.0.1:8765/versions/2010-en/play.html>. Its original controls and
+preferences are separate from the 2002 demo. Build its standalone static site
+with `npm run build:2010`; the output is `dist-2010/` and
+[posey-2010-browser.zip](posey-2010-browser.zip).
 
 The [preservation workbench](http://127.0.0.1:8765) provides numerical tools,
 resource previews, and searchable recovered C alongside the playable game.
@@ -91,7 +99,8 @@ actual startup, original notice, race progression, controls, freeze, menus,
 modal pause/resume, and results screen, and reject uncaught exceptions and
 production requests for executables or test fixtures. The workbench check
 covers its separate numerical tools and source/resource browser.
-The final 2002 suite passes **352 tests**. The exported player passes ten
+The current 2002 suite passes **363 tests**, including eleven evidence-restoration
+checks. The exported player passes ten
 startup/race checks and the island path; the broader Chrome check passes 57
 interactions while confirming 25 original demo or context restrictions.
 
@@ -150,5 +159,7 @@ values. The player begins with a documented, read-only live observation and
 then preserves the reconstructed stack stores. The reference retains three
 differing original caller contexts; it does not claim a universal initial value.
 
-This project targets the **2002 demo**. `versions/` and version-specific Linux
-launchers belong to separate work on later editions and are not port inputs.
+The sections above describe the **2002 demo**. `npm test` validates both
+published browser editions; `npm run test:2002` and `npm run test:2010` select
+one. The [2010 documentation](versions/2010-en/README.md) covers its separately
+preserved executable, recovered source, assets and evidence archives.

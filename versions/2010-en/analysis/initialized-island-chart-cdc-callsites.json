@@ -1,0 +1,172 @@
+{
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "engine": "actual-original-native-observations",
+  "scope": "Original .text unchanged; original CALL boundaries verified against canonical instruction bytes.",
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/original-initialized-island-chart.json",
+      "sha256": "6f9b3d86ad9c34b9cbb027d0ae5288771952893de60fd8091a7c15c955dee166",
+      "cases": 4
+    }
+  ],
+  "calls": [
+    {
+      "address": 4227198,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4232682,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4232786,
+      "vtableOffset": 52
+    },
+    {
+      "address": 4232821,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4232928,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4233181,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4233223,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4401830,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4408348,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4408634,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4409622,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4410165,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4410171,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4410927,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4411127,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4603789,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4603798,
+      "vtableOffset": 44
+    }
+  ],
+  "importCalls": [
+    {
+      "address": 4227115,
+      "name": "CreateRectRgn"
+    },
+    {
+      "address": 4227133,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4227272,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4227508,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4236826,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4236837,
+      "name": "DeleteObject"
+    },
+    {
+      "address": 4320792,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321040,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321083,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321645,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4399988,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4402378,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4402424,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4405861,
+      "name": "Polygon"
+    },
+    {
+      "address": 4405907,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4408624,
+      "name": "Polygon"
+    },
+    {
+      "address": 4409781,
+      "name": "Polygon"
+    },
+    {
+      "address": 4410396,
+      "name": "Polygon"
+    },
+    {
+      "address": 4410999,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4411032,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4603775,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4603965,
+      "name": "RoundRect"
+    }
+  ]
+}

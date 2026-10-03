@@ -1,0 +1,2038 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixtureSha256": "99dba6c1c30e9cd7da16bd98ba70c2d45a8bb277c6ba3d06f04f45f641ac873b",
+  "sourceModuleSha256": "2130799ca0009e9f218fcf201992abf5f54958c6cceaef3cd6292d18efd89454",
+  "originalTextAndFileUnchanged": true,
+  "x87ControlWord": "0x027f",
+  "routine": {
+    "name": "initializeSailGeometry",
+    "address": 4308912,
+    "argumentTypes": [
+      "F64",
+      "I32",
+      "I32",
+      "I32",
+      "I32",
+      "F64"
+    ],
+    "returnType": "void"
+  },
+  "comparison": "Every normalized mutable byte, exact SHA256, immutable image prefix/suffix, original RNG and all captured integer/double fields. No tolerance or old expected outputs.",
+  "caseCount": 2971,
+  "groups": [
+    {
+      "group": "mapped2002-finite-input-domain",
+      "cases": 960,
+      "exactCases": 960,
+      "failedCases": 0
+    },
+    {
+      "group": "all27-original-selector-subtypes",
+      "cases": 216,
+      "exactCases": 214,
+      "failedCases": 2
+    },
+    {
+      "group": "trim-jib-and-human-versus-ai",
+      "cases": 180,
+      "exactCases": 177,
+      "failedCases": 3
+    },
+    {
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "cases": 540,
+      "exactCases": 525,
+      "failedCases": 15
+    },
+    {
+      "group": "heel-and-depower-cutoffs",
+      "cases": 270,
+      "exactCases": 263,
+      "failedCases": 7
+    },
+    {
+      "group": "curvature-and-heading-thresholds",
+      "cases": 441,
+      "exactCases": 425,
+      "failedCases": 16
+    },
+    {
+      "group": "board-drift-truncation-and-signed-zero",
+      "cases": 48,
+      "exactCases": 45,
+      "failedCases": 3
+    },
+    {
+      "group": "finite-height-width-binary64-boundaries",
+      "cases": 150,
+      "exactCases": 144,
+      "failedCases": 6
+    },
+    {
+      "group": "new-classes-full-index-strides",
+      "cases": 36,
+      "exactCases": 33,
+      "failedCases": 3
+    },
+    {
+      "group": "raw-subtype-exact-one-and-positive-tests",
+      "cases": 130,
+      "exactCases": 130,
+      "failedCases": 0
+    }
+  ],
+  "failures": [
+    {
+      "index": 1155,
+      "group": "all27-original-selector-subtypes",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 435,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "tack": 1,
+          "spin": 1
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1155:whole mutable SHA256\n+ actual - expected\n\n+ 'cee9df442b914a04798630aefa4d74fdb0489f289a81f866da84aa30bf0e3939'\n- 'e06f80d8f9ef6d3c987c1adb842f14cd71f9eef3b82ffa596babee60002b8d93'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1159,
+      "group": "all27-original-selector-subtypes",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 503,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "tack": 1,
+          "spin": 1
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1159:whole mutable SHA256\n+ actual - expected\n\n+ '4c4c658a0906495ae4949c6b003dae8f484b50e754fd093714413318d3239c7f'\n- 'a75cb8f7827dfa935b600feaf08462783ef5d878e723e993bf159452be116032'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "c64b3789412e6a40",
+      "actualBits": "c74b3789412e6a40",
+      "expectedValue": 209.44549999999998,
+      "actualValue": 209.4455
+    },
+    {
+      "index": 1323,
+      "group": "trim-jib-and-human-versus-ai",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 411,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "trim": 1,
+          "jib": 1,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1323:whole mutable SHA256\n+ actual - expected\n\n+ '175f6b367f6ca5d9cf9a3f9ea6393558b0010997400c6fc320a6b78c1b01584f'\n- '83b61763ee4a24504e7a7acd22db82338f71d6751668fce60590e3eb6d48d9c5'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1327,
+      "group": "trim-jib-and-human-versus-ai",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 479,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "trim": 3,
+          "jib": 3,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1327:whole mutable SHA256\n+ actual - expected\n\n+ '030c9ed06c3c93d7f492a0efefdaaa81aa4abae241683353915a33e3d1b2c2ec'\n- '80aa6a468bb4190a49d27d30bddb8fb55dee04f00209886511e5e104d74089e6'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1331,
+      "group": "trim-jib-and-human-versus-ai",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 547,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "trim": 5,
+          "jib": 5,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1331:whole mutable SHA256\n+ actual - expected\n\n+ '613adef6a3ed6251871ffc5d75ec3ec69248074cd537dbad25bb5f4a39d0f1e3'\n- '1a8301dc3b80087a2dbd9ce10b1fd8ee4fbe3517604aa54d992a35e8419b320f'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1719,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 423,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 29,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1719:whole mutable SHA256\n+ actual - expected\n\n+ 'd0ce1e0abd8e9d969597fae89efa125418301691e3d69631ef8cc3ee93b2359d'\n- 'd2a0cd8d2a9cb69102266d56b5f279871958921eda82350ad5315f88d7bd97d5'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1723,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 491,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 30,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1723:whole mutable SHA256\n+ actual - expected\n\n+ '5695696fed247d4f4ee16782a37225077eba55c91437cd0c13439728cabff4e6'\n- '27ff2dde5d86bfa6d35b435490956e3d692a7d14fc82937e7b76e6bec93203e4'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1727,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 559,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 31,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1727:whole mutable SHA256\n+ actual - expected\n\n+ '8f6155a69c16b182e8f28f3ab705b81a73047a3b9b541cbf369f2cfc118c0c0a'\n- '57757b5819bdf2395022cd1d8452ac9dd6535bdce2d159f02bc4e27f3b3b528c'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1731,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 627,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 35,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1731:whole mutable SHA256\n+ actual - expected\n\n+ 'b96bbfa7102b7c0783d9fa29cb29aef0e48d119d76b56c0bff83a998da68bdbf'\n- 'c69a7be7e7e7a9e37da31e9906a2d608e767b13105fc362e8debf0a974c89aad'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1735,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 695,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 36,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1735:whole mutable SHA256\n+ actual - expected\n\n+ 'f9a01e03e9b480720f42e63a63b936d74b2ec205ca8c0533b3d48ed2b4de6e12'\n- '7e687247226467ea58ddfb780bfd2e7862f6eb76478c89a82da2522a697b82f5'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1739,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 763,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 101,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1739:whole mutable SHA256\n+ actual - expected\n\n+ 'bace0ad612c272970cd741fb6f3e6b77204935b0ad148d3a281a08f38f60ad27'\n- '046a8e7829c9607e33e296ce6ee6ef7705cdc60442cd1e8d0e61b8d75a1ed8e5'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1743,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 831,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 102,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1743:whole mutable SHA256\n+ actual - expected\n\n+ 'e32983a99a9a1a96107bbb83476c8fa3d315cd46c6b9cc0e686f160b16044a43'\n- 'db29137eeee4f987df5dd7ec6472cf230c1173c1c865795a5aa1dc228b2f1919'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1747,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 899,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 103,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1747:whole mutable SHA256\n+ actual - expected\n\n+ 'a6a7df6b666d57c28c66ff5e9c42115c7226d88777a8eef8a3f1f4e7db67ea66'\n- 'ce395e018c88c16ebb45bb7b5a48a53a77adbbed3307ccac3c9c71db37eeb840'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1751,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 7,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 111,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1751:whole mutable SHA256\n+ actual - expected\n\n+ 'f2acebbeb4144aff90870addd17557e397dd8f4018abdd2630c32fb4ea84a66a'\n- '81918043ba9d2ba281010c4c869901121c5620578b5421920acb26218198c17b'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1755,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 75,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 112,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1755:whole mutable SHA256\n+ actual - expected\n\n+ '7c1a354253b6f188c43d8f4a965992ad372ec1266401a042927b685bb42cd788'\n- 'c868936873a127f49dfbfc9d55ab32110e2b3fbf6b218ddf4b268118c15761c9'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1759,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 143,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 113,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1759:whole mutable SHA256\n+ actual - expected\n\n+ '3cbf40e758446bdbdc56b308484096a43ea63553722dcc90418899e636645323'\n- 'cbeccca54c7fe57df27f017921a76fb52a41fddf6546f4315278e8f942996c95'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1763,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 211,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 131,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1763:whole mutable SHA256\n+ actual - expected\n\n+ '0fd27ed5e98c887f782f32c63b72356c4d810dcac9d3be952bf7ecfafcdf62a6'\n- 'df2b2cfd8065d46ce9f84a69908bd3a9c7f7d6fe9fd2c3f9fbd099fc1040707d'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1767,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 279,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 132,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1767:whole mutable SHA256\n+ actual - expected\n\n+ '0288fb551d672f9651aadb622ccfea508d71197f200b440428adf7a86f480851'\n- '24503bab3a553e7185e6869e0d6fe4696c6aa3a255d364afaee65212613e58bc'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1771,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 347,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 133,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1771:whole mutable SHA256\n+ actual - expected\n\n+ '654caa59ce40bfec5c7530a7eb13e95e8fbf73408e17a42478d122c7b768877d'\n- '1959fe233c0735cff794a3fee1b1f47a99a008c423f89ab26d2e1916bd75165c'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 1775,
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 415,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "sailingAngle": 180,
+          "spin": 2,
+          "mode": 3
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case1775:whole mutable SHA256\n+ actual - expected\n\n+ '8ebcb8aac61bcc2ac568abc8450c0d56d2d0ff8063ae89ff5252eb8926e477bc'\n- '47570c67dc1114d0ce648bb56d2335d76ca8cfbf689329d39be56bfbd8129dd5'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2079,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 783,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": -1,
+          "actualDepower": 69,
+          "manualDepower": 69,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2079:whole mutable SHA256\n+ actual - expected\n\n+ 'fcae2043f7a8687e7f0c819636369c4243520a783f007e4d3ff118b1e80deecd'\n- '908d6494245cb60456b2195263e0147e03f99f4393dbd872bebe36158cbab9ae'\n",
+      "firstAddress": "0x4f3b00",
+      "fieldAddress": "0x4f3b00",
+      "expectedBits": "e17a14ae47c46940",
+      "actualBits": "e27a14ae47c46940",
+      "expectedValue": 206.13375,
+      "actualValue": 206.13375000000002
+    },
+    {
+      "index": 2083,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 851,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": 0,
+          "actualDepower": 20,
+          "manualDepower": 20,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2083:whole mutable SHA256\n+ actual - expected\n\n+ '796ec428577b5c37ea0bf3336cc67fc3565bd947b1b7fd9567f5af40eb483c0e'\n- '5ad40815eecdd2287ed5f74d2f2c35522493445835d3fb011d0aeea496509ffb'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "b19defa786156a40",
+      "actualBits": "b29defa786156a40",
+      "expectedValue": 208.67268749999997,
+      "actualValue": 208.6726875
+    },
+    {
+      "index": 2087,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 919,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": 0,
+          "actualDepower": 71,
+          "manualDepower": 71,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2087:whole mutable SHA256\n+ actual - expected\n\n+ 'd8cb82ad72d198fe0796f909d97c061517bf47c8f9da0ffaee7be569a46fa96c'\n- 'fe32c29e4463e6913469618ed65ba7f74cb2cf911f33e038377889a89c3a1c7d'\n",
+      "firstAddress": "0x4f3ae8",
+      "fieldAddress": "0x4f3ae8",
+      "expectedBits": "3bdf4f8d174d6a40",
+      "actualBits": "3cdf4f8d174d6a40",
+      "expectedValue": 210.409125,
+      "actualValue": 210.40912500000002
+    },
+    {
+      "index": 2091,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 27,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": 10,
+          "actualDepower": 69,
+          "manualDepower": 69,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2091:whole mutable SHA256\n+ actual - expected\n\n+ 'ba3ee1782d03d63d1fc12dfe4ea66a5ac15061f47691845f9f84e92f35bdbc77'\n- '4d38bac264962923d8ee9048cf0bd182cfe310cc94e36b54ed3ab065287f5c8b'\n",
+      "firstAddress": "0x4f3b00",
+      "fieldAddress": "0x4f3b00",
+      "expectedBits": "e17a14ae47c46940",
+      "actualBits": "e27a14ae47c46940",
+      "expectedValue": 206.13375,
+      "actualValue": 206.13375000000002
+    },
+    {
+      "index": 2095,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 95,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": 70,
+          "actualDepower": 20,
+          "manualDepower": 20,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2095:whole mutable SHA256\n+ actual - expected\n\n+ '8f96344df1f34b40aabb27a006a29ae2f9107d3f2100e9a50b05585f242ac327'\n- 'f7b85d212fe11707ae36000010e83e7c22b471e525a125e51a4f241dde19cb0d'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "b19defa786156a40",
+      "actualBits": "b29defa786156a40",
+      "expectedValue": 208.67268749999997,
+      "actualValue": 208.6726875
+    },
+    {
+      "index": 2099,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 163,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": 70,
+          "actualDepower": 71,
+          "manualDepower": 71,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2099:whole mutable SHA256\n+ actual - expected\n\n+ 'f4568302867a888a5ea72f8ce76888b0da0dec50f09e2b097c62777ce82a6864'\n- '21a5c41711c1ac4a789e85b54ff4b4ea9f0cbf986000c4433175016c3a33a91d'\n",
+      "firstAddress": "0x4f3ae8",
+      "fieldAddress": "0x4f3ae8",
+      "expectedBits": "3bdf4f8d174d6a40",
+      "actualBits": "3cdf4f8d174d6a40",
+      "expectedValue": 210.409125,
+      "actualValue": 210.40912500000002
+    },
+    {
+      "index": 2103,
+      "group": "heel-and-depower-cutoffs",
+      "arguments": [
+        35.5,
+        2,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 231,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "heel": 90,
+          "actualDepower": 69,
+          "manualDepower": 69,
+          "humans": 2
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2103:whole mutable SHA256\n+ actual - expected\n\n+ '6af546f2b252e1b8055ac3f639869b8f7ca78c9e750f5b6f0ec29802988a03be'\n- '63512c3a92e3f1d58168177a1cc042e1dc3c0a832753669aafc1346aee150b85'\n",
+      "firstAddress": "0x4f3b00",
+      "fieldAddress": "0x4f3b00",
+      "expectedBits": "e17a14ae47c46940",
+      "actualBits": "e27a14ae47c46940",
+      "expectedValue": 206.13375,
+      "actualValue": 206.13375000000002
+    },
+    {
+      "index": 2419,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        -1,
+        -11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 803,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": -1,
+          "viewHeading": -11
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2419:whole mutable SHA256\n+ actual - expected\n\n+ '7d7db73e40a7ad4f20776cbdce37e1a0dc4105c566f6cceab295d28ddecc7557'\n- 'fcaa6c8638f5d9376ac4ba63fd415a9102ca7d2ee1fb4d32150eeea36af28a68'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "8d976e1283626a40",
+      "actualBits": "8e976e1283626a40",
+      "expectedValue": 211.0785,
+      "actualValue": 211.07850000000002
+    },
+    {
+      "index": 2423,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        -1,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 871,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": -1,
+          "viewHeading": 11
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2423:whole mutable SHA256\n+ actual - expected\n\n+ '48eaea8b288cfad318bac6b4e8eb284c68f7d8b4339bf3016c5d3ce506405649'\n- 'c4687ee154d103c5b0f01f2a8688af97505ab4768afb5189e9458f9ee1362198'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "8d976e1283626a40",
+      "actualBits": "8e976e1283626a40",
+      "expectedValue": 211.0785,
+      "actualValue": 211.07850000000002
+    },
+    {
+      "index": 2427,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        0,
+        -10,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 939,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 0,
+          "viewHeading": -10
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2427:whole mutable SHA256\n+ actual - expected\n\n+ 'a806f837abfe8001a10915a7c2e984799163282b04d73b2e95f5247218de73b2'\n- '594ef79509ce0f11cb1ac097e2e8f5f129dd7135288b471a7af803fe42270f96'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "8d976e1283626a40",
+      "actualBits": "8e976e1283626a40",
+      "expectedValue": 211.0785,
+      "actualValue": 211.07850000000002
+    },
+    {
+      "index": 2431,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        0,
+        180,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 47,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 0,
+          "viewHeading": 180
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2431:whole mutable SHA256\n+ actual - expected\n\n+ '153c9ca087f59fecbdb002f17103ac4c9842463dead216ba9abcb4fd405d4afd'\n- '64eb1071139c95ef82575f4a97b3dd419f9b208cda5b1dfb027fd741c5a8094b'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "8d976e1283626a40",
+      "actualBits": "8e976e1283626a40",
+      "expectedValue": 211.0785,
+      "actualValue": 211.07850000000002
+    },
+    {
+      "index": 2435,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        1,
+        0,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 115,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 1,
+          "viewHeading": 0
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2435:whole mutable SHA256\n+ actual - expected\n\n+ '14143b2fcfc6530ca30c84df6d2abfa962b23361a0d6e61f58ea1815465557a2'\n- 'f0d555adb0980b8d1db59b23e545311cc306231ccb1ea5bb1aaaf510bfa3a24c'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "8d976e1283626a40",
+      "actualBits": "8e976e1283626a40",
+      "expectedValue": 211.0785,
+      "actualValue": 211.07850000000002
+    },
+    {
+      "index": 2439,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        4,
+        -180,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 183,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 4,
+          "viewHeading": -180
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2439:whole mutable SHA256\n+ actual - expected\n\n+ '77fa9f2d52e7be2fe6d66e4b05c035d84048a665df6b4c4eefe770a270329f96'\n- '5ea7033913e5e5a1c581d0bfd972f93af969c2f169d083821c76323d3acb7673'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "0ad7a3703d606a40",
+      "actualBits": "0bd7a3703d606a40",
+      "expectedValue": 211.0075,
+      "actualValue": 211.00750000000002
+    },
+    {
+      "index": 2443,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        4,
+        10,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 251,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 4,
+          "viewHeading": 10
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2443:whole mutable SHA256\n+ actual - expected\n\n+ 'ca9533218a71f99a1cf9ee0e6a3c36c4fcbe2b85bb0ee44f0d14943c40058e05'\n- '53612a2792106b8e4edecfc133fffb2cf708b7b9629f7f8b65f4264abd2fbe8f'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "0ad7a3703d606a40",
+      "actualBits": "0bd7a3703d606a40",
+      "expectedValue": 211.0075,
+      "actualValue": 211.00750000000002
+    },
+    {
+      "index": 2447,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        5,
+        -11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 319,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 5,
+          "viewHeading": -11
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2447:whole mutable SHA256\n+ actual - expected\n\n+ 'ef0b93da7d00dc82ce956fb2d15c2f49c22715a3cc923f2acf12bd8ea1552081'\n- 'a207e1103ef6fed7644d68eb730edda1ac3090c15e6b19dc507eadc106916f0a'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "0ad7a3703d606a40",
+      "actualBits": "0bd7a3703d606a40",
+      "expectedValue": 211.0075,
+      "actualValue": 211.00750000000002
+    },
+    {
+      "index": 2451,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        5,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 387,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 5,
+          "viewHeading": 11
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2451:whole mutable SHA256\n+ actual - expected\n\n+ 'd97f0d8cfad6aeedab7d56040ce7578383dc364f31d1cf674c9fbf46c5b58c9f'\n- 'def4bd8786d5f3910e22b20a7499400bd7705897bf5a82f070f23ce734e75207'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "0ad7a3703d606a40",
+      "actualBits": "0bd7a3703d606a40",
+      "expectedValue": 211.0075,
+      "actualValue": 211.00750000000002
+    },
+    {
+      "index": 2455,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        15,
+        -10,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 455,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 15,
+          "viewHeading": -10
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2455:whole mutable SHA256\n+ actual - expected\n\n+ '46083ac2f6bd57b7c5e7ee8c749e6aff4913b072f99996442feebb385a538dac'\n- '3c2bddc820df0c33798e3b1c3f29b56173f8346f89c3005b1acf636a72cc011e'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "f753e3a59b526a40",
+      "actualBits": "f853e3a59b526a40",
+      "expectedValue": 210.58149999999998,
+      "actualValue": 210.5815
+    },
+    {
+      "index": 2459,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        15,
+        180,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 523,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 15,
+          "viewHeading": 180
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2459:whole mutable SHA256\n+ actual - expected\n\n+ '3c356a399a9f57d69927ce0d3767414b027b72eff7e3643b068b57d6b669b991'\n- '138f2aa7cc46326c0d1fe6291eb77fca2f61fd5bf83dcb04983209a6aeaa5059'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "f753e3a59b526a40",
+      "actualBits": "f853e3a59b526a40",
+      "expectedValue": 210.58149999999998,
+      "actualValue": 210.5815
+    },
+    {
+      "index": 2463,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        0,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 591,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 31,
+          "viewHeading": 0
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2463:whole mutable SHA256\n+ actual - expected\n\n+ '322c8a0f1ca6dfa25300578744f67db43f0937a6845305786abc8bf1e9cf0574'\n- '09ad21dc39db4458d618b8c8c048d56cc67a446c56f18f722d09d916aecd12ae'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2467,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        80,
+        -180,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 659,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 80,
+          "viewHeading": -180
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2467:whole mutable SHA256\n+ actual - expected\n\n+ 'ca2653dd739f5cece6eba73f62b445e902e6ddc469fa04293d62327de2c2ef8e'\n- '5a5950f97d749567204c0b8497f0310b31f4f938986f6e5e79ad23592fb9012a'\n",
+      "firstAddress": "0x4f3b00",
+      "fieldAddress": "0x4f3b00",
+      "expectedBits": "9999999999be6940",
+      "actualBits": "9a99999999be6940",
+      "expectedValue": 205.95624999999998,
+      "actualValue": 205.95625
+    },
+    {
+      "index": 2471,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        80,
+        10,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 727,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 80,
+          "viewHeading": 10
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2471:whole mutable SHA256\n+ actual - expected\n\n+ '5e2df01929fb4c2b84cb95346489779cdaa5b9287ae360ea84fe283a72aa934a'\n- 'cf3e9c2cd2d329d99323a96db9be68fcd0e93ac954adb82e8d850482eed30767'\n",
+      "firstAddress": "0x4f3b00",
+      "fieldAddress": "0x4f3b00",
+      "expectedBits": "9999999999be6940",
+      "actualBits": "9a99999999be6940",
+      "expectedValue": 205.95624999999998,
+      "actualValue": 205.95625
+    },
+    {
+      "index": 2475,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        180,
+        -11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 795,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 180,
+          "viewHeading": -11
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2475:whole mutable SHA256\n+ actual - expected\n\n+ '17fdfcb67876e0c1442f0202363f9810fdeb24031ec2dbac3f16ce39c7b4e13b'\n- '18fb7da6a97c9d9918c6a519489a67efa1e9d8a40d0c606534ed54a265ae6c48'\n",
+      "firstAddress": "0x4f3ae8",
+      "fieldAddress": "0x4f3ae8",
+      "expectedBits": "448b6ce7bb546940",
+      "actualBits": "438b6ce7bb546940",
+      "expectedValue": 202.6479375,
+      "actualValue": 202.64793749999998
+    },
+    {
+      "index": 2479,
+      "group": "curvature-and-heading-thresholds",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        180,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 863,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "curvature": 180,
+          "viewHeading": 11
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2479:whole mutable SHA256\n+ actual - expected\n\n+ 'a224160df69d5ed5b1ac1a696b0a56dfd1af44e82ddf0ed7fa923d65c9b04361'\n- '99f595bc883a903fed46438144aad203ec8625181c0945f5cbad66dd703924ff'\n",
+      "firstAddress": "0x4f3ae8",
+      "fieldAddress": "0x4f3ae8",
+      "expectedBits": "448b6ce7bb546940",
+      "actualBits": "438b6ce7bb546940",
+      "expectedValue": 202.6479375,
+      "actualValue": 202.64793749999998
+    },
+    {
+      "index": 2619,
+      "group": "board-drift-truncation-and-signed-zero",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 363,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "drift": -3.99
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2619:whole mutable SHA256\n+ actual - expected\n\n+ '6030a7d92b877903bd23a43a8a39208b69a007e50d48e1adb01964f1c4fdc83e'\n- 'a3311a84349d9304b3a75044dd9e8d2b02711c1436149f2f33aab019060d9482'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2623,
+      "group": "board-drift-truncation-and-signed-zero",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 431,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "drift": 0
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2623:whole mutable SHA256\n+ actual - expected\n\n+ '3df18a9cf5490828e4c09e3a82fcfcf1b9784a44346bfb235af98784979d594f'\n- 'aac8f6c5aa291ce1ca8d2789d553fc16a6d2fda3ee394242cae605c31dcd8de2'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2627,
+      "group": "board-drift-truncation-and-signed-zero",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 499,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {
+          "drift": 3.99
+        },
+        "argumentChanges": {},
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2627:whole mutable SHA256\n+ actual - expected\n\n+ 'a17e289c52a3a6b99b12c293642dfb28989433fc17be07c87715079698de7710'\n- 'd516cdde0de33f013abe0b4726fe895b46c25c8ec55d3620ae7b91646e43191e'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2731,
+      "group": "finite-height-width-binary64-boundaries",
+      "arguments": [
+        0,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 347,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "height": 0,
+          "widthScale": 0.01
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2731:whole mutable SHA256\n+ actual - expected\n\n+ 'c0423e4ba28479445c16fd171ad457a660d4256670d65bdc9b52d22588411a12'\n- 'd0a7d529c5149e6a43cf928b29156c4c18128ac22b865015c04af3e1f7182d13'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2735,
+      "group": "finite-height-width-binary64-boundaries",
+      "arguments": [
+        0.1,
+        1,
+        3,
+        31,
+        11,
+        0
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 415,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "height": 0.1,
+          "widthScale": 0
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2735:whole mutable SHA256\n+ actual - expected\n\n+ '83a2fc5ce6aec873084d92d387cea7da6d44935e7b98dc21b58e7fb8280bdfe6'\n- 'dd7e0f0574b5ddde0591b3d9d6dad30c3a4779f5426ead0b78c8338a934a6962'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2739,
+      "group": "finite-height-width-binary64-boundaries",
+      "arguments": [
+        0.1,
+        1,
+        3,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 483,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "height": 0.1,
+          "widthScale": 1.3
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2739:whole mutable SHA256\n+ actual - expected\n\n+ 'd0bffd2300ad5293eda906010772a8ced7485b621bf122ee532a473c92335554'\n- '96040677130a5bbebd174fbc6b5af7cd5ddb5a54a59c06d512abc45bda52a24c'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2743,
+      "group": "finite-height-width-binary64-boundaries",
+      "arguments": [
+        17.3,
+        1,
+        3,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 551,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "height": 17.3,
+          "widthScale": 0.4000000000000001
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2743:whole mutable SHA256\n+ actual - expected\n\n+ '3936a5f1bee72a55f9e1cac41dd0d076ce20f75a4441cfe8391da9525d448f1c'\n- 'd460a9859bfd1a1e01caa176506b63a1af1b499d108a901d352d21d8d5fb26ba'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2747,
+      "group": "finite-height-width-binary64-boundaries",
+      "arguments": [
+        17.300000000000004,
+        1,
+        3,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 619,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "height": 17.300000000000004,
+          "widthScale": 0.4
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2747:whole mutable SHA256\n+ actual - expected\n\n+ '39ee917af842fd39f9acf73eee1db4bb321c215fb13fd7011d786a0d4cc0c60c'\n- '7858a65f717e89b7f71e015a96b8aea1a3ef142a8b42488811b36a0c045ece57'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2751,
+      "group": "finite-height-width-binary64-boundaries",
+      "arguments": [
+        35.5,
+        1,
+        3,
+        31,
+        11,
+        0.01
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 687,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "height": 35.5,
+          "widthScale": 0.01
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2751:whole mutable SHA256\n+ actual - expected\n\n+ '8d94d0fdd3d89f0345640c64c3cf1ffb9e73c5717e9d70077f6eac04fb7dc2ea'\n- '8077f8d04722b3a30fa0c7dc0e6c4c6caa025207bc15af258781f65a07131920'\n",
+      "firstAddress": "0x4f3af8",
+      "fieldAddress": "0x4f3af8",
+      "expectedBits": "16d9cef7d3126a40",
+      "actualBits": "17d9cef7d3126a40",
+      "expectedValue": 208.58837499999998,
+      "actualValue": 208.588375
+    },
+    {
+      "index": 2807,
+      "group": "new-classes-full-index-strides",
+      "arguments": [
+        35.5,
+        1,
+        4,
+        31,
+        11,
+        0.4
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 679,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "baseIndex": 4
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2807:whole mutable SHA256\n+ actual - expected\n\n+ 'c353c7126d7f618dc84364bb3c7ff545f194220c4d7246bad3b0da0674053762'\n- 'ec53f76a677079b927126e8a86a23e217f95b0b2de1da6fbf13a4e5e9434b7e1'\n",
+      "firstAddress": "0x4f3af0",
+      "fieldAddress": "0x4f3af0",
+      "expectedBits": "e9b7af03e70e6a40",
+      "actualBits": "eab7af03e70e6a40",
+      "expectedValue": 208.4657,
+      "actualValue": 208.46570000000003
+    },
+    {
+      "index": 2811,
+      "group": "new-classes-full-index-strides",
+      "arguments": [
+        35.5,
+        2,
+        4,
+        31,
+        11,
+        0.4000000000000001
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 747,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "baseIndex": 4
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2811:whole mutable SHA256\n+ actual - expected\n\n+ '70062b05b3bf83a88ad7bf9f7273df63de08abcbef3fc7f408a2b563eb9bc590'\n- 'ef323c2ddc11b982ab10fa97cc61dbe46a3cd86a10d5c8e180abf56cc9dbc893'\n",
+      "firstAddress": "0x4f3ae8",
+      "fieldAddress": "0x4f3ae8",
+      "expectedBits": "cac342ada90f6a40",
+      "actualBits": "cbc342ada90f6a40",
+      "expectedValue": 208.4894625,
+      "actualValue": 208.48946250000003
+    },
+    {
+      "index": 2815,
+      "group": "new-classes-full-index-strides",
+      "arguments": [
+        35.5,
+        30,
+        4,
+        31,
+        11,
+        1.3
+      ],
+      "preparation": {
+        "oldFiniteInputCase": 815,
+        "original2002FlatHullArguments": [
+          35.5,
+          10.65
+        ],
+        "source": "Finite synthetic pre-call hull inputs and typed controls only; all expected output is fresh original2010 native execution.",
+        "selector": 25,
+        "boatClass": 6,
+        "changes": {},
+        "argumentChanges": {
+          "baseIndex": 4
+        },
+        "sourceOptions": "Complete independently proven original2010 boat-options source supplies all menu subtype flags before explicit boundary overrides"
+      },
+      "error": "case2815:whole mutable SHA256\n+ actual - expected\n\n+ 'f94a09de53a7f718c45bbff83f3296161f60065a74e4122391b84150c8c17b49'\n- '4e06fb6d96bc9c1a944211d9596ab5ab5bb369b35dd9ea37ae21d84427912313'\n",
+      "firstAddress": "0x4f3ae8",
+      "fieldAddress": "0x4f3ae8",
+      "expectedBits": "cac342ada90f6a40",
+      "actualBits": "cbc342ada90f6a40",
+      "expectedValue": 208.4894625,
+      "actualValue": 208.48946250000003
+    }
+  ],
+  "exact": false
+}

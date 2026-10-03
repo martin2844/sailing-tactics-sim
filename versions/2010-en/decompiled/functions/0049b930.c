@@ -1,0 +1,13 @@
+
+void FUN_0049b930(void)
+
+{
+  PTR_FUN_004ee00c = FUN_0049ebd0;
+  PTR_FUN_004ee008 = FUN_0049f030;
+  PTR_FUN_004ee010 = FUN_0049ec60;
+  PTR_FUN_004ee014 = FUN_0049eb70;
+  PTR_FUN_004ee018 = FUN_0049ec40;
+  PTR_FUN_004ee01c = FUN_0049f030;
+  return;
+}
+

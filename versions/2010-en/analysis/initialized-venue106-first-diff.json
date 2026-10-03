@@ -1,0 +1,243 @@
+{
+  "profile": "selector12-venue106-initialized-render",
+  "rows": [
+    {
+      "index": 12,
+      "phase": "boat-options",
+      "completeStateExact": true,
+      "actualDrawingCount": 0,
+      "expectedDrawingCount": 0,
+      "mismatchCount": 0,
+      "mismatches": [],
+      "soundsExact": true
+    },
+    {
+      "index": 13,
+      "phase": "race-initialization",
+      "completeStateExact": true,
+      "actualDrawingCount": 0,
+      "expectedDrawingCount": 0,
+      "mismatchCount": 0,
+      "mismatches": [],
+      "soundsExact": true
+    },
+    {
+      "index": 14,
+      "phase": "drawScene",
+      "completeStateExact": true,
+      "actualDrawingCount": 1378,
+      "expectedDrawingCount": 1378,
+      "mismatchCount": 43,
+      "mismatches": [
+        {
+          "index": 573,
+          "actual": {
+            "op": "polygon",
+            "points": [
+              {
+                "x": 993,
+                "y": 33
+              },
+              {
+                "x": 1007,
+                "y": 31
+              },
+              {
+                "x": 1021,
+                "y": 30
+              },
+              {
+                "x": 1035,
+                "y": 31
+              },
+              {
+                "x": 1049,
+                "y": 33
+              }
+            ]
+          },
+          "expected": {
+            "op": "polygon",
+            "points": [
+              {
+                "x": 997,
+                "y": 33
+              },
+              {
+                "x": 1009,
+                "y": 31
+              },
+              {
+                "x": 1021,
+                "y": 30
+              },
+              {
+                "x": 1033,
+                "y": 31
+              },
+              {
+                "x": 1045,
+                "y": 33
+              }
+            ]
+          },
+          "stack": "Error\n    at dc.emit (file:///tmp/tact-venue106-first-diff.mjs:21:248)\n    at GdiTrace.polygon (file:///home/martin/tact/src/render/gdi.js:71:10)\n    at Object.originalDrawing004813f0 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:18385:19)\n    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:57:27)\n    at Object.originalDrawing0047ed40 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:17852:17)\n    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:57:27)\n    at originalDrawScene (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:194:17)\n    at drawScene (file:///home/martin/tact/versions/2010-en/src/render/scene.js:6:10)\n    at Object.drawScene (file:///home/martin/tact/versions/2010-en/src/render/index.js:19:21)\n    at file:///tmp/tact-venue106-first-diff.mjs:25:26"
+        },
+        {
+          "index": 575,
+          "actual": {
+            "op": "moveTo",
+            "x": 993,
+            "y": 33
+          },
+          "expected": {
+            "op": "moveTo",
+            "x": 997,
+            "y": 33
+          }
+        },
+        {
+          "index": 576,
+          "actual": {
+            "op": "lineTo",
+            "x": 1007,
+            "y": 31
+          },
+          "expected": {
+            "op": "lineTo",
+            "x": 1009,
+            "y": 31
+          }
+        },
+        {
+          "index": 578,
+          "actual": {
+            "op": "lineTo",
+            "x": 1035,
+            "y": 31
+          },
+          "expected": {
+            "op": "lineTo",
+            "x": 1033,
+            "y": 31
+          }
+        },
+        {
+          "index": 579,
+          "actual": {
+            "op": "lineTo",
+            "x": 1049,
+            "y": 33
+          },
+          "expected": {
+            "op": "lineTo",
+            "x": 1045,
+            "y": 33
+          }
+        },
+        {
+          "index": 581,
+          "actual": {
+            "op": "moveTo",
+            "x": 1007,
+            "y": 33
+          },
+          "expected": {
+            "op": "moveTo",
+            "x": 1009,
+            "y": 33
+          }
+        },
+        {
+          "index": 582,
+          "actual": {
+            "op": "lineTo",
+            "x": 1006,
+            "y": 33
+          },
+          "expected": {
+            "op": "lineTo",
+            "x": 1008,
+            "y": 33
+          }
+        },
+        {
+          "index": 584,
+          "actual": {
+            "op": "moveTo",
+            "x": 1007,
+            "y": 33
+          },
+          "expected": {
+            "op": "moveTo",
+            "x": 1009,
+            "y": 33
+          }
+        },
+        {
+          "index": 585,
+          "actual": {
+            "op": "lineTo",
+            "x": 1006,
+            "y": 33
+          },
+          "expected": {
+            "op": "lineTo",
+            "x": 1008,
+            "y": 33
+          }
+        },
+        {
+          "index": 587,
+          "actual": {
+            "op": "moveTo",
+            "x": 1007,
+            "y": 33
+          },
+          "expected": {
+            "op": "moveTo",
+            "x": 1009,
+            "y": 33
+          }
+        },
+        {
+          "index": 588,
+          "actual": {
+            "op": "lineTo",
+            "x": 1006,
+            "y": 33
+          },
+          "expected": {
+            "op": "lineTo",
+            "x": 1008,
+            "y": 33
+          }
+        },
+        {
+          "index": 590,
+          "actual": {
+            "op": "moveTo",
+            "x": 1007,
+            "y": 33
+          },
+          "expected": {
+            "op": "moveTo",
+            "x": 1009,
+            "y": 33
+          }
+        }
+      ],
+      "soundsExact": true
+    },
+    {
+      "index": 15,
+      "phase": "drawChart",
+      "completeStateExact": true,
+      "actualDrawingCount": 79,
+      "expectedDrawingCount": 79,
+      "mismatchCount": 0,
+      "mismatches": [],
+      "soundsExact": true
+    }
+  ]
+}

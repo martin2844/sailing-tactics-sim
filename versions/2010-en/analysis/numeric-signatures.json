@@ -1,0 +1,1138 @@
+{
+  "callfixupXml": "<callfixup name=\"tact2010_ftol_x87_pop\"><pcode><body><![CDATA[\nlocal converted:8 = trunc(ST0);\nEAX = converted[0,32]; EDX = converted[32,32];\nST0 = ST1; ST1 = ST2; ST2 = ST3; ST3 = ST4;\nST4 = ST5; ST5 = ST6; ST6 = ST7;\nESP = ESP + 4;\n]]></body></pcode></callfixup>", 
+  "changes": [
+    {
+      "address": "0049b970", 
+      "after": "longlong __cdecl __ftol(float10 x87_value)", 
+      "before": "longlong __cdecl __ftol(float10 x87_value)", 
+      "callFixup": "tact2010_ftol_x87_pop", 
+      "inputStorage": "ST0:10", 
+      "returnStorage": "EDX:4,EAX:4"
+    }, 
+    {
+      "address": "0042fca0", 
+      "after": "int __cdecl FUN_0042fca0(int x, int y, int boat)", 
+      "before": "int __cdecl FUN_0042fca0(int param_1, int param_2, int param_3)", 
+      "reason": "Original integration caller pushes three I32 arguments and cleans twelve bytes; native finite authority confirms I32 return."
+    }, 
+    {
+      "address": "0041a5e0", 
+      "after": "void __cdecl FUN_0041a5e0(double param_1, double param_2, int param_3, int param_4, int param_5)", 
+      "argumentTypes": [
+        "F64", 
+        "F64", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0041a5e0(double param_1, double param_2, int param_3, int param_4, int param_5)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/boat-renderer-abi-review.json", 
+      "evidenceSha256": "d2e57efa1e3144750046adf607f7236e3e0ef75c3de26200209467ba5603a159", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0041acb0", 
+      "after": "void __cdecl FUN_0041acb0(double param_1, double param_2)", 
+      "argumentTypes": [
+        "F64", 
+        "F64"
+      ], 
+      "before": "void __cdecl FUN_0041acb0(double param_1, double param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/boat-renderer-abi-review.json", 
+      "evidenceSha256": "d2e57efa1e3144750046adf607f7236e3e0ef75c3de26200209467ba5603a159", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0041af20", 
+      "after": "void __cdecl FUN_0041af20(double param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "F64", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0041af20(double param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/boat-renderer-abi-review.json", 
+      "evidenceSha256": "d2e57efa1e3144750046adf607f7236e3e0ef75c3de26200209467ba5603a159", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0041b970", 
+      "after": "void __cdecl FUN_0041b970(double param_1, double param_2, double param_3, double param_4, int param_5, int param_6, int param_7, int param_8, int param_9)", 
+      "argumentTypes": [
+        "F64", 
+        "F64", 
+        "F64", 
+        "F64", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "undefined FUN_0041b970(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/geometry-renderer-abi-review.json", 
+      "evidenceSha256": "549efcafa20683f6f8647ff17b66c5a295a55b8a43df2f1e87a290f31afcc04e", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0041bc20", 
+      "after": "int __cdecl FUN_0041bc20(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0041bc20(int param_1)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0041bc40", 
+      "after": "float10 __cdecl FUN_0041bc40(double param_1)", 
+      "argumentTypes": [
+        "F64"
+      ], 
+      "before": "float10 __cdecl FUN_0041bc40(double param_1)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0041be70", 
+      "after": "void __cdecl FUN_0041be70(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0041be70(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/initializeRace-capture-inputs.json", 
+      "evidenceSha256": "2a8a934fd9636b24b18a149496f6b19f728ed3622383b7ac597b9abe8c68b6eb", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0041bfb0", 
+      "after": "void __cdecl FUN_0041bfb0(double param_1, int param_2, int param_3, int param_4, int param_5, double param_6)", 
+      "argumentTypes": [
+        "F64", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "F64"
+      ], 
+      "before": "void __cdecl FUN_0041bfb0(double param_1, int param_2, int param_3, int param_4, int param_5, double param_6)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/boat-renderer-abi-review.json", 
+      "evidenceSha256": "d2e57efa1e3144750046adf607f7236e3e0ef75c3de26200209467ba5603a159", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0041e000", 
+      "after": "int __cdecl FUN_0041e000(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0041e000(int param_1)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0041e3a0", 
+      "after": "int __cdecl FUN_0041e3a0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0041e3a0(int param_1)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00420c00", 
+      "after": "void __cdecl FUN_00420c00(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00420c00(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/boat-options-capture-inputs.json", 
+      "evidenceSha256": "0f191872e2b0d144fb6fff600a5ff6293153dbf400dea4fce68d5a6db7512cde", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00426ab0", 
+      "after": "void __cdecl FUN_00426ab0(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00426ab0(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/wind-start-capture-inputs.json", 
+      "evidenceSha256": "302a550ba48519363f2ee1ccfd3fdb7dc87dcd79ba0915938722608ea61b8d04", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00427090", 
+      "after": "void __cdecl FUN_00427090(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00427090(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/tide-initialization-capture-inputs.json", 
+      "evidenceSha256": "17dc0dd8a804fb1751bfd05c9dd53def29387b6ace1fff74e4f949291273d2c4", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00427540", 
+      "after": "void __cdecl FUN_00427540(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00427540(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/wind-capture-inputs.json", 
+      "evidenceSha256": "9ac2259d976ce8bfc992c6ad93a5d2e948100d552c56ef59318465dd960d81a3", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00427e30", 
+      "after": "int __cdecl FUN_00427e30(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00427e30(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/wind-schedule-capture-inputs.json", 
+      "evidenceSha256": "03dc25eada2dd57c7980aa937bf1f6dea7fc92070510ed57da33e863a958b714", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00427ee0", 
+      "after": "int __cdecl FUN_00427ee0(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00427ee0(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/wind-bearing-capture-inputs.json", 
+      "evidenceSha256": "34334ef89f5d74358b6e76afc741c4ea13a4fb828760bad360d8b8e752c70953", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0042b0b0", 
+      "after": "void __cdecl FUN_0042b0b0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0042b0b0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/wind-patch-capture-inputs.json", 
+      "evidenceSha256": "4d82aa2b4113278e2ff60a852d0166cd2de5b3e442b560e12f5bd128bb9519b0", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042b2e0", 
+      "after": "void __cdecl FUN_0042b2e0(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0042b2e0(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/initializeBoats-capture-inputs.json", 
+      "evidenceSha256": "0a09abf5b610786905ba778fccb7db4535b22a17e274968323e078a5b81ca626", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042c060", 
+      "after": "void __cdecl FUN_0042c060(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0042c060(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/configuration-capture-inputs.json", 
+      "evidenceSha256": "3653c60a8925825f15344d8bbceeca44579cd550216391b5761e05bc4a0d2d6a", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042d280", 
+      "after": "void __cdecl FUN_0042d280(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0042d280(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/ellipse-capture-inputs.json", 
+      "evidenceSha256": "658ca9c44bda4a14980904c9f829d2f387ba346494ad69b9e51a14bac69c6ef1", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042da80", 
+      "after": "void __cdecl FUN_0042da80(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0042da80(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/shoreline-capture-inputs.json", 
+      "evidenceSha256": "cb9c06916de30b318bb902ee706e52dbc8e198c73aa55e23b3272954c27bca8a", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042dea0", 
+      "after": "void __cdecl FUN_0042dea0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0042dea0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/initializeCourse-capture-inputs.json", 
+      "evidenceSha256": "a87cea8e1497e1c1ed166eb3229e3025ce9aeff215b84b01a3e6dc189cb66f77", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042f220", 
+      "after": "void __cdecl FUN_0042f220(int param_1, int param_2, int param_3, int param_4)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0042f220(int param_1, int param_2, int param_3, int param_4)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/projectPoint-capture-inputs.json", 
+      "evidenceSha256": "68b83da543b129c1c2ea89d45651286ee63754f3d02e717c681fe99096d850d4", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042f270", 
+      "after": "float10 __cdecl FUN_0042f270(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0042f270(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleShorelineMetric-capture-inputs.json", 
+      "evidenceSha256": "7513ea58b18cb68a8848b18d6e75f18f38157b7e344dd95f0aa2ebd56a92483d", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0042f330", 
+      "after": "float10 __cdecl FUN_0042f330(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0042f330(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleSpatialMetric-capture-inputs.json", 
+      "evidenceSha256": "d941f0d8ff6f891785e99be57797a37355ffcdcf6c04b5045b631f0b3bf43dc1", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0042f480", 
+      "after": "float10 __cdecl FUN_0042f480(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0042f480(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleRadialMetric-capture-inputs.json", 
+      "evidenceSha256": "099d614ace63bc1011be3caeceba6f9db08ec1d62a2dbdf49254595132f8e43e", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0042f530", 
+      "after": "void __cdecl FUN_0042f530(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0042f530(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/placeStartingBoats-capture-inputs.json", 
+      "evidenceSha256": "eeb969899bb48f71c813180bfb62efc61feb821238c3007bdad9f7d85fc80e0d", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0042fca0", 
+      "after": "int __cdecl FUN_0042fca0(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0042fca0(int x, int y, int boat)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleCurrent-capture-inputs.json", 
+      "evidenceSha256": "0ddccd9d67a7bcf09514de0b83fcf8648e31819bf96122b014170e6db4cf2d90", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00430260", 
+      "after": "int __cdecl FUN_00430260(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00430260(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleVenueCurrent-capture-inputs.json", 
+      "evidenceSha256": "69c56a0eeb23a2248e3d83a075f963e7111d1236080570deb8b6e46b291b077e", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00431200", 
+      "after": "void __cdecl FUN_00431200(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00431200(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/shorelineDirections-capture-inputs.json", 
+      "evidenceSha256": "57259784e43bd886557a31004b9e9997537a2c5beb21f79bd709eb353d92c902", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00431960", 
+      "after": "void __cdecl FUN_00431960(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00431960(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/reset-boat-capture-inputs.json", 
+      "evidenceSha256": "31245951839e3c72dca4e3b90247de94edf97b5992de98a8bea83864eb7b3539", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00434f70", 
+      "after": "void __cdecl FUN_00434f70(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00434f70(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateBoatWindAndAI-capture-inputs.json", 
+      "evidenceSha256": "4ef0662f91ae8ae3dfda345dd4ebbb8e05a37c6e119620e61c67bf1ea2cfa3e5", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00435f90", 
+      "after": "void __cdecl FUN_00435f90(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00435f90(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateTack-capture-inputs.json", 
+      "evidenceSha256": "b4fc764a975c2a0eaaf25770cc8eb2531370033c6379b5673d50e2daeb17d2f2", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00435fe0", 
+      "after": "int __cdecl FUN_00435fe0(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00435fe0(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/chooseDownwindHeading-capture-inputs.json", 
+      "evidenceSha256": "c6771c34eeb7929c3ce9dd8bc6399ee5867e5608dc7ef55261c6fb52217d95d7", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00436400", 
+      "after": "int __cdecl FUN_00436400(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00436400(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/scoreDownwindTurn-capture-inputs.json", 
+      "evidenceSha256": "c70b6677f735b734feb50e496aca950cbf5b29beced81b52cd3fcafb631e8a5f", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00436ba0", 
+      "after": "int __cdecl FUN_00436ba0(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00436ba0(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleSpatialWind-capture-inputs.json", 
+      "evidenceSha256": "df23588f305c6a67f596e0f08af265898dafec2ff05f60c69e6514cbc5777248", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00437520", 
+      "after": "void __cdecl FUN_00437520(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00437520(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/setClosehauledHeading-capture-inputs.json", 
+      "evidenceSha256": "cf2abf8e70681fab44db86e9af596e12bd7bfd4c5eec750d6de45674febdda59", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00437570", 
+      "after": "void __cdecl FUN_00437570(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00437570(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/advanceRaceTarget-capture-inputs.json", 
+      "evidenceSha256": "461c1d41ed35cefc528f93c4462cee6613608010ab5b389c4ac805b06b462be1", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00437d40", 
+      "after": "float10 __cdecl FUN_00437d40(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_00437d40(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/signedStartDistance-capture-inputs.json", 
+      "evidenceSha256": "ccca63c201330d16f4d10f083f50d10ca146f6df114418a726eecdc8559adb2c", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "00437e60", 
+      "after": "void __cdecl FUN_00437e60(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00437e60(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateUpwindTactics-capture-inputs.json", 
+      "evidenceSha256": "ca6b9f6014d3d7b9afe776bbb954a202badcf1d7f8a2aa046fc6a42b5a6cbfae", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00439100", 
+      "after": "void __cdecl FUN_00439100(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00439100(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateCollisionAvoidance-capture-inputs.json", 
+      "evidenceSha256": "d3b8586db410d3fc6d8c3066c5cbbfe98cfccdb842ac64dd84da8ce28db7fe20", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004391f0", 
+      "after": "void __cdecl FUN_004391f0(int param_1, int param_2, int param_3, int param_4)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004391f0(int param_1, int param_2, int param_3, int param_4)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/avoidAiCollision-capture-inputs.json", 
+      "evidenceSha256": "92259655a35f71e192d8eb184dda4727d5d8e45e8edaf007c2f67f9529a81100", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00439a30", 
+      "after": "void __cdecl FUN_00439a30(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00439a30(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/warnHumanRightOfWay-capture-inputs.json", 
+      "evidenceSha256": "062eb2ae862b8a4a7900db18971446a38abdd78a3f23ac7389e892f27f8822fc", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00439df0", 
+      "after": "void __cdecl FUN_00439df0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00439df0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/requestRightOfWaySound-capture-inputs.json", 
+      "evidenceSha256": "dd4ef56513fccb9d9d9b3232299c71d9239e832182a67af676ffe4811b01e1bc", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00439e80", 
+      "after": "float10 __cdecl FUN_00439e80(int param_1, double param_2, double param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "F64", 
+        "F64"
+      ], 
+      "before": "float10 __cdecl FUN_00439e80(int param_1, double param_2, double param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/distance-capture-inputs.json", 
+      "evidenceSha256": "f788ebbd944a42b099928aacfb892b97b001a811e64eee86bbadf86fea15ef93", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0043a030", 
+      "after": "void __cdecl FUN_0043a030(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043a030(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateBoatDynamics-capture-inputs.json", 
+      "evidenceSha256": "7ea6a306101c8377d219bab82c422ffc7cd6d7229c46546cd4d341681860573b", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043bb70", 
+      "after": "float10 __cdecl FUN_0043bb70(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0043bb70(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/apparent-wind-capture-inputs.json", 
+      "evidenceSha256": "3893a6d21066b5a002efba1e2d8e7c1b1af0d699285c7cf51b24280a0eb82404", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0043be00", 
+      "after": "void __cdecl FUN_0043be00(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043be00(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateInterference-capture-inputs.json", 
+      "evidenceSha256": "258bc3d24eb2c6ace9f9b58e66b8740441ce96d5856d5ee477d53958c6087276", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043c140", 
+      "after": "void __cdecl FUN_0043c140(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043c140(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateSpinnakerDrag-capture-inputs.json", 
+      "evidenceSha256": "9b9d2329096da7f0200d75fa50eae9bf20f44a177ffac5bf8d568baaf599648f", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043c1e0", 
+      "after": "void __cdecl FUN_0043c1e0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043c1e0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateMarkStartPenalties-capture-inputs.json", 
+      "evidenceSha256": "35f74880461b0c5aaa3773d74b75ce947dc1147b37de6ce9a93db4815a78d4fe", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043c2c0", 
+      "after": "int __cdecl FUN_0043c2c0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0043c2c0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/prestartSpeedPercent-capture-inputs.json", 
+      "evidenceSha256": "89a6ddf33530388c9e858d1df3ab8ffebab86180a6c6595dd507539a306ae35d", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0043c440", 
+      "after": "void __cdecl FUN_0043c440(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043c440(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/collisionPenalty-capture-inputs.json", 
+      "evidenceSha256": "6c04d83695b29f0f64395c6279880427886e3722c6d53f093407934b97091002", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043c980", 
+      "after": "void __cdecl FUN_0043c980(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043c980(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/respawnNearStart-capture-inputs.json", 
+      "evidenceSha256": "1823975003b958195ee88bbab295f369e14b296765bab1adcebd44bc5e58642b", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043ca40", 
+      "after": "void __cdecl FUN_0043ca40(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043ca40(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/shiftPenaltyPosition-capture-inputs.json", 
+      "evidenceSha256": "bb746ff5ecd15d34493c91b90cec88090b6721344d25a0d6809f0b53048532f3", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043ccf0", 
+      "after": "int __cdecl FUN_0043ccf0(int param_1, int param_2)", 
+      "argumentTypes": [
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0043ccf0(int param_1, int param_2)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/checkNearRaceMarks-capture-inputs.json", 
+      "evidenceSha256": "399353f53ae5e66da722b7a34396b1c31288782e7edda82ba3d89a061be4b7a6", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0043cf60", 
+      "after": "void __cdecl FUN_0043cf60(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_0043cf60(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/retained-integration-modes-capture-inputs.json", 
+      "evidenceSha256": "4e25cbab2f6b69db599922a893f8d19bc327a55bec488cdb3c5202246fc7b225", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043df50", 
+      "after": "int __cdecl FUN_0043df50(void)", 
+      "argumentTypes": [], 
+      "before": "int __cdecl FUN_0043df50(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updatePlayer1Steering-capture-inputs.json", 
+      "evidenceSha256": "6a77d37e00baa8b6b638017e293de294bf7ddff15dcfceac41af8dcb2f105814", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0043e160", 
+      "after": "int __cdecl FUN_0043e160(void)", 
+      "argumentTypes": [], 
+      "before": "int __cdecl FUN_0043e160(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updatePlayer1Rudder-capture-inputs.json", 
+      "evidenceSha256": "23139b7b785be1166bf93acba5194136cbe08d722d6f448ec142c9853348db1f", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0043e510", 
+      "after": "int __cdecl FUN_0043e510(void)", 
+      "argumentTypes": [], 
+      "before": "int __cdecl FUN_0043e510(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updatePlayer2Steering-capture-inputs.json", 
+      "evidenceSha256": "0bb30d6239442c51ac06629794725b2a7e7fe33229a5e37852f0b272d8bb9986", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0043e730", 
+      "after": "void __cdecl FUN_0043e730(int param_1, double param_2, double param_3, int param_4, int param_5)", 
+      "argumentTypes": [
+        "I32", 
+        "F64", 
+        "F64", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043e730(int param_1, double param_2, double param_3, int param_4, int param_5)", 
+      "evidence": "original packed caller/leaf assembly", 
+      "evidenceSha256": null, 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043ea10", 
+      "after": "float10 __cdecl FUN_0043ea10(double param_1, double param_2, int param_3)", 
+      "argumentTypes": [
+        "F64", 
+        "F64", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0043ea10(double param_1, double param_2, int param_3)", 
+      "evidence": "original packed caller/leaf assembly", 
+      "evidenceSha256": null, 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0043eb00", 
+      "after": "void __cdecl FUN_0043eb00(double param_1, int param_2, double param_3, double param_4, int param_5)", 
+      "argumentTypes": [
+        "F64", 
+        "I32", 
+        "F64", 
+        "F64", 
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0043eb00(double param_1, int param_2, double param_3, double param_4, int param_5)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0043ec20", 
+      "after": "float10 __cdecl FUN_0043ec20(double param_1, double param_2, int param_3, int param_4)", 
+      "argumentTypes": [
+        "F64", 
+        "F64", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0043ec20(double param_1, double param_2, int param_3, int param_4)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "00440350", 
+      "after": "int __cdecl FUN_00440350(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00440350(int param_1)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00441400", 
+      "after": "void __cdecl FUN_00441400(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00441400(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/wind-sources-capture-inputs.json", 
+      "evidenceSha256": "f63bd2d36913554da5edf45eba0d9df876dd13e742aedfbaa419f7740fa86861", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004432b0", 
+      "after": "void __cdecl FUN_004432b0(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_004432b0(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/updateWaveMotion-capture-inputs.json", 
+      "evidenceSha256": "6d4de922f545896a1bee1773463a5590d0ddbb2d0c4d9095a0ba69b6fe1961e7", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00444760", 
+      "after": "void __cdecl FUN_00444760(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00444760(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/trails-capture-inputs.json", 
+      "evidenceSha256": "00937d4c44c65787e956caad3ad655b08abae25fca2bf0c9596eea86af42e9cb", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00464a30", 
+      "after": "void __cdecl FUN_00464a30(void)", 
+      "argumentTypes": [], 
+      "before": "void __cdecl FUN_00464a30(void)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/advanced-terrain-capture-inputs.json", 
+      "evidenceSha256": "99fc44bf1dd3a12e271608a05663e3c485b5e8b22871b1156a87d963d4b17c59", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00465e10", 
+      "after": "void __cdecl FUN_00465e10(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00465e10(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/waypoint-history-capture-inputs.json", 
+      "evidenceSha256": "8bc161930d3f8b5701cdfaa902a1b1799fa199d9b04cf185deec81ec55f247b4", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00465ff0", 
+      "after": "void __cdecl FUN_00465ff0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00465ff0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/respawn-waypoint-capture-inputs.json", 
+      "evidenceSha256": "4e8a3f0062b4fed90e12f728cbceee72f93d08294a16f8ae4783a2a8909902c3", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00466230", 
+      "after": "float10 __cdecl FUN_00466230(double param_1, double param_2, int param_3)", 
+      "argumentTypes": [
+        "F64", 
+        "F64", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_00466230(double param_1, double param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/nearest-waypoint-capture-inputs.json", 
+      "evidenceSha256": "069c215401fa1800e786e80a30377b9c6263c45204561e6fff3ac8bcc61cd5dd", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "004662d0", 
+      "after": "float10 __cdecl FUN_004662d0(double param_1, double param_2, double param_3, double param_4)", 
+      "argumentTypes": [
+        "F64", 
+        "F64", 
+        "F64", 
+        "F64"
+      ], 
+      "before": "float10 __cdecl FUN_004662d0(double param_1, double param_2, double param_3, double param_4)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/clamped-point-distance-capture-inputs.json", 
+      "evidenceSha256": "1170a2d4a26942fa4bd3aac26c7b29d93413c741b38136b5871c52b8105d6ebc", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "004676f0", 
+      "after": "void __cdecl FUN_004676f0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004676f0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-1-point-capture-inputs.json", 
+      "evidenceSha256": "10d4de04fa73dbae377778ab58caa4ff5fbb92f956cf7e1cb8a82b7b7705c4c0", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004711b0", 
+      "after": "void __cdecl FUN_004711b0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004711b0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-2-point-capture-inputs.json", 
+      "evidenceSha256": "1447cb7d9229652f5f4efca2d335ed4becc6b67b9acf7a3111de87ebb62cacc5", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00471f40", 
+      "after": "void __cdecl FUN_00471f40(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00471f40(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-3-point-capture-inputs.json", 
+      "evidenceSha256": "cfe7377859414b0253a818c58f71a0451d1e8ed29e68fe098c9da66ad9e0c342", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004729d0", 
+      "after": "void __cdecl FUN_004729d0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004729d0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-4-point-capture-inputs.json", 
+      "evidenceSha256": "63d3d6fd6abba23ee396b4a5b1bef63ad498078e420b7682f6ececbbac943e69", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004732c0", 
+      "after": "void __cdecl FUN_004732c0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004732c0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-6-point-capture-inputs.json", 
+      "evidenceSha256": "52134ff82412ce812d98cc47693441923a9ad20a4304f77f6b715a595a6352ff", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00473ed0", 
+      "after": "void __cdecl FUN_00473ed0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00473ed0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-7-point-capture-inputs.json", 
+      "evidenceSha256": "266cdc99ccae839db3fc703269090c08b056161299122b349421607437fddba4", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00474b60", 
+      "after": "void __cdecl FUN_00474b60(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00474b60(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-10-point-capture-inputs.json", 
+      "evidenceSha256": "fabe7151455de839d5f0401b145ba2b2bbd90370f2bcaa6be5fab45f94bbe135", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004756c0", 
+      "after": "void __cdecl FUN_004756c0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004756c0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-9-point-capture-inputs.json", 
+      "evidenceSha256": "6c584bf3d382a8202713f265d6f9b6094577809f33f675d94624f59625f12611", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "004762a0", 
+      "after": "void __cdecl FUN_004762a0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_004762a0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-12-point-capture-inputs.json", 
+      "evidenceSha256": "34b1d03d3603e0a2308a194fef24f755780c548925c5679e0a938e509f5a0692", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00476db0", 
+      "after": "void __cdecl FUN_00476db0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00476db0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-11-point-capture-inputs.json", 
+      "evidenceSha256": "7fa5a4dcdacad1fc957a40ea8736c50281aa78315464ef126a9536d4e6c5fb61", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00477b00", 
+      "after": "void __cdecl FUN_00477b00(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00477b00(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-102-point-capture-inputs.json", 
+      "evidenceSha256": "a1ecf142dfa026157ec49e36612c3de60a2b79fed182800cf5958df6a4e8bafd", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00478760", 
+      "after": "void __cdecl FUN_00478760(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00478760(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-106-point-capture-inputs.json", 
+      "evidenceSha256": "8c2d45aad4cd6c397c2024dc22057f242b4e5294dac87c21f064020ce71718d4", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00479120", 
+      "after": "void __cdecl FUN_00479120(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00479120(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-101-point-capture-inputs.json", 
+      "evidenceSha256": "738d3bf0f5e56db8ca5e190817ade87cdec83307f1ea2b2aa16e552d5782c742", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "00479e00", 
+      "after": "void __cdecl FUN_00479e00(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_00479e00(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-100-point-capture-inputs.json", 
+      "evidenceSha256": "70d2e4b53381f432cae4335c2d15f4586d8385373f09777ead3bc0b34179954d", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0047aa70", 
+      "after": "void __cdecl FUN_0047aa70(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0047aa70(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-104-point-capture-inputs.json", 
+      "evidenceSha256": "f2df82768c424af6849d7264e15bae0eb98600ae1547e0357485d7ff20d82402", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0047b5d0", 
+      "after": "void __cdecl FUN_0047b5d0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0047b5d0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-105-point-capture-inputs.json", 
+      "evidenceSha256": "bac002476156e4c0b17d0d7bcb046a0d419fab2a8a10f4749ad3c1a45becd8b3", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0047c240", 
+      "after": "void __cdecl FUN_0047c240(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0047c240(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/venue-103-point-capture-inputs.json", 
+      "evidenceSha256": "56a36d69350ed69fa1ef656ad833ecb9ed990e8a1f133d65a690e74062500eb1", 
+      "returnType": "void"
+    }, 
+    {
+      "address": "0047d5f0", 
+      "after": "float10 __cdecl FUN_0047d5f0(int param_1, int param_2, int param_3, int param_4, int param_5)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_0047d5f0(int param_1, int param_2, int param_3, int param_4, int param_5)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleVenueMetric-capture-inputs.json", 
+      "evidenceSha256": "f3566084d7783be8569df6fedc62070734e32f11e459ce635fccae85781df5f1", 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "0047def0", 
+      "after": "int __cdecl FUN_0047def0(int param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7, int param_8)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0047def0(int param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7, int param_8)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/pointInXStrip-capture-inputs.json", 
+      "evidenceSha256": "efa47cc37b307b6f00776f403d3356b574dee03f32665b30feda48cb427fc36c", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0047dfa0", 
+      "after": "int __cdecl FUN_0047dfa0(int param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7, int param_8)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_0047dfa0(int param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7, int param_8)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/pointInYStrip-capture-inputs.json", 
+      "evidenceSha256": "203613c51ddd597d10046507200724fc06febdf03713e97f412a224748343ad0", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00481350", 
+      "after": "float10 __cdecl FUN_00481350(int param_1, int param_2, int param_3, int param_4)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "float10 __cdecl FUN_00481350(int param_1, int param_2, int param_3, int param_4)", 
+      "evidence": "original caller/entry assembly", 
+      "evidenceSha256": null, 
+      "returnType": "float10"
+    }, 
+    {
+      "address": "00488b90", 
+      "after": "int __cdecl FUN_00488b90(int param_1, int param_2, int param_3, int param_4)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00488b90(int param_1, int param_2, int param_3, int param_4)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleAttenuationDistance-capture-inputs.json", 
+      "evidenceSha256": "0451330ee7dac406eac0597d50cbcc3358dc4acbc064c37f317cd05e57ef7f20", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "00488d70", 
+      "after": "int __cdecl FUN_00488d70(int param_1, int param_2, int param_3)", 
+      "argumentTypes": [
+        "I32", 
+        "I32", 
+        "I32"
+      ], 
+      "before": "int __cdecl FUN_00488d70(int param_1, int param_2, int param_3)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/sampleVenueWind-capture-inputs.json", 
+      "evidenceSha256": "1a03e32c56be72ffd91b7f5d8eebc0002c109c7fcf91dfb1da3d6b59650a3e01", 
+      "returnType": "I32"
+    }, 
+    {
+      "address": "0048b8a0", 
+      "after": "void __cdecl FUN_0048b8a0(int param_1)", 
+      "argumentTypes": [
+        "I32"
+      ], 
+      "before": "void __cdecl FUN_0048b8a0(int param_1)", 
+      "evidence": "/home/martin/tact/versions/2010-en/analysis/custom-venue-capture-inputs.json", 
+      "evidenceSha256": "331608aab6129357197cc95bb80fa76f64e88a560c0ca75ef1b5c1cc6ed7c029", 
+      "returnType": "void"
+    }
+  ], 
+  "scope": "Decompiler metadata only; original instructions unchanged. Finite representable conversion model; flags/traps require separate native reference.", 
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+}

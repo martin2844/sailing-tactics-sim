@@ -1,0 +1,214 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "allFixtureCasesMatch": true,
+  "cases": 480,
+  "originalRoutines": 10,
+  "mutableBlock": {
+    "address": 5087232,
+    "bytes": 394632
+  },
+  "comparison": "Independent original data and JS integer trig; every mutable byte/hash, all36 semantic global CStrings, RNG and ordered drawing requests. No tolerances.",
+  "scope": "Finite standalone cases of these ten routines. Broader scene, chart, HUD and connected-frame behavior requires separate proof.",
+  "groups": [
+    {
+      "routine": {
+        "address": 4286736,
+        "name": "demo",
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-demo.json",
+      "fixtureSha256": "aa92f50c3085a12c8093c76169e52da3df766a0399b85f5042033a9cff10adf8",
+      "cases": 48,
+      "orderedDrawingRequests": 1200,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "ab7440ba11f6e16219bace81d0bd8ce1d36354e16973d5b3994bab74e1c50479",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4361072,
+        "name": "results",
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-results.json",
+      "fixtureSha256": "1f0ba3486e8de944f41002ff4993ad7f8bccc9651e8939d1e466619bba2ac96b",
+      "cases": 48,
+      "orderedDrawingRequests": 1632,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "ab7440ba11f6e16219bace81d0bd8ce1d36354e16973d5b3994bab74e1c50479",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4220304,
+        "name": "advice",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-advice.json",
+      "fixtureSha256": "b307c872d5de5e47a7dfc9d3babf268f7a9eabc58fbe56e21244aa9cb1a9c292",
+      "cases": 48,
+      "orderedDrawingRequests": 384,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "20c75075fcef49915f2b4afd4e664eba504f67b50c9ce63f660da90f59d96bae",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4220544,
+        "name": "jibe",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-jibe.json",
+      "fixtureSha256": "547c7a9715f2a814973d09d924edd6f3e4c3a58761a43b6eaf7b8ef9a26a8a51",
+      "cases": 48,
+      "orderedDrawingRequests": 96,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "9191f6b569ea180e26c6d5507c3a9b5cab21c3c10049defe78e82fd33bf4e200",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4222528,
+        "name": "tack",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-tack.json",
+      "fixtureSha256": "e1cc9db0787d860d80f5c57693fab4749a4c548fa813f10b8cd07e2417d81906",
+      "cases": 48,
+      "orderedDrawingRequests": 96,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "044bb3b58eca897a05f561a5e6588eed831632947f689d402b3c1be6f8228601",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4322272,
+        "name": "text-color",
+        "argumentTypes": [
+          "CDC",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-text-color.json",
+      "fixtureSha256": "10d4d3c55e534316f1b9bad261b04c11d8cdd7d7712996311b4797fc2c839263",
+      "cases": 48,
+      "orderedDrawingRequests": 45,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "2926a685cb9544089385cfb97a135bb46f415c772983bdb5646e7c8d066b6288",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4603024,
+        "name": "advance-button",
+        "argumentTypes": [
+          "CDC",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-advance-button.json",
+      "fixtureSha256": "d89acfd8ad5d3685707535ee892dc6955b9e9e90555bd7925f44d6a804782ff6",
+      "cases": 48,
+      "orderedDrawingRequests": 360,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "2926a685cb9544089385cfb97a135bb46f415c772983bdb5646e7c8d066b6288",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4603376,
+        "name": "advance-hint",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-advance-hint.json",
+      "fixtureSha256": "172d80ef43bfb8ba030be5d3f762b0370bb6c19f09768ba71599b5b48a2e7947",
+      "cases": 48,
+      "orderedDrawingRequests": 108,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "7109c9eb48eded37d814d315cadd960158f74c1998251446f5499b54ca903680",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4454896,
+        "name": "depth-sort",
+        "argumentTypes": [
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-depth-sort.json",
+      "fixtureSha256": "f5a04863f1e68a19a24ebea1c23e22d1c1bfb377fa625116a8dcdc999892323b",
+      "cases": 48,
+      "orderedDrawingRequests": 0,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "232f7dcb67a2ff261930218e01242134dca162433642edda79704374facc8e00",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4455008,
+        "name": "depth-select",
+        "argumentTypes": [
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-depth-select.json",
+      "fixtureSha256": "b216961fd56fede4f51b9a1909b6fe16d863ff36e1283cdf8e65420885d5cff7",
+      "cases": 48,
+      "orderedDrawingRequests": 0,
+      "runnerSourceSha256": "04d08dd2c776fa779b6b0bda281e5c70f1e0abbebe0e7abe5638d2a62c3defb7",
+      "runnerSha256": "81e9cdebebe4a65330c7203344ac0b773f4ddc5f37f787bc430577920649518a",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    }
+  ]
+}

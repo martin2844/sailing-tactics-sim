@@ -1,0 +1,828 @@
+[
+  {
+    "resource_id": 100,
+    "language": 1041,
+    "style": 2160591040,
+    "extended_style": 0,
+    "control_count": 5,
+    "rect_dialog_units": [
+      0,
+      0,
+      217,
+      55
+    ],
+    "menu": null,
+    "window_class": null,
+    "title": "About TACT",
+    "font": {
+      "point_size": 8,
+      "face": "MS Sans Serif"
+    },
+    "controls": [
+      {
+        "id": 65535,
+        "style": 1342177283,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          11,
+          17,
+          20,
+          20
+        ],
+        "class": {
+          "ordinal": 130
+        },
+        "class_name": "static",
+        "title": {
+          "ordinal": 128
+        },
+        "creation_data_hex": ""
+      },
+      {
+        "id": 65535,
+        "style": 1342308480,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          40,
+          10,
+          119,
+          8
+        ],
+        "class": {
+          "ordinal": 130
+        },
+        "class_name": "static",
+        "title": "Sailing Tactics Simulator",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 65535,
+        "style": 1342308352,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          42,
+          30,
+          143,
+          11
+        ],
+        "class": {
+          "ordinal": 130
+        },
+        "class_name": "static",
+        "title": "Copyright (C) 1998 -2009 by C. Dennis Posey",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 65535,
+        "style": 1342308352,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          43,
+          41,
+          71,
+          12
+        ],
+        "class": {
+          "ordinal": 130
+        },
+        "class_name": "static",
+        "title": "Japanese: Ma-chan",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1,
+        "style": 1342373889,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          178,
+          7,
+          32,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "OK",
+        "creation_data_hex": ""
+      }
+    ]
+  },
+  {
+    "resource_id": 131,
+    "language": 1041,
+    "style": 2160591040,
+    "extended_style": 0,
+    "control_count": 9,
+    "rect_dialog_units": [
+      0,
+      0,
+      200,
+      106
+    ],
+    "menu": null,
+    "window_class": null,
+    "title": "Select Boat 2 relative speed",
+    "font": {
+      "point_size": 8,
+      "face": "MS Sans Serif"
+    },
+    "controls": [
+      {
+        "id": 1,
+        "style": 1342242817,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          143,
+          7,
+          50,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "OK",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 2,
+        "style": 1342242816,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          143,
+          24,
+          50,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Cancel",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1000,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          12,
+          113,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Boat 2 much faster than boat 1",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1001,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          25,
+          94,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Boat 2 significantly faster",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1002,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          37,
+          79,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Boat 2 slightly faster",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1003,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          51,
+          55,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Equal speed",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1004,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          65,
+          79,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Boat 1 slightly faster",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1005,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          77,
+          94,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Boat 1 significantly faster",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1006,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          9,
+          89,
+          75,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Boat 1 much faster",
+        "creation_data_hex": ""
+      }
+    ]
+  },
+  {
+    "resource_id": 132,
+    "language": 1041,
+    "style": 2160591040,
+    "extended_style": 0,
+    "control_count": 21,
+    "rect_dialog_units": [
+      0,
+      0,
+      308,
+      162
+    ],
+    "menu": null,
+    "window_class": null,
+    "title": "Design Options",
+    "font": {
+      "point_size": 8,
+      "face": "MS Sans Serif"
+    },
+    "controls": [
+      {
+        "id": 1,
+        "style": 1342242817,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          243,
+          106,
+          50,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "OK",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 2,
+        "style": 1342242816,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          244,
+          135,
+          50,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Cancel",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1007,
+        "style": 1342177287,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          19,
+          33,
+          43,
+          105
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Length",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1008,
+        "style": 1342308361,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          25,
+          50,
+          30,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "20 ft",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1009,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          25,
+          64,
+          30,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "25 ft",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1010,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          25,
+          78,
+          30,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "30 ft",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1011,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          25,
+          92,
+          30,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "35 ft",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1012,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          25,
+          106,
+          30,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "40 ft",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1013,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          25,
+          121,
+          30,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "50 ft",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1014,
+        "style": 1342308359,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          73,
+          33,
+          59,
+          85
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Displacement",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1015,
+        "style": 1342308361,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          77,
+          49,
+          50,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Heavy",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1016,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          77,
+          65,
+          47,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Moderate",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1017,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          77,
+          83,
+          32,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Light",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1018,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          77,
+          101,
+          50,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Ultra Light",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1019,
+        "style": 1342177287,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          143,
+          33,
+          78,
+          61
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Sail Area",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1020,
+        "style": 1342308361,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          147,
+          48,
+          53,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Lots of Sail",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1021,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          147,
+          64,
+          43,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Average",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1022,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          147,
+          80,
+          77,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Less than Average",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1023,
+        "style": 1342177287,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          232,
+          34,
+          61,
+          48
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Rig",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1024,
+        "style": 1342308361,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          236,
+          47,
+          55,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Fractional",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1025,
+        "style": 1342177289,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          236,
+          65,
+          48,
+          10
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Masthead",
+        "creation_data_hex": ""
+      }
+    ]
+  },
+  {
+    "resource_id": 154,
+    "language": 1033,
+    "style": 2160591040,
+    "extended_style": 0,
+    "control_count": 2,
+    "rect_dialog_units": [
+      0,
+      0,
+      186,
+      90
+    ],
+    "menu": null,
+    "window_class": null,
+    "title": "Dialog",
+    "font": {
+      "point_size": 8,
+      "face": "MS Sans Serif"
+    },
+    "controls": [
+      {
+        "id": 1,
+        "style": 1342242817,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          129,
+          7,
+          50,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "OK",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 2,
+        "style": 1342242816,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          129,
+          24,
+          50,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Cancel",
+        "creation_data_hex": ""
+      }
+    ]
+  },
+  {
+    "resource_id": 30721,
+    "language": 1033,
+    "style": 2160591044,
+    "extended_style": 0,
+    "control_count": 5,
+    "rect_dialog_units": [
+      9,
+      26,
+      183,
+      70
+    ],
+    "menu": null,
+    "window_class": null,
+    "title": "New",
+    "font": {
+      "point_size": 8,
+      "face": "MS Sans Serif"
+    },
+    "controls": [
+      {
+        "id": 65535,
+        "style": 1342177280,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          6,
+          5,
+          123,
+          8
+        ],
+        "class": {
+          "ordinal": 130
+        },
+        "class_name": "static",
+        "title": "&New ",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 100,
+        "style": 1352728577,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          6,
+          15,
+          125,
+          49
+        ],
+        "class": {
+          "ordinal": 131
+        },
+        "class_name": "listbox",
+        "title": null,
+        "creation_data_hex": ""
+      },
+      {
+        "id": 1,
+        "style": 1342242817,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          137,
+          6,
+          40,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "OK",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 2,
+        "style": 1342242816,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          137,
+          23,
+          40,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "Cancel",
+        "creation_data_hex": ""
+      },
+      {
+        "id": 57670,
+        "style": 1342242816,
+        "extended_style": 0,
+        "rect_dialog_units": [
+          137,
+          43,
+          40,
+          14
+        ],
+        "class": {
+          "ordinal": 128
+        },
+        "class_name": "button",
+        "title": "&Help",
+        "creation_data_hex": ""
+      }
+    ]
+  }
+]

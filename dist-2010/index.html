@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sailing Tactics Simulator 2010 English</title>
+  <link rel="icon" href="versions/2010-en/assets/images/icon-1-1033.png"><link rel="stylesheet" href="src/play.css">
+  <script type="module" src="versions/2010-en/src/play.js"></script>
+</head>
+<body>
+  <main class="simulator">
+    <header class="title-bar"><img src="versions/2010-en/assets/images/icon-1-1033.png" width="16" height="16" alt=""><span>Sailing Tactics Simulator 2010 English</span></header>
+    <nav id="menus" class="menu-bar" aria-label="Simulator menus"></nav>
+    <div id="canvas-wrap"><canvas id="race" width="1024" height="730" tabindex="0" aria-label="Sailing race. Press Space to begin. Use the simulator menus for controls and help."></canvas></div>
+    <footer><span id="status" role="status">Loading simulator…</span><button id="sound" type="button" aria-pressed="false">Sound off</button><button id="fullscreen" type="button">Full screen</button></footer>
+    <p id="error" role="alert" hidden></p>
+  </main>
+  <dialog id="original-dialog"><form method="dialog"><h1 id="dialog-title"></h1><div id="dialog-controls"></div></form></dialog>
+</body>
+</html>

@@ -1,0 +1,622 @@
+{
+  "target": "Posey2010-English-native-JavaScript",
+  "originalSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "files": [
+    {
+      "path": "assets/data/system-font.json",
+      "bytes": 2804,
+      "sha256": "3befeb127a5279f12e79f5a35edd8e8aa6c2e848400a9a01100c699251b7a553"
+    },
+    {
+      "path": "assets/font-source/system.sfd",
+      "bytes": 97201,
+      "sha256": "88596900ca3df8dcf6ef257793a3b52baf666cc7f72140598bd2aef4787e9a41"
+    },
+    {
+      "path": "assets/images/system-font-glyphs.png",
+      "bytes": 3243,
+      "sha256": "80450cefd907382ad0660f0084d6aeb3b49ee1d0b486bca4f483c5319afae4bf"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1273,
+      "sha256": "6dc4fd973bad653a6c639964f0cd7149df3dfadfe1e47f3afd284c25f0729231"
+    },
+    {
+      "path": "LICENSES/Wine-LGPL-2.1.txt",
+      "bytes": 26434,
+      "sha256": "e237fa56668030e928551ddd60f05df5fe957f75eab874bbd017e085ed722e7c"
+    },
+    {
+      "path": "play.html",
+      "bytes": 1273,
+      "sha256": "6dc4fd973bad653a6c639964f0cd7149df3dfadfe1e47f3afd284c25f0729231"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 580,
+      "sha256": "1b23deaef2852fc6c68959f22aca77c7cc2c211628b721d563ab115f7273c221"
+    },
+    {
+      "path": "serve.mjs",
+      "bytes": 2478,
+      "sha256": "1f79225b8074eef83f9982779f0c8fd996001397c5663afcb0bf2b8a88bbe4ce"
+    },
+    {
+      "path": "src/engine/integer-core.js",
+      "bytes": 3073,
+      "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633"
+    },
+    {
+      "path": "src/play.css",
+      "bytes": 3334,
+      "sha256": "8d4d49f1625db84aba2e40463935629d76ca71f75f43e04a7d0cf9ba36c0ca09"
+    },
+    {
+      "path": "src/render/bitmap-font.js",
+      "bytes": 2799,
+      "sha256": "d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3"
+    },
+    {
+      "path": "src/render/gdi.js",
+      "bytes": 10348,
+      "sha256": "a3cfab0bf06af24f44a320a2fe90c0bcf0be096f4cd5bc0ff422699e04c2a955"
+    },
+    {
+      "path": "src/runtime/atan.js",
+      "bytes": 2613,
+      "sha256": "e790c4353052bca3c438190ec2f03d742a13c87eec6af921b08bf2dde5db71b0"
+    },
+    {
+      "path": "src/runtime/c-types.js",
+      "bytes": 3251,
+      "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "bytes": 11605,
+      "sha256": "a71e5aff8342af6bf603d03b07a827a3f71aaa6ba97effb09760fca1c224d5bc"
+    },
+    {
+      "path": "src/runtime/index.js",
+      "bytes": 59,
+      "sha256": "cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72"
+    },
+    {
+      "path": "src/runtime/memory.js",
+      "bytes": 7100,
+      "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
+    },
+    {
+      "path": "src/runtime/transcendentals.js",
+      "bytes": 3882,
+      "sha256": "f74b7269d8e6e29704eb18ecd370157d71d44e266dea1338d53f217dd6c493bb"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "bytes": 750,
+      "sha256": "378956d460b5e184030cb88441a966aa71dd1656e4fdf6c1d5e354d93fd666d5"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-134-1033.wav",
+      "bytes": 2788,
+      "sha256": "6bb87477ac5ab9742787de177e3368eeaf0402e8dc1f19b90c67443457b659e8"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-135-1033.wav",
+      "bytes": 18600,
+      "sha256": "cfc9849f08c5b42a7053799145c6991f1130dfb6cc95b1bf2c9e7d5f4407c018"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-136-1033.wav",
+      "bytes": 66854,
+      "sha256": "67655fa44a8fcaf1417564f6c2ff086e7beeb53a6619a70ed0d4cb9460656b29"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-137-1033.wav",
+      "bytes": 46746,
+      "sha256": "61ed840264a31496db94c22c095ade19cb36e8bc19ae50579e00ee1eb67c1168"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-138-1033.wav",
+      "bytes": 91064,
+      "sha256": "0ee8ecf9c090fd20b6e66b17160e9d214bad78e678b275c000e7e5b537a53141"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-139-1033.wav",
+      "bytes": 80144,
+      "sha256": "bb082d58061a47f616e1c46268f321a7856cbbb87ec9f5605215a4602e04bc07"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-140-1033.wav",
+      "bytes": 10974,
+      "sha256": "41c6118cd06c257933cc7fc543e8452a6765575be69c08e7d8ceb740b941ff91"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-141-1033.wav",
+      "bytes": 14508,
+      "sha256": "36d9dcaf5f77fb07a330da9597be2ee8d277b80b8f52675c911c0b09ab4e2f6c"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-142-1033.wav",
+      "bytes": 4280,
+      "sha256": "affbf2447b309f8454169d06dcfab675707bbe1610458a28b2de98d4ac1c292d"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-151-1033.wav",
+      "bytes": 31368,
+      "sha256": "6434339d3303a0ec4f3fa1f19d5a76980eac2b886f3b657bb4cf75dee582dda3"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-152-1033.wav",
+      "bytes": 33454,
+      "sha256": "2a335db495abbf4c06bb2a07befea35ad0875bb2521ba01fe838d64a9ad5bd0a"
+    },
+    {
+      "path": "versions/2010-en/assets/audio/wave-153-1033.wav",
+      "bytes": 5520,
+      "sha256": "25fafb4574b0aa42ba189c0929d7b5193b9cc321b7b386d664dbd89770820ecc"
+    },
+    {
+      "path": "versions/2010-en/assets/data/initial-shoreline-stack.json",
+      "bytes": 2162,
+      "sha256": "4834efd3d4f08f8535828888fd8e3515cd90662acacb6571a6ad0e4c087865fb"
+    },
+    {
+      "path": "versions/2010-en/assets/data/original-constants.bin",
+      "bytes": 72704,
+      "sha256": "b7bb7a445e8d1342cd99094fd4d914b964caeb424a84d3b651b29336b3c39d76"
+    },
+    {
+      "path": "versions/2010-en/assets/data/original-english-data.bin",
+      "bytes": 466432,
+      "sha256": "19df0a1a84d908cd1a78765a8380480be3487c4b3a987da02478c80e6a452216"
+    },
+    {
+      "path": "versions/2010-en/assets/data/original-initial-state.bin",
+      "bytes": 394632,
+      "sha256": "dddcfbf8acf3e2dcc09ef61ae6d760bab1f849673006617bcfd9082708312a8d"
+    },
+    {
+      "path": "versions/2010-en/assets/data/original-memory.json",
+      "bytes": 1286,
+      "sha256": "e03604b4b469035688d5ba5084868b6b824995cd3751a1b5dddfb941d05b2929"
+    },
+    {
+      "path": "versions/2010-en/assets/data/trig-tables.json",
+      "bytes": 7509,
+      "sha256": "286a3ac745338261c6724fd87ecad9977fe7c9e33b906dd69697b6678644b2a4"
+    },
+    {
+      "path": "versions/2010-en/assets/data/x87-stored-trig.json",
+      "bytes": 228556,
+      "sha256": "6746c78774b8f06ed4b328f97ada290ba543d67f9c1a7792d3657ec99fdd88a1"
+    },
+    {
+      "path": "versions/2010-en/assets/data/x87-trig.json",
+      "bytes": 228558,
+      "sha256": "9e4543a6da92c2e56a162e133f5dfbc41e8e1ce1936ace3fa7dbdda99761d361"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-26567-1033.bmp",
+      "bytes": 1522,
+      "sha256": "e91236f7d764158a97a6899c70fde0730c0d816c936caefbcb4186a78e5ad3e3"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-26567-1033.png",
+      "bytes": 628,
+      "sha256": "723f1f9c8d5bd49cfb68bb6d79def9bd75efbf0645dc529fc10571b5da5deb81"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-30994-1033.bmp",
+      "bytes": 198,
+      "sha256": "baf0520b920913155bcbede3d0ff5fae3a3506566de13a501f9aca07c15f9745"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-30994-1033.png",
+      "bytes": 106,
+      "sha256": "feee1fc2e52822a2ae432532ef96392c823c566f04246e7ac82bbacb6045da8a"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-30995-1033.bmp",
+      "bytes": 378,
+      "sha256": "e24c3c6553a0a05bc51cc9004398d38e41ac4e2603fdb385062335a24a350d71"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-30995-1033.png",
+      "bytes": 143,
+      "sha256": "951354fdf370f2b1f9c79a00a8448a782d2f040e28ac9a3d2af14645683d2f8a"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-30996-1033.bmp",
+      "bytes": 338,
+      "sha256": "d4f6f3f9bf38396dfe3e590650308c81395f9873ae257ae639cb3b63b150bb10"
+    },
+    {
+      "path": "versions/2010-en/assets/images/bitmap-30996-1033.png",
+      "bytes": 166,
+      "sha256": "08a4e2e33a79cbb658c555cdf11dc116eec730b225dc2c066c40c14836b8f7fe"
+    },
+    {
+      "path": "versions/2010-en/assets/images/cursor-5-1033.png",
+      "bytes": 205,
+      "sha256": "70f747d330a14cc76f89ffd5d8e19dd46a917830680da34f737db002c1b91b90"
+    },
+    {
+      "path": "versions/2010-en/assets/images/cursor-6-1033.png",
+      "bytes": 158,
+      "sha256": "68e0a74ec25f6e3483e92489a541fea9c971adb42cd5a51f344f4106b6bd3298"
+    },
+    {
+      "path": "versions/2010-en/assets/images/group_cursor-30977-1033.cur",
+      "bytes": 518,
+      "sha256": "f243815541b6b77a91bed8d2408c9d6e56eb99448bf5087411b70d7691da12ca"
+    },
+    {
+      "path": "versions/2010-en/assets/images/group_icon-128-1033.ico",
+      "bytes": 1078,
+      "sha256": "578674a049fc85773ec459eca8f373682dc5b885c804ed837a357706b210e2a8"
+    },
+    {
+      "path": "versions/2010-en/assets/images/group_icon-129-1033.ico",
+      "bytes": 1078,
+      "sha256": "af544d8b4227eac7129f21aad85cd4e58c5d4eddc15aa3858b0daa347a1464b7"
+    },
+    {
+      "path": "versions/2010-en/assets/images/icon-1-1033.png",
+      "bytes": 174,
+      "sha256": "49f2d9f6bd058db945133191467862834898631ac43da4a31e99cf4ec6366152"
+    },
+    {
+      "path": "versions/2010-en/assets/images/icon-2-1033.png",
+      "bytes": 135,
+      "sha256": "46ad5d5369c8922d47866e5968b8197cdd29a18061f96ed62a30f5081c6edee8"
+    },
+    {
+      "path": "versions/2010-en/assets/images/icon-3-1033.png",
+      "bytes": 218,
+      "sha256": "57e7da111f653fbec11376c7caf45de4bc5878f6bd84dc379016773791591c7e"
+    },
+    {
+      "path": "versions/2010-en/assets/images/icon-4-1033.png",
+      "bytes": 159,
+      "sha256": "ff19aefb039cb59f0fb947ea52528ab1bebf691331cb57e1477ec7654d23e68c"
+    },
+    {
+      "path": "versions/2010-en/assets/manifest.json",
+      "bytes": 51931,
+      "sha256": "33cf06c9e7fa1e0ee40f2fdbf71f32b7d44434779f222c3132d8326dcbfcbc88"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/accelerators.json",
+      "bytes": 3022,
+      "sha256": "7933fab76067aa6de71cf897ae6373606f5e77d37a8ab62e974fa64b7992cc0f"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/dialogs.json",
+      "bytes": 16265,
+      "sha256": "6199a5c23ea7c764920930b8567f11fbd61c4c4d884d9cc7d72e5e3adbd7a0ab"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/menus.json",
+      "bytes": 68615,
+      "sha256": "8090e339cd1a732cbcae78a7eab26c8ee64291e454e68d56d507095757572fae"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/string-tables.json",
+      "bytes": 22836,
+      "sha256": "c24bb3aa81842c893ccfebbf50464bba44eda5160d7856fa35012f9cf5019550"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/strings.json",
+      "bytes": 17124,
+      "sha256": "4e8c9ff909f7c2010b1ac86b596902fa76970ff602f37ad0604bdf4f0c888115"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/versions.json",
+      "bytes": 2997,
+      "sha256": "d55d4820de41a617ad2c90cfd526d9fe8c758c82ea3852f9267613b49b85d3e1"
+    },
+    {
+      "path": "versions/2010-en/play.html",
+      "bytes": 1228,
+      "sha256": "88c2d43a071bc31c9665937445ad0cc456f529a4fbef596d48d37f761d620792"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-functions.js",
+      "bytes": 185351,
+      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-geometry.js",
+      "bytes": 6798,
+      "sha256": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai.js",
+      "bytes": 2949,
+      "sha256": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913"
+    },
+    {
+      "path": "versions/2010-en/src/engine/apparent-wind.js",
+      "bytes": 2671,
+      "sha256": "bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/application.js",
+      "bytes": 14549,
+      "sha256": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-dynamics.js",
+      "bytes": 17087,
+      "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-options.js",
+      "bytes": 9335,
+      "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252"
+    },
+    {
+      "path": "versions/2010-en/src/engine/configuration.js",
+      "bytes": 10595,
+      "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/controller-values.js",
+      "bytes": 2550,
+      "sha256": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0"
+    },
+    {
+      "path": "versions/2010-en/src/engine/course.js",
+      "bytes": 8631,
+      "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97"
+    },
+    {
+      "path": "versions/2010-en/src/engine/current.js",
+      "bytes": 14328,
+      "sha256": "5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117"
+    },
+    {
+      "path": "versions/2010-en/src/engine/custom-venue.js",
+      "bytes": 10919,
+      "sha256": "074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/dialogs.js",
+      "bytes": 1818,
+      "sha256": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/frame.js",
+      "bytes": 4404,
+      "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+    },
+    {
+      "path": "versions/2010-en/src/engine/initialization.js",
+      "bytes": 9389,
+      "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39"
+    },
+    {
+      "path": "versions/2010-en/src/engine/integration.js",
+      "bytes": 10371,
+      "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/keyboard.js",
+      "bytes": 26566,
+      "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf"
+    },
+    {
+      "path": "versions/2010-en/src/engine/menu-controller.js",
+      "bytes": 294172,
+      "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+    },
+    {
+      "path": "versions/2010-en/src/engine/mouse.js",
+      "bytes": 2515,
+      "sha256": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/movement-history.js",
+      "bytes": 2828,
+      "sha256": "7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/movement.js",
+      "bytes": 833,
+      "sha256": "e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/native-trig.js",
+      "bytes": 2586,
+      "sha256": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181"
+    },
+    {
+      "path": "versions/2010-en/src/engine/penalties.js",
+      "bytes": 11873,
+      "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496"
+    },
+    {
+      "path": "versions/2010-en/src/engine/port.js",
+      "bytes": 1104,
+      "sha256": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856"
+    },
+    {
+      "path": "versions/2010-en/src/engine/race-targets.js",
+      "bytes": 5951,
+      "sha256": "f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/snapshot-maps.js",
+      "bytes": 11496,
+      "sha256": "e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/snapshots.js",
+      "bytes": 2117,
+      "sha256": "9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/spatial-metrics.js",
+      "bytes": 10173,
+      "sha256": "a3f67ff26558b0a1b2e8b3567a168f611674b31fc5dc20096cb75ce9bf77bee7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/starting-positions.js",
+      "bytes": 6130,
+      "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2"
+    },
+    {
+      "path": "versions/2010-en/src/engine/steering.js",
+      "bytes": 10625,
+      "sha256": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/terrain.js",
+      "bytes": 16658,
+      "sha256": "da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/venue-definitions.js",
+      "bytes": 239241,
+      "sha256": "5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/venue-geometry.js",
+      "bytes": 5187,
+      "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wave-motion.js",
+      "bytes": 2697,
+      "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/waypoints.js",
+      "bytes": 3929,
+      "sha256": "e58e55a83ca7cc73513ecb8df7d34607c1a8c0d59f4a0c5d3dd9405a532dc3f4"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind-initialization.js",
+      "bytes": 12514,
+      "sha256": "f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind.js",
+      "bytes": 11101,
+      "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "bytes": 15231,
+      "sha256": "611e361d56774a6a4f802f3195d74429cf3beac6ff4ffd9bc6bafa709b148bce"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart.js",
+      "bytes": 320,
+      "sha256": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088"
+    },
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "bytes": 4167,
+      "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "bytes": 2506269,
+      "sha256": "e9ff2d3a23ee56d9b72ed2db53d8698e47660bc625fdbe2b1ed00e1344da4a4e"
+    },
+    {
+      "path": "versions/2010-en/src/render/gdi.js",
+      "bytes": 123,
+      "sha256": "2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae"
+    },
+    {
+      "path": "versions/2010-en/src/render/host.js",
+      "bytes": 2996,
+      "sha256": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68"
+    },
+    {
+      "path": "versions/2010-en/src/render/hud.js",
+      "bytes": 541,
+      "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c"
+    },
+    {
+      "path": "versions/2010-en/src/render/index.js",
+      "bytes": 1575,
+      "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b"
+    },
+    {
+      "path": "versions/2010-en/src/render/paint-lifecycle.js",
+      "bytes": 9033,
+      "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+    },
+    {
+      "path": "versions/2010-en/src/render/render-functions.js",
+      "bytes": 364846,
+      "sha256": "17f30bcf699e21430150fcadcc5413daf7b9e19e76b9418fb6bbac47eec5f125"
+    },
+    {
+      "path": "versions/2010-en/src/render/sail-geometry.js",
+      "bytes": 11601,
+      "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281"
+    },
+    {
+      "path": "versions/2010-en/src/render/scene-depth.js",
+      "bytes": 1084,
+      "sha256": "834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4"
+    },
+    {
+      "path": "versions/2010-en/src/render/scene.js",
+      "bytes": 508,
+      "sha256": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace"
+    },
+    {
+      "path": "versions/2010-en/src/render/screen-helper-functions.js",
+      "bytes": 146722,
+      "sha256": "3aa39b8dad44cfe29aacb3ff8519b869f477db57ec62d1e6a8396d32d8a063f9"
+    },
+    {
+      "path": "versions/2010-en/src/render/screens.js",
+      "bytes": 1665,
+      "sha256": "c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d"
+    },
+    {
+      "path": "versions/2010-en/src/render/shore-stack.js",
+      "bytes": 3210,
+      "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1"
+    },
+    {
+      "path": "versions/2010-en/src/render/text.js",
+      "bytes": 2960,
+      "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-controls.js",
+      "bytes": 2745,
+      "sha256": "39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-pages.js",
+      "bytes": 1125173,
+      "sha256": "1f22be29cc024453caf2c08154b54a158cbfb636c944ede3d4bc8aa946f79394"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "bytes": 16958,
+      "sha256": "883e5b23e4e72d768a325a192b0662322add605b611f73b12ee40f42bac0911f"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/browser-clock.js",
+      "bytes": 840,
+      "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/original-data.js",
+      "bytes": 3041,
+      "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
+    }
+  ],
+  "totalBytes": 7397108
+}

@@ -1,0 +1,1386 @@
+{
+  "removed_automatic_function_starts": [
+    "004abe0a", 
+    "004aec39", 
+    "004b677c", 
+    "004b366f", 
+    "004b3e4b", 
+    "004b3ff2", 
+    "004b1d17", 
+    "004be39a"
+  ], 
+  "restored": [
+    {
+      "continuation": "004abe05", 
+      "evidence": {
+        "association": {
+          "func_info": "004d7b88", 
+          "handler_stub": {
+            "address": "004c62a8", 
+            "bytes": "b8 88 7b 4d 00", 
+            "instruction": "MOV EAX,0x4d7b88"
+          }, 
+          "owner_prolog": {
+            "address": "004abc68", 
+            "bytes": "b8 a8 62 4c 00", 
+            "instruction": "MOV EAX,0x4c62a8"
+          }, 
+          "seh_prolog_call": {
+            "address": "004abc6d", 
+            "bytes": "e8 66 00 ff ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004abdf0", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004abe04", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004abdff", 
+          "bytes": "b8 05 be 4a 00", 
+          "instruction": "MOV EAX,0x4abe05"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004abe0a", 
+          "bytes": 124, 
+          "original_incoming": [
+            {
+              "address": "004abdee", 
+              "bytes": "eb 1a", 
+              "instruction": "JMP 0x004abe0a"
+            }
+          ], 
+          "signature": "undefined FUN_004abe0a(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004abe05", 
+          "bytes": "8b 7d dc", 
+          "instruction": "MOV EDI,dword ptr [EBP + -0x24]"
+        }, 
+        {
+          "address": "004abe08", 
+          "bytes": "33 db", 
+          "instruction": "XOR EBX,EBX"
+        }, 
+        {
+          "address": "004abe0a", 
+          "bytes": "8b 4d d8", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0x28]"
+        }, 
+        {
+          "address": "004abe0d", 
+          "bytes": "83 4d fc ff", 
+          "instruction": "OR dword ptr [EBP + -0x4],0xffffffff"
+        }, 
+        {
+          "address": "004abe11", 
+          "bytes": "3b cb", 
+          "instruction": "CMP ECX,EBX"
+        }, 
+        {
+          "address": "004abe13", 
+          "bytes": "74 19", 
+          "instruction": "JZ 0x004abe2e"
+        }, 
+        {
+          "address": "004abe2e", 
+          "bytes": "e8 d6 0e 00 00", 
+          "instruction": "CALL 0x004acd09"
+        }, 
+        {
+          "address": "004abe33", 
+          "bytes": "85 c0", 
+          "instruction": "TEST EAX,EAX"
+        }, 
+        {
+          "address": "004abe35", 
+          "bytes": "75 0a", 
+          "instruction": "JNZ 0x004abe41"
+        }, 
+        {
+          "address": "004abe41", 
+          "bytes": "8b 75 e0", 
+          "instruction": "MOV ESI,dword ptr [EBP + -0x20]"
+        }, 
+        {
+          "address": "004abe44", 
+          "bytes": "3b f3", 
+          "instruction": "CMP ESI,EBX"
+        }, 
+        {
+          "address": "004abe46", 
+          "bytes": "74 0f", 
+          "instruction": "JZ 0x004abe57"
+        }, 
+        {
+          "address": "004abe57", 
+          "bytes": "39 5d ec", 
+          "instruction": "CMP dword ptr [EBP + -0x14],EBX"
+        }, 
+        {
+          "address": "004abe5a", 
+          "bytes": "74 12", 
+          "instruction": "JZ 0x004abe6e"
+        }, 
+        {
+          "address": "004abe6e", 
+          "bytes": "33 c0", 
+          "instruction": "XOR EAX,EAX"
+        }, 
+        {
+          "address": "004abe70", 
+          "bytes": "3b f3", 
+          "instruction": "CMP ESI,EBX"
+        }, 
+        {
+          "address": "004abe72", 
+          "bytes": "0f 95 c0", 
+          "instruction": "SETNZ AL"
+        }, 
+        {
+          "address": "004abe75", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004abe78", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004abe79", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004abe7a", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004abe81", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004abe82", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004abe83", 
+          "bytes": "c2 0c 00", 
+          "instruction": "RET 0xc"
+        }, 
+        {
+          "address": "004abe5c", 
+          "bytes": "ff 75 ec", 
+          "instruction": "PUSH dword ptr [EBP + -0x14]"
+        }, 
+        {
+          "address": "004abe5f", 
+          "bytes": "ff 15 88 b9 53 00", 
+          "instruction": "CALL dword ptr [0x0053b988]"
+        }, 
+        {
+          "address": "004abe65", 
+          "bytes": "ff 75 ec", 
+          "instruction": "PUSH dword ptr [EBP + -0x14]"
+        }, 
+        {
+          "address": "004abe68", 
+          "bytes": "ff 15 8c b9 53 00", 
+          "instruction": "CALL dword ptr [0x0053b98c]"
+        }, 
+        {
+          "address": "004abe48", 
+          "bytes": "f6 47 24 10", 
+          "instruction": "TEST byte ptr [EDI + 0x24],0x10"
+        }, 
+        {
+          "address": "004abe4c", 
+          "bytes": "75 09", 
+          "instruction": "JNZ 0x004abe57"
+        }, 
+        {
+          "address": "004abe4e", 
+          "bytes": "56", 
+          "instruction": "PUSH ESI"
+        }, 
+        {
+          "address": "004abe4f", 
+          "bytes": "ff 15 c4 bb 53 00", 
+          "instruction": "CALL dword ptr [0x0053bbc4]"
+        }, 
+        {
+          "address": "004abe55", 
+          "bytes": "33 f6", 
+          "instruction": "XOR ESI,ESI"
+        }, 
+        {
+          "address": "004abe37", 
+          "bytes": "8b 07", 
+          "instruction": "MOV EAX,dword ptr [EDI]"
+        }, 
+        {
+          "address": "004abe39", 
+          "bytes": "8b cf", 
+          "instruction": "MOV ECX,EDI"
+        }, 
+        {
+          "address": "004abe3b", 
+          "bytes": "ff 90 ac 00 00 00", 
+          "instruction": "CALL dword ptr [EAX + 0xac]"
+        }, 
+        {
+          "address": "004abe15", 
+          "bytes": "8b 01", 
+          "instruction": "MOV EAX,dword ptr [ECX]"
+        }, 
+        {
+          "address": "004abe17", 
+          "bytes": "8d 55 cc", 
+          "instruction": "LEA EDX,[EBP + -0x34]"
+        }, 
+        {
+          "address": "004abe1a", 
+          "bytes": "52", 
+          "instruction": "PUSH EDX"
+        }, 
+        {
+          "address": "004abe1b", 
+          "bytes": "ff 50 14", 
+          "instruction": "CALL dword ptr [EAX + 0x14]"
+        }, 
+        {
+          "address": "004abe1e", 
+          "bytes": "39 5d e0", 
+          "instruction": "CMP dword ptr [EBP + -0x20],EBX"
+        }, 
+        {
+          "address": "004abe21", 
+          "bytes": "74 0b", 
+          "instruction": "JZ 0x004abe2e"
+        }, 
+        {
+          "address": "004abe23", 
+          "bytes": "8b 07", 
+          "instruction": "MOV EAX,dword ptr [EDI]"
+        }, 
+        {
+          "address": "004abe25", 
+          "bytes": "53", 
+          "instruction": "PUSH EBX"
+        }, 
+        {
+          "address": "004abe26", 
+          "bytes": "8b cf", 
+          "instruction": "MOV ECX,EDI"
+        }, 
+        {
+          "address": "004abe28", 
+          "bytes": "ff 90 bc 00 00 00", 
+          "instruction": "CALL dword ptr [EAX + 0xbc]"
+        }
+      ], 
+      "owner": "004abc68", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004ac05b", 
+      "evidence": {
+        "association": {
+          "func_info": "004d7bf0", 
+          "handler_stub": {
+            "address": "004c62b4", 
+            "bytes": "b8 f0 7b 4d 00", 
+            "instruction": "MOV EAX,0x4d7bf0"
+          }, 
+          "owner_prolog": {
+            "address": "004abf46", 
+            "bytes": "b8 b4 62 4c 00", 
+            "instruction": "MOV EAX,0x4c62b4"
+          }, 
+          "seh_prolog_call": {
+            "address": "004abf4b", 
+            "bytes": "e8 88 fd fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004ac046", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004ac05a", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004ac055", 
+          "bytes": "b8 5b c0 4a 00", 
+          "instruction": "MOV EAX,0x4ac05b"
+        }
+      }, 
+      "merged_automatic_tails": [], 
+      "newly_owned_instructions": [
+        {
+          "address": "004ac05b", 
+          "bytes": "8b 75 e8", 
+          "instruction": "MOV ESI,dword ptr [EBP + -0x18]"
+        }, 
+        {
+          "address": "004ac05e", 
+          "bytes": "8b 7d e0", 
+          "instruction": "MOV EDI,dword ptr [EBP + -0x20]"
+        }, 
+        {
+          "address": "004ac061", 
+          "bytes": "33 db", 
+          "instruction": "XOR EBX,EBX"
+        }
+      ], 
+      "owner": "004abf46", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004ac60e", 
+      "evidence": {
+        "association": {
+          "func_info": "004d7c48", 
+          "handler_stub": {
+            "address": "004c62c0", 
+            "bytes": "b8 48 7c 4d 00", 
+            "instruction": "MOV EAX,0x4d7c48"
+          }, 
+          "owner_prolog": {
+            "address": "004ac540", 
+            "bytes": "b8 c0 62 4c 00", 
+            "instruction": "MOV EAX,0x4c62c0"
+          }, 
+          "seh_prolog_call": {
+            "address": "004ac545", 
+            "bytes": "e8 8e f7 fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004ac5e7", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004ac60d", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004ac608", 
+          "bytes": "b8 0e c6 4a 00", 
+          "instruction": "MOV EAX,0x4ac60e"
+        }
+      }, 
+      "merged_automatic_tails": [], 
+      "newly_owned_instructions": [
+        {
+          "address": "004ac60e", 
+          "bytes": "8b 5d ec", 
+          "instruction": "MOV EBX,dword ptr [EBP + -0x14]"
+        }
+      ], 
+      "owner": "004ac540", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004aec36", 
+      "evidence": {
+        "association": {
+          "func_info": "004d7e78", 
+          "handler_stub": {
+            "address": "004c6380", 
+            "bytes": "b8 78 7e 4d 00", 
+            "instruction": "MOV EAX,0x4d7e78"
+          }, 
+          "owner_prolog": {
+            "address": "004aebb3", 
+            "bytes": "b8 80 63 4c 00", 
+            "instruction": "MOV EAX,0x4c6380"
+          }, 
+          "seh_prolog_call": {
+            "address": "004aebb8", 
+            "bytes": "e8 1b d1 fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004aec12", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004aec17", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004aec12", 
+          "bytes": "b8 36 ec 4a 00", 
+          "instruction": "MOV EAX,0x4aec36"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004aec39", 
+          "bytes": 29, 
+          "original_incoming": [
+            {
+              "address": "004aec10", 
+              "bytes": "eb 27", 
+              "instruction": "JMP 0x004aec39"
+            }
+          ], 
+          "signature": "undefined FUN_004aec39(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004aec36", 
+          "bytes": "8b 7d ec", 
+          "instruction": "MOV EDI,dword ptr [EBP + -0x14]"
+        }, 
+        {
+          "address": "004aec39", 
+          "bytes": "8b 45 e8", 
+          "instruction": "MOV EAX,dword ptr [EBP + -0x18]"
+        }, 
+        {
+          "address": "004aec3c", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004aec3f", 
+          "bytes": "89 87 b8 00 00 00", 
+          "instruction": "MOV dword ptr [EDI + 0xb8],EAX"
+        }, 
+        {
+          "address": "004aec45", 
+          "bytes": "8b 45 08", 
+          "instruction": "MOV EAX,dword ptr [EBP + 0x8]"
+        }, 
+        {
+          "address": "004aec48", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004aec49", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004aec4a", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004aec51", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004aec52", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004aec53", 
+          "bytes": "c2 04 00", 
+          "instruction": "RET 0x4"
+        }
+      ], 
+      "owner": "004aebb3", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004b677a", 
+      "evidence": {
+        "association": {
+          "func_info": "004d8108", 
+          "handler_stub": {
+            "address": "004c64c0", 
+            "bytes": "b8 08 81 4d 00", 
+            "instruction": "MOV EAX,0x4d8108"
+          }, 
+          "owner_prolog": {
+            "address": "004b66c5", 
+            "bytes": "b8 c0 64 4c 00", 
+            "instruction": "MOV EAX,0x4c64c0"
+          }, 
+          "seh_prolog_call": {
+            "address": "004b66ca", 
+            "bytes": "e8 09 56 fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004b6774", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004b6779", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004b6774", 
+          "bytes": "b8 7a 67 4b 00", 
+          "instruction": "MOV EAX,0x4b677a"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004b677c", 
+          "bytes": 17, 
+          "original_incoming": [
+            {
+              "address": "004b6745", 
+              "bytes": "eb 35", 
+              "instruction": "JMP 0x004b677c"
+            }, 
+            {
+              "address": "004b6772", 
+              "bytes": "eb 08", 
+              "instruction": "JMP 0x004b677c"
+            }
+          ], 
+          "signature": "undefined FUN_004b677c(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004b677a", 
+          "bytes": "33 c0", 
+          "instruction": "XOR EAX,EAX"
+        }, 
+        {
+          "address": "004b677c", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004b677f", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004b6780", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004b6781", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004b6788", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004b6789", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004b678a", 
+          "bytes": "c2 0c 00", 
+          "instruction": "RET 0xc"
+        }
+      ], 
+      "owner": "004b66c5", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004b3696", 
+      "evidence": {
+        "kind": "original_method_branch", 
+        "parent_continuation": "004b366d", 
+        "source": {
+          "address": "004b364a", 
+          "bytes": "75 4a", 
+          "instruction": "JNZ 0x004b3696"
+        }
+      }, 
+      "merged_automatic_tails": [], 
+      "newly_owned_instructions": [
+        {
+          "address": "004b3696", 
+          "bytes": "39 5d 0c", 
+          "instruction": "CMP dword ptr [EBP + 0xc],EBX"
+        }, 
+        {
+          "address": "004b3699", 
+          "bytes": "74 0a", 
+          "instruction": "JZ 0x004b36a5"
+        }, 
+        {
+          "address": "004b36a5", 
+          "bytes": "88 5d fc", 
+          "instruction": "MOV byte ptr [EBP + -0x4],BL"
+        }, 
+        {
+          "address": "004b36a8", 
+          "bytes": "e8 4b c9 00 00", 
+          "instruction": "CALL 0x004bfff8"
+        }, 
+        {
+          "address": "004b36ad", 
+          "bytes": "8b 48 04", 
+          "instruction": "MOV ECX,dword ptr [EAX + 0x4]"
+        }, 
+        {
+          "address": "004b36b0", 
+          "bytes": "e8 63 c2 ff ff", 
+          "instruction": "CALL 0x004af918"
+        }, 
+        {
+          "address": "004b36b5", 
+          "bytes": "83 4d fc ff", 
+          "instruction": "OR dword ptr [EBP + -0x4],0xffffffff"
+        }, 
+        {
+          "address": "004b36b9", 
+          "bytes": "8d 4d ec", 
+          "instruction": "LEA ECX,[EBP + -0x14]"
+        }, 
+        {
+          "address": "004b36bc", 
+          "bytes": "e8 e4 ce ff ff", 
+          "instruction": "CALL 0x004b05a5"
+        }, 
+        {
+          "address": "004b36c1", 
+          "bytes": "6a 01", 
+          "instruction": "PUSH 0x1"
+        }, 
+        {
+          "address": "004b36c3", 
+          "bytes": "58", 
+          "instruction": "POP EAX"
+        }, 
+        {
+          "address": "004b369b", 
+          "bytes": "6a 01", 
+          "instruction": "PUSH 0x1"
+        }, 
+        {
+          "address": "004b369d", 
+          "bytes": "8b ce", 
+          "instruction": "MOV ECX,ESI"
+        }, 
+        {
+          "address": "004b369f", 
+          "bytes": "ff 75 ec", 
+          "instruction": "PUSH dword ptr [EBP + -0x14]"
+        }, 
+        {
+          "address": "004b36a2", 
+          "bytes": "ff 57 5c", 
+          "instruction": "CALL dword ptr [EDI + 0x5c]"
+        }
+      ], 
+      "owner": "004b354b", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004b366d", 
+      "evidence": {
+        "association": {
+          "func_info": "004d84c8", 
+          "handler_stub": {
+            "address": "004c66e4", 
+            "bytes": "b8 c8 84 4d 00", 
+            "instruction": "MOV EAX,0x4d84c8"
+          }, 
+          "owner_prolog": {
+            "address": "004b354b", 
+            "bytes": "b8 e4 66 4c 00", 
+            "instruction": "MOV EAX,0x4c66e4"
+          }, 
+          "seh_prolog_call": {
+            "address": "004b3550", 
+            "bytes": "e8 83 87 fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004b365f", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004b366c", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004b3667", 
+          "bytes": "b8 6d 36 4b 00", 
+          "instruction": "MOV EAX,0x4b366d"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004b366f", 
+          "bytes": 56, 
+          "original_incoming": [
+            {
+              "address": "004b365d", 
+              "bytes": "eb 10", 
+              "instruction": "JMP 0x004b366f"
+            }
+          ], 
+          "signature": "undefined FUN_004b366f(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004b366d", 
+          "bytes": "33 db", 
+          "instruction": "XOR EBX,EBX"
+        }, 
+        {
+          "address": "004b366f", 
+          "bytes": "c7 45 fc 02 00 00 00", 
+          "instruction": "MOV dword ptr [EBP + -0x4],0x2"
+        }, 
+        {
+          "address": "004b3676", 
+          "bytes": "88 5d fc", 
+          "instruction": "MOV byte ptr [EBP + -0x4],BL"
+        }, 
+        {
+          "address": "004b3679", 
+          "bytes": "e8 7a c9 00 00", 
+          "instruction": "CALL 0x004bfff8"
+        }, 
+        {
+          "address": "004b367e", 
+          "bytes": "8b 48 04", 
+          "instruction": "MOV ECX,dword ptr [EAX + 0x4]"
+        }, 
+        {
+          "address": "004b3681", 
+          "bytes": "e8 92 c2 ff ff", 
+          "instruction": "CALL 0x004af918"
+        }, 
+        {
+          "address": "004b3686", 
+          "bytes": "83 4d fc ff", 
+          "instruction": "OR dword ptr [EBP + -0x4],0xffffffff"
+        }, 
+        {
+          "address": "004b368a", 
+          "bytes": "8d 4d ec", 
+          "instruction": "LEA ECX,[EBP + -0x14]"
+        }, 
+        {
+          "address": "004b368d", 
+          "bytes": "e8 13 cf ff ff", 
+          "instruction": "CALL 0x004b05a5"
+        }, 
+        {
+          "address": "004b3692", 
+          "bytes": "33 c0", 
+          "instruction": "XOR EAX,EAX"
+        }, 
+        {
+          "address": "004b3694", 
+          "bytes": "eb 2e", 
+          "instruction": "JMP 0x004b36c4"
+        }, 
+        {
+          "address": "004b36c4", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004b36c7", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004b36c8", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004b36c9", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004b36d0", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004b36d1", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004b36d2", 
+          "bytes": "c2 08 00", 
+          "instruction": "RET 0x8"
+        }
+      ], 
+      "owner": "004b354b", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004b3e31", 
+      "evidence": {
+        "association": {
+          "func_info": "004d8638", 
+          "handler_stub": {
+            "address": "004c67b8", 
+            "bytes": "b8 38 86 4d 00", 
+            "instruction": "MOV EAX,0x4d8638"
+          }, 
+          "owner_prolog": {
+            "address": "004b3ca9", 
+            "bytes": "b8 b8 67 4c 00", 
+            "instruction": "MOV EAX,0x4c67b8"
+          }, 
+          "seh_prolog_call": {
+            "address": "004b3cae", 
+            "bytes": "e8 25 80 fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004b3de9", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004b3e30", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004b3e2b", 
+          "bytes": "b8 31 3e 4b 00", 
+          "instruction": "MOV EAX,0x4b3e31"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004b3e4b", 
+          "bytes": 27, 
+          "original_incoming": [
+            {
+              "address": "004b3d37", 
+              "bytes": "e9 0f 01 00 00", 
+              "instruction": "JMP 0x004b3e4b"
+            }
+          ], 
+          "signature": "undefined FUN_004b3e4b(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004b3e31", 
+          "bytes": "8d 4d 88", 
+          "instruction": "LEA ECX,[EBP + -0x78]"
+        }, 
+        {
+          "address": "004b3e34", 
+          "bytes": "c6 45 fc 02", 
+          "instruction": "MOV byte ptr [EBP + -0x4],0x2"
+        }, 
+        {
+          "address": "004b3e38", 
+          "bytes": "e8 34 14 00 00", 
+          "instruction": "CALL 0x004b5271"
+        }, 
+        {
+          "address": "004b3e3d", 
+          "bytes": "c7 45 cc f4 e6 4c 00", 
+          "instruction": "MOV dword ptr [EBP + -0x34],0x4ce6f4"
+        }, 
+        {
+          "address": "004b3e44", 
+          "bytes": "c7 45 fc 0a 00 00 00", 
+          "instruction": "MOV dword ptr [EBP + -0x4],0xa"
+        }, 
+        {
+          "address": "004b3e4b", 
+          "bytes": "8d 4d dc", 
+          "instruction": "LEA ECX,[EBP + -0x24]"
+        }, 
+        {
+          "address": "004b3e4e", 
+          "bytes": "e8 52 c7 ff ff", 
+          "instruction": "CALL 0x004b05a5"
+        }, 
+        {
+          "address": "004b3e53", 
+          "bytes": "33 c0", 
+          "instruction": "XOR EAX,EAX"
+        }, 
+        {
+          "address": "004b3e55", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004b3e58", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004b3e59", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004b3e5a", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004b3e61", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004b3e62", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004b3e63", 
+          "bytes": "c2 04 00", 
+          "instruction": "RET 0x4"
+        }
+      ], 
+      "owner": "004b3ca9", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004b3fd8", 
+      "evidence": {
+        "association": {
+          "func_info": "004d8700", 
+          "handler_stub": {
+            "address": "004c6804", 
+            "bytes": "b8 00 87 4d 00", 
+            "instruction": "MOV EAX,0x4d8700"
+          }, 
+          "owner_prolog": {
+            "address": "004b3e74", 
+            "bytes": "b8 04 68 4c 00", 
+            "instruction": "MOV EAX,0x4c6804"
+          }, 
+          "seh_prolog_call": {
+            "address": "004b3e79", 
+            "bytes": "e8 5a 7e fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004b3f95", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004b3fd7", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004b3fd2", 
+          "bytes": "b8 d8 3f 4b 00", 
+          "instruction": "MOV EAX,0x4b3fd8"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004b3ff2", 
+          "bytes": 27, 
+          "original_incoming": [
+            {
+              "address": "004b3f02", 
+              "bytes": "e9 eb 00 00 00", 
+              "instruction": "JMP 0x004b3ff2"
+            }
+          ], 
+          "signature": "undefined FUN_004b3ff2(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004b3fd8", 
+          "bytes": "8d 4d 8c", 
+          "instruction": "LEA ECX,[EBP + -0x74]"
+        }, 
+        {
+          "address": "004b3fdb", 
+          "bytes": "c6 45 fc 02", 
+          "instruction": "MOV byte ptr [EBP + -0x4],0x2"
+        }, 
+        {
+          "address": "004b3fdf", 
+          "bytes": "e8 8d 12 00 00", 
+          "instruction": "CALL 0x004b5271"
+        }, 
+        {
+          "address": "004b3fe4", 
+          "bytes": "c7 45 d0 f4 e6 4c 00", 
+          "instruction": "MOV dword ptr [EBP + -0x30],0x4ce6f4"
+        }, 
+        {
+          "address": "004b3feb", 
+          "bytes": "c7 45 fc 0a 00 00 00", 
+          "instruction": "MOV dword ptr [EBP + -0x4],0xa"
+        }, 
+        {
+          "address": "004b3ff2", 
+          "bytes": "8d 4d e0", 
+          "instruction": "LEA ECX,[EBP + -0x20]"
+        }, 
+        {
+          "address": "004b3ff5", 
+          "bytes": "e8 ab c5 ff ff", 
+          "instruction": "CALL 0x004b05a5"
+        }, 
+        {
+          "address": "004b3ffa", 
+          "bytes": "33 c0", 
+          "instruction": "XOR EAX,EAX"
+        }, 
+        {
+          "address": "004b3ffc", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004b3fff", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004b4000", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004b4001", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004b4008", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004b4009", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004b400a", 
+          "bytes": "c2 04 00", 
+          "instruction": "RET 0x4"
+        }
+      ], 
+      "owner": "004b3e74", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004c05d1", 
+      "evidence": {
+        "association": {
+          "func_info": "004d8e68", 
+          "handler_stub": {
+            "address": "004c6b2c", 
+            "bytes": "b8 68 8e 4d 00", 
+            "instruction": "MOV EAX,0x4d8e68"
+          }, 
+          "owner_prolog": {
+            "address": "004c0587", 
+            "bytes": "b8 2c 6b 4c 00", 
+            "instruction": "MOV EAX,0x4c6b2c"
+          }, 
+          "seh_prolog_call": {
+            "address": "004c058c", 
+            "bytes": "e8 47 b7 fd ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004c05bb", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004c05d0", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004c05cb", 
+          "bytes": "b8 d1 05 4c 00", 
+          "instruction": "MOV EAX,0x4c05d1"
+        }
+      }, 
+      "merged_automatic_tails": [], 
+      "newly_owned_instructions": [
+        {
+          "address": "004c05d1", 
+          "bytes": "8b 75 ec", 
+          "instruction": "MOV ESI,dword ptr [EBP + -0x14]"
+        }
+      ], 
+      "owner": "004c0587", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004b1d11", 
+      "evidence": {
+        "association": {
+          "func_info": "004d8ef0", 
+          "handler_stub": {
+            "address": "004c6b58", 
+            "bytes": "b8 f0 8e 4d 00", 
+            "instruction": "MOV EAX,0x4d8ef0"
+          }, 
+          "owner_prolog": {
+            "address": "004b1c6d", 
+            "bytes": "b8 58 6b 4c 00", 
+            "instruction": "MOV EAX,0x4c6b58"
+          }, 
+          "seh_prolog_call": {
+            "address": "004b1c72", 
+            "bytes": "e8 61 a0 fe ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004b1cfa", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004b1d10", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004b1d0b", 
+          "bytes": "b8 11 1d 4b 00", 
+          "instruction": "MOV EAX,0x4b1d11"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004b1d17", 
+          "bytes": 49, 
+          "original_incoming": [
+            {
+              "address": "004b1cf8", 
+              "bytes": "eb 1d", 
+              "instruction": "JMP 0x004b1d17"
+            }
+          ], 
+          "signature": "undefined FUN_004b1d17(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004b1d11", 
+          "bytes": "8b 75 e4", 
+          "instruction": "MOV ESI,dword ptr [EBP + -0x1c]"
+        }, 
+        {
+          "address": "004b1d14", 
+          "bytes": "8b 7d 08", 
+          "instruction": "MOV EDI,dword ptr [EBP + 0x8]"
+        }, 
+        {
+          "address": "004b1d17", 
+          "bytes": "ff 75 e8", 
+          "instruction": "PUSH dword ptr [EBP + -0x18]"
+        }, 
+        {
+          "address": "004b1d1a", 
+          "bytes": "83 4d fc ff", 
+          "instruction": "OR dword ptr [EBP + -0x4],0xffffffff"
+        }, 
+        {
+          "address": "004b1d1e", 
+          "bytes": "e8 ae de ff ff", 
+          "instruction": "CALL 0x004afbd1"
+        }, 
+        {
+          "address": "004b1d23", 
+          "bytes": "8b 46 3c", 
+          "instruction": "MOV EAX,dword ptr [ESI + 0x3c]"
+        }, 
+        {
+          "address": "004b1d26", 
+          "bytes": "03 45 ec", 
+          "instruction": "ADD EAX,dword ptr [EBP + -0x14]"
+        }, 
+        {
+          "address": "004b1d29", 
+          "bytes": "89 38", 
+          "instruction": "MOV dword ptr [EAX],EDI"
+        }, 
+        {
+          "address": "004b1d2b", 
+          "bytes": "83 7e 40 02", 
+          "instruction": "CMP dword ptr [ESI + 0x40],0x2"
+        }, 
+        {
+          "address": "004b1d2f", 
+          "bytes": "75 03", 
+          "instruction": "JNZ 0x004b1d34"
+        }, 
+        {
+          "address": "004b1d34", 
+          "bytes": "8b 45 ec", 
+          "instruction": "MOV EAX,dword ptr [EBP + -0x14]"
+        }, 
+        {
+          "address": "004b1d37", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004b1d3a", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004b1d3b", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004b1d3c", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004b1d43", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004b1d44", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004b1d45", 
+          "bytes": "c2 04 00", 
+          "instruction": "RET 0x4"
+        }, 
+        {
+          "address": "004b1d31", 
+          "bytes": "89 78 04", 
+          "instruction": "MOV dword ptr [EAX + 0x4],EDI"
+        }
+      ], 
+      "owner": "004b1c6d", 
+      "restored_jumps": []
+    }, 
+    {
+      "continuation": "004be398", 
+      "evidence": {
+        "association": {
+          "func_info": "004d9b58", 
+          "handler_stub": {
+            "address": "004c72e4", 
+            "bytes": "b8 58 9b 4d 00", 
+            "instruction": "MOV EAX,0x4d9b58"
+          }, 
+          "owner_prolog": {
+            "address": "004be324", 
+            "bytes": "b8 e4 72 4c 00", 
+            "instruction": "MOV EAX,0x4c72e4"
+          }, 
+          "seh_prolog_call": {
+            "address": "004be329", 
+            "bytes": "e8 aa d9 fd ff", 
+            "instruction": "CALL 0x0049bcd8"
+          }
+        }, 
+        "catch_handler": "004be392", 
+        "kind": "original_cpp_catch_return_continuation", 
+        "ret_instruction": {
+          "address": "004be397", 
+          "bytes": "c3", 
+          "instruction": "RET"
+        }, 
+        "return_instruction": {
+          "address": "004be392", 
+          "bytes": "b8 98 e3 4b 00", 
+          "instruction": "MOV EAX,0x4be398"
+        }
+      }, 
+      "merged_automatic_tails": [
+        {
+          "address": "004be39a", 
+          "bytes": 17, 
+          "original_incoming": [
+            {
+              "address": "004be347", 
+              "bytes": "eb 51", 
+              "instruction": "JMP 0x004be39a"
+            }, 
+            {
+              "address": "004be390", 
+              "bytes": "eb 08", 
+              "instruction": "JMP 0x004be39a"
+            }
+          ], 
+          "signature": "undefined FUN_004be39a(void)"
+        }
+      ], 
+      "newly_owned_instructions": [
+        {
+          "address": "004be398", 
+          "bytes": "33 c0", 
+          "instruction": "XOR EAX,EAX"
+        }, 
+        {
+          "address": "004be39a", 
+          "bytes": "8b 4d f4", 
+          "instruction": "MOV ECX,dword ptr [EBP + -0xc]"
+        }, 
+        {
+          "address": "004be39d", 
+          "bytes": "5f", 
+          "instruction": "POP EDI"
+        }, 
+        {
+          "address": "004be39e", 
+          "bytes": "5e", 
+          "instruction": "POP ESI"
+        }, 
+        {
+          "address": "004be39f", 
+          "bytes": "64 89 0d 00 00 00 00", 
+          "instruction": "MOV dword ptr FS:[0x0],ECX"
+        }, 
+        {
+          "address": "004be3a6", 
+          "bytes": "5b", 
+          "instruction": "POP EBX"
+        }, 
+        {
+          "address": "004be3a7", 
+          "bytes": "c9", 
+          "instruction": "LEAVE"
+        }, 
+        {
+          "address": "004be3a8", 
+          "bytes": "c2 08 00", 
+          "instruction": "RET 0x8"
+        }
+      ], 
+      "owner": "004be324", 
+      "restored_jumps": []
+    }
+  ], 
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+}

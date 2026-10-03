@@ -1,0 +1,920 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "allFixtureCasesMatch": true,
+  "cases": 1848,
+  "originalRoutines": 42,
+  "mutableBlock": {
+    "address": 5087232,
+    "bytes": 394632
+  },
+  "comparison": "Independent original data and JS integer trig; complete mutable bytes/hash, all36 semantic CStrings, RNG, ordered GDI/text and sound requests. No tolerances.",
+  "scope": "Finite standalone calls to all 42 original tutorial pages; initialized screens and continuous full frames have separate proofs.",
+  "sourceFiles": [
+    {
+      "path": "src/render/tutorial-pages.js",
+      "sha256": "1f22be29cc024453caf2c08154b54a158cbfb636c944ede3d4bc8aa946f79394"
+    },
+    {
+      "path": "src/render/drawing-functions.js",
+      "sha256": "8a69d433c78e496167c37690b09db5bae122bbeb8cd581a38279f9c1175c4e9b"
+    },
+    {
+      "path": "src/render/typed-c.js",
+      "sha256": "883e5b23e4e72d768a325a192b0662322add605b611f73b12ee40f42bac0911f"
+    },
+    {
+      "path": "src/render/text.js",
+      "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00"
+    },
+    {
+      "path": "src/render/dependencies.js",
+      "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+    }
+  ],
+  "groups": [
+    {
+      "routine": {
+        "name": "tutorial-1",
+        "address": 4479072,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 1,
+      "fixture": "tests/fixtures/original-tutorial-1.json",
+      "fixtureSha256": "7238519a6b5ad0dbf704635e8aeed6745799ef35e318e0bcce4db9e4604f0fb2",
+      "cases": 44,
+      "orderedDrawingRequests": 2000,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "7bbb311fe7e9d5241ab36f44cfb85c58d5b39ccc096d1336e3cefed95274ec75",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00445860.c",
+      "recoveredSourceSha256": "2d819e8a6de6bcd60b52bf437f695f402829108370850e6ae62f4d2edbc382d5"
+    },
+    {
+      "routine": {
+        "name": "tutorial-2",
+        "address": 4481616,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 2,
+      "fixture": "tests/fixtures/original-tutorial-2.json",
+      "fixtureSha256": "505f15da4c0136f79a5fb3a86e5b5d21fe04e7bd3d96218c256cf1d896b14593",
+      "cases": 44,
+      "orderedDrawingRequests": 594,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "96913bd28d7e9b2a106553f09c2122a59599261ca4f536633ac7a21e78d80730",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00446250.c",
+      "recoveredSourceSha256": "ca04492416a7e02b1ffed89b7d5c13744fade4ea37712e173ddfa4555ac840f9"
+    },
+    {
+      "routine": {
+        "name": "tutorial-3",
+        "address": 4483696,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 3,
+      "fixture": "tests/fixtures/original-tutorial-3.json",
+      "fixtureSha256": "8d59d113efa9edb2ed1b1e5478c863908551840faa34bad48e7f3bbd93f616b6",
+      "cases": 44,
+      "orderedDrawingRequests": 1342,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "372ca345dde1f822ed821cc744bc37db74cbe350fd866fa01eaff97012ccdc82",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00446a70.c",
+      "recoveredSourceSha256": "cbdd261d35c2f916bbeb4b64379b4d61b1d711ea65baef94aa59eb98eae8ed46"
+    },
+    {
+      "routine": {
+        "name": "tutorial-4",
+        "address": 4485600,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 4,
+      "fixture": "tests/fixtures/original-tutorial-4.json",
+      "fixtureSha256": "4c253d5969e24397f3ec0a227b9631c301e24827a19277784f9b38674b1bace8",
+      "cases": 44,
+      "orderedDrawingRequests": 1430,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "f57f7709f2526adac9c8f1981cd55fc9623901efac5b0578f6aec66e1b09c257",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004471e0.c",
+      "recoveredSourceSha256": "485740ca9ce058b8b2a17abc79ade3f76eb190ba4163ff76b577a41a3da3f090"
+    },
+    {
+      "routine": {
+        "name": "tutorial-5",
+        "address": 4487664,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 5,
+      "fixture": "tests/fixtures/original-tutorial-5.json",
+      "fixtureSha256": "86d3b04aec2135167872df8e0b71197d138fa4e09a4ce35e95b3a93b5bf7e6e2",
+      "cases": 44,
+      "orderedDrawingRequests": 1276,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "75433d33ccf5b0cba8d75aeced6d9aaaf42048add8f4f0d4272e62274137ac02",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004479f0.c",
+      "recoveredSourceSha256": "39cb73dd9948b1ce5f1a7ecd240ab15cb04cc49efa619f99d1f5959fb4d5d3e2"
+    },
+    {
+      "routine": {
+        "name": "tutorial-6",
+        "address": 4489472,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 6,
+      "fixture": "tests/fixtures/original-tutorial-6.json",
+      "fixtureSha256": "4f8a3bdbebc77f835b3b503691346a9ccfd95dad86782b99f1757e25a1d04766",
+      "cases": 44,
+      "orderedDrawingRequests": 1364,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "0caa5f4c7b0396104e03f029c44811a779e5fa79456d86b6ab697fab07b240dd",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00448100.c",
+      "recoveredSourceSha256": "d610fe1462c6e9d90d71ffb03f0b31e37a3996880dea47142e5bbba67c4a3ca2"
+    },
+    {
+      "routine": {
+        "name": "tutorial-7",
+        "address": 4491632,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 7,
+      "fixture": "tests/fixtures/original-tutorial-7.json",
+      "fixtureSha256": "44781f0c18f45bd4f6fc820becb2c6b28df92ed84d11efdfaa4bd8d155823bbb",
+      "cases": 44,
+      "orderedDrawingRequests": 2112,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "01e3935ad49215cb69b237896fdbf3436fb8900b0bc436beccc453afa6aa9412",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00448970.c",
+      "recoveredSourceSha256": "bc0039148be30ddefe23e3a6bc2275fc2aa40a3259204fb82a978dd260bb2b53"
+    },
+    {
+      "routine": {
+        "name": "tutorial-8",
+        "address": 4494816,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 8,
+      "fixture": "tests/fixtures/original-tutorial-8.json",
+      "fixtureSha256": "d5f8540eebf761674a2880c5e376c98411bfcda81dd7a69cc04a62430fb7afe8",
+      "cases": 44,
+      "orderedDrawingRequests": 1694,
+      "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+      "runnerSha256": "38ddbb7fdd2cee016abd13c930e82879f6e81d08a1109a4d8f0a8cd7f22a7a1e",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004495e0.c",
+      "recoveredSourceSha256": "c890c5b262031570a52f47d01c1f70cfa92958d5e2163aee61bdaa42a659ddda"
+    },
+    {
+      "routine": {
+        "name": "tutorial-10",
+        "address": 4497120,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 10,
+      "fixture": "tests/fixtures/original-tutorial-10.json",
+      "fixtureSha256": "91314301a2459447050e52503daa77cbf5a8fe2c37c69fc7098f29c7bc8b8e9d",
+      "cases": 44,
+      "orderedDrawingRequests": 1254,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "723dae55020344c8bdf1ed77d26df7426329925d6221413a9d16d267526f5ef0",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00449ee0.c",
+      "recoveredSourceSha256": "6db1e6c6466a78775492570f0e4d7a58f4131c8ae0acb940282509a6713b7ee1"
+    },
+    {
+      "routine": {
+        "name": "tutorial-11",
+        "address": 4498896,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 11,
+      "fixture": "tests/fixtures/original-tutorial-11.json",
+      "fixtureSha256": "1d69dc4f68ff5243bb3a6255b802a5abad4470c474337a72ec90f8ef234f6349",
+      "cases": 44,
+      "orderedDrawingRequests": 2574,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "3dc8f69cce1e1caabf69dbd414c4d29ece67d9119f6b159a3d9cdab9b47daed2",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044a5d0.c",
+      "recoveredSourceSha256": "6379a29da79803049df0f1e8bf13229a9700d3248bbcfc2685abb023d22d717b"
+    },
+    {
+      "routine": {
+        "name": "tutorial-12",
+        "address": 4501728,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 12,
+      "fixture": "tests/fixtures/original-tutorial-12.json",
+      "fixtureSha256": "4719b2727d8a80fa14e9b837836101dbbaaf45c851e75a5b1007917659b2b1fa",
+      "cases": 44,
+      "orderedDrawingRequests": 1562,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "bdf663597a07f01c73220ccf3f667d813269243348e0b86d856f51bbb74696af",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044b0e0.c",
+      "recoveredSourceSha256": "05900e6443e6f8f4fe7dbb61736a0b224a43169cf92f68bb3262211c13359840"
+    },
+    {
+      "routine": {
+        "name": "tutorial-101",
+        "address": 4503856,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 101,
+      "fixture": "tests/fixtures/original-tutorial-101.json",
+      "fixtureSha256": "92ce12fd56e1431d37e8d2f6bbbc89c2c46648c80bec9352f4c168b33868fc0b",
+      "cases": 44,
+      "orderedDrawingRequests": 5764,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "362b7db876d318f78b9e1afa9744c4055a98c4d35ea30990907807bb55f6a992",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044b930.c",
+      "recoveredSourceSha256": "b3cdcd2f7d4ae6632cd8c7442e3c2edefa0bc12e8b134b46d0c78bff942dc10d"
+    },
+    {
+      "routine": {
+        "name": "tutorial-102",
+        "address": 4505840,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 102,
+      "fixture": "tests/fixtures/original-tutorial-102.json",
+      "fixtureSha256": "508d415982fa535e7ab843db4a93f64f70e8886730e5f97fcb11bb119a9f6189",
+      "cases": 44,
+      "orderedDrawingRequests": 5148,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "d7125e8304747f83b9fb1f9b304d7f7b55aae8cf6f5420228c71c5ccc9258bd4",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044c0f0.c",
+      "recoveredSourceSha256": "91830c73ff8365997c5bb95966efb75e2d470efdc1723bdda3c88356ebac95c4"
+    },
+    {
+      "routine": {
+        "name": "tutorial-103",
+        "address": 4507472,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 103,
+      "fixture": "tests/fixtures/original-tutorial-103.json",
+      "fixtureSha256": "b020d6b926f0e0d3e3ad2c496d36f8ebf2b85c821413e956fbdad551f1907bf0",
+      "cases": 44,
+      "orderedDrawingRequests": 8382,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "ed60153508564c8517f1a9c971301840cd360eb86ab2b7759274045d21bc555f",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044c750.c",
+      "recoveredSourceSha256": "cac63a1a7e34aa9a9d017594fb40ed964f7671cda002b3cf085a76bdd7a41223"
+    },
+    {
+      "routine": {
+        "name": "tutorial-104",
+        "address": 4509888,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 104,
+      "fixture": "tests/fixtures/original-tutorial-104.json",
+      "fixtureSha256": "909a6ee1dd18c22214cbd8fb31ea9544cd8e8312007c6068d8c10a18d2f67bb2",
+      "cases": 44,
+      "orderedDrawingRequests": 5170,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "02bb9ac3f00de96f32a03a07e04b649f119264399fbc3ea61f698c2d46247fb5",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044d0c0.c",
+      "recoveredSourceSha256": "364e56ef721ca830f2c1800fbc7582978efc8ed9d447dbf40fdde95a8cf871e8"
+    },
+    {
+      "routine": {
+        "name": "tutorial-105",
+        "address": 4511376,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 105,
+      "fixture": "tests/fixtures/original-tutorial-105.json",
+      "fixtureSha256": "6ed8ab5aef3d678ada4a591223fe7d62d25780a9895e7f35ea47872d5e58ef8c",
+      "cases": 44,
+      "orderedDrawingRequests": 8976,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "29708760a89efb32cd432e8e19164fda75ea2c5ba6870c71d4481d96662af6a2",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044d690.c",
+      "recoveredSourceSha256": "a96b84d93198e01ac831c62d470894f2d7ee93093b2008109108e8e9162b5b46"
+    },
+    {
+      "routine": {
+        "name": "tutorial-106",
+        "address": 4514368,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 106,
+      "fixture": "tests/fixtures/original-tutorial-106.json",
+      "fixtureSha256": "9bcb0d02111f585b179d53ecdabdb0008fee76d604653e0df03433d6e1b6114e",
+      "cases": 44,
+      "orderedDrawingRequests": 8910,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "3bdcc509bf0bbd4f2f688ae6a38929f1c07b49bc70a3348ecb4961871c67cd0f",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044e240.c",
+      "recoveredSourceSha256": "317a2699cc39b4372f3bcaf836a8a7534bf3eb3eb9f57500548c614e970c744f"
+    },
+    {
+      "routine": {
+        "name": "tutorial-107",
+        "address": 4516752,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 107,
+      "fixture": "tests/fixtures/original-tutorial-107.json",
+      "fixtureSha256": "56a9ad0dbdb56b9a9c0e9ec44bbe362abc035437360509c206da234a0dcda5bd",
+      "cases": 44,
+      "orderedDrawingRequests": 5588,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "9ec612bc0bbaf24a072bd913053470cdb1dee89f9cb7a02967cfe471ca15e11b",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044eb90.c",
+      "recoveredSourceSha256": "9542e2d96bcf4b92dab7090496e33a7fd202c71a28b09a0c88e6e1e0ae8430ca"
+    },
+    {
+      "routine": {
+        "name": "tutorial-108",
+        "address": 4519360,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 108,
+      "fixture": "tests/fixtures/original-tutorial-108.json",
+      "fixtureSha256": "061c2d67f5b1c0e11d0d005418c1fccc5fac191289f2b8f9aae215de3f6892eb",
+      "cases": 44,
+      "orderedDrawingRequests": 10538,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "2df6d32c59683f7d12ef89fdd1e6d3ddab00b6ebd7d3ef5a4268274ece291011",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044f5c0.c",
+      "recoveredSourceSha256": "c7d2ffaaad8ceb04d0054c5e0b5e3d57e445348f599252ebf2af6dc70c43c762"
+    },
+    {
+      "routine": {
+        "name": "tutorial-109",
+        "address": 4521696,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 109,
+      "fixture": "tests/fixtures/original-tutorial-109.json",
+      "fixtureSha256": "7e720cb67dfb3b123e56b11952d3e09218b7e62f49bb9c143e1413b49bbcbacf",
+      "cases": 44,
+      "orderedDrawingRequests": 7106,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "a76017ea1a4e7dd7226ad04322c4940ad7fcb81d00273d7758f6855308120852",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0044fee0.c",
+      "recoveredSourceSha256": "0b892a800a5c8a1ede47250acc4a8bb2940e568dec59f48f24b45851a43d3d60"
+    },
+    {
+      "routine": {
+        "name": "tutorial-110",
+        "address": 4523408,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 110,
+      "fixture": "tests/fixtures/original-tutorial-110.json",
+      "fixtureSha256": "d7603b51735c8a7743cb97340dc3d41ab492f5993e9a9777525ac006e4b50f12",
+      "cases": 44,
+      "orderedDrawingRequests": 4620,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "f7f3e7daaae02edb39a925f2dd9bd895bb85023e891c5334c8761c9d167acd16",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00450590.c",
+      "recoveredSourceSha256": "94af6f24a13814bbed5242a724e6169ab23401c38367a855e2adf68af24e159e"
+    },
+    {
+      "routine": {
+        "name": "tutorial-300",
+        "address": 4524400,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 300,
+      "fixture": "tests/fixtures/original-tutorial-300.json",
+      "fixtureSha256": "84f8ed538b1b6395deb0887ba3b1449d4acea91a087bafcfb0b29ec7d896320e",
+      "cases": 44,
+      "orderedDrawingRequests": 308,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "527ca14d72643a56f07815b1c2d9a5628ac42d76e443037ed40552543e2f2f1e",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00450970.c",
+      "recoveredSourceSha256": "c1a7b3e111e44443a5640b1cbc6309eeca385e48e6a3cbe3219951643657cc03"
+    },
+    {
+      "routine": {
+        "name": "tutorial-501",
+        "address": 4529760,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 501,
+      "fixture": "tests/fixtures/original-tutorial-501.json",
+      "fixtureSha256": "6b7fd3d57411c7a872e1b316983adada899a39ccb9da61513438d3366680c7f1",
+      "cases": 44,
+      "orderedDrawingRequests": 5808,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "d2fee0dbc9503a847b36cdcb061aff0b78edf773f1b9dbb704c27de56ffb1e35",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00451e60.c",
+      "recoveredSourceSha256": "0ec7268a51e6a66923dbd498f0ed97c1c61af710220a695cf436c3ba544c5eb3"
+    },
+    {
+      "routine": {
+        "name": "tutorial-502",
+        "address": 4531808,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 502,
+      "fixture": "tests/fixtures/original-tutorial-502.json",
+      "fixtureSha256": "d8f40ad8f14d90d6bc7a81cca00b64cfab3e7df3a7725ba43a574929530b1ef2",
+      "cases": 44,
+      "orderedDrawingRequests": 7282,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "5fb2f56582bb0dcc8a6ee063a14249771570b348a0f560af91b74c0978159013",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00452660.c",
+      "recoveredSourceSha256": "79db2a38f97e9d9874af27658dbe84aa6145b6642e5682fdab9970d0ca1df6f6"
+    },
+    {
+      "routine": {
+        "name": "tutorial-503",
+        "address": 4534832,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 503,
+      "fixture": "tests/fixtures/original-tutorial-503.json",
+      "fixtureSha256": "9ebac40b517649a16fc403336f665c12875c4ecc55f6fd685e8c75583b0dac5c",
+      "cases": 44,
+      "orderedDrawingRequests": 5654,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "9adf04ee679cc36e6fd49edc982ae5cf319347fd4815918fad2998889eb82024",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00453230.c",
+      "recoveredSourceSha256": "3413b7341a14343ff25ac5abcc6366a01216c3273c370b7ca63fcd878478f6d7"
+    },
+    {
+      "routine": {
+        "name": "tutorial-504",
+        "address": 4539856,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 504,
+      "fixture": "tests/fixtures/original-tutorial-504.json",
+      "fixtureSha256": "41f4b5bd8fe84fff62457346444267b5f79cc41fd268edf60c879562111189b4",
+      "cases": 44,
+      "orderedDrawingRequests": 5632,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "1cd292fdf051e54475128d4c3634dbe53b11145ec6e8c11012fe5dabdf0a7c9e",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004545d0.c",
+      "recoveredSourceSha256": "2447ec2a2b14d5cd7957bf655d14315bcea19ce9daa19ba79f59f681007cd496"
+    },
+    {
+      "routine": {
+        "name": "tutorial-505",
+        "address": 4544960,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 505,
+      "fixture": "tests/fixtures/original-tutorial-505.json",
+      "fixtureSha256": "3fcc06586bfe0f8326bff964eba019ebab578553f75329eb26d1c872ba1f0378",
+      "cases": 44,
+      "orderedDrawingRequests": 6952,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "30e010d42cd46c0a6fc0eaaefc89d4cff7e007918451593aa9535d76ad67b20f",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004559c0.c",
+      "recoveredSourceSha256": "c11d0fbc1711e4785e0e3bd77feb178cb0542f7c5f00a96dd3e2a6545bf221c5"
+    },
+    {
+      "routine": {
+        "name": "tutorial-506",
+        "address": 4551296,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 506,
+      "fixture": "tests/fixtures/original-tutorial-506.json",
+      "fixtureSha256": "48edb8f132c136f0056ec408d97407fe629d0770cb764666c2ba41205f73800f",
+      "cases": 44,
+      "orderedDrawingRequests": 5742,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "d7a7e0757a0b5fc1742d38d9f496a68d27f66b0c0f25d7f02c0c0015b4a3270b",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00457280.c",
+      "recoveredSourceSha256": "e0c28d6b4d1c720f64d4ce4f433c731271132950f2174f20dddf7c573f57dc46"
+    },
+    {
+      "routine": {
+        "name": "tutorial-507",
+        "address": 4557984,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 507,
+      "fixture": "tests/fixtures/original-tutorial-507.json",
+      "fixtureSha256": "d53203f993bf430dfedfc762791181843da7aa4aef7f5e15277ba3074ad9be1d",
+      "cases": 44,
+      "orderedDrawingRequests": 5720,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "6e8df0a1f623f994ce36c2216fb1d66dcc34f24cfa43d474ce2e2964659d5d31",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00458ca0.c",
+      "recoveredSourceSha256": "cf5a50e36cbb3b8e2501e02d87dabe338a47ac2994840f619c82e040127c333f"
+    },
+    {
+      "routine": {
+        "name": "tutorial-508",
+        "address": 4563280,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 508,
+      "fixture": "tests/fixtures/original-tutorial-508.json",
+      "fixtureSha256": "b5c88cb75cddbbf1b8e3e2a782820bd42151d6ccf05dda0dbc7f3bf77cee7a93",
+      "cases": 44,
+      "orderedDrawingRequests": 6094,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "86c7108724d8af1cd46cf0b9eadc05090ec86d9a210be1293d666a75535441f2",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0045a150.c",
+      "recoveredSourceSha256": "46f793d0f46982282bb5f693ee0aa799898e516251a6e1478537e79541df6b9c"
+    },
+    {
+      "routine": {
+        "name": "tutorial-509",
+        "address": 4570512,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 509,
+      "fixture": "tests/fixtures/original-tutorial-509.json",
+      "fixtureSha256": "dbfa7ca1bcacada57d25d4792f0da12da0b999d7a8395f6be3963c9bf1ee35ec",
+      "cases": 44,
+      "orderedDrawingRequests": 1166,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "062997035c3d1214be0f0cae442c6afd3885e2528fe9a6bf4484b3b2481cfdc8",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0045bd90.c",
+      "recoveredSourceSha256": "349610670edf7da57c5e51c98c0a2c49543b58f7ba2496017bef130043408d6a"
+    },
+    {
+      "routine": {
+        "name": "tutorial-510",
+        "address": 4572224,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 510,
+      "fixture": "tests/fixtures/original-tutorial-510.json",
+      "fixtureSha256": "570397d6fc55f7352d7e5319b53b3274ffeb9b84184ad6f3abf0216da4c6dd71",
+      "cases": 44,
+      "orderedDrawingRequests": 1144,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "e3288a85ddb40c0604d194b4c9d341d748be115376054f265f2cca130a36128c",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0045c440.c",
+      "recoveredSourceSha256": "2791656425541769ce62606f69e580c21ace590c4d67928442c3c5177d84fde9"
+    },
+    {
+      "routine": {
+        "name": "tutorial-511",
+        "address": 4573904,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 511,
+      "fixture": "tests/fixtures/original-tutorial-511.json",
+      "fixtureSha256": "d67d75880a592bb795b5edd80e2a45d2e0cce8aeb53a41ba590305e4def53e74",
+      "cases": 44,
+      "orderedDrawingRequests": 902,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "f354afd38671aa9595e4844ef398975d120fd9db066d67f49633a00b0da41885",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0045cad0.c",
+      "recoveredSourceSha256": "555bc99d08e8e48fbaca297abdc90a115cfc21fbd56ba9dc188a05ed29372eac"
+    },
+    {
+      "routine": {
+        "name": "tutorial-512",
+        "address": 4575216,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 512,
+      "fixture": "tests/fixtures/original-tutorial-512.json",
+      "fixtureSha256": "501fa80b5c32bd185f779288a79681d8d27cd32aadfe54d7faf35f79c31af895",
+      "cases": 44,
+      "orderedDrawingRequests": 10164,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "f61922ad5bb10447c1d737619f2b8b74d45ec2c05270f6ea3db253089435f5cf",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0045cff0.c",
+      "recoveredSourceSha256": "13c0da4a06032c16dbcfdfc7609a9b250adeab5f1a2af1d341dd00abd5ed7a8d"
+    },
+    {
+      "routine": {
+        "name": "tutorial-513",
+        "address": 4579136,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 513,
+      "fixture": "tests/fixtures/original-tutorial-513.json",
+      "fixtureSha256": "7d756913130af0c3941db000df958c201b64c92fe5ba414d82c182e778e59c13",
+      "cases": 44,
+      "orderedDrawingRequests": 13178,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "06a38dbdb23aae5a118c174b03cb8bbf19fd1b0c46d884e45609611a062c654e",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/0045df40.c",
+      "recoveredSourceSha256": "31b8a6ac24b6caa987aadfb5dbf1e89fac224c4048ad8dd274a9cd45326bc282"
+    },
+    {
+      "routine": {
+        "name": "tutorial-514",
+        "address": 4588656,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 514,
+      "fixture": "tests/fixtures/original-tutorial-514.json",
+      "fixtureSha256": "06046a1a0b13ccae65cf8b41afa5584cc5747f16dd14da373c2389f6c201f321",
+      "cases": 44,
+      "orderedDrawingRequests": 11198,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "7ec826db61b1012c0e43975076bce2c71cbffa43364ae1a9252fc2bdfd7d982f",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00460470.c",
+      "recoveredSourceSha256": "080d4dccdac311fed8fb750d1ae179578e4faffefe654584bce0dd6ce6c46b3a"
+    },
+    {
+      "routine": {
+        "name": "tutorial-601",
+        "address": 4593568,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 601,
+      "fixture": "tests/fixtures/original-tutorial-601.json",
+      "fixtureSha256": "3964730225e51a2cf60cb6c59356e5e2ff441cbb3e7587e39a74d2acddf6cf3a",
+      "cases": 44,
+      "orderedDrawingRequests": 1364,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "417223d771051ed49ee4114c5eae01792acac5065edec9e35fd28954748c9474",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004617a0.c",
+      "recoveredSourceSha256": "4fb8c76ec2336c6d08aa59463924bf6227325093622ee0fff30c2b7d007dd530"
+    },
+    {
+      "routine": {
+        "name": "tutorial-602",
+        "address": 4595552,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 602,
+      "fixture": "tests/fixtures/original-tutorial-602.json",
+      "fixtureSha256": "3e7da2d62ee3cd2f631975436ab9f404433e4b6ef15cd986e04ce5a5c51d56c6",
+      "cases": 44,
+      "orderedDrawingRequests": 1276,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "7c9dc3096bce2c6687a5864dadfa3ab7e6615be1a56716458995073007eb2eb1",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00461f60.c",
+      "recoveredSourceSha256": "dd4ac68784b2cb0c8927e08c152c4b7f0db9e82464eb5be74abdb031668fb5e6"
+    },
+    {
+      "routine": {
+        "name": "tutorial-603",
+        "address": 4597408,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 603,
+      "fixture": "tests/fixtures/original-tutorial-603.json",
+      "fixtureSha256": "2430a1417f78f59db9c6aa4ed8317cd389e971e53d877a3c154e5869afbff85d",
+      "cases": 44,
+      "orderedDrawingRequests": 1452,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "ad1e2163ae6f5fd052b9194f0d5a8458670bc81500e81898450f33a105edefec",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004626a0.c",
+      "recoveredSourceSha256": "36c486d72d4befbe22e6d13fa5d0bacaddaf591b5b0e4e150d73e949375908f8"
+    },
+    {
+      "routine": {
+        "name": "tutorial-604",
+        "address": 4599504,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 604,
+      "fixture": "tests/fixtures/original-tutorial-604.json",
+      "fixtureSha256": "d0fa0e05062bd9280e2170b72075008ad97815df7ac5393301e1c2bffe0a4b78",
+      "cases": 44,
+      "orderedDrawingRequests": 1408,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "13574c67bd0511a194ea3202675aa59821cd1e870679b4f97509b6fe305c87fb",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/00462ed0.c",
+      "recoveredSourceSha256": "df346a0ab9031edd4f062edce316b6be5bf846429a15fdf96bb7696906496e60"
+    },
+    {
+      "routine": {
+        "name": "tutorial-701",
+        "address": 4601536,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 701,
+      "fixture": "tests/fixtures/original-tutorial-701.json",
+      "fixtureSha256": "5fd95693c37d0b86ea9c2f186698db59366e9a69225d46d2fb296a283c901da4",
+      "cases": 44,
+      "orderedDrawingRequests": 990,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "a4e5a9e6038fad2a3c6143b6cb419cf136ee6a0626147507533d327aa07a0fbe",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004636c0.c",
+      "recoveredSourceSha256": "dc35a5e9fa6c9472649d60084923bfded5a718fc0fc48239fd8cf35378f7fd83"
+    },
+    {
+      "routine": {
+        "name": "tutorial-400",
+        "address": 4358832,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "selector": 400,
+      "fixture": "tests/fixtures/original-tutorial-400.json",
+      "fixtureSha256": "08187888a028f7dd6b623f8fb6b42824b9c6970eaccfc080a167f53186fef564",
+      "cases": 44,
+      "orderedDrawingRequests": 3916,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "12195b2a9d53be6f879960e5bde76d86d300e6a8a55472a70366a55387e534f3",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "recoveredSource": "analysis/drawing-corrections/004282b0.c",
+      "recoveredSourceSha256": "7bf467facc1a950f6c5e4fe76d5a86d16259b11d46766d88e43d6e8cf9c437ef"
+    }
+  ]
+}

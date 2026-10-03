@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "cases": 8,
+  "actualWindowsDialogs": [
+    131,
+    132
+  ],
+  "loadedOriginalTextUnchanged": true,
+  "targetGameMemoryWrites": 0,
+  "fixture": {
+    "path": "tests/fixtures/original-modal-lifecycles.json",
+    "bytes": 125831,
+    "sha256": "45c23199e5085c7a938fdcd6522e411b88a83db605629a20b506e6b4e18ec973"
+  },
+  "scope": "Normal original Custom boat menu command32789 followed by normal F input, Design132/Helm131 menu routing, actual radio controls and actual OK/Cancel buttons. Only fixed original EndDialog/InvalidateRect source calls and18 game globals are observed. Whole mutable-block SHA is retained as raw evidence; it is not a claim of framework state equivalence.",
+  "limitations": "Eight genuine setup-screen modal lifecycles. Framework allocation, other Windows messages, modal raster output and whole MFC lifetime are outside these selected-game-global comparisons. Original dialog/frame HWND values are retained; the browser supplies its own host windows.",
+  "observations": 72,
+  "allActualModalResultsMatchClickedButton": true
+}

@@ -1,0 +1,707 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routine": {
+    "address": 4256320,
+    "name": "hud-nearest",
+    "argumentTypes": [
+      "CDC",
+      "I32",
+      "I32",
+      "I32",
+      "I32",
+      "I32"
+    ],
+    "returnType": "void"
+  },
+  "integerInputs": {
+    "width": 5236260,
+    "height": 5235368,
+    "boatCount": 5087636,
+    "colors": 5465060,
+    "humans": 5087552,
+    "boatClass": 5087632,
+    "raceTime": 5213392,
+    "view1": 5206468,
+    "view2": 5206472,
+    "helpRow": 5209976,
+    "helpColumn": 5213924,
+    "mode": 5087736,
+    "nearestEnabled": 5465224,
+    "nearestMode": 5087656,
+    "soundDisabled": 5465220
+  },
+  "cases": [
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        640,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 640,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 0,
+        "view1": 0,
+        "view2": 0,
+        "helpRow": 0,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2400
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        899,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 899,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 7,
+        "view1": 1,
+        "view2": 1,
+        "helpRow": 1,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2401
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        900,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 900,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 14,
+        "view1": 2,
+        "view2": 2,
+        "helpRow": 2,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2402
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        901,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 901,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 21,
+        "view1": 3,
+        "view2": 3,
+        "helpRow": 3,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2403
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1024,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 1024,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 28,
+        "view1": 0,
+        "view2": 0,
+        "helpRow": 4,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2404
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1280,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 1280,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 35,
+        "view1": 1,
+        "view2": 1,
+        "helpRow": 5,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2405
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        640,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 640,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 42,
+        "view1": 2,
+        "view2": 2,
+        "helpRow": 6,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2406
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        899,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 899,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 49,
+        "view1": 3,
+        "view2": 3,
+        "helpRow": 7,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2407
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        900,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 900,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 56,
+        "view1": 0,
+        "view2": 0,
+        "helpRow": 8,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2408
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        901,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 901,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 63,
+        "view1": 1,
+        "view2": 1,
+        "helpRow": 9,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2409
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1024,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 1024,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 70,
+        "view1": 2,
+        "view2": 2,
+        "helpRow": 10,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2410
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1280,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 1280,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 0,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 77,
+        "view1": 3,
+        "view2": 3,
+        "helpRow": 11,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2411
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        640,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 640,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 84,
+        "view1": 0,
+        "view2": 0,
+        "helpRow": 12,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2412
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        899,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 899,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 91,
+        "view1": 1,
+        "view2": 1,
+        "helpRow": 13,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2413
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        900,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 900,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 98,
+        "view1": 2,
+        "view2": 2,
+        "helpRow": 14,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2414
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        901,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 901,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 105,
+        "view1": 3,
+        "view2": 3,
+        "helpRow": 15,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2415
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1024,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 1024,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 112,
+        "view1": 0,
+        "view2": 0,
+        "helpRow": 16,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2416
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1280,
+        480,
+        1
+      ],
+      "inputs": {
+        "width": 1280,
+        "height": 480,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 119,
+        "view1": 1,
+        "view2": 1,
+        "helpRow": 17,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2417
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        640,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 640,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 126,
+        "view1": 2,
+        "view2": 2,
+        "helpRow": 18,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2418
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        899,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 899,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 133,
+        "view1": 3,
+        "view2": 3,
+        "helpRow": 19,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2419
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        900,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 900,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 140,
+        "view1": 0,
+        "view2": 0,
+        "helpRow": 0,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2420
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        901,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 901,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 147,
+        "view1": 1,
+        "view2": 1,
+        "helpRow": 1,
+        "helpColumn": 0,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2421
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1024,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 1024,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 154,
+        "view1": 2,
+        "view2": 2,
+        "helpRow": 2,
+        "helpColumn": 1,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2422
+    },
+    {
+      "arguments": [
+        0,
+        0,
+        0,
+        1280,
+        768,
+        1
+      ],
+      "inputs": {
+        "width": 1280,
+        "height": 768,
+        "boatCount": 5,
+        "colors": 1,
+        "humans": 1,
+        "boatClass": 6,
+        "raceTime": 161,
+        "view1": 3,
+        "view2": 3,
+        "helpRow": 3,
+        "helpColumn": 2,
+        "mode": 1,
+        "nearestEnabled": 1,
+        "nearestMode": 1,
+        "soundDisabled": 1
+      },
+      "seed": 2423
+    }
+  ]
+}

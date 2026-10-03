@@ -1,0 +1,11 @@
+
+undefined4 FUN_004b8046(int *param_1)
+
+{
+  int *piVar1;
+  
+  piVar1 = (int *)*param_1;
+  *param_1 = *piVar1;
+  return piVar1[2];
+}
+

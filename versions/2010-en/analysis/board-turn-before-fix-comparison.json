@@ -1,0 +1,264 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixture": "tests/fixtures/original-board-turn.json",
+  "fixtureSha256": "f396de57774c0733c3c891c4c13be7056f47cae21618a998f7133b67b7154889",
+  "testedSource": "analysis/source-review-history/ai-functions-pre-board-fix.js",
+  "testedSourceSha256": "a8270c25cb6bdcca931e487c722dc166b150893c186c3d1a09f3e2f893e53618",
+  "beforeFix": true,
+  "cases": 384,
+  "exact": 372,
+  "mismatches": [
+    {
+      "case": 174,
+      "label": "boat2-board1-speed10-turn-1-elapsed6",
+      "branchInputs": {
+        "boat": 2,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": -1,
+        "time": 100,
+        "lastTurnTime": 94,
+        "elapsed": 6,
+        "humans": 1
+      },
+      "expectedHeading": 304,
+      "actualHeading": 299,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case174: heading2\n\n299 !== 304\n"
+    },
+    {
+      "case": 175,
+      "label": "boat2-board1-speed10-turn-1-elapsed10",
+      "branchInputs": {
+        "boat": 2,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": -1,
+        "time": 100,
+        "lastTurnTime": 90,
+        "elapsed": 10,
+        "humans": 1
+      },
+      "expectedHeading": 304,
+      "actualHeading": 299,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case175: heading2\n\n299 !== 304\n"
+    },
+    {
+      "case": 190,
+      "label": "boat2-board1-speed10-turn1-elapsed6",
+      "branchInputs": {
+        "boat": 2,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": 1,
+        "time": 100,
+        "lastTurnTime": 94,
+        "elapsed": 6,
+        "humans": 1
+      },
+      "expectedHeading": 56,
+      "actualHeading": 61,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case190: heading2\n\n61 !== 56\n"
+    },
+    {
+      "case": 191,
+      "label": "boat2-board1-speed10-turn1-elapsed10",
+      "branchInputs": {
+        "boat": 2,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": 1,
+        "time": 100,
+        "lastTurnTime": 90,
+        "elapsed": 10,
+        "humans": 1
+      },
+      "expectedHeading": 56,
+      "actualHeading": 61,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case191: heading2\n\n61 !== 56\n"
+    },
+    {
+      "case": 270,
+      "label": "boat3-board1-speed10-turn-1-elapsed6",
+      "branchInputs": {
+        "boat": 3,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": -1,
+        "time": 100,
+        "lastTurnTime": 94,
+        "elapsed": 6,
+        "humans": 1
+      },
+      "expectedHeading": 304,
+      "actualHeading": 299,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case270: heading3\n\n299 !== 304\n"
+    },
+    {
+      "case": 271,
+      "label": "boat3-board1-speed10-turn-1-elapsed10",
+      "branchInputs": {
+        "boat": 3,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": -1,
+        "time": 100,
+        "lastTurnTime": 90,
+        "elapsed": 10,
+        "humans": 1
+      },
+      "expectedHeading": 304,
+      "actualHeading": 299,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case271: heading3\n\n299 !== 304\n"
+    },
+    {
+      "case": 286,
+      "label": "boat3-board1-speed10-turn1-elapsed6",
+      "branchInputs": {
+        "boat": 3,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": 1,
+        "time": 100,
+        "lastTurnTime": 94,
+        "elapsed": 6,
+        "humans": 1
+      },
+      "expectedHeading": 56,
+      "actualHeading": 61,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case286: heading3\n\n61 !== 56\n"
+    },
+    {
+      "case": 287,
+      "label": "boat3-board1-speed10-turn1-elapsed10",
+      "branchInputs": {
+        "boat": 3,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": 1,
+        "time": 100,
+        "lastTurnTime": 90,
+        "elapsed": 10,
+        "humans": 1
+      },
+      "expectedHeading": 56,
+      "actualHeading": 61,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case287: heading3\n\n61 !== 56\n"
+    },
+    {
+      "case": 366,
+      "label": "boat12-board1-speed10-turn-1-elapsed6",
+      "branchInputs": {
+        "boat": 12,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": -1,
+        "time": 100,
+        "lastTurnTime": 94,
+        "elapsed": 6,
+        "humans": 1
+      },
+      "expectedHeading": 304,
+      "actualHeading": 299,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case366: heading12\n\n299 !== 304\n"
+    },
+    {
+      "case": 367,
+      "label": "boat12-board1-speed10-turn-1-elapsed10",
+      "branchInputs": {
+        "boat": 12,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": -1,
+        "time": 100,
+        "lastTurnTime": 90,
+        "elapsed": 10,
+        "humans": 1
+      },
+      "expectedHeading": 304,
+      "actualHeading": 299,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case367: heading12\n\n299 !== 304\n"
+    },
+    {
+      "case": 382,
+      "label": "boat12-board1-speed10-turn1-elapsed6",
+      "branchInputs": {
+        "boat": 12,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": 1,
+        "time": 100,
+        "lastTurnTime": 94,
+        "elapsed": 6,
+        "humans": 1
+      },
+      "expectedHeading": 56,
+      "actualHeading": 61,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case382: heading12\n\n61 !== 56\n"
+    },
+    {
+      "case": 383,
+      "label": "boat12-board1-speed10-turn1-elapsed10",
+      "branchInputs": {
+        "boat": 12,
+        "boardFlag": 1,
+        "speed": 10,
+        "turnMode": 1,
+        "time": 100,
+        "lastTurnTime": 90,
+        "elapsed": 10,
+        "humans": 1
+      },
+      "expectedHeading": 56,
+      "actualHeading": 61,
+      "expectedTurnMode": 0,
+      "actualTurnMode": 0,
+      "expectedRng": 2086120155,
+      "actualRng": 2086120155,
+      "failure": "case383: heading12\n\n61 !== 56\n"
+    }
+  ]
+}

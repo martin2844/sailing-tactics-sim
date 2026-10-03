@@ -1,0 +1,183 @@
+{
+  "format": 1,
+  "review": "Independent read-only big-review",
+  "verdict": "No unresolved findings after focused fresh-checkout closure",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "intent": "Deployable native JavaScript 2010 browser player preserving original behavior and keeping executable/proof fixtures out of the export.",
+  "scope": [
+    {
+      "path": "tools/build-2010-browser.js",
+      "sha256": "7ecfefe75faa49cd9fc8ab48083fcd65c36424b3c3af44c654476e5b3f0f5d7b",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "tools/test-2010.js",
+      "sha256": "59b0b22a9be6431f52d1749c8bc64c17a27dd235240505239e34db898a88e0bd",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "tools/test-all.js",
+      "sha256": "cbac90626c6b4acc97e12792fe146041b66d729b8012857596cf6ddacfd9309d",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "tools/restore-2010-evidence.js",
+      "sha256": "ea8207f4c3c9e3bd9f63d5166501f12e9263a94f3209fb4cc0ef4d0cf1fae4c7",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "611e361d56774a6a4f802f3195d74429cf3beac6ff4ffd9bc6bafa709b148bce",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "tools/check-2010-browser.js",
+      "sha256": "ca7d4d053ab862a5b7f21a6e5ebf768263e4fef69a5af712a6b29a8268aad458",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "src/render/gdi.js",
+      "sha256": "a3cfab0bf06af24f44a320a2fe90c0bcf0be096f4cd5bc0ff422699e04c2a955",
+      "reviewedEndToEnd": true
+    },
+    {
+      "path": "versions/2010-en/tests/native-state.js",
+      "sha256": "b51d89ee99eba4c640f9e748675c32109237cfaa9e64dcf2bd4af269c9206d20",
+      "reviewedEndToEnd": true
+    }
+  ],
+  "relatedContext": [
+    "package.json",
+    "tools/build-browser.js",
+    "tools/serve.js",
+    "tools/restore-evidence.js",
+    "tests/restore-evidence.test.js",
+    "tools/browser-session.js",
+    "versions/2010-en/play.html",
+    "versions/2010-en/src/runtime/original-data.js",
+    "versions/2010-en/src/runtime/browser-clock.js",
+    "versions/2010-en/src/engine/dialogs.js",
+    "versions/2010-en/src/engine/menu-controller.js (dispatch/continuation tails)",
+    "versions/2010-en/tests/retained-integration.test.js",
+    "versions/2010-en/tests/retained-frames.test.js",
+    "versions/2010-en/tests/retained-controllers.test.js",
+    "versions/2010-en/tests/ai-geometry.test.js",
+    "versions/2010-en/tests/application.test.js",
+    "versions/2010-en/tests/island-shore-context.test.js"
+  ],
+  "checkedClean": [
+    {
+      "path": "tools/build-2010-browser.js",
+      "checks": [
+        "Export deletion requires matching generated-target marker.",
+        "Only declared browser module graph, local imports and original data/assets are copied.",
+        "Existing standalone manifest verifies all123 listed files:7397152 bytes; no missing/hash mismatch/import missing/EXE/fixture/decompiled/analysis paths.",
+        "Root and edition HTML/module-relative asset URLs and rewritten server root agree."
+      ]
+    },
+    {
+      "path": "tools/test-{2010,all}.js",
+      "checks": [
+        "Test discovery selects all edition test modules; npm lifecycle restores canonical evidence.",
+        "All-edition runner restores both manifests and stops/propagates child failure."
+      ]
+    },
+    {
+      "path": "tools/restore-2010-evidence.js + shared restore-evidence.js",
+      "checks": [
+        "Both compressed and expanded sizes/hashes are verified before exclusive atomic publication.",
+        "Existing mismatched canonical files are preserved and rejected.",
+        "Paths/symlinks and concurrent publication covered by passing regression tests."
+      ]
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "checks": [
+        "Constructor preferences validated636 bytes; invalid saved values cleared.",
+        "Native keyboard/menu/mouse/dialog callbacks and modal deferred paint continuation wired to edition source.",
+        "One paint clock shared through all native children and scheduler duration adjusted for elapsed rendering.",
+        "Player fetch graph loads JavaScript, validated data and assets; no oracle/executable/fixtures."
+      ]
+    },
+    {
+      "path": "tools/check-2010-browser.js",
+      "checks": [
+        "Actual original Space state predicates govern startup/overlay clearing.",
+        "Known original idle handlers receive explicitly separate test-host paint.",
+        "Results uses original enabled menu after an explicitly declared one-finisher input.",
+        "Chrome exception/EXE+fixture-request and636-byte pagehide/reload checks remain present."
+      ]
+    },
+    {
+      "path": "src/render/gdi.js",
+      "checks": [
+        "Changed MessageBeep semantic event preserves unsigned32 type and host callback."
+      ]
+    },
+    {
+      "path": "versions/2010-en/tests/native-state.js",
+      "checks": [
+        "Independent rows reset image/CString/RNG; continuation rows preserve state and only explicit seed reseeds.",
+        "Native before-byte delta preconditions, full mutable SHA/all bytes and immutable prefix/suffix copied snapshots are compared.",
+        "Row typed override controls I32/float10 checking; signed64 callers independently compare both EDX/EAX halves.",
+        "Original semantic CString contents and RNG checked, with sounds/GDI/UI compared by relevant callers."
+      ]
+    }
+  ],
+  "validation": [
+    {
+      "command": "node --test tests/restore-evidence.test.js versions/2010-en/tests/browser-clock.test.js",
+      "tests": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "experiment": "Shared harness corruption rejection on actual first boat-option row",
+      "checks": 6,
+      "result": "Unmodified source passes; untouched mutable byte/outside image/RNG/residual EAX/native before bytes corruption each rejected.",
+      "scope": "Early fixture extent metadata only adapted to its actual complete0x60588 baseline (dedicated boat test already uses baseline.length); original captured bytes/expected values unchanged."
+    },
+    {
+      "experiment": "Standalone export manifest and all copied static/literal dynamic imports",
+      "files": 123,
+      "bytes": 7397152,
+      "missing": [],
+      "hashMismatches": [],
+      "forbidden": [],
+      "importsMissing": []
+    }
+  ],
+  "limitations": [
+    "This review does not independently rerun the complete browser sweep or whole native suite; root owns current final runs.",
+    "No claim of Windows raster/font/device identity beyond the existing declared Canvas/GDI host scope.",
+    "Findings exclude original intentional no-invalidation behavior and previously identified checker issues already corrected by root."
+  ],
+  "freshCheckoutFollowup": {
+    "tree": "02996fa49cfed7e7da8afa06eb6e22086062dd3b",
+    "scope": "Fresh export exposed related provenance-test publication dependencies that the complete working directory had masked; root owns fixes.",
+    "findings": [
+      {
+        "path": "versions/2010-en/tests/application.test.js",
+        "line": 35,
+        "trigger": "Run npm test in a clean staged checkout without ignored private runner snapshots.",
+        "outcome": "Provenance test fails ENOENT analysis/application-runners/native_reference.c; the other three complete application comparisons pass.",
+        "status": "Resolved and checked in the fresh staged checkout: exact published source/binary/observation evidence; original fixture hashes unchanged."
+      },
+      {
+        "path": "versions/2010-en/tests/modal-lifecycles.test.js",
+        "line": 23,
+        "trigger": "Run provenance test in a clean staged checkout excluding private compiled observers.",
+        "outcome": "ENOENT analysis/native-modal-observer.exe; eight original modal lifecycle comparisons pass.",
+        "status": "Resolved and checked in the fresh staged checkout: exact published source/binary/observation evidence; original fixture hashes unchanged."
+      }
+    ],
+    "closedBy": {
+      "report": "analysis/fresh-staged-focused-validation.json",
+      "stagedTree": "b89f0375f2af7693e36c1ab7262452c15c8493b4",
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    }
+  },
+  "initialSourceReviewVerdict": "No findings"
+}

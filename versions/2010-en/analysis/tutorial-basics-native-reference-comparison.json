@@ -1,0 +1,320 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "allFixtureCasesMatch": true,
+  "cases": 352,
+  "originalRoutines": 8,
+  "mutableBlock": {
+    "address": 5087232,
+    "bytes": 394632
+  },
+  "comparison": "Independent original data + edition integer trig; complete byte state/hash, original read-only write scope, RNG and ordered GDI/text requests. No tolerances.",
+  "nativeNormalization": "Owned CRT allocator/TLS bookkeeping and original global CString pointer identities; raw runtime changes and all36 actual CString texts remain in each fixture.",
+  "groups": [
+    {
+      "routine": {
+        "name": "tutorial-1",
+        "address": 4479072,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-1.json",
+      "fixtureSha256": "7238519a6b5ad0dbf704635e8aeed6745799ef35e318e0bcce4db9e4604f0fb2",
+      "cases": 44,
+      "orderedDrawingRequests": 2000,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "7bbb311fe7e9d5241ab36f44cfb85c58d5b39ccc096d1336e3cefed95274ec75",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-uymrrf6w/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-2",
+        "address": 4481616,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-2.json",
+      "fixtureSha256": "505f15da4c0136f79a5fb3a86e5b5d21fe04e7bd3d96218c256cf1d896b14593",
+      "cases": 44,
+      "orderedDrawingRequests": 594,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "96913bd28d7e9b2a106553f09c2122a59599261ca4f536633ac7a21e78d80730",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-00capoi3/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-3",
+        "address": 4483696,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-3.json",
+      "fixtureSha256": "8d59d113efa9edb2ed1b1e5478c863908551840faa34bad48e7f3bbd93f616b6",
+      "cases": 44,
+      "orderedDrawingRequests": 1342,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "372ca345dde1f822ed821cc744bc37db74cbe350fd866fa01eaff97012ccdc82",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-ky_drxem/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-4",
+        "address": 4485600,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-4.json",
+      "fixtureSha256": "4c253d5969e24397f3ec0a227b9631c301e24827a19277784f9b38674b1bace8",
+      "cases": 44,
+      "orderedDrawingRequests": 1430,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "f57f7709f2526adac9c8f1981cd55fc9623901efac5b0578f6aec66e1b09c257",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-vfuqt1pc/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-5",
+        "address": 4487664,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-5.json",
+      "fixtureSha256": "86d3b04aec2135167872df8e0b71197d138fa4e09a4ce35e95b3a93b5bf7e6e2",
+      "cases": 44,
+      "orderedDrawingRequests": 1276,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "75433d33ccf5b0cba8d75aeced6d9aaaf42048add8f4f0d4272e62274137ac02",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-mnkop0j5/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-6",
+        "address": 4489472,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-6.json",
+      "fixtureSha256": "4f8a3bdbebc77f835b3b503691346a9ccfd95dad86782b99f1757e25a1d04766",
+      "cases": 44,
+      "orderedDrawingRequests": 1364,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "0caa5f4c7b0396104e03f029c44811a779e5fa79456d86b6ab697fab07b240dd",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-ptlzinqj/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-7",
+        "address": 4491632,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-7.json",
+      "fixtureSha256": "44781f0c18f45bd4f6fc820becb2c6b28df92ed84d11efdfaa4bd8d155823bbb",
+      "cases": 44,
+      "orderedDrawingRequests": 2112,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "01e3935ad49215cb69b237896fdbf3436fb8900b0bc436beccc453afa6aa9412",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-iym_d_fa/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "routine": {
+        "name": "tutorial-8",
+        "address": 4494816,
+        "argumentTypes": [
+          "CDC"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-tutorial-8.json",
+      "fixtureSha256": "d5f8540eebf761674a2880c5e376c98411bfcda81dd7a69cc04a62430fb7afe8",
+      "cases": 44,
+      "orderedDrawingRequests": 1694,
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+        "runnerSha256": "38ddbb7fdd2cee016abd13c930e82879f6e81d08a1109a4d8f0a8cd7f22a7a1e",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-61eb7igi/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    }
+  ]
+}

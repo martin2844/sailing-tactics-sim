@@ -1,0 +1,345 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routine": {
+    "name": "clamped-point-distance",
+    "address": 4612816,
+    "argumentTypes": [
+      "F64",
+      "F64",
+      "F64",
+      "F64"
+    ],
+    "returnType": "float10"
+  },
+  "integerInputs": {},
+  "integerOutputs": {},
+  "doubleInputs": {},
+  "doubleOutputs": {},
+  "scope": "Complete unchanged2010 original routine and actual original children; finite prepared valid states, every mutable byte, RNG, exact floating return and ordered sound requests.",
+  "cases": [
+    {
+      "arguments": [
+        0,
+        17,
+        0,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        0,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        17.25,
+        34.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        -1000,
+        -983
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        0,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        0,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        17.25,
+        34.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        -1000,
+        -983
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1,
+        18
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1,
+        18
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        18.25,
+        35.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        -999,
+        -982
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        -1,
+        16
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        -1,
+        16
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        16.25,
+        33.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        -1001,
+        -984
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1e-150,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1e-150,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        17.25,
+        34.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        -1000,
+        -983
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1e+150,
+        1e+150
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1e+150,
+        1e+150
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        1e+150,
+        1e+150
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        1e+150,
+        1e+150
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1000,
+        1017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1000,
+        1017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        1017.25,
+        1034.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        0,
+        17
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        50000,
+        50017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        50000,
+        50017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        50017.25,
+        50034.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        49000,
+        49017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1000000000,
+        1000000017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        0,
+        17,
+        1000000000,
+        1000000017
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        17.25,
+        34.25,
+        1000000017.25,
+        1000000034.25
+      ],
+      "seed": 2010
+    },
+    {
+      "arguments": [
+        -1000,
+        -983,
+        999999000,
+        999999017
+      ],
+      "seed": 2010
+    }
+  ]
+}

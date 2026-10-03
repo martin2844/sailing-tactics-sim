@@ -1,0 +1,46 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "precision": "0x027f",
+  "calls": 7657,
+  "mismatches": 0,
+  "allStrictNativeComparisonsPassed": true,
+  "fixtureSha256": "6e4fc80e11ded22ec9eacc022563ea411b4171a5ff483e37731427ec4f0e2d44",
+  "groups": {
+    "keyboard": 2192,
+    "menuCommands": 2481,
+    "commandUI": 2488,
+    "leftButton": 88,
+    "rightButton": 88,
+    "mouseMove": 88,
+    "mouseWheel": 144,
+    "dialogRadios": 88
+  },
+  "comparison": [
+    "complete394632-byte mutable block",
+    "exact before/after change runs and SHA256",
+    "CRT RNG state",
+    "ordered InvalidateRect,Default,Enable,Check callbacks",
+    "BOOL wheel return",
+    "immutable image prefix/suffix"
+  ],
+  "provenance": {
+    "engine": "Original x86 code under Wine; no text edits",
+    "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+    "x87ControlWord": "0x027f",
+    "runnerSourceSha256": "c7764087e8f088ef24a390b444ff77a85a08ab6d74c2b23dc4083799920e48d6",
+    "controllerSourceSha256": "4db629f90b435fb8932cc3c95316933609de48e582b7c6639082b2ae0612bf60",
+    "controllerTableSha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4",
+    "runnerSha256": "0886fa68d7a5dc2fd3797a58ca0a62967622bbb3605c4f9ba76b3614a52c0970",
+    "loadedOriginalTextUnchanged": true,
+    "originalFileUnchanged": true,
+    "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+    "hostBindings": "Owned CTACTView/CCmdUI vtables and real MFC TLS slot; original 4ac701/4c04f2 execute. Temporary538010/538148 restored before complete state SHA and retained as raw evidence.",
+    "limitations": "Finite synthetic data profiles. Actual modal-window entry/lifetime handlers4901d0/4911c0 are excluded."
+  },
+  "limitations": [
+    "Eight explicit finite synthetic data profiles and bounded edge inputs.",
+    "Owned window/vtable callbacks and real isolated MFC TLS bindings. Original Default/TLS instructions execute; no text edits.",
+    "Modal-window entry/lifetime routines4901d0/4911c0 excluded. Browser deferred post-modal ordering is tested separately.",
+    "The complete frame/render chain is not covered by these controller fixtures."
+  ]
+}

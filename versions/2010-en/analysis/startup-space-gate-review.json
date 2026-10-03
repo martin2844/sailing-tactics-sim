@@ -1,0 +1,396 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Read-only original keyboard/paint/default audit. No game state, production source or native expectations modified. Fixture mode0 evidence is distinct from explicit-mode1 source behavior.",
+  "originalNoticeConditions": {
+    "key": 32,
+    "app5363b0": 0,
+    "mode4da16c": ">0",
+    "notice53648c": 0
+  },
+  "originalNoticeWrites": {
+    "notice53648c": 1,
+    "key4faf94": -1,
+    "app5363b0": "unchanged0",
+    "redraw5363b4": 0
+  },
+  "instructionEvidence": [
+    {
+      "address": "0x491e2b",
+      "bytes": "83fb20",
+      "instruction": "cmp ebx, 0x20"
+    },
+    {
+      "address": "0x491e2e",
+      "bytes": "7540",
+      "instruction": "jne 0x491e70"
+    },
+    {
+      "address": "0x491e30",
+      "bytes": "3935b0635300",
+      "instruction": "cmp dword ptr [0x5363b0], esi"
+    },
+    {
+      "address": "0x491e36",
+      "bytes": "7538",
+      "instruction": "jne 0x491e70"
+    },
+    {
+      "address": "0x491e38",
+      "bytes": "39356ca14d00",
+      "instruction": "cmp dword ptr [0x4da16c], esi"
+    },
+    {
+      "address": "0x491e3e",
+      "bytes": "7e30",
+      "instruction": "jle 0x491e70"
+    },
+    {
+      "address": "0x491e40",
+      "bytes": "39358c645300",
+      "instruction": "cmp dword ptr [0x53648c], esi"
+    },
+    {
+      "address": "0x491e46",
+      "bytes": "7528",
+      "instruction": "jne 0x491e70"
+    },
+    {
+      "address": "0x491e48",
+      "bytes": "c7058c64530001000000",
+      "instruction": "mov dword ptr [0x53648c], 1"
+    },
+    {
+      "address": "0x491e52",
+      "bytes": "c70594af4f00ffffffff",
+      "instruction": "mov dword ptr [0x4faf94], 0xffffffff"
+    },
+    {
+      "address": "0x491e5c",
+      "bytes": "8935b4635300",
+      "instruction": "mov dword ptr [0x5363b4], esi"
+    },
+    {
+      "address": "0x491e62",
+      "bytes": "8b551c",
+      "instruction": "mov edx, dword ptr [ebp + 0x1c]"
+    },
+    {
+      "address": "0x491e65",
+      "bytes": "56",
+      "instruction": "push esi"
+    },
+    {
+      "address": "0x491e66",
+      "bytes": "56",
+      "instruction": "push esi"
+    },
+    {
+      "address": "0x491e67",
+      "bytes": "52",
+      "instruction": "push edx"
+    },
+    {
+      "address": "0x491e68",
+      "bytes": "ffd7",
+      "instruction": "call edi"
+    },
+    {
+      "address": "0x491e6a",
+      "bytes": "8b1d94af4f00",
+      "instruction": "mov ebx, dword ptr [0x4faf94]"
+    }
+  ],
+  "expectedSequence": [
+    "With mode0, firstSpace sets app1; nextpaint runs original boat/race initializers and stores app2.",
+    "With positive mode and unset notice, firstSpace sets notice1 and consumes key, leaving app0; secondSpace then sets app1 and nextpaint starts.",
+    "Custom-editor flag1 independently consumes a Space first.",
+    "A Space after app2 reaches original active-race handling and may change simulation speed; an unconditional second key can change behavior."
+  ],
+  "nativeDefaultProfileEvidence": [
+    {
+      "fixture": "tests/fixtures/original-retained-controller-start-frames.json",
+      "sha256": "3ea4cf73b6f5c6c21ddadabbde0fc18e5aaa7b13664e8f96f8c792729a2b5638",
+      "firstRows": [
+        {
+          "index": 0,
+          "phase": "initialize",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          }
+        },
+        {
+          "index": 1,
+          "phase": "controller",
+          "arguments": [
+            32,
+            1,
+            0
+          ],
+          "before": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        },
+        {
+          "index": 2,
+          "phase": "controller",
+          "arguments": [
+            32,
+            1,
+            0
+          ],
+          "before": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        },
+        {
+          "index": 3,
+          "phase": "start-options",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        },
+        {
+          "index": 4,
+          "phase": "start-initialize",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        },
+        {
+          "index": 5,
+          "phase": "frame",
+          "arguments": [
+            0
+          ],
+          "before": {
+            "mode": 0,
+            "app": 2,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 2,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        }
+      ],
+      "sourceUnchanged": true
+    },
+    {
+      "fixture": "tests/fixtures/original-retained-island-controller-start-frames.json",
+      "sha256": "2e3faea08ffdf0ad582f3fd178ee6dad827cc00acf243a5742161f003a2e3b21",
+      "firstRows": [
+        {
+          "index": 0,
+          "phase": "initialize",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          }
+        },
+        {
+          "index": 1,
+          "phase": "controller",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          }
+        },
+        {
+          "index": 2,
+          "phase": "controller",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          }
+        },
+        {
+          "index": 3,
+          "phase": "controller",
+          "arguments": [
+            32,
+            1,
+            0
+          ],
+          "before": {
+            "mode": 0,
+            "app": 0,
+            "notice": 0,
+            "key": 0,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        },
+        {
+          "index": 4,
+          "phase": "controller",
+          "arguments": [
+            32,
+            1,
+            0
+          ],
+          "before": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        },
+        {
+          "index": 5,
+          "phase": "start-options",
+          "arguments": [],
+          "before": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          },
+          "after": {
+            "mode": 0,
+            "app": 1,
+            "notice": 0,
+            "key": -1,
+            "editor": 0
+          }
+        }
+      ],
+      "sourceUnchanged": true
+    }
+  ],
+  "browserCheckerRecommendation": "Inspect mode/app/notice/editor AND forecast/chart/wind/tide overlay state after the actual key. Dismiss the corresponding original notice or active overlay with a secondSpace only when its exact native condition holds; do not infer every start needs twoSpaces. With no overlay, a Space afterapp2 can toggle speed.",
+  "paintEvidence": "src/render/paint-lifecycle.js drawPaintContent app1 branch executes initializeBoatOptions then initializeRace and stores app2 before evaluating later dispatch branches.",
+  "activeRaceOverlaySpace": {
+    "conditions": "With app>0 and an active forecast/chart/wind/tide overlay, original key32 reaches the else branch of active-race handler rather than speed toggle.",
+    "writes": [
+      "5363f0=0",
+      "536438=0",
+      "536434=0",
+      "536404=0",
+      "5233a8=0"
+    ],
+    "source": "src/engine/keyboard.js lines217–240"
+  },
+  "followupBrowserObservation": {
+    "report": "analysis/browser-start-probe.json",
+    "observer": "/root/parity_runtime",
+    "reportedState": {
+      "mode": 0,
+      "notice": 0,
+      "app": 2,
+      "chart5233a8": 1,
+      "clockUnchanged": -170.5
+    },
+    "classification": "The observed checker timeout comes from a retained active chart overlay, not the conditional positive-mode notice gate."
+  }
+}

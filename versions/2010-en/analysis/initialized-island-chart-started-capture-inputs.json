@@ -1,0 +1,1248 @@
+{
+  "source": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "mutableBlock": {
+    "address": 5087232,
+    "size": 380928
+  },
+  "routine": {
+    "name": "drawChart",
+    "address": 4227056,
+    "argumentTypes": [
+      "CDC",
+      "I32",
+      "I32",
+      "I32",
+      "I32",
+      "I32",
+      "I32"
+    ],
+    "returnType": "void"
+  },
+  "integerInputs": {},
+  "integerOutputs": {
+    "selector": 5087556,
+    "boatClass": 5087632,
+    "course": 5087644,
+    "venue": 5087736,
+    "stage": 5087704,
+    "humans": 5087552,
+    "boats": 5087636,
+    "calibratedWidth": 5236260,
+    "calibratedHeight": 5235368,
+    "menuHeight": 5210876,
+    "raw4da188": 5087624,
+    "displaySetting4da174": 5087604,
+    "island": 5213048,
+    "flag4fb5d4": 5223892,
+    "shorelineVariant": 5243916,
+    "shorelineMode": 5209816
+  },
+  "doubleInputs": {},
+  "doubleOutputs": {},
+  "profiles": [
+    {
+      "name": "selector12-course7-initialized-island-charts-clock-zero",
+      "selector": 12,
+      "course": 7,
+      "venue": 0,
+      "boats": 12,
+      "humans": 1,
+      "stage": 5,
+      "width": 1024,
+      "height": 768,
+      "bitsPixel": 24
+    }
+  ],
+  "cases": [
+    {
+      "profile": "selector12-course7-initialized-island-charts-clock-zero",
+      "phase": "boat-options",
+      "routine": {
+        "name": "initializeBoatOptions",
+        "address": 4328448,
+        "argumentTypes": [],
+        "returnType": "void"
+      },
+      "arguments": [],
+      "seed": 537919895,
+      "patches": [
+        {
+          "address": 5087604,
+          "bytes": "08000000ab000000ab00000008000000010000000600000001000000060000000c0000000a00000007"
+        },
+        {
+          "address": 5087720,
+          "bytes": "00000000010000000d0000008e01000000"
+        },
+        {
+          "address": 5087804,
+          "bytes": "5a000000000000000000000000000000010000000200000000000000000000000e01000000"
+        },
+        {
+          "address": 5184748,
+          "bytes": "ec1c4f0000000000f41c4f"
+        },
+        {
+          "address": 5191780,
+          "bytes": "64384f"
+        },
+        {
+          "address": 5192236,
+          "bytes": "2c3a4f"
+        },
+        {
+          "address": 5192716,
+          "bytes": "0c3c4f"
+        },
+        {
+          "address": 5193564,
+          "bytes": "5c3f4f"
+        },
+        {
+          "address": 5193713,
+          "bytes": "03"
+        },
+        {
+          "address": 5193861,
+          "bytes": "040000000000008c404f"
+        },
+        {
+          "address": 5193892,
+          "bytes": "a4404f"
+        },
+        {
+          "address": 5194068,
+          "bytes": "54414f"
+        },
+        {
+          "address": 5194220,
+          "bytes": "ec414f"
+        },
+        {
+          "address": 5194424,
+          "bytes": "56ffffff"
+        },
+        {
+          "address": 5194868,
+          "bytes": "74444f"
+        },
+        {
+          "address": 5195020,
+          "bytes": "0c454f"
+        },
+        {
+          "address": 5195404,
+          "bytes": "8c464f"
+        },
+        {
+          "address": 5195428,
+          "bytes": "a4464f"
+        },
+        {
+          "address": 5196212,
+          "bytes": "b4494f"
+        },
+        {
+          "address": 5196364,
+          "bytes": "4c4a4f000000000000000000000000005c4a4f0000000000644a4f"
+        },
+        {
+          "address": 5197164,
+          "bytes": "6c4d4f"
+        },
+        {
+          "address": 5197388,
+          "bytes": "4c4e4f"
+        },
+        {
+          "address": 5204564,
+          "bytes": "546a4f"
+        },
+        {
+          "address": 5205288,
+          "bytes": "01"
+        },
+        {
+          "address": 5206148,
+          "bytes": "84704f"
+        },
+        {
+          "address": 5206452,
+          "bytes": "b4714f"
+        },
+        {
+          "address": 5206484,
+          "bytes": "d4714f"
+        },
+        {
+          "address": 5209796,
+          "bytes": "c47e4f00000000000a00000000000000d47e4f"
+        },
+        {
+          "address": 5209972,
+          "bytes": "747f4f"
+        },
+        {
+          "address": 5213244,
+          "bytes": "3c8c4f"
+        },
+        {
+          "address": 5213392,
+          "bytes": "56ffffff"
+        },
+        {
+          "address": 5213548,
+          "bytes": "6c8d4f000a"
+        },
+        {
+          "address": 5220936,
+          "bytes": "19000000000000000000000054aa4f"
+        },
+        {
+          "address": 5221688,
+          "bytes": "03"
+        },
+        {
+          "address": 5222300,
+          "bytes": "9caf4f"
+        },
+        {
+          "address": 5222980,
+          "bytes": "44b24f0000000000000000000000000054b24f00000000005cb24f"
+        },
+        {
+          "address": 5224108,
+          "bytes": "acb64f"
+        },
+        {
+          "address": 5224852,
+          "bytes": "94b94f00000000000000000000000000a4b94f"
+        },
+        {
+          "address": 5224932,
+          "bytes": "e4b94f"
+        },
+        {
+          "address": 5224966,
+          "bytes": "e83f00000000000000000000000014ba4f"
+        },
+        {
+          "address": 5226844,
+          "bytes": "5cc14f"
+        },
+        {
+          "address": 5234652,
+          "bytes": "dcdf4f0000000000e4df4f"
+        },
+        {
+          "address": 5234812,
+          "bytes": "7ce04f"
+        },
+        {
+          "address": 5234836,
+          "bytes": "fa"
+        },
+        {
+          "address": 5235020,
+          "bytes": "4ce14f"
+        },
+        {
+          "address": 5235052,
+          "bytes": "6ce14f000000000074e14f"
+        },
+        {
+          "address": 5235360,
+          "bytes": "5e01000000000000d302"
+        },
+        {
+          "address": 5236261,
+          "bytes": "04"
+        },
+        {
+          "address": 5236580,
+          "bytes": "07"
+        },
+        {
+          "address": 5236748,
+          "bytes": "0ce84f"
+        },
+        {
+          "address": 5237956,
+          "bytes": "c4ec4f"
+        },
+        {
+          "address": 5238836,
+          "bytes": "34f04f"
+        },
+        {
+          "address": 5243924,
+          "bytes": "140450"
+        },
+        {
+          "address": 5306080,
+          "bytes": "9a9999999999f93f"
+        },
+        {
+          "address": 5313396,
+          "bytes": "02"
+        },
+        {
+          "address": 5314268,
+          "bytes": "dc1651"
+        },
+        {
+          "address": 5314420,
+          "bytes": "741751"
+        },
+        {
+          "address": 5318116,
+          "bytes": "e425510000000000ec25510000000000f42551"
+        },
+        {
+          "address": 5320028,
+          "bytes": "5c2d51"
+        },
+        {
+          "address": 5384900,
+          "bytes": "4c04000012fdffff000000000c"
+        },
+        {
+          "address": 5385492,
+          "bytes": "142d5200000000000000000000000000242d52"
+        },
+        {
+          "address": 5385992,
+          "bytes": "03"
+        },
+        {
+          "address": 5386012,
+          "bytes": "1c2f52"
+        },
+        {
+          "address": 5386172,
+          "bytes": "bc2f5200000000000000000000000000cc2f52"
+        },
+        {
+          "address": 5386412,
+          "bytes": "ac3052"
+        },
+        {
+          "address": 5386436,
+          "bytes": "c430520000000000cc30520000000000000000000000000002"
+        },
+        {
+          "address": 5386644,
+          "bytes": "94315200000000000000000000000000a43152"
+        },
+        {
+          "address": 5387140,
+          "bytes": "843352"
+        },
+        {
+          "address": 5387164,
+          "bytes": "9c3352"
+        },
+        {
+          "address": 5387188,
+          "bytes": "b43352"
+        },
+        {
+          "address": 5387672,
+          "bytes": "dc"
+        },
+        {
+          "address": 5387820,
+          "bytes": "18"
+        },
+        {
+          "address": 5387860,
+          "bytes": "543652"
+        },
+        {
+          "address": 5389640,
+          "bytes": "48723ff47ec9e83f"
+        },
+        {
+          "address": 5396944,
+          "bytes": "9a9999999999f93f"
+        },
+        {
+          "address": 5397108,
+          "bytes": "745a52"
+        },
+        {
+          "address": 5397140,
+          "bytes": "945a52"
+        },
+        {
+          "address": 5397164,
+          "bytes": "ac5a52"
+        },
+        {
+          "address": 5459612,
+          "bytes": "9c4e53"
+        },
+        {
+          "address": 5459636,
+          "bytes": "b44e53"
+        },
+        {
+          "address": 5460332,
+          "bytes": "6c51530000000000745153"
+        },
+        {
+          "address": 5460488,
+          "bytes": "690000000000000000000000145253"
+        },
+        {
+          "address": 5461140,
+          "bytes": "94545300090000000000000000000000a45453"
+        },
+        {
+          "address": 5461342,
+          "bytes": "f43f"
+        },
+        {
+          "address": 5461516,
+          "bytes": "0c5653"
+        },
+        {
+          "address": 5461820,
+          "bytes": "01"
+        },
+        {
+          "address": 5462452,
+          "bytes": "b4595300000000000000000000000000c4595300000040"
+        },
+        {
+          "address": 5462517,
+          "bytes": "5065c000000000fc5953"
+        },
+        {
+          "address": 5463140,
+          "bytes": "645c53"
+        },
+        {
+          "address": 5463612,
+          "bytes": "01"
+        },
+        {
+          "address": 5464788,
+          "bytes": "69000000000000000000000000000000e462530000000000ec625300000000000000000000000000fc6253"
+        },
+        {
+          "address": 5464996,
+          "bytes": "a463530000000000ac6353"
+        },
+        {
+          "address": 5465108,
+          "bytes": "5e01"
+        },
+        {
+          "address": 5465268,
+          "bytes": "05"
+        },
+        {
+          "address": 5465344,
+          "bytes": "01"
+        }
+      ],
+      "preparation": {
+        "inputCase": 11,
+        "originalPreparation": {
+          "source": "Complete source-derived option/configuration/wind/course functions; no captured resulting output.",
+          "selector": 12,
+          "course": 1,
+          "venue": 0,
+          "stage": 5,
+          "boats": 12,
+          "humans": 1
+        },
+        "customCourseEditor": 0,
+        "scope": "Verified selector12 initialized-screen input; pre-call course selection changed to legitimate Round-the-Island7. No initialized output, names, island flags or retained stack values are supplied.",
+        "requestedCourse": 7
+      }
+    },
+    {
+      "profile": "selector12-course7-initialized-island-charts-clock-zero",
+      "phase": "race-initialization",
+      "routine": {
+        "name": "initializeRace",
+        "address": 4308592,
+        "argumentTypes": [],
+        "returnType": "void"
+      },
+      "continue": true,
+      "arguments": []
+    },
+    {
+      "phase": "drawChart-advice-panel",
+      "arguments": [
+        0,
+        0,
+        361,
+        341,
+        723,
+        1,
+        2
+      ],
+      "profile": "selector12-course7-initialized-island-charts-clock-zero",
+      "routine": {
+        "name": "drawChart",
+        "address": 4227056,
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "continue": true,
+      "patches": [
+        {
+          "address": 5213392,
+          "bytes": "00000000"
+        },
+        {
+          "address": 5462512,
+          "bytes": "0000000000000000"
+        }
+      ],
+      "preparation": {
+        "timer": 0,
+        "clock": 0,
+        "scope": "Explicit bounded post-initialization timer/clock-zero inputs exercise the original layline body. This is an input domain probe, not an elapsed native frame-chain claim; initialized boat geometry, names, flags and RNG remain original."
+      },
+      "host": {
+        "menuHeight": 20,
+        "cursor": [
+          64,
+          72
+        ],
+        "tickStart": 10000,
+        "pixels": []
+      }
+    },
+    {
+      "phase": "drawChart-main-panel",
+      "arguments": [
+        0,
+        682,
+        361,
+        1024,
+        723,
+        1,
+        1
+      ],
+      "profile": "selector12-course7-initialized-island-charts-clock-zero",
+      "routine": {
+        "name": "drawChart",
+        "address": 4227056,
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "continue": true,
+      "host": {
+        "menuHeight": 20,
+        "cursor": [
+          64,
+          72
+        ],
+        "tickStart": 10000,
+        "pixels": []
+      }
+    }
+  ],
+  "inputEvidence": {
+    "initializerManifest": "analysis/initializeRace-capture-inputs.json",
+    "initializerManifestSha256": "2a8a934fd9636b24b18a149496f6b19f728ed3622383b7ac597b9abe8c68b6eb",
+    "baselineFixture": "tests/fixtures/original-boat-options.json",
+    "baselineFixtureSha256": "01d9ec20f745a308fc87aff6447c887de0aa0f3bf022e2db4f6afd12f930fb11",
+    "constructorFixture": "tests/fixtures/original-application.json",
+    "constructorFixtureSha256": "fbdb1df9cfde2ac1f3640031222f4cccefc6adb59434fb47bd308dee8b0a758e",
+    "paintCalibrationSource": "src/render/paint-lifecycle.js",
+    "paintCalibrationSourceSha256": "83819bcb3ee534b3553d19def576d7094b21a3f263d9f9b55e1b4df1ec13d6ff",
+    "constructorObjectCount": 90,
+    "customCourseEditor": "Original constructor/default value zero at 0x5364fc; the initializer template flag one is a deliberate editor boundary case",
+    "constructorHandleConvention": "Each exact original constructor pen/brush uses its own handle-slot address as the declared logical platform handle",
+    "constructorObjects": [
+      {
+        "type": "createPen",
+        "handleAddress": 5385508,
+        "logicalHandle": 5385508,
+        "style": 0,
+        "width": 0,
+        "color": 8354048
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5387140,
+        "logicalHandle": 5387140,
+        "style": 0,
+        "width": 0,
+        "color": 8351232
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5222996,
+        "logicalHandle": 5222996,
+        "style": 0,
+        "width": 0,
+        "color": 8354048
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5195428,
+        "logicalHandle": 5195428,
+        "style": 0,
+        "width": 0,
+        "color": 8351232
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5387860,
+        "logicalHandle": 5387860,
+        "style": 0,
+        "width": 0,
+        "color": 10516480
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5463140,
+        "logicalHandle": 5463140,
+        "style": 0,
+        "width": 2,
+        "color": 16776960
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5461516,
+        "logicalHandle": 5461516,
+        "style": 0,
+        "width": 0,
+        "color": 65280
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5314268,
+        "logicalHandle": 5314268,
+        "style": 0,
+        "width": 0,
+        "color": 65280
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5224932,
+        "logicalHandle": 5224932,
+        "style": 0,
+        "width": 0,
+        "color": 255
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5397108,
+        "logicalHandle": 5397108,
+        "style": 0,
+        "width": 0,
+        "color": 255
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5314420,
+        "logicalHandle": 5314420,
+        "style": 0,
+        "width": 0,
+        "color": 8355711
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5461140,
+        "logicalHandle": 5461140,
+        "style": 0,
+        "width": 0,
+        "color": 8355711
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5320028,
+        "logicalHandle": 5320028,
+        "style": 0,
+        "width": 3,
+        "color": 8355711
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5184756,
+        "logicalHandle": 5184756,
+        "style": 0,
+        "width": 0,
+        "color": 0
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5194068,
+        "logicalHandle": 5194068,
+        "style": 0,
+        "width": 0,
+        "color": 0
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5459636,
+        "logicalHandle": 5459636,
+        "style": 0,
+        "width": 0,
+        "color": 16711680
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5460340,
+        "logicalHandle": 5460340,
+        "style": 0,
+        "width": 0,
+        "color": 16711680
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5196388,
+        "logicalHandle": 5196388,
+        "style": 0,
+        "width": 0,
+        "color": 16777215
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5220948,
+        "logicalHandle": 5220948,
+        "style": 0,
+        "width": 3,
+        "color": 16777215
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5206148,
+        "logicalHandle": 5206148,
+        "style": 0,
+        "width": 2,
+        "color": 0
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5460500,
+        "logicalHandle": 5460500,
+        "style": 0,
+        "width": 3,
+        "color": 0
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5385492,
+        "logicalHandle": 5385492,
+        "style": 0,
+        "width": 2,
+        "color": 8355711
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5464828,
+        "logicalHandle": 5464828,
+        "style": 0,
+        "width": 2,
+        "color": 4144959
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5235060,
+        "logicalHandle": 5235060,
+        "style": 0,
+        "width": 1,
+        "color": 8355711
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5224852,
+        "logicalHandle": 5224852,
+        "style": 0,
+        "width": 2,
+        "color": 255
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5386012,
+        "logicalHandle": 5386012,
+        "style": 0,
+        "width": 2,
+        "color": 32767
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5234652,
+        "logicalHandle": 5234652,
+        "style": 0,
+        "width": 2,
+        "color": 127
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5234660,
+        "logicalHandle": 5234660,
+        "style": 0,
+        "width": 1,
+        "color": 127
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5193892,
+        "logicalHandle": 5193892,
+        "style": 0,
+        "width": 2,
+        "color": 8388607
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5386436,
+        "logicalHandle": 5386436,
+        "style": 0,
+        "width": 2,
+        "color": 127
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5184748,
+        "logicalHandle": 5184748,
+        "style": 0,
+        "width": 2,
+        "color": 65280
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5195020,
+        "logicalHandle": 5195020,
+        "style": 0,
+        "width": 3,
+        "color": 16711680
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5459612,
+        "logicalHandle": 5459612,
+        "style": 0,
+        "width": 2,
+        "color": 8323072
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5386172,
+        "logicalHandle": 5386172,
+        "style": 0,
+        "width": 1,
+        "color": 8323072
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5192236,
+        "logicalHandle": 5192236,
+        "style": 0,
+        "width": 2,
+        "color": 32512
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5196364,
+        "logicalHandle": 5196364,
+        "style": 0,
+        "width": 2,
+        "color": 28160
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5464804,
+        "logicalHandle": 5464804,
+        "style": 0,
+        "width": 1,
+        "color": 32512
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5460332,
+        "logicalHandle": 5460332,
+        "style": 0,
+        "width": 2,
+        "color": 16711935
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5386412,
+        "logicalHandle": 5386412,
+        "style": 0,
+        "width": 2,
+        "color": 8323199
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5209796,
+        "logicalHandle": 5209796,
+        "style": 0,
+        "width": 2,
+        "color": 16777215
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5462468,
+        "logicalHandle": 5462468,
+        "style": 0,
+        "width": 3,
+        "color": 16777215
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5192716,
+        "logicalHandle": 5192716,
+        "style": 0,
+        "width": 1,
+        "color": 65280
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5464812,
+        "logicalHandle": 5464812,
+        "style": 0,
+        "width": 1,
+        "color": 255
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5224980,
+        "logicalHandle": 5224980,
+        "style": 0,
+        "width": 2,
+        "color": 65535
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5387164,
+        "logicalHandle": 5387164,
+        "style": 0,
+        "width": 1,
+        "color": 16711935
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5197388,
+        "logicalHandle": 5197388,
+        "style": 0,
+        "width": 1,
+        "color": 8323199
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5318116,
+        "logicalHandle": 5318116,
+        "style": 0,
+        "width": 2,
+        "color": 16711935
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5318124,
+        "logicalHandle": 5318124,
+        "style": 0,
+        "width": 4,
+        "color": 16711680
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5196212,
+        "logicalHandle": 5196212,
+        "style": 0,
+        "width": 4,
+        "color": 65535
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5193868,
+        "logicalHandle": 5193868,
+        "style": 0,
+        "width": 4,
+        "color": 255
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5235020,
+        "logicalHandle": 5235020,
+        "style": 0,
+        "width": 4,
+        "color": 6908160
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5222300,
+        "logicalHandle": 5222300,
+        "style": 0,
+        "width": 2,
+        "color": 6908160
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5195404,
+        "logicalHandle": 5195404,
+        "style": 0,
+        "width": 0,
+        "color": 16777215
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5194868,
+        "logicalHandle": 5194868,
+        "style": 0,
+        "width": 0,
+        "color": 16777215
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5224868,
+        "logicalHandle": 5224868,
+        "style": 0,
+        "width": 4,
+        "color": 10516480
+      },
+      {
+        "type": "createPen",
+        "handleAddress": 5236748,
+        "logicalHandle": 5236748,
+        "style": 0,
+        "width": 4,
+        "color": 6579200
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5196380,
+        "logicalHandle": 5196380,
+        "color": 16763007
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5213244,
+        "logicalHandle": 5213244,
+        "color": 16777087
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5209812,
+        "logicalHandle": 5209812,
+        "color": 11832320
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5206484,
+        "logicalHandle": 5206484,
+        "color": 13806080
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5461156,
+        "logicalHandle": 5461156,
+        "color": 10516480
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5318132,
+        "logicalHandle": 5318132,
+        "color": 16744192
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5206452,
+        "logicalHandle": 5206452,
+        "color": 9868800
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5226844,
+        "logicalHandle": 5226844,
+        "color": 8355584
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5386644,
+        "logicalHandle": 5386644,
+        "color": 6908160
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5243924,
+        "logicalHandle": 5243924,
+        "color": 16416512
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5462452,
+        "logicalHandle": 5462452,
+        "color": 8354048
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5386660,
+        "logicalHandle": 5386660,
+        "color": 8355328
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5213548,
+        "logicalHandle": 5213548,
+        "color": 15073280
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5191780,
+        "logicalHandle": 5191780,
+        "color": 255
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5397164,
+        "logicalHandle": 5397164,
+        "color": 32639
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5224108,
+        "logicalHandle": 5224108,
+        "color": 127
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5462524,
+        "logicalHandle": 5462524,
+        "color": 190
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5222980,
+        "logicalHandle": 5222980,
+        "color": 30720
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5464996,
+        "logicalHandle": 5464996,
+        "color": 25600
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5204564,
+        "logicalHandle": 5204564,
+        "color": 8192
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5387188,
+        "logicalHandle": 5387188,
+        "color": 65280
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5386188,
+        "logicalHandle": 5386188,
+        "color": 16711680
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5235052,
+        "logicalHandle": 5235052,
+        "color": 8323072
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5194220,
+        "logicalHandle": 5194220,
+        "color": 32767
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5223004,
+        "logicalHandle": 5223004,
+        "color": 65535
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5397140,
+        "logicalHandle": 5397140,
+        "color": 32639
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5238836,
+        "logicalHandle": 5238836,
+        "color": 16711935
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5197164,
+        "logicalHandle": 5197164,
+        "color": 8323199
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5209972,
+        "logicalHandle": 5209972,
+        "color": 8388607
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5234812,
+        "logicalHandle": 5234812,
+        "color": 8355711
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5386444,
+        "logicalHandle": 5386444,
+        "color": 4144959
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5237956,
+        "logicalHandle": 5237956,
+        "color": 3158064
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5465004,
+        "logicalHandle": 5465004,
+        "color": 2105376
+      },
+      {
+        "type": "createBrush",
+        "handleAddress": 5193564,
+        "logicalHandle": 5193564,
+        "color": 12566463
+      }
+    ],
+    "scope": "Fresh original420c00→41be70→407ff0→407ff0 island initialization and retained chart calls. Both chart argument sets are the original single-player 1024×768 composition panels with calibrated clientHeight723: first advice-panel mode2 (width/3=341), then main-panel mode1 (2*width/3=682). Native initialization determines island flags, boat classes, names and RNG. No original scene, initialized output or retained stack value is supplied. Constructor90 logical GDI objects and positive paint calibration remain the verified original-input recipe.",
+    "initializedScreensManifest": "analysis/initialized-screens-capture-inputs.json",
+    "initializedScreensManifestSha256": "2817fa596690d135e75ec5ac394c4f14daba62d105256e3266a24eea1f91420a",
+    "initializedIslandManifest": "analysis/initialized-island-scene-capture-inputs.json",
+    "initializedIslandManifestSha256": "b7cc4573e6fa46332a0075cc3c725c29bdae3ffca828020fd8ef9e08a8ba27e2",
+    "chartCallerSource": "src/render/paint-lifecycle.js",
+    "chartCallerSourceSha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b",
+    "postInitializationInputs": {
+      "0x4f8cd0": "I32 timer zero",
+      "0x5359f0": "F64 clock zero"
+    }
+  }
+}

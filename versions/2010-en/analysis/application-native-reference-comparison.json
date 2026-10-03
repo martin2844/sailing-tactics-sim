@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "originalFileUnchanged": true,
+  "loadedOriginalTextUnchanged": true,
+  "constructorCalls": 58,
+  "archiveSaveCalls": 58,
+  "nativeGdiObjectRequests": 5220,
+  "fixture": {
+    "path": "tests/fixtures/original-application.json",
+    "bytes": 19781434,
+    "sha256": "fbdb1df9cfde2ac1f3640031222f4cccefc6adb59434fb47bd308dee8b0a758e"
+  },
+  "scope": "Original full constructor402440 and destructor/archive writer4036a0 with actual CFile/CArchive and private p.tac, native arithmetic027f, fixed original UTC time and screen-height inputs. No browser-derived expected outputs.",
+  "limitations": "Finite prepared data/archives and explicit UTC/screen-height domains. This executes complete constructor and destructor routines; original WinMain, normal document/window lifecycle and Windows GDI rasterization are outside this isolated host proof."
+}

@@ -1,0 +1,65 @@
+{
+  "reviewedUtc": "2026-10-03T19:26:44.808517+00:00",
+  "scope": "Read-only, evidence-first review of native proof transport, publication compiler-input collection, full decompilation verification and the strict native-state replay harness. No source or fixture edits.",
+  "sources": [
+    {
+      "path": "versions/2010-en/tools/capture_native.py",
+      "sha256": "dc05a03fea1983739ce35d436d67a43a6303817de4563c36939eaa0eccb6dbe5"
+    },
+    {
+      "path": "versions/2010-en/tools/capture_controllers.py",
+      "sha256": "17397b5321a210313e615ffc064ec6fc05e588f186dbd1919760671f3a9d520f"
+    },
+    {
+      "path": "versions/2010-en/tools/capture_retained_frames.py",
+      "sha256": "2c6d815bbbe8b40b7f7634ec101a14e8843b631380f76cf2ed47cc8c9482d6a9"
+    },
+    {
+      "path": "versions/2010-en/tools/collect_native_sources.py",
+      "sha256": "fe24c03cbc6cfe52f7463833501698954107fc1ffe6284b189d23ce46cdb9742"
+    },
+    {
+      "path": "versions/2010-en/tools/verify_decompilation.py",
+      "sha256": "a33f0945d068de54d35c96cc9cf914d6f57e9fc3e86d97590208deedcbb11ef5"
+    },
+    {
+      "path": "versions/2010-en/tests/native-state.js",
+      "sha256": "b51d89ee99eba4c640f9e748675c32109237cfaa9e64dcf2bd4af269c9206d20"
+    }
+  ],
+  "findings": [],
+  "checks": [
+    {
+      "name": "Actual retained native controller binary replies",
+      "tests": 4,
+      "passed": 4,
+      "evidence": "tools/test_retained_transport.py rejects malformed/truncated/surplus evidence, altered precision/hash, invalid CString cell identity/count/pointer/length."
+    },
+    {
+      "name": "Publication collector with two actual private native runners",
+      "passed": true,
+      "evidence": "Isolated temporary root: regular and observed-shore captures preserved exact compiler-input hashes and narrowly recorded historical correction; repeated collection was byte-identical; changed compiler input rejected without replacing manifest."
+    },
+    {
+      "name": "Full decompilation verifier",
+      "passed": true,
+      "functions": 5281,
+      "recoveredCSha256": "c3fec02ce220f4ce19f7e1a70403305b9972855954e01f030b6e84a5079fc3a5",
+      "evidence": "Isolated report destination: exact executable, all function bodies/hashes and recovery instruction records verified. Altered function body rejected."
+    },
+    {
+      "name": "Controller/snapshot reset seed caller audit",
+      "passed": true,
+      "calls": 7741,
+      "evidence": "Every non-retained case in actual 7,657 controller and 84 snapshot fixtures has an explicit seed; no exercised seed discrepancy."
+    },
+    {
+      "name": "Independent strict native-state harness review",
+      "passed": true,
+      "reviewer": "subsystems",
+      "evidence": "Injected mutable/outside-image/RNG/EAX/native-before-byte corruptions rejected. Row-specific returns and semantic strings verified; I64 callers check EDX:EAX separately."
+    }
+  ],
+  "historicalCorrection": "Previously reported pre-insertion observer main-source hash remains explicitly annotated in retained-shore-capture-source-provenance-annotation.json; future capture records are computed after insertion. Frozen fixture expectations and provenance remain unchanged.",
+  "limitations": "Finite captured domains and declared Windows/GDI host bindings remain the scope of the original native comparisons; this review does not expand that scope."
+}

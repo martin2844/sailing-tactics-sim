@@ -123,6 +123,10 @@ export class GdiTrace {
   textOut(x, y, text) {
     this.emit({ op: 'textOut', x: i32(x), y: i32(y), text: String(text) });
   }
+  messageBeep(type) {
+    this.emit({ op: 'messageBeep', type: u32(type) });
+    return 1;
+  }
 }
 
 /**
@@ -147,6 +151,7 @@ export function createCanvasGdi(context, options = {}) {
   return new GdiTrace({ ...options, readPixel, sink(event, dc) {
     if (options.sink) options.sink(event, dc);
     switch (event.op) {
+      case 'messageBeep': options.messageBeep?.(event.type); break;
       case 'lineTo':
         if (dc.pen.null) break;
         context.beginPath();

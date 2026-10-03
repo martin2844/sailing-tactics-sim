@@ -1,0 +1,976 @@
+{
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "engine": "actual-original-native-observations",
+  "scope": "Original .text unchanged; original CALL boundaries verified against canonical instruction bytes.",
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/original-initialized-venue-render.json",
+      "sha256": "a7d3dd559ee55fd6642c499cc352e12751c9939076cbb6a04208d2f3b5c64b2c",
+      "cases": 16
+    }
+  ],
+  "calls": [
+    {
+      "address": 4215938,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4216550,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4217816,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4219552,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4219774,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4219927,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4227198,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4232682,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4232786,
+      "vtableOffset": 52
+    },
+    {
+      "address": 4232821,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4232928,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4233181,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4233223,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4300417,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4314590,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4314596,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4315359,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4315659,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4316415,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4317170,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4318159,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4319071,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4320130,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4320701,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4323388,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4323394,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4324872,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4324920,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4324926,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4325503,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4326461,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4327453,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4338582,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4340073,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4342856,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4343685,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4343916,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4344019,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4344251,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4344347,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4344656,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4344755,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4347378,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4401830,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4408348,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4408634,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4409622,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4410165,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4410171,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4451717,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4463123,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4465419,
+      "vtableOffset": 52
+    },
+    {
+      "address": 4465429,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4465601,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4465854,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4465860,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4465965,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4467217,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4467369,
+      "vtableOffset": 52
+    },
+    {
+      "address": 4467379,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4467597,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4467737,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4467852,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4468157,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4468336,
+      "vtableOffset": 100
+    },
+    {
+      "address": 4468621,
+      "vtableOffset": 52
+    },
+    {
+      "address": 4468628,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4478454,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4603789,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4603798,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4616237,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4622866,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4623032,
+      "vtableOffset": 56
+    },
+    {
+      "address": 4626015,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4626021,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4626047,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4626053,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4627569,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4630283,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4630331,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4715201,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4715516,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4716057,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4724157,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4724327,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4730597,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4730752,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4731008,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4732028,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4735636,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4738871,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4748875,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4748961,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4749377,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4749472,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4749775,
+      "vtableOffset": 44
+    },
+    {
+      "address": 4749792,
+      "vtableOffset": 44
+    }
+  ],
+  "importCalls": [
+    {
+      "address": 4215643,
+      "name": "CreateRectRgn"
+    },
+    {
+      "address": 4215655,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4216071,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4216147,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4216707,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4216776,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4218394,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4218405,
+      "name": "DeleteObject"
+    },
+    {
+      "address": 4218489,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4219725,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4219755,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4219806,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4219845,
+      "name": "Pie"
+    },
+    {
+      "address": 4220001,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4220281,
+      "name": "Polygon"
+    },
+    {
+      "address": 4227115,
+      "name": "CreateRectRgn"
+    },
+    {
+      "address": 4227133,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4227272,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4227508,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4236826,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4236837,
+      "name": "DeleteObject"
+    },
+    {
+      "address": 4299898,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4300309,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4300367,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4300480,
+      "name": "Polygon"
+    },
+    {
+      "address": 4300678,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4315349,
+      "name": "Polygon"
+    },
+    {
+      "address": 4316635,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4318461,
+      "name": "Polygon"
+    },
+    {
+      "address": 4318555,
+      "name": "Polygon"
+    },
+    {
+      "address": 4318923,
+      "name": "Polygon"
+    },
+    {
+      "address": 4319394,
+      "name": "Polygon"
+    },
+    {
+      "address": 4319488,
+      "name": "Polygon"
+    },
+    {
+      "address": 4319856,
+      "name": "Polygon"
+    },
+    {
+      "address": 4320144,
+      "name": "Polygon"
+    },
+    {
+      "address": 4320792,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4320825,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4320868,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4320911,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4320954,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4320997,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321040,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321083,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321126,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321169,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4321212,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4323607,
+      "name": "Polygon"
+    },
+    {
+      "address": 4325489,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4325781,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4327849,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4327879,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4327926,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4327959,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4335662,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4335789,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4335913,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4336146,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4336273,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4337073,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4337108,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4337143,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4337178,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4337213,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4337967,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4339040,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4339080,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4339453,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4343704,
+      "name": "Polygon"
+    },
+    {
+      "address": 4343785,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4344038,
+      "name": "Polygon"
+    },
+    {
+      "address": 4344119,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4344366,
+      "name": "Polygon"
+    },
+    {
+      "address": 4344671,
+      "name": "Polygon"
+    },
+    {
+      "address": 4344770,
+      "name": "Polygon"
+    },
+    {
+      "address": 4347458,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4347475,
+      "name": "Polygon"
+    },
+    {
+      "address": 4399988,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4405907,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4408624,
+      "name": "Polygon"
+    },
+    {
+      "address": 4409781,
+      "name": "Polygon"
+    },
+    {
+      "address": 4410396,
+      "name": "Polygon"
+    },
+    {
+      "address": 4452516,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4453097,
+      "name": "GetPixel"
+    },
+    {
+      "address": 4453136,
+      "name": "GetPixel"
+    },
+    {
+      "address": 4455842,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4455870,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4456121,
+      "name": "Polygon"
+    },
+    {
+      "address": 4463151,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4463290,
+      "name": "Polygon"
+    },
+    {
+      "address": 4463363,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4463527,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4465882,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4465914,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4467010,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4467164,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4467208,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4467244,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4467276,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4478520,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4478589,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4478835,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4603775,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4603965,
+      "name": "RoundRect"
+    },
+    {
+      "address": 4616362,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4616421,
+      "name": "Polygon"
+    },
+    {
+      "address": 4627258,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4628093,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4629901,
+      "name": "Polygon"
+    },
+    {
+      "address": 4630312,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4630360,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4657542,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4657570,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4714869,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4714961,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4715178,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4715546,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4715701,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4715977,
+      "name": "Polygon"
+    },
+    {
+      "address": 4716005,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4723846,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4724317,
+      "name": "Polygon"
+    },
+    {
+      "address": 4724559,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4729024,
+      "name": "Ellipse"
+    },
+    {
+      "address": 4729153,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4730578,
+      "name": "Polygon"
+    },
+    {
+      "address": 4730742,
+      "name": "Polygon"
+    },
+    {
+      "address": 4730998,
+      "name": "Polygon"
+    },
+    {
+      "address": 4731810,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4732016,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4732063,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4735725,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4737148,
+      "name": "Polygon"
+    },
+    {
+      "address": 4737339,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4739119,
+      "name": "Polygon"
+    },
+    {
+      "address": 4739256,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4739365,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4744999,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4745202,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4745569,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4745770,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4749846,
+      "name": "Rectangle"
+    },
+    {
+      "address": 4749897,
+      "name": "SelectObject"
+    },
+    {
+      "address": 4750051,
+      "name": "Polygon"
+    }
+  ]
+}

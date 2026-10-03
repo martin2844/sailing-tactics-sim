@@ -1,0 +1,638 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "method": "Read-only objdump32 audit of unchanged English target bytes; exact caller stack words/cleanup and callee reads. No renderer, decompiler, original executable or captured expectations modified.",
+  "legend": {
+    "C": "CDC pointer DWORD",
+    "I": "signed I32 DWORD"
+  },
+  "routines": [
+    {
+      "address": "0x444890",
+      "name": "drawChartLayline",
+      "packedTypes": "CIIIIII",
+      "stackBytes": 28,
+      "callingConvention": "cdecl; seven DWORD stack arguments; caller ADD ESP,0x1c; plain RET",
+      "returnType": "void",
+      "currentRecoveredSignature": "void FUN_00444890(int *param_1,int param_2,int param_3,int param_4,int param_5,int param_6,int param_7)",
+      "entryFrameDelta": 24,
+      "parameters": [
+        {
+          "type": "CDC",
+          "entryEspOffset": 4,
+          "bytes": 4,
+          "generatedLocalOffset": 0
+        },
+        {
+          "type": "I32",
+          "entryEspOffset": 8,
+          "bytes": 4,
+          "generatedLocalOffset": 4
+        },
+        {
+          "type": "I32",
+          "entryEspOffset": 12,
+          "bytes": 4,
+          "generatedLocalOffset": 8
+        },
+        {
+          "type": "I32",
+          "entryEspOffset": 16,
+          "bytes": 4,
+          "generatedLocalOffset": 12
+        },
+        {
+          "type": "I32",
+          "entryEspOffset": 20,
+          "bytes": 4,
+          "generatedLocalOffset": 16
+        },
+        {
+          "type": "I32",
+          "entryEspOffset": 24,
+          "bytes": 4,
+          "generatedLocalOffset": 20
+        },
+        {
+          "type": "I32",
+          "entryEspOffset": 28,
+          "bytes": 4,
+          "generatedLocalOffset": 24
+        }
+      ],
+      "calleeEvidence": [
+        {
+          "address": "0x444890",
+          "bytes": "a19ca14d00",
+          "instruction": "mov    eax,ds:0x4da19c"
+        },
+        {
+          "address": "0x444895",
+          "bytes": "83ec08",
+          "instruction": "sub    esp,0x8"
+        },
+        {
+          "address": "0x444898",
+          "bytes": "83f808",
+          "instruction": "cmp    eax,0x8"
+        },
+        {
+          "address": "0x44489b",
+          "bytes": "53",
+          "instruction": "push   ebx"
+        },
+        {
+          "address": "0x44489c",
+          "bytes": "55",
+          "instruction": "push   ebp"
+        },
+        {
+          "address": "0x44489d",
+          "bytes": "56",
+          "instruction": "push   esi"
+        },
+        {
+          "address": "0x44489e",
+          "bytes": "57",
+          "instruction": "push   edi"
+        },
+        {
+          "address": "0x44489f",
+          "bytes": "7521",
+          "instruction": "jne    0x4448c2"
+        },
+        {
+          "address": "0x4448a1",
+          "bytes": "8b442430",
+          "instruction": "mov    eax,DWORD PTR [esp+0x30]"
+        },
+        {
+          "address": "0x4448a5",
+          "bytes": "85c0",
+          "instruction": "test   eax,eax"
+        },
+        {
+          "address": "0x4448a7",
+          "bytes": "7519",
+          "instruction": "jne    0x4448c2"
+        },
+        {
+          "address": "0x4448a9",
+          "bytes": "a148a14d00",
+          "instruction": "mov    eax,ds:0x4da148"
+        },
+        {
+          "address": "0x4448ae",
+          "bytes": "8b4c2424",
+          "instruction": "mov    ecx,DWORD PTR [esp+0x24]"
+        },
+        {
+          "address": "0x4448b2",
+          "bytes": "8d0440",
+          "instruction": "lea    eax,[eax+eax*2]"
+        },
+        {
+          "address": "0x4448b5",
+          "bytes": "99",
+          "instruction": "cdq"
+        },
+        {
+          "address": "0x4448b6",
+          "bytes": "2bc2",
+          "instruction": "sub    eax,edx"
+        },
+        {
+          "address": "0x4448b8",
+          "bytes": "d1f8",
+          "instruction": "sar    eax,1"
+        },
+        {
+          "address": "0x4448ba",
+          "bytes": "3bc8",
+          "instruction": "cmp    ecx,eax"
+        },
+        {
+          "address": "0x4448bc",
+          "bytes": "0f8c71070000",
+          "instruction": "jl     0x445033"
+        },
+        {
+          "address": "0x4448c2",
+          "bytes": "a1d08c4f00",
+          "instruction": "mov    eax,ds:0x4f8cd0"
+        },
+        {
+          "address": "0x4448c7",
+          "bytes": "85c0",
+          "instruction": "test   eax,eax"
+        },
+        {
+          "address": "0x4448c9",
+          "bytes": "0f8c64070000",
+          "instruction": "jl     0x445033"
+        },
+        {
+          "address": "0x4448cf",
+          "bytes": "a1f4635300",
+          "instruction": "mov    eax,ds:0x5363f4"
+        },
+        {
+          "address": "0x4448d4",
+          "bytes": "85c0",
+          "instruction": "test   eax,eax"
+        },
+        {
+          "address": "0x4448d6",
+          "bytes": "0f8f57070000",
+          "instruction": "jg     0x445033"
+        },
+        {
+          "address": "0x4448dc",
+          "bytes": "a17c525300",
+          "instruction": "mov    eax,ds:0x53527c"
+        },
+        {
+          "address": "0x4448e1",
+          "bytes": "8b5c2434",
+          "instruction": "mov    ebx,DWORD PTR [esp+0x34]"
+        }
+      ],
+      "callerEvidence": [
+        {
+          "caller": "0x431ab0",
+          "callsite": "0x4328b8",
+          "beforeAndAfter": [
+            {
+              "address": "0x4328a0",
+              "bytes": "6a02",
+              "instruction": "push   0x2"
+            },
+            {
+              "address": "0x4328a2",
+              "bytes": "3bc2",
+              "instruction": "cmp    eax,edx"
+            },
+            {
+              "address": "0x4328a4",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x4328a5",
+              "bytes": "7508",
+              "instruction": "jne    0x4328af"
+            },
+            {
+              "address": "0x4328a7",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x4328aa",
+              "bytes": "50",
+              "instruction": "push   eax"
+            },
+            {
+              "address": "0x4328ab",
+              "bytes": "6a05",
+              "instruction": "push   0x5"
+            },
+            {
+              "address": "0x4328ad",
+              "bytes": "eb06",
+              "instruction": "jmp    0x4328b5"
+            },
+            {
+              "address": "0x4328af",
+              "bytes": "8b4d28",
+              "instruction": "mov    ecx,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x4328b2",
+              "bytes": "51",
+              "instruction": "push   ecx"
+            },
+            {
+              "address": "0x4328b3",
+              "bytes": "6a04",
+              "instruction": "push   0x4"
+            },
+            {
+              "address": "0x4328b5",
+              "bytes": "53",
+              "instruction": "push   ebx"
+            },
+            {
+              "address": "0x4328b6",
+              "bytes": "57",
+              "instruction": "push   edi"
+            },
+            {
+              "address": "0x4328b7",
+              "bytes": "56",
+              "instruction": "push   esi"
+            },
+            {
+              "address": "0x4328b8",
+              "bytes": "e8d31f0100",
+              "instruction": "call   0x444890"
+            },
+            {
+              "address": "0x4328bd",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x4328c0",
+              "bytes": "83c41c",
+              "instruction": "add    esp,0x1c"
+            }
+          ],
+          "semanticArguments": [
+            "CDC(ESI)",
+            "x(EDI)",
+            "y(EBX)",
+            "shape(4 or 5)",
+            "boat(original [EBP+0x28])",
+            1,
+            2
+          ],
+          "packedDecompilerValue": "CONCAT44(param_8,shape) must occupy two separate I32 arguments, low shape then high boat",
+          "actualStackWords": 7,
+          "callerCleanupBytes": 28
+        },
+        {
+          "caller": "0x431ab0",
+          "callsite": "0x432915",
+          "beforeAndAfter": [
+            {
+              "address": "0x4328fe",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x4328ff",
+              "bytes": "3bc2",
+              "instruction": "cmp    eax,edx"
+            },
+            {
+              "address": "0x432901",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432902",
+              "bytes": "7508",
+              "instruction": "jne    0x43290c"
+            },
+            {
+              "address": "0x432904",
+              "bytes": "8b5528",
+              "instruction": "mov    edx,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x432907",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432908",
+              "bytes": "6a04",
+              "instruction": "push   0x4"
+            },
+            {
+              "address": "0x43290a",
+              "bytes": "eb06",
+              "instruction": "jmp    0x432912"
+            },
+            {
+              "address": "0x43290c",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x43290f",
+              "bytes": "50",
+              "instruction": "push   eax"
+            },
+            {
+              "address": "0x432910",
+              "bytes": "6a05",
+              "instruction": "push   0x5"
+            },
+            {
+              "address": "0x432912",
+              "bytes": "53",
+              "instruction": "push   ebx"
+            },
+            {
+              "address": "0x432913",
+              "bytes": "57",
+              "instruction": "push   edi"
+            },
+            {
+              "address": "0x432914",
+              "bytes": "56",
+              "instruction": "push   esi"
+            },
+            {
+              "address": "0x432915",
+              "bytes": "e8761f0100",
+              "instruction": "call   0x444890"
+            },
+            {
+              "address": "0x43291a",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x43291d",
+              "bytes": "83c41c",
+              "instruction": "add    esp,0x1c"
+            }
+          ],
+          "semanticArguments": [
+            "CDC(ESI)",
+            "x(EDI)",
+            "y(EBX)",
+            "shape(4 or 5)",
+            "boat(original [EBP+0x28])",
+            1,
+            1
+          ],
+          "packedDecompilerValue": "CONCAT44(param_8,shape) must occupy two separate I32 arguments, low shape then high boat",
+          "actualStackWords": 7,
+          "callerCleanupBytes": 28
+        },
+        {
+          "caller": "0x431ab0",
+          "callsite": "0x4329aa",
+          "beforeAndAfter": [
+            {
+              "address": "0x432992",
+              "bytes": "6a02",
+              "instruction": "push   0x2"
+            },
+            {
+              "address": "0x432994",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432995",
+              "bytes": "8b5528",
+              "instruction": "mov    edx,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x432998",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432999",
+              "bytes": "6a18",
+              "instruction": "push   0x18"
+            },
+            {
+              "address": "0x43299b",
+              "bytes": "eb0a",
+              "instruction": "jmp    0x4329a7"
+            },
+            {
+              "address": "0x43299d",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x4329a0",
+              "bytes": "6a02",
+              "instruction": "push   0x2"
+            },
+            {
+              "address": "0x4329a2",
+              "bytes": "6a01",
+              "instruction": "push   0x1"
+            },
+            {
+              "address": "0x4329a4",
+              "bytes": "50",
+              "instruction": "push   eax"
+            },
+            {
+              "address": "0x4329a5",
+              "bytes": "6a19",
+              "instruction": "push   0x19"
+            },
+            {
+              "address": "0x4329a7",
+              "bytes": "53",
+              "instruction": "push   ebx"
+            },
+            {
+              "address": "0x4329a8",
+              "bytes": "57",
+              "instruction": "push   edi"
+            },
+            {
+              "address": "0x4329a9",
+              "bytes": "56",
+              "instruction": "push   esi"
+            },
+            {
+              "address": "0x4329aa",
+              "bytes": "e8e11e0100",
+              "instruction": "call   0x444890"
+            },
+            {
+              "address": "0x4329af",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x4329b2",
+              "bytes": "83c41c",
+              "instruction": "add    esp,0x1c"
+            }
+          ],
+          "semanticArguments": [
+            "CDC(ESI)",
+            "x(EDI)",
+            "y(EBX)",
+            "shape(24 or 25)",
+            "boat(original [EBP+0x28])",
+            1,
+            2
+          ],
+          "packedDecompilerValue": "CONCAT44(param_8,shape) must occupy two separate I32 arguments, low shape then high boat",
+          "actualStackWords": 7,
+          "callerCleanupBytes": 28
+        },
+        {
+          "caller": "0x431ab0",
+          "callsite": "0x432a37",
+          "beforeAndAfter": [
+            {
+              "address": "0x432a20",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432a21",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432a22",
+              "bytes": "8b5528",
+              "instruction": "mov    edx,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x432a25",
+              "bytes": "52",
+              "instruction": "push   edx"
+            },
+            {
+              "address": "0x432a26",
+              "bytes": "6a19",
+              "instruction": "push   0x19"
+            },
+            {
+              "address": "0x432a28",
+              "bytes": "eb0a",
+              "instruction": "jmp    0x432a34"
+            },
+            {
+              "address": "0x432a2a",
+              "bytes": "8b4528",
+              "instruction": "mov    eax,DWORD PTR [ebp+0x28]"
+            },
+            {
+              "address": "0x432a2d",
+              "bytes": "6a01",
+              "instruction": "push   0x1"
+            },
+            {
+              "address": "0x432a2f",
+              "bytes": "6a01",
+              "instruction": "push   0x1"
+            },
+            {
+              "address": "0x432a31",
+              "bytes": "50",
+              "instruction": "push   eax"
+            },
+            {
+              "address": "0x432a32",
+              "bytes": "6a18",
+              "instruction": "push   0x18"
+            },
+            {
+              "address": "0x432a34",
+              "bytes": "53",
+              "instruction": "push   ebx"
+            },
+            {
+              "address": "0x432a35",
+              "bytes": "57",
+              "instruction": "push   edi"
+            },
+            {
+              "address": "0x432a36",
+              "bytes": "56",
+              "instruction": "push   esi"
+            },
+            {
+              "address": "0x432a37",
+              "bytes": "e8541e0100",
+              "instruction": "call   0x444890"
+            },
+            {
+              "address": "0x432a3c",
+              "bytes": "83c41c",
+              "instruction": "add    esp,0x1c"
+            }
+          ],
+          "semanticArguments": [
+            "CDC(ESI)",
+            "x(EDI)",
+            "y(EBX)",
+            "shape(24 or 25)",
+            "boat(original [EBP+0x28])",
+            1,
+            1
+          ],
+          "packedDecompilerValue": "CONCAT44(param_8,shape) must occupy two separate I32 arguments, low shape then high boat",
+          "actualStackWords": 7,
+          "callerCleanupBytes": 28
+        }
+      ]
+    }
+  ],
+  "sourceFailure": {
+    "function": "0x431ab0",
+    "generatedCallNodes": [
+      15,
+      20,
+      25,
+      30
+    ],
+    "argumentExpressions": [
+      "CDC",
+      "x",
+      "y",
+      "uVar10",
+      "1",
+      "last"
+    ],
+    "suppliedSemanticArguments": 6,
+    "requiredSemanticArguments": 7,
+    "undefinedCalleeWord": {
+      "generatedOffset": 24,
+      "originalEntryEspOffset": 28,
+      "type": "I32"
+    },
+    "firstFailure": "444890 generated case130 at line12741 reads absent original param7",
+    "classification": "Lost packed argument width in call translation; this argument is defined by seven original caller pushes, not an undefined retained local.",
+    "earlyReturnOrdering": "Original4448c9 returns for time<0 before loading arg7 at4448e1; recovered C hoists assignment earlier. Correct seven-word forwarding resolves this specific prestart failure without retained-stack fallback."
+  },
+  "callerSourceSha256": "4829c30fecff0d73db8e0429fb2eecd5f54f739656398c5951d8544b0d6d85fb"
+}

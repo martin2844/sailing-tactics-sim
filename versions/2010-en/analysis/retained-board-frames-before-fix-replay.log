@@ -1,0 +1,37 @@
+(node:3697012) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./versions/2010-en/tools/diagnostics/ai-board-pre-fix-loader.mjs", pathToFileURL("./")); register("./versions/2010-en/tools/diagnostics/ai-board-pre-fix-loader.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ native Board preset/start prefix retains all actual state before its declared finite turn boundary (3.573856ms)
+✖ three retained full board frames are exact for image, RNG, strings, ordered GDI/sounds/UI (624.449512ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 891.192814
+
+✖ failing tests:
+
+test at versions/2010-en/tests/retained-board-frames.test.js:38:1
+✖ three retained full board frames are exact for image, RNG, strings, ordered GDI/sounds/UI (624.449512ms)
+  AssertionError [ERR_ASSERTION]: case6: desiredHeading2
+  
+  61 !== 56
+  
+      at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:57:85)
+      at TestContext.<anonymous> (file:///home/martin/tact/versions/2010-en/tests/retained-board-frames.test.js:48:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 61,
+    expected: 56,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

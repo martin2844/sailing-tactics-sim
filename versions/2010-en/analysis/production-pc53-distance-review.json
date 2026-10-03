@@ -1,0 +1,76 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Independent review and strict production replay after guarded PC53 distance was promoted. This is separate from historical diagnostic-only loader experiments; no native expected output or production source was changed by this review.",
+  "productionModule": "src/engine/waypoints.js",
+  "routineAddress": "0x4662d0",
+  "review": {
+    "exactControlWord": "0x027f",
+    "operationOrder": "dy = y1 - y0; dx = x0 - x1; yy = dy*dy; xx = dx*dx; square = yy + xx; floor test then ceiling test then sqrt/cap.",
+    "reasoning": [
+      "Original dx FST reload equals the retained dx under PC53 when the subtraction is finite and binary64 normal or exact zero.",
+      "A binary64 normal product or sum has the same 53-significand nearest/even rounding as the original PC53 operation; the original extended-exponent implementation handles all excluded exponent cases.",
+      "Nonzero operands whose products round to zero fall back explicitly; subnormal products, subtraction outputs, overflow/nonfinite outputs and control words other than027f also fall back.",
+      "Nonnegative normal squared terms cannot sum to a new subnormal; an exact zero sum remains exact. Signed input zero is removed by the squares, preserving the original distance result.",
+      "Original floor/ceiling/cap loads occur on the same conditional paths for the supported immutable target constants.",
+      "Math.sqrt parity is measured on the supported V8/native platform. This finite evidence does not assert mathematical equivalence for every possible JavaScript implementation or nonfinite unsupported Float80 domain."
+    ],
+    "concreteMismatchFound": false
+  },
+  "supplementaryGuardProof": {
+    "checks": 4344,
+    "cases": 2172,
+    "controlWords": [
+      "0x027f",
+      "0x037f"
+    ],
+    "matchedUnsupported": 6,
+    "exact": true,
+    "failures": [],
+    "scope": "Diagnostic generated guard/property inputs compared to original unchanged JavaScript Float80 helper, supplementary to original-native fixtures; these are not additional native captured calls"
+  },
+  "productionFrameProof": {
+    "fixture": "tests/fixtures/original-retained-frames.json",
+    "fixtureSha256": "6e47ca23631362fb491fdda8817020665c619b6e5e82b0760774f3558477cf5c",
+    "profile": "standard-course1-prestart",
+    "targetFrame": 1,
+    "originalRowsReplayed": 3,
+    "newNativeCaptures": 0,
+    "exact": true,
+    "targetFrameElapsedMs": 1176.4535139999998,
+    "mutableWordDifferences": 0,
+    "drawingRequests": 1469,
+    "drawingDifferences": [],
+    "rng": {
+      "actual": 282020156,
+      "expected": 282020156
+    },
+    "sounds": {
+      "actual": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ],
+      "expected": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ]
+    },
+    "pixels": 34,
+    "priorFrame0StrictlyMatched": true,
+    "scope": "Retained full original frame after the native-verified initializer and strictly matched prior frames. Expected state/drawing requests are unchanged original hardware observations; this tool reports failures and does not update fixtures."
+  },
+  "sourceHashes": {
+    "src/engine/waypoints.js": "e58e55a83ca7cc73513ecb8df7d34607c1a8c0d59f4a0c5d3dd9405a532dc3f4",
+    "src/render/drawing-functions.js": "8a69d433c78e496167c37690b09db5bae122bbeb8cd581a38279f9c1175c4e9b",
+    "src/render/dependencies.js": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0",
+    "tools/diagnostics/check-pc53-distance.mjs": "293ef8e8d1028ce9722da3b30a596058ccc09f1bb6bb7e054296cbafff9d592a",
+    "tools/diagnose-retained-frame.js": "dfe92efb6b359631f3844841966d7094d102d2f50a422e5de16aa191889487d7"
+  },
+  "historicalExperiment": "analysis/retained-standard-performance-review.json",
+  "limitations": "This review measures one genuine initialized standard profile through frame1 and supplementary guard boundaries. The final whole-port native replay suite establishes broader regression status; timings are one-process measurements, not a browser frame-rate guarantee."
+}

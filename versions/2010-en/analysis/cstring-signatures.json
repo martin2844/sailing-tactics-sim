@@ -1,0 +1,465 @@
+{
+  "changes": [
+    {
+      "after": {
+        "address": "004b045a", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "Tact2010CString * __thiscall FUN_004b045a(Tact2010CString * original_this)"
+      }, 
+      "before": {
+        "address": "004b045a", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "Tact2010CString * __thiscall FUN_004b045a(Tact2010CString * original_this)"
+      }, 
+      "reason": "Zero constructor receives this in ECX; EAX returns this; RET0."
+    }, 
+    {
+      "after": {
+        "address": "004b046a", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b046a(Tact2010CString * original_this, Tact2010CString * param_2)"
+      }, 
+      "before": {
+        "address": "004b046a", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b046a(Tact2010CString * original_this, Tact2010CString * param_2)"
+      }, 
+      "reason": "Copy constructor receives this ECX and source CString* at entry+4; RET4."
+    }, 
+    {
+      "after": {
+        "address": "004b0613", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "char *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b0613(Tact2010CString * original_this, char * param_2)"
+      }, 
+      "before": {
+        "address": "004b0613", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "char *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b0613(Tact2010CString * original_this, char * param_2)"
+      }, 
+      "reason": "ANSI constructor receives this ECX and ANSI pointer at entry+4; RET4."
+    }, 
+    {
+      "after": {
+        "address": "004b05a5", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "void __thiscall FUN_004b05a5(Tact2010CString * original_this)"
+      }, 
+      "before": {
+        "address": "004b05a5", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "void __thiscall FUN_004b05a5(Tact2010CString * original_this)"
+      }, 
+      "reason": "Destructor receives this ECX; no stack arguments; RET0."
+    }, 
+    {
+      "after": {
+        "address": "004b069e", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b069e(Tact2010CString * original_this, Tact2010CString * param_2)"
+      }, 
+      "before": {
+        "address": "004b069e", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b069e(Tact2010CString * original_this, Tact2010CString * param_2)"
+      }, 
+      "reason": "CString assignment receives this ECX and CString* source; RET4."
+    }, 
+    {
+      "after": {
+        "address": "004b06ed", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "char *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b06ed(Tact2010CString * original_this, char * param_2)"
+      }, 
+      "before": {
+        "address": "004b06ed", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x4]:4", 
+            "type": "char *"
+          }
+        ], 
+        "purge": 4, 
+        "signature": "Tact2010CString * __thiscall FUN_004b06ed(Tact2010CString * original_this, char * param_2)"
+      }, 
+      "reason": "ANSI assignment receives this ECX and ANSI source; RET4."
+    }, 
+    {
+      "after": {
+        "address": "004b0755", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 12, 
+        "signature": "Tact2010CString * __stdcall FUN_004b0755(Tact2010CString * param_1, Tact2010CString * param_2, Tact2010CString * param_3)"
+      }, 
+      "before": {
+        "address": "004b0755", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 12, 
+        "signature": "Tact2010CString * __stdcall FUN_004b0755(Tact2010CString * param_1, Tact2010CString * param_2, Tact2010CString * param_3)"
+      }, 
+      "reason": "CString+CString concat: out*,left*,right* at+4/+8/+12; verified RET0x0c at4b07b8."
+    }, 
+    {
+      "after": {
+        "address": "004b07bb", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "char *"
+          }
+        ], 
+        "purge": 12, 
+        "signature": "Tact2010CString * __stdcall FUN_004b07bb(Tact2010CString * param_1, Tact2010CString * param_2, char * param_3)"
+      }, 
+      "before": {
+        "address": "004b07bb", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "char *"
+          }
+        ], 
+        "purge": 12, 
+        "signature": "Tact2010CString * __stdcall FUN_004b07bb(Tact2010CString * param_1, Tact2010CString * param_2, char * param_3)"
+      }, 
+      "reason": "CString+ANSI concat: out*,left*,ANSI right at+4/+8/+12; verified RET0x0c at4b082c."
+    }, 
+    {
+      "after": {
+        "address": "004b082f", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "char *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 12, 
+        "signature": "Tact2010CString * __stdcall FUN_004b082f(Tact2010CString * param_1, char * param_2, Tact2010CString * param_3)"
+      }, 
+      "before": {
+        "address": "004b082f", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "char *"
+          }, 
+          {
+            "name": "param_3", 
+            "storage": "Stack[0xc]:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 12, 
+        "signature": "Tact2010CString * __stdcall FUN_004b082f(Tact2010CString * param_1, char * param_2, Tact2010CString * param_3)"
+      }, 
+      "reason": "ANSI+CString concat: out*,ANSI left,right* at+4/+8/+12; verified RET0x0c at4b08a0."
+    }, 
+    {
+      "after": {
+        "address": "0041bc70", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "Tact2010CString * __cdecl FUN_0041bc70(Tact2010CString * param_1, int param_2)"
+      }, 
+      "before": {
+        "address": "0041bc70", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:4", 
+            "type": "int"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "Tact2010CString * __cdecl FUN_0041bc70(Tact2010CString * param_1, int param_2)"
+      }, 
+      "reason": "Game integer formatter: out*+4,valueI32+8; EAX out*, caller cleanup."
+    }, 
+    {
+      "after": {
+        "address": "0041bd00", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:8", 
+            "type": "double"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "Tact2010CString * __cdecl FUN_0041bd00(Tact2010CString * param_1, double param_2)"
+      }, 
+      "before": {
+        "address": "0041bd00", 
+        "parameters": [
+          {
+            "name": "param_1", 
+            "storage": "Stack[0x4]:4", 
+            "type": "Tact2010CString *"
+          }, 
+          {
+            "name": "param_2", 
+            "storage": "Stack[0x8]:8", 
+            "type": "double"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "Tact2010CString * __cdecl FUN_0041bd00(Tact2010CString * param_1, double param_2)"
+      }, 
+      "reason": "Game fraction formatter: out*+4,valueF64+8 unaligned; EAX out*, caller cleanup."
+    }, 
+    {
+      "after": {
+        "address": "004710c0", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "char * __thiscall FUN_004710c0(Tact2010CString * original_this)"
+      }, 
+      "before": {
+        "address": "004710c0", 
+        "parameters": [], 
+        "purge": 0, 
+        "signature": "undefined FUN_004710c0(void)"
+      }, 
+      "reason": "CString header accessor: object ECX; MOV EAX,[ECX], SUB EAX,12; plain RET, no stack parameters."
+    }, 
+    {
+      "after": {
+        "address": "004710d0", 
+        "parameters": [
+          {
+            "name": "original_this", 
+            "storage": "ECX:4", 
+            "type": "Tact2010CString *"
+          }
+        ], 
+        "purge": 0, 
+        "signature": "char * __thiscall FUN_004710d0(Tact2010CString * original_this)"
+      }, 
+      "before": {
+        "address": "004710d0", 
+        "parameters": [], 
+        "purge": 0, 
+        "signature": "undefined FUN_004710d0(void)"
+      }, 
+      "reason": "CString data accessor: object ECX; MOV EAX,[ECX]; plain RET, no stack parameters."
+    }
+  ], 
+  "scope": "Decompiler metadata only, inferred from original calls/stack accesses/RET cleanup. Target instructions unchanged.", 
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+}

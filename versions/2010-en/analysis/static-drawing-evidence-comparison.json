@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Original CFG dataflow alias results compared with independently captured original native callback evidence. Matching pairs are overlapping observations, not unique function or call counts. No target execution or mutation in this comparison.",
+  "staticEvidence": {
+    "path": "analysis/static-cdc-callsites.json",
+    "sha256": "fd890d37e166d35f329f37a4fdd773b0c0ace9c0e829ea67455e67a083350329",
+    "virtualCalls": 2930,
+    "importCalls": 772
+  },
+  "matchingPairs": 2575,
+  "conflicts": [],
+  "groups": [
+    {
+      "path": "analysis/frame-cdc-callsites.json",
+      "sha256": "70c899ea81015ad16564f60b89d449727b23f408eef754c8f6cbba2b4f5177e3",
+      "matchingVirtualPairs": 302,
+      "matchingImportPairs": 73
+    },
+    {
+      "path": "analysis/frame-graphics-cdc-callsites.json",
+      "sha256": "468d09e576df9b70e2b8ac36595c52f813e167543aef6421077db9359de10a0a",
+      "matchingVirtualPairs": 144,
+      "matchingImportPairs": 107
+    },
+    {
+      "path": "analysis/hud-cdc-callsites.json",
+      "sha256": "99c54e20176b555f19fd0e12aab03f03682b2420e0ead63388f7b1b15e0d5c01",
+      "matchingVirtualPairs": 205,
+      "matchingImportPairs": 21
+    },
+    {
+      "path": "analysis/initialized-island-chart-cdc-callsites.json",
+      "sha256": "20e491b62b8f1b12dd30bd180ec88f0731f3e45aabc9fa72935fadae6d5fb65d",
+      "matchingVirtualPairs": 17,
+      "matchingImportPairs": 19
+    },
+    {
+      "path": "analysis/initialized-screens-cdc-callsites.json",
+      "sha256": "92899ecac22707a8e95d37d0e8baabc72b4727eebb74ac516e701ba68f236131",
+      "matchingVirtualPairs": 111,
+      "matchingImportPairs": 99
+    },
+    {
+      "path": "analysis/initialized-venue-render-cdc-callsites.json",
+      "sha256": "4fb56ccf2126851b0cbf439ab68cde1cb906a0b8d892062353ba9d1ce3b1d03f",
+      "matchingVirtualPairs": 97,
+      "matchingImportPairs": 141
+    },
+    {
+      "path": "analysis/normal-retained-controls-cdc-callsites.json",
+      "sha256": "7dfc697de0000e6a11ad2b325219334bd68ce90a73c6cab29961cc62312ff40c",
+      "matchingVirtualPairs": 162,
+      "matchingImportPairs": 120
+    },
+    {
+      "path": "analysis/screens-cdc-callsites.json",
+      "sha256": "5e1d4aa38de0eae2fe4d02750123149ae4d306a5be58096ef70f6c4b689256ff",
+      "matchingVirtualPairs": 84,
+      "matchingImportPairs": 7
+    },
+    {
+      "path": "analysis/tutorial-remaining-cdc-callsites.json",
+      "sha256": "8cd3e6704ee63a0e02fb68d2ac427dcaac3fabd2aa7e83c6386dcf9d4864610b",
+      "matchingVirtualPairs": 819,
+      "matchingImportPairs": 47
+    }
+  ]
+}

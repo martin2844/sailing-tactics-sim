@@ -1,0 +1,2773 @@
+{
+  "hudCallsiteEvidence": {
+    "count": 205, 
+    "importCount": 21, 
+    "path": "/home/martin/tact/versions/2010-en/analysis/hud-cdc-callsites.json", 
+    "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+  }, 
+  "missedDebug": [], 
+  "passScope": "Eight HUD procedures only", 
+  "prototypes": [
+    {
+      "address": "004049f0", 
+      "after": "void __cdecl FUN_004049f0(int * param_1)", 
+      "before": "void __cdecl FUN_004049f0(int * param_1)"
+    }, 
+    {
+      "address": "00405320", 
+      "after": "void __cdecl FUN_00405320(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)", 
+      "before": "void __cdecl FUN_00405320(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)"
+    }, 
+    {
+      "address": "00406590", 
+      "after": "void __cdecl FUN_00406590(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "void __cdecl FUN_00406590(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)"
+    }, 
+    {
+      "address": "00407ff0", 
+      "after": "void __cdecl FUN_00407ff0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "void __cdecl FUN_00407ff0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)"
+    }, 
+    {
+      "address": "0040f240", 
+      "after": "void __cdecl FUN_0040f240(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)", 
+      "before": "void __cdecl FUN_0040f240(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)"
+    }, 
+    {
+      "address": "00412d30", 
+      "after": "void __cdecl FUN_00412d30(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)", 
+      "before": "void __cdecl FUN_00412d30(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)"
+    }, 
+    {
+      "address": "0040bbc0", 
+      "after": "void __cdecl FUN_0040bbc0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "void __cdecl FUN_0040bbc0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)"
+    }, 
+    {
+      "address": "0040c980", 
+      "after": "void __cdecl FUN_0040c980(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "void __cdecl FUN_0040c980(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)"
+    }, 
+    {
+      "address": "0040db60", 
+      "after": "void __cdecl FUN_0040db60(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "void __cdecl FUN_0040db60(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)"
+    }, 
+    {
+      "address": "00463f50", 
+      "after": "void __cdecl FUN_00463f50(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "void __cdecl FUN_00463f50(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)"
+    }, 
+    {
+      "address": "0040e6e0", 
+      "after": "void __cdecl FUN_0040e6e0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)", 
+      "before": "void __cdecl FUN_0040e6e0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6)"
+    }, 
+    {
+      "address": "004118b0", 
+      "after": "void __cdecl FUN_004118b0(int * param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7)", 
+      "before": "undefined FUN_004118b0(void)"
+    }, 
+    {
+      "address": "00413bc0", 
+      "after": "void __cdecl FUN_00413bc0(int * param_1)", 
+      "before": "void __cdecl FUN_00413bc0(int * param_1)"
+    }, 
+    {
+      "address": "00416910", 
+      "after": "void __cdecl FUN_00416910(int * param_1)", 
+      "before": "void __cdecl FUN_00416910(int * param_1)"
+    }, 
+    {
+      "address": "00427f10", 
+      "after": "void __cdecl FUN_00427f10(int * param_1)", 
+      "before": "void __cdecl FUN_00427f10(int * param_1)"
+    }, 
+    {
+      "address": "00428b70", 
+      "after": "void __cdecl FUN_00428b70(int * param_1)", 
+      "before": "void __cdecl FUN_00428b70(int * param_1)"
+    }, 
+    {
+      "address": "004298f0", 
+      "after": "void __cdecl FUN_004298f0(int * param_1)", 
+      "before": "void __cdecl FUN_004298f0(int * param_1)"
+    }, 
+    {
+      "address": "00406680", 
+      "after": "void __cdecl FUN_00406680(int * param_1, int param_2, int param_3, int param_4)", 
+      "before": "void __cdecl FUN_00406680(int * param_1, int param_2, int param_3, int param_4)"
+    }, 
+    {
+      "address": "00406e40", 
+      "after": "void __cdecl FUN_00406e40(int * param_1, int param_2, int param_3, int param_4)", 
+      "before": "void __cdecl FUN_00406e40(int * param_1, int param_2, int param_3, int param_4)"
+    }, 
+    {
+      "address": "004148f0", 
+      "after": "void __cdecl FUN_004148f0(int * param_1, int param_2)", 
+      "before": "void __cdecl FUN_004148f0(int * param_1, int param_2)"
+    }, 
+    {
+      "address": "0048cf50", 
+      "after": "void __cdecl FUN_0048cf50(int * param_1, int param_2)", 
+      "before": "void __cdecl FUN_0048cf50(int * param_1, int param_2)"
+    }, 
+    {
+      "address": "0041f3e0", 
+      "after": "void __cdecl FUN_0041f3e0(int * param_1, int param_2)", 
+      "before": "void __cdecl FUN_0041f3e0(int * param_1, int param_2)"
+    }, 
+    {
+      "address": "00463c90", 
+      "after": "void __cdecl FUN_00463c90(int * param_1, int param_2)", 
+      "before": "void __cdecl FUN_00463c90(int * param_1, int param_2)"
+    }, 
+    {
+      "address": "00463df0", 
+      "after": "void __cdecl FUN_00463df0(int * param_1, int param_2, int param_3)", 
+      "before": "void __cdecl FUN_00463df0(int * param_1, int param_2, int param_3)"
+    }, 
+    {
+      "address": "00445860", 
+      "after": "void __cdecl FUN_00445860(int * param_1)", 
+      "before": "void __cdecl FUN_00445860(int * param_1)"
+    }, 
+    {
+      "address": "00446250", 
+      "after": "void __cdecl FUN_00446250(int * param_1)", 
+      "before": "void __cdecl FUN_00446250(int * param_1)"
+    }, 
+    {
+      "address": "00446a70", 
+      "after": "void __cdecl FUN_00446a70(int * param_1)", 
+      "before": "void __cdecl FUN_00446a70(int * param_1)"
+    }, 
+    {
+      "address": "004471e0", 
+      "after": "void __cdecl FUN_004471e0(int * param_1)", 
+      "before": "void __cdecl FUN_004471e0(int * param_1)"
+    }, 
+    {
+      "address": "004479f0", 
+      "after": "void __cdecl FUN_004479f0(int * param_1)", 
+      "before": "void __cdecl FUN_004479f0(int * param_1)"
+    }, 
+    {
+      "address": "00448100", 
+      "after": "void __cdecl FUN_00448100(int * param_1)", 
+      "before": "void __cdecl FUN_00448100(int * param_1)"
+    }, 
+    {
+      "address": "00448970", 
+      "after": "void __cdecl FUN_00448970(int * param_1)", 
+      "before": "void __cdecl FUN_00448970(int * param_1)"
+    }, 
+    {
+      "address": "004495e0", 
+      "after": "void __cdecl FUN_004495e0(int * param_1)", 
+      "before": "void __cdecl FUN_004495e0(int * param_1)"
+    }, 
+    {
+      "address": "00449ee0", 
+      "after": "void __cdecl FUN_00449ee0(int * param_1)", 
+      "before": "void __cdecl FUN_00449ee0(int * param_1)"
+    }, 
+    {
+      "address": "0044a5d0", 
+      "after": "void __cdecl FUN_0044a5d0(int * param_1)", 
+      "before": "void __cdecl FUN_0044a5d0(int * param_1)"
+    }, 
+    {
+      "address": "0044b0e0", 
+      "after": "void __cdecl FUN_0044b0e0(int * param_1)", 
+      "before": "void __cdecl FUN_0044b0e0(int * param_1)"
+    }, 
+    {
+      "address": "0044b930", 
+      "after": "void __cdecl FUN_0044b930(int * param_1)", 
+      "before": "void __cdecl FUN_0044b930(int * param_1)"
+    }, 
+    {
+      "address": "0044c0f0", 
+      "after": "void __cdecl FUN_0044c0f0(int * param_1)", 
+      "before": "void __cdecl FUN_0044c0f0(int * param_1)"
+    }, 
+    {
+      "address": "0044c750", 
+      "after": "void __cdecl FUN_0044c750(int * param_1)", 
+      "before": "void __cdecl FUN_0044c750(int * param_1)"
+    }, 
+    {
+      "address": "0044d0c0", 
+      "after": "void __cdecl FUN_0044d0c0(int * param_1)", 
+      "before": "void __cdecl FUN_0044d0c0(int * param_1)"
+    }, 
+    {
+      "address": "0044d690", 
+      "after": "void __cdecl FUN_0044d690(int * param_1)", 
+      "before": "void __cdecl FUN_0044d690(int * param_1)"
+    }, 
+    {
+      "address": "0044e240", 
+      "after": "void __cdecl FUN_0044e240(int * param_1)", 
+      "before": "void __cdecl FUN_0044e240(int * param_1)"
+    }, 
+    {
+      "address": "0044eb90", 
+      "after": "void __cdecl FUN_0044eb90(int * param_1)", 
+      "before": "void __cdecl FUN_0044eb90(int * param_1)"
+    }, 
+    {
+      "address": "0044f5c0", 
+      "after": "void __cdecl FUN_0044f5c0(int * param_1)", 
+      "before": "void __cdecl FUN_0044f5c0(int * param_1)"
+    }, 
+    {
+      "address": "0044fee0", 
+      "after": "void __cdecl FUN_0044fee0(int * param_1)", 
+      "before": "void __cdecl FUN_0044fee0(int * param_1)"
+    }, 
+    {
+      "address": "00450590", 
+      "after": "void __cdecl FUN_00450590(int * param_1)", 
+      "before": "void __cdecl FUN_00450590(int * param_1)"
+    }, 
+    {
+      "address": "00450970", 
+      "after": "void __cdecl FUN_00450970(int * param_1)", 
+      "before": "void __cdecl FUN_00450970(int * param_1)"
+    }, 
+    {
+      "address": "00451e60", 
+      "after": "void __cdecl FUN_00451e60(int * param_1)", 
+      "before": "void __cdecl FUN_00451e60(int * param_1)"
+    }, 
+    {
+      "address": "00452660", 
+      "after": "void __cdecl FUN_00452660(int * param_1)", 
+      "before": "void __cdecl FUN_00452660(int * param_1)"
+    }, 
+    {
+      "address": "00453230", 
+      "after": "void __cdecl FUN_00453230(int * param_1)", 
+      "before": "void __cdecl FUN_00453230(int * param_1)"
+    }, 
+    {
+      "address": "004545d0", 
+      "after": "void __cdecl FUN_004545d0(int * param_1)", 
+      "before": "void __cdecl FUN_004545d0(int * param_1)"
+    }, 
+    {
+      "address": "004559c0", 
+      "after": "void __cdecl FUN_004559c0(int * param_1)", 
+      "before": "void __cdecl FUN_004559c0(int * param_1)"
+    }, 
+    {
+      "address": "00457280", 
+      "after": "void __cdecl FUN_00457280(int * param_1)", 
+      "before": "void __cdecl FUN_00457280(int * param_1)"
+    }, 
+    {
+      "address": "00458ca0", 
+      "after": "void __cdecl FUN_00458ca0(int * param_1)", 
+      "before": "void __cdecl FUN_00458ca0(int * param_1)"
+    }, 
+    {
+      "address": "0045a150", 
+      "after": "void __cdecl FUN_0045a150(int * param_1)", 
+      "before": "void __cdecl FUN_0045a150(int * param_1)"
+    }, 
+    {
+      "address": "0045bd90", 
+      "after": "void __cdecl FUN_0045bd90(int * param_1)", 
+      "before": "void __cdecl FUN_0045bd90(int * param_1)"
+    }, 
+    {
+      "address": "0045c440", 
+      "after": "void __cdecl FUN_0045c440(int * param_1)", 
+      "before": "void __cdecl FUN_0045c440(int * param_1)"
+    }, 
+    {
+      "address": "0045cad0", 
+      "after": "void __cdecl FUN_0045cad0(int * param_1)", 
+      "before": "void __cdecl FUN_0045cad0(int * param_1)"
+    }, 
+    {
+      "address": "0045cff0", 
+      "after": "void __cdecl FUN_0045cff0(int * param_1)", 
+      "before": "void __cdecl FUN_0045cff0(int * param_1)"
+    }, 
+    {
+      "address": "0045df40", 
+      "after": "void __cdecl FUN_0045df40(int * param_1)", 
+      "before": "void __cdecl FUN_0045df40(int * param_1)"
+    }, 
+    {
+      "address": "00460470", 
+      "after": "void __cdecl FUN_00460470(int * param_1)", 
+      "before": "void __cdecl FUN_00460470(int * param_1)"
+    }, 
+    {
+      "address": "004617a0", 
+      "after": "void __cdecl FUN_004617a0(int * param_1)", 
+      "before": "void __cdecl FUN_004617a0(int * param_1)"
+    }, 
+    {
+      "address": "00461f60", 
+      "after": "void __cdecl FUN_00461f60(int * param_1)", 
+      "before": "void __cdecl FUN_00461f60(int * param_1)"
+    }, 
+    {
+      "address": "004626a0", 
+      "after": "void __cdecl FUN_004626a0(int * param_1)", 
+      "before": "void __cdecl FUN_004626a0(int * param_1)"
+    }, 
+    {
+      "address": "00462ed0", 
+      "after": "void __cdecl FUN_00462ed0(int * param_1)", 
+      "before": "void __cdecl FUN_00462ed0(int * param_1)"
+    }, 
+    {
+      "address": "004636c0", 
+      "after": "void __cdecl FUN_004636c0(int * param_1)", 
+      "before": "void __cdecl FUN_004636c0(int * param_1)"
+    }, 
+    {
+      "address": "004282b0", 
+      "after": "void __cdecl FUN_004282b0(int * param_1)", 
+      "before": "void __cdecl FUN_004282b0(int * param_1)"
+    }, 
+    {
+      "address": "004b48fc", 
+      "after": "int __thiscall FUN_004b48fc(int * original_dc, int param_2)", 
+      "before": "int __thiscall FUN_004b48fc(int * original_dc, int param_2)", 
+      "purge": 4, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "004b4994", 
+      "after": "int __thiscall FUN_004b4994(int * original_dc, int * param_2)", 
+      "before": "int __thiscall FUN_004b4994(int * original_dc, int * param_2)", 
+      "purge": 4, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "004b49e7", 
+      "after": "int __thiscall FUN_004b49e7(int * original_dc, int param_2)", 
+      "before": "int __thiscall FUN_004b49e7(int * original_dc, int param_2)", 
+      "purge": 4, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "004b4a57", 
+      "after": "int __thiscall FUN_004b4a57(int * original_dc, int param_2)", 
+      "before": "int __thiscall FUN_004b4a57(int * original_dc, int param_2)", 
+      "purge": 4, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "0049a534", 
+      "after": "int __thiscall FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "before": "int __thiscall FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "purge": 16, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "004b4a1f", 
+      "after": "int __thiscall FUN_004b4a1f(int * original_dc, int param_2)", 
+      "before": "int __thiscall FUN_004b4a1f(int * original_dc, int param_2)", 
+      "purge": 4, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "004b4d9d", 
+      "after": "void __thiscall FUN_004b4d9d(int * original_dc, int * param_2, int param_3, int param_4)", 
+      "before": "void __thiscall FUN_004b4d9d(int * original_dc, int * param_2, int param_3, int param_4)", 
+      "purge": 12, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }, 
+    {
+      "address": "004b4de9", 
+      "after": "int __thiscall LineTo(int * original_dc, int param_2, int param_3)", 
+      "before": "int __thiscall LineTo(int * original_dc, int param_2, int param_3)", 
+      "purge": 8, 
+      "reason": "Original ECX CDC plus original stack args, verified RET cleanup."
+    }
+  ], 
+  "scope": "Analyst metadata only; original instructions unchanged.", 
+  "screensCallsiteEvidence": {
+    "count": 84, 
+    "importCount": 7, 
+    "path": "/home/martin/tact/versions/2010-en/analysis/screens-cdc-callsites.json", 
+    "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+  }, 
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787", 
+  "staticCallsiteEvidence": {
+    "count": 2076, 
+    "importCount": 739, 
+    "path": "/home/martin/tact/versions/2010-en/analysis/static-cdc-callsites.json", 
+    "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+  }, 
+  "virtualCalls": [
+    {
+      "call": "0040bc53", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "0040bc61", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040bc96", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040bdb0", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040be1c", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040be4a", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040bea5", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040bf01", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040bf18", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c002", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c048", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c061", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c14a", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c191", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c1aa", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c296", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c2dc", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c2f5", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c3dc", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c422", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c43b", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c509", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c550", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c569", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c652", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c698", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c6b1", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040c7a8", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040c7f8", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c82d", 
+      "function": "0040bbc0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040c846", 
+      "function": "0040bbc0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ca41", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ca91", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040cb1f", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040cb4a", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040cb74", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040cbb7", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040cc43", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040cc6d", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040ccad", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ccfc", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040cd80", 
+      "function": "0040c980", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040cde5", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ce06", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ce5e", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040cefb", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040cf8c", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040cfcf", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d090", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d0bb", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d136", 
+      "function": "0040c980", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040d16e", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d1ed", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d1fe", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d244", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d29e", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d30c", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d340", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d387", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d3ab", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d3d6", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d42a", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d455", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d46f", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d49a", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d4db", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d506", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d55f", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d589", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d5d8", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d602", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d662", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d68d", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d707", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d732", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d749", 
+      "function": "0040c980", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040d7a3", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d7ce", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d833", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d85e", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d891", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d8bb", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d91e", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d948", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040d993", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040d9be", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040da19", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040da44", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040da77", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040daa5", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040db04", 
+      "function": "0040c980", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040db2f", 
+      "function": "0040c980", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040dc23", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040dc71", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040dcb4", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040dcfb", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040dd55", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040dda8", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040dde5", 
+      "function": "0040db60", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040de61", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040de82", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040deb6", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040deed", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040df57", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040df81", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040dffc", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e027", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e05b", 
+      "function": "0040db60", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040e097", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e116", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e127", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e171", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e1d3", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e1f3", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e222", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e249", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e278", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e2d6", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e304", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e35d", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e38c", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e3c0", 
+      "function": "0040db60", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040e419", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e44f", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e46f", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e49e", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e4d1", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e4ff", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e51f", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e54d", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e593", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e5c5", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e5e5", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e610", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e643", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e66d", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e68d", 
+      "function": "0040db60", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e6b4", 
+      "function": "0040db60", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040e77d", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "0040e78b", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e798", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040e885", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040e910", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040e938", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040e993", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040e9ef", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040ea06", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040eaa0", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040eae0", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040eb2a", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040eb43", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ebdd", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ec16", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ec60", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040ec79", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ecfb", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ed37", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ed82", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040ed9b", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ee30", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ee61", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040eeac", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040eec5", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040ef31", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ef7b", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040ef94", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040f000", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f04a", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040f063", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040f0f6", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f14c", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040f185", 
+      "function": "0040e6e0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040f19e", 
+      "function": "0040e6e0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040f384", 
+      "function": "0040f240", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040f3aa", 
+      "function": "0040f240", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "0040f417", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "0040f443", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f462", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f473", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "0040f500", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040f5c8", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040f636", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "0040f7f3", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f807", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f824", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040f853", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040f8ad", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fabc", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fb6d", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040fbe6", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fc4c", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040fca1", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fd03", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fd65", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fd86", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040fe3f", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fe75", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040fea7", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0040fecb", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ff6a", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0040ffdc", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00410052", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410098", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00410117", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041022f", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041032a", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00410414", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004104fb", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004107d2", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410849", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041088a", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004109d2", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410a4f", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410b41", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410bbe", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410c27", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410c52", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410cba", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00410ce0", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410ddb", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410e06", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00410f22", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00410f4d", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041100e", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00411215", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411261", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004113ac", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "004114c7", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411505", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041151e", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "0041152a", 
+      "function": "0040f240", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00411629", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "00411632", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "00411763", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041178a", 
+      "function": "0040f240", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004117ea", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411859", 
+      "function": "0040f240", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411889", 
+      "function": "0040f240", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "00411948", 
+      "function": "004118b0", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "00411992", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004119df", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411a01", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00411b00", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00411b21", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00411b75", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411c51", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411cf6", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00411d52", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00411d98", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411db1", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00411eac", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00411ef1", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00411f0a", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00412069", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004120b9", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412116", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412237", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412261", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004122b3", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004122dd", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041234f", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412379", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004123b8", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004123e2", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412455", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041245d", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "004124e3", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004124fc", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00412573", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041259d", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412654", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041269a", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004126b3", 
+      "function": "004118b0", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00412732", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041275c", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412827", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041286c", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412908", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412932", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412958", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004129a4", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412a48", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412a72", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412ab2", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412af8", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412b99", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412bc3", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412be8", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412c34", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412cdc", 
+      "function": "004118b0", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412d03", 
+      "function": "004118b0", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00412f34", 
+      "function": "00412d30", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00412f3a", 
+      "function": "00412d30", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00412f62", 
+      "function": "00412d30", 
+      "originalTarget": "004b49e7", 
+      "prototype": "int FUN_004b49e7(int * original_dc, int param_2)", 
+      "vtableOffset": 52
+    }, 
+    {
+      "call": "00412f75", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00412f88", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00413037", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413083", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004130b4", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004130f2", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413134", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413158", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041319e", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041321b", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "0041328d", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004132c5", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004132f7", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041331d", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00413355", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413393", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004133bd", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00413469", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004134b3", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041351f", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413594", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004135d1", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041361d", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413665", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004136b2", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004136fe", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413746", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041378c", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004137a0", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "004137bd", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00413822", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004138a8", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413901", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "0041395d", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "004139e3", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413a38", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413a50", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00413a6d", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00413ab5", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413b09", 
+      "function": "00412d30", 
+      "originalTarget": "0049a534", 
+      "prototype": "int FUN_0049a534(int * original_dc, int param_2, int param_3, char * param_4, int param_5)", 
+      "vtableOffset": 100
+    }, 
+    {
+      "call": "00413b7a", 
+      "function": "00412d30", 
+      "originalTarget": "004b4a57", 
+      "prototype": "int FUN_004b4a57(int * original_dc, int param_2)", 
+      "vtableOffset": 56
+    }, 
+    {
+      "call": "00463f8d", 
+      "function": "00463f50", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }, 
+    {
+      "call": "00463f96", 
+      "function": "00463f50", 
+      "originalTarget": "004b48fc", 
+      "prototype": "int FUN_004b48fc(int * original_dc, int param_2)", 
+      "vtableOffset": 44
+    }
+  ]
+}

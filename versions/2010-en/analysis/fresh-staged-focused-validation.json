@@ -1,0 +1,382 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "exact": true,
+  "stagedTree": "b89f0375f2af7693e36c1ab7262452c15c8493b4",
+  "initialStagedTree": "02996fa49cfed7e7da8afa06eb6e22086062dd3b",
+  "scope": "Focused strict replay of staged publication fixes, complete AI and fresh original board-turn matrix after the initial clean full suite. No fixture expectations changed.",
+  "tests": {
+    "command": "node --test --test-concurrency=1 versions/2010-en/tests/application.test.js versions/2010-en/tests/modal-lifecycles.test.js versions/2010-en/tests/ai.test.js versions/2010-en/tests/ai-geometry.test.js versions/2010-en/tests/board-turn.test.js",
+    "passed": 50,
+    "failed": 0,
+    "durationMs": 26170.41312,
+    "log": "analysis/fresh-staged-focused.log",
+    "logSha256": "2e7b6183fecacd0152cf743446330d6e6aaa1651f237bbb8748f51da3380beb8"
+  },
+  "fixtures": [
+    {
+      "path": "tests/fixtures/original-signedDegrees.json",
+      "sha256": "887c5315b58197fd303690c02c8b49ba3f7f2b5c35aa2b67bc92772422b209c5",
+      "bytes": 991142,
+      "cases": 535,
+      "originalRoutineCalls": 535
+    },
+    {
+      "path": "tests/fixtures/original-updateTack.json",
+      "sha256": "400cc963e28c9bd943d166580aecb5743ecf438e87b59eb25f41de61a0e1f9f8",
+      "bytes": 1250637,
+      "cases": 594,
+      "originalRoutineCalls": 594
+    },
+    {
+      "path": "tests/fixtures/original-setClosehauledHeading.json",
+      "sha256": "ab46527f55eedbf9914a22c549e5ee84d50d9d785f703eb1a007eea47afc4263",
+      "bytes": 1535432,
+      "cases": 756,
+      "originalRoutineCalls": 756
+    },
+    {
+      "path": "tests/fixtures/original-signedStartDistance.json",
+      "sha256": "3c2258b960b3dfd6b415afad7b4aa364e48e6f982fa937863526fe7522cf9098",
+      "bytes": 1084124,
+      "cases": 221,
+      "originalRoutineCalls": 221
+    },
+    {
+      "path": "tests/fixtures/original-relativeProjection.json",
+      "sha256": "0edeb8a7416e470ee577be6569d3a695a7bbbe67e78e5d739768bcd183a8857b",
+      "bytes": 1447926,
+      "cases": 638,
+      "originalRoutineCalls": 638
+    },
+    {
+      "path": "tests/fixtures/original-targetRelativeBearing.json",
+      "sha256": "efd388a70038f2fe08512e2c57288f059c2b04db87502470e6aaf8afc512cd9f",
+      "bytes": 2024270,
+      "cases": 840,
+      "originalRoutineCalls": 840
+    },
+    {
+      "path": "tests/fixtures/original-aheadAstern.json",
+      "sha256": "7a9861404a125d1151466228cb8c7358bdbc450d08ea3dc0db128ccf348b6c0f",
+      "bytes": 1089310,
+      "cases": 350,
+      "originalRoutineCalls": 350
+    },
+    {
+      "path": "tests/fixtures/original-updateBoatWindAndAI.json",
+      "sha256": "0bb771306b0d7c04e31a52d5fca8ecd240b41aa3f0f3832a143abb0ba1c40959",
+      "bytes": 178046539,
+      "cases": 434,
+      "originalRoutineCalls": 434
+    },
+    {
+      "path": "tests/fixtures/original-chooseDownwindHeading.json",
+      "sha256": "49dd50a267aae72b8a196de622dbb7d42aba4e3d4c0f289b9e4a2be9949db6b0",
+      "bytes": 337985245,
+      "cases": 824,
+      "originalRoutineCalls": 824
+    },
+    {
+      "path": "tests/fixtures/original-scoreDownwindTurn.json",
+      "sha256": "bb7b7265557f26c2dabff0201289814079cc0ca40cd9213105676ec5686c0c33",
+      "bytes": 337813431,
+      "cases": 824,
+      "originalRoutineCalls": 824
+    },
+    {
+      "path": "tests/fixtures/original-sampleSpatialWind.json",
+      "sha256": "8c63dcc02df0bdccec93dc73de4f3a3400c308a7a1f8c35ee5cb834ceb23649a",
+      "bytes": 225777058,
+      "cases": 540,
+      "originalRoutineCalls": 540
+    },
+    {
+      "path": "tests/fixtures/original-updateUpwindTactics.json",
+      "sha256": "27777724ccf20f124289e1ab6a0768a16acc5c7a9ca05a40bf2f67bb8b09332b",
+      "bytes": 253553758,
+      "cases": 618,
+      "originalRoutineCalls": 618
+    },
+    {
+      "path": "tests/fixtures/original-updateCollisionAvoidance.json",
+      "sha256": "af0d9fa063a9fb1f91a32e34b2029e7c6e397fd9db6fbb142e4ccd8b6aa1ee60",
+      "bytes": 85078901,
+      "cases": 206,
+      "originalRoutineCalls": 206
+    },
+    {
+      "path": "tests/fixtures/original-avoidAiCollision.json",
+      "sha256": "7deeb092c4883a9e9812d012a1739eb53fbe19666acf2f6366db2db41e2fddab",
+      "bytes": 79739657,
+      "cases": 196,
+      "originalRoutineCalls": 196
+    },
+    {
+      "path": "tests/fixtures/original-warnHumanRightOfWay.json",
+      "sha256": "f3cf590ae8db005d80c3077a03a856997051d95b023ba16627c228611d894880",
+      "bytes": 79730839,
+      "cases": 196,
+      "originalRoutineCalls": 196
+    },
+    {
+      "path": "tests/fixtures/original-requestRightOfWaySound.json",
+      "sha256": "21f84ce3a0955dacfa29b95611fd390a6babf4212a9378417d50f13aed2abe5c",
+      "bytes": 101999752,
+      "cases": 252,
+      "originalRoutineCalls": 252
+    },
+    {
+      "path": "tests/fixtures/original-sampleVenueWind.json",
+      "sha256": "a7de064e26dd32add228ed619caa71c95be7bdf21b1355d0a54e825a5fb5a884",
+      "bytes": 143429312,
+      "cases": 342,
+      "originalRoutineCalls": 342
+    },
+    {
+      "path": "tests/fixtures/original-board-turn.json",
+      "sha256": "f396de57774c0733c3c891c4c13be7056f47cae21618a998f7133b67b7154889",
+      "bytes": 177981334,
+      "cases": 384,
+      "originalRoutineCalls": 384
+    },
+    {
+      "path": "tests/fixtures/original-application.json",
+      "sha256": "fbdb1df9cfde2ac1f3640031222f4cccefc6adb59434fb47bd308dee8b0a758e",
+      "bytes": 19781434,
+      "cases": 58,
+      "originalRoutineCalls": 116
+    },
+    {
+      "path": "tests/fixtures/original-retained-board-frames.json",
+      "sha256": "218fcaef484984d55c138d0a156fc60172564f68dd0342a3f3456571cb5ffeeb",
+      "bytes": 2859222,
+      "cases": 9,
+      "originalRoutineCalls": 9
+    }
+  ],
+  "originalRoutineCalls": 8875,
+  "modalObservations": {
+    "path": "tests/fixtures/original-modal-lifecycles.json",
+    "sha256": "45c23199e5085c7a938fdcd6522e411b88a83db605629a20b506e6b4e18ec973",
+    "cases": 8,
+    "countedAsRoutineCalls": false
+  },
+  "sourceHashes": {
+    "src/engine/ai-functions.js": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f",
+    "src/engine/ai.js": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913",
+    "src/engine/ai-geometry.js": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f",
+    "src/engine/application.js": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5",
+    "src/engine/dialogs.js": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7",
+    "tests/native-state.js": "b51d89ee99eba4c640f9e748675c32109237cfaa9e64dcf2bd4af269c9206d20",
+    "tests/application.test.js": "90c391fa0e531377899f4c7dc7273afb0ced47589689d0572df87b58c7cc7024",
+    "tests/modal-lifecycles.test.js": "a0192dbbb8f10690e66ffe3a6dfe2d8eec0142a28ba4eb79033514c44c8b7457",
+    "tests/ai.test.js": "55899377e93864171ab5bf0ea3d2c2ade4fb3e1bf827f5355ce9ef4611a024df",
+    "tests/ai-geometry.test.js": "35413f5dd73cc10754a620cbdd81646d07e4b8574531456770ef666d76c4e447",
+    "tests/board-turn.test.js": "de11d9a0e69c64cae67d7cae97d2c8916e565e0657934204e37cf8eb84e3fa9d",
+    "tools/translate_ai.py": "43a01e0a5e7ffae352f5a319178fa385f8088504f262d04d33111970da0010e0",
+    "tests/retained-board-frames.test.js": "5d2f6acf4d89e278e5d229222085e0739a5cb710ae4754d6e85bfc820a41b667"
+  },
+  "publicationClosure": {
+    "application": "Exact public historical compiler-input bundle and archived compiled host snapshot are checked against original fixture hashes.",
+    "modal": "Exact archived observer binary and original observation/source bytes are checked; all eight observed modal lifecycles retain expected values.",
+    "restoration": {
+      "manifestArchives": 213,
+      "restored": 2,
+      "verified": 211,
+      "canonicalBytes": 6265027636,
+      "noLocalRuntimeSymlinks": true
+    }
+  },
+  "initialFullSuite": {
+    "command": "npm test",
+    "edition2002": {
+      "tests": 363,
+      "passed": 363,
+      "failed": 0,
+      "durationMs": 110906.911568
+    },
+    "edition2010": {
+      "tests": 316,
+      "passed": 314,
+      "failed": 2,
+      "durationMs": 817505.59775
+    },
+    "failureScope": "Only unpublished private application/modal provenance paths failed; both are closed by this focused replay. The original full command is retained as a nonzero historical run, not rewritten as a pass.",
+    "log": {
+      "path": "analysis/fresh-staged-full-suite.log",
+      "bytes": 73064,
+      "sha256": "795087b6e0ff37b639dde5c636c044d11afc9b7f68990c7168370dec98161694"
+    }
+  },
+  "boardTurn": {
+    "fixture": "tests/fixtures/original-board-turn.json",
+    "cases": 384,
+    "speedI32Stride": 4,
+    "originalInstructionAddress": "0x435e2b",
+    "originalInstructionBytes": "8b04b580b34f00",
+    "beforeFixMismatches": 12,
+    "afterFixMismatches": 0
+  },
+  "limitations": [
+    "The initial full suite predates the one-line board stride correction; the entire updated AI subtree passes this focused replay.",
+    "The updated 400-frame proof is root/parity-owned and recorded separately.",
+    "Unique current test coverage adds four new Board/retained-Board checks beyond the initial316; focused reruns do not multiply distinct test counts."
+  ],
+  "retainedBoardReplay": {
+    "command": "node --test versions/2010-en/tests/retained-board-frames.test.js",
+    "tests": 2,
+    "passed": 2,
+    "failed": 0,
+    "durationMs": 2267.576311,
+    "nativeCalls": 9,
+    "fullFrames": 3,
+    "orderedDrawingRequests": 2865,
+    "log": {
+      "path": "analysis/fresh-staged-retained-board.log",
+      "bytes": 342,
+      "sha256": "1e6fa5baa96c2ecbeb34ef414170a65ebc26f30742369fa1833d9a19ce47624d"
+    },
+    "sourceTree": "b89f0375f2af7693e36c1ab7262452c15c8493b4",
+    "approvedExactCopies": [
+      {
+        "path": "versions/2010-en/tests/retained-board-frames.test.js",
+        "bytes": 4816,
+        "sha256": "5d2f6acf4d89e278e5d229222085e0739a5cb710ae4754d6e85bfc820a41b667"
+      },
+      {
+        "path": "versions/2010-en/tests/fixtures/original-retained-board-frames.json",
+        "bytes": 2859222,
+        "sha256": "218fcaef484984d55c138d0a156fc60172564f68dd0342a3f3456571cb5ffeeb"
+      }
+    ],
+    "scope": "The two approved new test/fixture files were copied byte-identically into the owned checkout because root final staging was still in progress. Production AI hash remains35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f."
+  },
+  "currentDistinctChecks": {
+    "edition2002": 363,
+    "edition2010": 320,
+    "total": 683,
+    "scope": "Layered coverage: initial full suite plus corrected provenance/AI50 checks and new retained-board2 checks. Duplicate reruns are not added to distinct totals; original full command remains a historical nonzero result."
+  },
+  "publishedLogs": [
+    {
+      "path": "analysis/fresh-staged-full-suite.log",
+      "bytes": 73064,
+      "sha256": "795087b6e0ff37b639dde5c636c044d11afc9b7f68990c7168370dec98161694"
+    },
+    {
+      "path": "analysis/fresh-staged-focused.log",
+      "bytes": 5634,
+      "sha256": "2e7b6183fecacd0152cf743446330d6e6aaa1651f237bbb8748f51da3380beb8"
+    },
+    {
+      "path": "analysis/fresh-staged-retained-board.log",
+      "bytes": 342,
+      "sha256": "1e6fa5baa96c2ecbeb34ef414170a65ebc26f30742369fa1833d9a19ce47624d"
+    }
+  ],
+  "independentAudits": {
+    "tree": {
+      "directory": "/tmp/tact-2010-staged-bT4G8J",
+      "tree": "02996fa49cfed7e7da8afa06eb6e22086062dd3b",
+      "files": 11970,
+      "bytes": 791996752,
+      "symlinks": 0,
+      "differences": [],
+      "exact": true
+    },
+    "initialModuleExports": [
+      {
+        "directory": "dist",
+        "target": "Posey2002-native-JavaScript",
+        "files": 134,
+        "bytes": 2823245,
+        "missing": [],
+        "mismatches": [],
+        "sourceMismatches": [],
+        "forbidden": [],
+        "importsMissing": []
+      },
+      {
+        "directory": "dist-2010",
+        "target": "Posey2010-English-native-JavaScript",
+        "files": 123,
+        "bytes": 7397100,
+        "missing": [],
+        "mismatches": [],
+        "sourceMismatches": [],
+        "forbidden": [],
+        "importsMissing": []
+      }
+    ],
+    "initialZips": [
+      {
+        "archive": "/tmp/tact-2010-staged-bT4G8J/posey-2010-browser.zip",
+        "sha256": "110f8b7ffb4e46d9ce166ccc6d8de0e091d70c457f21ae8f6400e5d3c7354cc8",
+        "entries": 124,
+        "duplicateNames": false,
+        "missing": [],
+        "extra": [],
+        "differences": [],
+        "forbidden": [],
+        "exactPayload": true
+      },
+      {
+        "archive": "/home/martin/tact/posey-2002-browser.zip",
+        "sha256": "eb9cca57abf34fe46e70de3ac6346e61f0c022eaf3e1e7df9c1e7d6a7a19f29b",
+        "entries": 135,
+        "duplicateNames": false,
+        "missing": [],
+        "extra": [],
+        "differences": [],
+        "forbidden": [],
+        "exactPayload": true
+      }
+    ],
+    "assets": {
+      "tests": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    "decompilation": {
+      "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+      "verifiedFunctions": 5281,
+      "failed": 0,
+      "verifiedFunctionHashes": true,
+      "combinedContainsEveryBody": true,
+      "uniqueAddresses": true,
+      "noMissingOrExtraFiles": true,
+      "recoveryEvidenceHashesMatch": true,
+      "originalBytesVerifiedForEveryRecoveryRecord": true,
+      "explicitRecoveryFunctions": 3700,
+      "automaticRecoveryFunctionsWithOriginalReferences": 19,
+      "externalFunctions": 356,
+      "definedDataEntries": 9336,
+      "recoveredCBytes": 4025473,
+      "recoveredCSha256": "c3fec02ce220f4ce19f7e1a70403305b9972855954e01f030b6e84a5079fc3a5",
+      "coverage": {
+        "defined_data_bytes": 1575,
+        "defined_data_count": 705,
+        "function_body_bytes": 793593,
+        "function_count": 5281,
+        "instruction_bytes": 793593,
+        "instruction_bytes_inside_functions": 793593,
+        "instruction_count": 233859,
+        "memory_bytes": 812032,
+        "unassigned_instruction_bytes": 0,
+        "unassigned_instruction_count": 0,
+        "undefined_bytes": 16864
+      }
+    },
+    "initialZipsScope": "Initial2010ZIP was checked before the later one-line AI fix.2002ZIP checked corrected stagedblob5633b358185724c750dee17127657541550b82b9. Root owns final current2010 ZIP rebuild/verification.",
+    "final2010ModuleExport": {
+      "directory": "dist-2010",
+      "files": 123,
+      "bytes": 7397108,
+      "differences": [],
+      "exact": true,
+      "aiSourceSha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f",
+      "scope": "Fresh rebuild after final AI stride correction; all module bytes and import targets agree with the tested owned checkout. Final ZIP packaging is root-owned."
+    }
+  }
+}

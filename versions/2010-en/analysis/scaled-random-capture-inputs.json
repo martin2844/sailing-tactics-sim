@@ -1,0 +1,357 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routine": {
+    "name": "scaledRandom",
+    "address": 4317184,
+    "argumentTypes": [
+      "I32"
+    ],
+    "returnType": "I32"
+  },
+  "integerInputs": {},
+  "integerOutputs": {},
+  "doubleInputs": {},
+  "doubleOutputs": {},
+  "inputEvidence": {
+    "scope": "Signed helper API boundaries; ordinary race callers use positive ranges.",
+    "ranges": [
+      -2147483648,
+      -2147483647,
+      -32001,
+      -32000,
+      -100,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      100,
+      32000,
+      32001,
+      2147483646,
+      2147483647
+    ],
+    "seeds": [
+      1,
+      2002,
+      4294967295
+    ]
+  },
+  "cases": [
+    {
+      "label": "range-2147483648-seed1",
+      "seed": 1,
+      "arguments": [
+        -2147483648
+      ]
+    },
+    {
+      "label": "range-2147483647-seed1",
+      "seed": 1,
+      "arguments": [
+        -2147483647
+      ]
+    },
+    {
+      "label": "range-32001-seed1",
+      "seed": 1,
+      "arguments": [
+        -32001
+      ]
+    },
+    {
+      "label": "range-32000-seed1",
+      "seed": 1,
+      "arguments": [
+        -32000
+      ]
+    },
+    {
+      "label": "range-100-seed1",
+      "seed": 1,
+      "arguments": [
+        -100
+      ]
+    },
+    {
+      "label": "range-2-seed1",
+      "seed": 1,
+      "arguments": [
+        -2
+      ]
+    },
+    {
+      "label": "range-1-seed1",
+      "seed": 1,
+      "arguments": [
+        -1
+      ]
+    },
+    {
+      "label": "range0-seed1",
+      "seed": 1,
+      "arguments": [
+        0
+      ]
+    },
+    {
+      "label": "range1-seed1",
+      "seed": 1,
+      "arguments": [
+        1
+      ]
+    },
+    {
+      "label": "range2-seed1",
+      "seed": 1,
+      "arguments": [
+        2
+      ]
+    },
+    {
+      "label": "range100-seed1",
+      "seed": 1,
+      "arguments": [
+        100
+      ]
+    },
+    {
+      "label": "range32000-seed1",
+      "seed": 1,
+      "arguments": [
+        32000
+      ]
+    },
+    {
+      "label": "range32001-seed1",
+      "seed": 1,
+      "arguments": [
+        32001
+      ]
+    },
+    {
+      "label": "range2147483646-seed1",
+      "seed": 1,
+      "arguments": [
+        2147483646
+      ]
+    },
+    {
+      "label": "range2147483647-seed1",
+      "seed": 1,
+      "arguments": [
+        2147483647
+      ]
+    },
+    {
+      "label": "range-2147483648-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -2147483648
+      ]
+    },
+    {
+      "label": "range-2147483647-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -2147483647
+      ]
+    },
+    {
+      "label": "range-32001-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -32001
+      ]
+    },
+    {
+      "label": "range-32000-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -32000
+      ]
+    },
+    {
+      "label": "range-100-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -100
+      ]
+    },
+    {
+      "label": "range-2-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -2
+      ]
+    },
+    {
+      "label": "range-1-seed2002",
+      "seed": 2002,
+      "arguments": [
+        -1
+      ]
+    },
+    {
+      "label": "range0-seed2002",
+      "seed": 2002,
+      "arguments": [
+        0
+      ]
+    },
+    {
+      "label": "range1-seed2002",
+      "seed": 2002,
+      "arguments": [
+        1
+      ]
+    },
+    {
+      "label": "range2-seed2002",
+      "seed": 2002,
+      "arguments": [
+        2
+      ]
+    },
+    {
+      "label": "range100-seed2002",
+      "seed": 2002,
+      "arguments": [
+        100
+      ]
+    },
+    {
+      "label": "range32000-seed2002",
+      "seed": 2002,
+      "arguments": [
+        32000
+      ]
+    },
+    {
+      "label": "range32001-seed2002",
+      "seed": 2002,
+      "arguments": [
+        32001
+      ]
+    },
+    {
+      "label": "range2147483646-seed2002",
+      "seed": 2002,
+      "arguments": [
+        2147483646
+      ]
+    },
+    {
+      "label": "range2147483647-seed2002",
+      "seed": 2002,
+      "arguments": [
+        2147483647
+      ]
+    },
+    {
+      "label": "range-2147483648-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -2147483648
+      ]
+    },
+    {
+      "label": "range-2147483647-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -2147483647
+      ]
+    },
+    {
+      "label": "range-32001-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -32001
+      ]
+    },
+    {
+      "label": "range-32000-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -32000
+      ]
+    },
+    {
+      "label": "range-100-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -100
+      ]
+    },
+    {
+      "label": "range-2-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -2
+      ]
+    },
+    {
+      "label": "range-1-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        -1
+      ]
+    },
+    {
+      "label": "range0-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        0
+      ]
+    },
+    {
+      "label": "range1-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        1
+      ]
+    },
+    {
+      "label": "range2-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        2
+      ]
+    },
+    {
+      "label": "range100-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        100
+      ]
+    },
+    {
+      "label": "range32000-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        32000
+      ]
+    },
+    {
+      "label": "range32001-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        32001
+      ]
+    },
+    {
+      "label": "range2147483646-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        2147483646
+      ]
+    },
+    {
+      "label": "range2147483647-seed4294967295",
+      "seed": 4294967295,
+      "arguments": [
+        2147483647
+      ]
+    }
+  ]
+}

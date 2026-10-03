@@ -1,0 +1,3563 @@
+{
+  "format": 1,
+  "scope": "Source/resource-backed differences. Labels identify controls; only explicit original stores/branches and native fixtures support behavior claims.",
+  "sources": {
+    "edition2002": {
+      "path": "original/Tact02Demo.exe",
+      "sha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+      "bytes": 1049088,
+      "imageBase": 4194304,
+      "imageSize": 1118208,
+      "entry": 4551056
+    },
+    "edition2010": {
+      "path": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+      "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+      "bytes": 1899520,
+      "imageBase": 4194304,
+      "imageSize": 2211840,
+      "entry": 4831824
+    }
+  },
+  "boatPresetInputContract": {
+    "x87ControlWord": "0x027f",
+    "overrides": 0,
+    "priorClass": 6,
+    "priorLength": 25,
+    "priorRig": 1,
+    "course": 1,
+    "fields": "Original internal integers, not claimed feet/weights/areas or real-world measurements. Outputs come from complete independently native-validated source routines; this artifact is not a new native capture.",
+    "nativePresetFixtureSha256": "01d9ec20f745a308fc87aff6447c887de0aa0f3bf022e2db4f6afd12f930fb11"
+  },
+  "boats": [
+    {
+      "selector": 1,
+      "commandId": 32781,
+      "caption2002": "Optimist",
+      "caption2010": "Optimist",
+      "semantic2010": "Optimist",
+      "handler2010": 4783808,
+      "messageMapRecord2010": 5016328,
+      "preset2002": {
+        "boatClass": 1,
+        "length": 11,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "67769bf618aff23f"
+      },
+      "preset2010": {
+        "boatClass": 1,
+        "length": 9,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "91348acbe9a7f43f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 0,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 2,
+      "commandId": 32782,
+      "caption2002": "Laser",
+      "caption2010": "Laser",
+      "semantic2010": "Laser",
+      "handler2010": 4783424,
+      "messageMapRecord2010": 5016184,
+      "preset2002": {
+        "boatClass": 1,
+        "length": 14,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "0750a346c38ff03f"
+      },
+      "preset2010": {
+        "boatClass": 1,
+        "length": 8,
+        "displacement": 5,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "8fa536d2ade8f53f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 47,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 3,
+      "commandId": 32881,
+      "caption2002": "Board",
+      "caption2010": "Board",
+      "semantic2010": "Board",
+      "handler2010": 4783040,
+      "messageMapRecord2010": 5016040,
+      "preset2002": {
+        "boatClass": 1,
+        "length": 40,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "preset2010": {
+        "boatClass": 1,
+        "length": 40,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 94,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 4,
+      "commandId": 32897,
+      "caption2002": "Snipe",
+      "caption2010": "Snipe",
+      "semantic2010": "Snipe",
+      "handler2010": 4782784,
+      "messageMapRecord2010": 5018920,
+      "preset2002": {
+        "boatClass": 2,
+        "length": 15,
+        "displacement": 7,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "000000000000f03f"
+      },
+      "preset2010": {
+        "boatClass": 2,
+        "length": 8,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "8fa536d2ade8f53f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 141,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 5,
+      "commandId": 32784,
+      "caption2002": "JY15",
+      "caption2010": "JY15",
+      "semantic2010": "JY15",
+      "handler2010": 4783168,
+      "messageMapRecord2010": 5016088,
+      "preset2002": {
+        "boatClass": 2,
+        "length": 14,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "0750a346c38ff03f"
+      },
+      "preset2010": {
+        "boatClass": 2,
+        "length": 8,
+        "displacement": 5,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "8fa536d2ade8f53f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 188,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 6,
+      "commandId": 32783,
+      "caption2002": "505",
+      "caption2010": "505",
+      "semantic2010": "505",
+      "handler2010": 4782656,
+      "messageMapRecord2010": 5015944,
+      "preset2002": {
+        "boatClass": 3,
+        "length": 18,
+        "displacement": 5,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "bfdc48183d36ed3f"
+      },
+      "preset2010": {
+        "boatClass": 3,
+        "length": 16,
+        "displacement": 5,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "da4e4fb1defbee3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 235,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 7,
+      "commandId": 32786,
+      "caption2002": "Skiff",
+      "caption2010": "Skiff",
+      "semantic2010": "Skiff",
+      "handler2010": 4783936,
+      "messageMapRecord2010": 5016376,
+      "preset2002": {
+        "boatClass": 3,
+        "length": 30,
+        "displacement": 5,
+        "sailArea": 11,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "cd3b7f669ea0e63f"
+      },
+      "preset2010": {
+        "boatClass": 3,
+        "length": 24,
+        "displacement": 6,
+        "sailArea": 11,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "535bda3a584ce93f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 282,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 8,
+      "commandId": 32787,
+      "caption2002": "Thistle",
+      "caption2010": "Thistle",
+      "semantic2010": "Thistle",
+      "handler2010": 4784336,
+      "messageMapRecord2010": 5016520,
+      "preset2002": {
+        "boatClass": 4,
+        "length": 16,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "da4e4fb1defbee3f"
+      },
+      "preset2010": {
+        "boatClass": 4,
+        "length": 10,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98f33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 329,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 9,
+      "commandId": 32788,
+      "caption2002": "Lightning",
+      "caption2010": "Lightning",
+      "semantic2010": "Lightning",
+      "handler2010": 4783552,
+      "messageMapRecord2010": 5016232,
+      "preset2002": {
+        "boatClass": 5,
+        "length": 17,
+        "displacement": 7,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "693b68490b0fee3f"
+      },
+      "preset2010": {
+        "boatClass": 5,
+        "length": 11,
+        "displacement": 7,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "67769bf618aff23f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 376,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 10,
+      "commandId": 32793,
+      "caption2002": "Tornado Catamaran",
+      "caption2010": "Non-Spinnaker Catamaran",
+      "semantic2010": "Non-Spinnaker Catamaran",
+      "handler2010": 4784464,
+      "messageMapRecord2010": 5016568,
+      "preset2002": {
+        "boatClass": 9,
+        "length": 37,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "e478c12bf75fe43f"
+      },
+      "preset2010": {
+        "boatClass": 9,
+        "length": 30,
+        "displacement": 7,
+        "sailArea": 14,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "cd3b7f669ea0e63f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 423,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 11,
+      "commandId": 32794,
+      "caption2002": "Spinnaker Catamaran",
+      "caption2010": "Tornado Catamaran",
+      "semantic2010": "Tornado Catamaran",
+      "handler2010": 4784064,
+      "messageMapRecord2010": 5016424,
+      "preset2002": {
+        "boatClass": 10,
+        "length": 37,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "e478c12bf75fe43f"
+      },
+      "preset2010": {
+        "boatClass": 10,
+        "length": 36,
+        "displacement": 7,
+        "sailArea": 14,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "91348acbe9a7e43f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 470,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 12,
+      "commandId": 32789,
+      "caption2002": "Keelboat",
+      "caption2010": "Keelboat",
+      "semantic2010": "Keelboat",
+      "handler2010": 4783296,
+      "messageMapRecord2010": 5016136,
+      "preset2002": {
+        "boatClass": 6,
+        "length": 25,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "48723ff47ec9e83f"
+      },
+      "preset2010": {
+        "boatClass": 6,
+        "length": 25,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "48723ff47ec9e83f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 517,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 13,
+      "commandId": 32790,
+      "caption2002": "Sport Boat",
+      "caption2010": "Sprit Offshore Racer",
+      "semantic2010": "Sprit Offshore Racer",
+      "handler2010": 4784192,
+      "messageMapRecord2010": 5016472,
+      "preset2002": {
+        "boatClass": 7,
+        "length": 25,
+        "displacement": 7,
+        "sailArea": 11,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "48723ff47ec9e83f"
+      },
+      "preset2010": {
+        "boatClass": 7,
+        "length": 40,
+        "displacement": 9,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 564,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 14,
+      "commandId": 32791,
+      "caption2002": "Offshore Racer",
+      "caption2010": "Offshore Racer",
+      "semantic2010": "Offshore Racer",
+      "handler2010": 4783680,
+      "messageMapRecord2010": 5016280,
+      "preset2002": {
+        "boatClass": 7,
+        "length": 40,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 100,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "preset2010": {
+        "boatClass": 7,
+        "length": 40,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 100,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 611,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 15,
+      "commandId": 32792,
+      "caption2002": "America's Cup",
+      "caption2010": "America's Cup",
+      "semantic2010": "America's Cup",
+      "handler2010": 4782912,
+      "messageMapRecord2010": 5015992,
+      "preset2002": {
+        "boatClass": 8,
+        "length": 61,
+        "displacement": 10,
+        "sailArea": 12,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "573b393293bcdf3f"
+      },
+      "preset2010": {
+        "boatClass": 8,
+        "length": 90,
+        "displacement": 10,
+        "sailArea": 12,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "3e2c0c70bd20da3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 658,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 16,
+      "commandId": 32985,
+      "caption2002": null,
+      "caption2010": "Star",
+      "semantic2010": "Star",
+      "handler2010": 4811120,
+      "messageMapRecord2010": 5025016,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 2,
+        "length": 19,
+        "displacement": 9,
+        "sailArea": 12,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "f4485673c86eec3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 705,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 17,
+      "commandId": 32986,
+      "caption2002": null,
+      "caption2010": "A Class Catamaran",
+      "semantic2010": "A Class Catamaran",
+      "handler2010": 4811232,
+      "messageMapRecord2010": 5025064,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 9,
+        "length": 28,
+        "displacement": 7,
+        "sailArea": 12,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "9d78a317ee6be73f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 752,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 18,
+      "commandId": 32987,
+      "caption2002": null,
+      "caption2010": "Racer Cruiser",
+      "semantic2010": "Racer Cruiser",
+      "handler2010": 4811344,
+      "messageMapRecord2010": 5025112,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 7,
+        "length": 40,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 100,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 799,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 19,
+      "commandId": 32988,
+      "caption2002": null,
+      "caption2010": "Cruising Canvas",
+      "semantic2010": "Cruising Canvas",
+      "handler2010": 4811456,
+      "messageMapRecord2010": 5025160,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 7,
+        "length": 40,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 100,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98e33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 846,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 20,
+      "commandId": 32989,
+      "caption2002": null,
+      "caption2010": "Model Yacht",
+      "semantic2010": "Model Yacht",
+      "handler2010": 4811568,
+      "messageMapRecord2010": 5025208,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 7,
+        "length": 14,
+        "displacement": 10,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "0750a346c38ff03f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 893,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 21,
+      "commandId": 33100,
+      "caption2002": null,
+      "caption2010": "25 ft Sportboat",
+      "semantic2010": "25 ft Sportboat",
+      "handler2010": 4824944,
+      "messageMapRecord2010": 5030512,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 6,
+        "length": 16,
+        "displacement": 6,
+        "sailArea": 11,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "da4e4fb1defbee3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 940,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 22,
+      "commandId": 33101,
+      "caption2002": null,
+      "caption2010": "35 ft Sportboat",
+      "semantic2010": "35 ft Sportboat",
+      "handler2010": 4825056,
+      "messageMapRecord2010": 5030560,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 6,
+        "length": 21,
+        "displacement": 6,
+        "sailArea": 11,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "a14b84ef800beb3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 987,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 23,
+      "commandId": 33098,
+      "caption2002": null,
+      "caption2010": "Offshore Catamaran",
+      "semantic2010": "Offshore Catamaran",
+      "handler2010": 4824720,
+      "messageMapRecord2010": 5030416,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 10,
+        "length": 30,
+        "displacement": 6,
+        "sailArea": 11,
+        "sailPercent": 80,
+        "rig": 1,
+        "course": 1,
+        "timeFactorBits": "cd3b7f669ea0e63f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 1034,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 24,
+      "commandId": 33099,
+      "caption2002": null,
+      "caption2010": "Ideal 18 Keelboat",
+      "semantic2010": "Ideal 18 Keelboat",
+      "handler2010": 4824832,
+      "messageMapRecord2010": 5030464,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 6,
+        "length": 18,
+        "displacement": 9,
+        "sailArea": 12,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "bfdc48183d36ed3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 1081,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 25,
+      "commandId": 33104,
+      "caption2002": null,
+      "caption2010": "Hide Current Indicator",
+      "semantic2010": "Etchells Keelboat",
+      "handler2010": 4825376,
+      "messageMapRecord2010": 5030704,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 6,
+        "length": 22,
+        "displacement": 8,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "7c2b7f45526cea3f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 1128,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 26,
+      "commandId": 33105,
+      "caption2002": null,
+      "caption2010": "E Scow",
+      "semantic2010": "E Scow",
+      "handler2010": 4825520,
+      "messageMapRecord2010": 5030752,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 5,
+        "length": 27,
+        "displacement": 5,
+        "sailArea": 8,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "354675cff4d9e73f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 1175,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    },
+    {
+      "selector": 27,
+      "commandId": 33106,
+      "caption2002": null,
+      "caption2010": "Flying Scot",
+      "semantic2010": "Flying Scot",
+      "handler2010": 4825664,
+      "messageMapRecord2010": 5030800,
+      "preset2002": null,
+      "preset2010": {
+        "boatClass": 5,
+        "length": 10,
+        "displacement": 6,
+        "sailArea": 10,
+        "sailPercent": 80,
+        "rig": -1,
+        "course": 1,
+        "timeFactorBits": "2e2109148e98f33f"
+      },
+      "presetNativeEvidence2010": {
+        "fixture": "tests/fixtures/original-boat-options.json",
+        "caseIndex": 1222,
+        "verifiedFields": [
+          "boatClass",
+          "length",
+          "displacement",
+          "sailArea",
+          "sailPercent",
+          "rig",
+          "timeFactorBits"
+        ],
+        "differenceFromDocumentInput": "Native row starts course8/offshoreFlag77; these fields are excluded because the comparison example starts course1/flag0."
+      }
+    }
+  ],
+  "captionDefect": {
+    "commandId": 33104,
+    "caption": "Hide Current Indicator",
+    "selector": 25,
+    "semantic": "Etchells Keelboat",
+    "handler": 4825376,
+    "selectorAddress": 5087556,
+    "etchellsFlagAddress": 5465384,
+    "nativeFixture": "tests/fixtures/original-controllers.json",
+    "nativeProfiles": 8,
+    "initialHandlerClass": 7,
+    "resultingOptionsClass": 6,
+    "preserveSuppliedResource": true
+  },
+  "courses": {
+    "raceCourse2002": [
+      {
+        "commandId": 32816,
+        "caption": "Windward / Leeward",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ]
+      },
+      {
+        "commandId": 32817,
+        "caption": "Windward / Leeward Twice Around",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ]
+      },
+      {
+        "commandId": 32818,
+        "caption": "Triangle",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ]
+      },
+      {
+        "commandId": 32819,
+        "caption": "Triangle Twice Around",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ]
+      },
+      {
+        "commandId": 32820,
+        "caption": "Gold Cup",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ]
+      }
+    ],
+    "raceCourse2010": [
+      {
+        "commandId": 32816,
+        "caption": "Windward / Leeward",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087592,
+            "value": 1
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          },
+          {
+            "address": 5087624,
+            "value": 1
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32817,
+        "caption": "Windward / Leeward Twice Around",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087592,
+            "value": 1
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 1
+          },
+          {
+            "address": 5087624,
+            "value": 2
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32818,
+        "caption": "Triangle",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087624,
+            "value": 3
+          },
+          {
+            "address": 5087592,
+            "value": 0
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32819,
+        "caption": "Triangle Twice Around",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5465096,
+            "value": 1
+          },
+          {
+            "address": 5087592,
+            "value": 0
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5087624,
+            "value": 4
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32820,
+        "caption": "Gold Cup",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087592,
+            "value": 0
+          },
+          {
+            "address": 5465080,
+            "value": 1
+          },
+          {
+            "address": 5465096,
+            "value": 1
+          },
+          {
+            "address": 5087624,
+            "value": 5
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32992,
+        "caption": "Downwind Finish Windward / Leeward",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087592,
+            "value": 1
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          },
+          {
+            "address": 5087624,
+            "value": 6
+          },
+          {
+            "address": 5460604,
+            "value": 1
+          },
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32993,
+        "caption": "Downwind Finish Twice Around W/L",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087592,
+            "value": 1
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 1
+          },
+          {
+            "address": 5087624,
+            "value": 7
+          },
+          {
+            "address": 5460604,
+            "value": 1
+          },
+          {
+            "address": 5087720,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32994,
+        "caption": "Downwind Gate",
+        "parents": [
+          "&Option",
+          "Race Course"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "geographicControls2002": [
+      {
+        "commandId": 32795,
+        "caption": "Shoreline to the North",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32796,
+        "caption": "Shoreline to the East",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32797,
+        "caption": "Shoreline to the South",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32798,
+        "caption": "Shoreline to the West",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32799,
+        "caption": "Round Lake",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32800,
+        "caption": "Sound",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32801,
+        "caption": "Round the Island",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32802,
+        "caption": "Distance Race - Along Shore",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32964,
+        "caption": "Distance Race - Around Island",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32803,
+        "caption": "River Mouth North",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32804,
+        "caption": "River Mouth South",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32961,
+        "caption": "Bay",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32976,
+        "caption": "Banana Lakes",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32977,
+        "caption": "Five Finger Lakes",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      },
+      {
+        "commandId": 32978,
+        "caption": "Branching Rivers",
+        "parents": [
+          "&Option",
+          "Racing Area"
+        ]
+      }
+    ],
+    "geographicControls2010": [
+      {
+        "commandId": 33014,
+        "caption": "Northeast Harbor, ME",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33015,
+        "caption": "Marblehead, MA",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 2
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33032,
+        "caption": "Edgartown, MA",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 102
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33016,
+        "caption": "Newport, RI",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 3
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33017,
+        "caption": "West of Block Island, RI",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 4
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33018,
+        "caption": "Around Block Island, RI",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 5
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087556,
+            "value": 14
+          },
+          {
+            "address": 5087632,
+            "value": 7
+          },
+          {
+            "address": 5465024,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33029,
+        "caption": "Groton, CT",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 100
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33019,
+        "caption": "Essex, CT",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 7
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33030,
+        "caption": "Larchmont, NY",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 101
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33021,
+        "caption": "Annapolis, MD",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 6
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33026,
+        "caption": "Thurmond Lake, GA / SC",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 103
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33022,
+        "caption": "Charleston, SC",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 9
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33023,
+        "caption": "Biscayne Bay, FL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 11
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33027,
+        "caption": "Key West, FL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 105
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33028,
+        "caption": "St Petersburg, FL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 104
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33031,
+        "caption": "Nassau, Bahamas",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 106
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33020,
+        "caption": "Kingston, ON",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 10
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33024,
+        "caption": "Chicago, IL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 12
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32795,
+        "caption": "Shoreline to the North",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32796,
+        "caption": "Shoreline to the East",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 2
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32797,
+        "caption": "Shoreline to the South",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 3
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32798,
+        "caption": "Shoreline to the West",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 4
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32799,
+        "caption": "Round Lake",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 5
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32800,
+        "caption": "Sound",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 6
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32801,
+        "caption": "Round the Island",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087644,
+            "value": 7
+          },
+          {
+            "address": 5087592,
+            "value": 0
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465100,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32802,
+        "caption": "Distance Race - Along Shore",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087644,
+            "value": 8
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465100,
+            "value": 0
+          },
+          {
+            "address": 5213048,
+            "value": 0
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32964,
+        "caption": "Distance Race - Around Island",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087644,
+            "value": 8
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5465080,
+            "value": 0
+          },
+          {
+            "address": 5465100,
+            "value": 0
+          },
+          {
+            "address": 5213048,
+            "value": 1
+          },
+          {
+            "address": 5087720,
+            "value": 0
+          },
+          {
+            "address": 5460604,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32803,
+        "caption": "River Mouth North",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 9
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32804,
+        "caption": "River Mouth South",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 10
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32961,
+        "caption": "Bay",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5087644,
+            "value": 11
+          }
+        ]
+      },
+      {
+        "commandId": 32976,
+        "caption": "Banana Lakes",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087644,
+            "value": 12
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32977,
+        "caption": "Five Finger Lakes",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087644,
+            "value": 13
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 32978,
+        "caption": "Branching Rivers",
+        "parents": [
+          "&Option",
+          "Imaginary  Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087644,
+            "value": 14
+          },
+          {
+            "address": 5087736,
+            "value": 0
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "realVenues": [
+      {
+        "commandId": 33014,
+        "caption": "Northeast Harbor, ME",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 1
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33015,
+        "caption": "Marblehead, MA",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 2
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33032,
+        "caption": "Edgartown, MA",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 102
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33016,
+        "caption": "Newport, RI",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 3
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33017,
+        "caption": "West of Block Island, RI",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 4
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33018,
+        "caption": "Around Block Island, RI",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 5
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          },
+          {
+            "address": 5087556,
+            "value": 14
+          },
+          {
+            "address": 5087632,
+            "value": 7
+          },
+          {
+            "address": 5465024,
+            "value": 0
+          },
+          {
+            "address": 5465096,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33029,
+        "caption": "Groton, CT",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 100
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33019,
+        "caption": "Essex, CT",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 7
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33030,
+        "caption": "Larchmont, NY",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 101
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33021,
+        "caption": "Annapolis, MD",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 6
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33026,
+        "caption": "Thurmond Lake, GA / SC",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 103
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33022,
+        "caption": "Charleston, SC",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 9
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33023,
+        "caption": "Biscayne Bay, FL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 11
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33027,
+        "caption": "Key West, FL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 105
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33028,
+        "caption": "St Petersburg, FL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 104
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33031,
+        "caption": "Nassau, Bahamas",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 106
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33020,
+        "caption": "Kingston, ON",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 10
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "commandId": 33024,
+        "caption": "Chicago, IL",
+        "parents": [
+          "&Option",
+          "Real Racing Areas"
+        ],
+        "constantI32Stores2010": [
+          {
+            "address": 5087736,
+            "value": 12
+          },
+          {
+            "address": 5465012,
+            "value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "tutorials": {
+    "menuRules2002": [
+      {
+        "commandId": 32928,
+        "caption": "Introduction",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32931,
+        "caption": "Opposite Tacks",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32929,
+        "caption": "Same Tack",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32930,
+        "caption": "Overtaking",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32932,
+        "caption": "Marks and Obstructions",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32933,
+        "caption": "Rounding a Windward Mark",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32934,
+        "caption": "Tacking for Obstructions",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32935,
+        "caption": "Same Tack Before Starting",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32936,
+        "caption": "Room at a Starting Mark",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32937,
+        "caption": "Miscellaneous",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      }
+    ],
+    "menuRules2010": [
+      {
+        "commandId": 32928,
+        "caption": "Introduction",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32931,
+        "caption": "Opposite Tacks",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32929,
+        "caption": "Same Tack",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32930,
+        "caption": "Overtaking",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32932,
+        "caption": "Marks and Obstructions",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32933,
+        "caption": "Rounding a Windward Mark",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32934,
+        "caption": "Tacking for Obstructions",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32935,
+        "caption": "Same Tack Before Starting",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32936,
+        "caption": "Room at a Starting Mark",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      },
+      {
+        "commandId": 32937,
+        "caption": "Miscellaneous",
+        "parents": [
+          "Co&ach",
+          "Rules Tutorial"
+        ]
+      }
+    ],
+    "tactics2002": [
+      {
+        "commandId": 32940,
+        "caption": "Introduction",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32941,
+        "caption": "Wind Shift Effects - Concepts",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32942,
+        "caption": "Lifts",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32943,
+        "caption": "Headers",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32955,
+        "caption": "Death by Layline",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32944,
+        "caption": "Strategy for Oscillating Winds",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32945,
+        "caption": "Strategy for One Side Favored",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32954,
+        "caption": "Downwind Strategy",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32946,
+        "caption": "Wind Prediction - 1",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32947,
+        "caption": "Wind Prediction - 2",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32948,
+        "caption": "Currents",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32949,
+        "caption": "Wind Interference from Other Boats",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32950,
+        "caption": "Starting",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32951,
+        "caption": "Mark Rounding",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      }
+    ],
+    "tactics2010": [
+      {
+        "commandId": 32940,
+        "caption": "Introduction",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32941,
+        "caption": "Wind Shift Effects - Concepts",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32942,
+        "caption": "Lifts",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32943,
+        "caption": "Headers",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32955,
+        "caption": "Death by Layline",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32944,
+        "caption": "Strategy for Oscillating Winds",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32945,
+        "caption": "Strategy for One Side Favored",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32954,
+        "caption": "Downwind Strategy",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32946,
+        "caption": "Wind Prediction - 1",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32947,
+        "caption": "Wind Prediction - 2",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32948,
+        "caption": "Currents",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32949,
+        "caption": "Wind Interference from Other Boats",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32950,
+        "caption": "Starting",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      },
+      {
+        "commandId": 32951,
+        "caption": "Mark Rounding",
+        "parents": [
+          "Co&ach",
+          "Tactics + Strategy Tutorial"
+        ]
+      }
+    ],
+    "pages2002": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      300,
+      501,
+      502,
+      503,
+      504,
+      505,
+      506,
+      507,
+      508,
+      509,
+      510,
+      511,
+      512,
+      513,
+      514,
+      601,
+      602,
+      603,
+      604,
+      701,
+      400
+    ],
+    "pages2010": {
+      "drawTutorial1": 4479072,
+      "drawTutorial2": 4481616,
+      "drawTutorial3": 4483696,
+      "drawTutorial4": 4485600,
+      "drawTutorial5": 4487664,
+      "drawTutorial6": 4489472,
+      "drawTutorial7": 4491632,
+      "drawTutorial8": 4494816,
+      "drawTutorial10": 4497120,
+      "drawTutorial11": 4498896,
+      "drawTutorial12": 4501728,
+      "drawTutorial101": 4503856,
+      "drawTutorial102": 4505840,
+      "drawTutorial103": 4507472,
+      "drawTutorial104": 4509888,
+      "drawTutorial105": 4511376,
+      "drawTutorial106": 4514368,
+      "drawTutorial107": 4516752,
+      "drawTutorial108": 4519360,
+      "drawTutorial109": 4521696,
+      "drawTutorial110": 4523408,
+      "drawTutorial300": 4524400,
+      "drawTutorial501": 4529760,
+      "drawTutorial502": 4531808,
+      "drawTutorial503": 4534832,
+      "drawTutorial504": 4539856,
+      "drawTutorial505": 4544960,
+      "drawTutorial506": 4551296,
+      "drawTutorial507": 4557984,
+      "drawTutorial508": 4563280,
+      "drawTutorial509": 4570512,
+      "drawTutorial510": 4572224,
+      "drawTutorial511": 4573904,
+      "drawTutorial512": 4575216,
+      "drawTutorial513": 4579136,
+      "drawTutorial514": 4588656,
+      "drawTutorial601": 4593568,
+      "drawTutorial602": 4595552,
+      "drawTutorial603": 4597408,
+      "drawTutorial604": 4599504,
+      "drawTutorial701": 4601536,
+      "drawTutorial400": 4358832
+    },
+    "addedPages": [
+      10,
+      11,
+      12
+    ],
+    "oldRulesLiteral": {
+      "file": "original/Tact02Demo.exe",
+      "fileOffset": 610976,
+      "text": "This tutorial is based on the 2001-2004 Racing Rules of Sailing published by the"
+    },
+    "targetRulesLiterals": [
+      {
+        "address": 5117908,
+        "fileOffset": 916436,
+        "text": "1. Tactics, protest decisions and the Rules Tutorial follow the 2009-2012 Racing Rules of Sailing.         ",
+        "sha256": "9ee21034ebf263529d6455fcff450f58b5f4a5dfbbf41f10ed034ee477cd537e"
+      },
+      {
+        "address": 5126920,
+        "fileOffset": 925448,
+        "text": "This tutorial is based on the 2009-2012 Racing Rules of Sailing published by the",
+        "sha256": "c8ebbef47af822c119a1db7c77a816a3e7a049b7062b3bb7ec8044996e71e76b"
+      },
+      {
+        "address": 5130072,
+        "fileOffset": 928600,
+        "text": "O need not give A mark-room: when O reached the circle three boat lengths from the mark, they were ",
+        "sha256": "537ca7dd8586b5ba833919998027ac9ff29d03b98575df5b81902caf74d2a2c3"
+      },
+      {
+        "address": 6400812,
+        "fileOffset": 1894700,
+        "text": "O must give I mark-room even if O is on starboard tack and I is on port tack.",
+        "sha256": "24e24a5923fb75f68cbfe22a1ab342765ed003c8adcf38fcfb8c543d21b8c008"
+      },
+      {
+        "address": 5130248,
+        "fileOffset": 928776,
+        "text": "O must give I mark-room because they overlapped when O was three boat lengths* from the mark.   ",
+        "sha256": "e5333bebc50448577835e2eeca2af318c54eccfd0fae309e038a0d2e518c9788"
+      },
+      {
+        "address": 5130912,
+        "fileOffset": 929440,
+        "text": "If P completes a tack inside the three-length zone and I or S must head up to avoid contact with P,        ",
+        "sha256": "71951a39978bba1576a7cb6cc93e66bd10e69fcd039b621eeeac68790def9a54"
+      }
+    ],
+    "limitation": "These are the original tutorial claims. The port reproduces the finite original penalty branches, and does not claim independent compliance with every official rule."
+  },
+  "dataLayout": {
+    "edition2002": {
+      "sourceSha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
+      "imageBase": 4194304,
+      "imageSize": 1118208,
+      "scope": "Original read-only constants and initial mutable data. Executable sections and import code are excluded; all game routines execute as native JavaScript.",
+      "segments": [
+        {
+          "section": ".rdata",
+          "file": "original-constants.bin",
+          "address": 4726784,
+          "size": 58880,
+          "sha256": "12f5d2b0f95db10c47ce6ff1c214819a232057ed6b5b8ad82e2bd719ca334a6b"
+        },
+        {
+          "section": ".data",
+          "file": "original-initial-state.bin",
+          "address": 4788224,
+          "size": 129608,
+          "sha256": "2475ec2b740474b8e4b0f086828ac64da1f03cea5fcacaeee02897a00f09e06f"
+        }
+      ]
+    },
+    "edition2010": {
+      "schemaVersion": 1,
+      "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+      "imageBase": 4194304,
+      "imageSize": 2211840,
+      "scope": "Exact nonexecutable constants, mutable initial data, and English resource/text data. No PE headers, x86 instructions, or import bindings are included; browser functions execute native JavaScript.",
+      "segments": [
+        {
+          "section": ".rdata",
+          "file": "original-constants.bin",
+          "address": 5013504,
+          "size": 72704,
+          "initializedBytes": 72704,
+          "zeroFillBytes": 0,
+          "writable": false,
+          "sha256": "b7bb7a445e8d1342cd99094fd4d914b964caeb424a84d3b651b29336b3c39d76"
+        },
+        {
+          "section": ".data",
+          "file": "original-initial-state.bin",
+          "address": 5087232,
+          "size": 394632,
+          "initializedBytes": 95744,
+          "zeroFillBytes": 298888,
+          "writable": true,
+          "sha256": "dddcfbf8acf3e2dcc09ef61ae6d760bab1f849673006617bcfd9082708312a8d"
+        },
+        {
+          "section": ".english",
+          "file": "original-english-data.bin",
+          "address": 5939200,
+          "size": 466432,
+          "initializedBytes": 466432,
+          "zeroFillBytes": 0,
+          "writable": false,
+          "sha256": "19df0a1a84d908cd1a78765a8380480be3487c4b3a987da02478c80e6a452216"
+        }
+      ]
+    },
+    "numericBoatFields": "I32 arrays stride4; F64 arrays stride8. Many globals and offsets moved independently; no global address remapping runs in production.",
+    "x87": "Both live originals initialize CW027f; precision53 arithmetic and exact spill/order remain observable.",
+    "typedSailABI2010": [
+      "F64",
+      "I32",
+      "I32",
+      "I32",
+      "I32",
+      "F64"
+    ],
+    "typedSailStackWords": 8,
+    "cString2010": {
+      "boatNameCellsBase": 5237808,
+      "cells": 35,
+      "stride": 4,
+      "hudCell": 5234644,
+      "authority": "Compare actual semantic string bytes; normalized owned CRT/TLS pointer identities are retained as separate raw native evidence."
+    }
+  },
+  "implementation": {
+    "shared": [
+      {
+        "name": "degreeWrap",
+        "address2002": 4275376,
+        "address2010": 4308000,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      },
+      {
+        "name": "radianWrap",
+        "address2002": 4275408,
+        "address2010": 4308032,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      },
+      {
+        "name": "scaledRandom",
+        "address2002": 4282912,
+        "address2010": 4317184,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      },
+      {
+        "name": "integerTrigInitialization",
+        "address2002": 4282976,
+        "address2010": 4317248,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      },
+      {
+        "name": "speedSchedule",
+        "address2002": 4514688,
+        "address2010": 4606272,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      },
+      {
+        "name": "CRT_rand",
+        "address2002": 4550352,
+        "address2010": 4831136,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      },
+      {
+        "name": "CRT_srand",
+        "address2002": 4550368,
+        "address2010": 4831152,
+        "scope": "Shared numerical implementation or algorithm only; target addresses/data and independent 2010 native captures remain separate."
+      }
+    ],
+    "reconstructed": [
+      {
+        "name": "initializeBoatOptions",
+        "address2002": 4290448,
+        "address2010": 4328448,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "initializeRace",
+        "address2002": 4275968,
+        "address2010": 4308592,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "updateGlobalWind",
+        "address2002": 4306384,
+        "address2010": 4355392,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "boatWindAndAI",
+        "address2002": 4344224,
+        "address2010": 4411248,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "updateBoatDynamics",
+        "address2002": 4361312,
+        "address2010": 4431920,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "apparentWind",
+        "address2002": 4365808,
+        "address2010": 4438896,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "integratePositions",
+        "address2002": 4369840,
+        "address2010": 4444000,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "checkNearRaceMarks",
+        "address2002": 4369328,
+        "address2010": 4443376,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "initializeSailGeometry",
+        "address2002": 4276240,
+        "address2010": 4308912,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      },
+      {
+        "name": "frameUpdateAndRender",
+        "address2002": 4210720,
+        "address2010": 4213232,
+        "scope": "Edition-specific source, original constants/globals/call ABI and original 2010 native evidence."
+      }
+    ],
+    "otherSharedInfrastructure": [
+      "Float80 finite x87 arithmetic and control-word handling",
+      "C signed integer wrap/division/bit slice helpers",
+      "CRT RNG algorithm",
+      "Generic addressable memory and PE/data loaders",
+      "GDI/Canvas semantic drawing abstraction"
+    ],
+    "independentTargetData": [
+      "All target constants and initial mutable bytes",
+      "Integer and native x87 trig captures under target CW027f",
+      "English resource bytes and embedded string identity",
+      "Own menu/controller command maps",
+      "Named venue literal definitions and geometry tails",
+      "Full init/current/AI/physics/scene source and target native fixtures"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "assets/ui/menus.json",
+      "sha256": "861ccc7dd7a6d1b5c94e2801624aada42206964d594af571b14f7e008e5dd6f0"
+    },
+    {
+      "path": "src/engine/boat-options.js",
+      "sha256": "404f97776d9fc9b4310f638fc6f71f6ffef80dd89ab6ecff0f321029a677752c"
+    },
+    {
+      "path": "src/engine/penalties.js",
+      "sha256": "7bba8dfe1ba94019f31a7ed7ffd695dc722c38b2ca32b899f31c0bf8bb752717"
+    },
+    {
+      "path": "src/render/tutorials.js",
+      "sha256": "7af5f0f2ba2b7dafedec719bff432127e80ccc72e4aef5f8d94c9a0538d3d0df"
+    },
+    {
+      "path": "assets/data/original-memory.json",
+      "sha256": "7f3ff93eee55a5470102963a2cd1f9d18b3e48c184740e09217f7834fdff0f06"
+    },
+    {
+      "path": "versions/2010-en/assets/ui/menus.json",
+      "sha256": "8090e339cd1a732cbcae78a7eab26c8ee64291e454e68d56d507095757572fae"
+    },
+    {
+      "path": "versions/2010-en/analysis/boat-menu-selectors.json",
+      "sha256": "3409d269052a461e27fa820c6e84a1dbf97227f08007529378603b8d93d63138"
+    },
+    {
+      "path": "versions/2010-en/analysis/engine-correspondence.json",
+      "sha256": "a288cc60792fa3cdc2d6734706c809af3db547fa9912eac9094f8340f7973122"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-options.js",
+      "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252"
+    },
+    {
+      "path": "versions/2010-en/src/engine/configuration.js",
+      "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/course.js",
+      "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97"
+    },
+    {
+      "path": "versions/2010-en/src/engine/menu-controller.js",
+      "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+    },
+    {
+      "path": "versions/2010-en/src/engine/penalties.js",
+      "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-dynamics.js",
+      "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+    },
+    {
+      "path": "versions/2010-en/assets/data/embedded-text.json",
+      "sha256": "f810f298bd43fa97b7c5726b51c4076127b8498e48411987deb91f70d74c9fc0"
+    },
+    {
+      "path": "versions/2010-en/assets/data/original-memory.json",
+      "sha256": "e03604b4b469035688d5ba5084868b6b824995cd3751a1b5dddfb941d05b2929"
+    },
+    {
+      "path": "versions/2010-en/analysis/sail-geometry-source-map.json",
+      "sha256": "9c13fad704117735f3863eca51f0b9b0783c55256d38d803bfab698a77654708"
+    }
+  ],
+  "behaviorDifferences": [
+    {
+      "name": "Boat presets and subtype flags",
+      "evidence": [
+        "src/engine/boat-options.js",
+        "versions/2010-en/src/engine/boat-options.js"
+      ],
+      "detail": "27 selectors versus15, changed old presets and19 explicit 2010 subtype flags. Standard valid overrides remain length20..50 and displacement/sailArea8..11 before preset-specific replacements."
+    },
+    {
+      "name": "Race-course controls",
+      "evidence": [
+        "assets/ui/menus.json",
+        "versions/2010-en/assets/ui/menus.json",
+        "versions/2010-en/src/engine/menu-controller.js",
+        "versions/2010-en/src/engine/course.js"
+      ],
+      "detail": "Downwind-finish commands32992/32993 select layout6/7 at4da188 and enlarged-course flag53527c.32994 toggles gate flag4da1e8, subject to original enable predicates. Named venue selection writes4da1f8; configuration and course routing recompute original geometry."
+    },
+    {
+      "name": "Proximity and penalty conditions",
+      "address2002": 4369328,
+      "address2010": 4443376,
+      "evidence": [
+        "src/engine/penalties.js",
+        "versions/2010-en/src/engine/penalties.js"
+      ],
+      "detail": "The final Manhattan start-endpoint threshold increases from radius+2 to radius+3.2010 also conditions mark checks on long-course mode, elapsed time and leg/final-leg state. This is separate from tutorial rule-zone wording."
+    },
+    {
+      "name": "Subtype-specific dynamics",
+      "address2010": 4431920,
+      "evidence": [
+        "versions/2010-en/src/engine/boat-dynamics.js"
+      ],
+      "detail": "Explicit E Scow flag53652c changes heel limit18, heel divisor11, spinnaker threshold97 and multiple power/drag branches. Other new subtype paths and separate true/apparent wind handling require the complete2010 routine rather than an old address adapter."
+    },
+    {
+      "name": "Venue/current integration",
+      "address2010": 4444000,
+      "evidence": [
+        "versions/2010-en/src/engine/integration.js",
+        "versions/2010-en/src/engine/current.js"
+      ],
+      "detail": "2010 uses venue-aware current sampling and course-dependent coefficient25 or20, with17 for course lengths below2000; original order/spills and integer time/divisor are retained."
+    }
+  ],
+  "validationInventory": {
+    "path": "analysis/native-reference-index.json",
+    "countsAreCapturedCalls": true,
+    "wholeRendererParity": "Determined by the final source suite; native fixture integrity alone is not a JavaScript equivalence claim.",
+    "totals": {
+      "fixtureFiles": 177,
+      "uniqueFixtureHashes": 177,
+      "capturedRows": 87216,
+      "originalRoutineCalls": 87266,
+      "captureIntegrityVerifiedRoutineCalls": 87266,
+      "continuationRows": 13978,
+      "distinctExplicitRoutineAddresses": 780,
+      "orderedDrawingRequests": 1067451,
+      "orderedSoundRequests": 2939,
+      "sourceParityReportLinkedRoutineCalls": 34032
+    },
+    "previousSnapshot": {
+      "indexSha256": "596de818a7a0b20bf834c7410162c66e77c1e1653115babee4d74babe9f0fb7b",
+      "totals": {
+        "fixtureFiles": 161,
+        "uniqueFixtureHashes": 161,
+        "capturedRows": 86553,
+        "originalRoutineCalls": 86603,
+        "captureIntegrityVerifiedRoutineCalls": 86603,
+        "continuationRows": 13786,
+        "distinctExplicitRoutineAddresses": 777,
+        "orderedDrawingRequests": 913168,
+        "orderedSoundRequests": 2914,
+        "sourceParityReportLinkedRoutineCalls": 25005
+      },
+      "scope": "Earlier captured evidence snapshot, preserved separately from this extended inventory."
+    },
+    "successfulSupplementReports": [
+      "analysis/initialized-venue-render-native-comparison.json",
+      "analysis/initialized-island-chart-native-comparison.json",
+      "analysis/island-shore-context-native-comparison.json"
+    ],
+    "derivedEvidenceExcluded": [
+      {
+        "fixture": "tests/fixtures/original-retained-controller-wire.json",
+        "sourceFixture": "tests/fixtures/original-retained-controller-protocol.json",
+        "sha256": "ac60614ee0760da2ba8bba8c4f175dbaf045190c3aca71c3b5bda08f78e49370"
+      }
+    ],
+    "productionOptimizationReview": "analysis/production-pc53-distance-review.json",
+    "scope": "Captured original calls and successful source snapshot replays are separate fields. Reports, callbacks, derived projections and diagnostic JS replays are never counted as additional native captures. Current whole-port parity is determined by the final suite."
+  }
+}

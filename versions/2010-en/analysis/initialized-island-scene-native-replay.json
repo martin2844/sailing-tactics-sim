@@ -1,0 +1,568 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixtureSha256": "8e522fd069ea30520ec5c819847588ada801a2daff11628732442cd62c064407",
+  "fixture": "tests/fixtures/original-initialized-island-scene.json",
+  "nativeCapturedCalls": 3,
+  "nativeOriginalTextUnchanged": true,
+  "nativeOriginalFileUnchanged": true,
+  "x87ControlWord": "0x027f",
+  "profile": {
+    "name": "selector12-course7-initialized-island-scene",
+    "selector": 12,
+    "course": 7,
+    "venue": 0,
+    "boats": 12,
+    "humans": 1,
+    "stage": 5,
+    "width": 1024,
+    "height": 768,
+    "bitsPixel": 24
+  },
+  "rows": [
+    {
+      "index": 0,
+      "phase": "boat-options",
+      "routine": {
+        "name": "initializeBoatOptions",
+        "address": 4328448,
+        "argumentTypes": [],
+        "returnType": "void"
+      },
+      "elapsedMs": 32.31054399999999,
+      "nativeIntegers": {
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "stage": 5,
+        "humans": 1,
+        "boats": 12,
+        "calibratedWidth": 1024,
+        "calibratedHeight": 723,
+        "menuHeight": 0,
+        "raw4da188": 6,
+        "displaySetting4da174": 8,
+        "island": 0,
+        "flag4fb5d4": 0,
+        "shorelineVariant": 0,
+        "shorelineMode": 0
+      },
+      "actualIntegers": {
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "stage": 5,
+        "humans": 1,
+        "boats": 12,
+        "calibratedWidth": 1024,
+        "calibratedHeight": 723,
+        "menuHeight": 0,
+        "raw4da188": 6,
+        "displaySetting4da174": 8,
+        "island": 0,
+        "flag4fb5d4": 0,
+        "shorelineVariant": 0,
+        "shorelineMode": 0
+      },
+      "rng": {
+        "actual": 537919895,
+        "expected": 537919895
+      },
+      "sounds": {
+        "actual": [],
+        "expected": []
+      },
+      "drawingCounts": {
+        "actual": 0,
+        "expected": 0
+      },
+      "pixels": 0,
+      "eventDifferences": [],
+      "differingWords": 0,
+      "firstWordDifferences": [],
+      "exact": true
+    },
+    {
+      "index": 1,
+      "phase": "race-initialization",
+      "routine": {
+        "name": "initializeRace",
+        "address": 4308592,
+        "argumentTypes": [],
+        "returnType": "void"
+      },
+      "elapsedMs": 46.39031299999999,
+      "nativeIntegers": {
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "stage": 5,
+        "humans": 1,
+        "boats": 12,
+        "calibratedWidth": 1024,
+        "calibratedHeight": 723,
+        "menuHeight": 0,
+        "raw4da188": 3,
+        "displaySetting4da174": 8,
+        "island": 1,
+        "flag4fb5d4": 0,
+        "shorelineVariant": 0,
+        "shorelineMode": 0
+      },
+      "actualIntegers": {
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "stage": 5,
+        "humans": 1,
+        "boats": 12,
+        "calibratedWidth": 1024,
+        "calibratedHeight": 723,
+        "menuHeight": 0,
+        "raw4da188": 3,
+        "displaySetting4da174": 8,
+        "island": 1,
+        "flag4fb5d4": 0,
+        "shorelineVariant": 0,
+        "shorelineMode": 0
+      },
+      "rng": {
+        "actual": 1499234631,
+        "expected": 1499234631
+      },
+      "sounds": {
+        "actual": [],
+        "expected": []
+      },
+      "drawingCounts": {
+        "actual": 0,
+        "expected": 0
+      },
+      "pixels": 0,
+      "eventDifferences": [],
+      "differingWords": 0,
+      "firstWordDifferences": [],
+      "exact": true
+    },
+    {
+      "index": 2,
+      "phase": "drawScene",
+      "routine": {
+        "name": "drawScene",
+        "address": 4215584,
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "elapsedMs": 122.70439199999998,
+      "nativeIntegers": {
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "stage": 5,
+        "humans": 1,
+        "boats": 12,
+        "calibratedWidth": 1024,
+        "calibratedHeight": 723,
+        "menuHeight": 0,
+        "raw4da188": 3,
+        "displaySetting4da174": 8,
+        "island": 1,
+        "flag4fb5d4": 0,
+        "shorelineVariant": 0,
+        "shorelineMode": 0
+      },
+      "actualIntegers": {
+        "selector": 12,
+        "boatClass": 6,
+        "course": 7,
+        "venue": 0,
+        "stage": 5,
+        "humans": 1,
+        "boats": 12,
+        "calibratedWidth": 1024,
+        "calibratedHeight": 723,
+        "menuHeight": 0,
+        "raw4da188": 3,
+        "displaySetting4da174": 8,
+        "island": 1,
+        "flag4fb5d4": 0,
+        "shorelineVariant": 0,
+        "shorelineMode": 0
+      },
+      "rng": {
+        "actual": 1499234631,
+        "expected": 3125182605
+      },
+      "sounds": {
+        "actual": [],
+        "expected": [
+          {
+            "resourceId": 151,
+            "moduleHandle": 4194304,
+            "flags": 262165
+          }
+        ]
+      },
+      "drawingCounts": {
+        "actual": 55,
+        "expected": 956
+      },
+      "pixels": 0,
+      "eventDifferences": [
+        {
+          "index": 55,
+          "expected": {
+            "op": "moveTo",
+            "x": -958,
+            "y": 386904164
+          }
+        },
+        {
+          "index": 56,
+          "expected": {
+            "op": "lineTo",
+            "x": -957,
+            "y": 386904162
+          }
+        },
+        {
+          "index": 57,
+          "expected": {
+            "op": "lineTo",
+            "x": -956,
+            "y": 386904164
+          }
+        },
+        {
+          "index": 58,
+          "expected": {
+            "op": "moveTo",
+            "x": -958,
+            "y": 386904164
+          }
+        },
+        {
+          "index": 59,
+          "expected": {
+            "op": "lineTo",
+            "x": -957,
+            "y": 386904162
+          }
+        },
+        {
+          "index": 60,
+          "expected": {
+            "op": "lineTo",
+            "x": -956,
+            "y": 386904164
+          }
+        },
+        {
+          "index": 61,
+          "expected": {
+            "op": "selectObject",
+            "handle": 5206148
+          }
+        },
+        {
+          "index": 62,
+          "expected": {
+            "op": "moveTo",
+            "x": -1356,
+            "y": 1613
+          }
+        },
+        {
+          "index": 63,
+          "expected": {
+            "op": "lineTo",
+            "x": -1355,
+            "y": 1611
+          }
+        },
+        {
+          "index": 64,
+          "expected": {
+            "op": "lineTo",
+            "x": -1354,
+            "y": 1613
+          }
+        },
+        {
+          "index": 65,
+          "expected": {
+            "op": "moveTo",
+            "x": -1356,
+            "y": 1613
+          }
+        },
+        {
+          "index": 66,
+          "expected": {
+            "op": "lineTo",
+            "x": -1355,
+            "y": 1611
+          }
+        },
+        {
+          "index": 67,
+          "expected": {
+            "op": "lineTo",
+            "x": -1354,
+            "y": 1613
+          }
+        },
+        {
+          "index": 68,
+          "expected": {
+            "op": "selectObject",
+            "handle": 5206148
+          }
+        },
+        {
+          "index": 69,
+          "expected": {
+            "op": "moveTo",
+            "x": -1553,
+            "y": 1622
+          }
+        },
+        {
+          "index": 70,
+          "expected": {
+            "op": "lineTo",
+            "x": -1552,
+            "y": 1620
+          }
+        },
+        {
+          "index": 71,
+          "expected": {
+            "op": "lineTo",
+            "x": -1551,
+            "y": 1622
+          }
+        },
+        {
+          "index": 72,
+          "expected": {
+            "op": "moveTo",
+            "x": -1553,
+            "y": 1622
+          }
+        },
+        {
+          "index": 73,
+          "expected": {
+            "op": "lineTo",
+            "x": -1552,
+            "y": 1620
+          }
+        },
+        {
+          "index": 74,
+          "expected": {
+            "op": "lineTo",
+            "x": -1551,
+            "y": 1622
+          }
+        }
+      ],
+      "differingWords": 558,
+      "firstWordDifferences": [
+        {
+          "address": "0x4f3a38",
+          "actualBits": "00000000",
+          "expectedBits": "d35c777b",
+          "actualI32": 0,
+          "expectedI32": 2071420115
+        },
+        {
+          "address": "0x4f3a3c",
+          "actualBits": "00000000",
+          "expectedBits": "289d7440",
+          "actualI32": 0,
+          "expectedI32": 1081384232
+        },
+        {
+          "address": "0x4f3a40",
+          "actualBits": "00000000",
+          "expectedBits": "69aebb3d",
+          "actualI32": 0,
+          "expectedI32": 1035710057
+        },
+        {
+          "address": "0x4f3a44",
+          "actualBits": "00000000",
+          "expectedBits": "94467340",
+          "actualI32": 0,
+          "expectedI32": 1081296532
+        },
+        {
+          "address": "0x4f3a4c",
+          "actualBits": "00000000",
+          "expectedBits": "00f07140",
+          "actualI32": 0,
+          "expectedI32": 1081208832
+        },
+        {
+          "address": "0x4f3a50",
+          "actualBits": "00000000",
+          "expectedBits": "975144c2",
+          "actualI32": 0,
+          "expectedI32": -1035710057
+        },
+        {
+          "address": "0x4f3a54",
+          "actualBits": "00000000",
+          "expectedBits": "6b997040",
+          "actualI32": 0,
+          "expectedI32": 1081121131
+        },
+        {
+          "address": "0x4f3a58",
+          "actualBits": "00000000",
+          "expectedBits": "5b461109",
+          "actualI32": 0,
+          "expectedI32": 152127067
+        },
+        {
+          "address": "0x4f3a5c",
+          "actualBits": "00000000",
+          "expectedBits": "af856e40",
+          "actualI32": 0,
+          "expectedI32": 1080985007
+        },
+        {
+          "address": "0x4f3a60",
+          "actualBits": "00000000",
+          "expectedBits": "88e9998d",
+          "actualI32": 0,
+          "expectedI32": -1919293048
+        },
+        {
+          "address": "0x4f3a64",
+          "actualBits": "00000000",
+          "expectedBits": "86d86b40",
+          "actualI32": 0,
+          "expectedI32": 1080809606
+        },
+        {
+          "address": "0x4f3a68",
+          "actualBits": "00000000",
+          "expectedBits": "d25c777b",
+          "actualI32": 0,
+          "expectedI32": 2071420114
+        },
+        {
+          "address": "0x4f3a6c",
+          "actualBits": "00000000",
+          "expectedBits": "289d7440",
+          "actualI32": 0,
+          "expectedI32": 1081384232
+        },
+        {
+          "address": "0x4f3a70",
+          "actualBits": "00000000",
+          "expectedBits": "69aebb3d",
+          "actualI32": 0,
+          "expectedI32": 1035710057
+        },
+        {
+          "address": "0x4f3a74",
+          "actualBits": "00000000",
+          "expectedBits": "94467340",
+          "actualI32": 0,
+          "expectedI32": 1081296532
+        },
+        {
+          "address": "0x4f3a7c",
+          "actualBits": "00000000",
+          "expectedBits": "00f07140",
+          "actualI32": 0,
+          "expectedI32": 1081208832
+        },
+        {
+          "address": "0x4f3a80",
+          "actualBits": "00000000",
+          "expectedBits": "975144c2",
+          "actualI32": 0,
+          "expectedI32": -1035710057
+        },
+        {
+          "address": "0x4f3a84",
+          "actualBits": "00000000",
+          "expectedBits": "6b997040",
+          "actualI32": 0,
+          "expectedI32": 1081121131
+        },
+        {
+          "address": "0x4f3a88",
+          "actualBits": "00000000",
+          "expectedBits": "5b461109",
+          "actualI32": 0,
+          "expectedI32": 152127067
+        },
+        {
+          "address": "0x4f3a8c",
+          "actualBits": "00000000",
+          "expectedBits": "af856e40",
+          "actualI32": 0,
+          "expectedI32": 1080985007
+        },
+        {
+          "address": "0x4f3a90",
+          "actualBits": "00000000",
+          "expectedBits": "83f0ada6",
+          "actualI32": 0,
+          "expectedI32": -1498550141
+        },
+        {
+          "address": "0x4f3a94",
+          "actualBits": "00000000",
+          "expectedBits": "f68c7540",
+          "actualI32": 0,
+          "expectedI32": 1081445622
+        },
+        {
+          "address": "0x4f3a98",
+          "actualBits": "00000000",
+          "expectedBits": "5b461109",
+          "actualI32": 0,
+          "expectedI32": 152127067
+        },
+        {
+          "address": "0x4f3a9c",
+          "actualBits": "00000000",
+          "expectedBits": "af856e40",
+          "actualI32": 0,
+          "expectedI32": 1080985007
+        }
+      ],
+      "error": {
+        "name": "RangeError",
+        "message": "Original C reads an undefined retained local byte",
+        "stack": "RangeError: Original C reads an undefined retained local byte\n    at checkLocal (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:56:79)\n    at readLocal (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:59:3)\n    at readPointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:182:26)\n    at Object.originalDrawing00440400 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:11425:46)\n    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:48:27)\n    at originalDrawScene (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:240:17)\n    at drawScene (file:///home/martin/tact/versions/2010-en/src/render/scene.js:6:10)\n    at file:///home/martin/tact/versions/2010-en/tools/replay-initialized-island-scene.js:55:14\n    at file:///home/martin/tact/versions/2010-en/tests/native-state.js:44:52\n    at withX87ControlWord (file:///home/martin/tact/src/runtime/float80.js:24:20)"
+      },
+      "exact": false
+    }
+  ],
+  "exact": false,
+  "scope": "Genuine original boat-options → race-initialization → island scene. Strict public JavaScript replay uses no retained local/stack injections and unchanged native expectations. GetPixel inputs are declared synthetic host observations, not raster identity.",
+  "sourceHashes": {
+    "src/render/drawing-functions.js": "3402137b5a6ccf098627591ae22f676ce8b0a7cf372f37fe4dbbb2983d2788b7",
+    "src/render/scene.js": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace",
+    "src/render/host.js": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "status": "exact",
+  "finishedUtc": "2026-10-03T19:58:51.304450+00:00",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixedSource": {
+    "path": "versions/2010-en/src/engine/ai-functions.js",
+    "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+  },
+  "originalInstruction": {
+    "address": "0x435e2b",
+    "bytes": "8b04b580b34f00",
+    "operation": "MOV EAX,[ESI*4+0x4fb380]",
+    "verifiedFromPreservedExecutable": true
+  },
+  "finding": "The old case30 pointer addition used a byte offset for an I32 boatSpeed array. Completed nonhuman board turns at speed10 incorrectly received an extra5 degrees.",
+  "beforeFix": {
+    "cases": 384,
+    "exact": 372,
+    "mismatchCount": 12,
+    "source": "analysis/source-review-history/ai-functions-pre-board-fix.js",
+    "sha256": "a8270c25cb6bdcca931e487c722dc166b150893c186c3d1a09f3e2f893e53618",
+    "report": "analysis/board-turn-before-fix-comparison.json",
+    "firstFullFrameFailure": {
+      "case": 6,
+      "expectedHeading2": 56,
+      "oldSourceHeading2": 61,
+      "log": "analysis/retained-board-frames-before-fix-replay.log"
+    }
+  },
+  "afterFix": {
+    "independentBoardCases": 384,
+    "exact": 384,
+    "existingAICalls": 8366,
+    "retainedNativeCalls": 9,
+    "retainedFullFrames": 3,
+    "drawingEvents": 2865,
+    "actualOriginalInitialization": {
+      "time": -170,
+      "selector": 3,
+      "boatClass": 1,
+      "course": 1,
+      "venue": 0,
+      "humans": 1,
+      "boats": 12,
+      "paintCounter": 0,
+      "stage": 1,
+      "frozen": 0,
+      "view": 2,
+      "steering1": 0,
+      "snapshotRequest": 0,
+      "heading1": 0,
+      "island": 0,
+      "shorelineVariant": 1,
+      "configurationControl4da188": 6,
+      "boardFlag": 1,
+      "turn2": 0,
+      "turn3": 0,
+      "windSpeed2": 0,
+      "windSpeed3": 0,
+      "desiredHeading2": 205,
+      "desiredHeading3": 36
+    },
+    "finalNativeFrame": {
+      "time": 100,
+      "selector": 3,
+      "boatClass": 1,
+      "course": 1,
+      "venue": 0,
+      "humans": 1,
+      "boats": 12,
+      "paintCounter": 3,
+      "stage": 2,
+      "frozen": 0,
+      "view": 2,
+      "steering1": 0,
+      "snapshotRequest": 0,
+      "heading1": 156,
+      "island": 0,
+      "shorelineVariant": 1,
+      "configurationControl4da188": 6,
+      "boardFlag": 1,
+      "turn2": 0,
+      "turn3": 0,
+      "windSpeed2": 10,
+      "windSpeed3": 10,
+      "desiredHeading2": 56,
+      "desiredHeading3": 304
+    }
+  },
+  "fixtures": [
+    {
+      "path": "versions/2010-en/tests/fixtures/original-board-turn.json",
+      "sha256": "f396de57774c0733c3c891c4c13be7056f47cae21618a998f7133b67b7154889",
+      "nativeCalls": 384,
+      "nativeAuthority": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "6fe7f9d16eb0836bd4d642bca8b21d6ac984a5b930f2d78cd5bd5b3d942e1d52",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-7jwp121f/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-board-frames.json",
+      "sha256": "218fcaef484984d55c138d0a156fc60172564f68dd0342a3f3456571cb5ffeeb",
+      "nativeCalls": 9,
+      "nativeAuthority": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "0f9d0012a5a995fbd2e348f0742675a35a6ebcdf1350bb9d33116712890b52fd",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-4zr_89ou/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host."
+      }
+    }
+  ],
+  "replays": {
+    "board-turn-replay.log": {
+      "path": "versions/2010-en/analysis/board-turn-replay.log",
+      "sha256": "fe11896c531d02cd3a092659c5c5eb6b5bccab1fee356455212b0829636b7b2f",
+      "tests": 2,
+      "passed": 2,
+      "failed": 0,
+      "durationMs": 1871.31413
+    },
+    "retained-board-frames-replay.log": {
+      "path": "versions/2010-en/analysis/retained-board-frames-replay.log",
+      "sha256": "306a3624c4290867b645ad7af9645eb0415468042be7dade45428d7ddd295103",
+      "tests": 2,
+      "passed": 2,
+      "failed": 0,
+      "durationMs": 2274.879432
+    },
+    "ai-board-fix-regression.log": {
+      "path": "versions/2010-en/analysis/ai-board-fix-regression.log",
+      "sha256": "ca9f47abe890ea3d72e00bcdb592270f26ef1d6a44c903411e921078ff486bc6",
+      "tests": 35,
+      "passed": 35,
+      "failed": 0,
+      "durationMs": 21443.852436
+    },
+    "retained-board-frames-before-fix-replay.log": {
+      "path": "versions/2010-en/analysis/retained-board-frames-before-fix-replay.log",
+      "sha256": "df37c049613fc54bc0213e56da2c7418ad551e913cbe7887f91718f933b830ea",
+      "tests": 2,
+      "passed": 1,
+      "failed": 1,
+      "durationMs": 891.192814
+    }
+  },
+  "scope": "Real original Board menu32881 and Space/start prefix execute. The three-frame continuation explicitly supplies a finite first-frame time100, speed10, lastTurn94 and +/-1 turn-mode boundary; all later gameplay/RNG bytes remain native-owned. Whole mutable image, exact RNG, semantic strings and ordered GDI/sound/UI events match. Original code/text/file remains unchanged.",
+  "expectedFilesChanged": false,
+  "reviewAndReplaySources": [
+    {
+      "path": "versions/2010-en/src/engine/ai-functions.js",
+      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+    },
+    {
+      "path": "versions/2010-en/tools/prepare-board-turn-inputs.js",
+      "sha256": "5dc2ba85c5c7ba20d65afbab53a685a4d312d19072c6902f0da83ebc341e073e"
+    },
+    {
+      "path": "versions/2010-en/tools/prepare-retained-board-inputs.js",
+      "sha256": "0ca5569234d9e35b94ba489a1a7008556a082fb8e734724b68bd855999272672"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnose-board-turn.js",
+      "sha256": "2e9e586e549f5c0f476ff3688c598999312b3938d3c4236000de6e4d25e2ae4d"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnostics/ai-board-pre-fix-loader.mjs",
+      "sha256": "a45f35eb6a00ba1bf34150a83b232210e81d8d7790bf424f712335b2e6eb0f81"
+    },
+    {
+      "path": "versions/2010-en/tests/board-turn.test.js",
+      "sha256": "de11d9a0e69c64cae67d7cae97d2c8916e565e0657934204e37cf8eb84e3fa9d"
+    },
+    {
+      "path": "versions/2010-en/tests/retained-board-frames.test.js",
+      "sha256": "5d2f6acf4d89e278e5d229222085e0739a5cb710ae4754d6e85bfc820a41b667"
+    },
+    {
+      "path": "versions/2010-en/analysis/board-turn-capture-inputs.json",
+      "sha256": "fca30c3388618519f22b7e1c4c3f2d56dd121d62ac5e8f37debf444e85769d62"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-board-frames-capture-inputs.json",
+      "sha256": "a16818088b3bca47805918e7d382d439eebd01e8e8358e3fd5d9aad30ce29e7c"
+    }
+  ]
+}

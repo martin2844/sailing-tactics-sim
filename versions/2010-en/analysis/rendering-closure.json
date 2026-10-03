@@ -1,0 +1,2487 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Static source generation only. Each complete routine still requires original native drawing/state/RNG proof.",
+  "roots": {
+    "4227056": "originalDrawChart",
+    "4215584": "originalDrawScene",
+    "4256320": "originalDrawSailingHud",
+    "4271408": "originalDrawCompactHud",
+    "4291232": "originalDrawBoat",
+    "4455072": "originalDrawSceneMark",
+    "4466016": "originalDrawShoreline"
+  },
+  "generated": 198,
+  "unresolved": 0,
+  "sources": [
+    {
+      "address": 4215584,
+      "name": "originalDrawScene",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00405320.c",
+      "sourceSha256": "eb6c60b6be1a102a3118e9505126e0527cb55a379042462c2be31c526bbf0072",
+      "dependencies": [
+        4219504,
+        4308000,
+        4317344,
+        4317728,
+        4322272,
+        4451360,
+        4452304,
+        4457296,
+        4457472,
+        4465264,
+        4466016,
+        4468688,
+        4473680,
+        4477808,
+        4612912,
+        4710464,
+        4713792,
+        4723024,
+        4735168,
+        4735776,
+        4738352,
+        4738624,
+        4739504,
+        4739888,
+        4740096,
+        4740304,
+        4741152,
+        4741712,
+        4742400,
+        4742608,
+        4742928,
+        4743264,
+        4743760,
+        4743872,
+        4744192,
+        4746704,
+        4747920,
+        4748384,
+        4750160,
+        4751232,
+        4752720,
+        4752784,
+        4753056,
+        4753168,
+        4753296,
+        4753520,
+        4753888,
+        4754208,
+        4765664
+      ]
+    },
+    {
+      "address": 4219504,
+      "name": "originalDrawing00406270",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00406270.c",
+      "sourceSha256": "b7f875fb1724f46f03c1ed0b2f1868dd70af7a8fde6df9577985a9a806e3941c",
+      "dependencies": [
+        4318112
+      ]
+    },
+    {
+      "address": 4227056,
+      "name": "originalDrawChart",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00407ff0.c",
+      "sourceSha256": "9c141b9eb318fb6845a1cb58dcd487b1968f65cee74472c267322fc97455a1aa",
+      "dependencies": [
+        4236992,
+        4238000,
+        4238640,
+        4239664,
+        4241696,
+        4275136,
+        4322272,
+        4364528,
+        4397744,
+        4401904,
+        4457296,
+        4603728,
+        4610512,
+        4621376,
+        4626000,
+        4630672,
+        4705952,
+        4757888,
+        4771664
+      ]
+    },
+    {
+      "address": 4236992,
+      "name": "originalDrawing0040a6c0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040a6c0.c",
+      "sourceSha256": "56d33d772ebd91c4763621023ce13c61482f3a09ee653dee8991ce92bd987045",
+      "dependencies": [
+        4418464,
+        4451360,
+        4473456,
+        4754800
+      ]
+    },
+    {
+      "address": 4238000,
+      "name": "originalDrawing0040aab0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040aab0.c",
+      "sourceSha256": "0256a128e0430555aaceecb867c78111fd625a579229efd22af96f8bbd81a496",
+      "dependencies": [
+        4390048,
+        4391520,
+        4451360,
+        4473456
+      ]
+    },
+    {
+      "address": 4238640,
+      "name": "originalDrawing0040ad30",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040ad30.c",
+      "sourceSha256": "aec739b4e8167efef1abbd69489319fedcc78be7a7e789841a98610d58217baf",
+      "dependencies": []
+    },
+    {
+      "address": 4239664,
+      "name": "originalDrawing0040b130",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040b130.c",
+      "sourceSha256": "627e974fd264959ef49158f90a1d509c0af9ce06d5c76c6b670ef1ed19434715",
+      "dependencies": [
+        4357856
+      ]
+    },
+    {
+      "address": 4241696,
+      "name": "originalDrawing0040b920",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040b920.c",
+      "sourceSha256": "d8112ba20db4b91761ad091df0dfe0e4e41ad816cd2feec3f4a9ca659afdc83d",
+      "dependencies": []
+    },
+    {
+      "address": 4256320,
+      "name": "originalDrawSailingHud",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040f240.c",
+      "sourceSha256": "75113ef5025ec0871c6ccdbb9e079eb20b019ab1d5cc96e21580a99c821588a3",
+      "dependencies": [
+        4242368,
+        4266160,
+        4308000,
+        4318112,
+        4322272,
+        4451360,
+        4457296,
+        4603728,
+        4604128,
+        4606272,
+        4723536,
+        4757856
+      ]
+    },
+    {
+      "address": 4242368,
+      "name": "originalDrawing0040bbc0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040bbc0.c",
+      "sourceSha256": "9c3889a0548950a0900c56e5e366c385e0c4d60a9f9b9e7edab5b1988a5edb7a",
+      "dependencies": [
+        4245888,
+        4603728
+      ]
+    },
+    {
+      "address": 4245888,
+      "name": "originalDrawing0040c980",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040c980.c",
+      "sourceSha256": "20dec8b94106cf651e67ffb8de2fa870413dca7b07fc8aa8d31bae0f09a7b961",
+      "dependencies": [
+        4603728
+      ]
+    },
+    {
+      "address": 4266160,
+      "name": "originalDrawing004118b0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004118b0.c",
+      "sourceSha256": "74080fe839d9e5817fb66888d03042aa5fde8d86c39dbeb51191142d612bfffc",
+      "dependencies": [
+        4603728
+      ]
+    },
+    {
+      "address": 4271408,
+      "name": "originalDrawCompactHud",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00412d30.c",
+      "sourceSha256": "f8d3642a9899c0af784c0b92d431c3a1e84bebc4146e5c4bc5b22c8733e6cb80",
+      "dependencies": [
+        4242368,
+        4253408,
+        4308000,
+        4318112,
+        4451360,
+        4457296
+      ]
+    },
+    {
+      "address": 4253408,
+      "name": "originalDrawing0040e6e0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040e6e0.c",
+      "sourceSha256": "c5632f435b05cb5ec620c4becaff001645f8ac4590854b7dbc06f760c528999a",
+      "dependencies": [
+        4250464,
+        4473456,
+        4603728
+      ]
+    },
+    {
+      "address": 4250464,
+      "name": "originalDrawing0040db60",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0040db60.c",
+      "sourceSha256": "475145cf5a8bcdfdedad0df27ad1ea773613763302d71b75b85c73528d83605a",
+      "dependencies": [
+        4603728
+      ]
+    },
+    {
+      "address": 4291232,
+      "name": "originalDrawBoat",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00417aa0.c",
+      "sourceSha256": "8c1caa76d19857b70d9ad36c376e3e68a613374511deb109d3688b0debb6ef8e",
+      "dependencies": [
+        4300000,
+        4302304,
+        4304048,
+        4304672,
+        4308000,
+        4308032,
+        4308912,
+        4312704,
+        4318144,
+        4319056,
+        4319984,
+        4322592,
+        4324976,
+        4327712,
+        4330720,
+        4331056,
+        4331728,
+        4332208,
+        4333328,
+        4334112,
+        4334528,
+        4335024,
+        4339104,
+        4340784,
+        4341376,
+        4341728,
+        4342064,
+        4342704,
+        4347504,
+        4450096,
+        4469424,
+        4777776
+      ]
+    },
+    {
+      "address": 4300000,
+      "name": "originalDrawing00419ce0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00419ce0.c",
+      "sourceSha256": "d245143fd87cfb5c5e18036b37fa64fc56b51f08a8530a92f8cb5ecb9e9cfebe",
+      "dependencies": [
+        4344784
+      ]
+    },
+    {
+      "address": 4302304,
+      "name": "originalDrawing0041a5e0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041a5e0.c",
+      "sourceSha256": "104ea682fb38200421b702b6b7be316a7a761aa8d8b817550c2b7e7b9ec2f42a",
+      "dependencies": []
+    },
+    {
+      "address": 4304048,
+      "name": "originalDrawing0041acb0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041acb0.c",
+      "sourceSha256": "2a1f4d3fa695602414b83ebb34042abf7a8a8b37c86bbc653bff9b1ced2034db",
+      "dependencies": []
+    },
+    {
+      "address": 4304672,
+      "name": "originalDrawing0041af20",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041af20.c",
+      "sourceSha256": "539e2ffe3e6155627322532952a5ec32031fc3358ae0b532788690687cc56e83",
+      "dependencies": [
+        4307232,
+        4307312
+      ]
+    },
+    {
+      "address": 4307232,
+      "name": "originalDrawing0041b920",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041b920.c",
+      "sourceSha256": "97b3bf5c4538151c600cc61c31bb76765ae0d901867eb1898f6060eee64ec09c",
+      "dependencies": []
+    },
+    {
+      "address": 4307312,
+      "name": "originalDrawing0041b970",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041b970.c",
+      "sourceSha256": "e88287a6ff47d41becfad20401ecf14633db3e44f145bdfc8322fa04a8085eb3",
+      "dependencies": []
+    },
+    {
+      "address": 4308032,
+      "name": "originalDrawing0041bc40",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041bc40.c",
+      "sourceSha256": "0b64df54fb88bd84008e70851ac3a7088ab8bf1ef23ff7b4120ca829d25b2787",
+      "dependencies": []
+    },
+    {
+      "address": 4312704,
+      "name": "originalDrawing0041ce80",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041ce80.c",
+      "sourceSha256": "d8dd0221c7279556c24adb7c6b9c2738543ca59bd7747ce8657438a1633e7c7d",
+      "dependencies": [
+        4316016,
+        4316368,
+        4317184,
+        4320656
+      ]
+    },
+    {
+      "address": 4316016,
+      "name": "originalDrawing0041db70",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041db70.c",
+      "sourceSha256": "380e6bd901f5e015e36aa43d5f9ed4854709b453ad353ba291074e6252586a40",
+      "dependencies": []
+    },
+    {
+      "address": 4316368,
+      "name": "originalDrawing0041dcd0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041dcd0.c",
+      "sourceSha256": "916299108538fbb12d96d10df53fa3819c47cbc0fe9a2dc2a6878c28c1de7c48",
+      "dependencies": []
+    },
+    {
+      "address": 4317344,
+      "name": "originalDrawing0041e0a0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041e0a0.c",
+      "sourceSha256": "4897be2fd03e2304b088333b443502cc133009ce722ddf68818207ddda6f8d03",
+      "dependencies": [
+        4308000,
+        4318112,
+        4443824,
+        4451360
+      ]
+    },
+    {
+      "address": 4317728,
+      "name": "originalDrawing0041e220",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041e220.c",
+      "sourceSha256": "e95e3977a4225b239b2c6b3acb63532e8ac2216998a88c4a75546d6c5cabc575",
+      "dependencies": [
+        4308000,
+        4318112,
+        4443824,
+        4451360
+      ]
+    },
+    {
+      "address": 4318112,
+      "name": "originalDrawing0041e3a0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0041e3a0.c",
+      "sourceSha256": "00254ff5875b5fe1c271e823c96de8bf632a5a058d268e1d0f45f3c3402418a5",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4318144,
+      "name": "originalDrawing0041e3c0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041e3c0.c",
+      "sourceSha256": "e2e5e7014691341cb1840eb677fc6089c7522cb1150ab479199740226f2c49a9",
+      "dependencies": [
+        4320656,
+        4405872
+      ]
+    },
+    {
+      "address": 4319056,
+      "name": "originalDrawing0041e750",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041e750.c",
+      "sourceSha256": "9d5975950c70be6ed333bea6b947bf6a4c84be7c909252f8e3b2937b24dc4694",
+      "dependencies": [
+        4320656,
+        4405872
+      ]
+    },
+    {
+      "address": 4319984,
+      "name": "originalDrawing0041eaf0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041eaf0.c",
+      "sourceSha256": "51e67a277e5fc9f1ac8118c9344abd45648130b8503a889f7cd039256ba209c6",
+      "dependencies": [
+        4320656
+      ]
+    },
+    {
+      "address": 4320656,
+      "name": "originalDrawing0041ed90",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041ed90.c",
+      "sourceSha256": "64916e787146b95b13fd3027dcc7b3f9fcfcf7c6cf8101b193b70f42b203e2d6",
+      "dependencies": []
+    },
+    {
+      "address": 4322592,
+      "name": "originalDrawing0041f520",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041f520.c",
+      "sourceSha256": "cdabee581fac6b9a44d302d70039892a853a38726092b019ac27fe8a90001917",
+      "dependencies": [
+        4405872
+      ]
+    },
+    {
+      "address": 4324976,
+      "name": "originalDrawing0041fe70",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041fe70.c",
+      "sourceSha256": "699ce09eeebb247c8925305fc82cf53bb93e2c2966949c570fe7f6e0c8a934ea",
+      "dependencies": [
+        4327712
+      ]
+    },
+    {
+      "address": 4327712,
+      "name": "originalDrawing00420920",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00420920.c",
+      "sourceSha256": "f716131854b10d1894fbf95338389e86bad1f0eb51785cc56a0ed3f2272c84fd",
+      "dependencies": [
+        4308000,
+        4317184,
+        4405872
+      ]
+    },
+    {
+      "address": 4330720,
+      "name": "originalDrawing004214e0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004214e0.c",
+      "sourceSha256": "6ba89746d9f62553698e739ed5ad1c76920ec8951540f0af90f842170ad5bd18",
+      "dependencies": []
+    },
+    {
+      "address": 4331056,
+      "name": "originalDrawing00421630",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00421630.c",
+      "sourceSha256": "4328b51e3d1b6fd43e596e5932e0354c6fa16cf2d98ea7587b795e5ebe586c58",
+      "dependencies": [
+        4320656,
+        4331472
+      ]
+    },
+    {
+      "address": 4331472,
+      "name": "originalDrawing004217d0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004217d0.c",
+      "sourceSha256": "511cde6a2ccaaa815400a6cf2a124de80de35f78a2f7cabb9b5da92a0457fa6b",
+      "dependencies": [
+        4317184
+      ]
+    },
+    {
+      "address": 4331728,
+      "name": "originalDrawing004218d0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004218d0.c",
+      "sourceSha256": "68cabe3b2af86575b7f0b53efe80ebaf13729cf40eed4f3e17b9436dae646265",
+      "dependencies": [
+        4320656,
+        4331472,
+        4405872,
+        4630272
+      ]
+    },
+    {
+      "address": 4332208,
+      "name": "originalDrawing00421ab0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00421ab0.c",
+      "sourceSha256": "4a473195a7fbf7483d02772288388a9d094aa2d1ce159998737258854c90b4b5",
+      "dependencies": [
+        4320656
+      ]
+    },
+    {
+      "address": 4333328,
+      "name": "originalDrawing00421f10",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00421f10.c",
+      "sourceSha256": "d964db4df799faaf16f28410a4b2dc7a38eaba779a9e6b137f8c1bd86be61346",
+      "dependencies": []
+    },
+    {
+      "address": 4334112,
+      "name": "originalDrawing00422220",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00422220.c",
+      "sourceSha256": "eb3a0650934a15879c0d9c3648c5691c1e0976a20489bbf35eb5b50ac5f25be4",
+      "dependencies": [
+        4320656,
+        4331472
+      ]
+    },
+    {
+      "address": 4334528,
+      "name": "originalDrawing004223c0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004223c0.c",
+      "sourceSha256": "2f879f17ac1ae631f7c7f6478bfde685325ac0244820e10196904de324a68bae",
+      "dependencies": [
+        4320656,
+        4331472,
+        4405872,
+        4630320
+      ]
+    },
+    {
+      "address": 4335024,
+      "name": "originalDrawing004225b0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004225b0.c",
+      "sourceSha256": "da6c90be1f6610ce26fec6756c4e71f8a703ace3c273527904cf416a14dcccb0",
+      "dependencies": []
+    },
+    {
+      "address": 4339104,
+      "name": "originalDrawing004235a0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004235a0.c",
+      "sourceSha256": "e706da42852a8e6697b1920269a34ee918448b13927b8e932ffc79237d59a1e1",
+      "dependencies": [
+        4340096
+      ]
+    },
+    {
+      "address": 4340096,
+      "name": "originalDrawing00423980",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00423980.c",
+      "sourceSha256": "637530d49833bbd73f35bb106be94a0bf16372e46631a5223b0623bc2c8d5a54",
+      "dependencies": []
+    },
+    {
+      "address": 4340784,
+      "name": "originalDrawing00423c30",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00423c30.c",
+      "sourceSha256": "7095786b1d1a27f44720e33e20fac8556ac6fe457cf05133e5b5024f5743cfa8",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4341376,
+      "name": "originalDrawing00423e80",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00423e80.c",
+      "sourceSha256": "5056b4474587cc1e07818e86873985e2f2d991041a561afa91d910a2b124b703",
+      "dependencies": [
+        4317184
+      ]
+    },
+    {
+      "address": 4341728,
+      "name": "originalDrawing00423fe0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00423fe0.c",
+      "sourceSha256": "5ebbf9e0fac2676360ed25ce622ef79bcc0e311a44765ac0de69a5f90b90c937",
+      "dependencies": [
+        4317184,
+        4342560
+      ]
+    },
+    {
+      "address": 4342064,
+      "name": "originalDrawing00424130",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00424130.c",
+      "sourceSha256": "207aabad09efa78cc3b62861fc0527b4e550c4b888289e027f35a0cfe6415859",
+      "dependencies": [
+        4341728,
+        4450096
+      ]
+    },
+    {
+      "address": 4342560,
+      "name": "originalDrawing00424320",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00424320.c",
+      "sourceSha256": "15bdf02a40b28e1848a48fd55b73d9de12d6940627010afab18aa9ec44fca365",
+      "dependencies": []
+    },
+    {
+      "address": 4342704,
+      "name": "originalDrawing004243b0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004243b0.c",
+      "sourceSha256": "d5d06d4bf4d109f6f387046ddc86808327420116c8b1012aa01b09536b32b481",
+      "dependencies": []
+    },
+    {
+      "address": 4344784,
+      "name": "originalDrawing00424bd0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00424bd0.c",
+      "sourceSha256": "c3751191cdfcd609395785f5e30d80869756fc6111755bd109bf51bb050d5b58",
+      "dependencies": []
+    },
+    {
+      "address": 4347504,
+      "name": "originalDrawing00425670",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00425670.c",
+      "sourceSha256": "e1f584884064a44e0d79f00b205d8709b76c937e4a63e82ba9510e764f5cf08f",
+      "dependencies": [
+        4317184,
+        4322592,
+        4351312,
+        4352144,
+        4405872
+      ]
+    },
+    {
+      "address": 4351312,
+      "name": "originalDrawing00426550",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00426550.c",
+      "sourceSha256": "5af66f35939cad3ba20b3b081a6fa2de7c0ebdad6c5525eeb48c191e6f159ace",
+      "dependencies": [
+        4317184,
+        4351824
+      ]
+    },
+    {
+      "address": 4351824,
+      "name": "originalDrawing00426750",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00426750.c",
+      "sourceSha256": "b1d7d54cd662e91e14a2ac2a5ab69959d52cbcfaa92c3dae3509e1117c707ba3",
+      "dependencies": [
+        4308000,
+        4317184
+      ]
+    },
+    {
+      "address": 4352144,
+      "name": "originalDrawing00426890",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00426890.c",
+      "sourceSha256": "b9ab8c7b2a3a781c9d95b35f33dc4c7e11b80612f4f9833f0e101e65669b7385",
+      "dependencies": []
+    },
+    {
+      "address": 4357856,
+      "name": "originalDrawing00427ee0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00427ee0.c",
+      "sourceSha256": "6e3468c0f179c4678b79dbdab1d58091f2d3e36acd98bcb026981a1754a98825",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4390048,
+      "name": "originalDrawing0042fca0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0042fca0.c",
+      "sourceSha256": "82fd2149d3118b31b6183948adb44262d90f3b20dde2d3255cb32461785f0fe8",
+      "dependencies": [
+        4308000,
+        4387632,
+        4395520,
+        4754320
+      ]
+    },
+    {
+      "address": 4387632,
+      "name": "originalDrawing0042f330",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0042f330.c",
+      "sourceSha256": "59748efaab6ffd7d7669abc1d2a6c74cf747ac8ce0b702694272f9139375475c",
+      "dependencies": [
+        4387440,
+        4387968,
+        4707824
+      ]
+    },
+    {
+      "address": 4387440,
+      "name": "originalDrawing0042f270",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0042f270.c",
+      "sourceSha256": "dc11da39584fc78a221e51820ae8df5ef7b87c72f033223f0984185b893cd26f",
+      "dependencies": []
+    },
+    {
+      "address": 4387968,
+      "name": "originalDrawing0042f480",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0042f480.c",
+      "sourceSha256": "d5b93f5862bc2d7a3730a29632acbc376bf538c437da1b6533f9897764aa7ae2",
+      "dependencies": [
+        4357856
+      ]
+    },
+    {
+      "address": 4395520,
+      "name": "originalDrawing00431200",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00431200.c",
+      "sourceSha256": "d06a7fd0f812c0e4a3e305e823adaeafc436c3e54f36ce13d53757e301a63270",
+      "dependencies": [
+        4308000,
+        4357856,
+        4612816,
+        4710128
+      ]
+    },
+    {
+      "address": 4397744,
+      "name": "originalDrawing00431ab0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00431ab0.c",
+      "sourceSha256": "ef5d7824c327bfe3bf70ab507164f55cf1d54600928035489f977ce01680fd98",
+      "dependencies": [
+        4321584,
+        4342560,
+        4405920,
+        4407152,
+        4410464,
+        4451360,
+        4470304,
+        4475024,
+        4476992
+      ]
+    },
+    {
+      "address": 4321584,
+      "name": "originalDrawing0041f130",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0041f130.c",
+      "sourceSha256": "97bd5b5cb36b6ed40a732e05f510531cab7fd38da6cc5395c3e9ac719a8b327a",
+      "dependencies": []
+    },
+    {
+      "address": 4401904,
+      "name": "originalDrawing00432af0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00432af0.c",
+      "sourceSha256": "25304bcf270924803d2f96a2844569608e2e52aa9f5e9522a93acb43f7cf7717",
+      "dependencies": [
+        4402592,
+        4403488,
+        4405008,
+        4451360
+      ]
+    },
+    {
+      "address": 4402592,
+      "name": "originalDrawing00432da0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00432da0.c",
+      "sourceSha256": "9102ff3a23cec443f1b0db7f804491456af5ffe1366ae15f77857d1f5c476c7f",
+      "dependencies": []
+    },
+    {
+      "address": 4403488,
+      "name": "originalDrawing00433120",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00433120.c",
+      "sourceSha256": "65d3bd8ce28011957869e20b265d538fd77136a44cecddf74f7a5a6332cbb470",
+      "dependencies": []
+    },
+    {
+      "address": 4405008,
+      "name": "originalDrawing00433710",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00433710.c",
+      "sourceSha256": "309e5a2a1ae83db5f9e1afab091a68ee3baf7d4fed04f3a1e0e0756eab48fe30",
+      "dependencies": []
+    },
+    {
+      "address": 4405920,
+      "name": "originalDrawing00433aa0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00433aa0.c",
+      "sourceSha256": "494132bb7cbd2df43f91da0198c0681c71e2a2560f6c5f9b1edaa1ec3c062e76",
+      "dependencies": [
+        4308000,
+        4321584
+      ]
+    },
+    {
+      "address": 4407152,
+      "name": "originalDrawing00433f70",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00433f70.c",
+      "sourceSha256": "d5957125a6d9b710d1c07108c2d9ccc3859db7c2027e50ed34da222e3c8ce5d0",
+      "dependencies": [
+        4308000,
+        4317184,
+        4320656,
+        4352144,
+        4406368
+      ]
+    },
+    {
+      "address": 4406368,
+      "name": "originalDrawing00433c60",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00433c60.c",
+      "sourceSha256": "230c9dab56a28d6ca26ccee743e6b7b5ba13da9c1de228e1e81fc5d6e03f57ff",
+      "dependencies": [
+        4308000,
+        4320656,
+        4321584
+      ]
+    },
+    {
+      "address": 4410464,
+      "name": "originalDrawing00434c60",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00434c60.c",
+      "sourceSha256": "f72304dad5b20a4431b650156dde1f526b889de12d8765f47f54892d9aa2baff",
+      "dependencies": [
+        4405872,
+        4407152
+      ]
+    },
+    {
+      "address": 4418464,
+      "name": "originalDrawing00436ba0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00436ba0.c",
+      "sourceSha256": "c1674be65c1bd675b4daac2e79aa2183d555c84dd186b0c6e2ab89052c284a06",
+      "dependencies": [
+        4308000,
+        4357856,
+        4387632,
+        4395520,
+        4754320,
+        4754800
+      ]
+    },
+    {
+      "address": 4443824,
+      "name": "originalDrawing0043ceb0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043ceb0.c",
+      "sourceSha256": "d7b28ab77fba8ec5ea8359ffb582369567834843599797fb3dd715c229338a19",
+      "dependencies": []
+    },
+    {
+      "address": 4450096,
+      "name": "originalDrawing0043e730",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043e730.c",
+      "sourceSha256": "33ff7c171762a66fc17ac2f0b70d7f3493dd5230d524bf1f8d41aa1d130a71f1",
+      "dependencies": [
+        4450832,
+        4451072
+      ]
+    },
+    {
+      "address": 4450832,
+      "name": "originalDrawing0043ea10",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043ea10.c",
+      "sourceSha256": "1a7771e1f72491f06017bd95b9edadc81d93ccb048252d73fb771a1404e4b7b0",
+      "dependencies": [
+        4308032,
+        4318112
+      ]
+    },
+    {
+      "address": 4451072,
+      "name": "originalDrawing0043eb00",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043eb00.c",
+      "sourceSha256": "b909676fb2243d2503c8e4cab85e859e30308579e08fa9f8a8b63663a6caf56b",
+      "dependencies": [
+        4308032,
+        4318112,
+        4451360
+      ]
+    },
+    {
+      "address": 4451360,
+      "name": "originalDrawing0043ec20",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043ec20.c",
+      "sourceSha256": "72f1be46eaee3437851cdd43b2f1e7fff8b0e386fbf8e31a1fd91407a3bc3d02",
+      "dependencies": []
+    },
+    {
+      "address": 4452304,
+      "name": "originalDrawing0043efd0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0043efd0.c",
+      "sourceSha256": "f97437a4d6b66bd5425759d7768a23cd0d7099b75566d413bdedfb86e58b0624",
+      "dependencies": [
+        4291232,
+        4308000,
+        4450096,
+        4451360,
+        4451696,
+        4454896,
+        4455072,
+        4456144,
+        4475024,
+        4723536
+      ]
+    },
+    {
+      "address": 4451696,
+      "name": "originalDrawing0043ed70",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0043ed70.c",
+      "sourceSha256": "ed9de9464e25147d8ce318e4eb6e907aef71ed6825d9afa6bcf95146a6b482b9",
+      "dependencies": [
+        4450096
+      ]
+    },
+    {
+      "address": 4455072,
+      "name": "originalDrawSceneMark",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0043faa0.c",
+      "sourceSha256": "85465a3fb34caa5b37e4191f350ad9ab0a78bbc5a8075e831e610d24a894b1bf",
+      "dependencies": [
+        4736800,
+        4747296
+      ]
+    },
+    {
+      "address": 4456144,
+      "name": "originalDrawing0043fed0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043fed0.c",
+      "sourceSha256": "b2483bcee1a014fbfd29aa572d540db489cac9075dcf820372622f28aa05ac18",
+      "dependencies": []
+    },
+    {
+      "address": 4457296,
+      "name": "originalDrawing00440350",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00440350.c",
+      "sourceSha256": "10ffcf0c0ea1b83014cad4a984e04f7445c1b09f4a3b625ddfff66492633d491",
+      "dependencies": [
+        4456176
+      ]
+    },
+    {
+      "address": 4456176,
+      "name": "originalDrawing0043fef0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0043fef0.c",
+      "sourceSha256": "2d1744ca29f9eef9b78083203bfd9f6239f54b87c9e1369ea83b0a5e9cc25c40",
+      "dependencies": [
+        4308000,
+        4431488,
+        4451360
+      ]
+    },
+    {
+      "address": 4431488,
+      "name": "originalDrawing00439e80",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00439e80.c",
+      "sourceSha256": "fe774f2307855e6e8de533146eb12621e66b130cd56306f484eb46954ce5d989",
+      "dependencies": []
+    },
+    {
+      "address": 4457472,
+      "name": "originalDrawing00440400",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00440400.c",
+      "sourceSha256": "ba96f579ae2efa3c3c25ea69291a7184b65b84d5e2e2d1f74004d979c5595fe2",
+      "dependencies": [
+        4405008,
+        4450096,
+        4459376,
+        4735600
+      ]
+    },
+    {
+      "address": 4459376,
+      "name": "originalDrawing00440b70",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00440b70.c",
+      "sourceSha256": "a82994d0fb11876295c8ffa485c69a9e04dfa4b95ac4d6e8a96f0581a846f84a",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4465264,
+      "name": "originalDrawing00442270",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00442270.c",
+      "sourceSha256": "665f20b527ca57b8b6d9a8ee89ce04c1aa0e0ab9426f26fddd933d855744a280",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4466016,
+      "name": "originalDrawShoreline",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00442560.c",
+      "sourceSha256": "5c82a4a510b83905394f4d73390f4465d93765fd0d5af492e433b59d8cf0b7ab",
+      "dependencies": [
+        4308000,
+        4318112,
+        4451360,
+        4457296
+      ]
+    },
+    {
+      "address": 4468688,
+      "name": "originalDrawing00442fd0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00442fd0.c",
+      "sourceSha256": "fb26b32d1cd8b5b15d21c7e03b6cb9b652d3103eb2e093d26264cca8ab20242c",
+      "dependencies": [
+        4317184,
+        4342560
+      ]
+    },
+    {
+      "address": 4470304,
+      "name": "originalDrawing00443620",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00443620.c",
+      "sourceSha256": "c5fbe03c158eea3bcafeb12bb3b7ef6a6ef708f7065b8282285ab8f345646db9",
+      "dependencies": [
+        4308000,
+        4473456
+      ]
+    },
+    {
+      "address": 4473456,
+      "name": "originalDrawing00444270",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00444270.c",
+      "sourceSha256": "206b0b06f9185caeea6267dd6f6fcda801dda29a3583310eeda6e1791cae4853",
+      "dependencies": [
+        4308000,
+        4473584
+      ]
+    },
+    {
+      "address": 4473584,
+      "name": "originalDrawing004442f0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004442f0.c",
+      "sourceSha256": "748b8c04d07c19de5d63ee123908301c5f7317721b170ce71d49c8adf6944c84",
+      "dependencies": []
+    },
+    {
+      "address": 4473680,
+      "name": "originalDrawing00444350",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00444350.c",
+      "sourceSha256": "d21c84086a65f387deffed04c3951d0780adf0988f4c008c1d0f1625460f19ea",
+      "dependencies": []
+    },
+    {
+      "address": 4475024,
+      "name": "originalDrawing00444890",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00444890.c",
+      "sourceSha256": "1c9cfcc19c9afac94b3d156ee72e30dec9d51ceb769b554fa735f661342da292",
+      "dependencies": [
+        4308000,
+        4387360,
+        4450096,
+        4451360
+      ]
+    },
+    {
+      "address": 4387360,
+      "name": "originalDrawing0042f220",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0042f220.c",
+      "sourceSha256": "724828ec5d177552c46de02d8d40f2ea011b43ebd384145ef56a5642f96a8c39",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4476992,
+      "name": "originalDrawing00445040",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00445040.c",
+      "sourceSha256": "9ab87d7f4ee612ac1a68e3b6ea5606ddbfcc0e5bf7da74daabf26b2b915a4723",
+      "dependencies": [
+        4317184,
+        4342560
+      ]
+    },
+    {
+      "address": 4477808,
+      "name": "originalDrawing00445370",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00445370.c",
+      "sourceSha256": "97e313f67bf38e38bd2f59044bc5dcfdb433ddd2ffba7ee7f806c51c79ce6a99",
+      "dependencies": [
+        4317184,
+        4342560,
+        4450096
+      ]
+    },
+    {
+      "address": 4603728,
+      "name": "originalDrawing00463f50",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00463f50.c",
+      "sourceSha256": "f3a5eb02422280af33c380e0278934ac1bd10a2a98b2b1822ee791c32f4e79db",
+      "dependencies": []
+    },
+    {
+      "address": 4604128,
+      "name": "originalDrawing004640e0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004640e0.c",
+      "sourceSha256": "c504d48c97a8fac78fe47e8a33199f1b19502b769823eb851cfe516858f98d09",
+      "dependencies": []
+    },
+    {
+      "address": 4610512,
+      "name": "originalDrawing004659d0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004659d0.c",
+      "sourceSha256": "749f5ad97784707c88a92f4f297cb286353df4e242e4b95227559732f3ec003b",
+      "dependencies": [
+        4451360,
+        4611296
+      ]
+    },
+    {
+      "address": 4611296,
+      "name": "originalDrawing00465ce0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00465ce0.c",
+      "sourceSha256": "f7c81b97fbf12663cc82788f6e6c875bb99a4ef623cf6cd32f69c2ffb91d6d9a",
+      "dependencies": []
+    },
+    {
+      "address": 4612912,
+      "name": "originalDrawing00466330",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00466330.c",
+      "sourceSha256": "72bf984427458bf0894a42dd7b6994d052e1cb3e6ba21c4d104147bf5f67c146",
+      "dependencies": [
+        4308000,
+        4317184,
+        4342560,
+        4450096,
+        4611728,
+        4612080
+      ]
+    },
+    {
+      "address": 4611728,
+      "name": "originalDrawing00465e90",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00465e90.c",
+      "sourceSha256": "9b6ae8c23130eddf03db8a33b2ce3b5ce28d64fb96bc767adf638ed65279fb33",
+      "dependencies": [
+        4357856
+      ]
+    },
+    {
+      "address": 4612080,
+      "name": "originalDrawing00465ff0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00465ff0.c",
+      "sourceSha256": "c03a92b67995852fe4e56cf5b0b254da8ad8dce0d32ff3a2fdc63507ef78d6ee",
+      "dependencies": [
+        4317184,
+        4612656
+      ]
+    },
+    {
+      "address": 4621376,
+      "name": "originalDrawing00468440",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00468440.c",
+      "sourceSha256": "23095bb44cd45793157a9fce3e193a4f5eca1558fe8a24bbeb3b135d2212be5a",
+      "dependencies": [
+        4405872,
+        4451360,
+        4626000,
+        4626032,
+        4626064,
+        4626688,
+        4630368,
+        4657504
+      ]
+    },
+    {
+      "address": 4626000,
+      "name": "originalDrawing00469650",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00469650.c",
+      "sourceSha256": "79ba2cf415cf4a8764f4384650a065f3643b3562713c124f699574bbc059e65a",
+      "dependencies": []
+    },
+    {
+      "address": 4626032,
+      "name": "originalDrawing00469670",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00469670.c",
+      "sourceSha256": "453cb640a6c05fbb033d7a4b14ac62964b1b7f2df7392b7a876d0eea8a413ce3",
+      "dependencies": []
+    },
+    {
+      "address": 4626064,
+      "name": "originalDrawing00469690",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00469690.c",
+      "sourceSha256": "7b35b1262d97d409e5607d4a892732baecd269df7b0188a539267aa4e198c6bf",
+      "dependencies": [
+        4308000,
+        4342560
+      ]
+    },
+    {
+      "address": 4626688,
+      "name": "originalDrawing00469900",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00469900.c",
+      "sourceSha256": "432909c63860f66bb6b12f2c6d0e9ca683b9976c59d41483216d34b812b5bf01",
+      "dependencies": [
+        4405872,
+        4626000,
+        4630272,
+        4735600
+      ]
+    },
+    {
+      "address": 4630272,
+      "name": "originalDrawing0046a700",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0046a700.c",
+      "sourceSha256": "eb3317c4fcb3fe5c5f2ed5b6f288ebcca172198cf77af71fd38e4fbd8f84c5a2",
+      "dependencies": []
+    },
+    {
+      "address": 4630320,
+      "name": "originalDrawing0046a730",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0046a730.c",
+      "sourceSha256": "f297730f6bdae1a802f1d0442fdb39d046150a60dc72c2d0ac19c1f6a3184dd2",
+      "dependencies": []
+    },
+    {
+      "address": 4630368,
+      "name": "originalDrawing0046a760",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0046a760.c",
+      "sourceSha256": "eaf334a2657df660d43f43b328ff3b20e3094b7c4b31569244f03669e5c0f223",
+      "dependencies": [
+        4405872,
+        4626000,
+        4626032,
+        4630272,
+        4630320
+      ]
+    },
+    {
+      "address": 4630672,
+      "name": "originalDrawing0046a890",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0046a890.c",
+      "sourceSha256": "062ca19df5013c89181c7abe92dfd793d9ef1503fac02fc08bd5b81af0361909",
+      "dependencies": [
+        4405872,
+        4451360,
+        4626000,
+        4630272,
+        4630320,
+        4630368,
+        4657344,
+        4657360,
+        4657376,
+        4657408,
+        4657504
+      ]
+    },
+    {
+      "address": 4657376,
+      "name": "originalDrawing004710e0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004710e0.c",
+      "sourceSha256": "172d301b846bd585f4e1929d7853862535a0821a53c11cdc0a691f8ce0474bb4",
+      "dependencies": []
+    },
+    {
+      "address": 4657408,
+      "name": "originalDrawing00471100",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00471100.c",
+      "sourceSha256": "ac48af7e5865a540ea5a49f422ef69e2727cfc1fb2af79994e01324acb227dee",
+      "dependencies": []
+    },
+    {
+      "address": 4657504,
+      "name": "originalDrawing00471160",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00471160.c",
+      "sourceSha256": "abb23825d12efc9234bf064adf78d90a1562587932e5c6b8ccf4dcfdbe57675a",
+      "dependencies": []
+    },
+    {
+      "address": 4705952,
+      "name": "originalDrawing0047cea0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0047cea0.c",
+      "sourceSha256": "9e141f92b4f4b1e282c0f8bfc5b5daa7c906ca0c789f305146b84036ac4fadea",
+      "dependencies": [
+        4387632,
+        4390048,
+        4391520,
+        4418464
+      ]
+    },
+    {
+      "address": 4710128,
+      "name": "originalDrawing0047def0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0047def0.c",
+      "sourceSha256": "85b70de4a21bec5ffcdb265453e076a6025e9d864584e4654f0d872cca3c389b",
+      "dependencies": []
+    },
+    {
+      "address": 4710464,
+      "name": "originalDrawing0047e040",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0047e040.c",
+      "sourceSha256": "1578e91108cc1d3a06c305281be142f54c29173649c119bb975b0e061b13125d",
+      "dependencies": [
+        4219424,
+        4450096,
+        4461936,
+        4463008,
+        4463552,
+        4463840,
+        4464096,
+        4464560
+      ]
+    },
+    {
+      "address": 4219424,
+      "name": "originalDrawing00406220",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00406220.c",
+      "sourceSha256": "4c9161b4fbaf02cf8af5653a09b4b9eb31be1c87bc60692d89191ba35da51317",
+      "dependencies": []
+    },
+    {
+      "address": 4461936,
+      "name": "originalDrawing00441570",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00441570.c",
+      "sourceSha256": "8040bba626a0790aec3399e3acfd3b76f219fb02c30b5dc48831589efe78e4aa",
+      "dependencies": [
+        4735600
+      ]
+    },
+    {
+      "address": 4463008,
+      "name": "originalDrawing004419a0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004419a0.c",
+      "sourceSha256": "323cc25b54dee449bff8ff51893a1e3d5437c4a27d09a4c4910da3cb38c65feb",
+      "dependencies": []
+    },
+    {
+      "address": 4463552,
+      "name": "originalDrawing00441bc0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00441bc0.c",
+      "sourceSha256": "27d48aed7ff9f5eea55f4ba957e11531340b5196324ce333fe3dd1b4f5e9d738",
+      "dependencies": []
+    },
+    {
+      "address": 4463840,
+      "name": "originalDrawing00441ce0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00441ce0.c",
+      "sourceSha256": "c25f3e3493a598d6f4ceec7ed2321c786cbfe41e6b7936d39d1451044ce15df7",
+      "dependencies": []
+    },
+    {
+      "address": 4464096,
+      "name": "originalDrawing00441de0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00441de0.c",
+      "sourceSha256": "494f640fb0d0e8ca8ba7e00a9095a02c57965237e0f7afc422c57a41055d2d55",
+      "dependencies": [
+        4405872
+      ]
+    },
+    {
+      "address": 4464560,
+      "name": "originalDrawing00441fb0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00441fb0.c",
+      "sourceSha256": "43389e0169f022341abf1fb40deee647d7456218d3c0a774e50fe4c8c36febdd",
+      "dependencies": []
+    },
+    {
+      "address": 4713792,
+      "name": "originalDrawing0047ed40",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0047ed40.c",
+      "sourceSha256": "11fa726a8b2b72a39b4346144c1bb413f67081c5286490332b6ea101ea4cb5bb",
+      "dependencies": [
+        4450096,
+        4463008,
+        4464560,
+        4611728,
+        4626688,
+        4721984,
+        4723536,
+        4723696,
+        4724640,
+        4726416,
+        4728848,
+        4729488,
+        4729568,
+        4731888,
+        4732080,
+        4732624,
+        4733456,
+        4733632,
+        4734432,
+        4734880
+      ]
+    },
+    {
+      "address": 4721984,
+      "name": "originalDrawing00480d40",
+      "hasDc": true,
+      "dcIndex": 1,
+      "source": "analysis/drawing-corrections/00480d40.c",
+      "sourceSha256": "354df417a41f66e9f8e0593856da237f80ce8c225de24ef6b0accc54d1b0f1d0",
+      "dependencies": [
+        4308000,
+        4317184
+      ]
+    },
+    {
+      "address": 4723024,
+      "name": "originalDrawing00481150",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00481150.c",
+      "sourceSha256": "d74eaf9576e6fd811b99841779cdaea5265622d6aad73dd7c62afbb31cd29bd9",
+      "dependencies": [
+        4713792
+      ]
+    },
+    {
+      "address": 4723536,
+      "name": "originalDrawing00481350",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00481350.c",
+      "sourceSha256": "cfddcded6fef316d3958446fc87e270557fa7d6aa26aaf13c9f6310297d58a0c",
+      "dependencies": []
+    },
+    {
+      "address": 4723696,
+      "name": "originalDrawing004813f0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004813f0.c",
+      "sourceSha256": "c84159435a60c0701e221e44461be19a4b972c699895a3541d0abdc1d71309bd",
+      "dependencies": [
+        4219424,
+        4342560,
+        4735600
+      ]
+    },
+    {
+      "address": 4724640,
+      "name": "originalDrawing004817a0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004817a0.c",
+      "sourceSha256": "c37d3836258575040ca13999cd80d16342d9ae6c3d924fbe435bd7f6c39b508b",
+      "dependencies": [
+        4219424,
+        4405872,
+        4626000,
+        4657504
+      ]
+    },
+    {
+      "address": 4726416,
+      "name": "originalDrawing00481e90",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00481e90.c",
+      "sourceSha256": "c475e7e488c8d46383e8fa9dff5af4e1ed52f91f1f5538c89da880f3fadac968",
+      "dependencies": [
+        4219424,
+        4308000,
+        4318112,
+        4451360
+      ]
+    },
+    {
+      "address": 4728848,
+      "name": "originalDrawing00482810",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00482810.c",
+      "sourceSha256": "ef6c310185d4c2dc65febc56f71310cf3c69d79ddf5d96514e16ab24b8a4457c",
+      "dependencies": [
+        4219424,
+        4405872,
+        4626000,
+        4626032,
+        4630272,
+        4630320,
+        4657504
+      ]
+    },
+    {
+      "address": 4729488,
+      "name": "originalDrawing00482a90",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00482a90.c",
+      "sourceSha256": "b698f864a17f0af7aadd71c54d3ff12da7e7234f6be4d123252338428b9ac64f",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4729568,
+      "name": "originalDrawing00482ae0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00482ae0.c",
+      "sourceSha256": "86f610efb87ecc4798536fa6e95e25aa4ce1a179d2b2918941d7fdc00a2e09fa",
+      "dependencies": [
+        4219424,
+        4308000,
+        4342560,
+        4450096,
+        4611728,
+        4657504,
+        4735600
+      ]
+    },
+    {
+      "address": 4731888,
+      "name": "originalDrawing004833f0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004833f0.c",
+      "sourceSha256": "d593c93c9982fd1b57611c61603f1c0fd57a3bf3ca6006fc47cb52f225f43f43",
+      "dependencies": [
+        4219424
+      ]
+    },
+    {
+      "address": 4732080,
+      "name": "originalDrawing004834b0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004834b0.c",
+      "sourceSha256": "1f96836b32438a78552e0dc9bdca0a22488ecf86389568e3b62cdd21e3a61eff",
+      "dependencies": []
+    },
+    {
+      "address": 4732624,
+      "name": "originalDrawing004836d0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004836d0.c",
+      "sourceSha256": "8ef681c457b07235da7fc6883c7915d21642e0a1b92761a830a75cbea4704bbf",
+      "dependencies": [
+        4405872,
+        4626032
+      ]
+    },
+    {
+      "address": 4733456,
+      "name": "originalDrawing00483a10",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00483a10.c",
+      "sourceSha256": "898f7a5a48ab16549a59f9a162efc9cede3d8c3ec0872f72ebef3597f4b84e3a",
+      "dependencies": [
+        4219424
+      ]
+    },
+    {
+      "address": 4733632,
+      "name": "originalDrawing00483ac0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00483ac0.c",
+      "sourceSha256": "54c25fe5a052146d7f095acbe807ded016666c19aeace4294bb2bfb4c0d3de94",
+      "dependencies": [
+        4405872
+      ]
+    },
+    {
+      "address": 4734432,
+      "name": "originalDrawing00483de0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00483de0.c",
+      "sourceSha256": "321875ae930acdfe695b40ba167bd26afc5af4e2ff91210a04f8ff45addeabe9",
+      "dependencies": [
+        4219424
+      ]
+    },
+    {
+      "address": 4734880,
+      "name": "originalDrawing00483fa0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00483fa0.c",
+      "sourceSha256": "500471169c7cf5edb82157ffa31585a8bb2dac194bed8b6953a42c481cba59b7",
+      "dependencies": [
+        4219424
+      ]
+    },
+    {
+      "address": 4735168,
+      "name": "originalDrawing004840c0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004840c0.c",
+      "sourceSha256": "b1d6c1ce652179fd0b1f28608f89e80daf1db1ee38a2aa4b1bf405fa80351766",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4735600,
+      "name": "originalDrawing00484270",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00484270.c",
+      "sourceSha256": "ba4f16809b46193bc97d60cc07756b8d91e1955b589fd513cd6779715f56df51",
+      "dependencies": []
+    },
+    {
+      "address": 4735776,
+      "name": "originalDrawing00484320",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00484320.c",
+      "sourceSha256": "fd072b8967350e543eb57b993a508f354d9298d3863e0d8dd688992117e10b40",
+      "dependencies": [
+        4291232,
+        4450096,
+        4732080,
+        4736800,
+        4737504,
+        4737920
+      ]
+    },
+    {
+      "address": 4736800,
+      "name": "originalDrawing00484720",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00484720.c",
+      "sourceSha256": "2ed5d682e508d1a4f1e16f217c29e51dfa316f36a9dff2fe17cbcebeb7342ca1",
+      "dependencies": [
+        4219424,
+        4405872,
+        4626000,
+        4626032,
+        4630272,
+        4630320
+      ]
+    },
+    {
+      "address": 4737504,
+      "name": "originalDrawing004849e0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004849e0.c",
+      "sourceSha256": "2bdd4c1a60e8877dab75306eb9d709b54dd233033bd54473a136e44d862336ed",
+      "dependencies": [
+        4219424,
+        4630272
+      ]
+    },
+    {
+      "address": 4737920,
+      "name": "originalDrawing00484b80",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00484b80.c",
+      "sourceSha256": "a3ae2ec179eb456240fcd45556ac8a53a703cc992d3376d6a4006d5b50270a1a",
+      "dependencies": [
+        4219424,
+        4630320
+      ]
+    },
+    {
+      "address": 4738352,
+      "name": "originalDrawing00484d30",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00484d30.c",
+      "sourceSha256": "5c05fd8a6c63757c723d4cb0debbcd5a6ca35c4c6817cf2d43d646a174e2f97b",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4738624,
+      "name": "originalDrawing00484e40",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00484e40.c",
+      "sourceSha256": "68bd32dfd226f940a0cfd938a1858cdd0845b82ab9810958ff35ac5d4244763b",
+      "dependencies": [
+        4450096,
+        4738752
+      ]
+    },
+    {
+      "address": 4738752,
+      "name": "originalDrawing00484ec0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00484ec0.c",
+      "sourceSha256": "8bdb6ebc58b8ebd78af323d8993bf4dbe6ae45b4f20465b9affee5ac7e3936d2",
+      "dependencies": [
+        4219424,
+        4405872,
+        4630272,
+        4630320
+      ]
+    },
+    {
+      "address": 4739504,
+      "name": "originalDrawing004851b0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004851b0.c",
+      "sourceSha256": "3c97a1dd95e3cc6c040ef65e366bcc75a62cd72a6fe63a0d70c7622e640e9a62",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4739888,
+      "name": "originalDrawing00485330",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485330.c",
+      "sourceSha256": "74b92b71097d705e03330a05036fcfbfb5e4ffec1743de28f449eded50c682a3",
+      "dependencies": [
+        4450096,
+        4736800,
+        4738752,
+        4744640
+      ]
+    },
+    {
+      "address": 4740096,
+      "name": "originalDrawing00485400",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485400.c",
+      "sourceSha256": "cc18003b9e0d5707168c247add758a27becf1ad6f6f7c48798ad4b42ceedb73e",
+      "dependencies": [
+        4450096,
+        4732080,
+        4733632,
+        4745904
+      ]
+    },
+    {
+      "address": 4740304,
+      "name": "originalDrawing004854d0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004854d0.c",
+      "sourceSha256": "ed8a8f7add2773b08584303c36451ab16da6e1e5583bc735cff6335edf3ddd78",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4741152,
+      "name": "originalDrawing00485820",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485820.c",
+      "sourceSha256": "9f766490f80861723be7f92ec9ae5cf62295f5802619dd49771ea8ebdfd8d4d2",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4741712,
+      "name": "originalDrawing00485a50",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485a50.c",
+      "sourceSha256": "52b328f791340aeba1aa82644f9a868debfc931a05203734b2ec26ae3ffbd5be",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4742400,
+      "name": "originalDrawing00485d00",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485d00.c",
+      "sourceSha256": "3019f30dbd1c0187cc7261fbba57661cc407f15dfd534c7393dd02033d54611e",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4742608,
+      "name": "originalDrawing00485dd0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485dd0.c",
+      "sourceSha256": "80cd10f023aaa22c3cebad81d081f85c75c47a219c3134023bb4bc4ae2c981f7",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4742928,
+      "name": "originalDrawing00485f10",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00485f10.c",
+      "sourceSha256": "60e19eb19318db6e032a1f3226ef86c5eba5236513e7ef83c128861e7cf0e06a",
+      "dependencies": [
+        4450096,
+        4728848,
+        4733632,
+        4736800,
+        4747296,
+        4749296,
+        4751968
+      ]
+    },
+    {
+      "address": 4743264,
+      "name": "originalDrawing00486060",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00486060.c",
+      "sourceSha256": "ca2f718b4e42d70ab4ff636de6cf3169e4cf20b6fdc0798998396fa14a095452",
+      "dependencies": [
+        4450096,
+        4464560,
+        4728848,
+        4744640
+      ]
+    },
+    {
+      "address": 4743760,
+      "name": "originalDrawing00486250",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00486250.c",
+      "sourceSha256": "62f189a8efb3cb406c1d4b5f3656c50a6d143055644f8c744ca0f9393af3d6e3",
+      "dependencies": [
+        4744640
+      ]
+    },
+    {
+      "address": 4743872,
+      "name": "originalDrawing004862c0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004862c0.c",
+      "sourceSha256": "829b4478016381afc59f54aae9920174fa3a199fafe8d1e7d24f17ffd67d258f",
+      "dependencies": [
+        4450096,
+        4724640,
+        4726416,
+        4728848,
+        4736800
+      ]
+    },
+    {
+      "address": 4744192,
+      "name": "originalDrawing00486400",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00486400.c",
+      "sourceSha256": "221142571d53e35c71ba2f1ab2d886b2b4f9f095645b745570851f886d8b1dc2",
+      "dependencies": [
+        4450096,
+        4724640,
+        4726416,
+        4737504,
+        4737920,
+        4751968
+      ]
+    },
+    {
+      "address": 4744640,
+      "name": "originalDrawing004865c0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004865c0.c",
+      "sourceSha256": "1f000d0ef2a39117e0b2b4d26770dcaea9c3b5cd23b71a6b037305c9e22344aa",
+      "dependencies": [
+        4219424,
+        4405872,
+        4450096,
+        4630272,
+        4657504
+      ]
+    },
+    {
+      "address": 4745904,
+      "name": "originalDrawing00486ab0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00486ab0.c",
+      "sourceSha256": "9535f03b73085b51d6b6192f091eaa18aacb2c9f49eda943a1b899eb89124865",
+      "dependencies": [
+        4219424,
+        4405872,
+        4450096,
+        4630272,
+        4657504
+      ]
+    },
+    {
+      "address": 4746704,
+      "name": "originalDrawing00486dd0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00486dd0.c",
+      "sourceSha256": "8622618ab3434d0473d1ecb115f9d298f3a44cd218f6226dca41a79e4e0cbf3f",
+      "dependencies": [
+        4450096,
+        4736800,
+        4737504,
+        4737920,
+        4747296
+      ]
+    },
+    {
+      "address": 4747296,
+      "name": "originalDrawing00487020",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00487020.c",
+      "sourceSha256": "e39c4f8bfba33c2b602f80f5750bc844b62a2fa31b7c3c019b1651c0134e16eb",
+      "dependencies": [
+        4219424,
+        4405872,
+        4626032
+      ]
+    },
+    {
+      "address": 4747920,
+      "name": "originalDrawing00487290",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00487290.c",
+      "sourceSha256": "28186d8e710c3a990b873e22ae7319b9d8ca162ff7dc4e741bd896e368e20543",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4748384,
+      "name": "originalDrawing00487460",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00487460.c",
+      "sourceSha256": "77f8bcef2f4501bf1b1931ee31ef5b5ca2fb30e23b00d98b81c2f63d1f5aa0e6",
+      "dependencies": [
+        4450096,
+        4724640,
+        4736800,
+        4744640,
+        4748768,
+        4749296
+      ]
+    },
+    {
+      "address": 4748768,
+      "name": "originalDrawing004875e0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004875e0.c",
+      "sourceSha256": "9a8fb52b772f61ae9606ee2d625d92b1a27d89ecaf38afdd83146a22d643ab50",
+      "dependencies": [
+        4219424,
+        4405872,
+        4626000,
+        4626032
+      ]
+    },
+    {
+      "address": 4749296,
+      "name": "originalDrawing004877f0",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/004877f0.c",
+      "sourceSha256": "3441db774369b6705e66e07d4286ac3ceafd39141ea2cc1de2c104a9ec7e3c81",
+      "dependencies": [
+        4219424,
+        4405872,
+        4626000,
+        4626032
+      ]
+    },
+    {
+      "address": 4750160,
+      "name": "originalDrawing00487b50",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00487b50.c",
+      "sourceSha256": "43a9fe9d47db2097976f9acabd6eacc3d4b57ce3c39f00bd69c29343634ffe10",
+      "dependencies": [
+        4291232,
+        4450096,
+        4726416,
+        4732080,
+        4736800,
+        4737504,
+        4751664,
+        4751968
+      ]
+    },
+    {
+      "address": 4751232,
+      "name": "originalDrawing00487f80",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00487f80.c",
+      "sourceSha256": "855c53f6a72ff246846e1d7aeb817ef8f9f06aea5be5d87996805427b72c9753",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4751664,
+      "name": "originalDrawing00488130",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00488130.c",
+      "sourceSha256": "c804370333313f8b37b3757e558bacbee4366bf68e128ab83abf1838fe0dd847",
+      "dependencies": []
+    },
+    {
+      "address": 4751968,
+      "name": "originalDrawing00488260",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00488260.c",
+      "sourceSha256": "5761ef2f5f8e934677c165fa1fe227d37246f4cebb065572979ed6f8043db5e8",
+      "dependencies": [
+        4219424,
+        4405872
+      ]
+    },
+    {
+      "address": 4752720,
+      "name": "originalDrawing00488550",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488550.c",
+      "sourceSha256": "0db21f9e9bd1696af8795fa55444a4e3331a93bbe3ff1a55fe40d489057d501d",
+      "dependencies": [
+        4450096,
+        4728848
+      ]
+    },
+    {
+      "address": 4752784,
+      "name": "originalDrawing00488590",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488590.c",
+      "sourceSha256": "a6d0ad8e1b012ce68b4af45e3f739f3f94432b31caa9523e7d42bb1dac98b2c6",
+      "dependencies": [
+        4450096,
+        4734880,
+        4744640
+      ]
+    },
+    {
+      "address": 4753056,
+      "name": "originalDrawing004886a0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004886a0.c",
+      "sourceSha256": "be7f025eb6d39920f71ccb057ae08cac847a7adc986e6f842d5e5d8d94177603",
+      "dependencies": [
+        4744640
+      ]
+    },
+    {
+      "address": 4753168,
+      "name": "originalDrawing00488710",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488710.c",
+      "sourceSha256": "676ace489cccccea907b5d127e5197811795b16fc24facd417208db29a0577c8",
+      "dependencies": [
+        4450096,
+        4728848
+      ]
+    },
+    {
+      "address": 4753296,
+      "name": "originalDrawing00488790",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488790.c",
+      "sourceSha256": "349c1e569bdc1fec09c9ab7a2a09afdee0e23e30e7bbaa23715c807389230b54",
+      "dependencies": [
+        4450096,
+        4736800,
+        4737920,
+        4738752
+      ]
+    },
+    {
+      "address": 4753520,
+      "name": "originalDrawing00488870",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488870.c",
+      "sourceSha256": "5d1ff0c9b9d84ccd5ac173ec785dbd86044738dc988f2de2dee1472a9eceaeb7",
+      "dependencies": [
+        4729568
+      ]
+    },
+    {
+      "address": 4753888,
+      "name": "originalDrawing004889e0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/004889e0.c",
+      "sourceSha256": "a084f0e72a521d1174648d347d63ea42e00cbef5cd14bb0a58d1c0a8c87d79af",
+      "dependencies": [
+        4291232,
+        4450096,
+        4724640,
+        4744640
+      ]
+    },
+    {
+      "address": 4754208,
+      "name": "originalDrawing00488b20",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488b20.c",
+      "sourceSha256": "aa42a37eaef388c58e85816ddf90fa0fdf1eda07772485907ac2acf3e31d3731",
+      "dependencies": [
+        4450096,
+        4724640,
+        4726416
+      ]
+    },
+    {
+      "address": 4754320,
+      "name": "originalDrawing00488b90",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488b90.c",
+      "sourceSha256": "d5b59a8674955bcc54e3a0a84a5ea6b50445e03da34c249f7a94f8e006ad0f63",
+      "dependencies": [
+        4308000,
+        4387632,
+        4707824
+      ]
+    },
+    {
+      "address": 4754800,
+      "name": "originalDrawing00488d70",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00488d70.c",
+      "sourceSha256": "b83d1ce7b7f7a33ed8ceefd716f0c2dc26750fcccd18e515cff1e8f70e85e795",
+      "dependencies": [
+        4308000,
+        4357856,
+        4395520,
+        4707824,
+        4710128,
+        4710304,
+        4754320
+      ]
+    },
+    {
+      "address": 4710304,
+      "name": "originalDrawing0047dfa0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0047dfa0.c",
+      "sourceSha256": "77b4f9ee948ba1f86ecbffeaa48339ca35f08f7354d8ca851b3bf0b6eed67e8a",
+      "dependencies": []
+    },
+    {
+      "address": 4757856,
+      "name": "originalDrawing00489960",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/00489960.c",
+      "sourceSha256": "0a7d2e52ec1d5f5aaa9f7ce365b4e7da8c4773a39ba0c8156945c4ade2a4fba7",
+      "dependencies": []
+    },
+    {
+      "address": 4757888,
+      "name": "originalDrawing00489980",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/00489980.c",
+      "sourceSha256": "22ea77ff70aadd2e84a1b4563ccc643368f0497faff79821cb1998d1650a9a82",
+      "dependencies": [
+        4405872,
+        4451360,
+        4626032,
+        4630272,
+        4630320
+      ]
+    },
+    {
+      "address": 4765664,
+      "name": "originalDrawing0048b7e0",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0048b7e0.c",
+      "sourceSha256": "b5648f60edabbf4a9ead6c97d6274837e5f74fcde86aba0acefc399aa6bb19af",
+      "dependencies": []
+    },
+    {
+      "address": 4777776,
+      "name": "originalDrawing0048e730",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0048e730.c",
+      "sourceSha256": "68a179ab2fd97b82687f6757b0a2e8ccaf023da4186d0a32a5f2fd85ee8cbc61",
+      "dependencies": [
+        4781088,
+        4781648
+      ]
+    },
+    {
+      "address": 4781088,
+      "name": "originalDrawing0048f420",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0048f420.c",
+      "sourceSha256": "6f426da54b0f4270af11d19a9dc969cf84c87f888f527c580c46ebb362d9244d",
+      "dependencies": [
+        4308000
+      ]
+    },
+    {
+      "address": 4781648,
+      "name": "originalDrawing0048f650",
+      "hasDc": false,
+      "dcIndex": null,
+      "source": "decompiled/functions/0048f650.c",
+      "sourceSha256": "4130815ea86a98ddbf4eed1911fee5ac0572fa879c8a6ade5b969b74d73b87f4",
+      "dependencies": [
+        4781856
+      ]
+    },
+    {
+      "address": 4781856,
+      "name": "originalDrawing0048f720",
+      "hasDc": true,
+      "dcIndex": 0,
+      "source": "analysis/drawing-corrections/0048f720.c",
+      "sourceSha256": "0391157aac1e6a37da330391ad8dd5ee30338e5b8599902829fa20d80318d26f",
+      "dependencies": []
+    }
+  ],
+  "failures": []
+}

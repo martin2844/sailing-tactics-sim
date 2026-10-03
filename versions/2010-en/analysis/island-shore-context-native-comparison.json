@@ -1,0 +1,262 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "exact": true,
+  "tests": "tests/island-shore-context.test.js",
+  "testsPassed": 4,
+  "nativeCapturedCalls": 20,
+  "drawingRequests": 15296,
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/original-island-shore-context.json",
+      "sha256": "7be3b5f096ebdcf199baa73c79650799cf9af599b6d30555cacb4710175aea22",
+      "cases": 10,
+      "drawingRequests": 7648,
+      "routines": [
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        }
+      ],
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "exactSourceReplay": true
+    },
+    {
+      "fixture": "tests/fixtures/original-island-shore-context-repeat.json",
+      "sha256": "0acb56eef8189db5308daa5a4ae632d7e5f851b5b1b6f94172f04a63bd4f5820",
+      "cases": 10,
+      "drawingRequests": 7648,
+      "routines": [
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        }
+      ],
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "exactSourceReplay": true
+    }
+  ],
+  "validated": [
+    "Whole mutable bytes/hash and all bytes outside the mutable region",
+    "Retained RNG, names, sounds and ordered GDI/GetPixel",
+    "Explicit observed caller initial X/Y only",
+    "Real POINT.y alias writes advance persistent X through calls",
+    "Immutable native observations hash checked using publishable raw copies"
+  ],
+  "sourceHashes": {
+    "src/render/drawing-functions.js": "e9ff2d3a23ee56d9b72ed2db53d8698e47660bc625fdbe2b1ed00e1344da4a4e",
+    "src/render/dependencies.js": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0",
+    "src/render/index.js": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b",
+    "src/render/shore-stack.js": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1",
+    "tests/island-shore-context.test.js": "3a0d9af1dfc99294a62e374e4061291baa807c9a4e2665a3ad0682892b8caeaa",
+    "assets/data/initial-shoreline-stack.json": "4834efd3d4f08f8535828888fd8e3515cd90662acacb6571a6ad0e4c087865fb"
+  },
+  "scope": "Two independent bounded-native caller captures,10 calls each; their observed initial TreeY 1934514798 is confined to that owned context. Browser initial reference uses separately observed intact normal UI X604045502/Y0. No universal retained stack value or per-frame output substitution is claimed.",
+  "publication": "analysis/island-shore-context-observation-publication.json",
+  "nativeExpectationsModified": false
+}

@@ -1,0 +1,189 @@
+{
+  "kind": "Read-only first mutable-byte audit; no original fixture or renderer changes",
+  "fixture": "tests/fixtures/original-initialized-screens.json",
+  "fixtureSha256": "1a72b54186b011f3443459f24fc530b108b0f717da4045cca476a0f08c8e0f1d",
+  "sourceModules": [
+    {
+      "path": "src/render/render-functions.js",
+      "sha256": "6b91343cc5614c665bfc241996a056411f53cd54556295f7dab5e511ca1d64ac"
+    },
+    {
+      "path": "src/render/screen-helper-functions.js",
+      "sha256": "80e1b36a51332eecbd8b699bb56fc5f5588f4893d344eb7d23527e3770c1cdd0"
+    },
+    {
+      "path": "src/render/dependencies.js",
+      "sha256": "b4b9ac0af94f8252d3f3ed30b8eb223bcf64a89dc90c747897030025fdb92199"
+    },
+    {
+      "path": "src/render/sail-geometry.js",
+      "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281"
+    },
+    {
+      "path": "src/render/drawing-functions.js",
+      "sha256": "3402137b5a6ccf098627591ae22f676ce8b0a7cf372f37fe4dbbb2983d2788b7"
+    },
+    {
+      "path": "src/render/typed-c.js",
+      "sha256": "883e5b23e4e72d768a325a192b0662322add605b611f73b12ee40f42bac0911f"
+    }
+  ],
+  "profiles": [
+    {
+      "profile": "selector1-initialized-screens",
+      "selector": 1,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        },
+        {
+          "index": 2,
+          "phase": "drawStartScreen"
+        },
+        {
+          "index": 3,
+          "phase": "drawResultsScreen"
+        },
+        {
+          "index": 4,
+          "phase": "drawForecastScreen"
+        }
+      ]
+    },
+    {
+      "profile": "selector7-initialized-screens",
+      "selector": 7,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        },
+        {
+          "index": 2,
+          "phase": "drawStartScreen"
+        },
+        {
+          "index": 3,
+          "phase": "drawResultsScreen"
+        },
+        {
+          "index": 4,
+          "phase": "drawForecastScreen"
+        }
+      ]
+    },
+    {
+      "profile": "selector12-initialized-screens",
+      "selector": 12,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        },
+        {
+          "index": 2,
+          "phase": "drawStartScreen"
+        },
+        {
+          "index": 3,
+          "phase": "drawResultsScreen"
+        },
+        {
+          "index": 4,
+          "phase": "drawForecastScreen"
+        }
+      ]
+    },
+    {
+      "profile": "selector17-initialized-screens",
+      "selector": 17,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        },
+        {
+          "index": 2,
+          "phase": "drawStartScreen"
+        },
+        {
+          "index": 3,
+          "phase": "drawResultsScreen"
+        },
+        {
+          "index": 4,
+          "phase": "drawForecastScreen"
+        }
+      ]
+    },
+    {
+      "profile": "selector26-initialized-screens",
+      "selector": 26,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        },
+        {
+          "index": 2,
+          "phase": "drawStartScreen"
+        },
+        {
+          "index": 3,
+          "phase": "drawResultsScreen"
+        },
+        {
+          "index": 4,
+          "phase": "drawForecastScreen"
+        }
+      ]
+    },
+    {
+      "profile": "selector27-initialized-screens",
+      "selector": 27,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        },
+        {
+          "index": 2,
+          "phase": "drawStartScreen"
+        },
+        {
+          "index": 3,
+          "phase": "drawResultsScreen"
+        },
+        {
+          "index": 4,
+          "phase": "drawForecastScreen"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "format": 1,
+  "status": "exact",
+  "auditedUtc": "2026-10-03T20:10:03.916589+00:00",
+  "scope": "Final selected board/400/63 source reports only; historical before-fix or repeated reports are preserved evidence and are not additional frame coverage. No native captures, production or fixture edits.",
+  "originalTarget": {
+    "path": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+    "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+  },
+  "reports": [
+    {
+      "path": "versions/2010-en/analysis/retained-frames-native-source-comparison.json",
+      "sha256": "4f9df583a361b4c99f18ee36cd26fe9340233bd46cb4b42800df6eece3da3e70"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-controllers-native-source-comparison.json",
+      "sha256": "16ee7b1d71d674235c43873627e035f60634a3004d1ec4665983d03e644acfd5"
+    },
+    {
+      "path": "versions/2010-en/analysis/board-turn-native-source-comparison.json",
+      "sha256": "8a3421a1f5686fffda8dcd88077b03018c3c2e1335304c28ea58a6ec956bd952"
+    }
+  ],
+  "currentProductionSourcePins": 69,
+  "allDistinctPinnedReviewReplaySources": 77,
+  "nativeTrigAssets": 2,
+  "sourceDrift": 0,
+  "fixtureDrift": 0,
+  "proofCoverage": {
+    "fullFrames": 438,
+    "calculation": "400 + 35 + 3 = 438; each selected full-frame fixture group counted once",
+    "parts": [
+      {
+        "report": "retained-frames-native-source-comparison.json",
+        "fullFrames": 400
+      },
+      {
+        "report": "retained-controllers-native-source-comparison.json",
+        "fullFrames": 35
+      },
+      {
+        "report": "board-turn-native-source-comparison.json",
+        "fullFrames": 3
+      }
+    ],
+    "distinctNativeCalls": 860,
+    "nativeCallCalculation": "404 retained-frame calls + 63 controller-chain calls + (384 independent board AI cases + 9 Board-menu continuation calls) = 860",
+    "existingAIRegressionCallsNotAddedAgain": 8366,
+    "orderedDrawingEvents": 747999
+  },
+  "fixtureArchives": [
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-frames.json",
+      "sha256": "6e47ca23631362fb491fdda8817020665c619b6e5e82b0760774f3558477cf5c",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-retained-frames.json.gz",
+      "compressedSha256": "14d0b399f54f9fe9d22061d179f6e5893d41a019194cb306a64bf890e3391eea",
+      "canonicalAndArchiveExact": true
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-graphics-frames.json",
+      "sha256": "6de8506b9cd2efd29efd3972e546a176eb32d6898021ed9f6ad707467e4d3ef0",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-retained-graphics-frames.json.gz",
+      "compressedSha256": "30f09fc3eead69926dda071b8283f739f86ac9e598330fbd6deaeb320f6648a0",
+      "canonicalAndArchiveExact": true
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-controller-start-frames.json",
+      "sha256": "3ea4cf73b6f5c6c21ddadabbde0fc18e5aaa7b13664e8f96f8c792729a2b5638",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-retained-controller-start-frames.json.gz",
+      "compressedSha256": "b9e5d72daba093f447dc3efb72b462e8b3fe72bcf1b02a2f41c9bab094944175",
+      "canonicalAndArchiveExact": true
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-island-controller-shore-frames.json",
+      "sha256": "f08a586e7d14289224d2f6824a3cb56a9fd4c8633b05f6ee4f241928ff7985ef",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-retained-island-controller-shore-frames.json.gz",
+      "compressedSha256": "6daec850b7d51c43546b94b5ffa6285c96f3752987bc2c6ea1a3bc06557de628",
+      "canonicalAndArchiveExact": true
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-board-turn.json",
+      "sha256": "f396de57774c0733c3c891c4c13be7056f47cae21618a998f7133b67b7154889",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-board-turn.json.gz",
+      "compressedSha256": "fa1f565dba486501a4dd6c1688d2b0e1961a312187368af3e948446f9456eaec",
+      "canonicalAndArchiveExact": true
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-board-frames.json",
+      "sha256": "218fcaef484984d55c138d0a156fc60172564f68dd0342a3f3456571cb5ffeeb",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-retained-board-frames.json.gz",
+      "compressedSha256": "f2946017acdc4ac961cf36d5c3c994624de7d9f990b49efee14105faa3ed8a86",
+      "canonicalAndArchiveExact": true
+    }
+  ],
+  "evidenceManifest": {
+    "path": "versions/2010-en/evidence/manifest.json",
+    "sha256": "d6053eaed63fdb9521c54f107c20cb6faf0819387156c877457cfce0f6280b77",
+    "files": 216
+  },
+  "portableLogs": [
+    {
+      "path": "versions/2010-en/analysis/retained-frames-production-replay.log",
+      "sha256": "cf0d706cf15566e6a315847af116effc694742d80a26a1f61800c241eb886f46",
+      "kind": "corrected-source replay"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-source-proof-history/cf0d706cf15566e6a315847af116effc694742d80a26a1f61800c241eb886f46.log",
+      "sha256": "cf0d706cf15566e6a315847af116effc694742d80a26a1f61800c241eb886f46",
+      "kind": "corrected-source replay"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-controllers-production-replay.log",
+      "sha256": "2fee2a1f0e800a48cc0dc80b3879505fdd01de95d770d027045d8ccb0f4eabe0",
+      "kind": "corrected-source replay"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-source-proof-history/2fee2a1f0e800a48cc0dc80b3879505fdd01de95d770d027045d8ccb0f4eabe0.log",
+      "sha256": "2fee2a1f0e800a48cc0dc80b3879505fdd01de95d770d027045d8ccb0f4eabe0",
+      "kind": "corrected-source replay"
+    },
+    {
+      "path": "versions/2010-en/analysis/board-turn-replay.log",
+      "sha256": "fe11896c531d02cd3a092659c5c5eb6b5bccab1fee356455212b0829636b7b2f",
+      "kind": "corrected-source replay/regression"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-board-frames-replay.log",
+      "sha256": "306a3624c4290867b645ad7af9645eb0415468042be7dade45428d7ddd295103",
+      "kind": "corrected-source replay/regression"
+    },
+    {
+      "path": "versions/2010-en/analysis/ai-board-fix-regression.log",
+      "sha256": "ca9f47abe890ea3d72e00bcdb592270f26ef1d6a44c903411e921078ff486bc6",
+      "kind": "corrected-source replay/regression"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-board-frames-before-fix-replay.log",
+      "sha256": "df37c049613fc54bc0213e56da2c7418ad551e913cbe7887f91718f933b830ea",
+      "kind": "preserved expected pre-fix failure"
+    },
+    {
+      "path": "versions/2010-en/analysis/retained-source-proof-history/043ca1c8c6303f902d685030bd1c9c5150e13fc17828c7ddb5a33e583e320733.log",
+      "sha256": "043ca1c8c6303f902d685030bd1c9c5150e13fc17828c7ddb5a33e583e320733",
+      "kind": "portable copy of unchanged actual native shoreline observations",
+      "originalRecordedLocalPath": "analysis/native-runners/mixed-capture-an05ewk1/native-stderr.log"
+    }
+  ],
+  "forceStageLogs": [
+    "versions/2010-en/analysis/retained-frames-production-replay.log",
+    "versions/2010-en/analysis/retained-controllers-production-replay.log",
+    "versions/2010-en/analysis/board-turn-replay.log",
+    "versions/2010-en/analysis/retained-board-frames-replay.log",
+    "versions/2010-en/analysis/ai-board-fix-regression.log",
+    "versions/2010-en/analysis/retained-board-frames-before-fix-replay.log"
+  ],
+  "historicalRawLogArchive": "versions/2010-en/analysis/retained-source-proof-history/043ca1c8c6303f902d685030bd1c9c5150e13fc17828c7ddb5a33e583e320733.log",
+  "limits": "Finite original routine/continuation domains and declared host bindings. The Board continuation explicitly supplies its finite first-frame turn boundary; full Windows paint allocation/raster lifetime is outside these bounded comparisons."
+}

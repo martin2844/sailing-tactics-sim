@@ -1,0 +1,149 @@
+0042b0b0: sub esp, 0x14
+0042b0b3: push esi
+0042b0b4: push 0x7d0
+0042b0b9: call 0x41e000
+0042b0be: add esp, 4
+0042b0c1: add eax, 0x1f4
+0042b0c6: mov dword ptr [esp + 0x10], eax
+0042b0ca: push 0x8c
+0042b0cf: call 0x41e000
+0042b0d4: mov ecx, dword ptr [0x5362d4]
+0042b0da: add esp, 4
+0042b0dd: lea eax, [eax + ecx - 0x46]
+0042b0e1: push eax
+0042b0e2: call 0x41bc20
+0042b0e7: fld qword ptr [0x4f6b00]
+0042b0ed: mov dword ptr [esp + 0x10], eax
+0042b0f1: mov eax, dword ptr [0x4da140]
+0042b0f6: add esp, 4
+0042b0f9: cmp eax, 1
+0042b0fc: jne 0x42b114
+0042b0fe: call 0x49b970
+0042b103: fld qword ptr [0x4f6c18]
+0042b109: mov dword ptr [esp + 4], eax
+0042b10d: call 0x49b970
+0042b112: jmp 0x42b150
+0042b114: call 0x49b970
+0042b119: fld qword ptr [0x4f6b08]
+0042b11f: mov esi, eax
+0042b121: call 0x49b970
+0042b126: add eax, esi
+0042b128: fld qword ptr [0x4f6c18]
+0042b12e: cdq 
+0042b12f: sub eax, edx
+0042b131: sar eax, 1
+0042b133: mov dword ptr [esp + 4], eax
+0042b137: call 0x49b970
+0042b13c: fld qword ptr [0x4f6c20]
+0042b142: mov esi, eax
+0042b144: call 0x49b970
+0042b149: add eax, esi
+0042b14b: cdq 
+0042b14c: sub eax, edx
+0042b14e: sar eax, 1
+0042b150: fild dword ptr [esp + 0xc]
+0042b154: fild dword ptr [esp + 0x10]
+0042b158: fild dword ptr [esp + 4]
+0042b15c: fxch st(2)
+0042b15e: fmul qword ptr [0x4cc568]
+0042b164: fxch st(1)
+0042b166: fstp qword ptr [esp + 0x10]
+0042b16a: mov dword ptr [esp + 8], eax
+0042b16e: mov ecx, dword ptr [esp + 0x1c]
+0042b172: fild dword ptr [esp + 8]
+0042b176: fld st(1)
+0042b178: fsin 
+0042b17a: lea eax, [ecx*8]
+0042b181: push 2
+0042b183: lea esi, [ecx*4]
+0042b18a: fxch st(2)
+0042b18c: fcos 
+0042b18e: fxch st(2)
+0042b190: fmul qword ptr [esp + 0x14]
+0042b194: fxch st(2)
+0042b196: fmul qword ptr [esp + 0x14]
+0042b19a: fxch st(3)
+0042b19c: faddp st(2)
+0042b19e: fxch st(2)
+0042b1a0: fsubp st(2)
+0042b1a2: fstp qword ptr [eax + 0x535460]
+0042b1a8: fstp qword ptr [eax + 0x4f4b08]
+0042b1ae: call 0x41e000
+0042b1b3: mov edx, dword ptr [0x51158c]
+0042b1b9: mov ecx, dword ptr [0x4da154]
+0042b1bf: add esp, 4
+0042b1c2: cmp ecx, 1
+0042b1c5: lea eax, [eax + edx*2 + 2]
+0042b1c9: mov dword ptr [esi + 0x4f71d8], eax
+0042b1cf: jne 0x42b1db
+0042b1d1: mov dword ptr [esi + 0x4f71d8], 2
+0042b1db: push 0x12c
+0042b1e0: call 0x41e000
+0042b1e5: add eax, 0x96
+0042b1ea: add esp, 4
+0042b1ed: mov dword ptr [esp + 0x1c], eax
+0042b1f1: fild dword ptr [esp + 0x1c]
+0042b1f5: fmul qword ptr [0x4da160]
+0042b1fb: call 0x49b970
+0042b200: mov ecx, dword ptr [0x4f8cd0]
+0042b206: push 0x190
+0042b20b: add eax, ecx
+0042b20d: mov dword ptr [esi + 0x523630], eax
+0042b213: call 0x41e000
+0042b218: add eax, 0xc8
+0042b21d: add esp, 4
+0042b220: mov dword ptr [esi + 0x4f7ea0], eax
+0042b226: mov eax, dword ptr [0x4fb5d4]
+0042b22b: cmp eax, 1
+0042b22e: jne 0x42b248
+0042b230: push 0x190
+0042b235: call 0x41e000
+0042b23a: add esp, 4
+0042b23d: add eax, 0x12c
+0042b242: mov dword ptr [esi + 0x4f7ea0], eax
+0042b248: mov eax, dword ptr [0x4da1f8]
+0042b24d: test eax, eax
+0042b24f: jle 0x42b269
+0042b251: push 0x190
+0042b256: call 0x41e000
+0042b25b: add esp, 4
+0042b25e: add eax, 0x12c
+0042b263: mov dword ptr [esi + 0x4f7ea0], eax
+0042b269: mov eax, dword ptr [0x522ad0]
+0042b26e: cdq 
+0042b26f: sub eax, edx
+0042b271: sar eax, 1
+0042b273: push eax
+0042b274: call 0x41e000
+0042b279: mov ecx, eax
+0042b27b: mov eax, dword ptr [0x522ad0]
+0042b280: cdq 
+0042b281: sub eax, edx
+0042b283: add esp, 4
+0042b286: sar eax, 1
+0042b288: add ecx, eax
+0042b28a: push 4
+0042b28c: mov dword ptr [esi + 0x4f42a0], ecx
+0042b292: call 0x41e000
+0042b297: mov ecx, dword ptr [0x53645c]
+0042b29d: add esp, 4
+0042b2a0: sub eax, 2
+0042b2a3: test ecx, ecx
+0042b2a5: mov ecx, dword ptr [esi + 0x4f71d8]
+0042b2ab: jne 0x42b2c4
+0042b2ad: lea edx, [eax + ecx*2]
+0042b2b0: mov eax, dword ptr [0x5362d4]
+0042b2b5: add ecx, edx
+0042b2b7: add ecx, eax
+0042b2b9: mov dword ptr [esi + 0x5357d8], ecx
+0042b2bf: pop esi
+0042b2c0: add esp, 0x14
+0042b2c3: ret 
+0042b2c4: lea ecx, [ecx + ecx*2]
+0042b2c7: sub eax, ecx
+0042b2c9: mov ecx, dword ptr [0x5362d4]
+0042b2cf: add eax, ecx
+0042b2d1: mov dword ptr [esi + 0x5357d8], eax
+0042b2d7: pop esi
+0042b2d8: add esp, 0x14
+0042b2db: ret 

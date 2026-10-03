@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "exact": true,
+  "fixture": {
+    "path": "tests/fixtures/original-scaled-random.json",
+    "sha256": "e8732470fefe92478ca9a8dc9d508802a12d875b536f1cc37c68584784224b11",
+    "bytes": 808999
+  },
+  "routine": {
+    "name": "scaledRandom",
+    "address": 4317184,
+    "argumentTypes": [
+      "I32"
+    ],
+    "returnType": "I32"
+  },
+  "originalRoutineCalls": 45,
+  "tests": {
+    "command": "node --test versions/2010-en/tests/scaled-random.test.js",
+    "passed": 2,
+    "failed": 0
+  },
+  "regression": {
+    "command": "node --test versions/2010-en/tests/scaled-random.test.js versions/2010-en/tests/application.test.js versions/2010-en/tests/controllers.test.js versions/2010-en/tests/ai.test.js",
+    "passed": 37,
+    "failed": 0,
+    "log": "analysis/scaled-random-source-comparison.log"
+  },
+  "comparison": "Every I32 return, original RNG state, all394632mutablebytes/hash and immutable prefix/suffix match independently captured original x86 code. No tolerance or expected-output update.",
+  "nativeProvenance": {
+    "engine": "Original x86 code under Wine; no text edits",
+    "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+    "x87ControlWord": "0x027f",
+    "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+    "runnerSourceFiles": [
+      {
+        "path": "versions/2010-en/tools/native_reference.c",
+        "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+      },
+      {
+        "path": "versions/2010-en/tools/native_gdi_trace.h",
+        "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+      },
+      {
+        "path": "versions/2010-en/tools/native_controller_trace.h",
+        "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+      },
+      {
+        "path": "versions/2010-en/tools/native_controller_table.h",
+        "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+      }
+    ],
+    "runnerSha256": "db3f152d1fa8b9d2e1837b934c28b9f1607b8bcc2ff31503ab0432d90ce9b4ce",
+    "compilerFlags": [
+      "-B/tmp/tact-native-toolchain-keudx2ee/",
+      "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+      "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+      "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-mfpmath=387",
+      "-static",
+      "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+    ],
+    "loadedOriginalTextUnchanged": true,
+    "originalFileUnchanged": true,
+    "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+  },
+  "sourceHashes": {
+    "src/engine/application.js": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5",
+    "tests/scaled-random.test.js": "9f8654c3f5e84700a2137ccd32e93d1afb45b0b8b835044268069a84d12ea3cc",
+    "tools/capture_scaled_random.py": "8b46e1e2f83fe07cda21b2a05aedcc5dd58a75d16fcd25556aeebd6b91ecf588"
+  },
+  "sharedHelper": {
+    "path": "src/engine/integer-core.js",
+    "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633",
+    "scope": "The signed arithmetic helper is shared; it reads no edition addresses."
+  },
+  "reviewFinding": {
+    "priority": "low",
+    "status": "fixed",
+    "location": "src/engine/application.js:76 (before correction)",
+    "cause": "The local helper replaced negative range with its absolute value. Original41e005..41e00f computes absolute value only for the <2 comparison; original41e016..41e01c divides by retained signed ECX.",
+    "before": {
+      "input": -100,
+      "seed": 2002,
+      "incorrectResult": 20,
+      "originalResult": 6576,
+      "rngStateEqual": true
+    },
+    "fix": "Import and re-export the exact shared signed helper; originalINT_MINguard and one RNG draw per call are retained.",
+    "reachability": "Exported helper accepts signed I32 inputs. Normal observed application/controller/rendering callers use positive constants; upwind range is bounded1000..8000. No normal-race mismatch is claimed."
+  },
+  "originalInstructionEvidence": [
+    {
+      "address": "0x41e005",
+      "bytes": "8bc19933c22bc283f802",
+      "meaning": "Compute absolute value in EAX, compare it with2, leaving signed ECX unchanged."
+    },
+    {
+      "address": "0x41e011",
+      "bytes": "b902000000",
+      "meaning": "Only failed absolute guard replacesECXwith2."
+    },
+    {
+      "address": "0x41e016",
+      "bytes": "b8007d000099f7f9",
+      "meaning": "Signed32000/ECX."
+    },
+    {
+      "address": "0x41e020",
+      "bytes": "83fe017d05be01000000",
+      "meaning": "Clamp negative or zero divisor to1."
+    }
+  ],
+  "preservedEvidence": "All preexisting fixtures remain byte-for-byte unchanged. This is a separate45-call capture using existing fixed oracleID4."
+}

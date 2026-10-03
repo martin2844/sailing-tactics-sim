@@ -1,0 +1,34 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "precision": "0x027f",
+  "calls": 84,
+  "mismatches": 0,
+  "allStrictNativeComparisonsPassed": true,
+  "saveCalls": 44,
+  "restoreCalls": 40,
+  "continuedCalls": 8,
+  "fixtureSha256": "2dc7571980496e05990d8995d8524744e1611e117c02e5df6d59369e15bb366f",
+  "comparison": [
+    "complete394632-byte mutable block",
+    "exact before/after runs and SHA256",
+    "unmodified RNG state",
+    "no host callback events",
+    "word-preserving 64-bit storage copies",
+    "two15531-word history resets",
+    "immutable original image prefix/suffix"
+  ],
+  "provenance": {
+    "engine": "Original x86 code under Wine; no text edits",
+    "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+    "x87ControlWord": "0x027f",
+    "runnerSourceSha256": "db567b6601ed0f336dd897b41b669d780b3611816f965e0aa47ca98546013cbd",
+    "controllerSourceSha256": "5d9cd460cac90c02a05fe510ca599d08ed8dba9cd1db7331a32affca966b79be",
+    "controllerTableSha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4",
+    "runnerSha256": "38ddbb7fdd2cee016abd13c930e82879f6e81d08a1109a4d8f0a8cd7f22a7a1e",
+    "loadedOriginalTextUnchanged": true,
+    "originalFileUnchanged": true,
+    "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+    "hostBindings": "Snapshots have no OS/MFC callbacks. Unused temporary538010/538148 framework bindings are restored before complete state SHA and retained as raw evidence.",
+    "limitations": "Finite fleet counts up to30; nonpositive signed edges, opaque word patterns and retained save/restore calls."
+  }
+}

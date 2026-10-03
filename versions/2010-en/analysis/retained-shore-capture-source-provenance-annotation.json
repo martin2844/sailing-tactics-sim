@@ -1,0 +1,36 @@
+{
+  "format": 1,
+  "fixture": "versions/2010-en/tests/fixtures/original-retained-island-controller-shore-frames.json",
+  "fixtureSha256": "f08a586e7d14289224d2f6824a3cb56a9fd4c8633b05f6ee4f241928ff7985ef",
+  "nativeExpectedFieldsChanged": false,
+  "originalProvenanceChanged": false,
+  "issue": "Historical observer capture recorded canonical native_reference.c SHA before inserting the fixed observer into its private compilation copy. The separate runnerSourceSha256 field already records the actual compiled source correctly.",
+  "recordedPreInsertionSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+  "actualCompiledSourceSha256": "b137852071cdf45d800e5ebdaac250314f8b1a89b898f38c90f9006366ade3a0",
+  "compiledSourcePath": "versions/2010-en/analysis/native-runners/mixed-capture-an05ewk1/native_reference.c",
+  "verifiedAgainstProvenanceField": "runnerSourceSha256",
+  "actualRunnerSha256": "524f78dac8357d38e7010f8b6201c59c097abf14b524f70d512d402b6f05b3a8",
+  "actualRunnerSourceFiles": [
+    {
+      "path": "versions/2010-en/tools/native_reference.c",
+      "sha256": "b137852071cdf45d800e5ebdaac250314f8b1a89b898f38c90f9006366ade3a0"
+    },
+    {
+      "path": "versions/2010-en/tools/native_gdi_trace.h",
+      "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+    },
+    {
+      "path": "versions/2010-en/tools/native_controller_trace.h",
+      "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+    },
+    {
+      "path": "versions/2010-en/tools/native_controller_table.h",
+      "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+    },
+    {
+      "path": "versions/2010-en/tools/native_retained_shore_reads.h",
+      "sha256": "c794186a6459a6ff0e2a633527e28ea437e4da32b24e67d7e4f4dd2ec187fb22"
+    }
+  ],
+  "futureCaptureCorrection": "capture_retained_frames.py now hashes all preserved private compilation inputs after observer insertion, retaining the canonical main SHA as separate explicit evidence."
+}

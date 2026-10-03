@@ -1,0 +1,578 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "authority": "Unchanged original native instructions under Wine, complete retained state and real child calls.",
+  "validation": "Every mutable byte and full SHA256, original RNG, all36 actual CString cells on initialize/integrate responses, and every ordered sound request. Names are additionally checked for retention after all source calls. No tolerance or resulting-state lookup.",
+  "mutableBlock": {
+    "address": 5087232,
+    "size": 394632
+  },
+  "groups": [
+    {
+      "name": "retained-integration",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration.json",
+      "fixtureSha256": "8d4de4e7291cfe27bd79549387821ae1d3e8141a030e58094c2dc31d8f8a89a2",
+      "calls": 1212,
+      "chains": 12,
+      "initializationCalls": 12,
+      "integrationCalls": 1200,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3435179-2631422587/tact-native-toolchain-rwreqes9/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-dynamics-integration",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-dynamics-integration.json",
+      "fixtureSha256": "cdf579aee1cae933406cc551672e427ffe3d4ef177d70ede0838286f7a71e7da",
+      "calls": 6312,
+      "chains": 12,
+      "initializationCalls": 12,
+      "integrationCalls": 600,
+      "dynamicsCalls": 5700,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3440653-2505058145/tact-native-toolchain-i7qxclnx/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-0",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-0.json",
+      "fixtureSha256": "2939fdb4474bcc1bc04276a94832a8a0314d8479bdd5d41bf91f0db8799bfcdc",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-42t0877s/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-1",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-1.json",
+      "fixtureSha256": "12888a066d9b007e97f13eaa5c03bc6ad402c03059280f440145fadd0ea48602",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-j0ebpa9y/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-2",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-2.json",
+      "fixtureSha256": "e4c9db53eb31eaf9e3991fb492c16515fd1465354d55e1233698c9d7d3132ce4",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-q2ats0m3/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-3",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-3.json",
+      "fixtureSha256": "6489a3dce3fab854363a956db532fe3bde1bb9e8e934db5c339fa231a6364a14",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-bza5n8q0/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-4",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-4.json",
+      "fixtureSha256": "495f1cb04ea56e2b17be764dbc6bd5febbbfead46d487343e769ad3b9ef82fd1",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-ly_d9b83/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-5",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-5.json",
+      "fixtureSha256": "0d2d1eb517b959f6eccb4971f2a83b39c79ed8db74b4b5f977f202f27a4fdc4e",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-1vpqkll2/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-expanded-6",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-expanded-6.json",
+      "fixtureSha256": "3cd46e7d3669084f42a04655c7888e66bad0d31da22ad5431113ef8b8edd1d03",
+      "calls": 663,
+      "chains": 13,
+      "initializationCalls": 13,
+      "integrationCalls": 650,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3442347-842817465/tact-native-toolchain-3y1xw6i4/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "name": "retained-integration-modes",
+      "fixture": "versions/2010-en/tests/fixtures/original-retained-integration-modes.json",
+      "fixtureSha256": "2695fed6f96001f07ae13d7a42290e894eadf9e23eb74ef997efabd9b8aab186",
+      "calls": 1224,
+      "chains": 24,
+      "initializationCalls": 24,
+      "integrationCalls": 1200,
+      "dynamicsCalls": 0,
+      "allStrictSourceComparisonsPassed": true,
+      "nativeProvenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "c6a736274875813445f435c1994ea1d1f6dd43e6c1cada732ae03ec514b6c157"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "aff4736289a1ebc2065842694cd20bafd87a63364a29957babcc9b8507bfaac9"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "23825b20d95c709a9db8e98283227011754be9cd165b2c2b48544781a638533c",
+        "compilerFlags": [
+          "-B/tmp/nix-shell-3447724-1712091475/tact-native-toolchain-lmpifin1/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    }
+  ],
+  "totalCalls": 13389,
+  "initializationCalls": 139,
+  "integrationCalls": 7550,
+  "dynamicsCalls": 5700,
+  "coverage": "All103 original initializer profiles:27 boat selectors,20 basic/named/custom venues and course variations; plus24 retained menu-course/current/start-mode profiles. Each initialization has50–100 integrations. Twelve chains also run the complete original dynamics for every initialized boat before each integration.",
+  "scope": "This is the real original race-initializer→numerical-child closure with explicitly prepared pre-call option data. It does not assert a full native application/paint lifecycle or raster identity. Half the simple chains and all physics chains supply only the exact original1..60 paint-counter cadence between steps; other simple chains supply no intervening state changes.",
+  "sourceFiles": [
+    {
+      "path": "versions/2010-en/src/engine/initialization.js",
+      "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39"
+    },
+    {
+      "path": "versions/2010-en/src/engine/starting-positions.js",
+      "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-dynamics.js",
+      "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+    },
+    {
+      "path": "versions/2010-en/src/engine/penalties.js",
+      "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496"
+    },
+    {
+      "path": "versions/2010-en/src/engine/integration.js",
+      "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f"
+    },
+    {
+      "path": "versions/2010-en/tools/prepare-retained-integration-inputs.js",
+      "sha256": "82647c2b1234deb8e145b30f87d36b88218a58bdc716eb9d97bf575b55d34e77"
+    },
+    {
+      "path": "versions/2010-en/tests/retained-integration.test.js",
+      "sha256": "d3cdd5034ee0d1ac9f855acdc798fd963e9b81ba4f0060cb34dd91a26e7e487b"
+    }
+  ]
+}

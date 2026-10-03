@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "allFixtureCasesMatch": true,
+  "cases": 72,
+  "originalRoutines": 2,
+  "mutableBlock": {
+    "address": 5087232,
+    "bytes": 394632
+  },
+  "comparison": "Independent original data and JS integer trig; every mutable byte/hash, all36 semantic global CStrings, RNG, ordered drawing and recorded sound requests. No tolerances.",
+  "scope": "Finite standalone full/compact HUD calls, including nearest-boat branches. Connected frames require separate proof. Original pre-sound HUD fixture remains preserved.",
+  "groups": [
+    {
+      "routine": {
+        "address": 4256320,
+        "name": "hud",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-hud-with-sounds.json",
+      "fixtureSha256": "96f837e57c5611a5f525d85fe7f30b0e3b04f749489d2f104b8c884ca4d66ecc",
+      "cases": 24,
+      "orderedDrawingRequests": 6793,
+      "orderedSoundRequests": 24,
+      "runnerSourceSha256": "836af165cde831ca6da45168433a4f894b16ec8c54f38bb832c3f23aa4bbd464",
+      "runnerSha256": "fad1c7fd274804980f09c666bda97c428343c5ca61793fe5860c600ef8e9e325",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4271408,
+        "name": "compact-hud",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-compact-hud.json",
+      "fixtureSha256": "d1591ac4826450d4b1c0c2b7cc99f4375756103d30923b5d8eb0797f91388de7",
+      "cases": 24,
+      "orderedDrawingRequests": 4965,
+      "orderedSoundRequests": 0,
+      "runnerSourceSha256": "ccbf08eab3a7cc61ea62eba52c129c3d6cc8288854c63b829e065eb63a3182cf",
+      "runnerSha256": "ef9b300ab5aea1220e1aab15cc99e7f8d0d304c3ec0f76c9cfe80ea1ad217ec5",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    },
+    {
+      "routine": {
+        "address": 4256320,
+        "name": "hud-nearest",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-hud-nearest.json",
+      "fixtureSha256": "4be4853c399b05512136e362b3033faf63e00576b18e29a41de51f2c3891d7cc",
+      "cases": 24,
+      "orderedDrawingRequests": 5004,
+      "orderedSoundRequests": 0,
+      "runnerSourceSha256": "6977a8459c71147f3359b94a52c68a1a747c4d0f7e74f16fd4611ddb6459a566",
+      "runnerSha256": "1dc7f83086941c5b6302b6864619928618b28e69dd2ede813c2fedced06773fc",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "address": "0x466330",
+  "recoveredSourceSha256": "72bf984427458bf0894a42dd7b6994d052e1cb3e6ba21c4d104147bf5f67c146",
+  "method": "Read-only originalx86 instructionreview; unchangedtarget. Eight-byte locals have mixed float/rawword access and therefore require byte-addressablestorage with explicit readviews.",
+  "entryInstructions": [
+    {
+      "address": "0x466330",
+      "bytes": "8b0d40a14d00",
+      "instruction": "mov ecx, dword ptr [0x4da140]"
+    },
+    {
+      "address": "0x466336",
+      "bytes": "81ec70020000",
+      "instruction": "sub esp, 0x270"
+    },
+    {
+      "address": "0x46633c",
+      "bytes": "53",
+      "instruction": "push ebx"
+    },
+    {
+      "address": "0x46633d",
+      "bytes": "55",
+      "instruction": "push ebp"
+    },
+    {
+      "address": "0x46633e",
+      "bytes": "56",
+      "instruction": "push esi"
+    },
+    {
+      "address": "0x46633f",
+      "bytes": "57",
+      "instruction": "push edi"
+    },
+    {
+      "address": "0x466340",
+      "bytes": "bf01000000",
+      "instruction": "mov edi, 1"
+    },
+    {
+      "address": "0x466345",
+      "bytes": "3bcf",
+      "instruction": "cmp ecx, edi"
+    },
+    {
+      "address": "0x466347",
+      "bytes": "7508",
+      "instruction": "jne 0x466351"
+    }
+  ],
+  "nativeEspDeltaAfterPrologue": -640,
+  "locals": [
+    {
+      "name": "local_98",
+      "originalRecoveredType": "undefined8",
+      "actualFloatingReadType": "F64",
+      "ghidraEntryEspOffset": -152,
+      "nativePostPrologueEspOffset": 488,
+      "bytes": 8,
+      "evidence": [
+        {
+          "address": "0x4667cc",
+          "instructions": [
+            {
+              "address": "0x4667b5",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667bb",
+              "bytes": "dd842438010000",
+              "instruction": "fld qword ptr [esp + 0x138]"
+            },
+            {
+              "address": "0x4667c2",
+              "bytes": "d9cc",
+              "instruction": "fxch st(4)"
+            },
+            {
+              "address": "0x4667c4",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667ca",
+              "bytes": "d9ce",
+              "instruction": "fxch st(6)"
+            },
+            {
+              "address": "0x4667cc",
+              "bytes": "dd9424e8010000",
+              "instruction": "fst qword ptr [esp + 0x1e8]"
+            },
+            {
+              "address": "0x4667d3",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667d9",
+              "bytes": "d9cb",
+              "instruction": "fxch st(3)"
+            },
+            {
+              "address": "0x4667db",
+              "bytes": "dd942448010000",
+              "instruction": "fst qword ptr [esp + 0x148]"
+            },
+            {
+              "address": "0x4667e2",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667e8",
+              "bytes": "d9cd",
+              "instruction": "fxch st(5)"
+            }
+          ]
+        },
+        {
+          "address": "0x4667ff",
+          "instructions": [
+            {
+              "address": "0x4667e8",
+              "bytes": "d9cd",
+              "instruction": "fxch st(5)"
+            },
+            {
+              "address": "0x4667ea",
+              "bytes": "dd942418020000",
+              "instruction": "fst qword ptr [esp + 0x218]"
+            },
+            {
+              "address": "0x4667f1",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667f7",
+              "bytes": "d9cc",
+              "instruction": "fxch st(4)"
+            },
+            {
+              "address": "0x4667f9",
+              "bytes": "dc2500c74c00",
+              "instruction": "fsub qword ptr [0x4cc700]"
+            },
+            {
+              "address": "0x4667ff",
+              "bytes": "dd8424e8010000",
+              "instruction": "fld qword ptr [esp + 0x1e8]"
+            },
+            {
+              "address": "0x466806",
+              "bytes": "d9cc",
+              "instruction": "fxch st(4)"
+            },
+            {
+              "address": "0x466808",
+              "bytes": "dcac2488020000",
+              "instruction": "fsubr qword ptr [esp + 0x288]"
+            },
+            {
+              "address": "0x46680f",
+              "bytes": "d9ce",
+              "instruction": "fxch st(6)"
+            },
+            {
+              "address": "0x466811",
+              "bytes": "dcac2490020000",
+              "instruction": "fsubr qword ptr [esp + 0x290]"
+            },
+            {
+              "address": "0x466818",
+              "bytes": "d9cd",
+              "instruction": "fxch st(5)"
+            }
+          ]
+        }
+      ],
+      "note": "NativeFSTQWORDstore andFLDQWORDfloatingreload prove binary64interpretation. Retain separatefour-byteinteger/rawloads forCONCAT and outgoingpackedargumentwords; do not interpretIEEEbits as a numericI64."
+    },
+    {
+      "name": "local_138",
+      "originalRecoveredType": "undefined8",
+      "actualFloatingReadType": "F64",
+      "ghidraEntryEspOffset": -312,
+      "nativePostPrologueEspOffset": 328,
+      "bytes": 8,
+      "evidence": [
+        {
+          "address": "0x4667db",
+          "instructions": [
+            {
+              "address": "0x4667c4",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667ca",
+              "bytes": "d9ce",
+              "instruction": "fxch st(6)"
+            },
+            {
+              "address": "0x4667cc",
+              "bytes": "dd9424e8010000",
+              "instruction": "fst qword ptr [esp + 0x1e8]"
+            },
+            {
+              "address": "0x4667d3",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667d9",
+              "bytes": "d9cb",
+              "instruction": "fxch st(3)"
+            },
+            {
+              "address": "0x4667db",
+              "bytes": "dd942448010000",
+              "instruction": "fst qword ptr [esp + 0x148]"
+            },
+            {
+              "address": "0x4667e2",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667e8",
+              "bytes": "d9cd",
+              "instruction": "fxch st(5)"
+            },
+            {
+              "address": "0x4667ea",
+              "bytes": "dd942418020000",
+              "instruction": "fst qword ptr [esp + 0x218]"
+            },
+            {
+              "address": "0x4667f1",
+              "bytes": "dc0dc8c54c00",
+              "instruction": "fmul qword ptr [0x4cc5c8]"
+            },
+            {
+              "address": "0x4667f7",
+              "bytes": "d9cc",
+              "instruction": "fxch st(4)"
+            }
+          ]
+        },
+        {
+          "address": "0x46682a",
+          "instructions": [
+            {
+              "address": "0x466811",
+              "bytes": "dcac2490020000",
+              "instruction": "fsubr qword ptr [esp + 0x290]"
+            },
+            {
+              "address": "0x466818",
+              "bytes": "d9cd",
+              "instruction": "fxch st(5)"
+            },
+            {
+              "address": "0x46681a",
+              "bytes": "dcac2488020000",
+              "instruction": "fsubr qword ptr [esp + 0x288]"
+            },
+            {
+              "address": "0x466821",
+              "bytes": "d9cb",
+              "instruction": "fxch st(3)"
+            },
+            {
+              "address": "0x466823",
+              "bytes": "dd9c2478010000",
+              "instruction": "fstp qword ptr [esp + 0x178]"
+            },
+            {
+              "address": "0x46682a",
+              "bytes": "dd842448010000",
+              "instruction": "fld qword ptr [esp + 0x148]"
+            },
+            {
+              "address": "0x466831",
+              "bytes": "d9c9",
+              "instruction": "fxch st(1)"
+            },
+            {
+              "address": "0x466833",
+              "bytes": "dc0d18c64c00",
+              "instruction": "fmul qword ptr [0x4cc618]"
+            },
+            {
+              "address": "0x466839",
+              "bytes": "d9ca",
+              "instruction": "fxch st(2)"
+            },
+            {
+              "address": "0x46683b",
+              "bytes": "dd5c243c",
+              "instruction": "fstp qword ptr [esp + 0x3c]"
+            },
+            {
+              "address": "0x46683f",
+              "bytes": "dd842418020000",
+              "instruction": "fld qword ptr [esp + 0x218]"
+            }
+          ]
+        }
+      ],
+      "note": "NativeFSTQWORDstore andFLDQWORDfloatingreload prove binary64interpretation. Retain separatefour-byteinteger/rawloads forCONCAT and outgoingpackedargumentwords; do not interpretIEEEbits as a numericI64."
+    }
+  ],
+  "scope": "Exacttwo demonstratedlocaltypeviews; no broadvalue-basedreinterpretation or fixturecorrection.",
+  "reviewStatus": "Original floating access evidence remains valid. Current generated local_98/local_138 reads and writes already use eight-byte float views; the earlier hypothesized current-view defect is not demonstrated. The actual binary64 constant construction defect is recorded separately in scene-binary64-constant-construction.json.",
+  "earlierHypothesis": "Retainedframe1, originalpaintphase2: generatedreadLocal(kind=int)->BigIntrawIEEEbits incorrectly feedsfloatingarithmetic, producinghuge13pointpolygons andsixstateworddifferences. Expectednativefixtures remainimmutable."
+}

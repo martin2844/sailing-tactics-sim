@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "allFixtureCasesMatch": true,
+  "cases": 26,
+  "originalRoutines": 1,
+  "mutableBlock": {
+    "address": 5087232,
+    "bytes": 394632
+  },
+  "comparison": "Independent original data and JS integer trig; every mutable byte/hash, all36 semantic global CStrings, RNG, ordered drawing and recorded sound requests. No tolerances.",
+  "scope": "Finite standalone original HUD text branches: three sail shapes, lifted/headed/major wind, pointing, closehauled/footing/pinching and three running messages at two viewport widths. Every branch is observed in the original requests; no tolerance or original expectation edits.",
+  "sourceFiles": [
+    {
+      "path": "src/render/drawing-functions.js",
+      "sha256": "e9ff2d3a23ee56d9b72ed2db53d8698e47660bc625fdbe2b1ed00e1344da4a4e"
+    },
+    {
+      "path": "src/render/typed-c.js",
+      "sha256": "883e5b23e4e72d768a325a192b0662322add605b611f73b12ee40f42bac0911f"
+    },
+    {
+      "path": "src/render/text.js",
+      "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00"
+    },
+    {
+      "path": "src/render/dependencies.js",
+      "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+    },
+    {
+      "path": "src/render/hud.js",
+      "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c"
+    }
+  ],
+  "groups": [
+    {
+      "routine": {
+        "address": 4256320,
+        "name": "hud-branches",
+        "argumentTypes": [
+          "CDC",
+          "I32",
+          "I32",
+          "I32",
+          "I32",
+          "I32"
+        ],
+        "returnType": "void"
+      },
+      "fixture": "tests/fixtures/original-drawing-hud-branches.json",
+      "fixtureSha256": "2ab89d5c071dd939fd6091a3494eee1c5746b3d5ddf9f3776cccf8b9a92d608f",
+      "cases": 26,
+      "orderedDrawingRequests": 5470,
+      "orderedSoundRequests": 0,
+      "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+      "runnerSha256": "842a73177e23843e1d28bcb47856c606b6ddd9065dac711bf8ead0fbfe3e9984",
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true
+    }
+  ]
+}

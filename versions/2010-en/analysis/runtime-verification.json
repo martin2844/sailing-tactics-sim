@@ -1,0 +1,49 @@
+{
+  "source_sha256": "27c77acfb4fc1a69092a3c2cfebc52f666ff7b2ca53ed80661664c87d9d0c177",
+  "output_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "runtime": "Wine 11.0 wow64 on local Linux desktop",
+  "observations": [
+    {
+      "check": "Final English build reopened with translated setup and menu captions",
+      "image": "versions/2010-jp/analysis/english-ready-final.png"
+    },
+    {
+      "check": "Final weather forecast shows full north and east direction strings",
+      "image": "versions/2010-jp/analysis/english-weather-final.png"
+    },
+    {
+      "check": "Final mark-room tutorial retains Rule18/19 and three-length zone",
+      "image": "versions/2010-jp/analysis/english-mark-room-tutorial-final.png"
+    },
+    {
+      "check": "Rules introduction retains 2009-2012 period",
+      "image": "versions/2010-jp/analysis/english-rules-tutorial.png"
+    },
+    {
+      "check": "Simulator operation help renders English prose",
+      "image": "versions/2010-jp/analysis/english-operation-help.png"
+    },
+    {
+      "check": "About retains author and Japanese translator credit",
+      "image": "versions/2010-jp/analysis/english-about.png"
+    },
+    {
+      "check": "E Scow and Flying Scot setup remain available",
+      "images": [
+        "versions/2010-jp/analysis/english-e-scow-setup.png",
+        "versions/2010-jp/analysis/english-flying-scot-setup.png"
+      ]
+    },
+    {
+      "check": "Sailing and full race progression to results screen exercised at speed15",
+      "images": [
+        "versions/2010-jp/analysis/english-race-running.png",
+        "versions/2010-jp/analysis/english-race-results.png"
+      ],
+      "build_sha256": "c9529883f13bd16ce66870dd57e2bd1c5920a8a1c5bda9fca38710f0a547f761",
+      "note": "Before the final four forecast tail-address corrections; no simulation opcodes changed between builds."
+    }
+  ],
+  "limits": "Selected interfaces and race progression were inspected. No exhaustive tutorial, venue, controls, rendering, or whole-game equivalence validation.",
+  "final_state": "English preserved simulator left open at setup; keelboat and simulator speed7 selected."
+}

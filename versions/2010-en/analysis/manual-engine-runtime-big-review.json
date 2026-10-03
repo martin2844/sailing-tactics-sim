@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Independent manual engine/runtime caller-contract and failure-path review; generated renderer excluded. Generated keyboard/menu bodies are cleared, with manual dispatch wrappers and existing native coverage inspected. Browser/play is caller context only; root owns its review/fixes.",
+  "status": "One low-priority signed helper defect fixed and independently verified; no unresolved findings in this scope.",
+  "sourceFiles": {
+    "src/engine/application.js": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5",
+    "src/engine/initialization.js": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39",
+    "src/engine/boat-dynamics.js": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35",
+    "src/engine/integration.js": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f",
+    "src/engine/frame.js": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb",
+    "src/engine/waypoints.js": "e58e55a83ca7cc73513ecb8df7d34607c1a8c0d59f4a0c5d3dd9405a532dc3f4",
+    "src/engine/port.js": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856",
+    "src/engine/mouse.js": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b",
+    "src/engine/dialogs.js": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7",
+    "src/engine/controller-values.js": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0",
+    "src/engine/native-trig.js": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181",
+    "src/render/paint-lifecycle.js": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b",
+    "src/runtime/browser-clock.js": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23",
+    "src/runtime/original-data.js": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
+  },
+  "findingReport": "analysis/scaled-random-native-comparison.json",
+  "checkedClean": [
+    {
+      "area": "PC53 clamped distance guard",
+      "evidence": "Exact027f guard; subtraction/product/sum finite normal-or-zero checks; nonzero-to-zero product rejection; original extended path for wrong CW, subnormal, overflow and nonfinite domains. Existing native636-case integration proof and4344supplementary extended-helper comparisons retained.",
+      "candidateDisproof": "Signed zero disappears in squares; finite binary64 inputs cannot subtract to an underflowed zero without exact equality. Positive normal squared terms cannot cancel into a new subnormal. No demonstrated Math.sqrt discrepancy on supported V8/native scope."
+    },
+    {
+      "area": "Frame/paint dispatch",
+      "evidence": "Read both complete manual functions and native retained/controller tests. Callback arity agrees with edition bindings; original sequential flag reloads preserved. Key clearing occurs after rendering/tick loop.",
+      "candidateDisproof": "Modal continuation tails execute after Promise resolution; pending browser timer does not run a frame while modal. Missing callback/invalid retained-state exceptions are explicit host-contract failures, not fallback behavior."
+    },
+    {
+      "area": "Timer wrap and scheduling",
+      "evidence": "Unsigned32elapsed subtraction and shared per-paint tick source inspected; existing wrap/30/60/80 threshold/bounded-read tests pass.",
+      "candidateDisproof": "beginPaint resets read count only and preserves epoch. Browser physical scheduling is a declared unit-tick host contract, not an assertion that every original OS uptime value is reproduced."
+    },
+    {
+      "area": "Initialization, dynamics and integration",
+      "evidence": "Complete source and existing native harness reviewed; edition addresses, RNG order, I32 wrap/division, F64 spills and observed callback contracts inspected. Same-memory retained400-frame proof and initialized screens cover live names/state.",
+      "candidateDisproof": "Nonboolean original lever and zero-boat retained factor are outside normal constructor/menu states and remain explicit unsupported observed-stack cases. No invented numeric defaults or normal-race exception were found."
+    },
+    {
+      "area": "Controller wrappers and preferences",
+      "evidence": "636-byte exact archive order, async modal tails, immediate radio writes/Cancel retention and mouse default callback order inspected. Original7657controller calls,58constructor/archive profiles and8intact modal lifecycles supply independent existing evidence.",
+      "candidateDisproof": "Repeated archive fields and unused handler returns intentionally reproduce original behavior. Generated body code is not re-reviewed as a new independent manual translation."
+    },
+    {
+      "area": "Data/native authority boundary",
+      "evidence": "Fixed target/data segment metadata, browser fetch hashes, exact native CW/provenance, every mutable byte/hash and immutable prefix/suffix comparison reviewed. CString allocator identities are declared normalized fields with semantic content and raw evidence retained.",
+      "candidateDisproof": "Direct loadOriginalData is a trusted mapping API; production fetchOriginalData hashes all three fixed segments before mapping. Tests use captured inputs/retained outputs rather than booting the game from native after-state."
+    }
+  ],
+  "validation": [
+    {
+      "log": "analysis/scaled-random-source-comparison.log",
+      "passed": 37,
+      "failed": 0,
+      "scope": "New45nativehelpercases plus unchanged application/controller/AI regression."
+    },
+    {
+      "log": "analysis/manual-runtime-review-regression.log",
+      "passed": 8,
+      "failed": 0,
+      "scope": "Existing browserclock,636native integration calls and4344supplementary CW guard checks. No newnativecalls in this secondrun."
+    }
+  ],
+  "limitations": "Review and finite native captures do not prove every possible synthetic input, Windows lifecycle, raster engine or JavaScript implementation. Root/parity final post-fix retained/browser/full-suite replays own final publication status."
+}

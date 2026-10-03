@@ -1,0 +1,1193 @@
+{
+  "source": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routine": {
+    "name": "updatePlayer1Rudder",
+    "address": 4448608,
+    "argumentTypes": [],
+    "returnType": "I32"
+  },
+  "x87ControlWord": "0x027f",
+  "mutableBlock": {
+    "address": 5087232,
+    "size": 394632
+  },
+  "integerInputs": {
+    "mouseGateY": 5386636,
+    "viewportHeight": 5235368,
+    "mouseGateLimit": 5213924,
+    "gateDimension": 5193712,
+    "mouseMinX": 5386464,
+    "mouseMaxX": 5397096,
+    "mouseX": 5209976,
+    "mouseCenterX": 5234824,
+    "viewportWidth": 5236260,
+    "humanBoatCount": 5087552,
+    "rig": 5087564,
+    "boatClass": 5087632,
+    "speedDivisor": 5087608,
+    "rudder": 5234640,
+    "speed1": 5234668,
+    "speed2": 5234672,
+    "tack1": 5386228,
+    "tack2": 5386232,
+    "previousTack1": 5461356,
+    "previousTack2": 5461360,
+    "turnMode1": 5206164,
+    "turnMode2": 5206168,
+    "gybeMode1": 5461684,
+    "gybeMode2": 5461688,
+    "lockMode1": 5204588,
+    "lockMode2": 5204592,
+    "sailingMode1": 5225388,
+    "sailingMode2": 5225392,
+    "autopilot1": 5314084,
+    "autopilot2": 5314088,
+    "angle1": 5237964,
+    "angle2": 5237968,
+    "trueWindDirection1": 5385108,
+    "downwindLimit1": 5221988,
+    "downwindLimit2": 5221992,
+    "heading1": 5461828,
+    "heading2": 5461832,
+    "tackStart1": 5192092,
+    "tackStart2": 5192096,
+    "time": 5213392,
+    "soundDisabled": 5465220,
+    "moduleHandle": 5462472,
+    "firstButtonX": 5236572,
+    "firstButtonY": 5387172,
+    "secondButtonX": 5397152,
+    "secondButtonY": 5195392,
+    "buttonCenterX": 5224984,
+    "buttonCenterY": 5225376,
+    "uiMode": 5206468,
+    "buttonLock": 5465012,
+    "lockedHeadingOffset1": 5193572
+  },
+  "integerOutputs": {
+    "rudder": 5234640,
+    "turnMode1": 5206164,
+    "turnMode2": 5206168,
+    "gybeMode1": 5461684,
+    "gybeMode2": 5461688,
+    "lockMode1": 5204588,
+    "lockMode2": 5204592,
+    "sailingMode1": 5225388,
+    "sailingMode2": 5225392,
+    "autopilot1": 5314084,
+    "autopilot2": 5314088,
+    "heading1": 5461828,
+    "heading2": 5461832,
+    "tackStart1": 5192092,
+    "tackStart2": 5192096,
+    "firstButtonX": 5236572,
+    "firstButtonY": 5387172,
+    "secondButtonX": 5397152,
+    "secondButtonY": 5195392
+  },
+  "doubleInputs": {
+    "smoothHeading": 5237048,
+    "steeringScale": 5396944
+  },
+  "doubleOutputs": {
+    "smoothHeading": 5237048
+  },
+  "inputEvidence": {
+    "scope": "2010 lock-specific offset4f3f64, both tacks and sailing-mode transitions; original2010 captures are the only expected-output authority."
+  },
+  "cases": [
+    {
+      "label": "lock--1--180-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--180-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--180-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--15-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--15-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--15-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--1-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--1-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1--1-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-0-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 0,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-0-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 0,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-0-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 0,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-1-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-1-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-1-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-15-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-15-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-15-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-180-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-180-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock--1-180-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": -1,
+        "previousTack1": -1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--180-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--180-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--180-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--15-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--15-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--15-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--1-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--1-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1--1-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": -1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-0-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 0,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-0-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 0,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-0-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 0,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-1-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-1-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-1-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 1,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-15-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-15-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-15-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 15,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-180-0",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 0,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-180-1",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 1,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    },
+    {
+      "label": "lock-1-180-2",
+      "seed": 2010,
+      "inputs": {
+        "humanBoatCount": 2,
+        "speedDivisor": 10,
+        "rig": 1,
+        "tack1": 1,
+        "previousTack1": 1,
+        "lockMode1": 1,
+        "gybeMode1": 0,
+        "turnMode1": 0,
+        "sailingMode1": 2,
+        "boatClass": 5,
+        "speed1": 45,
+        "angle1": 160,
+        "downwindLimit1": 40,
+        "trueWindDirection1": 315,
+        "lockedHeadingOffset1": 180,
+        "soundDisabled": 0
+      },
+      "doubleInputs": {
+        "smoothHeading": 90.25,
+        "steeringScale": 2
+      }
+    }
+  ]
+}

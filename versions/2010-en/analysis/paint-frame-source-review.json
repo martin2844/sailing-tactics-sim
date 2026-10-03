@@ -1,0 +1,335 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "method": "Independent read-only source/decompiled-C/original objdump instruction review; no executable, renderer or frame edits. This is control/arithmetic review, not a full Windows paint or retained-frame behavioral proof.",
+  "reviewedModules": [
+    {
+      "path": "src/render/paint-lifecycle.js",
+      "sha256": "83819bcb3ee534b3553d19def576d7094b21a3f263d9f9b55e1b4df1ec13d6ff"
+    },
+    {
+      "path": "src/engine/frame.js",
+      "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+    },
+    {
+      "path": "decompiled/functions/00404510.c",
+      "sha256": "e22529806dee63c600d814b2843caebae35e454155894559404f66deeb445b23"
+    },
+    {
+      "path": "decompiled/functions/004049f0.c",
+      "sha256": "1ddcfcb7dff6bedd9bdf3e24bc485c4d1cec64604c1708387cd444eb5fc024f4"
+    }
+  ],
+  "concreteBehavioralMismatches": [],
+  "checks": [
+    {
+      "area": "Device caps and clipping",
+      "exact": true,
+      "originalRange": [
+        "0x40454e",
+        "0x4045e8"
+      ],
+      "detail": "BPP12, width8 and height10 queried in original order. Width upper-clips1280; height upper-clips768. Signed width<=800 chooses wrapped height-30; otherwise signed trunc(height/17) then wrapped subtraction. Source preserves signed I32 boundary behavior."
+    },
+    {
+      "area": "Calibration floats",
+      "exact": true,
+      "originalRange": [
+        "0x4045e8",
+        "0x40461f"
+      ],
+      "detail": "FILD signedI32 clippedheight, multiply exact binary64 constant4cc3d8, FSTP binary64 at50f6e0. Then signedI32 original/clippedwidth4f4084 times4cc3e0, FSTP binary64 at5259d0. Float80 reproduces this arithmetic under inherited CW027f."
+    },
+    {
+      "area": "Paint counter",
+      "exact": true,
+      "originalRange": [
+        "0x404666",
+        "0x404680"
+      ],
+      "detail": "Original INC wraps signed32 before comparison>60/reset1; source add32 implements the same result including INT_MAX."
+    },
+    {
+      "area": "Sequential paint dispatch",
+      "exact": true,
+      "detail": "Independent state0 then state1 branches remain separate, and state/results/forecast/view/tutorial globals reload after real child calls. Results>0 branch can precede later dispatch only if its child makes the reloaded results state0. Mode3/4/5 chart calls and final nonnegative nonzero tutorial dispatch preserve the original branch order."
+    },
+    {
+      "area": "Frame numerical prefix",
+      "exact": true,
+      "detail": "Restore flag2 beep/write occurs before independent flag1 restore. Tick/cursor capture then wind, five wind-patch expiry checks, dynamically bounded boat-AI loop, player1 steering, conditional player2, boat dynamics, optional integration, two independently reloaded snapshot conditions, and sequential stage1..6 checks are preserved."
+    },
+    {
+      "area": "Snapshot stages",
+      "exact": true,
+      "detail": "Gate-dependent distance threshold60/110 is cached once like original local10. Every stage reloads its current stage and timer globals after distance/save children. Timer+5 uses signed32 wrap, then signed comparison. Stage4..6 executes only layouts2/4/5/6/7. Gate state and final reset/retention cases match the original branches."
+    },
+    {
+      "area": "Composition order",
+      "exact": true,
+      "detail": "Three top-level composition branches are independent and reload human/view modes after children. One-human split:scene→optionalpause→chart/advice→chart→HUD. One-human view3:scene→optionalpause→chart→optionalpause→HUD. Two-human:scene2→optionalpause→scene1→optionalpause→chart2→compact2→chart1→compact1. Local inset/left/right remain cached across child calls where original registers do; later dimensions reload."
+    },
+    {
+      "area": "Signed viewport arithmetic",
+      "exact": true,
+      "detail": "Negative divisions truncate towardzero; doubled/fivefold widths use wrappedI32 multiplication before /3 or /6. Source imul32/idiv32/sub32 corresponds to original LEA/IMUL magic-division sequences, not floating fractions."
+    },
+    {
+      "area": "Unsigned timing and terminal stores",
+      "exact": true,
+      "originalRange": [
+        "0x4052bd",
+        "0x405315"
+      ],
+      "detail": "Level>=7 skips endtick;6waits30ms,5waits60ms, lower waits80ms. Unsigned32 tick delta and JAE/JB comparisons match u32 subtraction. Final4f7124/4f7128 I32zero stores occur after all composition and waiting."
+    },
+    {
+      "area": "Blit and invalidation",
+      "exact": true,
+      "detail": "Bitmap height/clientheight stays cached for BitBlt; current width reloads. Afterwards bitmap reselection/deletion precedes current-height rectangle construction and independent two invalidation conditions. Actual Windows object allocation/SEH destruction lifetime belongs to the supplied host contract."
+    }
+  ],
+  "nonBehavioralStoreOrderObservation": {
+    "source": "calibratePaintScale writes50f6e0 then5259d0 then4fe2a8",
+    "original": "MOV4fe2a8 at404601 precedes FSTP50f6e0 at404607 and FSTP5259d0 at404619",
+    "effect": "For the reviewed finite single-thread observational host domain, no child/API callback or relevant intervening read occurs, so final state and drawing requests are unchanged. This is an exact store-order difference, not a demonstrated behavior failure.",
+    "originalInstructions": [
+      {
+        "address": "0x4045e8",
+        "bytes": "db05f03f4f00",
+        "instruction": "fild   DWORD PTR ds:0x4f3ff0"
+      },
+      {
+        "address": "0x4045ee",
+        "bytes": "a12c365200",
+        "instruction": "mov    eax,ds:0x52362c"
+      },
+      {
+        "address": "0x4045f3",
+        "bytes": "57",
+        "instruction": "push   edi"
+      },
+      {
+        "address": "0x4045f4",
+        "bytes": "8be9",
+        "instruction": "mov    ebp,ecx"
+      },
+      {
+        "address": "0x4045f6",
+        "bytes": "50",
+        "instruction": "push   eax"
+      },
+      {
+        "address": "0x4045f7",
+        "bytes": "dc0dd8c34c00",
+        "instruction": "fmul   QWORD PTR ds:0x4cc3d8"
+      },
+      {
+        "address": "0x4045fd",
+        "bytes": "6a01",
+        "instruction": "push   0x1"
+      },
+      {
+        "address": "0x4045ff",
+        "bytes": "55",
+        "instruction": "push   ebp"
+      },
+      {
+        "address": "0x404600",
+        "bytes": "56",
+        "instruction": "push   esi"
+      },
+      {
+        "address": "0x404601",
+        "bytes": "890da8e24f00",
+        "instruction": "mov    DWORD PTR ds:0x4fe2a8,ecx"
+      },
+      {
+        "address": "0x404607",
+        "bytes": "dd1de0f65000",
+        "instruction": "fstp   QWORD PTR ds:0x50f6e0"
+      },
+      {
+        "address": "0x40460d",
+        "bytes": "db0584404f00",
+        "instruction": "fild   DWORD PTR ds:0x4f4084"
+      },
+      {
+        "address": "0x404613",
+        "bytes": "dc0de0c34c00",
+        "instruction": "fmul   QWORD PTR ds:0x4cc3e0"
+      },
+      {
+        "address": "0x404619",
+        "bytes": "dd1dd0595200",
+        "instruction": "fstp   QWORD PTR ds:0x5259d0"
+      }
+    ],
+    "resolved": true,
+    "resolution": "Owner corrected calibration write order to original client-height I32 store followed by the two F64 stores. Original evidence is retained above; no behavior difference was demonstrated.",
+    "resolvedModuleSha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+  },
+  "limits": [
+    "Full Windows/MFC allocation, exception and surface raster lifetime is explicitly owned-host scope. No native full-paint proof is claimed by this read-only review.",
+    "Per-boat frame counters are JSNumber increments rather than explicit signed32 wraps. Supported original UI fleet counts max30 make them equivalent; original corrupt INT_MAX fleet states would access invalid boat storage long before the counter wraps.",
+    "The source timing host includes an explicit1,000,000-read stalled-clock guard; original native loop has no such bound. Normal browser paintClock and bounded native observation ticks do not reach it.",
+    "GetCursorPos failure/uninitialized native stack states and arbitrary reentrant child callbacks are outside this finite explicit host contract.",
+    "The decisive broad behavioral check remains exact retained initialized original frame replay after renderer source regeneration."
+  ],
+  "originalTerminalInstructions": [
+    {
+      "address": "0x4052bd",
+      "bytes": "a174a14d00",
+      "instruction": "mov    eax,ds:0x4da174"
+    },
+    {
+      "address": "0x4052c2",
+      "bytes": "33f6",
+      "instruction": "xor    esi,esi"
+    },
+    {
+      "address": "0x4052c4",
+      "bytes": "83f807",
+      "instruction": "cmp    eax,0x7"
+    },
+    {
+      "address": "0x4052c7",
+      "bytes": "7d38",
+      "instruction": "jge    0x405301"
+    },
+    {
+      "address": "0x4052c9",
+      "bytes": "83f806",
+      "instruction": "cmp    eax,0x6"
+    },
+    {
+      "address": "0x4052cc",
+      "bytes": "7505",
+      "instruction": "jne    0x4052d3"
+    },
+    {
+      "address": "0x4052ce",
+      "bytes": "be1e000000",
+      "instruction": "mov    esi,0x1e"
+    },
+    {
+      "address": "0x4052d3",
+      "bytes": "83f805",
+      "instruction": "cmp    eax,0x5"
+    },
+    {
+      "address": "0x4052d6",
+      "bytes": "7505",
+      "instruction": "jne    0x4052dd"
+    },
+    {
+      "address": "0x4052d8",
+      "bytes": "be3c000000",
+      "instruction": "mov    esi,0x3c"
+    },
+    {
+      "address": "0x4052dd",
+      "bytes": "83f804",
+      "instruction": "cmp    eax,0x4"
+    },
+    {
+      "address": "0x4052e0",
+      "bytes": "7f05",
+      "instruction": "jg     0x4052e7"
+    },
+    {
+      "address": "0x4052e2",
+      "bytes": "be50000000",
+      "instruction": "mov    esi,0x50"
+    },
+    {
+      "address": "0x4052e7",
+      "bytes": "8b3d28b95300",
+      "instruction": "mov    edi,DWORD PTR ds:0x53b928"
+    },
+    {
+      "address": "0x4052ed",
+      "bytes": "ffd7",
+      "instruction": "call   edi"
+    },
+    {
+      "address": "0x4052ef",
+      "bytes": "8b5c2414",
+      "instruction": "mov    ebx,DWORD PTR [esp+0x14]"
+    },
+    {
+      "address": "0x4052f3",
+      "bytes": "2bc3",
+      "instruction": "sub    eax,ebx"
+    },
+    {
+      "address": "0x4052f5",
+      "bytes": "3bc6",
+      "instruction": "cmp    eax,esi"
+    },
+    {
+      "address": "0x4052f7",
+      "bytes": "7308",
+      "instruction": "jae    0x405301"
+    },
+    {
+      "address": "0x4052f9",
+      "bytes": "ffd7",
+      "instruction": "call   edi"
+    },
+    {
+      "address": "0x4052fb",
+      "bytes": "2bc3",
+      "instruction": "sub    eax,ebx"
+    },
+    {
+      "address": "0x4052fd",
+      "bytes": "3bc6",
+      "instruction": "cmp    eax,esi"
+    },
+    {
+      "address": "0x4052ff",
+      "bytes": "72f8",
+      "instruction": "jb     0x4052f9"
+    },
+    {
+      "address": "0x405301",
+      "bytes": "5f",
+      "instruction": "pop    edi"
+    },
+    {
+      "address": "0x405302",
+      "bytes": "892d24714f00",
+      "instruction": "mov    DWORD PTR ds:0x4f7124,ebp"
+    },
+    {
+      "address": "0x405308",
+      "bytes": "892d28714f00",
+      "instruction": "mov    DWORD PTR ds:0x4f7128,ebp"
+    },
+    {
+      "address": "0x40530e",
+      "bytes": "5e",
+      "instruction": "pop    esi"
+    },
+    {
+      "address": "0x40530f",
+      "bytes": "5d",
+      "instruction": "pop    ebp"
+    },
+    {
+      "address": "0x405310",
+      "bytes": "5b",
+      "instruction": "pop    ebx"
+    },
+    {
+      "address": "0x405311",
+      "bytes": "83c410",
+      "instruction": "add    esp,0x10"
+    },
+    {
+      "address": "0x405314",
+      "bytes": "c3",
+      "instruction": "ret"
+    }
+  ]
+}

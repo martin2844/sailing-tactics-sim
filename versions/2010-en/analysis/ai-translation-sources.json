@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "tool": "tools/translate_ai.py",
+  "parser": "pycparser2.23",
+  "routines": [
+    {
+      "address": 4411248,
+      "name": "originalUpdateBoatWindAndAI",
+      "argumentCount": 1,
+      "source": "decompiled/functions/00434f70.c",
+      "sha256": "8f1a2dc87c995e1f8750e88aa23642e3765813563fc0cb84d638a0f7cce0ba53",
+      "dependencies": [
+        4308000,
+        4357856,
+        4387632,
+        4415376,
+        4415456,
+        4418464,
+        4420896,
+        4420976,
+        4422976,
+        4423264,
+        4428032,
+        4431488,
+        4451360,
+        4603984,
+        4707824
+      ]
+    },
+    {
+      "address": 4415456,
+      "name": "originalChooseDownwindHeading",
+      "argumentCount": 3,
+      "source": "decompiled/functions/00435fe0.c",
+      "sha256": "74b7fbb80dcf92f25b8a8cda7889b08822a64aa85aebdf0b6a064e93bc203f17",
+      "dependencies": [
+        4308000,
+        4416512
+      ]
+    },
+    {
+      "address": 4416512,
+      "name": "originalScoreDownwindTurn",
+      "argumentCount": 3,
+      "source": "decompiled/functions/00436400.c",
+      "sha256": "b81ce680d8f9eb1920303141d5961beacb6a4c22ad9c18268c0e2b31c80b9a63",
+      "dependencies": [
+        4308000,
+        4317184,
+        4431488,
+        4603984
+      ]
+    },
+    {
+      "address": 4418464,
+      "name": "originalSampleSpatialWind",
+      "argumentCount": 3,
+      "source": "decompiled/functions/00436ba0.c",
+      "sha256": "c1674be65c1bd675b4daac2e79aa2183d555c84dd186b0c6e2ab89052c284a06",
+      "dependencies": [
+        4308000,
+        4357856,
+        4387632,
+        4395520,
+        4754320,
+        4754800
+      ]
+    },
+    {
+      "address": 4423264,
+      "name": "originalUpdateUpwindTactics",
+      "argumentCount": 2,
+      "source": "decompiled/functions/00437e60.c",
+      "sha256": "354832b66cb048a20b7da083b048537bddd9cfedb5e94d08d39eaaf38eeef007",
+      "dependencies": [
+        4308000,
+        4317184,
+        4318112,
+        4357856,
+        4603984
+      ]
+    },
+    {
+      "address": 4428032,
+      "name": "originalUpdateCollisionAvoidance",
+      "argumentCount": 1,
+      "source": "decompiled/functions/00439100.c",
+      "sha256": "27176556377af9400d953a720920d927dc04d6a15efd02c066d1720ea62c5797",
+      "dependencies": [
+        4308000,
+        4428272,
+        4430384
+      ]
+    },
+    {
+      "address": 4428272,
+      "name": "originalAvoidAiCollision",
+      "argumentCount": 4,
+      "source": "decompiled/functions/004391f0.c",
+      "sha256": "736a04d92115f63f0b8d75a97a475251dd79b0e685cb908f11a9efdf58a12b28",
+      "dependencies": [
+        4308000,
+        4431488,
+        4431552,
+        4603984
+      ]
+    },
+    {
+      "address": 4430384,
+      "name": "originalWarnHumanRightOfWay",
+      "argumentCount": 3,
+      "source": "decompiled/functions/00439a30.c",
+      "sha256": "f56c75ada67de9bb5122333b5c4b4c35240d67b7386e505ff238e49ed567585a",
+      "dependencies": [
+        4431344,
+        4431488,
+        4431552,
+        4603984
+      ]
+    },
+    {
+      "address": 4431344,
+      "name": "originalRequestRightOfWaySound",
+      "argumentCount": 1,
+      "source": "decompiled/functions/00439df0.c",
+      "sha256": "003d30d222202e5fd136cbc031258ae663880a1d98c1ffe33268ea87e75f69c3",
+      "dependencies": []
+    },
+    {
+      "address": 4754800,
+      "name": "originalSampleVenueWind",
+      "argumentCount": 3,
+      "source": "decompiled/functions/00488d70.c",
+      "sha256": "b83d1ce7b7f7a33ed8ceefd716f0c2dc26750fcccd18e515cff1e8f70e85e795",
+      "dependencies": [
+        4308000,
+        4357856,
+        4395520,
+        4707824,
+        4710128,
+        4710304,
+        4754320
+      ]
+    }
+  ]
+}

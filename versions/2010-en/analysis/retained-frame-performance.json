@@ -1,0 +1,258 @@
+{
+  "totalMs": 17982.49,
+  "selfHotspots": [
+    {
+      "function": "bitLength",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 28,
+      "selfMs": 4699.07
+    },
+    {
+      "function": "fromNumber",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 119,
+      "selfMs": 4675.53
+    },
+    {
+      "function": "toNumber",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 167,
+      "selfMs": 1893.7
+    },
+    {
+      "function": "roundRight",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 30,
+      "selfMs": 726.29
+    },
+    {
+      "function": "Float80",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 105,
+      "selfMs": 514.52
+    },
+    {
+      "function": "readLocal",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 58,
+      "selfMs": 513.22
+    },
+    {
+      "function": "checkLocal",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 53,
+      "selfMs": 446.88
+    },
+    {
+      "function": "json",
+      "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+      "line": 13,
+      "selfMs": 417.38
+    },
+    {
+      "function": "createLocalFrame",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 42,
+      "selfMs": 397.16
+    },
+    {
+      "function": "bitsAsF64",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 265,
+      "selfMs": 388.63
+    },
+    {
+      "function": "add",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 185,
+      "selfMs": 302.01
+    },
+    {
+      "function": "writeLocal",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 73,
+      "selfMs": 281.76
+    },
+    {
+      "function": "originalDrawing004662d0",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 13607,
+      "selfMs": 261.62
+    },
+    {
+      "function": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "selfMs": 246.67
+    },
+    {
+      "function": "originalDrawing00466230",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 14061,
+      "selfMs": 198.04
+    },
+    {
+      "function": "callDrawingDependency",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/dependencies.js",
+      "line": 22,
+      "selfMs": 179.09
+    },
+    {
+      "function": "cF64",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 31,
+      "selfMs": 149.68
+    },
+    {
+      "function": "subtract",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 197,
+      "selfMs": 112.95
+    },
+    {
+      "function": "integerSqrt",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 93,
+      "selfMs": 109.03
+    },
+    {
+      "function": "write",
+      "url": "node:string_decoder",
+      "line": 76,
+      "selfMs": 90.75
+    },
+    {
+      "function": "sqrt",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 217,
+      "selfMs": 87.0
+    },
+    {
+      "function": "readLocalArgument",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 67,
+      "selfMs": 76.92
+    },
+    {
+      "function": "cConcat",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 261,
+      "selfMs": 76.46
+    },
+    {
+      "function": "cAdd",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 89,
+      "selfMs": 75.89
+    },
+    {
+      "function": "arithmeticResult",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 62,
+      "selfMs": 71.77
+    }
+  ],
+  "scope": "Read-onlyV8sampleprofile ofexactfirstretainedcoastalframe diagnostic, includesstartup/fixtureparse. No source/fixture changes.",
+  "inclusiveHotspots": [
+    {
+      "function": "(root)",
+      "inclusiveMs": 17982.49
+    },
+    {
+      "function": "",
+      "inclusiveMs": 17176.6
+    },
+    {
+      "function": "check",
+      "inclusiveMs": 17013.58
+    },
+    {
+      "function": "withX87ControlWord",
+      "inclusiveMs": 17000.48
+    },
+    {
+      "function": "drawSimulationFrame",
+      "inclusiveMs": 16949.89
+    },
+    {
+      "function": "composeRaceFrame",
+      "inclusiveMs": 16913.52
+    },
+    {
+      "function": "callDrawingDependency",
+      "inclusiveMs": 16854.03
+    },
+    {
+      "function": "scene",
+      "inclusiveMs": 16759.86
+    },
+    {
+      "function": "drawScene",
+      "inclusiveMs": 16759.79
+    },
+    {
+      "function": "originalDrawScene",
+      "inclusiveMs": 16711.3
+    },
+    {
+      "function": "originalDrawing00466330",
+      "inclusiveMs": 16466.18
+    },
+    {
+      "function": "originalDrawing00465ff0",
+      "inclusiveMs": 16302.52
+    },
+    {
+      "function": "originalDrawing00466230",
+      "inclusiveMs": 16189.2
+    },
+    {
+      "function": "originalDrawing004662d0",
+      "inclusiveMs": 13049.21
+    },
+    {
+      "function": "fromNumber",
+      "inclusiveMs": 6956.25
+    },
+    {
+      "function": "readLocal",
+      "inclusiveMs": 4807.03
+    },
+    {
+      "function": "bitLength",
+      "inclusiveMs": 4699.07
+    },
+    {
+      "function": "Float80",
+      "inclusiveMs": 3838.59
+    },
+    {
+      "function": "roundedParts",
+      "inclusiveMs": 3589.52
+    },
+    {
+      "function": "cF64",
+      "inclusiveMs": 3456.21
+    },
+    {
+      "function": "toNumber",
+      "inclusiveMs": 3058.45
+    },
+    {
+      "function": "normalized",
+      "inclusiveMs": 2499.0
+    },
+    {
+      "function": "cSub",
+      "inclusiveMs": 1936.65
+    },
+    {
+      "function": "subtract",
+      "inclusiveMs": 1882.83
+    },
+    {
+      "function": "arithmeticResult",
+      "inclusiveMs": 1848.61
+    }
+  ]
+}

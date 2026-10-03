@@ -1,0 +1,86 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixtureSha256": "99dba6c1c30e9cd7da16bd98ba70c2d45a8bb277c6ba3d06f04f45f641ac873b",
+  "sourceModuleSha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281",
+  "originalTextAndFileUnchanged": true,
+  "x87ControlWord": "0x027f",
+  "routine": {
+    "name": "initializeSailGeometry",
+    "address": 4308912,
+    "argumentTypes": [
+      "F64",
+      "I32",
+      "I32",
+      "I32",
+      "I32",
+      "F64"
+    ],
+    "returnType": "void"
+  },
+  "comparison": "Every normalized mutable byte, exact SHA256, immutable image prefix/suffix, original RNG and all captured integer/double fields. No tolerance or old expected outputs.",
+  "caseCount": 2971,
+  "groups": [
+    {
+      "group": "mapped2002-finite-input-domain",
+      "cases": 960,
+      "exactCases": 960,
+      "failedCases": 0
+    },
+    {
+      "group": "all27-original-selector-subtypes",
+      "cases": 216,
+      "exactCases": 216,
+      "failedCases": 0
+    },
+    {
+      "group": "trim-jib-and-human-versus-ai",
+      "cases": 180,
+      "exactCases": 180,
+      "failedCases": 0
+    },
+    {
+      "group": "jib-angle-spinnaker-and-override-boundaries",
+      "cases": 540,
+      "exactCases": 540,
+      "failedCases": 0
+    },
+    {
+      "group": "heel-and-depower-cutoffs",
+      "cases": 270,
+      "exactCases": 270,
+      "failedCases": 0
+    },
+    {
+      "group": "curvature-and-heading-thresholds",
+      "cases": 441,
+      "exactCases": 441,
+      "failedCases": 0
+    },
+    {
+      "group": "board-drift-truncation-and-signed-zero",
+      "cases": 48,
+      "exactCases": 48,
+      "failedCases": 0
+    },
+    {
+      "group": "finite-height-width-binary64-boundaries",
+      "cases": 150,
+      "exactCases": 150,
+      "failedCases": 0
+    },
+    {
+      "group": "new-classes-full-index-strides",
+      "cases": 36,
+      "exactCases": 36,
+      "failedCases": 0
+    },
+    {
+      "group": "raw-subtype-exact-one-and-positive-tests",
+      "cases": 130,
+      "exactCases": 130,
+      "failedCases": 0
+    }
+  ],
+  "failures": [],
+  "exact": true
+}

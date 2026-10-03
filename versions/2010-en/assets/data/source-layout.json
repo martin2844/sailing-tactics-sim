@@ -1,0 +1,2008 @@
+{
+  "schemaVersion": 1,
+  "source": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fileBytes": 1899520,
+  "machine": 332,
+  "imageBase": 4194304,
+  "imageSize": 2211840,
+  "entryPoint": 4831824,
+  "directories": [
+    {
+      "name": "export",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "import",
+      "rva": 1290240,
+      "size": 200
+    },
+    {
+      "name": "resource",
+      "rva": 1744896,
+      "size": 458088
+    },
+    {
+      "name": "exception",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "certificate",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "base_relocation",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "debug",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "architecture",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "global_pointer",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "tls",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "load_config",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "bound_import",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "iat",
+      "rva": 1291908,
+      "size": 1468
+    },
+    {
+      "name": "delay_import",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "clr",
+      "rva": 0,
+      "size": 0
+    },
+    {
+      "name": "reserved",
+      "rva": 0,
+      "size": 0
+    }
+  ],
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_address": 4096,
+      "virtual_size": 811798,
+      "raw_size": 812032,
+      "raw_offset": 1024,
+      "address": 4198400,
+      "characteristics": 1610612768,
+      "executable": true,
+      "readable": true,
+      "writable": false,
+      "raw_sha256": "48c4b029af3d1fd4240ba6e619f6451d769eacec64f8fbf0fce05cf68abc6b6a"
+    },
+    {
+      "name": ".rdata",
+      "virtual_address": 819200,
+      "virtual_size": 72704,
+      "raw_size": 72704,
+      "raw_offset": 813056,
+      "address": 5013504,
+      "characteristics": 1073741888,
+      "executable": false,
+      "readable": true,
+      "writable": false,
+      "raw_sha256": "b7bb7a445e8d1342cd99094fd4d914b964caeb424a84d3b651b29336b3c39d76"
+    },
+    {
+      "name": ".data",
+      "virtual_address": 892928,
+      "virtual_size": 394632,
+      "raw_size": 95744,
+      "raw_offset": 885760,
+      "address": 5087232,
+      "characteristics": 3221225536,
+      "executable": false,
+      "readable": true,
+      "writable": true,
+      "raw_sha256": "14aa6daaaf99378a7fb4d46c09523df293999146a355338605fa783b31b9af4d"
+    },
+    {
+      "name": ".idata",
+      "virtual_address": 1290240,
+      "virtual_size": 9180,
+      "raw_size": 9216,
+      "raw_offset": 981504,
+      "address": 5484544,
+      "characteristics": 3221225536,
+      "executable": false,
+      "readable": true,
+      "writable": true,
+      "raw_sha256": "4df828f45ab1fc7f256c72bea810fb2941b9c1f57b4160099739b63bc68ef692"
+    },
+    {
+      "name": ".rsrc",
+      "virtual_address": 1302528,
+      "virtual_size": 442188,
+      "raw_size": 442368,
+      "raw_offset": 990720,
+      "address": 5496832,
+      "characteristics": 1073741888,
+      "executable": false,
+      "readable": true,
+      "writable": false,
+      "raw_sha256": "1fd06f8a6793d97c465698e3e3680b3da2bef228b580bc37615fcd25c927a1f0"
+    },
+    {
+      "name": ".english",
+      "virtual_address": 1744896,
+      "virtual_size": 466336,
+      "raw_size": 466432,
+      "raw_offset": 1433088,
+      "address": 5939200,
+      "characteristics": 1073741888,
+      "executable": false,
+      "readable": true,
+      "writable": false,
+      "raw_sha256": "19df0a1a84d908cd1a78765a8380480be3487c4b3a987da02478c80e6a452216"
+    }
+  ],
+  "imports": [
+    {
+      "library": "KERNEL32.dll",
+      "bindings": [
+        {
+          "address": 5486500,
+          "name": "FreeEnvironmentStringsW",
+          "hint": 151
+        },
+        {
+          "address": 5486504,
+          "name": "GetEnvironmentStrings",
+          "hint": 225
+        },
+        {
+          "address": 5486508,
+          "name": "GetEnvironmentStringsW",
+          "hint": 227
+        },
+        {
+          "address": 5486512,
+          "name": "SetHandleCount",
+          "hint": 539
+        },
+        {
+          "address": 5486516,
+          "name": "GetStdHandle",
+          "hint": 298
+        },
+        {
+          "address": 5486520,
+          "name": "GetFileType",
+          "hint": 239
+        },
+        {
+          "address": 5486524,
+          "name": "HeapDestroy",
+          "hint": 364
+        },
+        {
+          "address": 5486528,
+          "name": "HeapCreate",
+          "hint": 362
+        },
+        {
+          "address": 5486532,
+          "name": "VirtualFree",
+          "hint": 606
+        },
+        {
+          "address": 5486536,
+          "name": "SetUnhandledExceptionFilter",
+          "hint": 566
+        },
+        {
+          "address": 5486540,
+          "name": "VirtualAlloc",
+          "hint": 603
+        },
+        {
+          "address": 5486544,
+          "name": "LCMapStringA",
+          "hint": 397
+        },
+        {
+          "address": 5486548,
+          "name": "LCMapStringW",
+          "hint": 398
+        },
+        {
+          "address": 5486552,
+          "name": "GetStringTypeA",
+          "hint": 299
+        },
+        {
+          "address": 5486556,
+          "name": "GetStringTypeW",
+          "hint": 302
+        },
+        {
+          "address": 5486560,
+          "name": "FreeEnvironmentStringsA",
+          "hint": 150
+        },
+        {
+          "address": 5486564,
+          "name": "IsBadReadPtr",
+          "hint": 387
+        },
+        {
+          "address": 5486568,
+          "name": "IsBadWritePtr",
+          "hint": 390
+        },
+        {
+          "address": 5486572,
+          "name": "IsBadCodePtr",
+          "hint": 384
+        },
+        {
+          "address": 5486576,
+          "name": "SetStdHandle",
+          "hint": 553
+        },
+        {
+          "address": 5486580,
+          "name": "GetLocaleInfoA",
+          "hint": 246
+        },
+        {
+          "address": 5486584,
+          "name": "GetLocaleInfoW",
+          "hint": 247
+        },
+        {
+          "address": 5486588,
+          "name": "CompareStringA",
+          "hint": 30
+        },
+        {
+          "address": 5486592,
+          "name": "CompareStringW",
+          "hint": 31
+        },
+        {
+          "address": 5486596,
+          "name": "SetEnvironmentVariableA",
+          "hint": 529
+        },
+        {
+          "address": 5486600,
+          "name": "GetProfileStringA",
+          "hint": 291
+        },
+        {
+          "address": 5486604,
+          "name": "UnhandledExceptionFilter",
+          "hint": 592
+        },
+        {
+          "address": 5486608,
+          "name": "GetOEMCP",
+          "hint": 265
+        },
+        {
+          "address": 5486612,
+          "name": "GetACP",
+          "hint": 157
+        },
+        {
+          "address": 5486616,
+          "name": "GetCPInfo",
+          "hint": 163
+        },
+        {
+          "address": 5486620,
+          "name": "HeapSize",
+          "hint": 370
+        },
+        {
+          "address": 5486624,
+          "name": "HeapReAlloc",
+          "hint": 369
+        },
+        {
+          "address": 5486628,
+          "name": "TerminateProcess",
+          "hint": 582
+        },
+        {
+          "address": 5486632,
+          "name": "ExitProcess",
+          "hint": 107
+        },
+        {
+          "address": 5486636,
+          "name": "HeapFree",
+          "hint": 366
+        },
+        {
+          "address": 5486640,
+          "name": "HeapAlloc",
+          "hint": 360
+        },
+        {
+          "address": 5486644,
+          "name": "RaiseException",
+          "hint": 457
+        },
+        {
+          "address": 5486648,
+          "name": "GetCommandLineA",
+          "hint": 170
+        },
+        {
+          "address": 5486652,
+          "name": "GetStartupInfoA",
+          "hint": 296
+        },
+        {
+          "address": 5486656,
+          "name": "GetModuleHandleA",
+          "hint": 254
+        },
+        {
+          "address": 5486660,
+          "name": "GetLocalTime",
+          "hint": 245
+        },
+        {
+          "address": 5486664,
+          "name": "GetSystemTime",
+          "hint": 309
+        },
+        {
+          "address": 5486668,
+          "name": "GetTimeZoneInformation",
+          "hint": 328
+        },
+        {
+          "address": 5486672,
+          "name": "RtlUnwind",
+          "hint": 485
+        },
+        {
+          "address": 5486676,
+          "name": "FileTimeToLocalFileTime",
+          "hint": 119
+        },
+        {
+          "address": 5486680,
+          "name": "FileTimeToSystemTime",
+          "hint": 120
+        },
+        {
+          "address": 5486684,
+          "name": "SetErrorMode",
+          "hint": 531
+        },
+        {
+          "address": 5486688,
+          "name": "SystemTimeToFileTime",
+          "hint": 580
+        },
+        {
+          "address": 5486692,
+          "name": "LocalFileTimeToFileTime",
+          "hint": 408
+        },
+        {
+          "address": 5486696,
+          "name": "GetFileSize",
+          "hint": 237
+        },
+        {
+          "address": 5486700,
+          "name": "GetCurrentDirectoryA",
+          "hint": 209
+        },
+        {
+          "address": 5486704,
+          "name": "GetVersionExA",
+          "hint": 333
+        },
+        {
+          "address": 5486708,
+          "name": "GetProcessVersion",
+          "hint": 285
+        },
+        {
+          "address": 5486712,
+          "name": "TlsGetValue",
+          "hint": 586
+        },
+        {
+          "address": 5486716,
+          "name": "LocalReAlloc",
+          "hint": 413
+        },
+        {
+          "address": 5486720,
+          "name": "TlsSetValue",
+          "hint": 587
+        },
+        {
+          "address": 5486724,
+          "name": "EnterCriticalSection",
+          "hint": 88
+        },
+        {
+          "address": 5486728,
+          "name": "GlobalReAlloc",
+          "hint": 354
+        },
+        {
+          "address": 5486732,
+          "name": "LeaveCriticalSection",
+          "hint": 399
+        },
+        {
+          "address": 5486736,
+          "name": "GlobalHandle",
+          "hint": 351
+        },
+        {
+          "address": 5486740,
+          "name": "DeleteCriticalSection",
+          "hint": 76
+        },
+        {
+          "address": 5486744,
+          "name": "TlsAlloc",
+          "hint": 584
+        },
+        {
+          "address": 5486748,
+          "name": "InitializeCriticalSection",
+          "hint": 377
+        },
+        {
+          "address": 5486752,
+          "name": "LocalFree",
+          "hint": 410
+        },
+        {
+          "address": 5486756,
+          "name": "LocalAlloc",
+          "hint": 406
+        },
+        {
+          "address": 5486760,
+          "name": "SizeofResource",
+          "hint": 574
+        },
+        {
+          "address": 5486764,
+          "name": "SetLastError",
+          "hint": 542
+        },
+        {
+          "address": 5486768,
+          "name": "GlobalFlags",
+          "hint": 347
+        },
+        {
+          "address": 5486772,
+          "name": "MulDiv",
+          "hint": 426
+        },
+        {
+          "address": 5486776,
+          "name": "GetModuleFileNameA",
+          "hint": 252
+        },
+        {
+          "address": 5486780,
+          "name": "GetShortPathNameA",
+          "hint": 294
+        },
+        {
+          "address": 5486784,
+          "name": "GetThreadLocale",
+          "hint": 320
+        },
+        {
+          "address": 5486788,
+          "name": "GetStringTypeExA",
+          "hint": 300
+        },
+        {
+          "address": 5486792,
+          "name": "GetVolumeInformationA",
+          "hint": 335
+        },
+        {
+          "address": 5486796,
+          "name": "FindFirstFileA",
+          "hint": 130
+        },
+        {
+          "address": 5486800,
+          "name": "FindClose",
+          "hint": 126
+        },
+        {
+          "address": 5486804,
+          "name": "LoadLibraryA",
+          "hint": 400
+        },
+        {
+          "address": 5486808,
+          "name": "GetProcAddress",
+          "hint": 278
+        },
+        {
+          "address": 5486812,
+          "name": "FreeLibrary",
+          "hint": 152
+        },
+        {
+          "address": 5486816,
+          "name": "DeleteFileA",
+          "hint": 78
+        },
+        {
+          "address": 5486820,
+          "name": "MoveFileA",
+          "hint": 422
+        },
+        {
+          "address": 5486824,
+          "name": "SetEndOfFile",
+          "hint": 528
+        },
+        {
+          "address": 5486828,
+          "name": "UnlockFile",
+          "hint": 593
+        },
+        {
+          "address": 5486832,
+          "name": "LockFile",
+          "hint": 417
+        },
+        {
+          "address": 5486836,
+          "name": "FlushFileBuffers",
+          "hint": 142
+        },
+        {
+          "address": 5486840,
+          "name": "SetFilePointer",
+          "hint": 537
+        },
+        {
+          "address": 5486844,
+          "name": "WriteFile",
+          "hint": 635
+        },
+        {
+          "address": 5486848,
+          "name": "ReadFile",
+          "hint": 470
+        },
+        {
+          "address": 5486852,
+          "name": "CreateFileA",
+          "hint": 49
+        },
+        {
+          "address": 5486856,
+          "name": "GetCurrentProcess",
+          "hint": 211
+        },
+        {
+          "address": 5486860,
+          "name": "DuplicateHandle",
+          "hint": 85
+        },
+        {
+          "address": 5486864,
+          "name": "GetLastError",
+          "hint": 244
+        },
+        {
+          "address": 5486868,
+          "name": "MultiByteToWideChar",
+          "hint": 427
+        },
+        {
+          "address": 5486872,
+          "name": "WideCharToMultiByte",
+          "hint": 622
+        },
+        {
+          "address": 5486876,
+          "name": "InterlockedDecrement",
+          "hint": 379
+        },
+        {
+          "address": 5486880,
+          "name": "InterlockedIncrement",
+          "hint": 382
+        },
+        {
+          "address": 5486884,
+          "name": "GetDiskFreeSpaceA",
+          "hint": 219
+        },
+        {
+          "address": 5486888,
+          "name": "GetTickCount",
+          "hint": 325
+        },
+        {
+          "address": 5486892,
+          "name": "GetFullPathNameA",
+          "hint": 240
+        },
+        {
+          "address": 5486896,
+          "name": "GetTempFileNameA",
+          "hint": 315
+        },
+        {
+          "address": 5486900,
+          "name": "GetFileTime",
+          "hint": 238
+        },
+        {
+          "address": 5486904,
+          "name": "SetFileTime",
+          "hint": 538
+        },
+        {
+          "address": 5486908,
+          "name": "GetFileAttributesA",
+          "hint": 232
+        },
+        {
+          "address": 5486912,
+          "name": "WritePrivateProfileStringA",
+          "hint": 639
+        },
+        {
+          "address": 5486916,
+          "name": "GetPrivateProfileStringA",
+          "hint": 274
+        },
+        {
+          "address": 5486920,
+          "name": "GetPrivateProfileIntA",
+          "hint": 268
+        },
+        {
+          "address": 5486924,
+          "name": "CloseHandle",
+          "hint": 24
+        },
+        {
+          "address": 5486928,
+          "name": "GlobalAlloc",
+          "hint": 341
+        },
+        {
+          "address": 5486932,
+          "name": "GlobalDeleteAtom",
+          "hint": 343
+        },
+        {
+          "address": 5486936,
+          "name": "lstrcmpA",
+          "hint": 661
+        },
+        {
+          "address": 5486940,
+          "name": "lstrcmpiA",
+          "hint": 664
+        },
+        {
+          "address": 5486944,
+          "name": "GetCurrentThread",
+          "hint": 213
+        },
+        {
+          "address": 5486948,
+          "name": "lstrcpyA",
+          "hint": 667
+        },
+        {
+          "address": 5486952,
+          "name": "lstrlenA",
+          "hint": 673
+        },
+        {
+          "address": 5486956,
+          "name": "lstrcpynA",
+          "hint": 670
+        },
+        {
+          "address": 5486960,
+          "name": "GlobalGetAtomNameA",
+          "hint": 349
+        },
+        {
+          "address": 5486964,
+          "name": "GlobalAddAtomA",
+          "hint": 339
+        },
+        {
+          "address": 5486968,
+          "name": "GetVersion",
+          "hint": 332
+        },
+        {
+          "address": 5486972,
+          "name": "lstrcatA",
+          "hint": 658
+        },
+        {
+          "address": 5486976,
+          "name": "GetCurrentThreadId",
+          "hint": 214
+        },
+        {
+          "address": 5486980,
+          "name": "GlobalLock",
+          "hint": 352
+        },
+        {
+          "address": 5486984,
+          "name": "GlobalUnlock",
+          "hint": 358
+        },
+        {
+          "address": 5486988,
+          "name": "GlobalFree",
+          "hint": 348
+        },
+        {
+          "address": 5486992,
+          "name": "LockResource",
+          "hint": 419
+        },
+        {
+          "address": 5486996,
+          "name": "FindResourceA",
+          "hint": 137
+        },
+        {
+          "address": 5487000,
+          "name": "LoadResource",
+          "hint": 405
+        }
+      ]
+    },
+    {
+      "library": "USER32.dll",
+      "bindings": [
+        {
+          "address": 5487032,
+          "name": "ValidateRect",
+          "hint": 597
+        },
+        {
+          "address": 5487036,
+          "name": "TranslateMessage",
+          "hint": 581
+        },
+        {
+          "address": 5487040,
+          "name": "GetMessageA",
+          "hint": 277
+        },
+        {
+          "address": 5487044,
+          "name": "CharUpperA",
+          "hint": 43
+        },
+        {
+          "address": 5487048,
+          "name": "GetDC",
+          "hint": 238
+        },
+        {
+          "address": 5487052,
+          "name": "ReleaseDC",
+          "hint": 461
+        },
+        {
+          "address": 5487056,
+          "name": "GetWindowDC",
+          "hint": 313
+        },
+        {
+          "address": 5487060,
+          "name": "BeginPaint",
+          "hint": 9
+        },
+        {
+          "address": 5487064,
+          "name": "EndPaint",
+          "hint": 182
+        },
+        {
+          "address": 5487068,
+          "name": "TabbedTextOutA",
+          "hint": 566
+        },
+        {
+          "address": 5487072,
+          "name": "DrawTextA",
+          "hint": 170
+        },
+        {
+          "address": 5487076,
+          "name": "GrayStringA",
+          "hint": 325
+        },
+        {
+          "address": 5487080,
+          "name": "GetClassNameA",
+          "hint": 225
+        },
+        {
+          "address": 5487084,
+          "name": "PtInRect",
+          "hint": 443
+        },
+        {
+          "address": 5487088,
+          "name": "ClientToScreen",
+          "hint": 54
+        },
+        {
+          "address": 5487092,
+          "name": "LoadCursorA",
+          "hint": 370
+        },
+        {
+          "address": 5487096,
+          "name": "GetSysColorBrush",
+          "hint": 298
+        },
+        {
+          "address": 5487100,
+          "name": "FindWindowA",
+          "hint": 205
+        },
+        {
+          "address": 5487104,
+          "name": "FillRect",
+          "hint": 204
+        },
+        {
+          "address": 5487108,
+          "name": "IsRectEmpty",
+          "hint": 358
+        },
+        {
+          "address": 5487112,
+          "name": "LoadStringA",
+          "hint": 387
+        },
+        {
+          "address": 5487116,
+          "name": "SetTimer",
+          "hint": 534
+        },
+        {
+          "address": 5487120,
+          "name": "KillTimer",
+          "hint": 365
+        },
+        {
+          "address": 5487124,
+          "name": "WindowFromPoint",
+          "hint": 609
+        },
+        {
+          "address": 5487128,
+          "name": "SetRect",
+          "hint": 520
+        },
+        {
+          "address": 5487132,
+          "name": "InsertMenuA",
+          "hint": 332
+        },
+        {
+          "address": 5487136,
+          "name": "DeleteMenu",
+          "hint": 131
+        },
+        {
+          "address": 5487140,
+          "name": "GetMenuStringA",
+          "hint": 275
+        },
+        {
+          "address": 5487144,
+          "name": "DestroyIcon",
+          "hint": 136
+        },
+        {
+          "address": 5487148,
+          "name": "InflateRect",
+          "hint": 331
+        },
+        {
+          "address": 5487152,
+          "name": "GetDCEx",
+          "hint": 239
+        },
+        {
+          "address": 5487156,
+          "name": "LockWindowUpdate",
+          "hint": 390
+        },
+        {
+          "address": 5487160,
+          "name": "SetCapture",
+          "hint": 483
+        },
+        {
+          "address": 5487164,
+          "name": "IntersectRect",
+          "hint": 337
+        },
+        {
+          "address": 5487168,
+          "name": "SetParent",
+          "hint": 515
+        },
+        {
+          "address": 5487172,
+          "name": "AppendMenuA",
+          "hint": 4
+        },
+        {
+          "address": 5487176,
+          "name": "GetSystemMenu",
+          "hint": 299
+        },
+        {
+          "address": 5487180,
+          "name": "InvertRect",
+          "hint": 340
+        },
+        {
+          "address": 5487184,
+          "name": "IsIconic",
+          "hint": 356
+        },
+        {
+          "address": 5487188,
+          "name": "UnpackDDElParam",
+          "hint": 588
+        },
+        {
+          "address": 5487192,
+          "name": "ReuseDDElParam",
+          "hint": 466
+        },
+        {
+          "address": 5487196,
+          "name": "SetMenu",
+          "hint": 507
+        },
+        {
+          "address": 5487200,
+          "name": "LoadMenuA",
+          "hint": 382
+        },
+        {
+          "address": 5487204,
+          "name": "DestroyMenu",
+          "hint": 137
+        },
+        {
+          "address": 5487208,
+          "name": "GetDesktopWindow",
+          "hint": 240
+        },
+        {
+          "address": 5487212,
+          "name": "SetCursor",
+          "hint": 492
+        },
+        {
+          "address": 5487216,
+          "name": "ReleaseCapture",
+          "hint": 460
+        },
+        {
+          "address": 5487220,
+          "name": "TranslateAcceleratorA",
+          "hint": 578
+        },
+        {
+          "address": 5487224,
+          "name": "LoadAcceleratorsA",
+          "hint": 366
+        },
+        {
+          "address": 5487228,
+          "name": "SetRectEmpty",
+          "hint": 521
+        },
+        {
+          "address": 5487232,
+          "name": "GetMenuCheckMarkDimensions",
+          "hint": 266
+        },
+        {
+          "address": 5487236,
+          "name": "LoadBitmapA",
+          "hint": 368
+        },
+        {
+          "address": 5487240,
+          "name": "GetMenuState",
+          "hint": 274
+        },
+        {
+          "address": 5487244,
+          "name": "ModifyMenuA",
+          "hint": 411
+        },
+        {
+          "address": 5487248,
+          "name": "SetMenuItemBitmaps",
+          "hint": 510
+        },
+        {
+          "address": 5487252,
+          "name": "CheckMenuItem",
+          "hint": 48
+        },
+        {
+          "address": 5487256,
+          "name": "EnableMenuItem",
+          "hint": 176
+        },
+        {
+          "address": 5487260,
+          "name": "ShowWindow",
+          "hint": 557
+        },
+        {
+          "address": 5487264,
+          "name": "SetWindowTextA",
+          "hint": 545
+        },
+        {
+          "address": 5487268,
+          "name": "IsDialogMessageA",
+          "hint": 352
+        },
+        {
+          "address": 5487272,
+          "name": "LoadIconA",
+          "hint": 374
+        },
+        {
+          "address": 5487276,
+          "name": "PostMessageA",
+          "hint": 433
+        },
+        {
+          "address": 5487280,
+          "name": "MessageBoxA",
+          "hint": 405
+        },
+        {
+          "address": 5487284,
+          "name": "SystemParametersInfoA",
+          "hint": 564
+        },
+        {
+          "address": 5487288,
+          "name": "GetSysColor",
+          "hint": 297
+        },
+        {
+          "address": 5487292,
+          "name": "PeekMessageA",
+          "hint": 431
+        },
+        {
+          "address": 5487296,
+          "name": "DispatchMessageA",
+          "hint": 144
+        },
+        {
+          "address": 5487300,
+          "name": "GetFocus",
+          "hint": 248
+        },
+        {
+          "address": 5487304,
+          "name": "SetFocus",
+          "hint": 501
+        },
+        {
+          "address": 5487308,
+          "name": "AdjustWindowRectEx",
+          "hint": 2
+        },
+        {
+          "address": 5487312,
+          "name": "EqualRect",
+          "hint": 201
+        },
+        {
+          "address": 5487316,
+          "name": "DeferWindowPos",
+          "hint": 130
+        },
+        {
+          "address": 5487320,
+          "name": "GetClientRect",
+          "hint": 228
+        },
+        {
+          "address": 5487324,
+          "name": "BeginDeferWindowPos",
+          "hint": 8
+        },
+        {
+          "address": 5487328,
+          "name": "CopyRect",
+          "hint": 64
+        },
+        {
+          "address": 5487332,
+          "name": "EndDeferWindowPos",
+          "hint": 179
+        },
+        {
+          "address": 5487336,
+          "name": "IsWindowVisible",
+          "hint": 362
+        },
+        {
+          "address": 5487340,
+          "name": "ScreenToClient",
+          "hint": 467
+        },
+        {
+          "address": 5487344,
+          "name": "ScrollWindow",
+          "hint": 470
+        },
+        {
+          "address": 5487348,
+          "name": "SetScrollInfo",
+          "hint": 522
+        },
+        {
+          "address": 5487352,
+          "name": "ShowScrollBar",
+          "hint": 555
+        },
+        {
+          "address": 5487356,
+          "name": "SetScrollRange",
+          "hint": 524
+        },
+        {
+          "address": 5487360,
+          "name": "GetScrollPos",
+          "hint": 293
+        },
+        {
+          "address": 5487364,
+          "name": "SetScrollPos",
+          "hint": 523
+        },
+        {
+          "address": 5487368,
+          "name": "GetTopWindow",
+          "hint": 305
+        },
+        {
+          "address": 5487372,
+          "name": "IsChild",
+          "hint": 349
+        },
+        {
+          "address": 5487376,
+          "name": "GetCapture",
+          "hint": 216
+        },
+        {
+          "address": 5487380,
+          "name": "WinHelpA",
+          "hint": 606
+        },
+        {
+          "address": 5487384,
+          "name": "GetClassInfoA",
+          "hint": 219
+        },
+        {
+          "address": 5487388,
+          "name": "RegisterClassA",
+          "hint": 446
+        },
+        {
+          "address": 5487392,
+          "name": "GetMenuItemCount",
+          "hint": 269
+        },
+        {
+          "address": 5487396,
+          "name": "GetSubMenu",
+          "hint": 296
+        },
+        {
+          "address": 5487400,
+          "name": "GetMenuItemID",
+          "hint": 270
+        },
+        {
+          "address": 5487404,
+          "name": "GetMenu",
+          "hint": 265
+        },
+        {
+          "address": 5487408,
+          "name": "GetWindowTextLengthA",
+          "hint": 320
+        },
+        {
+          "address": 5487412,
+          "name": "GetWindowTextA",
+          "hint": 319
+        },
+        {
+          "address": 5487416,
+          "name": "GetDlgCtrlID",
+          "hint": 242
+        },
+        {
+          "address": 5487420,
+          "name": "GetKeyState",
+          "hint": 257
+        },
+        {
+          "address": 5487424,
+          "name": "DefWindowProcA",
+          "hint": 128
+        },
+        {
+          "address": 5487428,
+          "name": "CreateWindowExA",
+          "hint": 85
+        },
+        {
+          "address": 5487432,
+          "name": "SetWindowsHookExA",
+          "hint": 549
+        },
+        {
+          "address": 5487436,
+          "name": "CallNextHookEx",
+          "hint": 17
+        },
+        {
+          "address": 5487440,
+          "name": "SetPropA",
+          "hint": 518
+        },
+        {
+          "address": 5487444,
+          "name": "UnhookWindowsHookEx",
+          "hint": 584
+        },
+        {
+          "address": 5487448,
+          "name": "GetLastActivePopup",
+          "hint": 264
+        },
+        {
+          "address": 5487452,
+          "name": "GetForegroundWindow",
+          "hint": 249
+        },
+        {
+          "address": 5487456,
+          "name": "SetForegroundWindow",
+          "hint": 502
+        },
+        {
+          "address": 5487460,
+          "name": "GetPropA",
+          "hint": 289
+        },
+        {
+          "address": 5487464,
+          "name": "CallWindowProcA",
+          "hint": 18
+        },
+        {
+          "address": 5487468,
+          "name": "RemovePropA",
+          "hint": 463
+        },
+        {
+          "address": 5487472,
+          "name": "UnregisterClassA",
+          "hint": 589
+        },
+        {
+          "address": 5487476,
+          "name": "HideCaret",
+          "hint": 327
+        },
+        {
+          "address": 5487480,
+          "name": "ShowCaret",
+          "hint": 552
+        },
+        {
+          "address": 5487484,
+          "name": "ExcludeUpdateRgn",
+          "hint": 202
+        },
+        {
+          "address": 5487488,
+          "name": "DrawFocusRect",
+          "hint": 161
+        },
+        {
+          "address": 5487492,
+          "name": "DefDlgProcA",
+          "hint": 122
+        },
+        {
+          "address": 5487496,
+          "name": "CharNextA",
+          "hint": 33
+        },
+        {
+          "address": 5487500,
+          "name": "IsWindowUnicode",
+          "hint": 361
+        },
+        {
+          "address": 5487504,
+          "name": "GetMessageTime",
+          "hint": 280
+        },
+        {
+          "address": 5487508,
+          "name": "GetMessagePos",
+          "hint": 279
+        },
+        {
+          "address": 5487512,
+          "name": "GetWindow",
+          "hint": 311
+        },
+        {
+          "address": 5487516,
+          "name": "GetWindowRect",
+          "hint": 317
+        },
+        {
+          "address": 5487520,
+          "name": "SetWindowLongA",
+          "hint": 539
+        },
+        {
+          "address": 5487524,
+          "name": "SetWindowPos",
+          "hint": 542
+        },
+        {
+          "address": 5487528,
+          "name": "RegisterWindowMessageA",
+          "hint": 458
+        },
+        {
+          "address": 5487532,
+          "name": "GetNextDlgTabItem",
+          "hint": 283
+        },
+        {
+          "address": 5487536,
+          "name": "EndDialog",
+          "hint": 180
+        },
+        {
+          "address": 5487540,
+          "name": "GetActiveWindow",
+          "hint": 213
+        },
+        {
+          "address": 5487544,
+          "name": "SetActiveWindow",
+          "hint": 482
+        },
+        {
+          "address": 5487548,
+          "name": "IsWindow",
+          "hint": 359
+        },
+        {
+          "address": 5487552,
+          "name": "CreateDialogIndirectParamA",
+          "hint": 72
+        },
+        {
+          "address": 5487556,
+          "name": "DestroyWindow",
+          "hint": 138
+        },
+        {
+          "address": 5487560,
+          "name": "GetParent",
+          "hint": 285
+        },
+        {
+          "address": 5487564,
+          "name": "ShowOwnedPopups",
+          "hint": 554
+        },
+        {
+          "address": 5487568,
+          "name": "PostQuitMessage",
+          "hint": 435
+        },
+        {
+          "address": 5487572,
+          "name": "OffsetRect",
+          "hint": 421
+        },
+        {
+          "address": 5487576,
+          "name": "IsZoomed",
+          "hint": 363
+        },
+        {
+          "address": 5487580,
+          "name": "SendDlgItemMessageA",
+          "hint": 472
+        },
+        {
+          "address": 5487584,
+          "name": "BringWindowToTop",
+          "hint": 10
+        },
+        {
+          "address": 5487588,
+          "name": "GetWindowLongA",
+          "hint": 314
+        },
+        {
+          "address": 5487592,
+          "name": "GetDlgItem",
+          "hint": 243
+        },
+        {
+          "address": 5487596,
+          "name": "IsWindowEnabled",
+          "hint": 360
+        },
+        {
+          "address": 5487600,
+          "name": "SendMessageA",
+          "hint": 474
+        },
+        {
+          "address": 5487604,
+          "name": "wsprintfA",
+          "hint": 612
+        },
+        {
+          "address": 5487608,
+          "name": "MessageBeep",
+          "hint": 404
+        },
+        {
+          "address": 5487612,
+          "name": "GetCursorPos",
+          "hint": 237
+        },
+        {
+          "address": 5487616,
+          "name": "GetSystemMetrics",
+          "hint": 300
+        },
+        {
+          "address": 5487620,
+          "name": "UpdateWindow",
+          "hint": 593
+        },
+        {
+          "address": 5487624,
+          "name": "InvalidateRect",
+          "hint": 338
+        },
+        {
+          "address": 5487628,
+          "name": "EnableWindow",
+          "hint": 178
+        },
+        {
+          "address": 5487632,
+          "name": "MapWindowPoints",
+          "hint": 400
+        }
+      ]
+    },
+    {
+      "library": "GDI32.dll",
+      "bindings": [
+        {
+          "address": 5486284,
+          "name": "SaveDC",
+          "hint": 323
+        },
+        {
+          "address": 5486288,
+          "name": "RestoreDC",
+          "hint": 321
+        },
+        {
+          "address": 5486292,
+          "name": "GetStockObject",
+          "hint": 250
+        },
+        {
+          "address": 5486296,
+          "name": "SetBkMode",
+          "hint": 337
+        },
+        {
+          "address": 5486300,
+          "name": "SetMapMode",
+          "hint": 353
+        },
+        {
+          "address": 5486304,
+          "name": "SetViewportOrgEx",
+          "hint": 373
+        },
+        {
+          "address": 5486308,
+          "name": "OffsetViewportOrgEx",
+          "hint": 287
+        },
+        {
+          "address": 5486312,
+          "name": "SetViewportExtEx",
+          "hint": 372
+        },
+        {
+          "address": 5486316,
+          "name": "ScaleViewportExtEx",
+          "hint": 324
+        },
+        {
+          "address": 5486320,
+          "name": "SetWindowExtEx",
+          "hint": 376
+        },
+        {
+          "address": 5486324,
+          "name": "ScaleWindowExtEx",
+          "hint": 325
+        },
+        {
+          "address": 5486328,
+          "name": "GetClipBox",
+          "hint": 190
+        },
+        {
+          "address": 5486332,
+          "name": "SelectClipRgn",
+          "hint": 328
+        },
+        {
+          "address": 5486336,
+          "name": "ExcludeClipRect",
+          "hint": 92
+        },
+        {
+          "address": 5486340,
+          "name": "IntersectClipRect",
+          "hint": 276
+        },
+        {
+          "address": 5486344,
+          "name": "MoveToEx",
+          "hint": 283
+        },
+        {
+          "address": 5486348,
+          "name": "LineTo",
+          "hint": 280
+        },
+        {
+          "address": 5486352,
+          "name": "SetTextAlign",
+          "hint": 368
+        },
+        {
+          "address": 5486356,
+          "name": "CreatePatternBrush",
+          "hint": 54
+        },
+        {
+          "address": 5486360,
+          "name": "PtVisible",
+          "hint": 310
+        },
+        {
+          "address": 5486364,
+          "name": "RectVisible",
+          "hint": 313
+        },
+        {
+          "address": 5486368,
+          "name": "ExtTextOutA",
+          "hint": 98
+        },
+        {
+          "address": 5486372,
+          "name": "Escape",
+          "hint": 91
+        },
+        {
+          "address": 5486376,
+          "name": "CreateFontIndirectA",
+          "hint": 44
+        },
+        {
+          "address": 5486380,
+          "name": "PatBlt",
+          "hint": 290
+        },
+        {
+          "address": 5486384,
+          "name": "CreateRectRgnIndirect",
+          "hint": 60
+        },
+        {
+          "address": 5486388,
+          "name": "SetRectRgn",
+          "hint": 364
+        },
+        {
+          "address": 5486392,
+          "name": "CombineRgn",
+          "hint": 19
+        },
+        {
+          "address": 5486396,
+          "name": "DeleteDC",
+          "hint": 67
+        },
+        {
+          "address": 5486400,
+          "name": "GetTextMetricsA",
+          "hint": 267
+        },
+        {
+          "address": 5486404,
+          "name": "GetTextExtentPointA",
+          "hint": 263
+        },
+        {
+          "address": 5486408,
+          "name": "GetObjectA",
+          "hint": 234
+        },
+        {
+          "address": 5486412,
+          "name": "SetBkColor",
+          "hint": 336
+        },
+        {
+          "address": 5486416,
+          "name": "GetPixel",
+          "hint": 241
+        },
+        {
+          "address": 5486420,
+          "name": "SetTextColor",
+          "hint": 370
+        },
+        {
+          "address": 5486424,
+          "name": "TextOutA",
+          "hint": 387
+        },
+        {
+          "address": 5486428,
+          "name": "SetPixel",
+          "hint": 359
+        },
+        {
+          "address": 5486432,
+          "name": "Arc",
+          "hint": 7
+        },
+        {
+          "address": 5486436,
+          "name": "RoundRect",
+          "hint": 322
+        },
+        {
+          "address": 5486440,
+          "name": "Ellipse",
+          "hint": 75
+        },
+        {
+          "address": 5486444,
+          "name": "Pie",
+          "hint": 292
+        },
+        {
+          "address": 5486448,
+          "name": "Polygon",
+          "hint": 306
+        },
+        {
+          "address": 5486452,
+          "name": "CreateRectRgn",
+          "hint": 59
+        },
+        {
+          "address": 5486456,
+          "name": "SelectObject",
+          "hint": 330
+        },
+        {
+          "address": 5486460,
+          "name": "Rectangle",
+          "hint": 314
+        },
+        {
+          "address": 5486464,
+          "name": "DeleteObject",
+          "hint": 70
+        },
+        {
+          "address": 5486468,
+          "name": "GetDeviceCaps",
+          "hint": 199
+        },
+        {
+          "address": 5486472,
+          "name": "CreateBitmap",
+          "hint": 25
+        },
+        {
+          "address": 5486476,
+          "name": "CreateCompatibleDC",
+          "hint": 31
+        },
+        {
+          "address": 5486480,
+          "name": "BitBlt",
+          "hint": 10
+        },
+        {
+          "address": 5486484,
+          "name": "CreatePen",
+          "hint": 55
+        },
+        {
+          "address": 5486488,
+          "name": "CreateDIBitmap",
+          "hint": 37
+        },
+        {
+          "address": 5486492,
+          "name": "CreateSolidBrush",
+          "hint": 64
+        }
+      ]
+    },
+    {
+      "library": "comdlg32.dll",
+      "bindings": [
+        {
+          "address": 5487664,
+          "name": "GetSaveFileNameA",
+          "hint": 11
+        },
+        {
+          "address": 5487668,
+          "name": "GetFileTitleA",
+          "hint": 7
+        },
+        {
+          "address": 5487672,
+          "name": "GetOpenFileNameA",
+          "hint": 9
+        }
+      ]
+    },
+    {
+      "library": "WINSPOOL.DRV",
+      "bindings": [
+        {
+          "address": 5487648,
+          "name": "DocumentPropertiesA",
+          "hint": 61
+        },
+        {
+          "address": 5487652,
+          "name": "ClosePrinter",
+          "hint": 26
+        },
+        {
+          "address": 5487656,
+          "name": "OpenPrinterA",
+          "hint": 105
+        }
+      ]
+    },
+    {
+      "library": "ADVAPI32.dll",
+      "bindings": [
+        {
+          "address": 5486212,
+          "name": "GetFileSecurityA",
+          "hint": 126
+        },
+        {
+          "address": 5486216,
+          "name": "RegCloseKey",
+          "hint": 279
+        },
+        {
+          "address": 5486220,
+          "name": "RegEnumKeyA",
+          "hint": 290
+        },
+        {
+          "address": 5486224,
+          "name": "RegOpenKeyA",
+          "hint": 301
+        },
+        {
+          "address": 5486228,
+          "name": "RegDeleteKeyA",
+          "hint": 286
+        },
+        {
+          "address": 5486232,
+          "name": "RegCreateKeyExA",
+          "hint": 283
+        },
+        {
+          "address": 5486236,
+          "name": "RegOpenKeyExA",
+          "hint": 302
+        },
+        {
+          "address": 5486240,
+          "name": "RegQueryValueExA",
+          "hint": 310
+        },
+        {
+          "address": 5486244,
+          "name": "RegSetValueExA",
+          "hint": 321
+        },
+        {
+          "address": 5486248,
+          "name": "RegSetValueA",
+          "hint": 320
+        },
+        {
+          "address": 5486252,
+          "name": "RegCreateKeyA",
+          "hint": 282
+        },
+        {
+          "address": 5486256,
+          "name": "RegQueryValueA",
+          "hint": 309
+        },
+        {
+          "address": 5486260,
+          "name": "SetFileSecurityA",
+          "hint": 342
+        },
+        {
+          "address": 5486264,
+          "name": "RegDeleteValueA",
+          "hint": 288
+        }
+      ]
+    },
+    {
+      "library": "SHELL32.dll",
+      "bindings": [
+        {
+          "address": 5487008,
+          "name": "SHGetFileInfoA",
+          "hint": 64
+        },
+        {
+          "address": 5487012,
+          "name": "DragQueryFileA",
+          "hint": 15
+        },
+        {
+          "address": 5487016,
+          "name": "DragFinish",
+          "hint": 13
+        },
+        {
+          "address": 5487020,
+          "name": "DragAcceptFiles",
+          "hint": 12
+        },
+        {
+          "address": 5487024,
+          "name": "ExtractIconA",
+          "hint": 24
+        }
+      ]
+    },
+    {
+      "library": "COMCTL32.dll",
+      "bindings": [
+        {
+          "address": 5486272,
+          "ordinal": 17
+        },
+        {
+          "address": 5486276,
+          "name": "ImageList_Destroy",
+          "hint": 23
+        }
+      ]
+    },
+    {
+      "library": "WINMM.dll",
+      "bindings": [
+        {
+          "address": 5487640,
+          "name": "PlaySoundA",
+          "hint": 11
+        }
+      ]
+    }
+  ]
+}

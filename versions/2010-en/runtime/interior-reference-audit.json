@@ -1,0 +1,102 @@
+{
+  "source_sha256": "27c77acfb4fc1a69092a3c2cfebc52f666ff7b2ca53ed80661664c87d9d0c177",
+  "localized_output_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Decoded original imm/mem references strictly inside appended literal ranges, plus uninterrupted zero padding up to the next independently recovered literal. Linear code and each Ghidra recovered function body are scanned independently.",
+  "appended_literals_scanned": 229,
+  "literal_interior_references": 0,
+  "zero_padding_references": 4,
+  "references": [
+    {
+      "instruction_va": 4364560,
+      "instruction": "mov cx, word ptr [0x4dd608]",
+      "operand_kind": "memory",
+      "operand_size": 2,
+      "source_address": 5101064,
+      "literal_va": 5101060,
+      "literal_file_offset": 899588,
+      "byte_delta": 4,
+      "original_bytes": 3,
+      "zero_padded_extent_bytes": 8,
+      "location": "following-zero-padding",
+      "source_japanese": "北",
+      "target_english": "north",
+      "recorded_patch": {
+        "file_offset": 167187,
+        "source_va": 5101064,
+        "target_va": 6397908,
+        "kind": "decoded-instruction-operand",
+        "instruction_va": 4364560,
+        "instruction": "mov cx, word ptr [0x4dd608]"
+      }
+    },
+    {
+      "instruction_va": 4364577,
+      "instruction": "mov al, byte ptr [0x4dd600]",
+      "operand_kind": "memory",
+      "operand_size": 1,
+      "source_address": 5101056,
+      "literal_va": 5101052,
+      "literal_file_offset": 899580,
+      "byte_delta": 4,
+      "original_bytes": 3,
+      "zero_padded_extent_bytes": 8,
+      "location": "following-zero-padding",
+      "source_japanese": "東",
+      "target_english": "east",
+      "recorded_patch": {
+        "file_offset": 167202,
+        "source_va": 5101056,
+        "target_va": 6397900,
+        "kind": "decoded-instruction-operand",
+        "instruction_va": 4364577,
+        "instruction": "mov al, byte ptr [0x4dd600]"
+      }
+    },
+    {
+      "instruction_va": 4364625,
+      "instruction": "mov cl, byte ptr [0x4dd5f8]",
+      "operand_kind": "memory",
+      "operand_size": 1,
+      "source_address": 5101048,
+      "literal_va": 5101044,
+      "literal_file_offset": 899572,
+      "byte_delta": 4,
+      "original_bytes": 3,
+      "zero_padded_extent_bytes": 8,
+      "location": "following-zero-padding",
+      "source_japanese": "西",
+      "target_english": "west",
+      "recorded_patch": {
+        "file_offset": 167251,
+        "source_va": 5101048,
+        "target_va": 6397892,
+        "kind": "decoded-instruction-operand",
+        "instruction_va": 4364625,
+        "instruction": "mov cl, byte ptr [0x4dd5f8]"
+      }
+    },
+    {
+      "instruction_va": 4364639,
+      "instruction": "mov dx, word ptr [0x4dd5f0]",
+      "operand_kind": "memory",
+      "operand_size": 2,
+      "source_address": 5101040,
+      "literal_va": 5101036,
+      "literal_file_offset": 899564,
+      "byte_delta": 4,
+      "original_bytes": 3,
+      "zero_padded_extent_bytes": 8,
+      "location": "following-zero-padding",
+      "source_japanese": "南",
+      "target_english": "south",
+      "recorded_patch": {
+        "file_offset": 167266,
+        "source_va": 5101040,
+        "target_va": 6397884,
+        "kind": "decoded-instruction-operand",
+        "instruction_va": 4364639,
+        "instruction": "mov dx, word ptr [0x4dd5f0]"
+      }
+    }
+  ]
+}

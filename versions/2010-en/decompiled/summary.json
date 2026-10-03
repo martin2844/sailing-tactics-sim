@@ -1,0 +1,32 @@
+{
+  "cancelled": false, 
+  "decompiled": 5281, 
+  "defined_data": 9336, 
+  "elapsed_seconds": 58.56399989128113, 
+  "expected_functions": 5281, 
+  "export_complete": true, 
+  "external_functions": 356, 
+  "failed": 0, 
+  "failures": [], 
+  "functions": 5281, 
+  "ghidra_version": "12.0.4", 
+  "image_base": "00400000", 
+  "language": "x86:LE:32:default", 
+  "program": "Tactics2010EnglishPreserved.exe", 
+  "recovery_evidence": [
+    {
+      "file": "../analysis/function-recovery.json", 
+      "sha256": "e869072851fc44ada4771140749dc24a011fffd7bc727f8adc244927f7b6585d"
+    }, 
+    {
+      "file": "../analysis/catch-continuation-repairs.json", 
+      "sha256": "524438a04e0eaebd43d585df3c55cd7ab011b288e08ec5a0cf11863d0acc5681"
+    }, 
+    {
+      "file": "../analysis/decompilation-coverage.json", 
+      "sha256": "c2de7eb3574cfdb6afeb35e334d3bf588e7d0f34cdf3eb645c8da5abebf10bc1"
+    }
+  ], 
+  "scope": "Functions recovered by Ghidra analysis; undiscovered code and inferred semantics still require review.", 
+  "source_sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+}

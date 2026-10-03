@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "source": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+  "scope": "Intact fixed 2010 English preservation copy through the normal Wine/Windows loader. Read-only process memory plus per-thread hardware execution breakpoints; no target instructions, game data, or x87 control words written. The observer clears its debug registers and detaches, leaving its owned app running.",
+  "wineVersion": "wine-11.0",
+  "winePrefix": "posey-simulator-2010-en/wineprefix",
+  "uiPath": "Normal setup window focused, then Space key; original keyboard and startup logic execute.",
+  "attachedExistingProcess": false,
+  "completeStartupObservation": true,
+  "observed": [
+    {
+      "event": "hardware-breakpoint",
+      "address": "004a26d4",
+      "threadId": 312,
+      "controlWord": "027f",
+      "statusWord": "0000",
+      "textUnchanged": true,
+      "meaning": "after CRT _controlfp FLDCW"
+    },
+    {
+      "event": "hardware-breakpoint",
+      "address": "00404510",
+      "threadId": 312,
+      "controlWord": "027f",
+      "statusWord": "0000",
+      "textUnchanged": true,
+      "meaning": "first paint entry"
+    },
+    {
+      "event": "hardware-breakpoint",
+      "address": "004049f0",
+      "threadId": 312,
+      "controlWord": "027f",
+      "statusWord": "0020",
+      "textUnchanged": true,
+      "meaning": "first connected frame entry"
+    },
+    {
+      "event": "hardware-breakpoint",
+      "address": "00405320",
+      "threadId": 312,
+      "controlWord": "027f",
+      "statusWord": "0120",
+      "textUnchanged": true,
+      "meaning": "first scene entry"
+    }
+  ],
+  "allObservedControlWords": [
+    "027f"
+  ],
+  "arithmeticPrecisionBits": 53,
+  "interpretation": "0x027f masks x87 exceptions, selects round-to-nearest and 53-bit precision for arithmetic. FST/FSTP storage width and transcendental instructions still need their own exact original-code references.",
+  "evidence": [
+    {
+      "path": "versions/2010-en/analysis/startup-precision.jsonl",
+      "bytes": 616,
+      "sha256": "408b2f70fee30ac5e9c1a022eb6839c1a1ad5521ceea27b5295fa93cd575686e"
+    },
+    {
+      "path": "versions/2010-en/analysis/native-startup-precision.exe",
+      "bytes": 79754,
+      "sha256": "c900b74f8f558448c6fb8c066e7d9f89a37e9e7df9dc994220da05793d98baad"
+    },
+    {
+      "path": "versions/2010-en/tools/native_startup_precision.c",
+      "bytes": 10316,
+      "sha256": "c0531d1aec47b8520f75ede02e7175a6b3a1a161e3c1b3c13da07fb642d04b88"
+    }
+  ],
+  "applicationProcessId": 308,
+  "completion": {
+    "event": "complete",
+    "observedMask": 15,
+    "exited": false
+  }
+}

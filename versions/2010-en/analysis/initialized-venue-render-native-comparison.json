@@ -1,0 +1,196 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "exact": true,
+  "tests": "tests/initialized-venue-render.test.js",
+  "testsPassed": 5,
+  "nativeCapturedCalls": 16,
+  "drawingRequests": 12712,
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/original-initialized-venue-render.json",
+      "sha256": "a7d3dd559ee55fd6642c499cc352e12751c9939076cbb6a04208d2f3b5c64b2c",
+      "cases": 16,
+      "drawingRequests": 12712,
+      "routines": [
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart",
+          "arguments": [
+            0,
+            682,
+            361,
+            1024,
+            723,
+            1,
+            1
+          ]
+        },
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart",
+          "arguments": [
+            0,
+            682,
+            361,
+            1024,
+            723,
+            1,
+            1
+          ]
+        },
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart",
+          "arguments": [
+            0,
+            682,
+            361,
+            1024,
+            723,
+            1,
+            1
+          ]
+        },
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x405320",
+          "phase": "drawScene",
+          "arguments": [
+            0,
+            0,
+            0,
+            1024,
+            361,
+            1
+          ]
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart",
+          "arguments": [
+            0,
+            682,
+            361,
+            1024,
+            723,
+            1,
+            1
+          ]
+        }
+      ],
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "exactSourceReplay": true
+    }
+  ],
+  "profiles": [
+    2,
+    6,
+    9,
+    106
+  ],
+  "validated": [
+    "Complete normalized mutable bytes/hash",
+    "Preserved bytes outside mutable region",
+    "Retained original CRT RNG",
+    "All 36 semantic global CString cells",
+    "Ordered sounds and allGDI/GetPixel requests",
+    "Both 482f80/483080 CDC callbacks actually executed in venues 6 and 106"
+  ],
+  "sourceHashes": {
+    "src/render/drawing-functions.js": "e9ff2d3a23ee56d9b72ed2db53d8698e47660bc625fdbe2b1ed00e1344da4a4e",
+    "src/render/dependencies.js": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0",
+    "src/render/index.js": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b",
+    "src/render/scene.js": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace",
+    "src/render/chart.js": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088",
+    "src/engine/waypoints.js": "e58e55a83ca7cc73513ecb8df7d34607c1a8c0d59f4a0c5d3dd9405a532dc3f4",
+    "tests/initialized-venue-render.test.js": "25005fce08b8480a26caf917941b3be4a1080132e8e29531147062bda961db0f"
+  },
+  "scope": "Four unchanged original options→race→scene→chart chains, positive original1024×768 paint calibration,90 logical constructor handles and explicit synthetic GetPixel observations. Captured expectations remain immutable; no Windows raster identity claim.",
+  "correctionEvidence": [
+    "analysis/remaining-drawing-abi-review.json",
+    "analysis/initialized-venue-render-cdc-callsites.json",
+    "analysis/venue-roof-multiplication-order-review.json"
+  ],
+  "finalReplay": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "durationMs": 4351.444109
+  }
+}

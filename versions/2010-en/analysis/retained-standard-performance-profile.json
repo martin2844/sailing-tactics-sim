@@ -1,0 +1,430 @@
+{
+  "profile": "versions/2010-en/analysis/retained-standard-native-leaves.cpuprofile",
+  "scope": "Read-only V8 sampling of diagnose-retained-frame: original race initialization, strictly matched frame0, and targetframe1. Startup/parsing and both frames are included; targetduration is separate.",
+  "aggregation": "Self time by function URL/line; inclusive time counts each function identity at most once per sample stack, including recursive ancestors.",
+  "totalMs": 14893.297,
+  "selfHotspots": [
+    {
+      "function": "bitLength",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 28,
+      "ms": 5259.74
+    },
+    {
+      "function": "fromNumber",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 119,
+      "ms": 3792.55
+    },
+    {
+      "function": "roundRight",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 30,
+      "ms": 753.28
+    },
+    {
+      "function": "Float80",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 105,
+      "ms": 735.78
+    },
+    {
+      "function": "toNumber",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 167,
+      "ms": 620.39
+    },
+    {
+      "function": "add",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 185,
+      "ms": 465.4
+    },
+    {
+      "function": "json",
+      "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+      "line": 13,
+      "ms": 429.3
+    },
+    {
+      "function": "clampedPointDistance",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 8,
+      "ms": 338.53
+    },
+    {
+      "function": "sqrt",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 217,
+      "ms": 295.45
+    },
+    {
+      "function": "integerSqrt",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 93,
+      "ms": 244.73
+    },
+    {
+      "function": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "ms": 227.56
+    },
+    {
+      "function": "arithmeticResult",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 62,
+      "ms": 169.81
+    },
+    {
+      "function": "sinCosX87",
+      "url": "file:///home/martin/tact/src/runtime/transcendentals.js",
+      "line": 46,
+      "ms": 140.22
+    },
+    {
+      "function": "compare",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 233,
+      "ms": 133.39
+    },
+    {
+      "function": "callDrawingDependency",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/dependencies.js",
+      "line": 25,
+      "ms": 111.02
+    },
+    {
+      "function": "write",
+      "url": "node:string_decoder",
+      "line": 76,
+      "ms": 91.61
+    },
+    {
+      "function": "nearestWaypointDistance",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 18,
+      "ms": 85.99
+    },
+    {
+      "function": "subtract",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 197,
+      "ms": 69.77
+    },
+    {
+      "function": "compileSourceTextModule",
+      "url": "node:internal/modules/esm/utils",
+      "line": 316,
+      "ms": 65.69
+    },
+    {
+      "function": "multiply",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 199,
+      "ms": 58.55
+    },
+    {
+      "function": "negate",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 183,
+      "ms": 47.48
+    },
+    {
+      "function": "originalDrawing00466330",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 13222,
+      "ms": 32.21
+    },
+    {
+      "function": "originalDrawing00465ff0",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 13604,
+      "ms": 31.49
+    },
+    {
+      "function": "readLocal",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 58,
+      "ms": 26.36
+    },
+    {
+      "function": "multiply",
+      "url": "file:///home/martin/tact/src/runtime/atan.js",
+      "line": 8,
+      "ms": 26.32
+    },
+    {
+      "function": "(program)",
+      "url": "",
+      "line": 0,
+      "ms": 23.55
+    },
+    {
+      "function": "originalDrawScene",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 10,
+      "ms": 23.39
+    },
+    {
+      "function": "writeLocal",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+      "line": 73,
+      "ms": 23.23
+    },
+    {
+      "function": "f",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 5,
+      "ms": 22.26
+    },
+    {
+      "function": "drawScene",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/scene.js",
+      "line": 5,
+      "ms": 21.32
+    }
+  ],
+  "inclusiveHotspots": [
+    {
+      "function": "(root)",
+      "url": "",
+      "line": 0,
+      "ms": 14893.15
+    },
+    {
+      "function": "",
+      "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+      "line": 1,
+      "ms": 13993.81
+    },
+    {
+      "function": "check",
+      "url": "file:///home/martin/tact/versions/2010-en/tests/native-state.js",
+      "line": 29,
+      "ms": 13931.51
+    },
+    {
+      "function": "",
+      "url": "file:///home/martin/tact/versions/2010-en/tests/native-state.js",
+      "line": 44,
+      "ms": 13921.37
+    },
+    {
+      "function": "withX87ControlWord",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 22,
+      "ms": 13921.37
+    },
+    {
+      "function": "drawSimulationFrame",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/paint-lifecycle.js",
+      "line": 85,
+      "ms": 13905.17
+    },
+    {
+      "function": "",
+      "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+      "line": 31,
+      "ms": 13905.17
+    },
+    {
+      "function": "nearestWaypointDistance",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 18,
+      "ms": 12624.04
+    },
+    {
+      "function": "clampedPointDistance",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 8,
+      "ms": 12443.09
+    },
+    {
+      "function": "",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/index.js",
+      "line": 16,
+      "ms": 8752.77
+    },
+    {
+      "function": "composeRaceFrame",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/paint-lifecycle.js",
+      "line": 39,
+      "ms": 8752.77
+    },
+    {
+      "function": "drawScene",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/scene.js",
+      "line": 5,
+      "ms": 8737.63
+    },
+    {
+      "function": "scene",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/paint-lifecycle.js",
+      "line": 43,
+      "ms": 8737.63
+    },
+    {
+      "function": "originalDrawScene",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 10,
+      "ms": 8716.31
+    },
+    {
+      "function": "callDrawingDependency",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/dependencies.js",
+      "line": 25,
+      "ms": 8683.45
+    },
+    {
+      "function": "originalDrawing00466330",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 13222,
+      "ms": 8389.3
+    },
+    {
+      "function": "originalDrawing00465ff0",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 13604,
+      "ms": 7759.42
+    },
+    {
+      "function": "fromNumber",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 119,
+      "ms": 5697.66
+    },
+    {
+      "function": "bitLength",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 28,
+      "ms": 5259.74
+    },
+    {
+      "function": "advanceFrame",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/frame.js",
+      "line": 20,
+      "ms": 5152.4
+    },
+    {
+      "function": "integratePositions",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/integration.js",
+      "line": 13,
+      "ms": 5112.81
+    },
+    {
+      "function": "respawnWaypoint",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 31,
+      "ms": 5092.62
+    },
+    {
+      "function": "crowded",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 47,
+      "ms": 5041.05
+    },
+    {
+      "function": "Float80",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 105,
+      "ms": 4612.46
+    },
+    {
+      "function": "roundedParts",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 42,
+      "ms": 4039.56
+    },
+    {
+      "function": "arithmeticResult",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 62,
+      "ms": 3375.58
+    },
+    {
+      "function": "normalized",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 54,
+      "ms": 3015.12
+    },
+    {
+      "function": "subtract",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 197,
+      "ms": 2381.33
+    },
+    {
+      "function": "add",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 185,
+      "ms": 2351
+    },
+    {
+      "function": "multiply",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 199,
+      "ms": 1556.63
+    },
+    {
+      "function": "f",
+      "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+      "line": 5,
+      "ms": 1371.26
+    },
+    {
+      "function": "roundRight",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 30,
+      "ms": 1296.53
+    },
+    {
+      "function": "sqrt",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 217,
+      "ms": 1022.28
+    },
+    {
+      "function": "toNumber",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 167,
+      "ms": 998.46
+    },
+    {
+      "function": "negate",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 183,
+      "ms": 752.82
+    },
+    {
+      "function": "json",
+      "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+      "line": 13,
+      "ms": 430.32
+    },
+    {
+      "function": "originalDrawing0043e730",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 10726,
+      "ms": 399.37
+    },
+    {
+      "function": "integerSqrt",
+      "url": "file:///home/martin/tact/src/runtime/float80.js",
+      "line": 93,
+      "ms": 356
+    },
+    {
+      "function": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "ms": 227.56
+    },
+    {
+      "function": "originalDrawing0043efd0",
+      "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+      "line": 10922,
+      "ms": 215.26
+    }
+  ]
+}

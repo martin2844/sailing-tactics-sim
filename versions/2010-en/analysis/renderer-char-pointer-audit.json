@@ -1,0 +1,41 @@
+{
+  "kind": "Read-only literal char-pointer audit",
+  "originalSourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routineAddress": 4364528,
+  "generatedModuleSha256": "44610d655d94615a26124a58b5daec3c6adae2a0cef0e36dc0fd768666c21573",
+  "typedRuntimeSha256": "33b32a736dc4135648b5672facc3a0c4c97cdbf0f20159e1d2dfa7afcbe01e31",
+  "finding": "The source assigns literal JavaScript strings to char* locals and then executes original byte-level strlen/copy loops. These literals are neither original image addresses nor byte-pointer objects. readPointer(memory,string,1) addresses zero; cAdd(string,1) throws safe-integer conversion. The existing size4 string special case represents semantic CString data, not raw char bytes.",
+  "cases": [
+    {
+      "id": 2258,
+      "generatedSource": "    case 2258: { (pcVar8 = \"Sunshine, \"); pc = 2257; continue; }"
+    },
+    {
+      "id": 2252,
+      "generatedSource": "    case 2252: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2251; continue; }"
+    },
+    {
+      "id": 2253,
+      "generatedSource": "    case 2253: { (pcVar12 = cAdd(pcVar8,1)); pc = 2252; continue; }"
+    },
+    {
+      "id": 2245,
+      "generatedSource": "    case 2245: { writePointer(memory,pcVar12,readPointer(memory,pcVar8,4),4); pc = 2244; continue; }"
+    }
+  ],
+  "demonstratedRuntime": {
+    "byteRead": "readPointer(mockMemory, \"Sunshine, \", 1) calls mockMemory.readU8(0)",
+    "advance": "cAdd(\"Sunshine, \", 1) throws TypeError: Integer conversion requires a safe integer Number or a BigInt"
+  },
+  "nativeLiteral": {
+    "address": 6397868,
+    "text": "Sunshine, ",
+    "loadInstruction": 4364820,
+    "strlenInstruction": 4364834,
+    "dwordCopyInstruction": 4364849,
+    "byteTailCopyInstruction": 4364856
+  },
+  "recommendation": "Preserve literal original addresses or a byte-addressable ANSI pointer with its NUL terminator in char-pointer contexts; keep semantic CString handling separate. Original copied DWORDs and byte tails must retain exact bytes.",
+  "assembly": "\n/home/martin/tact/versions/2010-en/runtime/Tactics2010EnglishPreserved.exe:     file format pei-i386\n\n\nDisassembly of section .text:\n\n00429a09 <.text+0x28a09>:\n  429a09:\t8b 15 78 8d 4f 00    \tmov    edx,DWORD PTR ds:0x4f8d78\n  429a0f:\t83 fa 01             \tcmp    edx,0x1\n  429a12:\t75 26                \tjne    0x429a3a\n  429a14:\tbf ac 9f 61 00       \tmov    edi,0x619fac\n  429a19:\t83 c9 ff             \tor     ecx,0xffffffff\n  429a1c:\t33 c0                \txor    eax,eax\n  429a1e:\t8d 5c 24 44          \tlea    ebx,[esp+0x44]\n  429a22:\tf2 ae                \trepnz scas al,BYTE PTR es:[edi]\n  429a24:\tf7 d1                \tnot    ecx\n  429a26:\t2b f9                \tsub    edi,ecx\n  429a28:\t8b c1                \tmov    eax,ecx\n  429a2a:\t8b f7                \tmov    esi,edi\n  429a2c:\t8b fb                \tmov    edi,ebx\n  429a2e:\tc1 e9 02             \tshr    ecx,0x2\n  429a31:\tf3 a5                \trep movs DWORD PTR es:[edi],DWORD PTR ds:[esi]\n  429a33:\t8b c8                \tmov    ecx,eax\n  429a35:\t83 e1 03             \tand    ecx,0x3\n  429a38:\tf3 a4                \trep movs BYTE PTR es:[edi],BYTE PTR ds:[esi]\n",
+  "scope": "No renderer, generator, native fixture, or original bytes edited. Additional pointee widths audit found no short*/float*/float10* declarations in the 215 registered routines examined; this is not a proof of absent cast-width defects."
+}

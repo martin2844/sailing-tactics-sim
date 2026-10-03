@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "imageBase": 4194304,
+  "imageSize": 2211840,
+  "scope": "Exact nonexecutable constants, mutable initial data, and English resource/text data. No PE headers, x86 instructions, or import bindings are included; browser functions execute native JavaScript.",
+  "segments": [
+    {
+      "section": ".rdata",
+      "file": "original-constants.bin",
+      "address": 5013504,
+      "size": 72704,
+      "initializedBytes": 72704,
+      "zeroFillBytes": 0,
+      "writable": false,
+      "sha256": "b7bb7a445e8d1342cd99094fd4d914b964caeb424a84d3b651b29336b3c39d76"
+    },
+    {
+      "section": ".data",
+      "file": "original-initial-state.bin",
+      "address": 5087232,
+      "size": 394632,
+      "initializedBytes": 95744,
+      "zeroFillBytes": 298888,
+      "writable": true,
+      "sha256": "dddcfbf8acf3e2dcc09ef61ae6d760bab1f849673006617bcfd9082708312a8d"
+    },
+    {
+      "section": ".english",
+      "file": "original-english-data.bin",
+      "address": 5939200,
+      "size": 466432,
+      "initializedBytes": 466432,
+      "zeroFillBytes": 0,
+      "writable": false,
+      "sha256": "19df0a1a84d908cd1a78765a8380480be3487c4b3a987da02478c80e6a452216"
+    }
+  ]
+}

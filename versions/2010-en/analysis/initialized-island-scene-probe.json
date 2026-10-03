@@ -1,0 +1,300 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixture": "versions/2010-en/tests/fixtures/original-initialized-island-scene.json",
+  "fixtureSha256": "8e522fd069ea30520ec5c819847588ada801a2daff11628732442cd62c064407",
+  "manifest": "versions/2010-en/analysis/initialized-island-scene-capture-inputs.json",
+  "manifestSha256": "b7cc4573e6fa46332a0075cc3c725c29bdae3ffca828020fd8ef9e08a8ba27e2",
+  "nativeCapture": {
+    "calls": 3,
+    "complete": true,
+    "loadedOriginalTextUnchanged": true,
+    "originalFileUnchanged": true,
+    "x87ControlWord": "0x027f",
+    "sceneDrawingRequests": 956
+  },
+  "publicSourceReplay": {
+    "exact": false,
+    "initializationExact": true,
+    "firstMatchedSceneDrawingRequests": 55,
+    "exception": {
+      "name": "RangeError",
+      "message": "Original C reads an undefined retained local byte",
+      "stack": "RangeError: Original C reads an undefined retained local byte\n    at checkLocal (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:56:79)\n    at readLocal (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:59:3)\n    at readPointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:182:26)\n    at Object.originalDrawing00440400 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:11425:46)\n    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:48:27)\n    at originalDrawScene (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:240:17)\n    at drawScene (file:///home/martin/tact/versions/2010-en/src/render/scene.js:6:10)\n    at file:///home/martin/tact/versions/2010-en/tools/replay-initialized-island-scene.js:55:14\n    at file:///home/martin/tact/versions/2010-en/tests/native-state.js:44:52\n    at withX87ControlWord (file:///home/martin/tact/src/runtime/float80.js:24:20)"
+    },
+    "routine": "0x00440400",
+    "sourceLocation": "src/render/drawing-functions.js:11425",
+    "firstPartialStateDifferences": [
+      {
+        "address": "0x4f3a38",
+        "actualBits": "00000000",
+        "expectedBits": "d35c777b",
+        "actualI32": 0,
+        "expectedI32": 2071420115
+      },
+      {
+        "address": "0x4f3a3c",
+        "actualBits": "00000000",
+        "expectedBits": "289d7440",
+        "actualI32": 0,
+        "expectedI32": 1081384232
+      },
+      {
+        "address": "0x4f3a40",
+        "actualBits": "00000000",
+        "expectedBits": "69aebb3d",
+        "actualI32": 0,
+        "expectedI32": 1035710057
+      },
+      {
+        "address": "0x4f3a44",
+        "actualBits": "00000000",
+        "expectedBits": "94467340",
+        "actualI32": 0,
+        "expectedI32": 1081296532
+      },
+      {
+        "address": "0x4f3a4c",
+        "actualBits": "00000000",
+        "expectedBits": "00f07140",
+        "actualI32": 0,
+        "expectedI32": 1081208832
+      },
+      {
+        "address": "0x4f3a50",
+        "actualBits": "00000000",
+        "expectedBits": "975144c2",
+        "actualI32": 0,
+        "expectedI32": -1035710057
+      },
+      {
+        "address": "0x4f3a54",
+        "actualBits": "00000000",
+        "expectedBits": "6b997040",
+        "actualI32": 0,
+        "expectedI32": 1081121131
+      },
+      {
+        "address": "0x4f3a58",
+        "actualBits": "00000000",
+        "expectedBits": "5b461109",
+        "actualI32": 0,
+        "expectedI32": 152127067
+      },
+      {
+        "address": "0x4f3a5c",
+        "actualBits": "00000000",
+        "expectedBits": "af856e40",
+        "actualI32": 0,
+        "expectedI32": 1080985007
+      },
+      {
+        "address": "0x4f3a60",
+        "actualBits": "00000000",
+        "expectedBits": "88e9998d",
+        "actualI32": 0,
+        "expectedI32": -1919293048
+      },
+      {
+        "address": "0x4f3a64",
+        "actualBits": "00000000",
+        "expectedBits": "86d86b40",
+        "actualI32": 0,
+        "expectedI32": 1080809606
+      },
+      {
+        "address": "0x4f3a68",
+        "actualBits": "00000000",
+        "expectedBits": "d25c777b",
+        "actualI32": 0,
+        "expectedI32": 2071420114
+      },
+      {
+        "address": "0x4f3a6c",
+        "actualBits": "00000000",
+        "expectedBits": "289d7440",
+        "actualI32": 0,
+        "expectedI32": 1081384232
+      },
+      {
+        "address": "0x4f3a70",
+        "actualBits": "00000000",
+        "expectedBits": "69aebb3d",
+        "actualI32": 0,
+        "expectedI32": 1035710057
+      },
+      {
+        "address": "0x4f3a74",
+        "actualBits": "00000000",
+        "expectedBits": "94467340",
+        "actualI32": 0,
+        "expectedI32": 1081296532
+      },
+      {
+        "address": "0x4f3a7c",
+        "actualBits": "00000000",
+        "expectedBits": "00f07140",
+        "actualI32": 0,
+        "expectedI32": 1081208832
+      },
+      {
+        "address": "0x4f3a80",
+        "actualBits": "00000000",
+        "expectedBits": "975144c2",
+        "actualI32": 0,
+        "expectedI32": -1035710057
+      },
+      {
+        "address": "0x4f3a84",
+        "actualBits": "00000000",
+        "expectedBits": "6b997040",
+        "actualI32": 0,
+        "expectedI32": 1081121131
+      },
+      {
+        "address": "0x4f3a88",
+        "actualBits": "00000000",
+        "expectedBits": "5b461109",
+        "actualI32": 0,
+        "expectedI32": 152127067
+      },
+      {
+        "address": "0x4f3a8c",
+        "actualBits": "00000000",
+        "expectedBits": "af856e40",
+        "actualI32": 0,
+        "expectedI32": 1080985007
+      },
+      {
+        "address": "0x4f3a90",
+        "actualBits": "00000000",
+        "expectedBits": "83f0ada6",
+        "actualI32": 0,
+        "expectedI32": -1498550141
+      },
+      {
+        "address": "0x4f3a94",
+        "actualBits": "00000000",
+        "expectedBits": "f68c7540",
+        "actualI32": 0,
+        "expectedI32": 1081445622
+      },
+      {
+        "address": "0x4f3a98",
+        "actualBits": "00000000",
+        "expectedBits": "5b461109",
+        "actualI32": 0,
+        "expectedI32": 152127067
+      },
+      {
+        "address": "0x4f3a9c",
+        "actualBits": "00000000",
+        "expectedBits": "af856e40",
+        "actualI32": 0,
+        "expectedI32": 1080985007
+      }
+    ],
+    "partialStateDifferenceWordCount": 558,
+    "scope": "The558 later mutable differences and missing sounds/RNG/drawing requests are consequences of early termination; they are not separately established numerical defects."
+  },
+  "actualNativeFields": {
+    "selector": 12,
+    "boatClass": 6,
+    "course": 7,
+    "venue": 0,
+    "stage": 5,
+    "humans": 1,
+    "boats": 12,
+    "calibratedWidth": 1024,
+    "calibratedHeight": 723,
+    "menuHeight": 0,
+    "raw4da188": 3,
+    "displaySetting4da174": 8,
+    "island": 1,
+    "flag4fb5d4": 0,
+    "shorelineVariant": 0,
+    "shorelineMode": 0
+  },
+  "originalEvidence": {
+    "caller": {
+      "address": "0x00405320",
+      "callee": "0x00440400",
+      "arguments": [
+        "CDC",
+        "horizon at0x4da148",
+        "first0",
+        "last36",
+        "boat1",
+        "left0",
+        "top0",
+        "right1024",
+        "bottom361",
+        "horizon at0x4da148"
+      ]
+    },
+    "detailGate": {
+      "address": "0x00440866",
+      "instruction": "CMP DWORD PTR[0x4da174],0xd",
+      "observedFieldValue": 8,
+      "meaning": "Actual display-setting field; this gate is distinct from boat selector0x4da144"
+    },
+    "prologue": {
+      "address": "0x00440405",
+      "instruction": "SUB ESP,0xb74; PUSH EBX; PUSH EBP; PUSH ESI; PUSH EDI",
+      "stableFrameBase": "entryESP−0xb84"
+    },
+    "treeCacheWriter": {
+      "address": "0x00440777/0x00440782",
+      "instructions": [
+        "INC ESI",
+        "MOV DWORD PTR[ESP+ESI*4+0x304],EAX"
+      ],
+      "firstWrite": "first0 advances toindex1 and writes entryESP−0x87c"
+    },
+    "treePredecessorRead": {
+      "address": "0x004408e5/0x00440961",
+      "instructions": [
+        "LEA EDI,[ESP+ESI*4+0x308]",
+        "MOV ECX,DWORD PTR[EDI−4]"
+      ],
+      "firstRead": "first0 reads entryESP−0x880, before the tree-cache loop writes that slot",
+      "generatedLocalFrameOffset": 1004
+    }
+  },
+  "inputScope": {
+    "constructorHandles": 90,
+    "paint": {
+      "width": 1024,
+      "height": 768,
+      "calibratedClientHeight": 723,
+      "bitsPixel": 24
+    },
+    "nativeCourse": 7,
+    "nativeBoatSelector": 12,
+    "nativeBoatClass": 6,
+    "customEarlyReturn": 0,
+    "shorelineVariant": 0,
+    "islandGate": 1,
+    "retainedStackInjected": false,
+    "pixels": "Explicit synthetic white host read responses; no raster identity claim"
+  },
+  "metadataAudit": "0x4da190 boat class independently confirmed by420c00;0x4da188 retained under its raw address after conflicting inferred configuration names. Named snapshots were reread from unchanged recorded native mutable bytes, with each full native hash verified.",
+  "nextRequiredEvidence": "Historical probe requirement resolved by separately captured actually consumed slots, scoped caller references and persistent original POINT alias semantics. No universal stack-zero assumption is made.",
+  "productionEdited": false,
+  "olderFixturesEdited": false,
+  "diagnosisCorrection": {
+    "firstUndefinedRead": "X0, generated local offset280, original entryESP−0xb54 at440945; no preceding local write",
+    "additionalRetainedRead": "TreeY0, offset1004/entryESP−0x880 at440961",
+    "alias": "Original outputPOINT at offset276 has Y word at280, exactly aliasing X0",
+    "method": "Independent read-only local valid-byte tracing and original assembly; initial TreeY-first diagnosis was corrected before model implementation."
+  },
+  "followup": {
+    "scope": "Historical three-call fixture and expectations stay unchanged; separately observed caller contexts now validate the explicit model.",
+    "model": "src/render/shore-stack.js",
+    "tests": "tests/island-shore-context.test.js",
+    "capturedCalls": 20,
+    "retainedScenes": 16,
+    "exact": true,
+    "publication": "analysis/island-shore-context-observation-publication.json",
+    "liveReference": "assets/data/initial-shoreline-stack.json"
+  }
+}

@@ -1,0 +1,640 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "27c77acfb4fc1a69092a3c2cfebc52f666ff7b2ca53ed80661664c87d9d0c177",
+  "verificationEngine": "Unicorn",
+  "verificationEngineVersion": "2.1.4",
+  "selectorVirtualAddress": "0x004da16c",
+  "selectorFileOffset": "0x000d856c",
+  "sessionLimit": 10,
+  "elapsedIntegerSecondsLimit": 260,
+  "actualCondition": "Edition 1 with sessions > 10; any positive edition with integer elapsed time > 260",
+  "testedTutorialMenuPredicates": 22,
+  "results": [
+    {
+      "label": "English preserved restoration",
+      "executable": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+      "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+      "onDiskSelector": 0,
+      "selectorChangedByHarness": false,
+      "predicateCodeIdenticalToOriginal": true,
+      "identicalCodeRegions": [
+        {
+          "start": "0x0043578f",
+          "endExclusive": "0x004357bc",
+          "codeSha256": "a61586ad60b57021ef300d8073d69dd70837ba206645dfb50e2edec3e11354a1"
+        },
+        {
+          "start": "0x0040371e",
+          "endExclusive": "0x00403737",
+          "codeSha256": "c4e67e0c21ab72ccce363f072e693b6d023b59cda4ef888aec022c0a94f36e92"
+        },
+        {
+          "start": "0x00494eb0",
+          "endExclusive": "0x00494ecd",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00494fc0",
+          "endExclusive": "0x00494fdd",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495050",
+          "endExclusive": "0x0049506d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x004950e0",
+          "endExclusive": "0x004950fd",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495170",
+          "endExclusive": "0x0049518d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495200",
+          "endExclusive": "0x0049521d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495290",
+          "endExclusive": "0x004952ad",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495320",
+          "endExclusive": "0x0049533d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495640",
+          "endExclusive": "0x0049565d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x004956d0",
+          "endExclusive": "0x004956ed",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495760",
+          "endExclusive": "0x0049577d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x004957f0",
+          "endExclusive": "0x0049580d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495880",
+          "endExclusive": "0x0049589d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495910",
+          "endExclusive": "0x0049592d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x004959a0",
+          "endExclusive": "0x004959bd",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495a30",
+          "endExclusive": "0x00495a4d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495ac0",
+          "endExclusive": "0x00495add",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495b50",
+          "endExclusive": "0x00495b6d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495be0",
+          "endExclusive": "0x00495bfd",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495c70",
+          "endExclusive": "0x00495c8d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495d00",
+          "endExclusive": "0x00495d1d",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        },
+        {
+          "start": "0x00495d90",
+          "endExclusive": "0x00495dad",
+          "codeSha256": "27aebd80566d74e23d9770c68614b6dc33a1e7e1099ac5589d13c67855ce1eb3"
+        }
+      ],
+      "sessionAndRaceStopCases": [
+        {
+          "sessions": 0,
+          "elapsedIntegerSeconds": 0,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 0,
+          "elapsedIntegerSeconds": 260,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 0,
+          "elapsedIntegerSeconds": 261,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 0,
+          "elapsedIntegerSeconds": 800,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 0,
+          "elapsedIntegerSeconds": 5000,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 10,
+          "elapsedIntegerSeconds": 0,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 10,
+          "elapsedIntegerSeconds": 260,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 10,
+          "elapsedIntegerSeconds": 261,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 10,
+          "elapsedIntegerSeconds": 800,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 10,
+          "elapsedIntegerSeconds": 5000,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 11,
+          "elapsedIntegerSeconds": 0,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 11,
+          "elapsedIntegerSeconds": 260,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 11,
+          "elapsedIntegerSeconds": 261,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 11,
+          "elapsedIntegerSeconds": 800,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 11,
+          "elapsedIntegerSeconds": 5000,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 12,
+          "elapsedIntegerSeconds": 0,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 12,
+          "elapsedIntegerSeconds": 260,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 12,
+          "elapsedIntegerSeconds": 261,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 12,
+          "elapsedIntegerSeconds": 800,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 12,
+          "elapsedIntegerSeconds": 5000,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 100,
+          "elapsedIntegerSeconds": 0,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 100,
+          "elapsedIntegerSeconds": 260,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 100,
+          "elapsedIntegerSeconds": 261,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 100,
+          "elapsedIntegerSeconds": 800,
+          "actualStopStatus": 0
+        },
+        {
+          "sessions": 100,
+          "elapsedIntegerSeconds": 5000,
+          "actualStopStatus": 0
+        }
+      ],
+      "sessionIncrementCases": [
+        {
+          "sessions": 0,
+          "actualSessions": 0
+        },
+        {
+          "sessions": 9,
+          "actualSessions": 9
+        },
+        {
+          "sessions": 10,
+          "actualSessions": 10
+        },
+        {
+          "sessions": 11,
+          "actualSessions": 11
+        },
+        {
+          "sessions": 12,
+          "actualSessions": 12
+        },
+        {
+          "sessions": 100,
+          "actualSessions": 100
+        }
+      ],
+      "tutorialMenuEnableCases": [
+        {
+          "predicateStart": "0x00494eb0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00494eb0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00494eb0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00494fc0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00494fc0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00494fc0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495050",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495050",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495050",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004950e0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x004950e0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004950e0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495170",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495170",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495170",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495200",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495200",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495200",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495290",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495290",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495290",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495320",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495320",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495320",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495640",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495640",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495640",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004956d0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x004956d0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004956d0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495760",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495760",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495760",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004957f0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x004957f0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004957f0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495880",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495880",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495880",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495910",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495910",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495910",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004959a0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x004959a0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x004959a0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495a30",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495a30",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495a30",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495ac0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495ac0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495ac0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495b50",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495b50",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495b50",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495be0",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495be0",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495be0",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495c70",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495c70",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495c70",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495d00",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495d00",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495d00",
+          "tutorialState": 1,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495d90",
+          "tutorialState": -1,
+          "actualEnabled": false
+        },
+        {
+          "predicateStart": "0x00495d90",
+          "tutorialState": 0,
+          "actualEnabled": true
+        },
+        {
+          "predicateStart": "0x00495d90",
+          "tutorialState": 1,
+          "actualEnabled": true
+        }
+      ],
+      "passedCaseCount": 97
+    }
+  ],
+  "passedCaseCount": 97,
+  "mutationScope": "Only isolated emulated clock/session/tutorial state; all on-disk executables and their edition selectors unchanged",
+  "limitations": [
+    "Finite, bounded execution of predicates in Unicorn; not a complete race, Windows, or tutorial playthrough",
+    "The caller registers match the statically identified original guard inputs; surrounding game initialization was not executed",
+    "Tutorial UI callbacks are outside the executed ranges; enabled values alone do not establish rendering or successful navigation",
+    "Only edition-restricted menu predicates with the documented byte signature are covered; unrestricted menus and keyboard navigation need separate checks",
+    "The English executable may be rebuilt; this report applies only to its recorded SHA-256"
+  ],
+  "comparisonReport": "versions/2010-jp/analysis/edition-selector-verification.json"
+}

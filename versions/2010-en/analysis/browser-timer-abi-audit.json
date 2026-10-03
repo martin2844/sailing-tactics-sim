@@ -1,0 +1,411 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Independent read-only unchanged original x86 timer ABI/control-flow audit. Browser unit-clock host is declared; scheduling represents physical waiting. This is not a full Windows scheduler or raster identity claim.",
+  "import": {
+    "dll": "KERNEL32.dll",
+    "name": "GetTickCount",
+    "iatAddress": "0x53b928",
+    "signature": "stdcall(void) -> DWORD EAX; zero stack arguments",
+    "textOperandReferences": [
+      "0x404a37",
+      "0x4052e9",
+      "0x413c68",
+      "0x414897"
+    ]
+  },
+  "routines": [
+    {
+      "routine": "0x4049f0",
+      "signature": "cdecl(CDC*) -> void",
+      "tickCallsites": [
+        {
+          "callsite": "0x404a35",
+          "instructions": [
+            {
+              "address": "0x404a24",
+              "bytes": "750f",
+              "instruction": "jne 0x404a35"
+            },
+            {
+              "address": "0x404a26",
+              "bytes": "e855f70500",
+              "instruction": "call 0x464180"
+            },
+            {
+              "address": "0x404a2b",
+              "bytes": "c705ac64530002000000",
+              "instruction": "mov dword ptr [0x5364ac], 2"
+            },
+            {
+              "address": "0x404a35",
+              "bytes": "ff1528b95300",
+              "instruction": "call dword ptr [0x53b928]"
+            },
+            {
+              "address": "0x404a3b",
+              "bytes": "89442414",
+              "instruction": "mov dword ptr [esp + 0x14], eax"
+            },
+            {
+              "address": "0x404a3f",
+              "bytes": "8d442418",
+              "instruction": "lea eax, [esp + 0x18]"
+            },
+            {
+              "address": "0x404a43",
+              "bytes": "50",
+              "instruction": "push eax"
+            },
+            {
+              "address": "0x404a44",
+              "bytes": "ff15fcbb5300",
+              "instruction": "call dword ptr [0x53bbfc]"
+            },
+            {
+              "address": "0x404a4a",
+              "bytes": "8b4c241c",
+              "instruction": "mov ecx, dword ptr [esp + 0x1c]"
+            },
+            {
+              "address": "0x404a4e",
+              "bytes": "8b542418",
+              "instruction": "mov edx, dword ptr [esp + 0x18]"
+            },
+            {
+              "address": "0x404a52",
+              "bytes": "890de48e4f00",
+              "instruction": "mov dword ptr [0x4f8ee4], ecx"
+            }
+          ]
+        },
+        {
+          "callsite": "0x4052ed",
+          "instructions": [
+            {
+              "address": "0x4052e0",
+              "bytes": "7f05",
+              "instruction": "jg 0x4052e7"
+            },
+            {
+              "address": "0x4052e2",
+              "bytes": "be50000000",
+              "instruction": "mov esi, 0x50"
+            },
+            {
+              "address": "0x4052e7",
+              "bytes": "8b3d28b95300",
+              "instruction": "mov edi, dword ptr [0x53b928]"
+            },
+            {
+              "address": "0x4052ed",
+              "bytes": "ffd7",
+              "instruction": "call edi"
+            },
+            {
+              "address": "0x4052ef",
+              "bytes": "8b5c2414",
+              "instruction": "mov ebx, dword ptr [esp + 0x14]"
+            },
+            {
+              "address": "0x4052f3",
+              "bytes": "2bc3",
+              "instruction": "sub eax, ebx"
+            },
+            {
+              "address": "0x4052f5",
+              "bytes": "3bc6",
+              "instruction": "cmp eax, esi"
+            },
+            {
+              "address": "0x4052f7",
+              "bytes": "7308",
+              "instruction": "jae 0x405301"
+            },
+            {
+              "address": "0x4052f9",
+              "bytes": "ffd7",
+              "instruction": "call edi"
+            },
+            {
+              "address": "0x4052fb",
+              "bytes": "2bc3",
+              "instruction": "sub eax, ebx"
+            },
+            {
+              "address": "0x4052fd",
+              "bytes": "3bc6",
+              "instruction": "cmp eax, esi"
+            }
+          ]
+        },
+        {
+          "callsite": "0x4052f9",
+          "instructions": [
+            {
+              "address": "0x4052f3",
+              "bytes": "2bc3",
+              "instruction": "sub eax, ebx"
+            },
+            {
+              "address": "0x4052f5",
+              "bytes": "3bc6",
+              "instruction": "cmp eax, esi"
+            },
+            {
+              "address": "0x4052f7",
+              "bytes": "7308",
+              "instruction": "jae 0x405301"
+            },
+            {
+              "address": "0x4052f9",
+              "bytes": "ffd7",
+              "instruction": "call edi"
+            },
+            {
+              "address": "0x4052fb",
+              "bytes": "2bc3",
+              "instruction": "sub eax, ebx"
+            },
+            {
+              "address": "0x4052fd",
+              "bytes": "3bc6",
+              "instruction": "cmp eax, esi"
+            },
+            {
+              "address": "0x4052ff",
+              "bytes": "72f8",
+              "instruction": "jb 0x4052f9"
+            },
+            {
+              "address": "0x405301",
+              "bytes": "5f",
+              "instruction": "pop edi"
+            },
+            {
+              "address": "0x405302",
+              "bytes": "892d24714f00",
+              "instruction": "mov dword ptr [0x4f7124], ebp"
+            },
+            {
+              "address": "0x405308",
+              "bytes": "892d28714f00",
+              "instruction": "mov dword ptr [0x4f7128], ebp"
+            },
+            {
+              "address": "0x40530e",
+              "bytes": "5e",
+              "instruction": "pop esi"
+            }
+          ]
+        }
+      ],
+      "thresholdsMilliseconds": [
+        30,
+        60,
+        80
+      ],
+      "scope": "Tick return remains in stack/register locals. Only unsigned elapsed subtraction/comparison controls waiting; no original game global, RNG or drawing request depends on the tick value. Original stores and CString destruction after the loop still execute."
+    },
+    {
+      "routine": "0x413bc0",
+      "signature": "cdecl(CDC*) -> void",
+      "tickCallsites": [
+        {
+          "callsite": "0x413c66",
+          "instructions": [
+            {
+              "address": "0x413c5f",
+              "bytes": "8bce",
+              "instruction": "mov ecx, esi"
+            },
+            {
+              "address": "0x413c61",
+              "bytes": "8b3e",
+              "instruction": "mov edi, dword ptr [esi]"
+            },
+            {
+              "address": "0x413c63",
+              "bytes": "ff5734",
+              "instruction": "call dword ptr [edi + 0x34]"
+            },
+            {
+              "address": "0x413c66",
+              "bytes": "ff1528b95300",
+              "instruction": "call dword ptr [0x53b928]"
+            },
+            {
+              "address": "0x413c6c",
+              "bytes": "89442424",
+              "instruction": "mov dword ptr [esp + 0x24], eax"
+            },
+            {
+              "address": "0x413c70",
+              "bytes": "a1f8a14d00",
+              "instruction": "mov eax, dword ptr [0x4da1f8]"
+            },
+            {
+              "address": "0x413c75",
+              "bytes": "83f805",
+              "instruction": "cmp eax, 5"
+            },
+            {
+              "address": "0x413c78",
+              "bytes": "750a",
+              "instruction": "jne 0x413c84"
+            },
+            {
+              "address": "0x413c7a",
+              "bytes": "c70588a14d0003000000",
+              "instruction": "mov dword ptr [0x4da188], 3"
+            },
+            {
+              "address": "0x413c84",
+              "bytes": "6a64",
+              "instruction": "push 0x64"
+            },
+            {
+              "address": "0x413c86",
+              "bytes": "e875a30000",
+              "instruction": "call 0x41e000"
+            }
+          ]
+        },
+        {
+          "callsite": "0x4148aa",
+          "instructions": [
+            {
+              "address": "0x414895",
+              "bytes": "8b3528b95300",
+              "instruction": "mov esi, dword ptr [0x53b928]"
+            },
+            {
+              "address": "0x41489b",
+              "bytes": "c7055864530000000000",
+              "instruction": "mov dword ptr [0x536458], 0"
+            },
+            {
+              "address": "0x4148a5",
+              "bytes": "a3c4714f00",
+              "instruction": "mov dword ptr [0x4f71c4], eax"
+            },
+            {
+              "address": "0x4148aa",
+              "bytes": "ffd6",
+              "instruction": "call esi"
+            },
+            {
+              "address": "0x4148ac",
+              "bytes": "8b7c2424",
+              "instruction": "mov edi, dword ptr [esp + 0x24]"
+            },
+            {
+              "address": "0x4148b0",
+              "bytes": "2bc7",
+              "instruction": "sub eax, edi"
+            },
+            {
+              "address": "0x4148b2",
+              "bytes": "83f850",
+              "instruction": "cmp eax, 0x50"
+            },
+            {
+              "address": "0x4148b5",
+              "bytes": "7309",
+              "instruction": "jae 0x4148c0"
+            },
+            {
+              "address": "0x4148b7",
+              "bytes": "ffd6",
+              "instruction": "call esi"
+            },
+            {
+              "address": "0x4148b9",
+              "bytes": "2bc7",
+              "instruction": "sub eax, edi"
+            },
+            {
+              "address": "0x4148bb",
+              "bytes": "83f850",
+              "instruction": "cmp eax, 0x50"
+            }
+          ]
+        },
+        {
+          "callsite": "0x4148b7",
+          "instructions": [
+            {
+              "address": "0x4148b0",
+              "bytes": "2bc7",
+              "instruction": "sub eax, edi"
+            },
+            {
+              "address": "0x4148b2",
+              "bytes": "83f850",
+              "instruction": "cmp eax, 0x50"
+            },
+            {
+              "address": "0x4148b5",
+              "bytes": "7309",
+              "instruction": "jae 0x4148c0"
+            },
+            {
+              "address": "0x4148b7",
+              "bytes": "ffd6",
+              "instruction": "call esi"
+            },
+            {
+              "address": "0x4148b9",
+              "bytes": "2bc7",
+              "instruction": "sub eax, edi"
+            },
+            {
+              "address": "0x4148bb",
+              "bytes": "83f850",
+              "instruction": "cmp eax, 0x50"
+            },
+            {
+              "address": "0x4148be",
+              "bytes": "72f7",
+              "instruction": "jb 0x4148b7"
+            },
+            {
+              "address": "0x4148c0",
+              "bytes": "8d4c241c",
+              "instruction": "lea ecx, [esp + 0x1c]"
+            },
+            {
+              "address": "0x4148c4",
+              "bytes": "c7442430ffffffff",
+              "instruction": "mov dword ptr [esp + 0x30], 0xffffffff"
+            },
+            {
+              "address": "0x4148cc",
+              "bytes": "e8d4bc0900",
+              "instruction": "call 0x4b05a5"
+            },
+            {
+              "address": "0x4148d1",
+              "bytes": "8b4c2428",
+              "instruction": "mov ecx, dword ptr [esp + 0x28]"
+            }
+          ]
+        }
+      ],
+      "thresholdsMilliseconds": [
+        80
+      ],
+      "scope": "Tick return remains in stack/register locals. Only unsigned elapsed subtraction/comparison controls waiting; no original game global, RNG or drawing request depends on the tick value. Original stores and CString destruction after the loop still execute."
+    }
+  ],
+  "browserContract": {
+    "module": "src/runtime/browser-clock.js",
+    "clock": "One shared wrapped unsigned unit-tick stream for the complete paint, carried across paints; no per-wrapper reset when explicit callback is supplied.",
+    "beginPaint": "Reset read count, retain next DWORD tick.",
+    "minimumDuration": "max(0,reads-1) milliseconds. Each original reachable paint branch invokes one of these two timed roots; a no-wait early return has zero or one read.",
+    "physicalWait": "After painting, scheduler waits max(0,minimumDuration-realElapsedRendering). Original minimum-frame enforce hook and this observed duration combine with max. No wall-clock busy wait.",
+    "hostReadBound": 100000,
+    "nativeReadBoundSource": "tools/native_gdi_trace.h trace_tick_count",
+    "limits": "Unit read timing is an explicit owned-host contract matching reference captures. Native OS GetTickCount wall-clock granularity and scheduling are not reproduced instruction-by-instruction."
+  }
+}

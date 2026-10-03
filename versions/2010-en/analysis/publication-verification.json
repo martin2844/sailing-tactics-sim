@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "verifiedUtc": "2026-10-03T20:13:00.333821+00:00",
+  "status": "passed",
+  "scope": "Final corrected 2010 English publication. Tests are a full fresh staged run with explicit focused corrections and final production frame/browser reruns, not a rewritten zero-failure historical command.",
+  "source": {
+    "path": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+    "bytes": 1899520,
+    "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+  },
+  "baselineCommit": "69f17e67ae2bd227491e0e8b187eea554861235e",
+  "reviewVerdict": "No unresolved findings.",
+  "reviewFindingsFixed": [
+    "I32 stride in Board AI speed array",
+    "Private-path dependencies in two provenance checks",
+    "Historical pre-insertion source metadata preserved with an exact annotation",
+    "Signed scaledRandom helper return mismatch"
+  ],
+  "sourcePins": {
+    "files": 69,
+    "mismatches": 0,
+    "snapshot": {
+      "path": "versions/2010-en/analysis/final-retained-production-source-snapshot.json",
+      "bytes": 12414,
+      "sha256": "0058a13f3a4142a0527f1784f5413a1fc1407a22bd53c1b859aa9e1f418df88f"
+    }
+  },
+  "retainedProof": {
+    "fullFrames": 438,
+    "components": {
+      "continuousFrames": 400,
+      "controllerConnectedFrames": 35,
+      "boardFrames": 3
+    },
+    "orderedGdiRequests": 747999,
+    "distinctSelectedOriginalCalls": 860,
+    "report": {
+      "path": "versions/2010-en/analysis/final-retained-proof-audit.json",
+      "bytes": 7942,
+      "sha256": "b32ae6af9d65eab7dfb4b874992b4495c5c4152b512a55ebf7fb7774c0d6be62"
+    }
+  },
+  "freshCheckout": {
+    "report": {
+      "path": "versions/2010-en/analysis/fresh-staged-focused-validation.json",
+      "bytes": 14776,
+      "sha256": "696029b84e2904bde03498873b841774552cdce50dbdc7bf6f20e052f658fc6d"
+    },
+    "initialCommandHadTwoProvenanceFailures": true,
+    "bothFailuresCorrected": true,
+    "distinctCurrentChecks": {
+      "edition2002": 363,
+      "edition2010": 320,
+      "total": 683,
+      "scope": "Layered coverage: initial full suite plus corrected provenance/AI50 checks and new retained-board2 checks. Duplicate reruns are not added to distinct totals; original full command remains a historical nonzero result."
+    },
+    "focusedTests": 50,
+    "additionalBoardTests": 2
+  },
+  "browser": [
+    {
+      "report": {
+        "path": "versions/2010-en/analysis/browser-verification.json",
+        "bytes": 14409,
+        "sha256": "a1835532b71d00c268c5ff091566519f029b8183f942249e0b14aa5e985b66d3"
+      },
+      "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
+      "checks": 119,
+      "passed": true,
+      "uncaughtExceptions": 0
+    },
+    {
+      "report": {
+        "path": "versions/2010-en/analysis/standalone-browser-verification.json",
+        "bytes": 14405,
+        "sha256": "ac2a4079d12a2e70cafda0c2649e6c4fbc8af47c4423b74001420f694563db16"
+      },
+      "url": "http://127.0.0.1:8766/index.html",
+      "checks": 119,
+      "passed": true,
+      "uncaughtExceptions": 0
+    }
+  ],
+  "assetChecks": {
+    "tests": 5,
+    "passed": 5
+  },
+  "decompilation": {
+    "verifiedFunctions": 5281,
+    "failures": 0,
+    "report": {
+      "path": "versions/2010-en/analysis/decompilation-export-verification.json",
+      "bytes": 1029,
+      "sha256": "5216f509af6be93d6cbebaca05e1c68d65e86a26579f6fda39229d94d060d172"
+    }
+  },
+  "evidenceArchives": {
+    "manifest": {
+      "path": "versions/2010-en/evidence/manifest.json",
+      "bytes": 95832,
+      "sha256": "d6053eaed63fdb9521c54f107c20cb6faf0819387156c877457cfce0f6280b77"
+    },
+    "totals": {
+      "files": 216,
+      "bytes": 6622192329,
+      "compressedBytes": 193378000
+    },
+    "compressedAndExpandedHashesVerified": true,
+    "rawExpandedFilesNotStaged": true
+  },
+  "exports": [
+    {
+      "directory": "dist",
+      "manifest": {
+        "path": "dist/port-manifest.json",
+        "bytes": 21842,
+        "sha256": "55e906e9f6597e23f1ab2873aa95e16db3b75df06a56cf90c688e2ad6bf104d8"
+      },
+      "playerFiles": 134,
+      "playerBytes": 2823245,
+      "zip": {
+        "path": "posey-2002-browser.zip",
+        "bytes": 681151,
+        "sha256": "eb9cca57abf34fe46e70de3ac6346e61f0c022eaf3e1e7df9c1e7d6a7a19f29b"
+      }
+    },
+    {
+      "directory": "dist-2010",
+      "manifest": {
+        "path": "dist-2010/port-manifest.json",
+        "bytes": 21797,
+        "sha256": "c730eecfc087717f4a403eb0d281160a2d90c8d541c7cd4387e10e9cebe892a2"
+      },
+      "playerFiles": 123,
+      "playerBytes": 7397108,
+      "zip": {
+        "path": "posey-2010-browser.zip",
+        "bytes": 1270130,
+        "sha256": "89d8f8c910c1d504b163892c89511b50b582d212724c835eea8e40d5121f6a83"
+      }
+    }
+  ],
+  "reports": [
+    {
+      "path": "versions/2010-en/analysis/big-review.md",
+      "bytes": 5508,
+      "sha256": "a84d2a1d878aec67bee28bf2bd700538e30c2a390d99fce5e11076d15a01131f"
+    },
+    {
+      "path": "versions/2010-en/analysis/manual-engine-runtime-big-review.json",
+      "bytes": 6137,
+      "sha256": "cf7b6cc3aeeffee2734fb7c59f1cc6a971814dc4d50da74dc33fb443527c2105"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-publication-big-review.json",
+      "bytes": 8294,
+      "sha256": "0f794eb00c98a668f2c7d72592ad553351b9df58ba41ceb66253c2d977e2d97e"
+    },
+    {
+      "path": "versions/2010-en/analysis/proof-tools-review.json",
+      "bytes": 3370,
+      "sha256": "3f4d9a47acc936aca3160a0da72f3b37055d2c98f0afb93fe056c77ad15faf10"
+    },
+    {
+      "path": "versions/2010-en/analysis/final-publication-delta-review.json",
+      "bytes": 9017,
+      "sha256": "f706d6e47999eb1d15a93b117ebc23815fcfce87ee1d53322b3152acc5254d26"
+    },
+    {
+      "path": "versions/2010-en/analysis/generation-reproducibility.json",
+      "bytes": 13985,
+      "sha256": "e8b22a3fbbee7a5766924c5bf5c632441ae6a8a58dc878761a0b62680da3c672"
+    },
+    {
+      "path": "versions/2010-en/analysis/final-retained-proof-audit.json",
+      "bytes": 7942,
+      "sha256": "b32ae6af9d65eab7dfb4b874992b4495c5c4152b512a55ebf7fb7774c0d6be62"
+    },
+    {
+      "path": "versions/2010-en/analysis/fresh-staged-focused-validation.json",
+      "bytes": 14776,
+      "sha256": "696029b84e2904bde03498873b841774552cdce50dbdc7bf6f20e052f658fc6d"
+    },
+    {
+      "path": "versions/2010-en/analysis/decompilation-export-verification.json",
+      "bytes": 1029,
+      "sha256": "5216f509af6be93d6cbebaca05e1c68d65e86a26579f6fda39229d94d060d172"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-verification.json",
+      "bytes": 14409,
+      "sha256": "a1835532b71d00c268c5ff091566519f029b8183f942249e0b14aa5e985b66d3"
+    },
+    {
+      "path": "versions/2010-en/analysis/standalone-browser-verification.json",
+      "bytes": 14405,
+      "sha256": "ac2a4079d12a2e70cafda0c2649e6c4fbc8af47c4423b74001420f694563db16"
+    },
+    {
+      "path": "versions/2010-en/analysis/native-reference-index.json",
+      "bytes": 646674,
+      "sha256": "e78e882ec87ca65b9bcbec17d4714e2123794ade2126962a076a7053f2f4010d"
+    }
+  ],
+  "limits": [
+    "Finite native input/state and ordered host-call identity; universal input equivalence is not claimed.",
+    "Canvas rasterization and audio-device timing may differ from Windows.",
+    "The undefined shoreline caller slots use the documented intact-application observation; arbitrary Windows stack contents are outside scope.",
+    "Exact arithmetic is CPU intensive; historical CPU or browser frame-rate identity is not claimed."
+  ]
+}

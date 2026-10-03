@@ -1,0 +1,1797 @@
+{
+  "kind": "Read-only first mutable-byte audit; no original fixture or renderer changes",
+  "fixture": "tests/fixtures/original-initialized-screens.json",
+  "fixtureSha256": "1a72b54186b011f3443459f24fc530b108b0f717da4045cca476a0f08c8e0f1d",
+  "sourceModules": [
+    {
+      "path": "src/render/render-functions.js",
+      "sha256": "bd9ece669e0f95165f7efec946f7bc0d092236463fb40fe621dcc20eaebdca27"
+    },
+    {
+      "path": "src/render/screen-helper-functions.js",
+      "sha256": "99c14f323c8a7af06a5987d07fdd72beea568e8f10a80e616ca62bed4f262ef2"
+    },
+    {
+      "path": "src/render/dependencies.js",
+      "sha256": "d5f2a61191b48d2021470e3bd96df3c4fdd965d357d5a66ad9747faba03df5f1"
+    },
+    {
+      "path": "src/render/sail-geometry.js",
+      "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281"
+    },
+    {
+      "path": "src/render/drawing-functions.js",
+      "sha256": "a0d8c6167cac249024d4dee702361ec765f57a8e82d55c306b617a66b27aa4ec"
+    },
+    {
+      "path": "src/render/typed-c.js",
+      "sha256": "d36b8909d27c94abb51efd151c234900452aa1be060bc22ff4296a7b23ad0c3b"
+    }
+  ],
+  "profiles": [
+    {
+      "profile": "selector1-initialized-screens",
+      "selector": 1,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        }
+      ],
+      "failure": {
+        "index": 2,
+        "phase": "drawStartScreen",
+        "error": {
+          "message": "case2:whole mutable SHA256\n+ actual - expected\n\n+ '0c2533710274649a904980a2b8dd2d13b16de77f6f253a1c8930a2b85eba98c9'\n- 'b75f23b0ea1781fa2c4e16d63b7703d92e235da8315cad900a590e72485fdfc0'\n",
+          "stack": "AssertionError [ERR_ASSERTION]: case2:whole mutable SHA256\n+ actual - expected\n\n+ '0c2533710274649a904980a2b8dd2d13b16de77f6f253a1c8930a2b85eba98c9'\n- 'b75f23b0ea1781fa2c4e16d63b7703d92e235da8315cad900a590e72485fdfc0'\n\n    at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:60:14)\n    at file:///tmp/audit-initialized-screens.mjs:25:15"
+        },
+        "expectedSha256": "b75f23b0ea1781fa2c4e16d63b7703d92e235da8315cad900a590e72485fdfc0",
+        "actualSha256": "0c2533710274649a904980a2b8dd2d13b16de77f6f253a1c8930a2b85eba98c9",
+        "firstDifference": {
+          "address": 5192264,
+          "before": "0000000000000000000000000000000000000000000000000000000000000000",
+          "actual": "cecc8c8dac24c4c1cecc8c8dac24c4c1343363236f25e541343363236f25e541",
+          "expected": "0000000000207a40dc68006f81c47840b7d100de02697740b7d100de02697740",
+          "addressHex": "0x4f3a48",
+          "dwordAddress": "0x4f3a48",
+          "actualDwordBits": "cecc8c8d",
+          "expectedDwordBits": "00000000",
+          "actualDword": -1920152370,
+          "expectedDword": 0,
+          "f64Address": "0x4f3a48",
+          "actualF64Bits": "cecc8c8dac24c4c1",
+          "expectedF64Bits": "0000000000207a40",
+          "actualF64": -675895579.1000001,
+          "expectedF64": 418,
+          "lastWriter": {
+            "address": 5192264,
+            "width": 8,
+            "method": "writeF64",
+            "value": -675895579.1000001,
+            "stack": [
+              "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+              "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5661:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+            ]
+          }
+        },
+        "rangeCount": 43,
+        "ranges": [
+          {
+            "address": 5192264,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "cecc8c8dac24c4c1cecc8c8dac24c4c1343363236f25e541343363236f25e541",
+            "expected": "0000000000207a40dc68006f81c47840b7d100de02697740b7d100de02697740",
+            "addressHex": "0x4f3a48",
+            "dwordAddress": "0x4f3a48",
+            "actualDwordBits": "cecc8c8d",
+            "expectedDwordBits": "00000000",
+            "actualDword": -1920152370,
+            "expectedDword": 0,
+            "f64Address": "0x4f3a48",
+            "actualF64Bits": "cecc8c8dac24c4c1",
+            "expectedF64Bits": "0000000000207a40",
+            "actualF64": -675895579.1000001,
+            "expectedF64": 418,
+            "lastWriter": {
+              "address": 5192264,
+              "width": 8,
+              "method": "writeF64",
+              "value": -675895579.1000001,
+              "stack": [
+                "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+                "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5661:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+              ]
+            }
+          },
+          {
+            "address": 5192560,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "d09b40c7fdcd7940d09b40c7fdcd7940462dded9683a7a40462dded9683a7a40d09b40c7fdcd7940462dded9683a7a40"
+          },
+          {
+            "address": 5193872,
+            "before": "00000000",
+            "actual": "e99f2c23",
+            "expected": "a7010000"
+          },
+          {
+            "address": 5195028,
+            "before": "000000000000000000000000",
+            "actual": "b9361f273eba94f73eba94f7",
+            "expected": "580300005e03000051030000"
+          },
+          {
+            "address": 5205544,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "2ee22428000504014976b918b3cf8a09a4f4eae7235cb00973d575daff1d9dfbf795971a5e39140970dc4e19f0b498f659254310c246f1f45e9495f3b59880f4bc61cee1c7aefff73be6bbe79a3d5af648e6bbe79e3d5af6",
+            "expected": "0d030000900100000903000067010000060300004401000002030000210100001103000001010000210300002e0100003303000057010000420300007b0100004d030000a20100001a030000a40100000b0300009f010000"
+          },
+          {
+            "address": 5224900,
+            "before": "000000000000000000000000",
+            "actual": "63537cf968537cf9ea94e202",
+            "expected": "aa010000b5010000af010000"
+          },
+          {
+            "address": 5234832,
+            "before": "00000000",
+            "actual": "bc61cee1",
+            "expected": "4d030000"
+          },
+          {
+            "address": 5234840,
+            "before": "00000000",
+            "actual": "2ee22428",
+            "expected": "0d030000"
+          },
+          {
+            "address": 5235352,
+            "before": "00000000",
+            "actual": "c7aefff7",
+            "expected": "a2010000"
+          },
+          {
+            "address": 5235364,
+            "before": "00000000",
+            "actual": "00050401",
+            "expected": "90010000"
+          },
+          {
+            "address": 5237373,
+            "before": "000000",
+            "actual": "9889c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237381,
+            "before": "000000",
+            "actual": "9889c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237389,
+            "before": "000000",
+            "actual": "9889c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237397,
+            "before": "000000",
+            "actual": "9889c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237664,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "40f56f39b9782840e0dbf94f48db3140e0dbf94f48db314040f56f39b9782840"
+          },
+          {
+            "address": 5237697,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "8acb360a0ffdbf"
+          },
+          {
+            "address": 5237705,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "8acb360a0ffdbf"
+          },
+          {
+            "address": 5313416,
+            "before": "00000000000000000000000000000000",
+            "actual": "18a5b6d7000000002ea5b6d700000000",
+            "expected": "4872f90fe9b745c04072f90fe9b735c0"
+          },
+          {
+            "address": 5313439,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000ca2d8b2e00000000ca2d8b2e0000000018a5b6d7000000002ea5b6d70000000043a5b6d7",
+            "expected": "804072f90fe9b735404872f90fe9b745404872f90fe9b745404072f90fe9b745c04072f90fe9b735c000000000"
+          },
+          {
+            "address": 5313487,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0059a5b6d7000000006fa5b6d70000000009a5b6d7000000006fa5b6d70000000059a5b6d70000000043a5b6d7",
+            "expected": "805072f90fe9b735405072f90fe9b74540e0f3c308e1514dc05072f90fe9b745405072f90fe9b7354000000000"
+          },
+          {
+            "address": 5313535,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "002ea5b6d70000000018a5b6d7000000006fa5b6d79999d93f6fa5b6d73333f33f6fa5b6d7000000",
+            "expected": "804072f90fe9b735c04072f90fe9b745c04872f90fe9b745404872f90fe9b745404872f90fe9b745"
+          },
+          {
+            "address": 5313576,
+            "before": "00000000000000",
+            "actual": "6fa5b6d7666606",
+            "expected": "4872f90fe9b745"
+          },
+          {
+            "address": 5313584,
+            "before": "00000000000000",
+            "actual": "59a5b6d7cccc0c",
+            "expected": "e00b93a982d135"
+          },
+          {
+            "address": 5313592,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "42a5b6d7666606402da5b6d7000000401fa5b6d73333f33f1aa5b6d79999d93fe5a6b6d7",
+            "expected": "00ef50b92ea1f7bfe04d7e8b4e9636c0e82dc324014f42c0b096749483d944c000000000"
+          },
+          {
+            "address": 5313629,
+            "before": "000000",
+            "actual": "000000",
+            "expected": "207a40"
+          },
+          {
+            "address": 5313728,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "e5a6b6d700000000e5a6b6d700000000e5a6b6d700000000e5a6b6d700000000e5a6b6d700000000e5a6b6d700000000",
+            "expected": "000cd92f8e801440000cd92f8e80144000462dded968fabf00462dded968fabf000cd92f8e80144000462dded968fabf"
+          },
+          {
+            "address": 5384416,
+            "before": "0000000000000000",
+            "actual": "b9361f27d4ed620e",
+            "expected": "5803000045030000"
+          },
+          {
+            "address": 5384428,
+            "before": "00",
+            "actual": "33",
+            "expected": "21"
+          },
+          {
+            "address": 5384432,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "6437d6816437d68114e6bbe721e6bbe72ee6bbe73be6bbe748e6bbe7d01f752148e6bbe73be6bbe72ee6bbe721e6bbe714e6bbe72ee224284976b918a4f4eae773d575daf795971a70dc4e19592543105e9495f3bc61cee12ae7bbe7",
+            "expected": "0e0300000e030000600300004f0300003b0300002803000012030000650300000b0300001a0300002b0300003c0300004f0300000d030000090300000603000002030000110300002103000033030000420300004d03000027000000"
+          },
+          {
+            "address": 5384572,
+            "before": "000000000000000000000000000000000000000000000000",
+            "actual": "2ae7bbe72ae7bbe72ae7bbe72ae7bbe72ae7bbe72ae7bbe7",
+            "expected": "34030000370300003d0300003a0300002e03000033030000"
+          },
+          {
+            "address": 5384672,
+            "before": "00000000000000000000",
+            "actual": "e394e202d5024a0b4b02",
+            "expected": "a8010000a5010000a201"
+          },
+          {
+            "address": 5384684,
+            "before": "0000",
+            "actual": "4b02",
+            "expected": "9f01"
+          }
+        ],
+        "drawing": {
+          "actualCount": 293,
+          "expectedCount": 293,
+          "matchingPrefix": 22,
+          "firstActual": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: "
+          },
+          "firstExpected": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: Apple"
+          }
+        }
+      }
+    },
+    {
+      "profile": "selector7-initialized-screens",
+      "selector": 7,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        }
+      ],
+      "failure": {
+        "index": 2,
+        "phase": "drawStartScreen",
+        "error": {
+          "message": "case2:whole mutable SHA256\n+ actual - expected\n\n+ '5f13b0253983d43fef4d4753f6827495d9842b773a24e552d71823a2f82a714e'\n- 'e3a9bc7025a80926567808271b6c77fd88c86abb3ba20540468f992b71798edf'\n",
+          "stack": "AssertionError [ERR_ASSERTION]: case2:whole mutable SHA256\n+ actual - expected\n\n+ '5f13b0253983d43fef4d4753f6827495d9842b773a24e552d71823a2f82a714e'\n- 'e3a9bc7025a80926567808271b6c77fd88c86abb3ba20540468f992b71798edf'\n\n    at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:60:14)\n    at file:///tmp/audit-initialized-screens.mjs:25:15"
+        },
+        "expectedSha256": "e3a9bc7025a80926567808271b6c77fd88c86abb3ba20540468f992b71798edf",
+        "actualSha256": "5f13b0253983d43fef4d4753f6827495d9842b773a24e552d71823a2f82a714e",
+        "firstDifference": {
+          "address": 5192267,
+          "before": "00000000000000",
+          "actual": "0a19efa4410000",
+          "expected": "0000207a40dc68",
+          "addressHex": "0x4f3a4b",
+          "dwordAddress": "0x4f3a48",
+          "actualDwordBits": "0000000a",
+          "expectedDwordBits": "00000000",
+          "actualDword": 167772160,
+          "expectedDword": 0,
+          "f64Address": "0x4f3a48",
+          "actualF64Bits": "0000000a19efa441",
+          "expectedF64Bits": "0000000000207a40",
+          "actualF64": 175606917,
+          "expectedF64": 418,
+          "lastWriter": {
+            "address": 5192264,
+            "width": 8,
+            "method": "writeF64",
+            "value": 175606917,
+            "stack": [
+              "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+              "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+            ]
+          }
+        },
+        "rangeCount": 70,
+        "ranges": [
+          {
+            "address": 5192267,
+            "before": "00000000000000",
+            "actual": "0a19efa4410000",
+            "expected": "0000207a40dc68",
+            "addressHex": "0x4f3a4b",
+            "dwordAddress": "0x4f3a48",
+            "actualDwordBits": "0000000a",
+            "expectedDwordBits": "00000000",
+            "actualDword": 167772160,
+            "expectedDword": 0,
+            "f64Address": "0x4f3a48",
+            "actualF64Bits": "0000000a19efa441",
+            "expectedF64Bits": "0000000000207a40",
+            "actualF64": 175606917,
+            "expectedF64": 418,
+            "lastWriter": {
+              "address": 5192264,
+              "width": 8,
+              "method": "writeF64",
+              "value": 175606917,
+              "stack": [
+                "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+                "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+              ]
+            }
+          },
+          {
+            "address": 5192275,
+            "before": "000000000000000000000000000000000000000000",
+            "actual": "0a19efa441000020533edee0c1000020533edee0c1",
+            "expected": "6f81c47840b7d100de02697740923a014d840d7640"
+          },
+          {
+            "address": 5192560,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "03a9143b1a87794003a9143b1a8779405d7b664980da79405d7b664980da794003a9143b1a8779405d7b664980da79403ae466b8017f78403ae466b8017f784094b6b8c667d2784094b6b8c667d278403ae466b8017f784094b6b8c667d27840"
+          },
+          {
+            "address": 5193872,
+            "before": "00000000",
+            "actual": "a2d432f7",
+            "expected": "a3010000"
+          },
+          {
+            "address": 5194236,
+            "before": "00000000",
+            "actual": "c239cff1",
+            "expected": "2e030000"
+          },
+          {
+            "address": 5195028,
+            "before": "000000000000000000000000",
+            "actual": "48f377e9a7c1ff03a7c1ff03",
+            "expected": "580300005c03000053030000"
+          },
+          {
+            "address": 5205544,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "f8435b8397d432f7aa168aed4a6f44138a8fda1f9a6f60eec1e99ad11ca2c9f29a4dc0307e19b60dbd0f10ed453ec6ec5cf8cec0f6368506bcedaf3d846ab507379945e1fd9f32ee0df318d37ce1d80e51cda2f831e5ec13",
+            "expected": "fc020000980100001503000003010000210300009d0100000e0300009d01000015030000d70000002c0300000d010000390300003e010000460300006b010000500300009d0100001a030000a40100000b0300009f010000"
+          },
+          {
+            "address": 5223436,
+            "before": "00000000",
+            "actual": "2e972104",
+            "expected": "a6010000"
+          },
+          {
+            "address": 5224900,
+            "before": "000000000000000000000000",
+            "actual": "e491a5ede791a5ed326120ed",
+            "expected": "ac010000b3010000af010000"
+          },
+          {
+            "address": 5224968,
+            "before": "00000000",
+            "actual": "1ec35b0d",
+            "expected": "ec010000"
+          },
+          {
+            "address": 5234832,
+            "before": "00000000",
+            "actual": "379945e1",
+            "expected": "50030000"
+          },
+          {
+            "address": 5234840,
+            "before": "00000000",
+            "actual": "0df6e32e",
+            "expected": "1f030000"
+          },
+          {
+            "address": 5235352,
+            "before": "00000000",
+            "actual": "fd9f32ee",
+            "expected": "9d010000"
+          },
+          {
+            "address": 5235364,
+            "before": "00000000",
+            "actual": "1e91480e",
+            "expected": "90010000"
+          },
+          {
+            "address": 5236264,
+            "before": "00000000",
+            "actual": "ccec2932",
+            "expected": "e3010000"
+          },
+          {
+            "address": 5236420,
+            "before": "00000000",
+            "actual": "73ab61b8",
+            "expected": "e1010000"
+          },
+          {
+            "address": 5236576,
+            "before": "00000000",
+            "actual": "00fb10df",
+            "expected": "e8000000"
+          },
+          {
+            "address": 5236596,
+            "before": "00000000",
+            "actual": "fcb0dae2",
+            "expected": "c0000000"
+          },
+          {
+            "address": 5237370,
+            "before": "0000",
+            "actual": "c0cc",
+            "expected": "0000"
+          },
+          {
+            "address": 5237373,
+            "before": "000000",
+            "actual": "80d0c1",
+            "expected": "000000"
+          },
+          {
+            "address": 5237378,
+            "before": "0000",
+            "actual": "c0cc",
+            "expected": "0000"
+          },
+          {
+            "address": 5237381,
+            "before": "000000",
+            "actual": "80d0c1",
+            "expected": "000000"
+          },
+          {
+            "address": 5237386,
+            "before": "0000",
+            "actual": "c0cc",
+            "expected": "0000"
+          },
+          {
+            "address": 5237389,
+            "before": "000000",
+            "actual": "80d0c1",
+            "expected": "000000"
+          },
+          {
+            "address": 5237394,
+            "before": "0000",
+            "actual": "c0cc",
+            "expected": "0000"
+          },
+          {
+            "address": 5237397,
+            "before": "000000",
+            "actual": "80d0c1",
+            "expected": "000000"
+          },
+          {
+            "address": 5237664,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "f0dabb1eacad4440300a5f771ad74640300a5f771ad74640f0dabb1eacad444080c94782308c3e4080c94782308c3e40c0a0329fdff62640c05dbf01999c2f40c05dbf01999c2f40c0a0329fdff62640"
+          },
+          {
+            "address": 5237745,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "802c8d0289e53f"
+          },
+          {
+            "address": 5237753,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "802c8d0289e53f"
+          },
+          {
+            "address": 5313416,
+            "before": "00000000000000000000000000000000",
+            "actual": "b78a770a00000000cd8a770a00000000",
+            "expected": "4872f90fe9b745c04072f90fe9b735c0"
+          },
+          {
+            "address": 5313439,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000001e7f6991000000001e7f699100000000b78a770a00000000cd8a770a00000000e38a770a",
+            "expected": "804072f90fe9b735404872f90fe9b74540b815fbcbee4950404072f90fe9b745c04072f90fe9b735c000000000"
+          },
+          {
+            "address": 5313487,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "00f88a770a000000000e8b770a00000000a88a770a000000000e8b770a00000000f88a770a00000000e38a770a",
+            "expected": "805072f90fe9b735405072f90fe9b74540e0f3c308e1514dc05072f90fe9b745405072f90fe9b7354000000000"
+          }
+        ],
+        "drawing": {
+          "actualCount": 443,
+          "expectedCount": 443,
+          "matchingPrefix": 22,
+          "firstActual": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: "
+          },
+          "firstExpected": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: Hotrod"
+          }
+        }
+      }
+    },
+    {
+      "profile": "selector12-initialized-screens",
+      "selector": 12,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        }
+      ],
+      "failure": {
+        "index": 2,
+        "phase": "drawStartScreen",
+        "error": {
+          "message": "case2:whole mutable SHA256\n+ actual - expected\n\n+ '0766a89b02ff004588ddad7c779a05f7b0fad8e25c039cd75daac82d21ecc0c7'\n- 'a1978f70df09ddb40488093d19601ad5b81cfb11902176de78c3b0f08def8cc1'\n",
+          "stack": "AssertionError [ERR_ASSERTION]: case2:whole mutable SHA256\n+ actual - expected\n\n+ '0766a89b02ff004588ddad7c779a05f7b0fad8e25c039cd75daac82d21ecc0c7'\n- 'a1978f70df09ddb40488093d19601ad5b81cfb11902176de78c3b0f08def8cc1'\n\n    at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:60:14)\n    at file:///tmp/audit-initialized-screens.mjs:25:15"
+        },
+        "expectedSha256": "a1978f70df09ddb40488093d19601ad5b81cfb11902176de78c3b0f08def8cc1",
+        "actualSha256": "0766a89b02ff004588ddad7c779a05f7b0fad8e25c039cd75daac82d21ecc0c7",
+        "firstDifference": {
+          "address": 5192266,
+          "before": "000000000000000000000000000000000000000000000000000000000000",
+          "actual": "8083d95cd0c100008083d95cd0c100008083d95cd04100008083d95cd041",
+          "expected": "000000207a40dc68006f81c47840b7d100de02697740923a014d840d7640",
+          "addressHex": "0x4f3a4a",
+          "dwordAddress": "0x4f3a48",
+          "actualDwordBits": "00008083",
+          "expectedDwordBits": "00000000",
+          "actualDword": -2088763392,
+          "expectedDword": 0,
+          "f64Address": "0x4f3a48",
+          "actualF64Bits": "00008083d95cd0c1",
+          "expectedF64Bits": "0000000000207a40",
+          "actualF64": -1098081806,
+          "expectedF64": 418,
+          "lastWriter": {
+            "address": 5192264,
+            "width": 8,
+            "method": "writeF64",
+            "value": -1098081806,
+            "stack": [
+              "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+              "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+            ]
+          }
+        },
+        "rangeCount": 71,
+        "ranges": [
+          {
+            "address": 5192266,
+            "before": "000000000000000000000000000000000000000000000000000000000000",
+            "actual": "8083d95cd0c100008083d95cd0c100008083d95cd04100008083d95cd041",
+            "expected": "000000207a40dc68006f81c47840b7d100de02697740923a014d840d7640",
+            "addressHex": "0x4f3a4a",
+            "dwordAddress": "0x4f3a48",
+            "actualDwordBits": "00008083",
+            "expectedDwordBits": "00000000",
+            "actualDword": -2088763392,
+            "expectedDword": 0,
+            "f64Address": "0x4f3a48",
+            "actualF64Bits": "00008083d95cd0c1",
+            "expectedF64Bits": "0000000000207a40",
+            "actualF64": -1098081806,
+            "expectedF64": 418,
+            "lastWriter": {
+              "address": 5192264,
+              "width": 8,
+              "method": "writeF64",
+              "value": -1098081806,
+              "stack": [
+                "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+                "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+              ]
+            }
+          },
+          {
+            "address": 5192560,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "cac4ad8218287b40cac4ad8218287b402497ff907e7b7b402497ff907e7b7b40cac4ad8218287b402497ff907e7b7b40"
+          },
+          {
+            "address": 5192613,
+            "before": "000000",
+            "actual": "000000",
+            "expected": "207a40"
+          },
+          {
+            "address": 5192621,
+            "before": "00000000000000000000000000000000000000",
+            "actual": "00000000000000000000000000000000000000",
+            "expected": "207a405ad2510e66737a405ad2510e66737a40"
+          },
+          {
+            "address": 5192645,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000aa9b8b81d95cd0c1aa9b8b81d95cd0c170033e80d95cd0c170033e80d95cd0c1aa9b8b81d95cd0c170033e80d95cd0c1",
+            "expected": "207a405ad2510e66737a4065247b849a41794065247b849a417940bff6cc9200957940bff6cc920095794065247b849a417940bff6cc9200957940"
+          },
+          {
+            "address": 5193872,
+            "before": "00000000",
+            "actual": "e216a7e0",
+            "expected": "a4010000"
+          },
+          {
+            "address": 5194236,
+            "before": "00000000",
+            "actual": "b44b0f03",
+            "expected": "2d030000"
+          },
+          {
+            "address": 5195028,
+            "before": "000000000000000000000000",
+            "actual": "24f6d32d7d4e67f77d4e67f7",
+            "expected": "580300005a03000055030000"
+          },
+          {
+            "address": 5205544,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "823927f1d716a7e0033eef230fbe96efc377b83dafbc8806a3d86ff7c6e997f319b50d1ca18642eecb0872cd7b8e780c337eb0d7d5e087f0ca20cb3b0b52fc0779d1d12f08e697f2c56d20f4c7c9b0ecd752710ca9f54613",
+            "expected": "00030000990100001503000003010000210300009d0100000e0300009d01000015030000d7000000290300000c010000360300003c01000042030000690100004a0300009c01000019030000a50100000a030000a0010000"
+          },
+          {
+            "address": 5223436,
+            "before": "00000000",
+            "actual": "4f904d0d",
+            "expected": "a6010000"
+          },
+          {
+            "address": 5224900,
+            "before": "000000000000000000000000",
+            "actual": "fdf05b04fff05b042ccd040e",
+            "expected": "ac010000b1010000af010000"
+          },
+          {
+            "address": 5224968,
+            "before": "00000000",
+            "actual": "706ea4f7",
+            "expected": "eb010000"
+          },
+          {
+            "address": 5234832,
+            "before": "00000000",
+            "actual": "79d1d12f",
+            "expected": "4a030000"
+          },
+          {
+            "address": 5234840,
+            "before": "00000000",
+            "actual": "528493ea",
+            "expected": "1f030000"
+          },
+          {
+            "address": 5235352,
+            "before": "00000000",
+            "actual": "08e697f2",
+            "expected": "9c010000"
+          },
+          {
+            "address": 5235364,
+            "before": "00000000",
+            "actual": "7ab78d12",
+            "expected": "90010000"
+          },
+          {
+            "address": 5236264,
+            "before": "00000000",
+            "actual": "c8244e36",
+            "expected": "e3010000"
+          },
+          {
+            "address": 5236420,
+            "before": "00000000",
+            "actual": "30220834",
+            "expected": "e1010000"
+          },
+          {
+            "address": 5236576,
+            "before": "00000000",
+            "actual": "146c6409",
+            "expected": "e8000000"
+          },
+          {
+            "address": 5236596,
+            "before": "00000000",
+            "actual": "606383f5",
+            "expected": "c0000000"
+          },
+          {
+            "address": 5237373,
+            "before": "000000",
+            "actual": "5070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237381,
+            "before": "000000",
+            "actual": "5070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237389,
+            "before": "000000",
+            "actual": "5070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237397,
+            "before": "000000",
+            "actual": "5070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237664,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "40af755b5b052640406c02be14ab2e40406c02be14ab2e4040af755b5b052640"
+          },
+          {
+            "address": 5237697,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "a07545f9c2c93f"
+          },
+          {
+            "address": 5237705,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "a07545f9c2c93fc064ca1ea1772840e090ab40ad8e3040e090ab40ad8e3040c064ca1ea1772840"
+          },
+          {
+            "address": 5237745,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "6054438dcaf63f"
+          },
+          {
+            "address": 5237753,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000b086c00ccd751a698d86c00ccd751a698d86c00000000000b086c0637fd93d790687c0637fd93d790687c0",
+            "expected": "6054438dcaf63fc038d161fcf82940e0fa2ee25a4f3140e0fa2ee25a4f3140c038d161fcf829400080c5adb36a01400080c5adb36a0140"
+          },
+          {
+            "address": 5313416,
+            "before": "00000000000000000000000000000000",
+            "actual": "25988cbe000000003b988cbe00000000",
+            "expected": "4872f90fe9b745c04072f90fe9b735c0"
+          },
+          {
+            "address": 5313439,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000e433197d00000000e433197d0000000025988cbe000000003b988cbe0000000050988cbe",
+            "expected": "804072f90fe9b735404872f90fe9b74540b815fbcbee4950404072f90fe9b745c04072f90fe9b735c000000000"
+          },
+          {
+            "address": 5313487,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0066988cbe000000007c988cbe0000000016988cbe000000007c988cbe0000000066988cbe0000000050988cbe",
+            "expected": "805072f90fe9b735405072f90fe9b74540e0f3c308e1514dc05072f90fe9b745405072f90fe9b7354000000000"
+          }
+        ],
+        "drawing": {
+          "actualCount": 466,
+          "expectedCount": 466,
+          "matchingPrefix": 22,
+          "firstActual": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: "
+          },
+          "firstExpected": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: Scarlett"
+          }
+        }
+      }
+    },
+    {
+      "profile": "selector17-initialized-screens",
+      "selector": 17,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        }
+      ],
+      "failure": {
+        "index": 2,
+        "phase": "drawStartScreen",
+        "error": {
+          "message": "case2:whole mutable SHA256\n+ actual - expected\n\n+ '73c9c5d5e41274de79602808bb73d324a4465446a6de7038ced5e44e15f62eeb'\n- '536fb7812433df7126c9f167d19e0c2b97e2afb8a464be98d0cb6bfb40114677'\n",
+          "stack": "AssertionError [ERR_ASSERTION]: case2:whole mutable SHA256\n+ actual - expected\n\n+ '73c9c5d5e41274de79602808bb73d324a4465446a6de7038ced5e44e15f62eeb'\n- '536fb7812433df7126c9f167d19e0c2b97e2afb8a464be98d0cb6bfb40114677'\n\n    at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:60:14)\n    at file:///tmp/audit-initialized-screens.mjs:25:15"
+        },
+        "expectedSha256": "536fb7812433df7126c9f167d19e0c2b97e2afb8a464be98d0cb6bfb40114677",
+        "actualSha256": "73c9c5d5e41274de79602808bb73d324a4465446a6de7038ced5e44e15f62eeb",
+        "firstDifference": {
+          "address": 5192267,
+          "before": "00000000000000",
+          "actual": "20cc9a69c10000",
+          "expected": "0000207a40dc68",
+          "addressHex": "0x4f3a4b",
+          "dwordAddress": "0x4f3a48",
+          "actualDwordBits": "00000020",
+          "expectedDwordBits": "00000000",
+          "actualDword": 536870912,
+          "expectedDword": 0,
+          "f64Address": "0x4f3a48",
+          "actualF64Bits": "00000020cc9a69c1",
+          "expectedF64Bits": "0000000000207a40",
+          "actualF64": -13424225,
+          "expectedF64": 418,
+          "lastWriter": {
+            "address": 5192264,
+            "width": 8,
+            "method": "writeF64",
+            "value": -13424225,
+            "stack": [
+              "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+              "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5661:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+            ]
+          }
+        },
+        "rangeCount": 55,
+        "ranges": [
+          {
+            "address": 5192267,
+            "before": "00000000000000",
+            "actual": "20cc9a69c10000",
+            "expected": "0000207a40dc68",
+            "addressHex": "0x4f3a4b",
+            "dwordAddress": "0x4f3a48",
+            "actualDwordBits": "00000020",
+            "expectedDwordBits": "00000000",
+            "actualDword": 536870912,
+            "expectedDword": 0,
+            "f64Address": "0x4f3a48",
+            "actualF64Bits": "00000020cc9a69c1",
+            "expectedF64Bits": "0000000000207a40",
+            "actualF64": -13424225,
+            "expectedF64": 418,
+            "lastWriter": {
+              "address": 5192264,
+              "width": 8,
+              "method": "writeF64",
+              "value": -13424225,
+              "stack": [
+                "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+                "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5661:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+              ]
+            }
+          },
+          {
+            "address": 5192275,
+            "before": "000000000000000000000000000000000000000000",
+            "actual": "20cc9a69c1000020cd1d3ce041000020cd1d3ce041",
+            "expected": "6f81c47840b7d100de02697740923a014d840d7640"
+          },
+          {
+            "address": 5192560,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "38f92d3a597a7a4038f92d3a597a7a4092cb7f48bfcd7a4092cb7f48bfcd7a4038f92d3a597a7a4092cb7f48bfcd7a40"
+          },
+          {
+            "address": 5193872,
+            "before": "00000000",
+            "actual": "25475aeb",
+            "expected": "a3010000"
+          },
+          {
+            "address": 5195028,
+            "before": "000000000000000000000000",
+            "actual": "10e32ed4255b74fe5ca995e0",
+            "expected": "580300005c03000052030000"
+          },
+          {
+            "address": 5197168,
+            "before": "0000000000000000",
+            "actual": "4f64180663cbbaf9",
+            "expected": "50030000ae010000"
+          },
+          {
+            "address": 5204400,
+            "before": "00000000",
+            "actual": "b04623e6",
+            "expected": "3a030000"
+          },
+          {
+            "address": 5205544,
+            "before": "0000000000000000000000000000000000000000000000",
+            "actual": "215bcf2508198bf50ea593cc3eb3e2ffdc2f6b3394b73c",
+            "expected": "1f03000097010000190300005f01000016030000350100"
+          },
+          {
+            "address": 5205568,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "784aca20c665e20bc2ca0c2c411d0af833971ef99b1476ff1530421375034e0ed7c0f21f43c8160cb4b21e0a3c32200f27872e0dfa78e90e",
+            "expected": "130300000a01000013030000e20000001a030000e50000002803000011010000350300003f010000410300006a0100004a030000a0010000"
+          },
+          {
+            "address": 5206152,
+            "before": "00000000",
+            "actual": "119a6a06",
+            "expected": "9b010000"
+          },
+          {
+            "address": 5224900,
+            "before": "000000000000000000000000",
+            "actual": "a563bf0812e4defc58501308",
+            "expected": "ab010000b3010000ae010000"
+          },
+          {
+            "address": 5224968,
+            "before": "00000000",
+            "actual": "e91e43fa",
+            "expected": "eb010000"
+          },
+          {
+            "address": 5234832,
+            "before": "00000000",
+            "actual": "27872e0d",
+            "expected": "4a030000"
+          },
+          {
+            "address": 5234840,
+            "before": "00000000",
+            "actual": "215bcf25",
+            "expected": "1f030000"
+          },
+          {
+            "address": 5235352,
+            "before": "00000000",
+            "actual": "fa78e90e",
+            "expected": "a0010000"
+          },
+          {
+            "address": 5235364,
+            "before": "00000000",
+            "actual": "08198bf5",
+            "expected": "97010000"
+          },
+          {
+            "address": 5236264,
+            "before": "00000000",
+            "actual": "8fa60bb6",
+            "expected": "e1010000"
+          },
+          {
+            "address": 5236420,
+            "before": "00000000",
+            "actual": "24d12fed",
+            "expected": "de010000"
+          },
+          {
+            "address": 5236576,
+            "before": "00000000",
+            "actual": "77b796ff",
+            "expected": "f0000000"
+          },
+          {
+            "address": 5236596,
+            "before": "00000000",
+            "actual": "10de7515",
+            "expected": "c9000000"
+          },
+          {
+            "address": 5237371,
+            "before": "0000000000",
+            "actual": "7b91b5c9c1",
+            "expected": "0000000000"
+          },
+          {
+            "address": 5237379,
+            "before": "0000000000",
+            "actual": "7b91b5c9c1",
+            "expected": "0000000000"
+          },
+          {
+            "address": 5237387,
+            "before": "0000000000",
+            "actual": "7b91b5c9c1",
+            "expected": "0000000000"
+          },
+          {
+            "address": 5237395,
+            "before": "0000000000",
+            "actual": "7b91b5c9c1",
+            "expected": "0000000000"
+          },
+          {
+            "address": 5237664,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "expected": "400f382533012d40609ab9ad1a493240609ab9ad1a493240400f382533012d408063483b5b2d14408063483b5b2d1440"
+          },
+          {
+            "address": 5313416,
+            "before": "00000000000000000000000000000000",
+            "actual": "d22733ff00000000e82733ff00000000",
+            "expected": "4872f90fe9b745c04072f90fe9b735c0"
+          },
+          {
+            "address": 5313439,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000363b527d00000000363b527d00000000d22733ff00000000d22733ff00000000132833ff00000000132833ff000000003f2833ff00000000c32733ff000000003f2833ff00000000132833ff00000000132833ff00000000d22733ff00000000d22733ff00000000142833ffccccdc3f152833ff9999f53f152833ff000002",
+            "expected": "804072f90fe9b735404872f90fe9b74540b815fbcbee4950404872f90fe9b745c04872f90fe9b745c04072f90fe9b735404072f90fe9b73540b815fbcbee495040e0f3c308e1514dc0b815fbcbee4950404072f90fe9b735404072f90fe9b735404872f90fe9b745c04872f90fe9b745c0c0cde2c5c2183640a03b889d299c3740a03b889d299c37"
+          },
+          {
+            "address": 5313576,
+            "before": "00000000000000",
+            "actual": "132833ff333309",
+            "expected": "4072f90fe9b735"
+          },
+          {
+            "address": 5313584,
+            "before": "00000000000000",
+            "actual": "0f2833ff333310",
+            "expected": "80dfdbf467ef31"
+          },
+          {
+            "address": 5313592,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "f72733ff33330940e92733ff00000240e12733ff9999f53fdd2733ffccccdc3f182833ff00000000",
+            "expected": "80739b70afcc1bc0d028b2d6506a34c0503849f3c7d43cc0109161156f0440c050bc9179e40f3a40"
+          },
+          {
+            "address": 5313728,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "9f2933ff000000009f2933ff000000009f2933ff000000009f2933ff000000009f2933ff000000009f2933ff000000009f2933ff",
+            "expected": "004e7e8b4e9616c0004e7e8b4e9616c04072f90fe9b725c04072f90fe9b725c0004e7e8b4e9616c04072f90fe9b725c000000000"
+          },
+          {
+            "address": 5313781,
+            "before": "00000000000000",
+            "actual": "0000009f2933ff",
+            "expected": "207a4000000000"
+          }
+        ],
+        "drawing": {
+          "actualCount": 348,
+          "expectedCount": 348,
+          "matchingPrefix": 22,
+          "firstActual": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: "
+          },
+          "firstExpected": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: Eric"
+          }
+        }
+      }
+    },
+    {
+      "profile": "selector26-initialized-screens",
+      "selector": 26,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        }
+      ],
+      "failure": {
+        "index": 2,
+        "phase": "drawStartScreen",
+        "error": {
+          "message": "case2:whole mutable SHA256\n+ actual - expected\n\n+ '36f220379fbdc4ee0906331dcd271011d84e3ca72534c7ee903781208dd63209'\n- 'c511bc36e70f4554e52633db759f1f4f58235a1865696bade40e925bc7948cce'\n",
+          "stack": "AssertionError [ERR_ASSERTION]: case2:whole mutable SHA256\n+ actual - expected\n\n+ '36f220379fbdc4ee0906331dcd271011d84e3ca72534c7ee903781208dd63209'\n- 'c511bc36e70f4554e52633db759f1f4f58235a1865696bade40e925bc7948cce'\n\n    at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:60:14)\n    at file:///tmp/audit-initialized-screens.mjs:25:15"
+        },
+        "expectedSha256": "c511bc36e70f4554e52633db759f1f4f58235a1865696bade40e925bc7948cce",
+        "actualSha256": "36f220379fbdc4ee0906331dcd271011d84e3ca72534c7ee903781208dd63209",
+        "firstDifference": {
+          "address": 5192264,
+          "before": "0000000000000000000000000000000000000000000000000000000000000000",
+          "actual": "cdcccc07284bd341cdcccc07284bd3416666667ec0eeca416666667ec0eeca41",
+          "expected": "0000000000207a40dc68006f81c47840b7d100de02697740923a014d840d7640",
+          "addressHex": "0x4f3a48",
+          "dwordAddress": "0x4f3a48",
+          "actualDwordBits": "cdcccc07",
+          "expectedDwordBits": "00000000",
+          "actualDword": 130862285,
+          "expectedDword": 0,
+          "f64Address": "0x4f3a48",
+          "actualF64Bits": "cdcccc07284bd341",
+          "expectedF64Bits": "0000000000207a40",
+          "actualF64": 1294770207.2,
+          "expectedF64": 418,
+          "lastWriter": {
+            "address": 5192264,
+            "width": 8,
+            "method": "writeF64",
+            "value": 1294770207.2,
+            "stack": [
+              "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+              "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+            ]
+          }
+        },
+        "rangeCount": 45,
+        "ranges": [
+          {
+            "address": 5192264,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "cdcccc07284bd341cdcccc07284bd3416666667ec0eeca416666667ec0eeca41",
+            "expected": "0000000000207a40dc68006f81c47840b7d100de02697740923a014d840d7640",
+            "addressHex": "0x4f3a48",
+            "dwordAddress": "0x4f3a48",
+            "actualDwordBits": "cdcccc07",
+            "expectedDwordBits": "00000000",
+            "actualDword": 130862285,
+            "expectedDword": 0,
+            "f64Address": "0x4f3a48",
+            "actualF64Bits": "cdcccc07284bd341",
+            "expectedF64Bits": "0000000000207a40",
+            "actualF64": 1294770207.2,
+            "expectedF64": 418,
+            "lastWriter": {
+              "address": 5192264,
+              "width": 8,
+              "method": "writeF64",
+              "value": 1294770207.2,
+              "stack": [
+                "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+                "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+              ]
+            }
+          },
+          {
+            "address": 5192560,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002fe9030a284bd3412fe9030a284bd3415111cc0a284bd3415111cc0a284bd3412fe9030a284bd3415111cc0a284bd341",
+            "expected": "dcee8a85c6387b40dcee8a85c6387b40126d228ed06a7b40126d228ed06a7b40dcee8a85c6387b40126d228ed06a7b40122add02ae307a40122add02ae307a4048a8740bb8627a4048a8740bb8627a40122add02ae307a4048a8740bb8627a40774e588748527940774e588748527940adccef8f52847940adccef8f52847940774e588748527940adccef8f52847940"
+          },
+          {
+            "address": 5193872,
+            "before": "00000000",
+            "actual": "272ee104",
+            "expected": "a0010000"
+          },
+          {
+            "address": 5194236,
+            "before": "00000000",
+            "actual": "faef47fa",
+            "expected": "1c030000"
+          },
+          {
+            "address": 5195028,
+            "before": "000000000000000000000000",
+            "actual": "4be272781479bf05c3668fe4",
+            "expected": "580300005d03000056030000"
+          },
+          {
+            "address": 5205544,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "f27a0ff2a80204071c823d4291b75b24becd817e7dec96f1ce794335d6e15efd0ab61b80f9fd83f047a95885cd44cb0a9b9ca0f0fe562d292af06a987163681b38531c59432ba81fd07e4587a8625d0845919ac8c5590bda",
+            "expected": "050300009a0100001a03000050010000180300009e0100000a0300009b010000190300002501000030030000490100003d03000067010000490300008401000050030000a70100000f030000a2010000fa0200009d010000"
+          },
+          {
+            "address": 5223436,
+            "before": "00000000",
+            "actual": "e5b6ccf8",
+            "expected": "a2010000"
+          },
+          {
+            "address": 5224900,
+            "before": "000000000000000000000000",
+            "actual": "8f56c20816bed70c42b00df8",
+            "expected": "a9010000ad010000ab010000"
+          },
+          {
+            "address": 5224968,
+            "before": "00000000",
+            "actual": "79a5ab04",
+            "expected": "eb010000"
+          },
+          {
+            "address": 5234832,
+            "before": "00000000",
+            "actual": "38531c59",
+            "expected": "50030000"
+          },
+          {
+            "address": 5234840,
+            "before": "00000000",
+            "actual": "3bd7e475",
+            "expected": "20030000"
+          },
+          {
+            "address": 5235352,
+            "before": "00000000",
+            "actual": "432ba81f",
+            "expected": "a7010000"
+          },
+          {
+            "address": 5235364,
+            "before": "00000000",
+            "actual": "8fe686ff",
+            "expected": "9b010000"
+          },
+          {
+            "address": 5236264,
+            "before": "00000000",
+            "actual": "479d7b3a",
+            "expected": "e9010000"
+          },
+          {
+            "address": 5236420,
+            "before": "00000000",
+            "actual": "53dd4a92",
+            "expected": "e8010000"
+          },
+          {
+            "address": 5236576,
+            "before": "00000000",
+            "actual": "3913b7d4",
+            "expected": "22010000"
+          },
+          {
+            "address": 5236596,
+            "before": "00000000",
+            "actual": "e329fa0f",
+            "expected": "09010000"
+          },
+          {
+            "address": 5237371,
+            "before": "000000000000000000000000000000000000000000",
+            "actual": "c5b3a2dcc1cdcc8c1cc1a8dac1cdcc8c1cc1a8dac1",
+            "expected": "000000000000000000000000000000000000000000"
+          },
+          {
+            "address": 5237395,
+            "before": "0000000000",
+            "actual": "c5b3a2dcc1",
+            "expected": "0000000000"
+          },
+          {
+            "address": 5237665,
+            "before": "0000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000",
+            "expected": "200851c1f023408025ff54df8826408025ff54df882640"
+          },
+          {
+            "address": 5237689,
+            "before": "0000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000",
+            "expected": "200851c1f0234080243d8eece81a4080243d8eece81a40"
+          },
+          {
+            "address": 5237713,
+            "before": "0000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000",
+            "expected": "9e7ff065451fc080d436fcd03a22c080d436fcd03a22c0"
+          },
+          {
+            "address": 5237737,
+            "before": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000cdcc8c1cc1a8dac10dc9391cc1a8dac10dc9391cc1a8dac1cdcc8c1cc1a8dac12e565c1dc1a8dac12e565c1dc1a8dac1",
+            "expected": "9e7ff065451fc08082acdccf4c12c08082acdccf4c12c00000000000000000002cb81ff0c0f43f002cb81ff0c0f43f00000000000000000037a6272cf109c00037a6272cf109c0"
+          },
+          {
+            "address": 5313416,
+            "before": "00000000000000000000000000000000",
+            "actual": "519e2c4d00000000679e2c4d00000000",
+            "expected": "4872f90fe9b745c04072f90fe9b735c0"
+          },
+          {
+            "address": 5313439,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "000000000000000000221f4f1700000000221f4f17000000004d9e2c4d00000000689e2c4d00000000839e2c4d000000009f9e2c4d00000000ba9e2c4d00000000429e2c4d00000000ba9e2c4d000000009f9e2c4d00000000839e2c4d00000000689e2c4d000000004d9e2c4d00000000939e2c4dccccdc3f939e2c4d9999f53f939e2c4d000002",
+            "expected": "804072f90fe9b735404872f90fe9b74540b815fbcbee495040b059f5b9daca47c080e4f21fd26f34c040a913d044d81a40985cfe43faed40400044faedeb804e40e0f3c308e1514dc00044faedeb804e40985cfe43faed404040a913d044d81a4080e4f21fd26f34c0b059f5b9daca47c0605da3e540ef3540e0094b3ca0cc3640e0094b3ca0cc36"
+          },
+          {
+            "address": 5313576,
+            "before": "00000000000000",
+            "actual": "929e2c4d333309",
+            "expected": "4072f90fe9b735"
+          },
+          {
+            "address": 5313584,
+            "before": "00000000000000",
+            "actual": "909e2c4d333310",
+            "expected": "004356b77a8e33"
+          },
+          {
+            "address": 5313592,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "719e2c4d33330940619e2c4d00000240569e2c4d9999f53f539e2c4dccccdc3f969e2c4d00000000",
+            "expected": "c008597105ef27c090739b70afcc3bc000bf901f3b2943c090cd55f31c1145c0301bbf4b04053940"
+          },
+          {
+            "address": 5313728,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "1fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d000000001fa02c4d00000000f8ffffff00000000f8ffffff00000000f5ffffff00000000f5ffffff00000000f8ffffff00000000f5ffffff00000000",
+            "expected": "c0edae58688c31c0c0edae58688c31c020d126e208ad34c020d126e208ad34c0c0edae58688c31c020d126e208ad34c000122add02aef0bf00122add02aef0bf00122add02ae10c000122add02ae10c000122add02aef0bf00122add02ae10c02031f614efb629402031f614efb62940606a0602ae752340606a0602ae7523402031f614efb62940606a0602ae752340"
+          },
+          {
+            "address": 5384416,
+            "before": "0000000000000000",
+            "actual": "4be27278d0b05659",
+            "expected": "5803000045030000"
+          },
+          {
+            "address": 5384428,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "20023dfb05d019f8de2505ecde0f0c93e53ce2bf5b368f7c0ccc761df55e37c93a5b6ab445919ac8d07e4587bbc488bd79d707b43aebab503bd7e47586c623ff778c767f1c823d420ab61b8047a958859b9ca0f02af06a9838531c59becd817e",
+            "expected": "210300000e030000fc020000620300004c030000350300001e0300000503000065030000fa0200000f030000260300003c03000055030000200300001d0300001b0300001a03000019030000300300003d030000490300005003000018030000"
+          },
+          {
+            "address": 5384572,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "8171923881719238817192388171923881719238817192388171923881719238817192388171923881719238817192389a8380f9008511074eb1990778a4adfc9cb57dfc4c75e2fe",
+            "expected": "47030000470300004a03000049030000450300004803000030030000300300003203000033030000320300003403000028030000290300002c0300002b0300002703000029030000"
+          }
+        ],
+        "drawing": {
+          "actualCount": 483,
+          "expectedCount": 483,
+          "matchingPrefix": 22,
+          "firstActual": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: "
+          },
+          "firstExpected": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: Rover"
+          }
+        }
+      }
+    },
+    {
+      "profile": "selector27-initialized-screens",
+      "selector": 27,
+      "passedRows": [
+        {
+          "index": 0,
+          "phase": "boat-options"
+        },
+        {
+          "index": 1,
+          "phase": "race-initialization"
+        }
+      ],
+      "failure": {
+        "index": 2,
+        "phase": "drawStartScreen",
+        "error": {
+          "message": "case2:whole mutable SHA256\n+ actual - expected\n\n+ '0ce031483b89ab6f97ae5a6c85bb00912e088f7c401ca6cb2adfa27f996c1727'\n- 'cc37c6c887e2ce754426f66bcb2dcb5e42884e399fe87317f6be2e5c947b7fee'\n",
+          "stack": "AssertionError [ERR_ASSERTION]: case2:whole mutable SHA256\n+ actual - expected\n\n+ '0ce031483b89ab6f97ae5a6c85bb00912e088f7c401ca6cb2adfa27f996c1727'\n- 'cc37c6c887e2ce754426f66bcb2dcb5e42884e399fe87317f6be2e5c947b7fee'\n\n    at Object.check (file:///home/martin/tact/versions/2010-en/tests/native-state.js:60:14)\n    at file:///tmp/audit-initialized-screens.mjs:25:15"
+        },
+        "expectedSha256": "cc37c6c887e2ce754426f66bcb2dcb5e42884e399fe87317f6be2e5c947b7fee",
+        "actualSha256": "0ce031483b89ab6f97ae5a6c85bb00912e088f7c401ca6cb2adfa27f996c1727",
+        "firstDifference": {
+          "address": 5192267,
+          "before": "00000000000000",
+          "actual": "7871519c410000",
+          "expected": "0000207a40dc68",
+          "addressHex": "0x4f3a4b",
+          "dwordAddress": "0x4f3a48",
+          "actualDwordBits": "00000078",
+          "expectedDwordBits": "00000000",
+          "actualDword": 2013265920,
+          "expectedDword": 0,
+          "f64Address": "0x4f3a48",
+          "actualF64Bits": "0000007871519c41",
+          "expectedF64Bits": "0000000000207a40",
+          "actualF64": 118774878,
+          "expectedF64": 418,
+          "lastWriter": {
+            "address": 5192264,
+            "width": 8,
+            "method": "writeF64",
+            "value": 118774878,
+            "stack": [
+              "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+              "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+              "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+              "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+            ]
+          }
+        },
+        "rangeCount": 77,
+        "ranges": [
+          {
+            "address": 5192267,
+            "before": "00000000000000",
+            "actual": "7871519c410000",
+            "expected": "0000207a40dc68",
+            "addressHex": "0x4f3a4b",
+            "dwordAddress": "0x4f3a48",
+            "actualDwordBits": "00000078",
+            "expectedDwordBits": "00000000",
+            "actualDword": 2013265920,
+            "expectedDword": 0,
+            "f64Address": "0x4f3a48",
+            "actualF64Bits": "0000007871519c41",
+            "expectedF64Bits": "0000000000207a40",
+            "actualF64": 118774878,
+            "expectedF64": 418,
+            "lastWriter": {
+              "address": 5192264,
+              "width": 8,
+              "method": "writeF64",
+              "value": 118774878,
+              "stack": [
+                "    at writePointer (file:///home/martin/tact/versions/2010-en/src/render/typed-c.js:189:24)",
+                "    at Object.originalDrawing0041b970 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5838:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawing0041af20 [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5605:16)",
+                "    at callDrawingDependency (file:///home/martin/tact/versions/2010-en/src/render/dependencies.js:38:27)",
+                "    at Object.originalDrawBoat [as routine] (file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js:5021:17)"
+              ]
+            }
+          },
+          {
+            "address": 5192275,
+            "before": "00000000000000",
+            "actual": "7871519c410000",
+            "expected": "6f81c47840b7d1"
+          },
+          {
+            "address": 5192283,
+            "before": "00000000000000000000000000",
+            "actual": "7871519cc10000007871519cc1",
+            "expected": "de02697740923a014d840d7640"
+          },
+          {
+            "address": 5192560,
+            "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016c6719b71519c4116c6719b71519c413c48f4a771519c413c48f4a771519c4116c6719b71519c413c48f4a771519c41",
+            "expected": "dcee8a85c6387b40dcee8a85c6387b40126d228ed06a7b40126d228ed06a7b40dcee8a85c6387b40126d228ed06a7b40122add02ae307a40122add02ae307a4048a8740bb8627a4048a8740bb8627a40122add02ae307a4048a8740bb8627a40774e588748527940774e588748527940adccef8f52847940adccef8f52847940774e588748527940adccef8f52847940"
+          },
+          {
+            "address": 5193872,
+            "before": "00000000",
+            "actual": "a3f5cffd",
+            "expected": "a2010000"
+          },
+          {
+            "address": 5194236,
+            "before": "00000000",
+            "actual": "3db7c3fe",
+            "expected": "1f030000"
+          },
+          {
+            "address": 5195028,
+            "before": "000000000000000000000000",
+            "actual": "e5c4e506da50f006da50f006",
+            "expected": "580300005c03000054030000"
+          },
+          {
+            "address": 5205544,
+            "before": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "actual": "56fedcf399f5cffd65f1bd06e21b5afff055f7fd9738f7fd232aeaf81997e3fd85441a03b4b7e801481f0cfec063f5fd85a93b0593326e01ecc30ff9630494ff0e4133fda762f301e1ce8f0453cb9f019933e7f943591401",
+            "expected": "fc02000098010000150300003c010000190300009d0100000a0300009b010000150300000d0100002c03000037010000390300005b010000460300007d01000050030000a101000014030000a5010000020300009f010000"
+          },
+          {
+            "address": 5223436,
+            "before": "000000",
+            "actual": "5816ef",
+            "expected": "a50100"
+          },
+          {
+            "address": 5224900,
+            "before": "000000",
+            "actual": "2acf0f",
+            "expected": "ac0100"
+          },
+          {
+            "address": 5224904,
+            "before": "000000",
+            "actual": "2ecf0f",
+            "expected": "b30100"
+          },
+          {
+            "address": 5224908,
+            "before": "000000",
+            "actual": "0f817a",
+            "expected": "af0100"
+          },
+          {
+            "address": 5224968,
+            "before": "00000000",
+            "actual": "52208910",
+            "expected": "e6010000"
+          },
+          {
+            "address": 5234832,
+            "before": "00000000",
+            "actual": "0e4133fd",
+            "expected": "50030000"
+          },
+          {
+            "address": 5234840,
+            "before": "00000000",
+            "actual": "2b83ed06",
+            "expected": "1f030000"
+          },
+          {
+            "address": 5235352,
+            "before": "00000000",
+            "actual": "a762f301",
+            "expected": "a1010000"
+          },
+          {
+            "address": 5235364,
+            "before": "00000000",
+            "actual": "b70690ff",
+            "expected": "94010000"
+          },
+          {
+            "address": 5236264,
+            "before": "00000000",
+            "actual": "63571344",
+            "expected": "e3010000"
+          },
+          {
+            "address": 5236420,
+            "before": "00000000",
+            "actual": "f567c4ce",
+            "expected": "e1010000"
+          },
+          {
+            "address": 5236576,
+            "before": "00000000",
+            "actual": "770580e4",
+            "expected": "0f010000"
+          },
+          {
+            "address": 5236596,
+            "before": "00000000",
+            "actual": "b1f2e71e",
+            "expected": "f2000000"
+          },
+          {
+            "address": 5237373,
+            "before": "000000",
+            "actual": "4070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237381,
+            "before": "000000",
+            "actual": "4070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237389,
+            "before": "000000",
+            "actual": "4070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237397,
+            "before": "000000",
+            "actual": "4070c0",
+            "expected": "000000"
+          },
+          {
+            "address": 5237666,
+            "before": "00000000000000000000000000000000000000000000",
+            "actual": "00000000000000000000000000000000000000000000",
+            "expected": "e07daf7c2a40402a4fc5e7592f40402a4fc5e7592f40"
+          },
+          {
+            "address": 5237690,
+            "before": "000000000000",
+            "actual": "000000000000",
+            "expected": "e07daf7c2a40"
+          },
+          {
+            "address": 5237697,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "2c949645a71c40"
+          },
+          {
+            "address": 5237705,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "2c949645a71c40"
+          },
+          {
+            "address": 5237713,
+            "before": "0000000000000000000000000000000000000000000000",
+            "actual": "0000000000000000000000000000000000000000000000",
+            "expected": "92eb0f8d6a2a4040bc5a57c5472f4040bc5a57c5472f40"
+          },
+          {
+            "address": 5237737,
+            "before": "00000000000000",
+            "actual": "00000000000000",
+            "expected": "92eb0f8d6a2a40"
+          },
+          {
+            "address": 5237745,
+            "before": "000000",
+            "actual": "000000",
+            "expected": "50abba"
+          }
+        ],
+        "drawing": {
+          "actualCount": 458,
+          "expectedCount": 458,
+          "matchingPrefix": 22,
+          "firstActual": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: "
+          },
+          "firstExpected": {
+            "op": "textOut",
+            "x": 5,
+            "y": 466,
+            "text": "Your boat name: Scarlett"
+          }
+        }
+      }
+    }
+  ],
+  "conclusions": {
+    "completedNumericCalls": 12,
+    "completedScreenCalls": 6,
+    "sourceScreenParity": false,
+    "firstGeometryWriter": "0x41b970",
+    "firstMismatchedF64": "0x4f3a48",
+    "expectedF64Bits": "0000000000207a40",
+    "expectedF64Value": 418,
+    "abiEvidence": "geometry-renderer-abi-review.json",
+    "firstDrawingDifference": "Event22, actual retained boat name omitted from original text",
+    "scope": "Stable pre-fix source snapshot; exact first mismatch evidence, not a final parity report."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "exact": true,
+  "tests": "tests/initialized-island-chart.test.js",
+  "testsPassed": 3,
+  "nativeCapturedCalls": 8,
+  "drawingRequests": 227,
+  "fixtures": [
+    {
+      "fixture": "tests/fixtures/original-initialized-island-chart.json",
+      "sha256": "6f9b3d86ad9c34b9cbb027d0ae5288771952893de60fd8091a7c15c955dee166",
+      "cases": 4,
+      "drawingRequests": 103,
+      "routines": [
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart-advice-panel",
+          "arguments": [
+            0,
+            0,
+            361,
+            341,
+            723,
+            1,
+            2
+          ]
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart-main-panel",
+          "arguments": [
+            0,
+            682,
+            361,
+            1024,
+            723,
+            1,
+            1
+          ]
+        }
+      ],
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "exactSourceReplay": true
+    },
+    {
+      "fixture": "tests/fixtures/original-initialized-island-chart-started.json",
+      "sha256": "1afffe79b281a01ec2835c79c96012e922f89dcbe3c40908ac9177147648c29e",
+      "cases": 4,
+      "drawingRequests": 124,
+      "routines": [
+        {
+          "address": "0x420c00",
+          "phase": "boat-options",
+          "arguments": []
+        },
+        {
+          "address": "0x41be70",
+          "phase": "race-initialization",
+          "arguments": []
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart-advice-panel",
+          "arguments": [
+            0,
+            0,
+            361,
+            341,
+            723,
+            1,
+            2
+          ]
+        },
+        {
+          "address": "0x407ff0",
+          "phase": "drawChart-main-panel",
+          "arguments": [
+            0,
+            682,
+            361,
+            1024,
+            723,
+            1,
+            1
+          ]
+        }
+      ],
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "exactSourceReplay": true
+    }
+  ],
+  "validated": [
+    "Every mutable byte and full native hash",
+    "All bytes outside mutable region preserved",
+    "Original CRT RNG continuation",
+    "All36 semantic global CString cells",
+    "Ordered sounds and GDI requests",
+    "Both chart panels and explicit timer/clock-zero drawing body at CW027f"
+  ],
+  "sourceHashes": {
+    "src/render/drawing-functions.js": "e9ff2d3a23ee56d9b72ed2db53d8698e47660bc625fdbe2b1ed00e1344da4a4e",
+    "src/render/dependencies.js": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0",
+    "src/render/index.js": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b",
+    "src/render/chart.js": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088",
+    "tests/initialized-island-chart.test.js": "beda85041921e52da2efa74807823edf11128570648f65e24301c098d330aa08"
+  },
+  "scope": "Unchanged original options/race initialization and chart observations. Separate started fixture changes only two declared timer/clock inputs after initialization to exercise the original layline body; no elapsed native frame-chain claim or stack seeds. Native expectations remain immutable.",
+  "causeAndFixEvidence": "analysis/chart-layline-abi-review.json",
+  "collectorNote": "Prestart fixture callback instruction-boundary proof succeeded17CDC/22imports. Started collector rejected408031 as not present in canonical instruction-boundary map; captured callback evidence retained without broadening validation.",
+  "finalReplay": {
+    "tests": 3,
+    "passed": 3,
+    "failed": 0,
+    "scope": "Replayed again after remaining venue/control ABI repairs and 4813f0 x87 association correction."
+  }
+}

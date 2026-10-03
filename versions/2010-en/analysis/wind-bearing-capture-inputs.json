@@ -1,0 +1,10833 @@
+{
+  "source": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "x87ControlWord": "0x027f",
+  "mutableBlock": {
+    "address": 5087232,
+    "size": 394632
+  },
+  "integerInputs": {
+    "hour": 5205344,
+    "dailyMinimum": 5222284,
+    "dailyMaximum": 5236588,
+    "thermalGain": 5237340,
+    "weather": 5204408,
+    "shore": 5386460,
+    "reversal": 5195024,
+    "venue": 5087736,
+    "forceVenueDirection": 5223892,
+    "customThermalDirection": 5087848,
+    "thermalReversal": 5465180,
+    "baseDirection": 5195432,
+    "baseStrength": 5234804,
+    "course": 5087644,
+    "driftRate": 5460484,
+    "forceCondition": 5213624,
+    "customShoreDirection": 5087804,
+    "customShoreStrength": 5385992,
+    "customShoreMode": 5087816,
+    "mode": 5465200,
+    "time": 5213392,
+    "resetTime": 5194424,
+    "customLongShifts": 5465380,
+    "nextTime": 5459932,
+    "target": 5465256,
+    "range": 5384936,
+    "period": 5387168,
+    "targetIndex": 5087696,
+    "timeIndex": 5087700,
+    "tidePhaseHour": 5242320,
+    "tideAmplitude": 5462480,
+    "thermal": 5463760,
+    "thermalWind": 5213052,
+    "thermalDriftRate": 5465336,
+    "strength": 5384912,
+    "peakStrength": 5234828,
+    "drift": 5386208,
+    "condition1": 5313932,
+    "condition2": 5235036,
+    "meanDirection": 5210004,
+    "initialDirection": 5462484,
+    "direction": 5464788,
+    "tide": 5384664
+  },
+  "integerOutputs": {
+    "thermal": 5463760,
+    "thermalWind": 5213052,
+    "thermalDriftRate": 5465336,
+    "strength": 5384912,
+    "peakStrength": 5234828,
+    "drift": 5386208,
+    "condition1": 5313932,
+    "condition2": 5235036,
+    "meanDirection": 5210004,
+    "initialDirection": 5462484,
+    "direction": 5464788,
+    "tide": 5384664,
+    "nextTime": 5459932,
+    "target": 5465256,
+    "range": 5384936,
+    "period": 5387168,
+    "targetIndex": 5087696,
+    "timeIndex": 5087700
+  },
+  "doubleInputs": {
+    "driftClock": 5459304,
+    "smoothDirection": 5386000,
+    "dt": 5387128,
+    "bearingRadians": 5209984
+  },
+  "doubleOutputs": {
+    "smoothDirection": 5386000,
+    "bearingRadians": 5209984
+  },
+  "inputEvidence": {
+    "randomTable": {
+      "address": 5320048,
+      "entries": 301,
+      "note": "Explicit synthetic bounded random-table input; original indexed reads remain unchanged."
+    }
+  },
+  "scope": "Prepared finite whole-routine calls; exact state, field bits, RNG ordering and residual EAX. Original FSIN inputs are captured multiples15/30; no whole-game claim.",
+  "routine": {
+    "name": "bearingFromVector",
+    "address": 4357856,
+    "argumentTypes": [
+      "I32",
+      "I32"
+    ],
+    "returnType": "I32"
+  },
+  "cases": [
+    {
+      "arguments": [
+        -2147483648,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2147483648,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2147483648,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2147483648,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2147483648,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2147483648,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2147483648,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        0,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        100,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        -2147483648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        -100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        -1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        0
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        1
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2147483647,
+        2147483647
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1296430895,
+        756038338
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1164100807,
+        613722948
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        232570323,
+        1843505430
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1030311293,
+        -522407752
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -670745417,
+        952300202
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2107572737,
+        711422828
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -516368421,
+        1723214718
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1213291717,
+        1657022304
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1081422655,
+        905226130
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -773742135,
+        -1745141612
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1583362787,
+        1405287142
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1379707635,
+        830632712
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -173278521,
+        -1182467718
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        8403601,
+        309375676
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2017792277,
+        -250497202
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1878808149,
+        -453889104
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1770238799,
+        -1807251358
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1778783143,
+        -2097387036
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -860541965,
+        467665078
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -119701347,
+        -1337849512
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1763343575,
+        1367602250
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -827205855,
+        -1721301492
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1438709253,
+        -115378402
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        241955813,
+        -864775168
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2058193057,
+        -2055873230
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1821435159,
+        -1634916556
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1531750659,
+        -336217466
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1464913965,
+        853570472
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1957575961,
+        -338894054
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        98359217,
+        -1763742372
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1722406645,
+        1547463406
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1868117365,
+        -1481619376
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        218267503,
+        1445766658
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1660277383,
+        -1260226428
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1826073107,
+        1291921494
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1946795075,
+        342012408
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -107819785,
+        1789707754
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -773178303,
+        464447660
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        231820315,
+        -1023044930
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1329784059,
+        843731104
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1173670783,
+        844686034
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1540629513,
+        -244228652
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -733532381,
+        -79738330
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1944509261,
+        -2062695352
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1520526585,
+        2008063162
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -50133807,
+        -1041598468
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        952202027,
+        1901588110
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1389405333,
+        -1524126480
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1372216207,
+        -181955678
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -552206695,
+        820959012
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -456378317,
+        -1238556682
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1770285347,
+        -630805864
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -462017257,
+        1403348874
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2140156257,
+        -51963060
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -747135429,
+        374373982
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -938683867,
+        107830592
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1046753183,
+        -117065614
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        744013097,
+        1364190324
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2116565693,
+        277326278
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1253214611,
+        -550345496
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2133163225,
+        -1499978150
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        272286193,
+        1765397148
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        797232459,
+        -1672723922
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        86680501,
+        2038456720
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        367216559,
+        -408923838
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -815439943,
+        -2117499452
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        790287955,
+        1078716310
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1547008509,
+        594932536
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -926114505,
+        1339414826
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1276397951,
+        481795564
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1186594907,
+        -118998530
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        287512901,
+        -1895450144
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -290937921,
+        -1981522414
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1782900297,
+        -1831814380
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        545680227,
+        -290006682
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1900847501,
+        1282823560
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1630700729,
+        904626170
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1305218833,
+        -160072388
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -886556821,
+        -50240050
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1792068907,
+        -1797102032
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -78298161,
+        -1744904478
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1161842905,
+        1176142948
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1246463091,
+        138772278
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -991171299,
+        1689816024
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1986126505,
+        379984586
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        793037729,
+        -288853876
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        924873339,
+        615826846
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1825042533,
+        -432314752
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1698027553,
+        -1990405198
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -555704471,
+        -1633951308
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1893409155,
+        -1934305018
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1582539603,
+        738301480
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1002470553,
+        1460840858
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1476465615,
+        1732605916
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -583814773,
+        1734302062
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        900092405,
+        997571280
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1747472367,
+        1688943746
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2079248889,
+        814338820
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        954614419,
+        1593960150
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1550250045,
+        1733719160
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1307749751,
+        -746705814
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1780256575,
+        2059506476
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -130878309,
+        127803710
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -540846203,
+        -97098976
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1255193599,
+        -1881728686
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1217140599,
+        1901680724
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        928901027,
+        359245990
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -466311219,
+        821831368
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -96953465,
+        -1351244998
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -182757039,
+        1297203836
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1154532437,
+        1666063630
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1029177621,
+        -2057150608
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2040239089,
+        -1609733598
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        314106649,
+        129986980
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        24318131,
+        -915857802
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1382974301,
+        1215802648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2133701225,
+        633736714
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1880073697,
+        1548420556
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1635354299,
+        -1014215458
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1830990171,
+        -1927368768
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -893100001,
+        700133106
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2058960471,
+        464592628
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1016511939,
+        -407025594
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2058191597,
+        1653475176
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1916746841,
+        1484549338
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -278309263,
+        -834511588
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1050858955,
+        750104750
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        655114293,
+        1590711312
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1142003759,
+        -1869781054
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        216433721,
+        -1503436732
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1367740717,
+        6497814
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2060101245,
+        2034513336
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -784007753,
+        551927722
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        705784577,
+        -1022572436
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -830723877,
+        778520702
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -757213755,
+        891047008
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1431497665,
+        -680455022
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1033972425,
+        -1035258476
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1292739555,
+        -1768441882
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1256123917,
+        467613704
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        266337223,
+        -544274822
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        892396433,
+        -1547745348
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -988381205,
+        -1283582898
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1853157547,
+        -2014865232
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1396167759,
+        1888695650
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -775965351,
+        -81944860
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1317199091,
+        -254280266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1296259485,
+        -1092350376
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        844283351,
+        1279607114
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        338739233,
+        1924061964
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        516086523,
+        -770239458
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        277671141,
+        1549220096
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1049811039,
+        224447026
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        969614313,
+        -1647338444
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        961190403,
+        -387909754
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -560928467,
+        202881192
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1436435431,
+        1175810074
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1220149425,
+        460358236
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        806500875,
+        -1685108754
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1067216501,
+        -1798296240
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        702488687,
+        1854329602
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        747402873,
+        144059780
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -199894253,
+        -1146116778
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -442458947,
+        847197944
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -620524041,
+        -1555262742
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1656071489,
+        -1025950292
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1244291813,
+        -326914114
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -525167611,
+        1089959328
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1635931009,
+        871518162
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        923577609,
+        -85568812
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -707420125,
+        -645855450
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1670083661,
+        912230728
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2013502471,
+        24619450
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1874022959,
+        385748220
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -451017685,
+        1020349326
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        403201429,
+        -307097104
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        34569359,
+        -1395638110
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1284818841,
+        -445314012
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1246041805,
+        -1244521226
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        61501405,
+        1094561688
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1180659223,
+        -1788627830
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        770185825,
+        -1623986100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2067558203,
+        1872042846
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -65615067,
+        -182123968
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1502244705,
+        -1483889294
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1454229033,
+        976705908
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -80300477,
+        -1755322682
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1416196243,
+        -237065752
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -736623577,
+        -81939622
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1446046449,
+        202368924
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -842932661,
+        -1557389522
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        630643893,
+        -826980720
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -640620369,
+        1104641602
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -987715399,
+        -1134413116
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1376123053,
+        1747412118
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        187224829,
+        -1404602312
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        862871095,
+        99788330
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1913659265,
+        -2023296276
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -629190309,
+        20141822
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1065456197,
+        1594351328
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -159218497,
+        -1197815022
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        502689609,
+        -798314476
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2047484829,
+        -2056939930
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        746207885,
+        -373482872
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        182680647,
+        -1871737606
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -928073711,
+        72225340
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1468385387,
+        -1903705394
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1760564267,
+        1208077104
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1932223695,
+        939822050
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1921508903,
+        -872040092
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -77908621,
+        -1885897674
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        65259037,
+        -2000383784
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1523032489,
+        1281451978
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        259372193,
+        -1894103668
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1020902533,
+        -79273314
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1413813915,
+        952634240
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -223573793,
+        -1417559886
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1982769257,
+        1177048756
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1453003395,
+        981079558
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -100947,
+        488823592
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        23987303,
+        -1831520614
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -99740367,
+        -1654616868
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1945223819,
+        1925985902
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1086616843,
+        1035968464
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1411838191,
+        -1916835454
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        14883577,
+        1728546820
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1067027565,
+        487220182
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1717352131,
+        1071446392
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -490377609,
+        873986410
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -899622463,
+        1576396844
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1464253029,
+        1807105598
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1703596165,
+        277710880
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1023697665,
+        -1196784046
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1398902391,
+        941116756
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1370380451,
+        -2121964122
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -471121715,
+        -549983288
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -524313465,
+        1203155002
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -526974383,
+        149903228
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1735537493,
+        2011265550
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        350337557,
+        1746322544
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -959738609,
+        896538402
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -559305703,
+        -200300892
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        597934515,
+        896015222
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        472865885,
+        -1900498408
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1998425751,
+        -58828022
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1259966177,
+        799136460
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2101323845,
+        342551006
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1246148699,
+        1216369856
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1400357151,
+        209525746
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1921895081,
+        1457689588
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1605873347,
+        1500480838
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        973642733,
+        -685487000
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        367019175,
+        1752955354
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1452375921,
+        211972636
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1092491573,
+        2041548206
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        852130101,
+        1395603728
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -652134097,
+        360617154
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1242811705,
+        -305785532
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1335566291,
+        832086806
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2135949181,
+        -2038449480
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        826850999,
+        1492946090
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        501732353,
+        -741991060
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -859604517,
+        1800168830
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        151932613,
+        382234976
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1411970367,
+        -949911150
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -582700087,
+        1731144340
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1832850659,
+        -182422298
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        136218381,
+        1047816
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1373109447,
+        579670906
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        440765585,
+        35773628
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1685459179,
+        136212814
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -675428267,
+        1597046192
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1563424079,
+        139649634
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -899056039,
+        -489499676
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1926532595,
+        -1635517770
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1523397277,
+        -1940253864
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        609156823,
+        1895468618
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1290557151,
+        -1375031284
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2041926661,
+        -1706905314
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -263068187,
+        -2054300160
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        957823327,
+        -37767374
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1712008425,
+        1101402420
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1791789827,
+        -1149225850
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -134938067,
+        -1457324632
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1985035033,
+        391249178
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -839177807,
+        -686450852
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1965929717,
+        1729504494
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -427579531,
+        -1069280688
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -385891985,
+        -598409214
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1257422713,
+        1977475716
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1076360173,
+        1024598614
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -361826883,
+        1500494840
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1489481993,
+        -538943510
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1592069697,
+        -1239969108
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        853405211,
+        2134232254
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        541854981,
+        1928895136
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        977964415,
+        -1207976750
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -366397943,
+        -756070444
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1290277155,
+        1198965798
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1465126221,
+        1971670600
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -160654073,
+        1546827450
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -134588719,
+        220570108
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1216441045,
+        -1904301938
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1709446805,
+        2123396848
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -694641265,
+        1408036258
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        452432025,
+        1569669412
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1831705139,
+        36379126
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        234703069,
+        -85412712
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1426894615,
+        -1256849014
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1503920993,
+        2006238540
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -637190085,
+        -1408386978
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1908720677,
+        -1859082432
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1405809055,
+        -225865102
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1427714263,
+        464703092
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        203007811,
+        1743528902
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        402892909,
+        1549725416
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        353994023,
+        2056732762
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        42669041,
+        -1174799204
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -201134261,
+        708836398
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2136533579,
+        1983785872
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1141017007,
+        629320514
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -306187847,
+        1687089092
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1252181933,
+        381084054
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1228942333,
+        -772997832
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        215228215,
+        1946383146
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1080522623,
+        304760812
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        122200667,
+        1722971134
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -511440059,
+        1717437408
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1168139711,
+        -1648019438
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1301018697,
+        815310100
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1528214173,
+        533222246
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -808725619,
+        -1462247544
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1497531065,
+        1877449210
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1005936913,
+        -2026199236
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -840476309,
+        -1706942514
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2053856043,
+        1467297840
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        323323343,
+        -75613982
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -627842343,
+        1770319460
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -688986509,
+        -677545674
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1006657763,
+        -1817930280
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -241787049,
+        336639178
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1861575263,
+        964696716
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -902818693,
+        -1458831458
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1873681819,
+        1286123648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1814894113,
+        -1642418766
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -614420119,
+        977849268
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        400491395,
+        -1510780154
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1200320851,
+        -99082200
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1335851673,
+        -1383349350
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -696173007,
+        -1299209764
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1454625675,
+        -227732626
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -411778059,
+        -1503820592
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -362180113,
+        1950848642
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1555784697,
+        1595489540
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        342533267,
+        -708386602
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1241752125,
+        1228373624
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1784426359,
+        10864234
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1304280383,
+        893271340
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1237084517,
+        553802558
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1024046715,
+        1916316960
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2039841281,
+        -873335982
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1045628279,
+        1969963604
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1770178979,
+        1700078246
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1345988147,
+        1128771784
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2064293255,
+        418102586
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -394876079,
+        228650108
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        602955179,
+        -89598194
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1024422677,
+        -1155585680
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        863415823,
+        575063074
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1400796441,
+        1274272676
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1269271885,
+        -702867338
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1259615581,
+        1338881816
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        573362071,
+        422225930
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -343443487,
+        -519262260
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -485807941,
+        813532894
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -499564379,
+        -650774080
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        695149087,
+        -206370574
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -776416343,
+        849873140
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1570988093,
+        -53099962
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        931640557,
+        -879849112
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1815886425,
+        191858394
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1813882993,
+        -32078052
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1327822795,
+        786262702
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1093448245,
+        -1042145776
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        477420079,
+        -1948007998
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        35984953,
+        1253886532
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        20992211,
+        -780001258
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -621193091,
+        1485782968
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        135298999,
+        -1324918358
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -383632127,
+        -1399623060
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -334574885,
+        -312114562
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2061682629,
+        1472763488
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1290327615,
+        -708448622
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1087126729,
+        -693690476
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -822835741,
+        1063072230
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1971462157,
+        773112328
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -879493689,
+        1384063098
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1069430161,
+        2107142588
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1977197035,
+        -1091383730
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -762019499,
+        -1160879440
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1754524081,
+        730238818
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        267863897,
+        -1977874204
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1235894003,
+        -186386506
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1317336163,
+        1755584600
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1326399447,
+        -1885086902
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        995791393,
+        -1686469364
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -254378757,
+        564284958
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1035656933,
+        -1743224064
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2065720737,
+        647144498
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1473301015,
+        -636451276
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2982909,
+        869495174
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        863836973,
+        1510097576
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        931349991,
+        797084186
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        631263921,
+        432974940
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1181328373,
+        -1898905106
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -200351627,
+        2047604560
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1516528239,
+        1872178434
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2009266055,
+        1287231364
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -534889197,
+        -1591173290
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        711020221,
+        -650886920
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1848709111,
+        -261608214
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1450735425,
+        1164568492
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1796587749,
+        1260120510
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -7764475,
+        407748512
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        693857919,
+        -1904137774
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        86621961,
+        -913556268
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1233027619,
+        354451750
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -549411251,
+        -1837165752
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        815373831,
+        1474413498
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1005846575,
+        -194955524
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1075632597,
+        912262542
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -865874027,
+        -1480401936
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -546980209,
+        -1166173534
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -633448039,
+        -381848028
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        455363379,
+        1798838006
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1165238749,
+        1466415512
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        545124375,
+        -2101588342
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1832653727,
+        -704013748
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -3010245,
+        -1682287266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1189692123,
+        714099776
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1449415327,
+        -1443266702
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1190930391,
+        1170359156
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -998205373,
+        1378640070
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1969962643,
+        1857237992
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1407125031,
+        -184234662
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1521926927,
+        -1023929956
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1303904181,
+        25680174
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1503965515,
+        -1071968112
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1685596847,
+        1654773826
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -649905479,
+        -900750140
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1430546771,
+        469393046
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1501854467,
+        -463044040
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1694359607,
+        1778925610
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        746910081,
+        218209516
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -585764005,
+        -110784258
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2027256763,
+        -184014624
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -335395137,
+        157525266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1996127927,
+        56269332
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1923039645,
+        -1914761114
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -348033907,
+        -641293176
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2107933113,
+        -1538021638
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        933235217,
+        -818201540
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1045228139,
+        -265257778
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -256025131,
+        322737456
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -341596465,
+        -1301551646
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1131172903,
+        1855464292
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -318335117,
+        -1336445386
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1791002595,
+        -715613480
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2126045271,
+        1035207114
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1141081761,
+        1039789964
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1547560315,
+        -33186658
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1433609371,
+        1910330752
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1908585761,
+        824679090
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1636386199,
+        -889372492
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -995691389,
+        -1625255930
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1527687085,
+        316761384
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -518584729,
+        2000048282
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -849844431,
+        -153962788
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1787173749,
+        -1237192594
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1045560565,
+        -984651312
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        988820207,
+        -398212222
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        527936761,
+        1757344260
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1156765075,
+        1496800726
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -41419971,
+        -748289160
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -189337481,
+        153588586
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -578311231,
+        1352307244
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        819062683,
+        -142444482
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2012888443,
+        1865929248
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1524801793,
+        -1716690862
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2036366455,
+        2035431252
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1898235229,
+        -1864835162
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -674991411,
+        -1389660728
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -652632441,
+        -216741318
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1665510319,
+        -1419345540
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1834413739,
+        -1146866674
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1172384789,
+        -830763408
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -597307633,
+        915501346
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        20397593,
+        1600917668
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1013898317,
+        2072122742
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1864175197,
+        -608781288
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1845489513,
+        1271592202
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -514236191,
+        -1064598324
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1839597125,
+        -406576162
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1470285403,
+        -1891656000
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1554678559,
+        -1352862222
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        851958953,
+        -16679436
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        344297667,
+        -1578107066
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        53136877,
+        -1882401176
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        392906407,
+        290919386
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1072836239,
+        -224486372
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -9697077,
+        473909166
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -499979467,
+        -85392624
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        504134447,
+        -1011028286
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -988127431,
+        222789444
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -748060205,
+        -1340105450
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        499560829,
+        1064486072
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1704738999,
+        -117037398
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        465610241,
+        -1653291156
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1012800475,
+        -2068668546
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1201979195,
+        1209842528
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1527990465,
+        -761373806
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -130562615,
+        1622348948
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2110916893,
+        1162735334
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        587839757,
+        -168982776
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1928069433,
+        1063595386
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        899341969,
+        1713571516
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        155267819,
+        -1476711602
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        302987861,
+        -356530256
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        300693327,
+        -1439810462
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        845746265,
+        1090076132
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -486281229,
+        -1007160138
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -515054435,
+        -1547559592
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1030520617,
+        2017536074
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1023769377,
+        -1963042292
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1852198395,
+        943057694
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2000168987,
+        -470341632
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        837548895,
+        1473876274
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1875427607,
+        -1223754956
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        140274947,
+        567979654
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        556348461,
+        1857390504
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1864091367,
+        1588008730
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -542540879,
+        865845596
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -866226933,
+        -490742034
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -130147979,
+        304602192
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1911749777,
+        -129148414
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1953190265,
+        -584495996
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1692954131,
+        -1208804266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        897034173,
+        30197240
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1072550135,
+        -1528563222
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -646979519,
+        -1060094804
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -335900645,
+        540411582
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        241893125,
+        -2131303264
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2075152255,
+        -2022271278
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        403589129,
+        784150996
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -610733277,
+        310263334
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1957609651,
+        -582166456
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        915054343,
+        -997928774
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2071877423,
+        481348604
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        239843115,
+        74801806
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -611874667,
+        -1186381584
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        745987983,
+        -1333639262
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        443097753,
+        -662721756
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -811664333,
+        -1057418250
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        974060253,
+        -1497710952
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1196216041,
+        -833184886
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1766315361,
+        177368908
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -56434117,
+        245035614
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1645000229,
+        289665344
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1102990433,
+        -1646433166
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        285532457,
+        140884084
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        879462723,
+        639671750
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1823876499,
+        2027649256
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1603762393,
+        979786330
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -831822351,
+        1997153948
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        412160331,
+        -117197266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        649299893,
+        -62130800
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1261554607,
+        -919272126
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        397050809,
+        1034181060
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1649436077,
+        1207032726
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1294279171,
+        867436344
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1273733431,
+        -1207890646
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1221941889,
+        -940772884
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1810318427,
+        -1991463426
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1066074811,
+        1527139808
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -106420289,
+        -881454574
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1617103433,
+        -1733259500
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1331441507,
+        -1616261786
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        249234829,
+        -863409784
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1380090041,
+        -38554630
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1269740305,
+        743428412
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1196000405,
+        1616042446
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1753880277,
+        -883426768
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        205899727,
+        751669986
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1015581479,
+        725571684
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1302481011,
+        -372935882
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        128143645,
+        -1646223400
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1553932631,
+        -1723117878
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1201639519,
+        -326646644
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1991264645,
+        -902612578
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1972644763,
+        -127534464
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -236213281,
+        883460018
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1332790121,
+        1212528052
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1827857795,
+        -167654138
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2009907373,
+        -1216435672
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1550743705,
+        -1076568678
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1855164465,
+        -1171665956
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1078195595,
+        -1907700370
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1406350837,
+        -359313712
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1438307311,
+        -1179389822
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -652741127,
+        -738679036
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1644103315,
+        2002508502
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1144017981,
+        778602616
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1848266377,
+        496853098
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -600763199,
+        714540
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        677656731,
+        -1086941890
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1152990085,
+        1468725024
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        789856255,
+        -237187758
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1955197815,
+        -1815270316
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -776492125,
+        -737108826
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -337179699,
+        1826831048
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        183279495,
+        -1506683078
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1922957999,
+        843060860
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2067693653,
+        -1965846258
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1084824299,
+        -232000656
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -778506225,
+        1112546850
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2010384153,
+        2121811364
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1632490675,
+        -174255498
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        407496541,
+        -2106343144
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -694726249,
+        1683964426
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1131460127,
+        505305548
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1599288645,
+        171884766
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1742392667,
+        -1164098624
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -47586273,
+        259711730
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        633005481,
+        200209140
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -969768509,
+        415120454
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        754050797,
+        1944001384
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1328101465,
+        1244831962
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -496895375,
+        976924956
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -541648437,
+        299181230
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1512233931,
+        1313073168
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -303555537,
+        -1928717374
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        586393657,
+        -2056899516
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -703155501,
+        -1653532138
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -675804547,
+        -1960162888
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1508639159,
+        16315306
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1170411265,
+        -160818068
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -844010277,
+        20167806
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1366800837,
+        935649376
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1815386175,
+        -1913993070
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1819849015,
+        1431505300
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1762957341,
+        -688739354
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1598729715,
+        -1483060216
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1504182329,
+        -1187038598
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1948547183,
+        197237692
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        783074283,
+        -1825077170
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        640545621,
+        1057303728
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -592422833,
+        1414130018
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1044457127,
+        1466594020
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1323409651,
+        -608177738
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2051194269,
+        -1917574568
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1898200617,
+        -86870710
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1209295905,
+        -862572788
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        251272955,
+        -1375893474
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1635307749,
+        -1188442880
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1346133087,
+        1637121586
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1373419543,
+        681668660
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1804968445,
+        1435888518
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1358515501,
+        926731432
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1081624551,
+        1958716442
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1944673103,
+        1954338396
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -752189941,
+        853720046
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2096016779,
+        -661143216
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1812355985,
+        1182238466
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1619158407,
+        1999438212
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1580637971,
+        1366399318
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1682833219,
+        590957304
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        745443831,
+        -850147606
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2009811265,
+        2018152876
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1208934683,
+        -830200898
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -588220411,
+        -51115616
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1095315583,
+        1927283666
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1294544631,
+        1384261332
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        322397219,
+        261094182
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -343549875,
+        -1511088824
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        406822919,
+        1914428858
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -916762159,
+        -703307524
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1296545749,
+        -927023218
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        592396693,
+        52667888
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -842268529,
+        100332706
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1803021209,
+        2069225508
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1700942541,
+        -747761418
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2077086685,
+        954319768
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        766276119,
+        1743054986
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1831845473,
+        1697596492
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -529026245,
+        -726692002
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -56185051,
+        -1790208448
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1688005473,
+        -1640670862
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1122626089,
+        -1281544844
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1809480259,
+        -1278682426
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1037896851,
+        -891830808
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        179701799,
+        448522074
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        233934577,
+        640695196
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        920527435,
+        -525102290
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1850752843,
+        2060507792
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        137325743,
+        691810882
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        955632825,
+        244125380
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1633760429,
+        1788696726
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -27379971,
+        265653304
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -778214857,
+        770562602
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1534475391,
+        -1830009108
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1011051173,
+        -429405442
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        493057605,
+        -396856608
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2123499711,
+        -1275298030
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1671729993,
+        1083868180
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -86269853,
+        623413862
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -895967603,
+        -786420088
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        954433607,
+        1275576570
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        136403985,
+        -294099396
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1294208107,
+        -1163315506
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2096811989,
+        -809017552
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2060719921,
+        983777250
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2134851033,
+        -277181084
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        146930035,
+        1407676470
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1423234531,
+        1027384536
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1689689513,
+        -153707574
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2116114593,
+        -1792435828
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1634043771,
+        -577448290
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1074868891,
+        809672576
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -824308513,
+        2023584946
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2119093353,
+        35793588
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        549639811,
+        2056718854
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1632708179,
+        938471208
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        131074151,
+        1466395290
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1244838193,
+        1284825308
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1729234571,
+        1250404974
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1208455435,
+        1714369488
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1254716655,
+        -1197990526
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        429670137,
+        -255435772
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2072983443,
+        3430358
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1375949507,
+        -1438708360
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1371042423,
+        235351402
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1044282817,
+        -1819329492
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1392866917,
+        1209971262
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1995393915,
+        2066881568
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        877601023,
+        -1535100334
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1613796745,
+        349970772
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1108876451,
+        -17016410
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2083366093,
+        -764477496
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        545497223,
+        37938234
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1248699985,
+        -231888004
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2049970347,
+        943123982
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        963681813,
+        1982879856
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        588255503,
+        360893218
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1196740633,
+        -115836252
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1651604045,
+        342626166
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -694501283,
+        -1811626472
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -879977,
+        854036234
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        220803809,
+        1237659340
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        503552955,
+        1743609310
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1100032933,
+        -1420891968
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        451757343,
+        -468922382
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        982642345,
+        -1452251148
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -949783869,
+        826308934
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1155334125,
+        -943366040
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1879460007,
+        -2046677542
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1662657393,
+        619365916
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        404171,
+        -543227474
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        472603957,
+        200461584
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1677214417,
+        -1211414334
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1414467271,
+        51964228
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        424141779,
+        1769379606
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1731370115,
+        -1951019336
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -184565065,
+        -1730166614
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -148277247,
+        125006188
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1341604389,
+        854120830
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -700960059,
+        1992361312
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1296008897,
+        -676645486
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1564813367,
+        75955860
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        489478371,
+        -1001690906
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2122640141,
+        -1826942712
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        660603079,
+        -1878177926
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -763350895,
+        -1099681604
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -165915413,
+        1353180494
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1628394411,
+        127832496
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        129530191,
+        -103180702
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1308140121,
+        493856740
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1656532493,
+        205254326
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        207394461,
+        1987716952
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1008205097,
+        -413679030
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -326677215,
+        -1337850868
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -493752325,
+        1392059678
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1473104357,
+        1739616768
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -271532705,
+        331574066
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1846325015,
+        2127029556
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1275310333,
+        -1627051898
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1391289901,
+        60297640
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1147615001,
+        1103900954
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1159213647,
+        745663324
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -570781941,
+        1329174766
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        612928373,
+        492545616
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2083145071,
+        706065410
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1720458375,
+        1791276676
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -603402221,
+        1034163798
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -317695555,
+        -1921396744
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1135825655,
+        968332266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1047875007,
+        -1143413076
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1188613605,
+        637943998
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -82185979,
+        -599445856
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1977216641,
+        549286098
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1703107081,
+        -2066015276
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        5887267,
+        -598362074
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1881247411,
+        1013211720
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -440884985,
+        816245434
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        580451025,
+        1888220668
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1121396437,
+        1396448398
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        867891861,
+        -716043536
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -748346993,
+        -1964531294
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1567274137,
+        566236452
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1944035789,
+        1922502134
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1699697443,
+        1574750360
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1888898281,
+        526857610
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        779855713,
+        903878988
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1152351173,
+        -1107809186
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        417638437,
+        111622976
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -37194337,
+        2063681138
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -558697687,
+        -1754750348
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2060282691,
+        -886761530
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1491071891,
+        -1264057624
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1563981529,
+        1711633498
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -203704335,
+        543838364
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        489632587,
+        -2003341266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2001729973,
+        -1951809648
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1418654289,
+        1387749186
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -853207623,
+        -1928739900
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1746009171,
+        1409078678
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        419794941,
+        -926215880
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        101917495,
+        -1680955606
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -811455359,
+        -1107321876
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -191502757,
+        -524883970
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        771092293,
+        -318859296
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1967134273,
+        -1829311470
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        583670857,
+        1259895060
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1612770973,
+        -296007834
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1367722099,
+        931853192
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        869105991,
+        1599065594
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -50854639,
+        1706359612
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        194354539,
+        -818703410
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1106278187,
+        1888142384
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1716914639,
+        -1410536222
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2146109145,
+        189383268
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        778414707,
+        -1094881994
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        265749277,
+        57453016
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1253548887,
+        643164362
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        625361313,
+        -2015400308
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -192980869,
+        136999838
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -619329947,
+        1769161856
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        890531295,
+        -855219790
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1156524695,
+        1217568692
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -266942589,
+        -52410618
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1605694125,
+        -466275288
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        500336999,
+        233699226
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -264904143,
+        -32246308
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        434378635,
+        -1158117522
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -87971851,
+        -2011359024
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        706483695,
+        -1259320702
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1896122361,
+        254284036
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1583126381,
+        -1010772778
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -890436035,
+        -1763077512
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1147089783,
+        -1436222870
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1817188671,
+        1529319724
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -829105509,
+        1648021310
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -452186747,
+        707608864
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -993132033,
+        -2120767662
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1798365559,
+        1283397204
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -268661341,
+        -509864282
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        412630477,
+        768525512
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        702456199,
+        -683151046
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1675448145,
+        992952444
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1570939307,
+        -1815196914
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1143887637,
+        -1433879184
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -523554289,
+        -2144765918
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -4613863,
+        525119396
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2007812429,
+        -1477505930
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        974100829,
+        1617546008
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        504484759,
+        -2023498742
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1663507425,
+        -1820326964
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        442395835,
+        -791676194
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        882975909,
+        -1319858752
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -973822433,
+        -49103630
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        21821353,
+        663084276
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        672687043,
+        -1149847994
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -622061331,
+        -612391576
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1694091687,
+        -1798980902
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -768193423,
+        45013788
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1884896203,
+        1436343982
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -719481291,
+        -2081050096
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        946560559,
+        335574466
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -279823815,
+        -698376636
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1392700205,
+        -466611178
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -251216771,
+        -1860873288
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1188529079,
+        -1866822230
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1074536191,
+        546358892
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -211546405,
+        -372115842
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -694375483,
+        1427188320
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2003805633,
+        2145362578
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1244503863,
+        -1102122092
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        619858403,
+        -581425690
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1282966541,
+        141547016
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        539754951,
+        -1815128966
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1719084655,
+        -835009092
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1871701483,
+        -1337179570
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        207054165,
+        -1802766672
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1559979441,
+        1792885602
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1729522521,
+        -485958428
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -567737613,
+        627829686
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        664432541,
+        -1374409640
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1907901399,
+        231804746
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1168230879,
+        -2046699252
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -114441989,
+        -148323810
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -70860059,
+        1066080000
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        547954271,
+        1046894642
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -878224919,
+        159537716
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1997684739,
+        -836213370
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1224376531,
+        600266408
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -260224537,
+        -1781744102
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -65210703,
+        -1418002340
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -53567477,
+        130315758
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1822671989,
+        812878672
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1453254255,
+        1931993346
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -229757831,
+        133196676
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -295763693,
+        1284150102
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1181568323,
+        -1869720328
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1782836233,
+        -1173397270
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1185815361,
+        -612680788
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1329824539,
+        -155427394
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -119051771,
+        1860850592
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1715925631,
+        1628364242
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1072438519,
+        365433044
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1291827677,
+        1221555494
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        140184141,
+        -257022136
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1359633913,
+        -802818118
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        540713937,
+        1008175868
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1033726507,
+        1944942990
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1664437355,
+        2144628720
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1296188047,
+        256396962
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2143191655,
+        465455652
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1272508621,
+        1853098742
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        649561565,
+        1705758104
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -303369193,
+        -992116086
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1026265185,
+        -861606324
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1657973445,
+        -1703622306
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1187422501,
+        -1252597696
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -177088865,
+        71381874
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1952447529,
+        63444852
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1900305475,
+        1010128070
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -767482515,
+        -2041821208
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2023557671,
+        -331153062
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        271180017,
+        -1246206564
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -612088757,
+        -1062253266
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1737765557,
+        2127996048
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1157017263,
+        363236418
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1681415865,
+        152729796
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        168373587,
+        -737127786
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1831802627,
+        -1365993928
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -112401353,
+        -777817046
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1511953793,
+        -1725501204
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        242431835,
+        1211761918
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -2111018939,
+        -1191658272
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        775015103,
+        946166034
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        768845129,
+        136998420
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1315340899,
+        -884865946
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1249890445,
+        1338620040
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1367637433,
+        126606074
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1171083759,
+        -502951876
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        67841643,
+        1844572366
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1144503851,
+        -39704272
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1077663025,
+        1353357794
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1434111961,
+        -827525276
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -829596813,
+        -95983050
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -978920419,
+        1081126616
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2062148695,
+        -137808438
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1036987041,
+        346637196
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1386031483,
+        435425438
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1809891173,
+        -201856640
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        881774303,
+        31674034
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1783177623,
+        1805063348
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -353453949,
+        1289585670
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1256131501,
+        206469416
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -174519705,
+        -1284995942
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -258143439,
+        514263772
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1757030539,
+        -1348639634
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1406213899,
+        -1604387376
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        62043887,
+        2126280578
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1867567353,
+        2132657668
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -465856109,
+        -1845407274
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        721510205,
+        1147672440
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2043278455,
+        -1028208790
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1820676033,
+        -1496062420
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1657590885,
+        -578098114
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -391403899,
+        -1266915808
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -258940161,
+        1495471186
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1185831031,
+        -1967781036
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -345702749,
+        1274008486
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1361499853,
+        -821917240
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        922591879,
+        -180289990
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1773205585,
+        1564792188
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1058615979,
+        1838786574
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1871712277,
+        -550165904
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        449467151,
+        1380197666
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        822239769,
+        1091888292
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        832300979,
+        -2144990858
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -760712611,
+        933416984
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1089803415,
+        835987722
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1317602529,
+        1263458508
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1514324549,
+        350656478
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        22355365,
+        481178304
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        239077151,
+        713861618
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        166461609,
+        -701541900
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -128887613,
+        -2023689402
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        2132750829,
+        -15865240
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1615770969,
+        1182615514
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        -1078561423,
+        596045852
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1085295819,
+        1137621934
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    },
+    {
+      "arguments": [
+        1622396725,
+        105682704
+      ],
+      "seed": 1,
+      "doubleInputs": {
+        "bearingRadians": -3
+      }
+    }
+  ]
+}

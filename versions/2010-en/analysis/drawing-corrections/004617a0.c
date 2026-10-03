@@ -1,0 +1,218 @@
+
+/* WARNING: Function: __ftol replaced with injection: tact2010_ftol_x87_pop */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void __cdecl FUN_004617a0(int *param_1)
+
+{
+  code *pcVar1;
+  double dVar2;
+  int *original_dc;
+  int iVar3;
+  int iVar4;
+  undefined4 *unaff_FS_OFFSET;
+  int local_1c;
+  int local_18;
+  int local_14;
+  int local_10;
+  undefined4 uStack_c;
+  code *pcStack_8;
+  undefined4 uStack_4;
+  
+  original_dc = param_1;
+  uStack_c = *unaff_FS_OFFSET;
+  uStack_4 = 0xffffffff;
+  dVar2 = _DAT_005230b0 * _DAT_004ccc90;
+  pcStack_8 = FUN_004c5470;
+  *unaff_FS_OFFSET = &uStack_c;
+  DAT_004faf7c = (int)(longlong)dVar2;
+  if (DAT_004fe624 < 700) {
+    iVar3 = 3;
+    local_14 = 0x10;
+    local_18 = 0x16;
+    local_1c = 3;
+    local_10 = 0x78;
+  }
+  else {
+    local_1c = 10;
+    local_14 = 0x14;
+    iVar3 = 10;
+    local_18 = 0x1b;
+    local_10 = 0x8c;
+  }
+  if (DAT_005363e4 == 0) {
+    (**(code **)(*param_1 + 0x38))(param_1,0x7f0000);
+  }
+  FUN_004b0613((Tact2010CString *)&param_1,s___GLOSSARY___page_1_004eaf90);
+  uStack_4 = 0;
+  pcVar1 = *(code **)(*original_dc + 100);
+  (*pcVar1)(original_dc,iVar3,2,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = local_18 + 2;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Abeam__004eaf88);
+  uStack_4 = 1;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Directly_to_the_side_of_the_boat_004eaf64);
+  iVar3 = iVar3 + local_10;
+  uStack_4 = 2;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Apparent_wind__004eaf54);
+  uStack_4 = 3;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,
+               "Wind perceived while sailing: a combination of true wind and the motion of the boat."
+              );
+  uStack_4 = 4;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s__004eaef8);
+  uStack_4 = 5;
+  (*pcVar1)(original_dc,iVar3,iVar4 + local_14,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_14 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Backing_wind__004eaee8);
+  uStack_4 = 6;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Wind_shifting_to_your_left_as_yo_004eaea0);
+  uStack_4 = 7;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Backwinded__004eae90);
+  uStack_4 = 8;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Wind_deflected_by_a_boat_ahead_w_004eae44);
+  uStack_4 = 9;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Bad_air__004eae38);
+  uStack_4 = 10;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Your_wind_is_adversely_affected_b_004eae04);
+  uStack_4 = 0xb;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Bear_off__004eadf8);
+  uStack_4 = 0xc;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Turn_the_boat_away_from_the_wind_004eadd4);
+  uStack_4 = 0xd;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Beating__004eadc8);
+  uStack_4 = 0xe;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Sailing_as_close_as_possible__wi_004ead88);
+  uStack_4 = 0xf;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Baggy_sails__004ead78);
+  uStack_4 = 0x10;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Sails_with_a_lot_of_draft__A_ful_004ead4c);
+  uStack_4 = 0x11;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Blanketed__004ead40);
+  uStack_4 = 0x12;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Your_wind_is_blocked_by_another_b_004ead08);
+  uStack_4 = 0x13;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Clear_astern__004eacf8);
+  uStack_4 = 0x14;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_A_boat_is__clear_astern__if_it_i_004eacb4);
+  uStack_4 = 0x15;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_the_farthest_aft_part_of_a_boat_a_004eac68);
+  uStack_4 = 0x16;
+  (*pcVar1)(original_dc,iVar3,iVar4 + local_14,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_14 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Clear_air__004eac5c);
+  uStack_4 = 0x17;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_No_other_boat_is_interfering_wit_004eac2c);
+  uStack_4 = 0x18;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  iVar4 = iVar4 + local_18;
+  FUN_004b0613((Tact2010CString *)&param_1,s_Closehauled__004eac1c);
+  uStack_4 = 0x19;
+  (*pcVar1)(original_dc,local_1c,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Sailing_as_close_as_possible__wi_004ead88);
+  uStack_4 = 0x1a;
+  (*pcVar1)(original_dc,iVar3,iVar4,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_Cover__004eac14);
+  uStack_4 = 0x1b;
+  (*pcVar1)(original_dc,local_1c,iVar4 + local_18,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  FUN_004b0613((Tact2010CString *)&param_1,s_To_stay_between_the_next_mark_an_004eabd8);
+  uStack_4 = 0x1c;
+  (*pcVar1)(original_dc,iVar3,iVar4 + local_18,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  if (DAT_005363e4 == 0) {
+    (**(code **)(*original_dc + 0x38))(original_dc,0xff);
+  }
+  FUN_004b0613((Tact2010CString *)&param_1,s_Press___for_next_page__Press_spa_004eab94);
+  uStack_4 = 0x1d;
+  (*pcVar1)(original_dc,local_1c,DAT_004faf7c - local_14,(char *)param_1,param_1[-2]);
+  uStack_4 = 0xffffffff;
+  FUN_004b05a5((Tact2010CString *)&param_1);
+  *unaff_FS_OFFSET = uStack_c;
+  return;
+}
+

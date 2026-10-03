@@ -1,0 +1,672 @@
+{
+  "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
+  "checkedAt": "2026-10-03T19:59:43.493Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "2010 constructor, 312 original commands and observed x87 precision",
+      "ready": true,
+      "frames": 1,
+      "error": null,
+      "app": 0,
+      "view": 2,
+      "paused": 0,
+      "mode": 0,
+      "notice": 0,
+      "forecast": 0,
+      "chart": 1,
+      "current": 0,
+      "tide": 0,
+      "otherOverlay": 0,
+      "time": -170.5,
+      "clock": -170,
+      "selector": 12,
+      "humans": 1
+    },
+    {
+      "name": "Space dismisses the active original startup overlay",
+      "before": {
+        "ready": true,
+        "frames": 7,
+        "error": null,
+        "app": 2,
+        "view": 2,
+        "paused": 0,
+        "mode": 0,
+        "notice": 0,
+        "forecast": 0,
+        "chart": 1,
+        "current": 0,
+        "tide": 0,
+        "otherOverlay": 0,
+        "time": -170.5,
+        "clock": -170,
+        "selector": 12,
+        "humans": 1
+      },
+      "after": {
+        "ready": true,
+        "frames": 7,
+        "error": null,
+        "app": 2,
+        "view": 2,
+        "paused": 0,
+        "mode": 0,
+        "notice": 0,
+        "forecast": 0,
+        "chart": 0,
+        "current": 0,
+        "tide": 0,
+        "otherOverlay": 0,
+        "time": -170.5,
+        "clock": -170,
+        "selector": 12,
+        "humans": 1
+      }
+    },
+    {
+      "name": "original Space starts a continuously advancing race",
+      "ready": true,
+      "frames": 16,
+      "error": null,
+      "app": 2,
+      "view": 2,
+      "paused": 0,
+      "mode": 0,
+      "notice": 0,
+      "forecast": 0,
+      "chart": 0,
+      "current": 0,
+      "tide": 0,
+      "otherOverlay": 0,
+      "time": -169.95536171693956,
+      "clock": -169,
+      "selector": 12,
+      "humans": 1
+    },
+    {
+      "name": "keyboard controls tutorial",
+      "ready": true,
+      "frames": 20,
+      "error": null,
+      "app": 2,
+      "view": 2,
+      "paused": 6,
+      "mode": 0,
+      "notice": 0,
+      "forecast": 0,
+      "chart": 0,
+      "current": 0,
+      "tide": 0,
+      "otherOverlay": 0,
+      "time": -169.77381562258608,
+      "clock": -169,
+      "selector": 12,
+      "humans": 1
+    },
+    {
+      "name": "F freezes continuous invalidation",
+      "passed": true
+    },
+    {
+      "name": "physical wheel event follows original sheet control",
+      "before": -1,
+      "after": 4
+    },
+    {
+      "name": "original About dialog pauses and resumes the active race",
+      "before": -169,
+      "after": -169
+    },
+    {
+      "name": "original boat command 33104 renders selector 25",
+      "passed": true
+    },
+    {
+      "name": "original boat command 33105 renders selector 26",
+      "passed": true
+    },
+    {
+      "name": "original boat command 33106 renders selector 27",
+      "passed": true
+    },
+    {
+      "name": "original boat command 33098 renders selector 23",
+      "passed": true
+    },
+    {
+      "name": "original boat command 33099 renders selector 24",
+      "passed": true
+    },
+    {
+      "name": "original boat command 33100 renders selector 21",
+      "passed": true
+    },
+    {
+      "name": "original boat command 33101 renders selector 22",
+      "passed": true
+    },
+    {
+      "name": "setup boats: Optimist",
+      "command": 32781,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Laser",
+      "command": 32782,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Board",
+      "command": 32881,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Snipe",
+      "command": 32897,
+      "passed": true
+    },
+    {
+      "name": "setup boats: JY15",
+      "command": 32784,
+      "passed": true
+    },
+    {
+      "name": "setup boats: 505",
+      "command": 32783,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Skiff",
+      "command": 32786,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Thistle",
+      "command": 32787,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Flying Scot",
+      "command": 33106,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Lightning",
+      "command": 32788,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Star",
+      "command": 32985,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Tornado Catamaran",
+      "command": 32794,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Non-Spinnaker Catamaran",
+      "command": 32793,
+      "passed": true
+    },
+    {
+      "name": "setup boats: A Class Catamaran",
+      "command": 32986,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Offshore Catamaran",
+      "command": 33098,
+      "passed": true
+    },
+    {
+      "name": "setup boats: E Scow",
+      "command": 33105,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Keelboat",
+      "command": 32789,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Hide Current Indicator",
+      "command": 33104,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Ideal 18 Keelboat",
+      "command": 33099,
+      "passed": true
+    },
+    {
+      "name": "setup boats: 25 ft Sportboat",
+      "command": 33100,
+      "passed": true
+    },
+    {
+      "name": "setup boats: 35 ft Sportboat",
+      "command": 33101,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Sprit Offshore Racer",
+      "command": 32790,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Offshore Racer",
+      "command": 32791,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Racer Cruiser",
+      "command": 32987,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Cruising Canvas",
+      "command": 32988,
+      "passed": true
+    },
+    {
+      "name": "setup boats: America's Cup",
+      "command": 32792,
+      "passed": true
+    },
+    {
+      "name": "setup boats: Model Yacht",
+      "command": 32989,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Northeast Harbor, ME",
+      "command": 33014,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Marblehead, MA",
+      "command": 33015,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Edgartown, MA",
+      "command": 33032,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Newport, RI",
+      "command": 33016,
+      "passed": true
+    },
+    {
+      "name": "setup venues: West of Block Island, RI",
+      "command": 33017,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Around Block Island, RI",
+      "command": 33018,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Groton, CT",
+      "command": 33029,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Essex, CT",
+      "command": 33019,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Larchmont, NY",
+      "command": 33030,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Annapolis, MD",
+      "command": 33021,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Thurmond Lake, GA / SC",
+      "command": 33026,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Charleston, SC",
+      "command": 33022,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Biscayne Bay, FL",
+      "command": 33023,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Key West, FL",
+      "command": 33027,
+      "passed": true
+    },
+    {
+      "name": "setup venues: St Petersburg, FL",
+      "command": 33028,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Nassau, Bahamas",
+      "command": 33031,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Kingston, ON",
+      "command": 33020,
+      "passed": true
+    },
+    {
+      "name": "setup venues: Chicago, IL",
+      "command": 33024,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Shoreline to the North",
+      "command": 32795,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Shoreline to the East",
+      "command": 32796,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Shoreline to the South",
+      "command": 32797,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Shoreline to the West",
+      "command": 32798,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Round Lake",
+      "command": 32799,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Sound",
+      "command": 32800,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Round the Island",
+      "command": 32801,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Distance Race - Along Shore",
+      "command": 32802,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Distance Race - Around Island",
+      "command": 32964,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: River Mouth North",
+      "command": 32803,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: River Mouth South",
+      "command": 32804,
+      "passed": true
+    },
+    {
+      "name": "original command 32961 leaves painting idle",
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Bay",
+      "command": 32961,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Banana Lakes",
+      "command": 32976,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Five Finger Lakes",
+      "command": 32977,
+      "passed": true
+    },
+    {
+      "name": "setup imaginary: Branching Rivers",
+      "command": 32978,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Windward / Leeward",
+      "command": 32816,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Windward / Leeward Twice Around",
+      "command": 32817,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Triangle",
+      "command": 32818,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Triangle Twice Around",
+      "command": 32819,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Gold Cup",
+      "command": 32820,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Downwind Finish Windward / Leeward",
+      "command": 32992,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Downwind Finish Twice Around W/L",
+      "command": 32993,
+      "passed": true
+    },
+    {
+      "name": "setup courses: Downwind Gate",
+      "command": 32994,
+      "passed": true
+    },
+    {
+      "name": "original Board selection starts and advances a live sailboard fleet",
+      "beforeTime": -170.5,
+      "afterTime": -170.37800392882625,
+      "passed": true
+    },
+    {
+      "name": "Design Options Cancel retains the original immediate length selection",
+      "passed": true
+    },
+    {
+      "name": "Design Options OK follows the original selection and close tail",
+      "passed": true
+    },
+    {
+      "name": "Helm Cancel retains the original speed selection and two-player close tail",
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32862",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32868",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 33102",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32926",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32956",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32928",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32931",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32929",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32930",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32932",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32933",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32934",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32935",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32936",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32937",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32940",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32941",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32942",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32943",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32955",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32944",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32945",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32954",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32946",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32947",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32948",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32949",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32950",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "original tutorial command 32951",
+      "view": 2,
+      "passed": true
+    },
+    {
+      "name": "prepared one-finisher input: original Show Race Results menu and screen",
+      "passed": true
+    },
+    {
+      "name": "636-byte native preference archive survives reload",
+      "passed": true
+    },
+    {
+      "name": "production uses browser JavaScript and data with no EXE or proof fixture requests",
+      "requests": 197,
+      "passed": true
+    }
+  ],
+  "failure": null,
+  "exceptions": []
+}

@@ -1,0 +1,211 @@
+{
+  "format": 1,
+  "verdict": "No findings.",
+  "scope": "Independent final publication delta review: complete collector, edition/shared packaging, restore and application provenance test; narrowed scalar AI frontend and the original stride correction. No production code, captured expectation, source snapshot, or archive was changed by this review.",
+  "checkedAt": "2026-10-03T20:12:00.521446+00:00",
+  "skill": "/home/martin/.codex/skills/big-review/SKILL.md",
+  "reviewedFiles": [
+    {
+      "path": "versions/2010-en/tools/collect_native_sources.py",
+      "bytes": 6630,
+      "sha256": "e7224fbe9eb256c7a37137800bc92a13dcc8e9ab26e343ca38cfd5974ec5ae42"
+    },
+    {
+      "path": "versions/2010-en/tools/package_evidence.py",
+      "bytes": 2844,
+      "sha256": "238286745f0812c2e304c2fabefb37dbd6a1908ce78d5c26dcf0dfe0955cf3e9"
+    },
+    {
+      "path": "versions/2010-en/tests/application.test.js",
+      "bytes": 7328,
+      "sha256": "90c391fa0e531377899f4c7dc7273afb0ced47589689d0572df87b58c7cc7024"
+    },
+    {
+      "path": "versions/2010-en/tools/translate_ai.py",
+      "bytes": 13092,
+      "sha256": "43a01e0a5e7ffae352f5a319178fa385f8088504f262d04d33111970da0010e0"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-functions.js",
+      "bytes": 185351,
+      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+    },
+    {
+      "path": "tools/package-evidence.py",
+      "bytes": 7292,
+      "sha256": "a719e744f940b99e9b4ccb314345adc7cec0ae707a913611d012ff82252769f7"
+    },
+    {
+      "path": "tools/restore-evidence.js",
+      "bytes": 6760,
+      "sha256": "2e1b6255cfb7893d51dfe266269888f966ebd61663e1b3df933b396576aae537"
+    },
+    {
+      "path": "tools/restore-2010-evidence.js",
+      "bytes": 350,
+      "sha256": "ea8207f4c3c9e3bd9f63d5166501f12e9263a94f3209fb4cc0ef4d0cf1fae4c7"
+    }
+  ],
+  "publication": {
+    "sourceManifest": {
+      "path": "versions/2010-en/analysis/native-source-sets/manifest.json",
+      "sha256": "4b1aaeef6e1970ffffc01db53419831c3ffac6b49b7e0d65d924a07bd3e65006",
+      "bundles": 10,
+      "captures": 75,
+      "sourceFilesVerified": 42,
+      "allSourceHashesAndBundleDigestsExact": true,
+      "allCaptureSourceMappingsExactIncludingDeclaredHistoricalAnnotation": true
+    },
+    "applicationFixtureSha256": "fbdb1df9cfde2ac1f3640031222f4cccefc6adb59434fb47bd308dee8b0a758e",
+    "applicationSourceBundleSha256": "f01278d70d866b30cf17bac5a60187dd3bacc008b6fd98c3ae09ceb8a9603f0d",
+    "applicationHostBinary": {
+      "path": "analysis/native-proof-binaries/86a2bf408adb7961991c6bb832c37d845a94b01ee2ca95c3f512679a7056051a.exe",
+      "bytes": 2320880,
+      "sha256": "86a2bf408adb7961991c6bb832c37d845a94b01ee2ca95c3f512679a7056051a"
+    },
+    "modalObserver": {
+      "path": "analysis/native-modal-observer.exe",
+      "bytes": 88268,
+      "sha256": "7005e7fdf54ab6b38dc689d6104c0def943e909ea1d3b3b9624f7a97385b8e90"
+    },
+    "hostArchiveRows": [
+      {
+        "path": "analysis/native-proof-binaries/86a2bf408adb7961991c6bb832c37d845a94b01ee2ca95c3f512679a7056051a.exe",
+        "archive": "evidence/archives/analysis/native-proof-binaries/86a2bf408adb7961991c6bb832c37d845a94b01ee2ca95c3f512679a7056051a.exe.gz",
+        "bytes": 2320880,
+        "sha256": "86a2bf408adb7961991c6bb832c37d845a94b01ee2ca95c3f512679a7056051a",
+        "compressedBytes": 49756,
+        "compressedSha256": "2ac8470192d3790c353acc7352fc9d7b4810b678ede22264ca5d41036c52a043",
+        "profiles": [
+          "all"
+        ]
+      },
+      {
+        "path": "analysis/native-modal-observer.exe",
+        "archive": "evidence/archives/analysis/native-modal-observer.exe.gz",
+        "bytes": 88268,
+        "sha256": "7005e7fdf54ab6b38dc689d6104c0def943e909ea1d3b3b9624f7a97385b8e90",
+        "compressedBytes": 34520,
+        "compressedSha256": "25071d85558ba9bfe3114dace7ad44e6b502973d28978110551cca2970fbc5a9",
+        "profiles": [
+          "all"
+        ]
+      }
+    ],
+    "noPrivateApplicationRunnerInputInTest": true,
+    "testReadsPublishedSourceBundleAndExactArchivedHistoricalHost": true,
+    "candidateInventoryHasNoYearFilteredCanonicalFixture": true
+  },
+  "isolatedFailureAndRepetitionProbes": [
+    {
+      "probe": "collect exact historical application sources/binary twice",
+      "exact": true,
+      "bundles": 1,
+      "captures": 1
+    },
+    {
+      "probe": "mismatched compiler source",
+      "rejected": true,
+      "errorType": "ValueError",
+      "message": "Compiler snapshot hash differs: /tmp/tact-2010-final-publication-review-q1bgvxc8/versions/2010-en/analysis/application-runners/native_reference.c"
+    },
+    {
+      "probe": "mismatched historical host binary",
+      "rejected": true,
+      "errorType": "ValueError",
+      "message": "Owned compiled runner differs from successful provenance"
+    },
+    {
+      "probe": "symlink compiler source",
+      "rejected": true,
+      "errorType": "ValueError",
+      "message": "Compiler snapshot source must be a regular file"
+    },
+    {
+      "probe": "mismatched preexisting published source",
+      "rejected": true,
+      "errorType": "ValueError",
+      "message": "Existing published source snapshot differs"
+    },
+    {
+      "probe": "deterministic two-pass four-file packaging and complete archive verification",
+      "exact": true,
+      "files": 4,
+      "compressedBytes": 935825
+    },
+    {
+      "probe": "corrupted recorded modal observer before packaging",
+      "rejected": true,
+      "errorType": "ValueError",
+      "message": "Recorded native provenance binary differs"
+    },
+    {
+      "probe": "fresh archive-only Node restore without private runner directories plus repeat verification",
+      "exact": true,
+      "restored": {
+        "profile": "all",
+        "selected": 4,
+        "restored": 4,
+        "skipped": 0,
+        "bytes": 22316413
+      },
+      "repeat": {
+        "profile": "all",
+        "selected": 4,
+        "restored": 0,
+        "skipped": 4,
+        "bytes": 22316413
+      }
+    },
+    {
+      "probe": "mismatched existing canonical host binary",
+      "rejected": true,
+      "unchanged": true
+    },
+    {
+      "probe": "corrupted archive rejects before canonical publication and removes temporary files",
+      "rejected": true,
+      "canonicalAbsent": true,
+      "temporaryFilesAbsent": true
+    }
+  ],
+  "allProbesPassed": true,
+  "ai": {
+    "scalarFrontend": "Only independently reviewed complete I32 formals use direct scalar bindings; non-I32 formals, unknown numerical calls, wrong arities and unreviewed binary64 constructions reject generation. Packed drawing argument storage is outside this numeric frontend.",
+    "originalInstruction": {
+      "address": "0x435e2b",
+      "bytes": "8b04b580b34f00",
+      "operation": "MOV EAX,[ESI*4+0x4fb380]",
+      "verifiedFromPreservedExecutable": true
+    },
+    "fixedModuleSha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f",
+    "newNativeCalls": 393,
+    "newBoardCasesExact": 384,
+    "preFixMismatchCount": 12,
+    "preFixFullFrameDesiredHeading": {
+      "case": 6,
+      "expectedHeading2": 56,
+      "oldSourceHeading2": 61,
+      "log": "analysis/retained-board-frames-before-fix-replay.log"
+    },
+    "existingAICalls": 8366,
+    "retainedFullFrames": 3,
+    "proofReport": {
+      "path": "versions/2010-en/analysis/board-turn-native-source-comparison.json",
+      "sha256": "8a3421a1f5686fffda8dcd88077b03018c3c2e1335304c28ea58a6ec956bd952"
+    },
+    "generationArtifactsExact": 14
+  },
+  "disprovedCandidates": [
+    "Application proof no longer reads ignored analysis/application-runners paths: exact historical bytes are addressed through published source-bundle and nativeBinarySnapshot records.",
+    "Python sorted-key bundle digest matches JavaScript bytes/name/sha256 object order; all ten actual bundle digests recompute exactly.",
+    "Only the two pinned provenance-host binaries are explicitly admitted after hash/size checks; no player executable or local runtime is in this packaging branch.",
+    "Source mismatch, runner mismatch, symlink snapshot and existing-published-source corruption all reject collection. Packaging rejects corrupted pinned observer; restore rejects corrupted gzip or mismatched existing canonical bytes without overwrite or temporary-file leak.",
+    "Shared 2002 filename filter does not omit any current canonical 2010 fixture: no such fixture name contains the excluded year pattern.",
+    "AI frontend reproducibility is exact after scalar-binding isolation; its single semantic delta is supported by original ESI*4 addressing,384new native cases and three real Board-parent frames."
+  ],
+  "findings": [],
+  "productionEdits": false,
+  "broadSuiteRerun": false,
+  "limitations": "Collector regenerates publication source sets from owned successful local capture snapshots; fresh-checkout tests use only already published source sets and restorable archives. This review did not recapture original code or rerun broad suites."
+}

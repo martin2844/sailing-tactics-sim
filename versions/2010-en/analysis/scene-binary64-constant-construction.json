@@ -1,0 +1,248 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routine": "0x466330",
+  "recoveredSourceSha256": "72bf984427458bf0894a42dd7b6994d052e1cb3e6ba21c4d104147bf5f67c146",
+  "generatedSourceSha256": "dd728aa1fe8c3f63fe3889dd1448c022fc5a1d939d195258838dcc167a3762ab",
+  "method": "Read-only Capstone decoding from original function entry; no original code changes.",
+  "stack": {
+    "entryEspDeltaAfterPrologue": -640,
+    "ghidraLocal": "local_260",
+    "entryEspOffset": -608,
+    "postPrologueEspOffset": 32,
+    "bytes": 8
+  },
+  "constructionInstructions": [
+    {
+      "address": "0x4664f1",
+      "bytes": "8b04b5702d5100",
+      "instruction": "mov eax, dword ptr [esi*4 + 0x512d70]"
+    },
+    {
+      "address": "0x4664f8",
+      "bytes": "c744242000000000",
+      "instruction": "mov dword ptr [esp + 0x20], 0"
+    },
+    {
+      "address": "0x466500",
+      "bytes": "d9ca",
+      "instruction": "fxch st(2)"
+    },
+    {
+      "address": "0x466502",
+      "bytes": "dd9c2490000000",
+      "instruction": "fstp qword ptr [esp + 0x90]"
+    },
+    {
+      "address": "0x466509",
+      "bytes": "83f832",
+      "instruction": "cmp eax, 0x32"
+    },
+    {
+      "address": "0x46650c",
+      "bytes": "c74424240000f03f",
+      "instruction": "mov dword ptr [esp + 0x24], 0x3ff00000"
+    },
+    {
+      "address": "0x466514",
+      "bytes": "dd5c2458",
+      "instruction": "fstp qword ptr [esp + 0x58]"
+    },
+    {
+      "address": "0x466518",
+      "bytes": "d9c9",
+      "instruction": "fxch st(1)"
+    },
+    {
+      "address": "0x46651a",
+      "bytes": "dd5c2478",
+      "instruction": "fstp qword ptr [esp + 0x78]"
+    },
+    {
+      "address": "0x46651e",
+      "bytes": "dd9c2480000000",
+      "instruction": "fstp qword ptr [esp + 0x80]"
+    },
+    {
+      "address": "0x466525",
+      "bytes": "7c08",
+      "instruction": "jl 0x46652f"
+    },
+    {
+      "address": "0x466527",
+      "bytes": "c74424240000f83f",
+      "instruction": "mov dword ptr [esp + 0x24], 0x3ff80000"
+    },
+    {
+      "address": "0x46652f",
+      "bytes": "833c9d405e530004",
+      "instruction": "cmp dword ptr [ebx*4 + 0x535e40], 4"
+    }
+  ],
+  "floatingReadInstructions": [
+    {
+      "address": "0x466702",
+      "bytes": "dd442420",
+      "instruction": "fld qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x46670c",
+      "bytes": "dd5c2420",
+      "instruction": "fstp qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466764",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466771",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466965",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x46696b",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466971",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466977",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x46697d",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466983",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466989",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x46698f",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466a8f",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466a9e",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466aab",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466ba5",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bab",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bb1",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bb7",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bbd",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bc3",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bc9",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466bcf",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    },
+    {
+      "address": "0x466c97",
+      "bytes": "dc4c2420",
+      "instruction": "fmul qword ptr [esp + 0x20]"
+    }
+  ],
+  "nativeBehavior": {
+    "signedThreshold": 50,
+    "belowThreshold": {
+      "lowWord": "0x00000000",
+      "highWord": "0x3ff00000",
+      "binary64Value": 1.0
+    },
+    "atOrAboveThreshold": {
+      "lowWord": "0x00000000",
+      "highWord": "0x3ff80000",
+      "binary64Value": 1.5
+    }
+  },
+  "currentGeneratedExpression": "writeLocal(framePointer(localFrame,272),cF64(cBits(lVar15,32,\"<<\")),8,\"float\")",
+  "finding": "The original writes the binary64 representation directly. The recovered (double)(lVar15 << 32) expression requires reinterpretation of the constructed IEEE bits; a numeric integer-to-F64 conversion and a JavaScript 32-bit shift both produce different values.",
+  "scope": "This is a demonstrated translation defect. Native fixtures remain unchanged. Neighboring local_98/local_138 already use correct 8-byte float access in the current generator.",
+  "correction": {
+    "generatedSourceSha256": "3402137b5a6ccf098627591ae22f676ce8b0a7cf372f37fe4dbbb2983d2788b7",
+    "expression": "bitsAsF64(cBits(cI64(lVar15),32,\"<<\"))",
+    "nativeExpectedFilesChanged": false,
+    "strictFocusedValidation": [
+      {
+        "profile": "standard-course1-prestart",
+        "nativeFrame": 1,
+        "differingWords": 0,
+        "drawingCounts": {
+          "actual": 1469,
+          "expected": 1469
+        },
+        "orderedDrawingDifferences": 0,
+        "error": null
+      },
+      {
+        "profile": "coastal-venue5-two-human-started",
+        "nativeFrame": 1,
+        "differingWords": 0,
+        "drawingCounts": {
+          "actual": 2206,
+          "expected": 2206
+        },
+        "orderedDrawingDifferences": 0,
+        "error": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,674 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "generatedAt": "2026-10-03T16:43:47.787Z",
+  "scope": "Read-only diagnostic replay of actual native-initialized retained standard-course1-prestart frame1, following strictly matched frame0. No production source, native binary, fixture bytes or expected outputs edited. These JS replays are not additional original captured calls.",
+  "profile": "standard-course1-prestart",
+  "frame": 1,
+  "runs": {
+    "baseline": {
+      "report": "retained-standard-performance-baseline.json",
+      "targetFrameElapsedMs": 8662.571236,
+      "exact": true,
+      "drawingCommands": 1469,
+      "pixels": 34,
+      "rngState": 282020156,
+      "sounds": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ],
+      "experiment": null
+    },
+    "inputCache": {
+      "report": "retained-standard-performance-from-number-cache.json",
+      "targetFrameElapsedMs": 5613.1929470000005,
+      "exact": true,
+      "drawingCommands": 1469,
+      "pixels": 34,
+      "rngState": 282020156,
+      "sounds": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ],
+      "experiment": {
+        "kind": "Diagnostic-only bounded immutable Float80.fromNumber cache; original method on misses",
+        "limit": 4096,
+        "hits": 5661750,
+        "misses": 272002,
+        "evictions": 267906,
+        "size": 4096
+      }
+    },
+    "outputCache": {
+      "report": "retained-standard-performance-to-number-cache.json",
+      "targetFrameElapsedMs": 8619.72627,
+      "exact": true,
+      "drawingCommands": 1469,
+      "pixels": 34,
+      "rngState": 282020156,
+      "sounds": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ],
+      "experiment": {
+        "kind": "Diagnostic-only immutable Float80.toNumber identity WeakMap; original method on misses",
+        "hits": 1086,
+        "misses": 926766
+      }
+    },
+    "distance": {
+      "report": "retained-standard-performance-pc53-distance.json",
+      "targetFrameElapsedMs": 1247.133116,
+      "exact": true,
+      "drawingCommands": 1469,
+      "pixels": 34,
+      "rngState": 282020156,
+      "sounds": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ],
+      "experiment": {
+        "kind": "Diagnostic-only guarded PC53 binary64 distance; original Float80 on every unsupported intermediate",
+        "fast": 817028,
+        "fallback": 0,
+        "contextFallback": 0,
+        "operandFallback": 0,
+        "subtractFallback": 0,
+        "productFallback": 0,
+        "sumFallback": 0
+      }
+    },
+    "combined": {
+      "report": "retained-standard-performance-combined-cache-distance.json",
+      "targetFrameElapsedMs": 1722.9816039999998,
+      "exact": true,
+      "drawingCommands": 1469,
+      "pixels": 34,
+      "rngState": 282020156,
+      "sounds": [
+        {
+          "resourceId": 140,
+          "moduleHandle": 4194304,
+          "flags": 262149
+        }
+      ],
+      "experiment": {
+        "distance": {
+          "kind": "Diagnostic-only guarded PC53 binary64 distance; original Float80 on every unsupported intermediate",
+          "fast": 817028,
+          "fallback": 0,
+          "contextFallback": 0,
+          "operandFallback": 0,
+          "subtractFallback": 0,
+          "productFallback": 0,
+          "sumFallback": 0
+        },
+        "fromNumber": {
+          "kind": "Diagnostic-only bounded immutable Float80.fromNumber cache; original method on misses",
+          "limit": 4096,
+          "hits": 449684,
+          "misses": 581900,
+          "evictions": 577804,
+          "size": 4096
+        }
+      }
+    }
+  },
+  "baselineV8Profile": {
+    "profile": "versions/2010-en/analysis/retained-standard-native-leaves.cpuprofile",
+    "scope": "Read-only V8 sampling of diagnose-retained-frame: original race initialization, strictly matched frame0, and targetframe1. Startup/parsing and both frames are included; targetduration is separate.",
+    "aggregation": "Self time by function URL/line; inclusive time counts each function identity at most once per sample stack, including recursive ancestors.",
+    "totalMs": 14893.297,
+    "selfHotspots": [
+      {
+        "function": "bitLength",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 28,
+        "ms": 5259.74
+      },
+      {
+        "function": "fromNumber",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 119,
+        "ms": 3792.55
+      },
+      {
+        "function": "roundRight",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 30,
+        "ms": 753.28
+      },
+      {
+        "function": "Float80",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 105,
+        "ms": 735.78
+      },
+      {
+        "function": "toNumber",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 167,
+        "ms": 620.39
+      },
+      {
+        "function": "add",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 185,
+        "ms": 465.4
+      },
+      {
+        "function": "json",
+        "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+        "line": 13,
+        "ms": 429.3
+      },
+      {
+        "function": "clampedPointDistance",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 8,
+        "ms": 338.53
+      },
+      {
+        "function": "sqrt",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 217,
+        "ms": 295.45
+      },
+      {
+        "function": "integerSqrt",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 93,
+        "ms": 244.73
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "ms": 227.56
+      },
+      {
+        "function": "arithmeticResult",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 62,
+        "ms": 169.81
+      },
+      {
+        "function": "sinCosX87",
+        "url": "file:///home/martin/tact/src/runtime/transcendentals.js",
+        "line": 46,
+        "ms": 140.22
+      },
+      {
+        "function": "compare",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 233,
+        "ms": 133.39
+      },
+      {
+        "function": "callDrawingDependency",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/dependencies.js",
+        "line": 25,
+        "ms": 111.02
+      },
+      {
+        "function": "write",
+        "url": "node:string_decoder",
+        "line": 76,
+        "ms": 91.61
+      },
+      {
+        "function": "nearestWaypointDistance",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 18,
+        "ms": 85.99
+      },
+      {
+        "function": "subtract",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 197,
+        "ms": 69.77
+      },
+      {
+        "function": "compileSourceTextModule",
+        "url": "node:internal/modules/esm/utils",
+        "line": 316,
+        "ms": 65.69
+      },
+      {
+        "function": "multiply",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 199,
+        "ms": 58.55
+      },
+      {
+        "function": "negate",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 183,
+        "ms": 47.48
+      },
+      {
+        "function": "originalDrawing00466330",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 13222,
+        "ms": 32.21
+      },
+      {
+        "function": "originalDrawing00465ff0",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 13604,
+        "ms": 31.49
+      },
+      {
+        "function": "readLocal",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+        "line": 58,
+        "ms": 26.36
+      },
+      {
+        "function": "multiply",
+        "url": "file:///home/martin/tact/src/runtime/atan.js",
+        "line": 8,
+        "ms": 26.32
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "ms": 23.55
+      },
+      {
+        "function": "originalDrawScene",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 10,
+        "ms": 23.39
+      },
+      {
+        "function": "writeLocal",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/typed-c.js",
+        "line": 73,
+        "ms": 23.23
+      },
+      {
+        "function": "f",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 5,
+        "ms": 22.26
+      },
+      {
+        "function": "drawScene",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/scene.js",
+        "line": 5,
+        "ms": 21.32
+      }
+    ],
+    "inclusiveHotspots": [
+      {
+        "function": "(root)",
+        "url": "",
+        "line": 0,
+        "ms": 14893.15
+      },
+      {
+        "function": "",
+        "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+        "line": 1,
+        "ms": 13993.81
+      },
+      {
+        "function": "check",
+        "url": "file:///home/martin/tact/versions/2010-en/tests/native-state.js",
+        "line": 29,
+        "ms": 13931.51
+      },
+      {
+        "function": "",
+        "url": "file:///home/martin/tact/versions/2010-en/tests/native-state.js",
+        "line": 44,
+        "ms": 13921.37
+      },
+      {
+        "function": "withX87ControlWord",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 22,
+        "ms": 13921.37
+      },
+      {
+        "function": "drawSimulationFrame",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/paint-lifecycle.js",
+        "line": 85,
+        "ms": 13905.17
+      },
+      {
+        "function": "",
+        "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+        "line": 31,
+        "ms": 13905.17
+      },
+      {
+        "function": "nearestWaypointDistance",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 18,
+        "ms": 12624.04
+      },
+      {
+        "function": "clampedPointDistance",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 8,
+        "ms": 12443.09
+      },
+      {
+        "function": "",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/index.js",
+        "line": 16,
+        "ms": 8752.77
+      },
+      {
+        "function": "composeRaceFrame",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/paint-lifecycle.js",
+        "line": 39,
+        "ms": 8752.77
+      },
+      {
+        "function": "drawScene",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/scene.js",
+        "line": 5,
+        "ms": 8737.63
+      },
+      {
+        "function": "scene",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/paint-lifecycle.js",
+        "line": 43,
+        "ms": 8737.63
+      },
+      {
+        "function": "originalDrawScene",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 10,
+        "ms": 8716.31
+      },
+      {
+        "function": "callDrawingDependency",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/dependencies.js",
+        "line": 25,
+        "ms": 8683.45
+      },
+      {
+        "function": "originalDrawing00466330",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 13222,
+        "ms": 8389.3
+      },
+      {
+        "function": "originalDrawing00465ff0",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 13604,
+        "ms": 7759.42
+      },
+      {
+        "function": "fromNumber",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 119,
+        "ms": 5697.66
+      },
+      {
+        "function": "bitLength",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 28,
+        "ms": 5259.74
+      },
+      {
+        "function": "advanceFrame",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/frame.js",
+        "line": 20,
+        "ms": 5152.4
+      },
+      {
+        "function": "integratePositions",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/integration.js",
+        "line": 13,
+        "ms": 5112.81
+      },
+      {
+        "function": "respawnWaypoint",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 31,
+        "ms": 5092.62
+      },
+      {
+        "function": "crowded",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 47,
+        "ms": 5041.05
+      },
+      {
+        "function": "Float80",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 105,
+        "ms": 4612.46
+      },
+      {
+        "function": "roundedParts",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 42,
+        "ms": 4039.56
+      },
+      {
+        "function": "arithmeticResult",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 62,
+        "ms": 3375.58
+      },
+      {
+        "function": "normalized",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 54,
+        "ms": 3015.12
+      },
+      {
+        "function": "subtract",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 197,
+        "ms": 2381.33
+      },
+      {
+        "function": "add",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 185,
+        "ms": 2351
+      },
+      {
+        "function": "multiply",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 199,
+        "ms": 1556.63
+      },
+      {
+        "function": "f",
+        "url": "file:///home/martin/tact/versions/2010-en/src/engine/waypoints.js",
+        "line": 5,
+        "ms": 1371.26
+      },
+      {
+        "function": "roundRight",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 30,
+        "ms": 1296.53
+      },
+      {
+        "function": "sqrt",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 217,
+        "ms": 1022.28
+      },
+      {
+        "function": "toNumber",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 167,
+        "ms": 998.46
+      },
+      {
+        "function": "negate",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 183,
+        "ms": 752.82
+      },
+      {
+        "function": "json",
+        "url": "file:///home/martin/tact/versions/2010-en/tools/diagnose-retained-frame.js",
+        "line": 13,
+        "ms": 430.32
+      },
+      {
+        "function": "originalDrawing0043e730",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 10726,
+        "ms": 399.37
+      },
+      {
+        "function": "integerSqrt",
+        "url": "file:///home/martin/tact/src/runtime/float80.js",
+        "line": 93,
+        "ms": 356
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "ms": 227.56
+      },
+      {
+        "function": "originalDrawing0043efd0",
+        "url": "file:///home/martin/tact/versions/2010-en/src/render/drawing-functions.js",
+        "line": 10922,
+        "ms": 215.26
+      }
+    ]
+  },
+  "nativeFixtureVerification": {
+    "test": "versions/2010-en/tests/integration.test.js",
+    "testsPassed": 4,
+    "testsFailed": 0,
+    "originalCalls": 636,
+    "fixtures": [
+      {
+        "path": "versions/2010-en/tests/fixtures/original-clamped-point-distance.json",
+        "sha256": "00daa7647f658d84d56a9d23aed65864f1c0c17bc900e8ace11ebbe932d63e70",
+        "cases": 36,
+        "routine": {
+          "name": "clamped-point-distance",
+          "address": 4612816,
+          "argumentTypes": [
+            "F64",
+            "F64",
+            "F64",
+            "F64"
+          ],
+          "returnType": "float10"
+        }
+      },
+      {
+        "path": "versions/2010-en/tests/fixtures/original-nearest-waypoint.json",
+        "sha256": "5e419e9c2e0bcac6523dec53002540208240e59868bcf57b50420841b39a2e3e",
+        "cases": 240,
+        "routine": {
+          "name": "nearest-waypoint",
+          "address": 4612656,
+          "argumentTypes": [
+            "F64",
+            "F64",
+            "I32"
+          ],
+          "returnType": "float10"
+        }
+      },
+      {
+        "path": "versions/2010-en/tests/fixtures/original-respawn-waypoint.json",
+        "sha256": "1faa1c1dca701916ae0d54f1e30c0203a3af78d577b4b8e01e8887d8e0bc2ee4",
+        "cases": 120,
+        "routine": {
+          "name": "respawn-waypoint",
+          "address": 4612080,
+          "argumentTypes": [
+            "I32"
+          ],
+          "returnType": "void"
+        }
+      },
+      {
+        "path": "versions/2010-en/tests/fixtures/original-integration.json",
+        "sha256": "a1b59f95038839fefd366371c088fffb17ac2a023e08c3493a85817f6c8181bd",
+        "cases": 240,
+        "routine": {
+          "name": "integration",
+          "address": 4444000,
+          "argumentTypes": [],
+          "returnType": "void"
+        }
+      }
+    ],
+    "strict": "All mutable bytes including outside scope, RNG, m80/m64 where returned, and ordered sounds; fixture/executable hashes unchanged"
+  },
+  "supplementaryGuardVerification": {
+    "scope": "Diagnostic generated guard/property inputs compared to original unchanged JavaScript Float80 helper, supplementary to original-native fixtures; these are not additional native captured calls",
+    "checks": 4344,
+    "matchedUnsupported": 6,
+    "cases": 2172,
+    "controlWords": [
+      "0x027f",
+      "0x037f"
+    ],
+    "failures": [],
+    "exact": true
+  },
+  "sourceHashes": {
+    "src/runtime/float80.js": "a71e5aff8342af6bf603d03b07a827a3f71aaa6ba97effb09760fca1c224d5bc",
+    "versions/2010-en/src/engine/waypoints.js": "52202dd8ec145ac664fa450e39c2bc32822d1e41e1f886eef180d1fec09a1b20",
+    "versions/2010-en/src/render/dependencies.js": "b4b9ac0af94f8252d3f3ed30b8eb223bcf64a89dc90c747897030025fdb92199",
+    "versions/2010-en/src/render/drawing-functions.js": "3402137b5a6ccf098627591ae22f676ce8b0a7cf372f37fe4dbbb2983d2788b7",
+    "versions/2010-en/tools/diagnose-retained-frame.js": "dfe92efb6b359631f3844841966d7094d102d2f50a422e5de16aa191889487d7"
+  },
+  "diagnosticHashes": {
+    "versions/2010-en/tools/diagnostics/float80-input-cache.mjs": "985a1cc7318bdbcfab5e06eb4f9dc80ee09a66818650b127abed9dd8df298c78",
+    "versions/2010-en/tools/diagnostics/float80-output-cache.mjs": "9c5a7ae9f61d72fb0d8f93e68852df24d3286ab4c36724d6c7698856ee769f50",
+    "versions/2010-en/tools/diagnostics/pc53-distance-loader.mjs": "757fbe8317fd7db26b4731d77cb01611317d423806d8c3957eedc406691bb58e",
+    "versions/2010-en/tools/diagnostics/check-pc53-distance.mjs": "529f95130cdbaa2669281b4bc2d058a51d9a9d47c74c6d26e6db414fc06183a5"
+  },
+  "methodCaveats": [
+    "Single executions in a shared workspace with a concurrent retained-frame proof; no isolated repeated benchmark or general browser-frame-rate claim.",
+    "Baseline is V8 CPU-sampled; the other timings use the same replay without sampling. Parse/startup/initializer/frame0 time appears in profile totals but not targetFrameElapsedMs.",
+    "Cache/fast-path counters include initializer and both frames.",
+    "Guard tests compare to the original Float80 JavaScript implementation, separately from the636 original native fixture calls. Six out-of-domain overflow/spill failures are preserved exactly."
+  ],
+  "recommendation": {
+    "candidate": "PC53 guarded clampedPointDistance fast path alone",
+    "originalAddress": "0x004662d0",
+    "reason": "It removes repeated software BigInt arithmetic from817028 waypoint distance calls across the two observed frames while preserving strict captured output.",
+    "guards": [
+      "Exact x87 control word0x027f.",
+      "Number operands finite.",
+      "Subtraction, each square and sum finite and binary64 normal, or mathematically exactzero. A zero product from a nonzero difference takes the original fallback.",
+      "Keep original X spill, dy²+dx² order and exact data-loaded floor/cap thresholds.",
+      "Use original Float80 helper for every unsupported intermediate or context."
+    ],
+    "beforeProduction": [
+      "Have the owner review the guarded operation/spill proof and retain the original fallback.",
+      "Repeat complete original-native waypoint/current/dynamics/integration proofs and all retained-frame profiles with the optimized production source.",
+      "Verify browser output on the actual runtime; these V8/Node observations do not establish every implementation of Math.sqrt."
+    ],
+    "rejectedCandidates": [
+      "Float80.toNumber identity WeakMap: only1086hits against926766misses and no material measured benefit.",
+      "Combining4096-entry fromNumber cache with guarded distance:1.723s versus1.247s fast path alone; reduced reuse makes Map/eviction overhead unfavorable."
+    ]
+  }
+}
