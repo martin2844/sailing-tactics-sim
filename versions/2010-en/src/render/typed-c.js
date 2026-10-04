@@ -14,6 +14,7 @@ const pointer = value => value && typeof value === 'object' && ('array' in value
 const table = value => value && typeof value === 'object' && 'dc' in value;
 const hostObject = value => value && typeof value==='object' && ('clipRect' in value || 'restoreClip' in value || 'stockObject' in value);
 export function cI32(value, unsigned = false) {
+  if(typeof value==='number')return value?.events?value:unsigned?u32(value):i32(value);
   if (value instanceof Float80) value = value.truncI32();
   if (pointer(value) || table(value) || hostObject(value) || typeof value === 'function' || typeof value === 'string' || value?.events) return value;
   return (unsigned ? u32 : i32)(integer(value));
@@ -39,17 +40,22 @@ export function pointerAdd(value, offset) {
   return add32(value, offset);
 }
 export function localPointer(array,elementSize=4) { return { array, offset: 0,elementSize }; }
-// The common aligned argument slots fit in the first 32 bytes. Keep their exact
-// DWORD images and byte-validity mask until a caller needs public byte arrays or
-// an access outside that range. Each frame owns its storage for its full lifetime.
+// Keep exact DWORD images and per-byte validity throughout a private frame.
+// Public byte arrays and unusual/unaligned accesses materialize that same image.
+// Each frame owns its storage for its full lifetime.
 const localScalarView=new DataView(new ArrayBuffer(8));
 class LocalFrame {
- constructor(size){this._size=size;this._words=[];this._validBits=0;this._bytes=null;this._valid=null;this._view=null;this._semantic=null;}
+ constructor(size){this._size=size;this._words=[];this._validBits=0;this._validBlocks=null;this._bytes=null;this._valid=null;this._view=null;this._semantic=null;}
  materialize(){
   if(this._words===null)return;
   this._bytes=new Uint8Array(this._size);this._valid=new Uint8Array(this._size);this._view=new DataView(this._bytes.buffer);
-  for(let index=0;index<this._words.length;index++)this._view.setUint32(index*4,this._words[index]??0,true);
-  for(let index=0;index<Math.min(32,this._size);index++)this._valid[index]=(this._validBits>>>index)&1;
+  for(let index=0;index<this._words.length;index++){const word=this._words[index];if(word!=null)this._view.setUint32(index*4,word,true);}
+  const blocks=Math.min(Math.ceil(this._size/32),1+(this._validBlocks?.length??0));
+  for(let block=0;block<blocks;block++){
+   const bits=validBlock(this,block);if(bits===0)continue;
+   const start=block*32,width=Math.min(32,this._size-start);
+   for(let bit=0;bit<width;bit++)this._valid[start+bit]=(bits>>>bit)&1;
+  }
   this._words=null;
  }
  get bytes(){this.materialize();return this._bytes;}
@@ -72,16 +78,37 @@ export function createLocalFrame(size,initial=[]){
  return frame;
 }
 export const framePointer=(frame,offset)=>({frame,offset});
-const packedRange=(frame,offset,size)=>frame._words!==null&&frame._bytes===null&&Number.isInteger(offset)&&Number.isInteger(size)&&offset>=0&&size>=0&&offset+size<=32;
+const packedRange=(frame,offset,size)=>frame._words!==null&&frame._bytes===null&&Number.isInteger(offset)&&Number.isInteger(size)&&offset>=0&&size>=0&&offset+size<=frame._size;
 const byteMask=(offset,size)=>size===0?0:((0xffffffff>>>(32-size))<<offset);
+const validBlock=(frame,index)=>index===0?frame._validBits:frame._validBlocks?.[index-1]??0;
+function changePackedValidity(frame,offset,size,valid){
+ while(size>0){
+  const block=offset>>>5,bit=offset&31,width=Math.min(size,32-bit),mask=byteMask(bit,width);
+  const bits=validBlock(frame,block),changed=valid?bits|mask:bits&~mask;
+  if(block===0)frame._validBits=changed;
+  else if(changed!==bits)(frame._validBlocks??=[])[block-1]=changed;
+  offset+=width;size-=width;
+ }
+}
 function checkLocal(pointer,size,writing=false){
  const {frame,offset}=pointer;
  const length=packedRange(frame,offset,size)?frame._size:frame.bytes.length;
  if(offset<0||offset+size>length)throw new RangeError('Original C local memory access exceeds frame');
  if(!writing&&!localBytesValid(frame,offset,size))throw new RangeError('Original C reads an undefined retained local byte');
 }
+function largerPackedBytesValid(frame,offset,size){
+ while(size>0){
+  const block=offset>>>5,bit=offset&31,width=Math.min(size,32-bit),mask=byteMask(bit,width);
+  if((validBlock(frame,block)&mask)!==mask)return false;
+  offset+=width;size-=width;
+ }
+ return true;
+}
 function localBytesValid(frame,offset,size){
- if(packedRange(frame,offset,size)){const mask=byteMask(offset,size);return (frame._validBits&mask)===mask;}
+ if(packedRange(frame,offset,size)){
+  if(offset+size<=32){const mask=byteMask(offset,size);return (frame._validBits&mask)===mask;}
+  return largerPackedBytesValid(frame,offset,size);
+ }
  if(size<0||!Number.isInteger(offset)||!Number.isInteger(size))return frame.valid.subarray(offset,offset+size).every(Boolean);
  for(let at=offset,end=offset+size;at<end;at++)if(!frame.valid[at])return false;
  return true;
@@ -103,6 +130,22 @@ export function readLocal(pointer,size,kind='int'){
  if(kind==='float')return Float80.fromNumber(view.getFloat64(at,true));
  return size===8?view.getBigInt64(at,true):size===1?view.getUint8(at):size===2?view.getUint16(at,true):size===3?view.getUint16(at,true)|(view.getUint8(at+2)<<16):view.getInt32(at,true);
 }
+// A declared binary64 slot already holds the complete Number image. Number
+// variants can load it directly, keeping the same strict storage contract.
+export function readLocalFloatNumber(pointer){
+ checkLocal(pointer,8);
+ const {frame,offset}=pointer,semantic=frame._semantic?.get(offset);
+ if(semantic&&semantic.size===8)return semantic.value;
+ let value;
+ if(packedRange(frame,offset,8)&&(offset&3)===0){
+  localScalarView.setUint32(0,frame._words[offset>>>2]??0,true);localScalarView.setUint32(4,frame._words[(offset>>>2)+1]??0,true);
+  value=localScalarView.getFloat64(0,true);
+ }else{
+  const cached=Number.isInteger(offset),view=cached?frame.view:new DataView(frame.bytes.buffer,frame.bytes.byteOffset+offset,8);
+  value=view.getFloat64(cached?offset:0,true);
+ }
+ return Number.isFinite(value)?value:Float80.fromNumber(value).toNumber();
+}
 export function readLocalArgument(pointer,size,kind='int'){
  checkLocal(pointer,size,true);
  if(!localBytesValid(pointer.frame,pointer.offset,size))return undefined;
@@ -110,44 +153,64 @@ export function readLocalArgument(pointer,size,kind='int'){
 }
 export const cWordArgument=(value,unsigned=false)=>value===undefined?undefined:cI32(value,unsigned);
 export function writeLocal(pointer,value,size,kind='int'){
+ return writeLocalValue(pointer,value,size,kind,false);
+}
+// Private Number variants already know this operand is floating. Preserve its
+// full binary64 image without a Float80 box; integer-origin callers keep the
+// original writeLocal conversion, including its integer signed-zero rules.
+export function writeLocalFloatNumber(pointer,value){
+ if(typeof value==='number'){
+  if(!Number.isFinite(value))Float80.fromNumber(value);
+ }else if(value!==undefined&&!(value instanceof Float80))value=cFloat(value);
+ return writeLocalValue(pointer,value,8,'float',true);
+}
+function writeLocalValue(pointer,value,size,kind,floatingImage){
  checkLocal(pointer,size,true);
  const {frame,offset}=pointer;
  if(frame._semantic)for(const [at,row]of frame._semantic)if(at<offset+size&&offset<at+row.size)frame._semantic.delete(at);
  const packed=packedRange(frame,offset,size)&&(offset&3)===0&&(size===4&&kind!=='float'||size===8&&(kind==='float'||value instanceof Float80));
  if(value===undefined){
-  if(packedRange(frame,offset,size))frame._validBits&=~byteMask(offset,size);
+  if(packedRange(frame,offset,size)){
+   if(offset+size<=32)frame._validBits&=~byteMask(offset,size);
+   else changePackedValidity(frame,offset,size,false);
+  }
   else frame.valid.fill(0,offset,offset+size);
   return value;
  }
  const semantic=pointer?.frame&&(value?.frame||value?.array||value?.dc||value?.events||hostObject(value)||typeof value==='function'||typeof value==='string');
  if(packed){
   if(semantic){frame.semantic.set(offset,{size,value});frame._words[offset>>>2]=0;if(size===8)frame._words[(offset>>>2)+1]=0;}
-  else if(size===8){localScalarView.setFloat64(0,cFloat(value).toNumber(),true);frame._words[offset>>>2]=localScalarView.getInt32(0,true);frame._words[(offset>>>2)+1]=localScalarView.getInt32(4,true);}
+  else if(size===8){localScalarView.setFloat64(0,floatingImage&&typeof value==='number'?value:cFloat(value).toNumber(),true);frame._words[offset>>>2]=localScalarView.getInt32(0,true);frame._words[(offset>>>2)+1]=localScalarView.getInt32(4,true);}
   else frame._words[offset>>>2]=(+cI32(value))|0;
-  frame._validBits|=byteMask(offset,size);return value;
+  if(offset+size<=32)frame._validBits|=byteMask(offset,size);
+  else changePackedValidity(frame,offset,size,true);
+  return value;
  }
  const width=kind==='float'||size===8?8:size===1?1:size===2?2:size===3?3:4;
  const cached=size>=width&&Number.isInteger(size)&&Number.isInteger(offset);
  const view=cached?frame.view:new DataView(frame.bytes.buffer,frame.bytes.byteOffset+offset,size),at=cached?offset:0;
  if(semantic){frame.semantic.set(offset,{size,value});frame.bytes.fill(0,offset,offset+size);}
- else if(kind==='float'||value instanceof Float80&&size===8)view.setFloat64(at,cFloat(value).toNumber(),true);
+ else if(kind==='float'||value instanceof Float80&&size===8)view.setFloat64(at,floatingImage&&typeof value==='number'?value:cFloat(value).toNumber(),true);
  else if(size===8)view.setBigInt64(at,BigInt.asIntN(64,BigInt(integer(value))),true);
  else if(size===1)view.setUint8(at,cI32(value));else if(size===2)view.setUint16(at,cI32(value),true);else if(size===3){view.setUint16(at,cI32(value),true);view.setUint8(at+2,cI32(value)>>>16);}else view.setInt32(at,cI32(value),true);
  frame.valid.fill(1,offset,offset+size);return value;
 }
 export function cAdd(a, b) {
+  if(typeof a==='number'&&typeof b==='number')return a?.events?pointerAdd(a,b):add32(a,b);
   if (pointer(a) || table(a) || a?.events) return pointerAdd(a, b);
   if (a instanceof Float80 || b instanceof Float80) return cFloat(a).add(cFloat(b));
   if (typeof a === 'bigint' || typeof b === 'bigint') return BigInt.asIntN(64,BigInt(integer(a))+BigInt(integer(b)));
   return add32(integer(a),integer(b));
 }
 export function cSub(a, b) {
+  if(typeof a==='number'&&typeof b==='number')return a?.events?pointerAdd(a,cNeg(b)):sub32(a,b);
   if (pointer(a) || table(a) || a?.events) return pointerAdd(a,cNeg(b));
   if (a instanceof Float80 || b instanceof Float80) return cFloat(a).subtract(cFloat(b));
   if (typeof a === 'bigint' || typeof b === 'bigint') return BigInt.asIntN(64,BigInt(integer(a))-BigInt(integer(b)));
   return sub32(integer(a),integer(b));
 }
 export function cMul(a, b) {
+  if(typeof a==='number'&&typeof b==='number')return imul32(a,b);
   if (a instanceof Float80 || b instanceof Float80) return cFloat(a).multiply(cFloat(b));
   if (typeof a === 'bigint' || typeof b === 'bigint') return BigInt.asIntN(64,BigInt(integer(a))*BigInt(integer(b)));
   return imul32(integer(a),integer(b));
@@ -186,6 +249,7 @@ export function cCompare(a,b,operator) {
   return operator==='<' ? comparison<0 : operator==='>' ? comparison>0 : operator==='<=' ? comparison<=0 : operator==='>=' ? comparison>=0 : operator==='==' ? comparison===0 : comparison!==0;
 }
 export function cTruth(value) {
+  if(typeof value==='number')return value!==0;
   if (value instanceof Float80) return value.compare(Float80.fromInteger(0)) !== 0;
   if (value === undefined) throw new RangeError('Original 2010 drawing reads an undefined retained local');
   return value !== 0 && value !== 0n && value !== false && value !== null;
@@ -238,6 +302,42 @@ export function readPointer(memory,value,size) {
   }
   const address=cI32(value)>>>0;
   return size===8 ? Float80.fromNumber(memory.readF64(address)) : size===1?memory.readU8(address):size===2?memory.readU16(address):size===3?memory.readU16(address)|(memory.readU8(address+2)<<16):memory.readI32(address);
+}
+// Declared floating dereferences in the Number variant already represent an
+// exact binary64 load. Other pointer shapes keep the original dispatch.
+export function readPointerFloatNumber(memory,value){
+  if(typeof value==='number'){
+    if(value?.events)return {dc:value,offset:0,kind:'vtable'};
+    if(value?.frame)return readLocalFloatNumber(value);
+    const number=memory.readF64(cI32(value)>>>0);
+    return Number.isFinite(number)?number:Float80.fromNumber(number).toNumber();
+  }
+  if(value&&(typeof value==='object'||typeof value==='function')&&('events' in value||'dc' in value))return readPointer(memory,value,8);
+  if(value?.frame)return readLocalFloatNumber(value);
+  return readPointer(memory,value,8);
+}
+
+// A recovered CONCAT44 of adjacent local DWORDs reads the high word first.
+// The private ordinary-frame domain has no semantic words and both accesses
+// are in bounds; one validity check and one decode retain the same byte image.
+// Unusual frames/offsets preserve the original word checks and coercions.
+export function readLocalFloatWordsNumber(memory,value){
+  const frame=value?.frame,offset=value?.offset;
+  if(frame instanceof LocalFrame&&!('events' in value)&&!('dc' in value)&&Number.isInteger(offset)&&offset>=0
+    &&offset+8<=frame._size&&frame._semantic?.get(offset)?.size!==4
+    &&frame._semantic?.get(offset+4)?.size!==4){
+    checkLocal(value,8);
+    let number;
+    if(packedRange(frame,offset,8)&&(offset&3)===0){
+      drawingPackingView.setUint32(0,frame._words[offset>>>2]??0,true);
+      drawingPackingView.setUint32(4,frame._words[(offset>>>2)+1]??0,true);
+      number=drawingPackingView.getFloat64(0,true);
+    }else number=frame.view.getFloat64(offset,true);
+    return Number.isFinite(number)?number:Float80.fromNumber(number).toNumber();
+  }
+  const high=cRawWord(readPointer(memory,pointerAdd(value,4),4));
+  const low=cRawWord(readPointer(memory,value,4));
+  return wordsAsF64Number(high,low);
 }
 export function writePointer(memory,value,data,size) {
   if(value?.frame)return writeLocal(value,data,size,size===8?'float':'int');
@@ -312,14 +412,27 @@ export function cConcat(high,low,highBytes,lowBytes){
   const width=BigInt(lowBytes*8),mask=(1n<<width)-1n;
   return BigInt.asUintN((highBytes+lowBytes)*8,(BigInt(cI64(high))<<width)|(BigInt(cI64(low))&mask));
 }
+const drawingPackingView=new DataView(new ArrayBuffer(8));
 export function bitsAsF64(value){
-  const data=new DataView(new ArrayBuffer(8));data.setBigUint64(0,BigInt.asUintN(64,BigInt(value)),true);
-  return Float80.fromNumber(data.getFloat64(0,true));
+  // Convert before touching scratch storage: a host coercion may reenter.
+  const bits=BigInt.asUintN(64,BigInt(value));
+  drawingPackingView.setBigUint64(0,bits,true);
+  return Float80.fromNumber(drawingPackingView.getFloat64(0,true));
+}
+export function wordsAsF64Number(high,low){
+  if(typeof high==='number'&&typeof low==='number'&&Number.isInteger(high)&&Number.isInteger(low)
+    &&high>=-0x80000000&&high<=0xffffffff&&low>=-0x80000000&&low<=0xffffffff){
+    drawingPackingView.setUint32(0,low,true);drawingPackingView.setUint32(4,high,true);
+    const value=drawingPackingView.getFloat64(0,true);
+    // Match bitsAsF64's unsupported infinity/NaN exception at the load.
+    return Number.isFinite(value)?value:Float80.fromNumber(value).toNumber();
+  }
+  return bitsAsF64(cConcat(high,low,4,4)).toNumber();
 }
 export function cRawWord(value){
   if(!(value instanceof Float80))return cI32(value);
-  const data=new DataView(new ArrayBuffer(8));data.setFloat64(0,value.toNumber(),true);
-  return data.getInt32(0,true);
+  const number=value.toNumber();drawingPackingView.setFloat64(0,number,true);
+  return drawingPackingView.getInt32(0,true);
 }
 export function cRawSlice(value,offset,size,kind='float'){
   const bytes=new Uint8Array(kind==='extended'?10:8),view=new DataView(bytes.buffer);

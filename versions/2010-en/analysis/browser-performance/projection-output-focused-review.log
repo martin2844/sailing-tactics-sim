@@ -1,0 +1,19 @@
+✔ exact chart leaf matches original camera, global-origin and heading modes over 1200 points (63.94021ms)
+✔ exact chart leaf preserves literal axis constants, signed zero and two-store order (5.715136ms)
+✔ unsupported chart controls and arguments decline before outputs or provider getters (7.925889ms)
+✔ bounded camera projection matches the unchanged byte translation across camera changes and exact Float80 arguments (82.101219ms)
+✔ projection preserves signed zero, coincident points and mutated camera constants (4.658655ms)
+✔ custom trig/atan callbacks and explicitly retained local frames keep the original invocation semantics (3.858247ms)
+✔ non-PC53 control words, extended/subnormal arithmetic and malformed arguments decline without target writes (13.292478ms)
+✔ certified point outputs match complete original stores across camera changes and perspective modes (102.679321ms)
+✔ certified projection preserves original distance, bearing, row, column store order (3.322909ms)
+✔ unsupported controls, semantic arguments and provider/retained paths decline before stores or getters (7.254014ms)
+✔ public Number routing retains original formal conversion and byte fallback semantics (4.562754ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 333.217784

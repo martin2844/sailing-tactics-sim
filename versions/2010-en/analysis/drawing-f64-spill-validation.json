@@ -1,0 +1,39 @@
+{
+  "scope": "Supplementary exact binary64 drawing spill validation against the previous cF64 expression Float80.fromNumber(cFloat(value).toNumber()). Native trig captures supply m80 inputs; generated boundary inputs and the benchmark are not additional native F64 captures.",
+  "typedCSourceSha256": "5af0b9f9a1ae19f0cc2ab3e96475583eb6b8944cce3d55c378e243b6112d00c3",
+  "controlWords": [
+    "0x007f",
+    "0x027f",
+    "0x037f"
+  ],
+  "boundaryAndArithmeticChecks": 1059,
+  "nativeInputFixtures": [
+    {
+      "file": "x87-trig.json",
+      "operands": 4322
+    },
+    {
+      "file": "x87-stored-trig.json",
+      "operands": 4322
+    }
+  ],
+  "exact": true,
+  "tests": {
+    "focusedSpillLocalIntegration": 20,
+    "nativeDrawingAndInitializedScreens": 17,
+    "passed": 37,
+    "failed": 0
+  },
+  "benchmark": {
+    "scope": "One million generated exact-binary64 Float80 operands from 1000 repeating values; binary64 checksum identity.",
+    "calls": 1000000,
+    "priorMs": 48.79618399999998,
+    "optimizedMs": 9.904412000000008,
+    "speedup": 4.926711853262964,
+    "exact": true
+  },
+  "frameCreationInvestigation": {
+    "scope": "Isolated, unapplied lazy Map/DataView experiment; five 100000-call runs per operation pattern.",
+    "outcome": "No meaningful repeatable gain; public independent byte/valid arrays and frame representation retained."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T13:52:56.782200+00:00",
+  "reviewer": "/root/speed_timing",
+  "scope": "Independent source and evidence review of the bounded exact Number sine/cosine reduction and primitive integer dispatch. No production code changes made during review.",
+  "findings": [],
+  "checks": [
+    "The half-pi constant is the exact original 66-bit dyadic, split into a 53-bit high component and an exact at-most-13-bit low component; binary64 pi is not substituted.",
+    "The [.5,2^20] domain bounds the integer quotient to 20 bits and the low-component product to 33 bits. The reduction and quarter-boundary comparisons fit exact two-component dyadics with support between exponents -66 and 21; no intermediate approaches overflow or underflow.",
+    "Quarter-boundary correction follows the original signed division tie convention, and the final closed-interval guard declines any unsupported quotient. Small polynomial inputs and ambiguous final m80 rounding retain the unchanged original reduction/series path.",
+    "The direct Number path reuses the existing certified anchored polynomial and preserves its conservative interval radius. Control-word changes clear the private bounded Number cache, signed zeros bypass its merged-zero key, and its wrapper is private and immutable.",
+    "The source-pinned 100000-case reducer diagnostic reconstructs the exact original fixed224 input/quadrant and compares each accepted DD sum exactly, including neighboring binary64 quarter-boundary values; its sampled final results compare with the committed original series at all three precision words.",
+    "Primitive integer dispatch preserves strict DWORD conversion and integer-origin zero semantics. Independent differential checks cover truthy/falsy/changing/throwing Number.prototype.events getters and compare outputs, exceptions and ordered getter receiver values against 15fd6ac."
+  ],
+  "evidence": {
+    "numberReduction": {
+      "report": "number-reduction-review.json",
+      "cases": 100000,
+      "exactReductions": 99994,
+      "declined": 6,
+      "m80Outputs": 345846,
+      "inspectedDiagnosticAndBounds": true,
+      "rerunByReviewer": false
+    },
+    "integerDispatch": {
+      "report": "integer-dispatch-review.json",
+      "command": "node versions/2010-en/tools/diagnostics/review-integer-dispatch.mjs",
+      "independentlyExecutedComparisons": 380,
+      "allPassed": true
+    }
+  },
+  "limitations": "The reduction corpus is supporting evidence rather than an exhaustive proof of all binary64 inputs. Native integration and browser pace are recorded separately; this review does not claim native vendor transcendental polynomials are reproduced outside the existing simulator translation.",
+  "sourcePins": [
+    {
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
+    },
+    {
+      "path": "src/runtime/double-double.js",
+      "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    },
+    {
+      "path": "versions/2010-en/tests/typed-integer-dispatch.test.js",
+      "sha256": "96d64a477a0f6007861a80f08bcee8105e458a12f81190d6c842671ec4c05c11"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnostics/review-number-reduction.mjs",
+      "sha256": "cb7d9c3f5c2f4a618f881d4eff87213a630498a9d10e1f0af739216f6479435c"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnostics/review-integer-dispatch.mjs",
+      "sha256": "dddb16ce32fda876302081401d5aee2b0e263270f2cfd5a8b63b198fbdd2abcd"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/double-double-bounds.md",
+      "sha256": "0c8f48db6e48d7cbbf528dfa7812c8e3dc2ba8a7e44d4fbd21a298c4f18edfa4"
+    }
+  ]
+}

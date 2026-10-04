@@ -26,6 +26,10 @@ const json=async path=>{const response=await fetch(assetUrl(path));if(!response.
 const menuButtons=[];
 const dimensions={width:1024,height:768,bitsPixel:24};
 const paintClock=createPaintClock();
+// Immediate paints still yield to the event loop without accumulating the
+// browser's nested setTimeout minimum. Original positive delays use timers.
+const paintQueue=typeof MessageChannel==='function'?new MessageChannel():null;
+if(paintQueue)paintQueue.port1.onmessage=paint;
 
 function fail(error){state.error=error.message;$('error').textContent=error.stack??error.message;$('error').hidden=false;$('status').textContent='Simulator stopped';console.error(error);}
 function updateStatus(){
@@ -110,7 +114,9 @@ $('fullscreen').addEventListener('click',()=>{if(document.fullscreenElement)docu
 function requestPaint(delay=0){
   if(!state.ready||state.closed||state.error)return;
   state.nextPaint=true;if(state.modal||state.pending)return;
-  state.pending=true;setTimeout(paint,Math.max(0,delay));
+  state.pending=true;
+  if(delay<=0&&paintQueue)paintQueue.port2.postMessage(0);
+  else setTimeout(paint,Math.max(0,delay));
 }
 function paint(){
   state.pending=false;if(state.modal||state.closed||state.error)return;
@@ -118,7 +124,7 @@ function paint(){
   try{
     const front=createCanvasGdi(context,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep,recordEvents:false});front.canvas=canvas;
     const host={
-      constructBufferedDC(){const dc=createCanvasGdi(bufferContext,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep,recordEvents:false});dc.canvas=bufferCanvas;dc.context=bufferContext;return dc;},
+      constructBufferedDC(){const dc=createCanvasGdi(bufferContext,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep,recordEvents:false,cachePixelReads:true});dc.canvas=bufferCanvas;dc.context=bufferContext;return dc;},
       getDeviceCaps(_dc,index){return index===12?dimensions.bitsPixel:index===8?dimensions.width:dimensions.height;},
       applicationInstance(){return 1;},createBitmap(descriptor){return descriptor;},attachBitmap(){},
       createCompatibleDC(){return 1;},attachCompatibleDC(){},

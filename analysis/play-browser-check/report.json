@@ -1,6 +1,6 @@
 {
-  "url": "http://127.0.0.1:8765/play.html",
-  "checkedAt": "2026-10-04T08:12:17.991Z",
+  "url": "http://127.0.0.1:8765/dist/play.html",
+  "checkedAt": "2026-10-04T16:49:56.672Z",
   "checks": [
     {
       "name": "original startup screen",
@@ -31,7 +31,7 @@
     {
       "name": "connected race advances under actual keyboard events",
       "ready": true,
-      "frames": 7,
+      "frames": 6,
       "error": null,
       "app": 2,
       "view": 0,
@@ -42,23 +42,23 @@
     {
       "name": "original controls tutorial",
       "ready": true,
-      "frames": 13,
+      "frames": 16,
       "error": null,
       "app": 2,
       "view": 6,
       "notice": 1,
-      "time": -169.59403898334335,
+      "time": -169.14105847501503,
       "lock": 1
     },
     {
       "name": "original F freeze stops continuous invalidation",
       "ready": true,
-      "frames": 14,
+      "frames": 19,
       "error": null,
       "app": 2,
       "view": 0,
       "notice": 1,
-      "time": -169.48079385626127,
+      "time": -168.8013230937688,
       "lock": 1
     },
     {
@@ -75,7 +75,7 @@
     },
     {
       "name": "production loads data and native JavaScript without EXE or test fixtures",
-      "requests": 111,
+      "requests": 113,
       "passed": true
     }
   ],

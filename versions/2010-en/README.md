@@ -78,6 +78,11 @@ extracted resource and controller comparisons agree on this mismatch.
 
 ## Verify and reproduce
 
+The generator regression tests require Python 3 with `pycparser==2.23`.
+Set `TACT_PYTHON` to a virtual-environment interpreter when needed. Otherwise
+they use the optional local `tools/python-runtime/bin/python3`, then `python3`
+from `PATH`. The browser player itself requires neither Python nor Node.
+
 ```sh
 npm run test:2010
 npm run check:play:2010
@@ -150,11 +155,17 @@ claimed. The [initialization domain](analysis/initialization-domain.md)
 documents original unsupported inputs, including 35 boats; the native menu's
 maximum is 30. Other editions and their Wine state are not browser inputs.
 
-The performance update uses guarded exact PC53 arithmetic, certified square
-roots and trigonometric results, bounded caches, and private scalar stack slots.
-Full extended arithmetic and original byte frames remain available for their
-required cases. In the final headless Chrome 20-boat benchmark, mean paint time
-fell from 862 ms to 181 ms (about 4.8× faster), and measured frame rate rose from
-1.15 to 5.40 FPS. Heavy scenes still depend on browser and CPU performance;
-these measurements are not a frame-rate guarantee. The original scene and
-physics remain enabled. See the [current evidence](analysis/browser-performance/verification.json).
+The performance update removes arithmetic, local-stack and browser scheduling
+overhead from the translation. It uses guarded PC53 arithmetic, certified
+square roots and projected integer coordinates, bounded caches, and private
+scalar/array storage. The original extended arithmetic and byte frames remain
+the fallback when an optimization cannot establish the same result. Immediate
+frames use browser message tasks; deliberate simulation delays retain timers.
+
+The default-fleet AI crash came from reading an undefined private stack cell
+whose value cannot affect the native result outside the two-boat branch. The
+translator now checks the fleet before reading that cell; the two-boat branch
+and all observable native state remain covered by the original comparisons.
+The supplied 2010 executable's full-mode value is preserved without a demo
+patch. See the [performance, review and verification record](analysis/browser-performance/README.md)
+for measurements, native comparisons and the rebuilt browser downloads.

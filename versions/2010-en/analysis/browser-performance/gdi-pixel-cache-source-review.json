@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:00:00.693537Z",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "Opted-in 2010 buffered canvas pixel tile cache, its exclusive ownership and lifecycle. The 2002/front canvas paths remain unopted.",
+  "checks": [
+    "GdiTrace canonicalizes safe integer/BigInt coordinates to signed DWORDs before sampling. Cached reads retain out-of-range COLORREF and alpha-independent RGB extraction.",
+    "All supported buffer draws occur synchronously through the same sink; every non-read event clears tiles before drawing. Font drawing and setPixel use this sink.",
+    "paint creates a fresh buffered DC. selectBitmap clears/resizes its canvas before drawPaintContent and first sample; bitBlt reads that buffer into a separate front context. No later direct buffer mutation occurs during the cache lifetime.",
+    "Custom samplers/sinks and recorded traces retain their original unbatched contract. Four-row tiles clip at the bottom edge, and the sixty-four-entry reset changes only reread frequency."
+  ],
+  "validation": {
+    "focusedTests": 5,
+    "allPassed": true,
+    "log": "versions/2010-en/analysis/browser-performance/gdi-pixel-cache-review.log"
+  },
+  "sourcePins": [
+    {
+      "path": "src/render/gdi.js",
+      "sha256": "45d1ac32ed6ef1f33fa45c5a230355ddec48d50d7e4dc299722300d7a7ba0c3a"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7"
+    },
+    {
+      "path": "versions/2010-en/src/render/paint-lifecycle.js",
+      "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+    },
+    {
+      "path": "tests/gdi-pixel-cache.test.js",
+      "sha256": "63c16992eb007e87f1941a545e7d817587e2e357cecb5534cad8259a691b639b"
+    },
+    {
+      "path": "tests/gdi-pixel-cache-review.test.js",
+      "sha256": "71fbae50273738039c3ba036310f3733db07d1ce49b909cb9057fd9b1d098a52"
+    }
+  ]
+}

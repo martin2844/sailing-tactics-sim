@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T14:03:43.408Z",
+  "reviewer": "/root/ai_crash_fix",
+  "scope": "Independent semantic review of the guarded original 0x43ea10 camera projection, its unchanged byte fallback, generator entry hook and focused differential tests. Limited to the accepted PC53 bounded finite domain; abnormal inputs/control words and custom callbacks retain the original translation.",
+  "findings": [],
+  "checks": [
+    "Every accepted Number subtraction/product/sum is normal binary64 or an exactly proven zero, matching native PC53 nearest-even; nonzero underflow declines.",
+    "FSIN/FCOS exact 64-bit significands are multiplied through Float80 at PC53 before cached camera-origin subtraction. Cache invalidation covers heading, radians-per-degree, model flag, camera positions and offsets with Object.is signed-zero distinction.",
+    "Number -0 formal arguments canonicalize through the original FILD convention; Float80 -0 retains its original binary64 spill.",
+    "FPATAN uses atan2ExtendedNumeric with the reviewed bounded binary64 DD ratio and m80 certificate; signed-zero, out-of-domain and ambiguous cases retain binary64 loading followed by the same original calculateAtan2 body. Distance still uses exact Float80.sqrt certification. Sequential wrapRadians operations, the normal PC53 degree product, signed-I64 domain guard, low DWORD conversion and signedDegrees remain exact.",
+    "Explicit retained local bytes are handled before the fast attempt; custom or inherited trig and atan callback fields conservatively decline without invoking getters.",
+    "Deferring the distance store until complete accepted computation cannot hide a later failure in this bounded finite domain; atan and degree conversion are finite and I64-safe."
+  ],
+  "validation": {
+    "focusedProjectionAndPackingTests": 7,
+    "currentNativeFullFramesReportedByIntegrationAgent": 190,
+    "allPassed": true,
+    "scope": "Historical integration results for the source snapshot pinned below. These counts do not establish the current fused/square-root/shoreline graph; use the superseding receipt.",
+    "currentFullTestSuiteReportedByParent": 782
+  },
+  "sourcePins": [
+    {
+      "path": "src/render/projection-fast.js",
+      "sha256": "1c418b1c314f42aef90f468d97edcfe1fa950e6f91839042073dfc6cd02dd469"
+    },
+    {
+      "path": "tools/translate_drawing_closure.py",
+      "sha256": "5762765269eb7c5f659b4ff889044b47f9486d47ad0afe21b91ccf8472d49f98"
+    },
+    {
+      "path": "tests/projection-fast.test.js",
+      "sha256": "e095a25dfd7a5942e09d889480b22ca8cebd854bde5b1b98bda7bace357bcbb1"
+    },
+    {
+      "path": "decompiled/functions/0043ea10.c",
+      "sha256": "1a7771e1f72491f06017bd95b9edadc81d93ccb048252d73fb771a1404e4b7b0"
+    },
+    {
+      "path": "../../src/runtime/atan.js",
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
+    }
+  ],
+  "historicalValidation": {
+    "focusedTests": 4,
+    "randomAndCacheComparisons": 1200,
+    "existingNativeFullFrames": 400,
+    "newNativeFullFrames": 150,
+    "newNativeMenuCalls": 1,
+    "newNativeInitializers": 3,
+    "allPassed": true
+  },
+  "status": "Historical review of the pre-fused geometry snapshot; current scoped review supersedes it.",
+  "supersededBy": "versions/2010-en/analysis/browser-performance/projection-output-source-review.json"
+}

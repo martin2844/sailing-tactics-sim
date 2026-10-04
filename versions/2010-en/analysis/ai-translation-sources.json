@@ -3,6 +3,23 @@
   "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
   "tool": "tools/translate_ai.py",
   "parser": "pycparser2.23",
+  "semanticCorrections": [
+    {
+      "address": 4423264,
+      "kind": "guard-unobservable-retained-stack-read",
+      "originalLoad": {
+        "address": 4423862,
+        "bytes": "8b442418"
+      },
+      "originalFleetGuard": {
+        "address": 4423874,
+        "bytes": "83fe02"
+      },
+      "original": "(0 < local_1c) && (iVar4 == 2)",
+      "translated": "(iVar4 == 2) && (0 < local_1c)",
+      "reason": "For fleet != 2, the cell is uninitialized and both comparison outcomes return without additional stores. The initialized two-boat path retains its original comparison."
+    }
+  ],
   "routines": [
     {
       "address": 4411248,

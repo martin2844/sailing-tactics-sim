@@ -1,88 +1,450 @@
 {
-  "format": 1,
-  "checkedAt": "2026-10-04T08:20:48.294863+00:00",
-  "baselineCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "format": 2,
+  "checkedAt": "2026-10-04T17:01:27.248009+00:00",
+  "baselineCommit": "15fd6accd0eb2f191d18bd1d9f8a310c68660839",
   "originalSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
-  "scope": "Exact preservation-oriented performance changes. Native captures and recovered C unchanged. All timing samples are 20 genuine continuous paints in fresh headless Chrome processes on this host; no scene or physics reduction. Startup/JIT and scene phase affect short samples. These timings do not establish a universal FPS guarantee or universal x87/vendor equivalence.",
+  "scope": "Crash correction and native-result-preserving rendering/runtime optimizations. Timings are120 genuine continuous headless Chrome paints on this host, using original menus and unchanged default2010 setup. Physics, AI, RNG, fleet and scene detail are preserved. Browser timings depend on host load and phase;2002 uses its different course and time-step constants. Native replay and asynchronous browser scheduling are separate checks.",
   "performance": {
-    "baseline": "baseline-final.json",
-    "optimized": "optimized-final.json",
-    "meanPaintMsBefore": 862.369999999553,
-    "meanPaintMsAfter": 180.74500000029803,
-    "paintSpeedup": 4.771196990224521,
-    "fpsBefore": 1.151920068873007,
-    "fpsAfter": 5.400028421202217,
-    "additionalFullFleetChecks": [
-      "optimized-two-boats.json",
-      "optimized-thirty-boats.json"
-    ]
+    "baseline": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/speed-ten-default-before.json",
+        "bytes": 44383,
+        "sha256": "88c83b7d01d919ce5afb4c54344ce4ad4505dd67ccdc8354a0bdcc49247c0477"
+      },
+      "framesPerSecond": 5.001092675711286,
+      "meanPaintMs": 195.86583333325882,
+      "medianPaintMs": 188.80000000447035,
+      "simulationSecondsPerWallSecond": 1.0194288760984247,
+      "live": {
+        "frames": 129,
+        "mode": 0,
+        "fleet": 20,
+        "speed": 10,
+        "divisor": 76,
+        "difficulty": 7,
+        "selector": 12,
+        "length": 25,
+        "timeFactor": 0.7745966692414834,
+        "courseLength": 2000,
+        "dtScaleNormal": 20,
+        "dtScaleShort": 17,
+        "dtScalePractice": 25,
+        "dt": 0.20384122874775878,
+        "simulationTime": -145.83521132152072,
+        "clock": -145,
+        "error": null,
+        "errorStack": ""
+      },
+      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Actual physics and drawing; no profiler overhead.",
+      "host": null
+    },
+    "startup": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-default-startup.json",
+        "bytes": 46008,
+        "sha256": "8176d3f60846c07288a3e5be0529e4d75c007d27d75ebd0fcb9627870d26226e"
+      },
+      "framesPerSecond": 22.010135760021306,
+      "meanPaintMs": 44.46666666604578,
+      "medianPaintMs": 40.400000005960464,
+      "simulationSecondsPerWallSecond": 4.486573118227814,
+      "live": {
+        "frames": 133,
+        "mode": 0,
+        "fleet": 20,
+        "speed": 10,
+        "divisor": 76,
+        "difficulty": 7,
+        "selector": 12,
+        "length": 25,
+        "timeFactor": 0.7745966692414834,
+        "courseLength": 2000,
+        "dtScaleNormal": 20,
+        "dtScaleShort": 17,
+        "dtScalePractice": 25,
+        "dt": 0.20384122874775878,
+        "simulationTime": -145.01984640652967,
+        "clock": -145,
+        "error": null,
+        "errorStack": ""
+      },
+      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Actual physics and drawing; no profiler overhead.",
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          0.73,
+          2.24,
+          2.45
+        ],
+        "loadAverageAfter": [
+          1.22,
+          2.3,
+          2.47
+        ],
+        "cpuBusyFraction": 0.34598468805994465
+      }
+    },
+    "racing": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-default-racing.json",
+        "bytes": 46163,
+        "sha256": "90ab1c039815224e9fd4b2b5e4d9b98b621e89efb8d6afdc06f51e9f832854bf"
+      },
+      "framesPerSecond": 28.501628664474772,
+      "meanPaintMs": 34.31083333318432,
+      "medianPaintMs": 32.30000001192093,
+      "simulationSecondsPerWallSecond": 5.809807008278987,
+      "live": {
+        "frames": 311,
+        "mode": 0,
+        "fleet": 20,
+        "speed": 10,
+        "divisor": 76,
+        "difficulty": 7,
+        "selector": 12,
+        "length": 25,
+        "timeFactor": 0.7745966692414834,
+        "courseLength": 2000,
+        "dtScaleNormal": 20,
+        "dtScaleShort": 17,
+        "dtScalePractice": 25,
+        "dt": 0.20384122874775878,
+        "simulationTime": 129.39121573370332,
+        "clock": 129,
+        "error": null,
+        "errorStack": ""
+      },
+      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Original speed15 menu first advances the actual simulation past 100 seconds, then the original speed10 handler selects the measured pace. Actual physics and drawing; no profiler overhead.",
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          1.34,
+          2.15,
+          2.41
+        ],
+        "loadAverageAfter": [
+          1.31,
+          2.13,
+          2.4
+        ],
+        "cpuBusyFraction": 0.20400359874044083
+      }
+    },
+    "laterRace": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-default-long.json",
+        "bytes": 46131,
+        "sha256": "cc3f37fd46774d901c87cae141b53d8f3958bde5e908184639d3a595a2a713b7"
+      },
+      "framesPerSecond": 29.603462858870643,
+      "meanPaintMs": 32.997500000024836,
+      "medianPaintMs": 31.299999997019768,
+      "simulationSecondsPerWallSecond": 6.034406244340947,
+      "live": {
+        "frames": 457,
+        "mode": 0,
+        "fleet": 20,
+        "speed": 10,
+        "divisor": 76,
+        "difficulty": 7,
+        "selector": 12,
+        "length": 25,
+        "timeFactor": 0.7745966692414834,
+        "courseLength": 2000,
+        "dtScaleNormal": 20,
+        "dtScaleShort": 17,
+        "dtScalePractice": 25,
+        "dt": 0.20384122874775878,
+        "simulationTime": 354.22809104248154,
+        "clock": 354,
+        "error": null,
+        "errorStack": ""
+      },
+      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Original speed15 menu first advances the actual simulation past 320 seconds, then the original speed10 handler selects the measured pace. Actual physics and drawing; no profiler overhead.",
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          1.36,
+          2.01,
+          2.35
+        ],
+        "loadAverageAfter": [
+          1.33,
+          1.99,
+          2.34
+        ],
+        "cpuBusyFraction": 0.18076062639821033
+      }
+    },
+    "standalone": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-standalone.json",
+        "bytes": 46209,
+        "sha256": "2335321a3bd9c299113c4e6e9665a5e7f3ba4e7e7168bf1b49cdef0f1b6037c4"
+      },
+      "framesPerSecond": 28.960817717206133,
+      "meanPaintMs": 33.681666666766006,
+      "medianPaintMs": 31.5,
+      "simulationSecondsPerWallSecond": 5.903408669015273,
+      "live": {
+        "frames": 312,
+        "mode": 0,
+        "fleet": 20,
+        "speed": 10,
+        "divisor": 76,
+        "difficulty": 7,
+        "selector": 12,
+        "length": 25,
+        "timeFactor": 0.7745966692414834,
+        "courseLength": 2000,
+        "dtScaleNormal": 20,
+        "dtScaleShort": 17,
+        "dtScalePractice": 25,
+        "dt": 0.20384122874775878,
+        "simulationTime": 130.9404090721863,
+        "clock": 130,
+        "error": null,
+        "errorStack": ""
+      },
+      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Original speed15 menu first advances the actual simulation past 100 seconds, then the original speed10 handler selects the measured pace. Actual physics and drawing; no profiler overhead.",
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          1.81,
+          2.04,
+          2.35
+        ],
+        "loadAverageAfter": [
+          1.83,
+          2.04,
+          2.34
+        ],
+        "cpuBusyFraction": 0.20392416225749554
+      }
+    },
+    "comparison2002": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-2002.json",
+        "bytes": 45879,
+        "sha256": "adb874752fedeeb8bdb5f200e2ba71fa7b7e914113244fa3d52bb0b3f4f2a7de"
+      },
+      "framesPerSecond": 71.01086048467099,
+      "meanPaintMs": 9.669166667138537,
+      "medianPaintMs": 9.400000005960464,
+      "simulationSecondsPerWallSecond": 18.09367631953809,
+      "live": {
+        "frames": 153,
+        "mode": 1,
+        "fleet": 20,
+        "speed": 10,
+        "divisor": 76,
+        "difficulty": 7,
+        "selector": 12,
+        "length": 25,
+        "timeFactor": 0.7745966692414834,
+        "courseLength": 600,
+        "dtScaleNormal": 25,
+        "dtScaleShort": 25,
+        "dtScalePractice": 25,
+        "dt": 0.25480153593469845,
+        "simulationTime": -137.8854034003598,
+        "clock": -137,
+        "error": null,
+        "errorStack": ""
+      },
+      "scope": "Headless Chrome, original Round Lake/Keelboat/Windward/20-boat/speed10 menus; 120 requested genuine continuous paints. Actual physics and drawing; no profiler overhead.",
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          1.03,
+          1.79,
+          2.24
+        ],
+        "loadAverageAfter": [
+          1.03,
+          1.79,
+          2.24
+        ],
+        "cpuBusyFraction": 0.2311224489795919
+      }
+    }
   },
   "validation": {
     "final2002": {
-      "command": "npm test (2002 phase)",
-      "tests": 379,
-      "passed": 379,
-      "failed": 0,
-      "log": "full-tests.log",
-      "productionScope": "Shared numerical/GDI changes; 2010-only review corrections were applied afterward."
+      "tests": 397,
+      "pass": 397,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/release-2002-tests.log",
+        "bytes": 42456,
+        "sha256": "b7f34563a6301748b287dcf764d13aadbf13f43d77605d13efcacfff3783c617"
+      }
     },
     "final2010": {
-      "command": "npm run test:2010",
-      "tests": 354,
-      "passed": 354,
-      "failed": 0,
-      "log": "final-2010-tests.log",
-      "retainedFullFrames": 438
+      "tests": 423,
+      "pass": 423,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/release-2010-tests.log",
+        "bytes": 43726,
+        "sha256": "f4aacb41a41a182081bcaab755d51d9bd49bb6af33e62fc599b8f8bbacb1fda9"
+      },
+      "totalWithLaterTests": 427
+    },
+    "additionalShoreline": {
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/release-shoreline-tests.log",
+        "bytes": 513,
+        "sha256": "01f745c092a150ce8c1e66b7360d00d9cab72be548cd12f75fe8420c0225b2c5"
+      }
     },
     "browserSource": {
       "checks": 119,
       "passed": true,
-      "report": "../browser-verification.json",
-      "sha256": "e3d13ed2d4bf1e7abe2349483d4a95bb047f5ce61c54cf1118860341a095f777"
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-verification.json",
+        "bytes": 14422,
+        "sha256": "aa68a6e745b671417d7d5ce5af8f273167ec233b0e58d7f6d141a81813a3d61e"
+      }
     },
     "browserStandalone": {
       "checks": 119,
       "passed": true,
-      "report": "../standalone-browser-verification.json",
-      "sha256": "ea5e03e1d810369b099a276a84934ed3cd41cede2c27a716394a7183e188bee6"
-    },
-    "browser2002": {
-      "checks": 10,
-      "passed": true,
-      "log": "browser-2002.log"
+      "receipt": {
+        "path": "versions/2010-en/analysis/standalone-browser-verification.json",
+        "bytes": 14406,
+        "sha256": "f2aeb9e451ff0f37adaa7ccfc68a718fd875e45233546e65afec90f27bfc93c1"
+      }
     },
     "fullVersionSource": {
       "checks": 7,
       "passed": true,
-      "report": "../full-version-browser-check.json",
-      "sha256": "8f43123e2de1bd93dee2bc041af2b1b45fda9e5897fa5d398315ff4e2061a07f"
+      "receipt": {
+        "path": "versions/2010-en/analysis/full-version-browser-check.json",
+        "bytes": 4454,
+        "sha256": "b097c558bb52da31b3d1d89d1d1daaaefd74aa6cf0ecc094fa673ac063a2b950"
+      }
     },
     "fullVersionStandalone": {
       "checks": 7,
       "passed": true,
-      "report": "../full-version-standalone-check.json",
-      "sha256": "2af5a883d898d48a4af413d5848ad2b5f293a92c86ac5e1fe8edcccfa8c15452"
+      "receipt": {
+        "path": "versions/2010-en/analysis/standalone-full-version-browser-check.json",
+        "bytes": 4427,
+        "sha256": "b01af61ecc589289d9d84df8d97e20af17524eb11a27767207e09f8187dc7f21"
+      }
     },
-    "scalarGeneration": {
-      "originalByteFrameFunctionsPreserved": 251,
-      "promotedFunctions": 113,
-      "generatorTests": 4,
-      "nodeFocusedTests": 43,
-      "report": "../scalar-stack-validation.json"
+    "browser2002Standalone": {
+      "checks": 10,
+      "passed": true,
+      "receipt": {
+        "path": "analysis/play-browser-check/report.json",
+        "bytes": 1844,
+        "sha256": "3820b42aac8d96ad0c5241363b22e228ff335eaec14edb67a56fa616cafcdc26"
+      }
     }
+  },
+  "nativeReplay": {
+    "path": "versions/2010-en/analysis/browser-performance/speed-ten-native-final-validation.json",
+    "bytes": 34375,
+    "sha256": "3e5a0fd65d0db0e6746a5396cf31e2eeaa98bf192a3152cd09835cdfd086ec2e"
+  },
+  "nativeArithmetic": {
+    "path": "versions/2010-en/analysis/float80-performance-verification.json",
+    "bytes": 1893,
+    "sha256": "2cc16fcb943d9f5a7a6cf6988d08f9c6b3a4de7861f39d5785ad3c30f79102d1"
+  },
+  "crashCorrection": {
+    "path": "versions/2010-en/analysis/upwind-stack-native-comparison.json",
+    "bytes": 5192,
+    "sha256": "255f3d647a9053c8bd0e7ea9e0d49719aad7cf903f90fc2610899222533c8d2e"
+  },
+  "evidenceArchives": {
+    "unchangedPreviousArchives": 216,
+    "verifiedAddedArchives": [
+      "analysis/upwind-stack-capture-inputs.json",
+      "tests/fixtures/original-upwind-stack.json",
+      "analysis/retained-speed-ten-frames-capture-inputs.json",
+      "analysis/retained-speed-ten-long-frames-capture-inputs.json",
+      "tests/fixtures/original-retained-speed-ten-frames.json",
+      "tests/fixtures/original-retained-speed-ten-long-frames.json"
+    ],
+    "totalArchives": 222
   },
   "review": {
     "verdict": "No unresolved findings.",
     "reports": [
-      "numerical-review.json",
-      "transcendental-scalar-review.json"
+      {
+        "path": "versions/2010-en/analysis/browser-performance/final-independent-source-review.json",
+        "bytes": 4500,
+        "sha256": "262f7dca8be515beade9e981f3ad8b8549642d663af5016277f444aba1b7d4ec"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/double-double-review.json",
+        "bytes": 2859,
+        "sha256": "61882ae265266ef116eff0e0a8744946001ac658990ebd89344904a223dd6891"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/mixed-multiply-review.json",
+        "bytes": 1923,
+        "sha256": "df5eb9a2c3698a3a8a9388d243909b68bbbc42cf7037664a95bebd6c46c38a30"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/number-reduction-review.json",
+        "bytes": 1054,
+        "sha256": "1697fda8c4db7c136b3c5a8fe86f2296564fe8fa1bd792de5c0036abf32937f8"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/number-drawing-source-review.json",
+        "bytes": 9197,
+        "sha256": "a7263ccafe61875fbf603a743c0946527e2ee6435c272cefbdc3efd2446c8a57"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/partial-scalar-source-review.json",
+        "bytes": 4697,
+        "sha256": "6edd6e19bdede2dd9a4bfb11d1563c3393fa5d13d41633b8d5f43fd1ccac6f18"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/projection-output-source-review.json",
+        "bytes": 9044,
+        "sha256": "6d203a778b9f37a3f748ec0b61f3c4f6f4ea2f6ff9f09c84aa2494da3aed6fb0"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/projection-output-interval-review.json",
+        "bytes": 3145,
+        "sha256": "653844f81690f7e41aa0b1a610acd0483d10afaabd7af4531b5d3b9d0408225b"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/gdi-pixel-cache-source-review.json",
+        "bytes": 1966,
+        "sha256": "738abd29e1c32f9694823d8c648c36b3155c50d16565b628f106529b53c9f4c8"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/paint-scheduler-source-review.json",
+        "bytes": 2111,
+        "sha256": "de1355a696fbd521887d0ad360a0b2c89cd1844ddfcb69ab049b6d3dcece9bd3"
+      },
+      {
+        "path": "versions/2010-en/analysis/browser-performance/shore-scalar-source-review.json",
+        "bytes": 5800,
+        "sha256": "11352a4279bf9a0a63afbd55e0abe80278c33892672d0b2dc71540677ccec1dc"
+      }
     ],
-    "rootCheckedClean": [
-      "GDI recording remains enabled by default for native proof consumers; disabling it preserves sink/state/pixel returns.",
-      "The reused buffered Canvas is reset by every original bitmap selection and uses fresh GDI state per paint; no clip/pixel state survives.",
-      "Source/standalone menu, physical input, modal pause, tutorials and preference reload checks pass.",
-      "2010 full mode comes from unchanged supplied data; mode is neither patched nor stored in the preference archive."
-    ]
+    "fixedDuringFinalReview": [
+      "Reference chart coordinates must retain full I64 width before later division; wide cases now decline the optimization.",
+      "Shoreline index proofs now reject extra counter writes in preheaders and throughout their lifetime.",
+      "Generator regression tests select a portable Python interpreter rather than requiring an ignored local path."
+    ],
+    "scopeNote": "Individual review reports retain their tested source hashes; this release receipt pins the final production graph and final complete test runs."
   },
   "finalProductionModules": [
     {
@@ -97,13 +459,13 @@
     },
     {
       "path": "src/render/gdi.js",
-      "bytes": 10430,
-      "sha256": "ece9711e627d94cb35fdd263da4ead8d821eee3804e4a01e7986c1938cdf4524"
+      "bytes": 11258,
+      "sha256": "45d1ac32ed6ef1f33fa45c5a230355ddec48d50d7e4dc299722300d7a7ba0c3a"
     },
     {
       "path": "src/runtime/atan.js",
-      "bytes": 6521,
-      "sha256": "84dee62628d0444a38d248d91f660350fb231023cf73ab75c0452c60645d2a12"
+      "bytes": 11155,
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
     },
     {
       "path": "src/runtime/c-types.js",
@@ -111,9 +473,19 @@
       "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
     },
     {
+      "path": "src/runtime/certified-sqrt.js",
+      "bytes": 2146,
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "src/runtime/double-double.js",
+      "bytes": 1359,
+      "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff"
+    },
+    {
       "path": "src/runtime/float80.js",
-      "bytes": 19322,
-      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+      "bytes": 24999,
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
     },
     {
       "path": "src/runtime/index.js",
@@ -126,14 +498,19 @@
       "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
     },
     {
+      "path": "src/runtime/output-interval.js",
+      "bytes": 6815,
+      "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7"
+    },
+    {
       "path": "src/runtime/transcendentals.js",
-      "bytes": 7125,
-      "sha256": "d75d9e92a828686735734b1f76ddce51db217acb6c1e67dc33dfc63d55b2e2f4"
+      "bytes": 14799,
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
     },
     {
       "path": "versions/2010-en/src/engine/ai-functions.js",
       "bytes": 185351,
-      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+      "sha256": "8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829"
     },
     {
       "path": "versions/2010-en/src/engine/ai-geometry.js",
@@ -317,8 +694,18 @@
     },
     {
       "path": "versions/2010-en/src/play.js",
-      "bytes": 15475,
-      "sha256": "8618ff9eebb225691610cfb18b4c2fab8365084e85a1bf1d66af7829b4f9f735"
+      "bytes": 15842,
+      "sha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-output-fast.js",
+      "bytes": 4827,
+      "sha256": "4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-projection-fast.js",
+      "bytes": 3673,
+      "sha256": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf"
     },
     {
       "path": "versions/2010-en/src/render/chart.js",
@@ -327,13 +714,18 @@
     },
     {
       "path": "versions/2010-en/src/render/dependencies.js",
-      "bytes": 4167,
-      "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+      "bytes": 7702,
+      "sha256": "6f98471599de0e35fc97397fa8024168909f0eb4eb6833854508acd6bb434887"
     },
     {
       "path": "versions/2010-en/src/render/drawing-functions.js",
-      "bytes": 3045056,
-      "sha256": "0024e2bc308d02a38ccd29d07b897993c0a657b8ec97050ac2aa47d48e850b1c"
+      "bytes": 5603616,
+      "sha256": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "bytes": 6479,
+      "sha256": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963"
     },
     {
       "path": "versions/2010-en/src/render/gdi.js",
@@ -361,9 +753,19 @@
       "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
     },
     {
+      "path": "versions/2010-en/src/render/projection-fast.js",
+      "bytes": 5856,
+      "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-output-fast.js",
+      "bytes": 4656,
+      "sha256": "10bb48f75cbb7d56d627afdb2edda673d2868c617d9a201bf03a3818b26d764c"
+    },
+    {
       "path": "versions/2010-en/src/render/render-functions.js",
-      "bytes": 377315,
-      "sha256": "ec4854a097e03aab2eefa6434e8245cf29240444d1ca1b89be432357a37c3f5e"
+      "bytes": 623272,
+      "sha256": "e09a0c535739b3bceb60aca75d8d7edaab9e3c1cfff215d55ec830cd9a7ab31c"
     },
     {
       "path": "versions/2010-en/src/render/sail-geometry.js",
@@ -387,8 +789,8 @@
     },
     {
       "path": "versions/2010-en/src/render/screen-helper-functions.js",
-      "bytes": 148106,
-      "sha256": "0d8d39b604c706bd77104973693567eaf93a4915585f8f31db2baf6d8bfc83f6"
+      "bytes": 148890,
+      "sha256": "54d2b3ef7929729736cd7a7c2de80d457bae9ad39681f1c58a5f7c598cbb1380"
     },
     {
       "path": "versions/2010-en/src/render/screens.js",
@@ -412,13 +814,13 @@
     },
     {
       "path": "versions/2010-en/src/render/tutorial-pages.js",
-      "bytes": 1144666,
-      "sha256": "907f3e3d2b6665189eea134dec4cffb9f9d220077e214bb600832a02b4fd18d7"
+      "bytes": 1994998,
+      "sha256": "1e80d2c6bb1c137fd2c57885858c60eb35721d28675434b108d5ca1535856128"
     },
     {
       "path": "versions/2010-en/src/render/typed-c.js",
-      "bytes": 20064,
-      "sha256": "0a43ce405278c7c985098f873c7cd03b491af1ffa4f9e9505857e499fb1f33b5"
+      "bytes": 25909,
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
     },
     {
       "path": "versions/2010-en/src/runtime/browser-clock.js",
@@ -435,63 +837,21 @@
     {
       "edition": "2002",
       "archive": "posey-2002-browser.zip",
-      "entries": 135,
-      "bytes": 685658,
-      "sha256": "3ab7a1e3de6ec36583b26a9f54789e855329393aca1f434611961f2acd0c9bc9",
-      "manifestSha256": "55f08648a48b8069233dea2627ef95f5a47ea933634f3c95e655b4237b4eb4e8",
+      "entries": 138,
+      "bytes": 696008,
+      "sha256": "9ede5b5de587902f9f2d879136cf195a053c7d8bf5ed10545d968457557a26fc",
+      "manifestSha256": "397cbda05512695a7bf822f4e32539ae8384206141904fb77d160fb3cd4f596d",
       "allExportFilesAndZipEntriesExact": true
     },
     {
       "edition": "2010",
       "archive": "posey-2010-browser.zip",
-      "entries": 125,
-      "bytes": 1305712,
-      "sha256": "3a34422a46aaeb504804233fb10b15c9983429186e52c78102a3007ac33a3258",
-      "manifestSha256": "1ffda942b3293b13d5f1304e9b488dfc3c2af84b264a67ae9c0774514a50f85b",
+      "entries": 133,
+      "bytes": 1582687,
+      "sha256": "1f6df0c6de0942352ae15b9101df3797e52734b36ecf1d40669c2260ff2545d9",
+      "manifestSha256": "f71a5e4c3c5f0f3aaf207746c0790c0802e30226eedc59df069ad0812c135147",
       "allExportFilesAndZipEntriesExact": true
     }
   ],
-  "receipts": [
-    {
-      "path": "full-tests.log",
-      "sha256": "8d794249ff6fefb553543657ad9a426f54dbb4c5eddc0c789674820812bcb912",
-      "bytes": 76215
-    },
-    {
-      "path": "final-2010-tests.log",
-      "sha256": "88e2a8588e7bf20a97086872feb99cb186d258a2f913951ba716b7b4063f9279",
-      "bytes": 36175
-    },
-    {
-      "path": "browser-source-final.log",
-      "sha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442",
-      "bytes": 32
-    },
-    {
-      "path": "browser-standalone.log",
-      "sha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442",
-      "bytes": 32
-    },
-    {
-      "path": "full-version-source.log",
-      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9",
-      "bytes": 38
-    },
-    {
-      "path": "full-version-standalone.log",
-      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9",
-      "bytes": 38
-    },
-    {
-      "path": "browser-2002.log",
-      "sha256": "6cc4e22a415b39f821d793cf5232b94499881cc396440154492aae51285bf20f",
-      "bytes": 90
-    },
-    {
-      "path": "scalar-final-verification.log",
-      "sha256": "9978ce06c8a04fab338a63ec7deb5d28867ff1cde5fe05989c9830d9f05c535f",
-      "bytes": 239
-    }
-  ],
-  "historicalEvidence": "Prior publication reports and production snapshots describe the original fb856db release. This separate report and final logs describe the optimized source hashes."
+  "historicalEvidence": "Older intermediate profiles and prior publication receipts are historical snapshots. This format2receipt identifies the rebuilt crash/performance release."
 }

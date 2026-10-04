@@ -1,3 +1,5 @@
+import {certifiedSqrtNumber} from './certified-sqrt.js';
+
 /**
  * Finite x87 extended values with selectable arithmetic precision control,
  * round-to-nearest/ties-to-even. Loads and transcendental results retain m80.
@@ -8,10 +10,13 @@ const EXTENDED_MIN_UNIT = -16445;
 const EXTENDED_MAX_TOP = 16383;
 const INTEGER_BIT = 1n << 63n;
 const DOUBLE_INTEGER_BIT = 1n << 52n;
+const PRECISION_LIMITS = {24:1n << 24n,53:1n << 53n,64:1n << 64n};
 const BINARY64_VALUE = Symbol('exact binary64 Float80');
+const ROUNDED_EXTENDED_VALUE = Symbol('rounded extended Float80');
 const MIN_NORMAL_BINARY64 = 2 ** -1022;
 const SIGNED64_LIMIT = 2 ** 63;
 const SMALL_INTEGER_LIMIT = 4096;
+const UNIT_FIXED112_LIMIT=1n<<114n;
 const smallIntegers = new Array(2 * SMALL_INTEGER_LIMIT + 1);
 let negativeZeroValue;
 // Only lazy m80 materialization uses this view. Arithmetic on binary64-backed
@@ -37,10 +42,10 @@ export function withX87ControlWord(value,callback){
 
 function bitLength(value) { return value === 0n ? 0 : value.toString(2).length; }
 
-function roundRight(value, places) {
+function roundRight(value, places, length) {
   if (places <= 0) return value << BigInt(-places);
   // A shift beyond all significant bits cannot reach a half-way case.
-  const length = bitLength(value);
+  length ??= bitLength(value);
   if (places > length) return 0n;
   const shift = BigInt(places);
   const quotient = value >> shift;
@@ -51,10 +56,11 @@ function roundRight(value, places) {
 
 function roundedParts(mantissa, exponent, precision, minimumUnit) {
   if (mantissa === 0n) return { mantissa: 0n, exponent: 0 };
-  const targetExponent = Math.max(exponent + bitLength(mantissa) - precision, minimumUnit);
-  let rounded = roundRight(mantissa, targetExponent - exponent);
+  const length = bitLength(mantissa);
+  const targetExponent = Math.max(exponent + length - precision, minimumUnit);
+  let rounded = roundRight(mantissa, targetExponent - exponent, length);
   let roundedExponent = targetExponent;
-  if (bitLength(rounded) > precision) {
+  if (rounded >= PRECISION_LIMITS[precision]) {
     rounded >>= 1n;
     roundedExponent++;
   }
@@ -63,7 +69,9 @@ function roundedParts(mantissa, exponent, precision, minimumUnit) {
 
 function normalized(mantissa, exponent) {
   const result = roundedParts(mantissa, exponent, 64, EXTENDED_MIN_UNIT);
-  if (result.mantissa !== 0n && result.exponent + bitLength(result.mantissa) - 1 > EXTENDED_MAX_TOP) {
+  // roundedParts produces exactly 64 bits unless the result is a subnormal
+  // at EXTENDED_MIN_UNIT. Those shorter significands cannot overflow.
+  if (result.mantissa !== 0n && result.exponent > EXTENDED_MAX_TOP - 63) {
     throw new RangeError('Float80 overflow: infinite results are not supported');
   }
   return result;
@@ -107,6 +115,31 @@ export function float80Key(value) {
 
 function normalBinary64(value) {
   return Number.isFinite(value) && Math.abs(value) >= MIN_NORMAL_BINARY64;
+}
+
+// PC53 mixed products need the retained eleven m80 bits too. Splitting at
+// bit11 gives an exact binary64 high component and an exact eleven-bit tail.
+// TwoProd retains the complete high product. Tail/correction roundings have
+// error <256u^2*product; certify strictly inside the candidate's IEEE cell.
+// Bounds keep every split/product normal. Uncertain midpoints use BigInt.
+function mixedBinary64Product(parts,value){
+  if(parts.exponent<-163||parts.exponent>36||Math.abs(value)<2**-100||Math.abs(value)>2**100)return NaN;
+  const high=Number(parts.mantissa>>11n)*2**(parts.exponent+11);
+  const tail=Number(parts.mantissa&2047n)*2**parts.exponent;
+  const factor=Math.abs(value),product=high*factor;
+  const splitHigh=134217729*high,ah=splitHigh-(splitHigh-high),al=high-ah;
+  const splitFactor=134217729*factor,bh=splitFactor-(splitFactor-factor),bl=factor-bh;
+  const error=((ah*bh-product)+ah*bl+al*bh)+al*bl;
+  const correction=error+tail*factor,candidate=product+correction;
+  const distance=(product-candidate)+correction;
+  const margin=product*2**-97;
+  binary64View.setFloat64(0,candidate,true);
+  const upper=binary64View.getUint32(4,true),lower=binary64View.getUint32(0,true);
+  const gap=2**(((upper>>>20)&0x7ff)-1023-52);
+  const halfBelow=(lower===0&&(upper&0xfffff)===0)?gap/4:gap/2;
+  // Two margins also cover rounding these boundary subtractions. An exact
+  // tie is deliberately ambiguous, including the asymmetric power-of-two cell.
+  return distance>-halfBelow+margin&&distance<gap/2-margin?candidate:NaN;
 }
 
 function binary64Value(value) {
@@ -177,6 +210,13 @@ export class Float80 {
 
   /** Construct from an exact finite sign/magnitude binary value, rounding once. */
   constructor(sign, mantissa, exponent) {
+    if (sign === ROUNDED_EXTENDED_VALUE) {
+      this.sign = mantissa.sign;
+      this.#parts = mantissa.parts;
+      this.#number = exactBinary64Number(this.sign, this.#parts);
+      Object.freeze(this);
+      return;
+    }
     if (sign === BINARY64_VALUE) {
       this.sign = mantissa < 0 || Object.is(mantissa, -0) ? -1 : 1;
       this.#number = mantissa;
@@ -210,6 +250,9 @@ export class Float80 {
       : `n:${this.sign}/${this.#number}`;
   }
 
+  /** Exact binary64 carrier, or NaN when a store would change this m80 value. */
+  exactNumber() { return this.#number; }
+
   /** Load an exact IEEE binary64 value; NaN and infinities are unsupported. */
   static fromNumber(value) {
     if (typeof value !== 'number') throw new TypeError('Float80 Number input must be a Number');
@@ -223,7 +266,38 @@ export class Float80 {
       return binary64Value(value === 0 ? 0 : value);
     }
     const exact = integer(value);
+    if (exact >= -9007199254740991n && exact <= 9007199254740991n) return binary64Value(Number(exact));
     return new Float80(exact < 0n ? -1 : 1, exact < 0n ? -exact : exact, 0);
+  }
+
+  /** Return the common m80 rounding of a finite signed fixed-point interval. */
+  static certifyInterval(lower, upper, exponent) {
+    if (typeof lower !== 'bigint' || typeof upper !== 'bigint' || lower > upper) throw new TypeError('Float80 interval requires ordered BigInt endpoints');
+    if (!Number.isSafeInteger(exponent)) throw new RangeError('Float80 exponent must be a safe integer');
+    const lowerSign = lower < 0n ? -1 : 1, upperSign = upper < 0n ? -1 : 1;
+    // Crossing zero cannot certify a common signed result.
+    if (lowerSign !== upperSign) return null;
+    const lowMagnitude = lower < 0n ? -lower : lower, highMagnitude = upper < 0n ? -upper : upper;
+    if(exponent===-112&&lowMagnitude<UNIT_FIXED112_LIMIT&&highMagnitude<UNIT_FIXED112_LIMIT){
+      // Bounded transcendental enclosures are normal m80 values. Round their
+      // smaller magnitude once, then compare the larger magnitude with the
+      // exact upper midpoint of that rounding cell, including ties-to-even.
+      const minimum=lowMagnitude<highMagnitude?lowMagnitude:highMagnitude;
+      const maximum=lowMagnitude<highMagnitude?highMagnitude:lowMagnitude;
+      if(minimum===0n)return maximum===0n?new Float80(ROUNDED_EXTENDED_VALUE,{sign:lowerSign,parts:{mantissa:0n,exponent:0}}):null;
+      const parts=normalized(minimum,exponent);
+      const midpoint=parts.mantissa*2n+1n,shift=parts.exponent-1-exponent;
+      const bound=shift>=0?midpoint<<BigInt(shift):midpoint;
+      const value=shift>=0?maximum:maximum<<BigInt(-shift);
+      if(value>bound||(value===bound&&(parts.mantissa&1n)!==0n))return null;
+      return new Float80(ROUNDED_EXTENDED_VALUE,{sign:lowerSign,parts});
+    }
+    if (!Number.isSafeInteger(exponent + bitLength(lowMagnitude)) || !Number.isSafeInteger(exponent + bitLength(highMagnitude))) throw new RangeError('Float80 exponent must be a safe integer');
+    const low = normalized(lowMagnitude, exponent), high = normalized(highMagnitude, exponent);
+    if (low.mantissa !== high.mantissa || low.exponent !== high.exponent) return null;
+    // Both endpoints have already passed exactly the public constructor's
+    // rounding and range checks. Avoid normalizing and allocating them again.
+    return new Float80(ROUNDED_EXTENDED_VALUE, {sign:lowerSign,parts:low});
   }
 
   /**
@@ -258,18 +332,12 @@ export class Float80 {
   toNumber() {
     if (!Number.isNaN(this.#number)) return this.#number;
     const parts = roundedParts(this.mantissa, this.exponent, 53, -1074);
-    const signBit = this.sign < 0 ? 1n << 63n : 0n;
-    let bits;
-    if (parts.mantissa === 0n) bits = signBit;
-    else if (parts.exponent + bitLength(parts.mantissa) - 1 > 1023) bits = signBit | (0x7ffn << 52n);
-    else if (parts.mantissa < DOUBLE_INTEGER_BIT) bits = signBit | parts.mantissa;
-    else {
-      const biasedExponent = parts.exponent + 52 + 1023;
-      bits = signBit | (BigInt(biasedExponent) << 52n) | (parts.mantissa - DOUBLE_INTEGER_BIT);
-    }
-    const view = new DataView(new ArrayBuffer(8));
-    view.setBigUint64(0, bits, true);
-    return view.getFloat64(0, true);
+    if(parts.mantissa===0n)return this.sign<0?-0:0;
+    // The store has already rounded to <=53 bits and a unit >=2^-1074.
+    // Its integer significand and power of two are exact binary64 values;
+    // their product is the final image (or the required infinity). No bits
+    // need to be packed into a temporary buffer.
+    return this.sign*Number(parts.mantissa)*2**parts.exponent;
   }
 
   /** One binary64 spill/reload; an already exact binary64 value is unchanged. */
@@ -319,7 +387,30 @@ export class Float80 {
       const product = this.#number * other.#number;
       if (normalBinary64(product) || this.#number === 0 || other.#number === 0) return binary64Value(product);
     }
+    if(arithmeticPrecision===53){
+      const leftNumber=!Number.isNaN(this.#number),rightNumber=!Number.isNaN(other.#number);
+      if(leftNumber!==rightNumber){
+        const extended=leftNumber?other:this,value=leftNumber?this.#number:other.#number;
+        const product=mixedBinary64Product(extended.#parts,value);
+        if(!Number.isNaN(product))return binary64Value(this.sign*other.sign*product);
+      }
+    }
     return arithmeticResult(this.sign * other.sign, this.mantissa * other.mantissa, this.exponent + other.exponent);
+  }
+
+  /** Multiply an exact binary64 load without allocating its operand carrier. */
+  multiplyNumber(value){
+    if(typeof value!=='number'||!Number.isFinite(value))return this.multiply(Float80.fromNumber(value));
+    if(arithmeticPrecision===53){
+      if(!Number.isNaN(this.#number)){
+        const product=this.#number*value;
+        if(normalBinary64(product)||this.#number===0||value===0)return binary64Value(product);
+      }else{
+        const product=mixedBinary64Product(this.#parts,value);
+        if(!Number.isNaN(product))return binary64Value(this.sign*(value<0?-product:product));
+      }
+    }
+    return this.multiply(Float80.fromNumber(value));
   }
 
   divide(other) {
@@ -347,6 +438,8 @@ export class Float80 {
     const binary64Input = !Number.isNaN(this.#number);
     let candidate;
     if (arithmeticPrecision === 53 && binary64Input) {
+      const certified=certifiedSqrtNumber(this.#number);
+      if(certified!==undefined)return binary64Value(certified);
       try { candidate = Math.sqrt(this.#number); } catch { /* Use exact integer sqrt below. */ }
       // Integer products through 2^52 are exact binary64 operations, so an
       // integer root no larger than 2^26 can be certified before m80 decoding.

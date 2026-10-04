@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "status": "exact",
+  "findings": [],
+  "counts": {
+    "atanPairs": 4016,
+    "atanM80Images": 12048,
+    "cosIntervals": 2000,
+    "cosM80Images": 18000,
+    "sinM80Images": 18000,
+    "operations": 16000,
+    "acceptedOperations": 13975,
+    "interiorM80Images": 69875,
+    "declinedOperations": 2025,
+    "singletonCornerCases": 11858,
+    "truncationCases": 27,
+    "truncationImages": 105,
+    "rootCases": 10629,
+    "acceptedRoots": 10421,
+    "declinedRoots": 208
+  },
+  "rootCoverage": {
+    "zero": {
+      "cases": 2,
+      "accepted": 2,
+      "declined": 0
+    },
+    "powerBoundary": {
+      "cases": 603,
+      "accepted": 401,
+      "declined": 202
+    },
+    "randomFullMantissa": {
+      "cases": 10000,
+      "accepted": 10000,
+      "declined": 0
+    },
+    "squareBoundary": {
+      "cases": 24,
+      "accepted": 18,
+      "declined": 6
+    }
+  },
+  "runtimeMs": 1100.359879,
+  "scope": "Bounded atan/sine/cosine enclosures against the untouched original224 algorithms, RN53 endpoint bounds against prior Float80 arithmetic with retained m80 interiors, full signed-I64 truncation before DWORD wrapping, certified binary64 roots against prior exact midpoint arithmetic and strict exponent/domain declines.",
+  "reviewedSources": [
+    {
+      "path": "src/runtime/output-interval.js",
+      "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7"
+    },
+    {
+      "path": "src/runtime/certified-sqrt.js",
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
+    },
+    {
+      "path": "src/runtime/atan.js",
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
+    },
+    {
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-fast.js",
+      "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-output-fast.js",
+      "sha256": "10bb48f75cbb7d56d627afdb2edda673d2868c617d9a201bf03a3818b26d764c"
+    },
+    {
+      "path": "versions/2010-en/tools/floating_drawing.py",
+      "sha256": "e532409fd141fe6bdc53ac5e69f8fcb004dbc3ea10c706b3f76017b2f8763e96"
+    }
+  ],
+  "referenceSources": [
+    {
+      "commit": "15fd6ac",
+      "path": "src/runtime/float80.js",
+      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+    },
+    {
+      "commit": "fb856db",
+      "path": "src/runtime/atan.js",
+      "sha256": "e790c4353052bca3c438190ec2f03d742a13c87eec6af921b08bf2dde5db71b0"
+    },
+    {
+      "commit": "fb856db",
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "f74b7269d8e6e29704eb18ecd370157d71d44e266dea1338d53f217dd6c493bb"
+    }
+  ],
+  "diagnostic": {
+    "path": "tools/diagnostics/review-output-interval.mjs",
+    "sha256": "ea753aedc702ea72da51bb7bec9f683c16aab70d8cf2bb4340a800270f173e60"
+  }
+}

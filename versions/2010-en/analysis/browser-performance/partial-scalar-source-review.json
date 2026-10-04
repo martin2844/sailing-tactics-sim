@@ -1,0 +1,121 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:00:00.693537Z",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "Independent semantic review of partial scalarization for only originalDrawing00466330Number, address0x466330, frame880. Ordinary Number prototype domain only; retained or semantic prototype contexts select the untouched byte body.",
+  "checks": [
+    "Exact initial and post-test CFG, unique incoming edges, fixed updates and an unchanged straight loop body prove eighteen iterations: F64 byte offsets0..136 and I32 offsets0..68. No called function can mutate the private JavaScript induction bindings.",
+    "Nine exact scalar widths and four eighteen-cell arrays remain disjoint. All recognized direct/dynamic accesses have matching widths and alignment; unknown frame escapes, overlapping views, observable stores or extra dynamic accesses reject promotion.",
+    "Mixed byte views at256 and272 remain in the original frame. I32 stores retain wrapping, semantic identities and undefined invalidation. F64 cells retain binary64 images, signed zeros, original conversion, deferred infinite spill failures and overwrite behavior.",
+    "Named F64 loads preserve original semantic identity; CONCAT44 loads observe the original zero-byte image of semantic stores. Own undefined entries prevent inherited array indices replacing unknown local bytes.",
+    "The selected scalar/array replacements preserve RHS evaluation order and all original CFG edges. Explicit retained bytes select the complete unmodified Number ByteFrame before any optimized binding."
+  ],
+  "induction": {
+    "iterations": 18,
+    "floatByteStep": 8,
+    "intByteStep": 4,
+    "postTestLimit": 137
+  },
+  "promotedSlots": [
+    0,
+    4,
+    12,
+    20,
+    24,
+    264,
+    280,
+    308,
+    552
+  ],
+  "arrayRanges": [
+    {
+      "start": 396,
+      "end": 468,
+      "size": 4
+    },
+    {
+      "start": 476,
+      "end": 548,
+      "size": 4
+    },
+    {
+      "start": 568,
+      "end": 712,
+      "size": 8
+    },
+    {
+      "start": 728,
+      "end": 872,
+      "size": 8
+    }
+  ],
+  "retainedMixedByteRanges": [
+    {
+      "start": 256,
+      "end": 264
+    },
+    {
+      "start": 272,
+      "end": 280
+    }
+  ],
+  "validation": {
+    "structuralPythonTests": 14,
+    "storageContractNodeTests": 7,
+    "allPassed": true,
+    "logs": [
+      "versions/2010-en/analysis/browser-performance/partial-scalar-source-review.log",
+      "versions/2010-en/analysis/browser-performance/partial-scalar-cell-review.log"
+    ],
+    "scope": "Actual emitter output, negative source mutations and byte storage/error comparisons passed. The integration agent separately reported the final regenerated native bundle and all original byte bodies passing; the portable interpreter selector changes only test startup.",
+    "currentNativeExecutionsReportedByIntegrationAgent": 190,
+    "unchangedOriginalByteBodiesReportedByIntegrationAgent": 251
+  },
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/tools/optimize_static_locals.py",
+      "sha256": "c0c7fc3e514cb060403ff8cb5143329ec6f327b796e02a488eb548784d8af4f5"
+    },
+    {
+      "path": "versions/2010-en/tools/floating_drawing.py",
+      "sha256": "e532409fd141fe6bdc53ac5e69f8fcb004dbc3ea10c706b3f76017b2f8763e96"
+    },
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/00466330.c",
+      "sha256": "72bf984427458bf0894a42dd7b6994d052e1cb3e6ba21c4d104147bf5f67c146"
+    },
+    {
+      "path": "versions/2010-en/src/render/scalar-stack.js",
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "sha256": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    },
+    {
+      "path": "versions/2010-en/tests/partial-scalar-generator.py",
+      "sha256": "3e25420d61e9b83890e55008371ec55fad221d833492b62d6f76cf0bd808204a"
+    },
+    {
+      "path": "versions/2010-en/tests/partial-scalar-generator.test.js",
+      "sha256": "bc3abef08c93442fb3037fbd97ad019e6750b476f36d65f830ffd3229ef06318"
+    },
+    {
+      "path": "tools/python-command.js",
+      "sha256": "25f9997ca4b72d26fdf43dd5c171111f118a0ab606f2c212db3d5dab6391c64b"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "sha256": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38"
+    },
+    {
+      "path": "versions/2010-en/README.md",
+      "sha256": "39efe55e5024715718abb7f52fca1c8c1bec845c76f50702f5e56694baeb70ef"
+    }
+  ]
+}

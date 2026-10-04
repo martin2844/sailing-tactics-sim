@@ -1,0 +1,131 @@
+{
+  "scope": "Supplementary differential proof of public LocalFrame behavior against the prior JavaScript implementation. Covers high aligned slots, cross-block validity, undefined values, semantic overlap, escaped/public arrays, byte-array replacement, index/width coercion, exact numeric and signed-zero returns, and exception names/messages. The performance samples measure only this container; native fixtures and browser measurements are separate evidence.",
+  "referenceRevision": "15fd6ac",
+  "referenceContainerSha256": "80b657bf42d704cf310af4a0d28dd2ceec7eaea289254bc264a57f864380b527",
+  "currentContainerSha256": "5d7bb8772c64041d370732c20b9739bbe2e3bdd95cf98858eeca2736e781acbc",
+  "frameSizes": [
+    96,
+    292,
+    688,
+    4096,
+    65536
+  ],
+  "boundaryChecks": 11823,
+  "sequenceChecks": 505,
+  "sequenceOperations": 34320,
+  "exact": true,
+  "failures": [],
+  "performance": {
+    "node": "v24.19.0",
+    "alternatingSamples": true,
+    "results": [
+      {
+        "name": "small32 integer slots",
+        "framesPerSample": 10000,
+        "scalarReadWritePairsPerSample": 80000,
+        "currentMs": [
+          14.646100999999817,
+          12.572338999999829,
+          11.87359400000014,
+          12.37423600000011,
+          12.407637999999679,
+          12.383843999999954,
+          12.630939000000126
+        ],
+        "referenceMs": [
+          11.137678999999935,
+          8.436354999999821,
+          8.170986000000084,
+          8.978415000000041,
+          8.067221000000245,
+          9.203800000000228,
+          9.020904999999857
+        ],
+        "medianCurrentMs": 12.407637999999679,
+        "medianReferenceMs": 8.978415000000041,
+        "speedup": 0.7236199992295289
+      },
+      {
+        "name": "large688 integer slots",
+        "framesPerSample": 10000,
+        "scalarReadWritePairsPerSample": 80000,
+        "currentMs": [
+          19.69432000000006,
+          19.614530999999715,
+          20.106697000000167,
+          19.405717000000095,
+          19.984305999999833,
+          19.140908999999738,
+          20.24638899999991
+        ],
+        "referenceMs": [
+          26.121294000000034,
+          25.305309999999736,
+          26.666501000000153,
+          25.392013000000134,
+          25.247339999999895,
+          24.995206000000053,
+          25.63995900000009
+        ],
+        "medianCurrentMs": 19.69432000000006,
+        "medianReferenceMs": 25.392013000000134,
+        "speedup": 1.289306409157567
+      },
+      {
+        "name": "large688 binary64 slots",
+        "framesPerSample": 10000,
+        "scalarReadWritePairsPerSample": 80000,
+        "currentMs": [
+          28.96547700000019,
+          28.57563399999981,
+          31.490618999999697,
+          28.04721900000004,
+          28.486455000000205,
+          27.542288999999982,
+          28.791719999999714
+        ],
+        "referenceMs": [
+          37.665018000000146,
+          28.48939100000007,
+          29.02020999999968,
+          28.84381799999983,
+          28.973751999999877,
+          29.08895900000016,
+          29.599860000000263
+        ],
+        "medianCurrentMs": 28.57563399999981,
+        "medianReferenceMs": 29.02020999999968,
+        "speedup": 1.0155578700371048
+      },
+      {
+        "name": "large688 binary64 Number loads",
+        "framesPerSample": 10000,
+        "scalarReadWritePairsPerSample": 80000,
+        "currentLoad": "readLocalFloatNumber",
+        "referenceLoad": "readLocal(...,8,\"float\").toNumber()",
+        "currentMs": [
+          22.789624999999887,
+          18.821308000000045,
+          19.82904499999995,
+          18.927016999999978,
+          19.33062599999994,
+          18.75058500000023,
+          18.96679200000017
+        ],
+        "referenceMs": [
+          32.315110000000004,
+          29.32772900000009,
+          29.474194000000352,
+          29.157948999999917,
+          29.168059000000085,
+          29.313011000000188,
+          29.525481000000127
+        ],
+        "medianCurrentMs": 18.96679200000017,
+        "medianReferenceMs": 29.32772900000009,
+        "speedup": 1.546267233805265
+      }
+    ],
+    "checksum": 0
+  }
+}

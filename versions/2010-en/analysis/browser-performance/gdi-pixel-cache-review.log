@@ -1,0 +1,13 @@
+✔ cached pixel reads normalize signed C coordinates before tile lookup (2.483889ms)
+✔ bounded tile eviction and later GDI invalidation preserve colors (1.601637ms)
+✔ exclusive canvas read tiles preserve adjacent and interleaved visibility samples including edges (2.082714ms)
+✔ drawing and other intervening events invalidate read tiles; each DC starts empty (0.305065ms)
+✔ custom sinks, samplers and recorded traces retain the unbatched read contract (1.007307ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.199818

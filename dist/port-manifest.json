@@ -1,7 +1,7 @@
 {
   "target": "Posey2002-native-JavaScript",
   "originalSha256": "881dc85dc7500a5ad09e09091d4dd53f8c091f5630d5fabdcc887cc4b007acea",
-  "builtAt": "2026-10-04T08:10:31.719Z",
+  "builtAt": "2026-10-04T16:47:04.396Z",
   "files": [
     {
       "path": "assets/audio/wave-134-1033.wav",
@@ -540,8 +540,8 @@
     },
     {
       "path": "src/render/gdi.js",
-      "bytes": 10430,
-      "sha256": "ece9711e627d94cb35fdd263da4ead8d821eee3804e4a01e7986c1938cdf4524"
+      "bytes": 11258,
+      "sha256": "45d1ac32ed6ef1f33fa45c5a230355ddec48d50d7e4dc299722300d7a7ba0c3a"
     },
     {
       "path": "src/render/headsails.js",
@@ -635,8 +635,8 @@
     },
     {
       "path": "src/runtime/atan.js",
-      "bytes": 6521,
-      "sha256": "84dee62628d0444a38d248d91f660350fb231023cf73ab75c0452c60645d2a12"
+      "bytes": 11155,
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
     },
     {
       "path": "src/runtime/c-types.js",
@@ -644,9 +644,19 @@
       "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
     },
     {
+      "path": "src/runtime/certified-sqrt.js",
+      "bytes": 2146,
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "src/runtime/double-double.js",
+      "bytes": 1359,
+      "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff"
+    },
+    {
       "path": "src/runtime/float80.js",
-      "bytes": 19322,
-      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+      "bytes": 24999,
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
     },
     {
       "path": "src/runtime/index.js",
@@ -664,9 +674,14 @@
       "sha256": "e01adcb3fff46e27d840edbc88b028594b50cd7862d7bfafe22ea94610b0410c"
     },
     {
+      "path": "src/runtime/output-interval.js",
+      "bytes": 6815,
+      "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7"
+    },
+    {
       "path": "src/runtime/transcendentals.js",
-      "bytes": 7125,
-      "sha256": "d75d9e92a828686735734b1f76ddce51db217acb6c1e67dc33dfc63d55b2e2f4"
+      "bytes": 14799,
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
     },
     {
       "path": "THIRD-PARTY-NOTICES.md",
@@ -674,5 +689,5 @@
       "sha256": "378956d460b5e184030cb88441a966aa71dd1656e4fdf6c1d5e354d93fd666d5"
     }
   ],
-  "totalBytes": 2838195
+  "totalBytes": 2867328
 }

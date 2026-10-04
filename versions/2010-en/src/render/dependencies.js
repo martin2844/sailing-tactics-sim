@@ -10,10 +10,12 @@ import {clampedPointDistance,nearestWaypointDistance} from '../engine/waypoints.
 import {sampleVenueCurrent} from '../engine/current.js';
 import {sampleVenueMetric} from '../engine/spatial-metrics.js';
 import {readPointer,localPointer,cStringHeaderLength} from './typed-c.js';
+import {fpDrawingEnabled,fpArgument,fpFormalF64} from './float-values.js';
 
 // Fixed edition-local JavaScript functions. This dispatch never reads executable
 // bytes and never substitutes drawing from another edition.
 const drawing = new Map();
+const numberDrawing = new Map();
 export function registerOriginalDrawing(address, routine, hasDc = true, dcIndex = hasDc ? 0 : null) {
   if (!Number.isInteger(address) || address < 0x401000 || address >= 0x49b930 || typeof routine !== 'function') {
     throw new TypeError('Invalid preserved 2010 JavaScript drawing routine');
@@ -21,6 +23,60 @@ export function registerOriginalDrawing(address, routine, hasDc = true, dcIndex 
   if (drawing.has(address) && drawing.get(address).routine !== routine) throw new Error('Duplicate 2010 drawing routine');
   if(hasDc&&(!Number.isInteger(dcIndex)||dcIndex<0||dcIndex>32))throw new TypeError('Invalid reviewed CDC parameter index');
   drawing.set(address, {routine,hasDc,dcIndex});
+}
+
+export function registerOriginalNumberDrawing(address,routine,floatingParameters){
+  if(!drawing.has(address)||typeof routine!=='function'||!Array.isArray(floatingParameters)
+    ||floatingParameters.some(index=>!Number.isInteger(index)||index<0||index>32)
+    ||new Set(floatingParameters).size!==floatingParameters.length)throw new TypeError('Invalid reviewed numeric drawing routine');
+  if(numberDrawing.has(address))throw new Error('Duplicate numeric drawing routine');
+  const entry=drawing.get(address),parameters=floatingParameters.slice();
+  const bindings=parameters.map(parameter=>parameter-Number(entry.hasDc&&parameter>entry.dcIndex));
+  numberDrawing.set(address,{routine,floatingParameters:parameters,entry,bindings,floatingSlots:new Set(bindings)});
+}
+
+/** A fused private window may bypass only its unchanged registered callee. */
+export function originalNumberDrawingIsCurrent(address){
+  const numeric=numberDrawing.get(address);
+  return !!numeric&&numeric.entry===drawing.get(address);
+}
+
+/** Private typed calls keep stored F64 images between two reviewed functions. */
+export function callNumberDrawingDependency(memory,dc,address,args,floatingArguments,rng,options={}){
+  return callNumberDrawingDependencyImpl(memory,dc,address,args,floatingArguments,rng,options,false);
+}
+// The compiler supplies a fresh argument literal that belongs to this call.
+// Reusing that literal avoids another per-point array on the numeric route.
+export function callNumberDrawingDependencyOwned(memory,dc,address,args,floatingArguments,rng,options={}){
+  return callNumberDrawingDependencyImpl(memory,dc,address,args,floatingArguments,rng,options,true);
+}
+const hasFloatingArgument=(indices,index)=>typeof indices==='number'
+  ?index>=0&&index<32&&((indices>>>index)&1)!==0:indices.includes(index);
+function callNumberDrawingDependencyImpl(memory,dc,address,args,floatingArguments,rng,options,owned){
+  const numeric=numberDrawing.get(address),entry=drawing.get(address);
+  if(numeric&&numeric.entry===entry&&fpDrawingEnabled(options)){
+    const removed=entry.hasDc&&args[entry.dcIndex]===dc;
+    const values=owned?args:removed?args.filter((_arg,index)=>index!==entry.dcIndex):args.slice();
+    if(owned&&removed){
+      for(let index=entry.dcIndex;index+1<values.length;index++)values[index]=values[index+1];
+      values.length--;
+    }
+    const bindings=numeric.bindings,floatingSlots=numeric.floatingSlots;
+    for(let index=0;index<values.length;index++){
+      const callerIndex=removed&&index>=entry.dcIndex?index+1:index;
+      if(!floatingSlots.has(index)&&hasFloatingArgument(floatingArguments,callerIndex))values[index]=fpArgument(values[index]);
+    }
+    for(const index of bindings){
+      // Reproduce the original generated binder even when a recovered caller
+      // leaves its CDC-shaped placeholder in the supplied argument list.
+      const callerIndex=removed&&index>=entry.dcIndex?index+1:index;
+      const floating=hasFloatingArgument(floatingArguments,callerIndex),value=values[index];
+      values[index]=fpFormalF64(floating&&value!==undefined&&typeof value!=='number'&&!(value instanceof Float80)?fpArgument(value):value,floating);
+    }
+    return numeric.routine(memory,dc,rng,options,true,...values);
+  }
+  const boxed=args.map((value,index)=>hasFloatingArgument(floatingArguments,index)?fpArgument(value):value);
+  return callDrawingDependency(memory,dc,address,boxed,rng,options);
 }
 
 export function callDrawingDependency(memory, dc, address, args, rng, options = {}) {

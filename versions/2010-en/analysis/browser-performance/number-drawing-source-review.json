@@ -1,0 +1,104 @@
+{
+  "scope": "Independent source review of the static Number drawing compiler, numeric scalar storage and public floating helpers. Source inventory covers the 251 current translated rendering routines; native fixture results remain a separate integration proof.",
+  "reviewedSourceSha256": {
+    "versions/2010-en/tools/floating_drawing.py": "171a6719608588ab61cfa5d19a47d4244ea32fac6ab693d80e738d6c9ed8a042",
+    "versions/2010-en/tools/optimize_static_locals.py": "a27aa96378c69aff42a5fdc9d7f473b1ee060e81fef7790164f75c5c1ce7443e",
+    "versions/2010-en/src/render/float-values.js": "803e4401b2d80b6092e23235daae0a2c548620099b01b7827f0a9fd55e798abe",
+    "src/runtime/float80.js": "14921bf1c5a2bc299d0eb1f30c6a7df6140c52f7849a9359e37e7053f88f17bf"
+  },
+  "inventory": {
+    "renderingRoutines": 251,
+    "floatingIncrementExpressions": 0,
+    "nonstackUndefined8RawSliceExpressions": 0,
+    "compoundAssignments": 0
+  },
+  "conclusions": [
+    "The recursive floating inference selects floating arithmetic without changing the separately preserved baseline pointer scaling rules.",
+    "The shifted lVar15 binary64 construction, CONCAT word views, partial DWORD accesses and pointer writes retain the existing storage interpretation.",
+    "The global raw-word branch reads r32 directly before floating inference; mutable F64 globals retain their original DWORD access and failure behavior.",
+    "Normal PC53 Number arithmetic and exact-zero cases preserve extended arithmetic results; retained m80, subnormal and overflowing intermediates use Float80 fallback.",
+    "Integer-to-floating conversions, FP-to-I32/I64 truncation, explicit F64 spill/reload and returned/dependency/direct-host floating argument representations retain the existing boundaries.",
+    "The private scalar pass proves complete fixed-width disjoint slots, rejects escaping addresses and observed store return values, and preserves undefined/semantic identities plus deferred nonfinite load errors.",
+    "The mode guard checks callback-property existence and the own numberRendering descriptor without invoking accessor getters. Other precision modes and retained/custom callbacks preserve the baseline function path.",
+    "Camera projection 43ea10 is excluded from broad Number dispatch so the existing specialized projection path remains available."
+  ],
+  "resolvedFindings": [
+    {
+      "issue": "Dispatch read an optional numberRendering accessor and could throw before original work.",
+      "resolution": "Inspect the own descriptor and conservatively fall back for accessors or inherited mode fields."
+    },
+    {
+      "issue": "Broadening could route 43ea10 around its specialized projection path.",
+      "resolution": "Exclude 43ea10 from general Number generation."
+    },
+    {
+      "issue": "A global raw DWORD view loaded an entire F64 value and boxed it before word extraction.",
+      "resolution": "Preserve the baseline global-ID r32 branch before floating inference."
+    },
+    {
+      "issue": "The new raw F64 loader prioritized a mixed frame pointer before its events/DC semantic shape.",
+      "resolution": "Conservatively forward shapes with events or dc properties to the original pointer dispatch before the frame fast path; exclude those shapes from CONCAT fusion. Added regression cases pass."
+    }
+  ],
+  "openFindings": [],
+  "limitations": "This review is tied to the pinned source snapshot. Complete unchanged native rendering/state/RNG traces and browser timings are verified independently by the parent and compiler agents; generated JavaScript differential checks are supplementary.",
+  "latestAbiReview": {
+    "findings": [],
+    "sourcePins": {
+      "versions/2010-en/tools/floating_drawing.py": "103d9fda8258634bf326ab400adf6f330cba24298d991ebbfb59335285a3c8e7",
+      "versions/2010-en/tools/optimize_static_locals.py": "a27aa96378c69aff42a5fdc9d7f473b1ee060e81fef7790164f75c5c1ce7443e",
+      "versions/2010-en/src/render/float-values.js": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963",
+      "versions/2010-en/src/render/dependencies.js": "d1c64a4fd2c557a4df6036160304b2325d0c685c6f5e9c409d172efafe5a697d",
+      "versions/2010-en/src/render/typed-c.js": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c",
+      "src/runtime/float80.js": "4bd6531193d2c5b32167352ff188a28e7baa66389ff34ab46aa22c28578940d6",
+      "src/runtime/transcendentals.js": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1",
+      "versions/2010-en/tools/test_floating_drawing.py": "fca7248732170a4557f8a9f5b8e26bd27087d7fdb11ba95e1cee63d6ad891423",
+      "src/runtime/atan.js": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
+    },
+    "inventory": {
+      "eligibleSignaturesChecked": 148,
+      "doubleFloatingFormalsChecked": 66,
+      "nonDoubleF64Formals": 0,
+      "floatingPointerLoadExpressions": 93,
+      "localConcatLoadExpressions": 2
+    },
+    "checks": [
+      "Private calls bind stored F64 images using the original CDC removal and formal-slot indices; unresolved or changed public registrations use the original dispatch.",
+      "Floating actual arguments to integer formals and original-only callbacks remain Float80 values. Only statically declared double formals may use the image ABI; the generator rejects non-double F64-shaped formals.",
+      "Raw Number F64 byte stores are selected after scalar promotion and unwrap exactly the generated fpArgument boundary. Undefined slots and extended Float80 nonfinite spills retain the original deferred load failure.",
+      "Raw F64 loads preserve bounds, unknown bytes, exact-size semantic identity, signed zero and nonfinite errors. Unaligned and unusual offsets retain the DataView fallback.",
+      "Primitive packed words are converted before scratch mutation; supported DWORD pairs reconstruct their original bit image, and unsupported shapes retain cConcat/bitsAsF64 conversions.",
+      "The temporary FP multiplication memo was removed. Mixed Float80/binary64 multiplication now calls multiplyNumber only through its bounded PC53 rounding-cell certificate; ambiguous cells, zeros, unusual operands and other precision modes retain the original arithmetic.",
+      "The 93 floating dereference expressions replace only an exact baseline readPointer(...,8); events/CDC property shapes retain the higher-priority original dispatch. CONCAT fusion requires scale1 pointer expressions and rejects bare address-of-array expressions unless explicitly cast to an integer byte address. The two House pairs have pure declared-I32 indices and adjacent high=P+4/low=P source pointers. Exact4-byte semantic rows at either word start use the original high-word-first path; unrelated rows and exact8-byte rows retain the same raw byte image.",
+      "The compiler supplies fresh dense argument literals to the owned ABI; only that private route removes CDC and normalizes values in place. The public route copies, and fallback callbacks receive the original boxed argument contract. Floating masks cover bits0..31; positions>=32 retain the full index array.",
+      "Private fixed formals replace only constant originalArgs accesses within the first Number function and reject every unrecognized escape. The count equals declared C parameters excluding CDC. Public wrappers retain their rest arrays, and the retained Number byte fallback constructs its argument array lazily with the unchanged image flag. Unused extra arguments are unobserved by the C body.",
+      "Default fpTrig unboxes only an exact binary64 Float80 carrier before using the Number cache. An explicit provider branch runs first and receives the original operand object, including signed zero and all retained m80 bits.",
+      "The direct numeric fpAtan route accepts only finite nonzero binary64 operands within [2^-100,2^100] and runs the same reviewed DD ratio/certification. Explicit, inherited and accessor providers use original boxed argument dispatch; out-of-domain and signed-zero cases retain the original load and exception order."
+    ],
+    "focusedTests": {
+      "passed": 37,
+      "failed": 0,
+      "log": "analysis/browser-performance/double-double-focused.log",
+      "compilerBoundaryTestsReportedByOwner": 3
+    },
+    "integrationReportedByOwner": {
+      "currentNativeFullFrames": 190,
+      "unchangedOriginalByteBodies": 251,
+      "fullTestSuite": {
+        "edition2002": 390,
+        "edition2010": 392,
+        "total": 782
+      },
+      "allPassed": true
+    },
+    "checkedAt": "2026-10-04T14:03:43.408Z"
+  },
+  "snapshotStatus": "The original compiler and ABI source pins below retain their historical reviewed snapshots. Later scoped transforms are covered by currentSourceReviewReceipts.",
+  "currentSourceReviewReceipts": [
+    "versions/2010-en/analysis/browser-performance/projection-output-source-review.json",
+    "versions/2010-en/analysis/browser-performance/partial-scalar-source-review.json",
+    "versions/2010-en/analysis/browser-performance/double-double-review.json",
+    "versions/2010-en/analysis/browser-performance/mixed-multiply-review.json",
+    "versions/2010-en/analysis/browser-performance/number-reduction-review.json"
+  ]
+}

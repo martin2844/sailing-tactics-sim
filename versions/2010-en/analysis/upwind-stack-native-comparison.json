@@ -1,0 +1,134 @@
+{
+  "format": 1,
+  "status": "exact",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "finding": "The original upwind helper loads an uninitialized stack cell for fleets other than two. Both outcomes then return without further stores because ESI != 2. The JavaScript byte-frame check turned this irrelevant original read into a fatal error.",
+  "correction": "Evaluate the fleet == 2 integer guard first. The original stack value is read only on its initialized two-boat path. No default bytes, changed RNG, skipped initialized comparison, or demo/licensing modifications are introduced.",
+  "originalInstructions": [
+    {
+      "address": 4423862,
+      "bytes": "8b442418",
+      "operation": "MOV EAX,[ESP+0x18]"
+    },
+    {
+      "address": 4423868,
+      "bytes": "0f8e2f100000",
+      "operation": "JLE 0x4390f1"
+    },
+    {
+      "address": 4423874,
+      "bytes": "83fe02",
+      "operation": "CMP ESI,2"
+    },
+    {
+      "address": 4423877,
+      "bytes": "0f8526100000",
+      "operation": "JNE 0x4390f1"
+    },
+    {
+      "address": 4423883,
+      "bytes": "891d7c645300",
+      "operation": "MOV [0x53647c],EBX"
+    }
+  ],
+  "beforeFix": {
+    "cases": 279,
+    "exact": 111,
+    "undefinedStackErrors": 168,
+    "otherErrors": []
+  },
+  "afterFix": {
+    "cases": 279,
+    "exact": 279,
+    "undefinedStackErrors": 0,
+    "otherErrors": []
+  },
+  "fixture": {
+    "path": "tests/fixtures/original-upwind-stack.json",
+    "sha256": "c9275a732d5b6640de81aa8db04842a773a3b8dacb52db3e24ba9cf968d98e43",
+    "nativeCalls": 279,
+    "nativeAuthority": {
+      "engine": "Original x86 code under Wine; no text edits",
+      "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+      "x87ControlWord": "0x027f",
+      "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+      "runnerSourceFiles": [
+        {
+          "path": "versions/2010-en/tools/native_reference.c",
+          "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+        },
+        {
+          "path": "versions/2010-en/tools/native_gdi_trace.h",
+          "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+        },
+        {
+          "path": "versions/2010-en/tools/native_controller_trace.h",
+          "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+        },
+        {
+          "path": "versions/2010-en/tools/native_controller_table.h",
+          "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+        }
+      ],
+      "runnerSha256": "f8eb616397cf1fc015493ff00bdcc1f9219fa68badf0c11a899b77aa3eacec40",
+      "compilerFlags": [
+        "-B/tmp/tact-native-toolchain-y0i06lp2/",
+        "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+        "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+        "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-mfpmath=387",
+        "-static",
+        "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+      ],
+      "loadedOriginalTextUnchanged": true,
+      "originalFileUnchanged": true,
+      "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+    }
+  },
+  "sources": [
+    {
+      "path": "src/engine/ai-functions.js",
+      "sha256": "8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829"
+    },
+    {
+      "path": "tools/translate_ai.py",
+      "sha256": "a2620e50739eb1ea21cbbc9f5070d41f50c918d641e9513e31708fbd0e6e4056"
+    },
+    {
+      "path": "tools/prepare-upwind-stack-inputs.js",
+      "sha256": "845de36e88fcbedc9a7362c9ec7febb07ad4d1d7bf2a6c0341b921588a77cb1d"
+    },
+    {
+      "path": "tests/upwind-stack.test.js",
+      "sha256": "88bc5ae39d781e60270143a3c489e86f8660c7a8800b4cbdb455e89708a492b0"
+    }
+  ],
+  "scope": "279 finite calls from unchanged native code compare all mutable image bytes and retained RNG; fleet2/3/5/10/15/20/25/30, AI levels1/10, distance100/101/500 and initialized positive/zero/negative two-boat projection controls. This proof concerns the reported dead stack read rather than arbitrary Windows stack contents.",
+  "expectedFilesChanged": false,
+  "regression": {
+    "command": "node --test versions/2010-en/tests/ai.test.js versions/2010-en/tests/ai-geometry.test.js versions/2010-en/tests/board-turn.test.js versions/2010-en/tests/upwind-stack.test.js",
+    "tests": 39,
+    "passed": 39,
+    "failed": 0,
+    "durationMs": 13260.987539,
+    "log": "analysis/upwind-stack-regression.log"
+  },
+  "archiveValidation": {
+    "scope": "Fresh isolated directory restored only the two new archives through the production atomic hard-link restorer, then independently verified both existing canonical files",
+    "first": {
+      "restored": 2,
+      "skipped": 0,
+      "bytes": 260409492
+    },
+    "second": {
+      "restored": 0,
+      "skipped": 2,
+      "bytes": 260409492
+    }
+  }
+}

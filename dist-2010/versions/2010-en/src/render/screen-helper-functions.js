@@ -8,6 +8,13 @@ import { scalarRead,scalarReadArgument,scalarStoreI32,scalarStoreF64 } from './s
 import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cString,
   pointerAdd,localPointer,readPointer,writePointer,writeLocalPoint,stockObject,dcMethod,selectGdiObject,selectOriginalGdiObject,importDrawingMethod,originalPoints,clipRegion,textOutCount,originalTrig,cStringHeaderLength,signedBorrow32,
   cF64,cAbs,createLocalFrame,framePointer,readLocal,readLocalArgument,cWordArgument,writeLocal,originalAtan,cConcat,bitsAsF64,cRawWord,cRawSlice,invokeDrawingPointer } from './typed-c.js';
+import { fpDrawingEnabled,fpLoad,fpBox,fpArgument,fpFromInteger,fpStoreF64,fpFormalF64,fpTrig,fpAtan,fpScalarStoreF64,fpScalarRead,fpScalarReadArgument,fpToNumber,fpAdd,fpSub,fpMul,fpDiv,fpNeg,fpAbs,fpCompare,fpTruth,fpI32,fpI64 } from './float-values.js';
+import { readLocalFloatNumber,wordsAsF64Number,writeLocalFloatNumber,readPointerFloatNumber,readLocalFloatWordsNumber } from './typed-c.js';
+import { callNumberDrawingDependencyOwned,registerOriginalNumberDrawing } from './dependencies.js';
+import { tryProjectScenePointOutputFast } from './projection-output-fast.js';
+import { tryProjectChartPointFast } from './chart-projection-fast.js';
+import {tryProjectChartPointOutputFast} from './chart-output-fast.js';
+import {originalNumberDrawingIsCurrent} from './dependencies.js';
 
 export const SCREEN_HELPER_ROUTINES = Object.freeze({"originalDrawMajorOptions": 4278512, "originalDrawVenueOptions": 4771664, "originalDrawCircle": 4405872});
 

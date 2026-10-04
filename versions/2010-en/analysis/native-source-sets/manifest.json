@@ -365,6 +365,51 @@
       }
     },
     {
+      "sourceBundleSha256": "fc35ccffed79ced4dc84582110e9e99dd153e945bb83fc4e30b16e9292710d03",
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "02ed67ddafac4d38f18ef687a2c6f606e53913f69c186a83fc75a73c793fb48a",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-dic04sby/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
       "sourceBundleSha256": "d76c9a3c16095f72a598fd76c4b0b4c4cbc0165fe95fed92c96a318790bf1969",
       "provenance": {
         "engine": "Original x86 code under Wine; no text edits",
@@ -679,6 +724,53 @@
         "loadedOriginalTextUnchanged": true,
         "originalFileUnchanged": true,
         "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "sourceBundleSha256": "fc35ccffed79ced4dc84582110e9e99dd153e945bb83fc4e30b16e9292710d03",
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "1b1b568d32aa7e8db5f8dea60afb3eeac7331bc71379bf4569bdac474863ff61",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-0wlbeju6/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host."
       }
     },
     {
@@ -1354,6 +1446,53 @@
         "loadedOriginalTextUnchanged": true,
         "originalFileUnchanged": true,
         "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "sourceBundleSha256": "fc35ccffed79ced4dc84582110e9e99dd153e945bb83fc4e30b16e9292710d03",
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "4c593f92306a92e9ec2a264662ba493d40bdde03d5353241bb29b9d948c3167a",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-8zb5tqqd/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host."
       }
     },
     {
@@ -2561,6 +2700,53 @@
       }
     },
     {
+      "sourceBundleSha256": "fc35ccffed79ced4dc84582110e9e99dd153e945bb83fc4e30b16e9292710d03",
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "9ccde4b2e2936384b99fac1202148d2c9f55193143694f96d8fdca8e94e63f1e",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-kggai_3r/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host."
+      }
+    },
+    {
       "sourceBundleSha256": "21337b29cf046179675ea4c5eaf52bfd1052cba12ac0c94cf477b29210daed6b",
       "provenance": {
         "engine": "Original x86 code under Wine; no text edits",
@@ -3285,6 +3471,53 @@
       }
     },
     {
+      "sourceBundleSha256": "fc35ccffed79ced4dc84582110e9e99dd153e945bb83fc4e30b16e9292710d03",
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "db61e411ca36ea38d2a8106fbea298aad7a40b22220f2ea4c43ca4ab58aeaf37",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-5i5ryxug/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff",
+        "hostBindings": "One retained original data/RNG/CRT/global-CString lifetime. Fixed original controller handlers use owned window/vtable/MFC TLS bindings restored before state hashing. Full frames execute actual numerical and rendering children with declared unit tick/cursor/menu/pixel inputs.",
+        "limitations": "Finite retained profiles; explicitly recorded original paint-caller phase. Full Windows paint allocation/window lifetime is outside this bounded host."
+      }
+    },
+    {
       "sourceBundleSha256": "d76c9a3c16095f72a598fd76c4b0b4c4cbc0165fe95fed92c96a318790bf1969",
       "provenance": {
         "engine": "Original x86 code under Wine; no text edits",
@@ -3627,6 +3860,51 @@
         "runnerSha256": "f7f3e7daaae02edb39a925f2dd9bd895bb85023e891c5334c8761c9d167acd16",
         "compilerFlags": [
           "-B/tmp/tact-native-toolchain-ywe46jz3/",
+          "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
+          "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
+          "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",
+          "-std=c11",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-mfpmath=387",
+          "-static",
+          "-Wl,--image-base,0x300000,--disable-dynamicbase,--section-start,.tact_original=0x400000"
+        ],
+        "loadedOriginalTextUnchanged": true,
+        "originalFileUnchanged": true,
+        "mutableBaselineSha256": "64422a0371161088736bb065dfa6bd58edfb76082e7cac58cd82bc26305808ff"
+      }
+    },
+    {
+      "sourceBundleSha256": "fc35ccffed79ced4dc84582110e9e99dd153e945bb83fc4e30b16e9292710d03",
+      "provenance": {
+        "engine": "Original x86 code under Wine; no text edits",
+        "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+        "x87ControlWord": "0x027f",
+        "runnerSourceSha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083",
+        "runnerSourceFiles": [
+          {
+            "path": "versions/2010-en/tools/native_reference.c",
+            "sha256": "d00bbfe98904784e5a5535a47fe8621516fc08d85f72e424466acde7a83e9083"
+          },
+          {
+            "path": "versions/2010-en/tools/native_gdi_trace.h",
+            "sha256": "20e0c88e979c944facbac282e822a01f2e3bdbcce9b7d2c63608ada2447ef2a3"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_trace.h",
+            "sha256": "a65f3a4a34a0bd10ba940a65436d7d775e56699926ac545d1b40a94fe2b0f018"
+          },
+          {
+            "path": "versions/2010-en/tools/native_controller_table.h",
+            "sha256": "dce88cb46e30c2fd246b3f76afee5cca057abf03ad2bbebb68a4cabe86106da4"
+          }
+        ],
+        "runnerSha256": "f8eb616397cf1fc015493ff00bdcc1f9219fa68badf0c11a899b77aa3eacec40",
+        "compilerFlags": [
+          "-B/tmp/tact-native-toolchain-y0i06lp2/",
           "-B/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib/",
           "-L/nix/store/rhyxb4b7x1hl82hkbw1hhryrv4gv7smh-mingw-w64-i686-w64-mingw32-13.0.0/lib",
           "-L/nix/store/j1nwryg9bjqxyjaqqq6d1wnfnj0bz671-mcfgthread-i686-w64-mingw32-2.3.2/lib",

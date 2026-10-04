@@ -1,6 +1,6 @@
 {
   "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
-  "checkedAt": "2026-10-04T08:11:14.557Z",
+  "checkedAt": "2026-10-04T16:48:37.583Z",
   "passed": true,
   "checks": [
     {
@@ -80,11 +80,11 @@
       "state": {
         "mode": 0,
         "app": 2,
-        "frames": 9,
+        "frames": 11,
         "error": null,
         "fleet": 2,
         "selector": 12,
-        "time": -170.378969270431,
+        "time": -170.31845390564652,
         "clock": -170,
         "demoScreen": 0,
         "sessionCount": 0,
@@ -102,7 +102,7 @@
       "state": {
         "mode": 0,
         "app": 2,
-        "frames": 26,
+        "frames": 31,
         "error": null,
         "fleet": 2,
         "selector": 12,
@@ -143,48 +143,48 @@
     },
     {
       "name": "Browser runs native JavaScript and data with no EXE/proof requests",
-      "requests": 198
+      "requests": 214
     }
   ],
   "performance": [
     {
       "before": {
-        "frames": 11,
+        "frames": 16,
         "time": 261.56051536478446,
         "clock": 261
       },
-      "elapsedMs": 272.79999999701977,
+      "elapsedMs": 72.30000001192093,
       "counts": {
-        "events": 5919,
-        "eventMs": 7.199999988079071,
-        "getPixel": 10,
-        "getPixelMs": 1.9000000059604645,
+        "events": 2908,
+        "eventMs": 5.299999997019768,
+        "getPixel": 4,
+        "getPixelMs": 3.0999999940395355,
         "textCalls": 36,
-        "glyphs": 279
+        "glyphs": 277
       },
       "after": {
-        "frames": 12,
+        "frames": 17,
         "time": 261.62103072956893,
         "clock": 261
       }
     },
     {
       "before": {
-        "frames": 17,
+        "frames": 22,
         "time": 261.92360755349125,
         "clock": 261
       },
-      "elapsedMs": 198.70000000298023,
+      "elapsedMs": 51.900000005960464,
       "counts": {
-        "events": 6097,
-        "eventMs": 3.800000011920929,
-        "getPixel": 10,
-        "getPixelMs": 2.7999999970197678,
+        "events": 2363,
+        "eventMs": 6.700000092387199,
+        "getPixel": 4,
+        "getPixelMs": 3.1000000089406967,
         "textCalls": 36,
-        "glyphs": 279
+        "glyphs": 274
       },
       "after": {
-        "frames": 18,
+        "frames": 23,
         "time": 261.9841229182757,
         "clock": 261
       }

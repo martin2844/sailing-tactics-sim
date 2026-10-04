@@ -42,12 +42,15 @@ def run(command):
 
 def main():
     generation = json.loads((EDITION / 'analysis/scalar-stack-generation.json').read_text())
+    numeric = json.loads((EDITION / 'analysis/floating-drawing-generation.json').read_text())
     modules = []
     for filename, rows in generation['modules'].items():
         path = 'versions/2010-en/src/render/' + filename
         original = functions(run(['git', 'show', REFERENCE + ':' + path]))
         source = (ROOT / path).read_text()
         current = functions(source)
+        numeric_rows = {row['function']: row for row in numeric['modules'][filename]}
+        fallback_names = []
         for row in rows:
             name = row['function']
             expected = original[name]
@@ -60,11 +63,19 @@ def main():
                     f"createLocalFrame({row['frameBytes']},retainedLocalBytes)")
                 actual = current[name + 'ByteFrame']
             else:
-                actual = current[name]
+                fallback_name = name + 'Original' if numeric_rows[name]['eligible'] else name
+                if fallback_name != name:
+                    expected = expected.replace(
+                        f'export function {name}(memory, dc, rng, options = {{}}, ...originalArgs)',
+                        f'function {fallback_name}(memory, dc, rng, options = {{}}, ...originalArgs)', 1)
+                actual = current[fallback_name]
+                fallback_names.append(fallback_name)
             if expected != actual:
                 raise AssertionError(f'Byte-frame source changed: {path}:{name}')
         modules.append({'module': filename, 'routines': len(rows),
                         'promoted': sum(row['eligible'] for row in rows),
+                        'numberVariants': sum(row['eligible'] for row in numeric_rows.values()),
+                        'unpromotedFallbackNames': fallback_names,
                         'sha256': hashlib.sha256(source.encode()).hexdigest()})
 
     python_command = [sys.executable, 'versions/2010-en/tools/test_optimize_static_locals.py']
@@ -86,7 +97,7 @@ def main():
     pins = [EDITION / name for name in ['tools/optimize_static_locals.py',
             'src/render/scalar-stack.js', 'tools/translate_drawing.py',
             'tools/translate_drawing_closure.py', 'tools/test_optimize_static_locals.py',
-            'tools/diagnostics/check-scalar-stack.py', 'tests/scalar-stack.test.js',
+            'tools/diagnostics/check-scalar-stack.py', 'tools/floating_drawing.py', 'tests/scalar-stack.test.js',
             'tests/scalar-drawing.test.js']]
     report = {
         'format': 1,
@@ -94,6 +105,7 @@ def main():
         'referenceCommit': REFERENCE,
         'byteFrameFunctionsExactlyPreserved': sum(row['routines'] for row in modules),
         'eligibleFunctions': generation['eligibleFunctions'], 'modules': modules,
+        'numberVariantsWithOriginalByteFallback': numeric['eligibleFunctions'],
         'generatorBoundaryTests': {'command': ' '.join(python_command), 'passed': python_tests,
                                    'explicitRejectedCases': 15},
         'nodeFocusedChecks': {'command': ' '.join(node_command), 'tests': node_summary['tests'],

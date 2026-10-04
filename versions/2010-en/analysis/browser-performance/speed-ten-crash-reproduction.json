@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T10:40:32.536Z",
+  "oldCommit": "15fd6accd0eb2f191d18bd1d9f8a310c68660839",
+  "oldAiSourceSha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "fixture": "tests/fixtures/original-retained-speed-ten-long-frames.json",
+  "matchedNativeFramesBeforeFailure": 40,
+  "failure": {
+    "case": 41,
+    "phase": "frame",
+    "frame": 40,
+    "boat": 2,
+    "name": "RangeError",
+    "message": "Original C reads an undefined retained local byte",
+    "clock": 52,
+    "preciseTime": 52.672573508420925,
+    "speed": 15,
+    "divisor": 10,
+    "fleet": 20,
+    "engaged": 1,
+    "targetDistance": 976
+  },
+  "scope": "Diagnostic replay of the same retained original native input/state expectations using the previous published AI module. Imports point to current exact numeric helpers; production files and native expectations are unchanged. Prior frames retain complete native mutable-state/RNG hashes. This identifies an original gameplay trigger for the decompiler conjunction ordering defect."
+}

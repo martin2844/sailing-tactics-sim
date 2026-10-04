@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T16:54:21.337Z",
+  "scope": "Reviewed private I32 shoreline slots only; all aliased buffers and slot264 retain byte storage. No arithmetic or control-flow restructuring.",
+  "sourceSha256": {
+    "versions/2010-en/tools/optimize_static_locals.py": "c0c7fc3e514cb060403ff8cb5143329ec6f327b796e02a488eb548784d8af4f5",
+    "versions/2010-en/tools/optimize_shore_private_locals.py": "204106a146e42315c5a98d3cc39519fba5a082d93ad61c86461b28cc1f6f4c45",
+    "versions/2010-en/tools/floating_drawing.py": "e532409fd141fe6bdc53ac5e69f8fcb004dbc3ea10c706b3f76017b2f8763e96",
+    "versions/2010-en/tests/shore-scalar-generator.py": "f20651d12cc6ecd81be3c0ca6f56451fd674fc464949c6c56a1a73f0f06580bc",
+    "versions/2010-en/tests/shore-scalar-generator.test.js": "e536bc60991e50e2f0259af3ed07cd89ac88ff6ed7ca96c67b84fa6223544445",
+    "versions/2010-en/tests/shore-scalar-runtime.test.js": "b6d3272d5c133fbd077cab9fb6629c66037aa40515c2b3fd89e0e45a28efa8a1",
+    "versions/2010-en/src/render/typed-c.js": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c",
+    "versions/2010-en/src/render/scalar-stack.js": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90",
+    "versions/2010-en/src/render/float-values.js": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963",
+    "versions/2010-en/src/render/drawing-functions.js": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38",
+    "versions/2010-en/analysis/floating-drawing-generation.json": "95c68b5e6d3ebf3ee5d3f348ea826e055045342c26fceeda0483ba7dd632c41d",
+    "versions/2010-en/tests/fixtures/original-initialized-venue-render.json": "a7d3dd559ee55fd6642c499cc352e12751c9939076cbb6a04208d2f3b5c64b2c",
+    "versions/2010-en/analysis/drawing-corrections/0047ed40.c": "11fa726a8b2b72a39b4346144c1bb413f67081c5286490332b6ea101ea4cb5bb",
+    "tools/python-command.js": "25f9997ca4b72d26fdf43dd5c171111f118a0ab606f2c212db3d5dab6391c64b"
+  },
+  "originalExeSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "promotion": {
+    "address": 4713792,
+    "function": "originalDrawing0047ed40",
+    "eligible": true,
+    "floatingOperations": 10,
+    "reasons": [],
+    "scalarLocals": true,
+    "scalarMode": "partial",
+    "slots": [
+      {
+        "offset": 0,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 4,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 8,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 256,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 260,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 268,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 272,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 276,
+        "size": 4,
+        "kind": "int"
+      },
+      {
+        "offset": 280,
+        "size": 4,
+        "kind": "int"
+      }
+    ],
+    "retainedByteRanges": [
+      {
+        "start": 264,
+        "end": 268
+      },
+      {
+        "start": 300,
+        "end": 920
+      }
+    ],
+    "induction": {
+      "writeIndices": [
+        1,
+        72
+      ],
+      "readIndices": [
+        1,
+        71
+      ],
+      "readSteps": [
+        1,
+        2
+      ]
+    },
+    "scalarAccesses": 326,
+    "pointerCalleeSha256": {
+      "cI32": "4945bf329b40ed09201c3fa21715c841332f779f9af6e9adbb9a1678fe47817d",
+      "pointerAdd": "e96b44a00909aedecc8ab99415f3daf5094e226c152cb16179560fb463304a3a",
+      "cAdd": "bfe75acd8a09a6ea7122a8aefd4257d4fca5159a8e9943f6e5b4ee69659e9f43",
+      "readPointer": "8ad9a3edfbd091ed525db01a6a4c1be58da192eccb7851b5234fccbb0d8e7d88",
+      "writePointer": "42df05c07af66352861d80502c7c42efde3b65d46703be0a4b3f74411756e4bf",
+      "writeLocalPoint": "525c13dadfd6bc58b16771af21d749ef8503a83809a0dc02d4abc4be1e48da99"
+    },
+    "floatingByteStoreExpressions": 0,
+    "floatingPointerLoadExpressions": 3,
+    "localConcatLoadExpressions": 0,
+    "floatingParameters": [],
+    "fixedNumberArguments": 2,
+    "certifiedProjectionOutput": false,
+    "exactChartProjection": false
+  },
+  "reviewFinding": {
+    "status": "fixed before production generation",
+    "trigger": "Additional counter264=-16 at case261 or step276=-100 at case265 after pinned initializers",
+    "wrongOutcome": "An unproved negative array index could reach promoted prefix slots while generator still accepted promotion",
+    "fix": "Require the complete ordered ledger of 17 induction-field stores across the entire function lifetime",
+    "regressions": [
+      "case261 counter264",
+      "case265 step276",
+      "case428 pointer268",
+      "case426 counter260"
+    ]
+  },
+  "validation": {
+    "generator": {
+      "pythonTests": 9,
+      "nodeTests": 2,
+      "passed": true
+    },
+    "runtimeDifferential": {
+      "profiles": 4,
+      "featuresPerProfile": 12,
+      "comparisons": 48,
+      "executions": 96,
+      "passed": true,
+      "compared": [
+        "entire mapped image",
+        "ordered GDI requests",
+        "RNG state",
+        "returned value",
+        "error type and message"
+      ],
+      "basis": "Hash-checked existing native scene input images; current promoted Number function versus original byte function",
+      "limitations": "No new isolated native output capture; native full-frame replay is recorded separately",
+      "log": "shore-scalar-runtime.log",
+      "logSha256": "01f745c092a150ce8c1e66b7360d00d9cab72be548cd12f75fe8420c0225b2c5"
+    },
+    "commands": [
+      "node --test versions/2010-en/tests/shore-scalar-generator.test.js",
+      "node --test versions/2010-en/tests/shore-scalar-runtime.test.js"
+    ]
+  },
+  "note": "shore-scalar-source-review.md"
+}

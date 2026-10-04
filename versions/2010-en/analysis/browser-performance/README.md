@@ -1,45 +1,96 @@
-# 2010 performance update
+# 2010 crash and performance update
 
-The final 20-boat headless Chrome comparison against commit `fb856db` reduced
-mean paint time from **862 ms to 181 ms**, about **4.8× faster**. Measured frame
-rate increased from **1.15 to 5.40 FPS**. The original Round Lake, Keelboat,
-Windward course, simulation and drawing remain enabled. Additional actual
-2-boat and 30-boat runs completed in full mode without browser exceptions.
-Short samples include startup/JIT effects; scene phase and CPU/browser costs
-vary, and heavy scenes still have limited frame rates.
+The reported default-fleet crash is fixed. The translated AI used to read an
+undefined private stack cell before checking whether the fleet had two boats.
+For every other fleet that value cannot affect the native result. The generator
+now checks the fleet first and retains the original comparison for two boats.
+[The native comparison](../upwind-stack-native-comparison.json) covers 279 calls:
+the previous implementation failed 168 of them; the corrected implementation
+matches every mutable byte and the random state in all 279.
 
-[verification.json](verification.json) pins the final production modules,
-test/browser receipts and both browser ZIPs. The `.cpuprofile` files accompany
-the four final timing reports. Reproduce a measurement with a server running:
+The default 20-boat speed-10 startup sample improved from **5.00 to 22.01 FPS**,
+with mean paint time reduced from **195.87 to 44.47 ms** (about **4.4× faster**).
+After advancing through the original menus to simulation clock 100, the final
+build measured **28.50 FPS**; a later sample past clock 320 measured **29.60 FPS**.
+The rebuilt standalone download measured **28.96 FPS** after clock 100.
+Each sample contains 120 actual continuous frames in headless Chrome, with the
+original boat, venue, fleet, drawing and physics. Host load, compilation and
+scene phase affect these results; they are not a universal frame-rate promise.
+
+The supplied 2010 data retains its original **full-mode value 0**. The actual
+later run reached clock 354 without an error or demo interruption. No demo flag,
+executable bytes, simulation time step, AI frequency, fleet size or scene detail
+was patched to obtain these results.
+
+[verification.json](verification.json) pins the final source modules, test and
+browser receipts, timing samples, and both rebuilt browser ZIPs. Individual
+review reports retain the hashes of the snapshot they examined. Earlier
+profiles and the previous publication reports remain historical evidence.
+
+## What changed
+
+The 2010 translation incurred much more floating-point and local-stack overhead
+than the 2002 port. Typed drawing calls now keep exact binary64 values where
+PC53 arithmetic allows it. Bounded double-double calculations and square-root
+rounding certificates avoid expensive extended arithmetic for common inputs.
+Perspective and chart windows can certify their final integer coordinates;
+uncertain cases still execute the complete original path.
+
+The generator promotes only proved private scalar cells and four bounded
+18-cell water arrays. Aliased point buffers remain bytes. All **251 original
+byte-frame bodies** remain unchanged. The shoreline pass preserves its
+observable point/array overlap and verifies the complete lifetime of its index
+counters before promoting private cells.
+
+The browser batches tiny adjacent pixel reads on the private frame surface,
+invalidating the cache on every intervening drawing event. Frames requested
+immediately use message tasks, avoiding the browser's nested-timer delay.
+Positive simulation delays, controls, modal pauses and freezing retain their
+original behavior.
+
+## Verification and review
+
+The shared/2002 suite passed **397 tests**. The complete 2010 suite passed
+**423 tests**, followed by **four additional shoreline tests** added during the
+review. Source and standalone 2010 players each passed **119 browser checks**
+and **seven full-version checks**. Both the source and rebuilt 2002 player
+passed their **ten browser checks**.
+
+The native regression includes **150 additional distinct complete frames**
+(**190 executions** including original-backend comparisons), bringing the
+preserved complete-frame collection to **588**. It checks mutable state,
+random state, text, sounds and ordered GDI requests. The shared arithmetic
+verification also includes **82,095 differential operations** and **9,059 native
+PC53 cases**. These comparisons do not claim identical Canvas/Windows GDI
+rasterization or universal behavior outside the documented finite domains.
+
+No unresolved review findings remain. The final review found and fixed a chart
+reference coordinate being narrowed before a later I64 division, a generator
+guard accepting extra preheader counter writes, and machine-local Python paths
+in new regression tests. The chart fallback, counter-store ledger and portable
+interpreter selection now have focused verification.
+
+See the [projection bounds](projection-output-bounds.md),
+[projection/CFG review](projection-output-source-review.json),
+[shoreline review](shore-scalar-source-review.md),
+[pixel-cache review](gdi-pixel-cache-source-review.json), and
+[scheduler review](paint-scheduler-source-review.json).
+
+## Reproduce timings
+
+With the source server running on port 8765:
 
 ```sh
-node tools/profile-2010-browser.js current
-TACT_PROFILE_FLEET=30 node tools/profile-2010-browser.js current-thirty
+TACT_PACE_DEFAULT=1 node tools/diagnostics/measure-2010-pace.mjs local-startup
+TACT_PACE_DEFAULT=1 TACT_PACE_STARTED=1 node tools/diagnostics/measure-2010-pace.mjs local-racing
+TACT_PACE_DEFAULT=1 TACT_PACE_STARTED=1 TACT_PACE_CLOCK=320 node tools/diagnostics/measure-2010-pace.mjs local-later-race
 ```
 
-The update uses exact binary64 carriers only where the x87 PC53 result is
-proved representable, with extended arithmetic for other cases. Square-root
-candidates require an exact integer rounding certificate. Smaller
-trigonometric series require matching m80 rounding of both endpoints of a
-conservative error enclosure; ambiguous cases use the original 224-bit series.
-Caches remain bounded and preserve every relevant input bit and signed zero.
-
-The generator promotes 113 private, nonoverlapping stack layouts to scalar
-variables. Escaping/aliased layouts and explicit retained bytes use the complete
-byte frame. All 251 original byte-frame bodies remain preserved. The player
-also reuses its reset drawing surface and omits unused diagnostic event arrays.
-
-Final validation passed **379 tests for 2002 and 354 for 2010**, including
-**438 retained 2010 full frames** with exact state, random state, text, sounds
-and ordered GDI requests. Source and standalone players each passed 119 browser
-checks and seven full-version checks. The shared runtime also passed the ten
-2002 player checks. Original native expectations and executable bytes are
-unchanged. Existing limits on Canvas rasterization and universal x87 identity
-remain as documented in the edition README.
-
-The independent [numerical review](numerical-review.md) and
-[trigonometric/scalar review](transcendental-scalar-review.md) have no unresolved
-findings. They found and fixed byte-array replacement caching, nonsemantic I32
-coercion, and premature errors when an extended value spills to infinity but is
-overwritten before being loaded. The earlier port-release reports are historical
-evidence; this directory contains the current optimization verification.
+`TACT_PACE_STARTED` uses the original speed-15 menu to advance actual game
+frames, then selects speed 10 for measurement. It does not inject the clock.
+Each report records the loaded module hashes, setup, host CPU load, frame
+durations, game clock and browser exceptions. Run one timing browser at a time.
+The 2002 comparison measured **71.01 FPS**, so it remains faster. It uses its
+own original 600-unit course and time-step
+constants; the default 2010 course is 2000 units, so their speeds are not an
+identical-scenario benchmark.

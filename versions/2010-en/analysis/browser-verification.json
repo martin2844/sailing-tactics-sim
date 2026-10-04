@@ -1,6 +1,6 @@
 {
   "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
-  "checkedAt": "2026-10-04T08:13:49.087Z",
+  "checkedAt": "2026-10-04T16:47:46.633Z",
   "passed": true,
   "checks": [
     {
@@ -46,7 +46,7 @@
       },
       "after": {
         "ready": true,
-        "frames": 7,
+        "frames": 8,
         "error": null,
         "app": 2,
         "view": 2,
@@ -67,7 +67,7 @@
     {
       "name": "original Space starts a continuously advancing race",
       "ready": true,
-      "frames": 16,
+      "frames": 19,
       "error": null,
       "app": 2,
       "view": 2,
@@ -79,7 +79,7 @@
       "current": 0,
       "tide": 0,
       "otherOverlay": 0,
-      "time": -169.95536171693956,
+      "time": -169.83433098737058,
       "clock": -169,
       "selector": 12,
       "humans": 1
@@ -87,7 +87,7 @@
     {
       "name": "keyboard controls tutorial",
       "ready": true,
-      "frames": 19,
+      "frames": 26,
       "error": null,
       "app": 2,
       "view": 2,
@@ -99,7 +99,7 @@
       "current": 0,
       "tide": 0,
       "otherOverlay": 0,
-      "time": -169.83433098737058,
+      "time": -169.47123879866362,
       "clock": -169,
       "selector": 12,
       "humans": 1
@@ -115,8 +115,8 @@
     },
     {
       "name": "original About dialog pauses and resumes the active race",
-      "before": -169,
-      "after": -169
+      "before": -168,
+      "after": -168
     },
     {
       "name": "original boat command 33104 renders selector 25",
@@ -492,8 +492,8 @@
     },
     {
       "name": "original Board selection starts and advances a live sailboard fleet",
-      "beforeTime": -170.5,
-      "afterTime": -170.37800392882625,
+      "beforeTime": -170.41866928588416,
+      "afterTime": -170.17467714353666,
       "passed": true
     },
     {
@@ -663,7 +663,7 @@
     },
     {
       "name": "production uses browser JavaScript and data with no EXE or proof fixture requests",
-      "requests": 199,
+      "requests": 215,
       "passed": true
     }
   ],

@@ -1,0 +1,3276 @@
+{
+  "format": 1,
+  "scope": "Static C floating type inference with certified Number/Float80 arithmetic. Integer and pointer operations retain original helpers. Full original function bodies remain the guarded fallback; external floating arguments and packed words retain Float80 representation.",
+  "modules": {
+    "drawing-functions.js": [
+      {
+        "address": 4215584,
+        "function": "originalDrawScene",
+        "eligible": true,
+        "floatingOperations": 8,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4219504,
+        "function": "originalDrawing00406270",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 1,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4227056,
+        "function": "originalDrawChart",
+        "eligible": true,
+        "floatingOperations": 168,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 63,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4236992,
+        "function": "originalDrawing0040a6c0",
+        "eligible": true,
+        "floatingOperations": 22,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4238000,
+        "function": "originalDrawing0040aab0",
+        "eligible": true,
+        "floatingOperations": 22,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4238640,
+        "function": "originalDrawing0040ad30",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4239664,
+        "function": "originalDrawing0040b130",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4241696,
+        "function": "originalDrawing0040b920",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4256320,
+        "function": "originalDrawSailingHud",
+        "eligible": true,
+        "floatingOperations": 33,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 14,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4242368,
+        "function": "originalDrawing0040bbc0",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4245888,
+        "function": "originalDrawing0040c980",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4266160,
+        "function": "originalDrawing004118b0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4271408,
+        "function": "originalDrawCompactHud",
+        "eligible": true,
+        "floatingOperations": 18,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 6,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4253408,
+        "function": "originalDrawing0040e6e0",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4250464,
+        "function": "originalDrawing0040db60",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4291232,
+        "function": "originalDrawBoat",
+        "eligible": true,
+        "floatingOperations": 202,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 29,
+        "floatingPointerLoadExpressions": 19,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4300000,
+        "function": "originalDrawing00419ce0",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4302304,
+        "function": "originalDrawing0041a5e0",
+        "eligible": true,
+        "floatingOperations": 177,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0,
+          1
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4304048,
+        "function": "originalDrawing0041acb0",
+        "eligible": true,
+        "floatingOperations": 20,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0,
+          1
+        ],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4304672,
+        "function": "originalDrawing0041af20",
+        "eligible": true,
+        "floatingOperations": 136,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 24,
+        "floatingPointerLoadExpressions": 1,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4307232,
+        "function": "originalDrawing0041b920",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 5,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 1,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4307312,
+        "function": "originalDrawing0041b970",
+        "eligible": true,
+        "floatingOperations": 27,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 6,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "fixedNumberArguments": 9,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4308032,
+        "function": "originalDrawing0041bc40",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0
+        ],
+        "fixedNumberArguments": 1,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4312704,
+        "function": "originalDrawing0041ce80",
+        "eligible": true,
+        "floatingOperations": 29,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 8,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1,
+          3
+        ],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4316016,
+        "function": "originalDrawing0041db70",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4316368,
+        "function": "originalDrawing0041dcd0",
+        "eligible": true,
+        "floatingOperations": 32,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          5
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4317344,
+        "function": "originalDrawing0041e0a0",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4317728,
+        "function": "originalDrawing0041e220",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4318112,
+        "function": "originalDrawing0041e3a0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4318144,
+        "function": "originalDrawing0041e3c0",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4319056,
+        "function": "originalDrawing0041e750",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4319984,
+        "function": "originalDrawing0041eaf0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4320656,
+        "function": "originalDrawing0041ed90",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4322592,
+        "function": "originalDrawing0041f520",
+        "eligible": true,
+        "floatingOperations": 10,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4324976,
+        "function": "originalDrawing0041fe70",
+        "eligible": true,
+        "floatingOperations": 21,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 9,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          2,
+          6
+        ],
+        "fixedNumberArguments": 9,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4327712,
+        "function": "originalDrawing00420920",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4330720,
+        "function": "originalDrawing004214e0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4331056,
+        "function": "originalDrawing00421630",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4331472,
+        "function": "originalDrawing004217d0",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4331728,
+        "function": "originalDrawing004218d0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4332208,
+        "function": "originalDrawing00421ab0",
+        "eligible": true,
+        "floatingOperations": 34,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4333328,
+        "function": "originalDrawing00421f10",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1,
+          2
+        ],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4334112,
+        "function": "originalDrawing00422220",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4334528,
+        "function": "originalDrawing004223c0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4335024,
+        "function": "originalDrawing004225b0",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4339104,
+        "function": "originalDrawing004235a0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4340096,
+        "function": "originalDrawing00423980",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4340784,
+        "function": "originalDrawing00423c30",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4341376,
+        "function": "originalDrawing00423e80",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          2
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4341728,
+        "function": "originalDrawing00423fe0",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          2
+        ],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4342064,
+        "function": "originalDrawing00424130",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          2
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4342560,
+        "function": "originalDrawing00424320",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4342704,
+        "function": "originalDrawing004243b0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          2
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4344784,
+        "function": "originalDrawing00424bd0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4347504,
+        "function": "originalDrawing00425670",
+        "eligible": true,
+        "floatingOperations": 32,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 8,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4351312,
+        "function": "originalDrawing00426550",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          5
+        ],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4351824,
+        "function": "originalDrawing00426750",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4352144,
+        "function": "originalDrawing00426890",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4357856,
+        "function": "originalDrawing00427ee0",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4390048,
+        "function": "originalDrawing0042fca0",
+        "eligible": true,
+        "floatingOperations": 12,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4387632,
+        "function": "originalDrawing0042f330",
+        "eligible": true,
+        "floatingOperations": 26,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4387440,
+        "function": "originalDrawing0042f270",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4387968,
+        "function": "originalDrawing0042f480",
+        "eligible": true,
+        "floatingOperations": 21,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4395520,
+        "function": "originalDrawing00431200",
+        "eligible": true,
+        "floatingOperations": 15,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4397744,
+        "function": "originalDrawing00431ab0",
+        "eligible": true,
+        "floatingOperations": 116,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 9,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 11,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4321584,
+        "function": "originalDrawing0041f130",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4401904,
+        "function": "originalDrawing00432af0",
+        "eligible": true,
+        "floatingOperations": 33,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 4,
+        "floatingPointerLoadExpressions": 1,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 7,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4402592,
+        "function": "originalDrawing00432da0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4403488,
+        "function": "originalDrawing00433120",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4405008,
+        "function": "originalDrawing00433710",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4405920,
+        "function": "originalDrawing00433aa0",
+        "eligible": true,
+        "floatingOperations": 14,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4407152,
+        "function": "originalDrawing00433f70",
+        "eligible": true,
+        "floatingOperations": 126,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 35,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4406368,
+        "function": "originalDrawing00433c60",
+        "eligible": true,
+        "floatingOperations": 11,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4410464,
+        "function": "originalDrawing00434c60",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4418464,
+        "function": "originalDrawing00436ba0",
+        "eligible": true,
+        "floatingOperations": 20,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 3,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4443824,
+        "function": "originalDrawing0043ceb0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4450096,
+        "function": "originalDrawing0043e730",
+        "eligible": true,
+        "floatingOperations": 58,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 6,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1,
+          2
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": true,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4450832,
+        "function": "originalDrawing0043ea10",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": [
+          "Separate reviewed camera projection implementation"
+        ]
+      },
+      {
+        "address": 4451072,
+        "function": "originalDrawing0043eb00",
+        "eligible": true,
+        "floatingOperations": 28,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 3,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0,
+          2,
+          3
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4451360,
+        "function": "originalDrawing0043ec20",
+        "eligible": true,
+        "floatingOperations": 49,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 7,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          0,
+          1
+        ],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": true
+      },
+      {
+        "address": 4452304,
+        "function": "originalDrawing0043efd0",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 4,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4451696,
+        "function": "originalDrawing0043ed70",
+        "eligible": true,
+        "floatingOperations": 30,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4455072,
+        "function": "originalDrawSceneMark",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4456144,
+        "function": "originalDrawing0043fed0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4457296,
+        "function": "originalDrawing00440350",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4456176,
+        "function": "originalDrawing0043fef0",
+        "eligible": true,
+        "floatingOperations": 30,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 1,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4431488,
+        "function": "originalDrawing00439e80",
+        "eligible": true,
+        "floatingOperations": 18,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 4,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1,
+          2
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4457472,
+        "function": "originalDrawing00440400",
+        "eligible": true,
+        "floatingOperations": 6,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 9,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4459376,
+        "function": "originalDrawing00440b70",
+        "eligible": true,
+        "floatingOperations": 19,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 12,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4465264,
+        "function": "originalDrawing00442270",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4466016,
+        "function": "originalDrawShoreline",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4468688,
+        "function": "originalDrawing00442fd0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4470304,
+        "function": "originalDrawing00443620",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4473456,
+        "function": "originalDrawing00444270",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4473584,
+        "function": "originalDrawing004442f0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4473680,
+        "function": "originalDrawing00444350",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4475024,
+        "function": "originalDrawing00444890",
+        "eligible": true,
+        "floatingOperations": 67,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 8,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4387360,
+        "function": "originalDrawing0042f220",
+        "eligible": true,
+        "floatingOperations": 14,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4476992,
+        "function": "originalDrawing00445040",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 10,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4477808,
+        "function": "originalDrawing00445370",
+        "eligible": true,
+        "floatingOperations": 20,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 4,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4603728,
+        "function": "originalDrawing00463f50",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4604128,
+        "function": "originalDrawing004640e0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4610512,
+        "function": "originalDrawing004659d0",
+        "eligible": true,
+        "floatingOperations": 64,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 7,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 7,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4611296,
+        "function": "originalDrawing00465ce0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4612912,
+        "function": "originalDrawing00466330",
+        "eligible": true,
+        "floatingOperations": 215,
+        "reasons": [],
+        "scalarLocals": true,
+        "scalarMode": "partial",
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 264,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 280,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 308,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 552,
+            "size": 8,
+            "kind": "float"
+          }
+        ],
+        "retainedByteRanges": [
+          {
+            "start": 256,
+            "end": 264
+          },
+          {
+            "start": 272,
+            "end": 280
+          }
+        ],
+        "induction": {
+          "iterations": 18,
+          "floatStep": 8,
+          "intStep": 4,
+          "postTestLimit": 137
+        },
+        "scalarAccesses": 115,
+        "arrays": [
+          {
+            "offset": 396,
+            "size": 4,
+            "kind": "int",
+            "length": 18
+          },
+          {
+            "offset": 476,
+            "size": 4,
+            "kind": "int",
+            "length": 18
+          },
+          {
+            "offset": 568,
+            "size": 8,
+            "kind": "float",
+            "length": 18
+          },
+          {
+            "offset": 728,
+            "size": 8,
+            "kind": "float",
+            "length": 18
+          }
+        ],
+        "arrayAccesses": 128,
+        "floatingByteStoreExpressions": 57,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 2,
+        "floatingParameters": [
+          1,
+          2
+        ],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4611728,
+        "function": "originalDrawing00465e90",
+        "eligible": true,
+        "floatingOperations": 15,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4612080,
+        "function": "originalDrawing00465ff0",
+        "eligible": true,
+        "floatingOperations": 92,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 6,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 1,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4621376,
+        "function": "originalDrawing00468440",
+        "eligible": true,
+        "floatingOperations": 69,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 11,
+        "floatingPointerLoadExpressions": 1,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          5
+        ],
+        "fixedNumberArguments": 10,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false,
+        "certifiedChartWindows": {
+          "eligible": true,
+          "address": 4621376,
+          "caseTableSha256": "697bfce630b29a4aca69903158e73712f1da33a9ed22745666b3b12fa25675c4",
+          "prefixSha256": "625a80c189b5aecd83053d048ba0b696056d2e8f9e76a0775fb5dd8c4292efc2",
+          "windows": [
+            {
+              "entry": 284,
+              "successor": 266
+            },
+            {
+              "entry": 263,
+              "successor": 244
+            }
+          ],
+          "deadFloatingTemporary": {
+            "offset": 272,
+            "bytes": 8,
+            "remainingLowWordConsumer": 63,
+            "conditionalLowWordReplacement": 68
+          },
+          "safeFormalCapture": {
+            "floatScaleArgument": 4,
+            "integerCenters": [
+              2,
+              3
+            ]
+          },
+          "dependencyIdentityGuard": "0x43ec20"
+        }
+      },
+      {
+        "address": 4626000,
+        "function": "originalDrawing00469650",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4626032,
+        "function": "originalDrawing00469670",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4626064,
+        "function": "originalDrawing00469690",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 1,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 7,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4626688,
+        "function": "originalDrawing00469900",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4630272,
+        "function": "originalDrawing0046a700",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4630320,
+        "function": "originalDrawing0046a730",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4630368,
+        "function": "originalDrawing0046a760",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4630672,
+        "function": "originalDrawing0046a890",
+        "eligible": true,
+        "floatingOperations": 2867,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 40,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4657376,
+        "function": "originalDrawing004710e0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4657408,
+        "function": "originalDrawing00471100",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4657504,
+        "function": "originalDrawing00471160",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4705952,
+        "function": "originalDrawing0047cea0",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4710128,
+        "function": "originalDrawing0047def0",
+        "eligible": true,
+        "floatingOperations": 10,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 8,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4710464,
+        "function": "originalDrawing0047e040",
+        "eligible": true,
+        "floatingOperations": 61,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4219424,
+        "function": "originalDrawing00406220",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4461936,
+        "function": "originalDrawing00441570",
+        "eligible": true,
+        "floatingOperations": 8,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4463008,
+        "function": "originalDrawing004419a0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4463552,
+        "function": "originalDrawing00441bc0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4463840,
+        "function": "originalDrawing00441ce0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4464096,
+        "function": "originalDrawing00441de0",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4464560,
+        "function": "originalDrawing00441fb0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4713792,
+        "function": "originalDrawing0047ed40",
+        "eligible": true,
+        "floatingOperations": 10,
+        "reasons": [],
+        "scalarLocals": true,
+        "scalarMode": "partial",
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 268,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 272,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 276,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 280,
+            "size": 4,
+            "kind": "int"
+          }
+        ],
+        "retainedByteRanges": [
+          {
+            "start": 264,
+            "end": 268
+          },
+          {
+            "start": 300,
+            "end": 920
+          }
+        ],
+        "induction": {
+          "writeIndices": [
+            1,
+            72
+          ],
+          "readIndices": [
+            1,
+            71
+          ],
+          "readSteps": [
+            1,
+            2
+          ]
+        },
+        "scalarAccesses": 326,
+        "pointerCalleeSha256": {
+          "cI32": "4945bf329b40ed09201c3fa21715c841332f779f9af6e9adbb9a1678fe47817d",
+          "pointerAdd": "e96b44a00909aedecc8ab99415f3daf5094e226c152cb16179560fb463304a3a",
+          "cAdd": "bfe75acd8a09a6ea7122a8aefd4257d4fca5159a8e9943f6e5b4ee69659e9f43",
+          "readPointer": "8ad9a3edfbd091ed525db01a6a4c1be58da192eccb7851b5234fccbb0d8e7d88",
+          "writePointer": "42df05c07af66352861d80502c7c42efde3b65d46703be0a4b3f74411756e4bf",
+          "writeLocalPoint": "525c13dadfd6bc58b16771af21d749ef8503a83809a0dc02d4abc4be1e48da99"
+        },
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 3,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4721984,
+        "function": "originalDrawing00480d40",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 1,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4723024,
+        "function": "originalDrawing00481150",
+        "eligible": true,
+        "floatingOperations": 8,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 1,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4723536,
+        "function": "originalDrawing00481350",
+        "eligible": true,
+        "floatingOperations": 18,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4723696,
+        "function": "originalDrawing004813f0",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4724640,
+        "function": "originalDrawing004817a0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 9,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4726416,
+        "function": "originalDrawing00481e90",
+        "eligible": true,
+        "floatingOperations": 33,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 3,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4728848,
+        "function": "originalDrawing00482810",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4729488,
+        "function": "originalDrawing00482a90",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4729568,
+        "function": "originalDrawing00482ae0",
+        "eligible": true,
+        "floatingOperations": 82,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 33,
+        "floatingPointerLoadExpressions": 1,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fixedNumberArguments": 8,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4731888,
+        "function": "originalDrawing004833f0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4732080,
+        "function": "originalDrawing004834b0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4732624,
+        "function": "originalDrawing004836d0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4733456,
+        "function": "originalDrawing00483a10",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4733632,
+        "function": "originalDrawing00483ac0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4734432,
+        "function": "originalDrawing00483de0",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          5
+        ],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4734880,
+        "function": "originalDrawing00483fa0",
+        "eligible": true,
+        "floatingOperations": 6,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4735168,
+        "function": "originalDrawing004840c0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4735600,
+        "function": "originalDrawing00484270",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4735776,
+        "function": "originalDrawing00484320",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4736800,
+        "function": "originalDrawing00484720",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4737504,
+        "function": "originalDrawing004849e0",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4737920,
+        "function": "originalDrawing00484b80",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4738352,
+        "function": "originalDrawing00484d30",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4738624,
+        "function": "originalDrawing00484e40",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4738752,
+        "function": "originalDrawing00484ec0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4739504,
+        "function": "originalDrawing004851b0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4739888,
+        "function": "originalDrawing00485330",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4740096,
+        "function": "originalDrawing00485400",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4740304,
+        "function": "originalDrawing004854d0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4741152,
+        "function": "originalDrawing00485820",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4741712,
+        "function": "originalDrawing00485a50",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4742400,
+        "function": "originalDrawing00485d00",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4742608,
+        "function": "originalDrawing00485dd0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4742928,
+        "function": "originalDrawing00485f10",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4743264,
+        "function": "originalDrawing00486060",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4743760,
+        "function": "originalDrawing00486250",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4743872,
+        "function": "originalDrawing004862c0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4744192,
+        "function": "originalDrawing00486400",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4744640,
+        "function": "originalDrawing004865c0",
+        "eligible": true,
+        "floatingOperations": 22,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4745904,
+        "function": "originalDrawing00486ab0",
+        "eligible": true,
+        "floatingOperations": 14,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4746704,
+        "function": "originalDrawing00486dd0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4747296,
+        "function": "originalDrawing00487020",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4747920,
+        "function": "originalDrawing00487290",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4748384,
+        "function": "originalDrawing00487460",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4748768,
+        "function": "originalDrawing004875e0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4749296,
+        "function": "originalDrawing004877f0",
+        "eligible": true,
+        "floatingOperations": 3,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4750160,
+        "function": "originalDrawing00487b50",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4751232,
+        "function": "originalDrawing00487f80",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4751664,
+        "function": "originalDrawing00488130",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4751968,
+        "function": "originalDrawing00488260",
+        "eligible": true,
+        "floatingOperations": 6,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4752720,
+        "function": "originalDrawing00488550",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4752784,
+        "function": "originalDrawing00488590",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4753056,
+        "function": "originalDrawing004886a0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4753168,
+        "function": "originalDrawing00488710",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4753296,
+        "function": "originalDrawing00488790",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4753520,
+        "function": "originalDrawing00488870",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4753888,
+        "function": "originalDrawing004889e0",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 2,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4754208,
+        "function": "originalDrawing00488b20",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4754320,
+        "function": "originalDrawing00488b90",
+        "eligible": true,
+        "floatingOperations": 4,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 2,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 4,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4754800,
+        "function": "originalDrawing00488d70",
+        "eligible": true,
+        "floatingOperations": 24,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 2,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4710304,
+        "function": "originalDrawing0047dfa0",
+        "eligible": true,
+        "floatingOperations": 10,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 8,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4757856,
+        "function": "originalDrawing00489960",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4757888,
+        "function": "originalDrawing00489980",
+        "eligible": true,
+        "floatingOperations": 1060,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          3
+        ],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4765664,
+        "function": "originalDrawing0048b7e0",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4777776,
+        "function": "originalDrawing0048e730",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          2
+        ],
+        "fixedNumberArguments": 3,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4781088,
+        "function": "originalDrawing0048f420",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 6,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4781648,
+        "function": "originalDrawing0048f650",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": true,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [
+          1
+        ],
+        "fixedNumberArguments": 8,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4781856,
+        "function": "originalDrawing0048f720",
+        "eligible": true,
+        "floatingOperations": 2,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 5,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      }
+    ],
+    "render-functions.js": [
+      {
+        "address": 4275136,
+        "function": "originalDrawStartScreen",
+        "eligible": true,
+        "floatingOperations": 11,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4361072,
+        "function": "originalDrawResultsScreen",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4364528,
+        "function": "originalDrawForecastScreen",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 1,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4220304,
+        "function": "originalDrawAdvice",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4357904,
+        "function": "originalDrawPauseScreen",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4286736,
+        "function": "originalDrawDemoScreen",
+        "eligible": true,
+        "floatingOperations": 6,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4220544,
+        "function": "originalDrawJibeAdvice",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4222528,
+        "function": "originalDrawTackAdvice",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      }
+    ],
+    "screen-helper-functions.js": [
+      {
+        "address": 4278512,
+        "function": "originalDrawMajorOptions",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4771664,
+        "function": "originalDrawVenueOptions",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4405872,
+        "function": "originalDrawCircle",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      }
+    ],
+    "tutorial-pages.js": [
+      {
+        "address": 4479072,
+        "function": "drawTutorial1",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4481616,
+        "function": "drawTutorial2",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4483696,
+        "function": "drawTutorial3",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4485600,
+        "function": "drawTutorial4",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4487664,
+        "function": "drawTutorial5",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4489472,
+        "function": "drawTutorial6",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4491632,
+        "function": "drawTutorial7",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4494816,
+        "function": "drawTutorial8",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4497120,
+        "function": "drawTutorial10",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4498896,
+        "function": "drawTutorial11",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4501728,
+        "function": "drawTutorial12",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      },
+      {
+        "address": 4503856,
+        "function": "drawTutorial101",
+        "eligible": true,
+        "floatingOperations": 21,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4505840,
+        "function": "drawTutorial102",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4507472,
+        "function": "drawTutorial103",
+        "eligible": true,
+        "floatingOperations": 17,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4509888,
+        "function": "drawTutorial104",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4511376,
+        "function": "drawTutorial105",
+        "eligible": true,
+        "floatingOperations": 15,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4514368,
+        "function": "drawTutorial106",
+        "eligible": true,
+        "floatingOperations": 17,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4516752,
+        "function": "drawTutorial107",
+        "eligible": true,
+        "floatingOperations": 9,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4519360,
+        "function": "drawTutorial108",
+        "eligible": true,
+        "floatingOperations": 21,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4521696,
+        "function": "drawTutorial109",
+        "eligible": true,
+        "floatingOperations": 13,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4523408,
+        "function": "drawTutorial110",
+        "eligible": true,
+        "floatingOperations": 5,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4524400,
+        "function": "drawTutorial300",
+        "eligible": true,
+        "floatingOperations": 8,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4529760,
+        "function": "drawTutorial501",
+        "eligible": true,
+        "floatingOperations": 21,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4531808,
+        "function": "drawTutorial502",
+        "eligible": true,
+        "floatingOperations": 22,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4534832,
+        "function": "drawTutorial503",
+        "eligible": true,
+        "floatingOperations": 33,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4539856,
+        "function": "drawTutorial504",
+        "eligible": true,
+        "floatingOperations": 33,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4544960,
+        "function": "drawTutorial505",
+        "eligible": true,
+        "floatingOperations": 41,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4551296,
+        "function": "drawTutorial506",
+        "eligible": true,
+        "floatingOperations": 40,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4557984,
+        "function": "drawTutorial507",
+        "eligible": true,
+        "floatingOperations": 28,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4563280,
+        "function": "drawTutorial508",
+        "eligible": true,
+        "floatingOperations": 32,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4570512,
+        "function": "drawTutorial509",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4572224,
+        "function": "drawTutorial510",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4573904,
+        "function": "drawTutorial511",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4575216,
+        "function": "drawTutorial512",
+        "eligible": true,
+        "floatingOperations": 27,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4579136,
+        "function": "drawTutorial513",
+        "eligible": true,
+        "floatingOperations": 74,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4588656,
+        "function": "drawTutorial514",
+        "eligible": true,
+        "floatingOperations": 31,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4593568,
+        "function": "drawTutorial601",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4595552,
+        "function": "drawTutorial602",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4597408,
+        "function": "drawTutorial603",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4599504,
+        "function": "drawTutorial604",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4601536,
+        "function": "drawTutorial701",
+        "eligible": true,
+        "floatingOperations": 1,
+        "reasons": [],
+        "scalarLocals": false,
+        "floatingByteStoreExpressions": 0,
+        "floatingPointerLoadExpressions": 0,
+        "localConcatLoadExpressions": 0,
+        "floatingParameters": [],
+        "fixedNumberArguments": 0,
+        "certifiedProjectionOutput": false,
+        "exactChartProjection": false
+      },
+      {
+        "address": 4358832,
+        "function": "drawTutorial400",
+        "eligible": false,
+        "floatingOperations": 0,
+        "reasons": []
+      }
+    ]
+  },
+  "eligibleFunctions": 148,
+  "functions": 251
+}

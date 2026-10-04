@@ -1,6 +1,6 @@
 {
-  "url": "http://127.0.0.1:8766/play.html",
-  "checkedAt": "2026-10-04T08:11:52.300Z",
+  "url": "http://127.0.0.1:8766/index.html",
+  "checkedAt": "2026-10-04T16:48:46.214Z",
   "passed": true,
   "checks": [
     {
@@ -27,7 +27,7 @@
       "name": "Space dismisses the active original startup overlay",
       "before": {
         "ready": true,
-        "frames": 7,
+        "frames": 4,
         "error": null,
         "app": 2,
         "view": 2,
@@ -46,7 +46,7 @@
       },
       "after": {
         "ready": true,
-        "frames": 8,
+        "frames": 9,
         "error": null,
         "app": 2,
         "view": 2,
@@ -58,7 +58,7 @@
         "current": 0,
         "tide": 0,
         "otherOverlay": 0,
-        "time": -170.4394846352155,
+        "time": -170.31845390564652,
         "clock": -170,
         "selector": 12,
         "humans": 1
@@ -67,7 +67,7 @@
     {
       "name": "original Space starts a continuously advancing race",
       "ready": true,
-      "frames": 16,
+      "frames": 17,
       "error": null,
       "app": 2,
       "view": 2,
@@ -79,7 +79,7 @@
       "current": 0,
       "tide": 0,
       "otherOverlay": 0,
-      "time": -169.95536171693956,
+      "time": -169.83433098737058,
       "clock": -169,
       "selector": 12,
       "humans": 1
@@ -87,7 +87,7 @@
     {
       "name": "keyboard controls tutorial",
       "ready": true,
-      "frames": 20,
+      "frames": 25,
       "error": null,
       "app": 2,
       "view": 2,
@@ -99,7 +99,7 @@
       "current": 0,
       "tide": 0,
       "otherOverlay": 0,
-      "time": -169.77381562258608,
+      "time": -169.41072343387913,
       "clock": -169,
       "selector": 12,
       "humans": 1
@@ -115,8 +115,8 @@
     },
     {
       "name": "original About dialog pauses and resumes the active race",
-      "before": -169,
-      "after": -169
+      "before": -168,
+      "after": -168
     },
     {
       "name": "original boat command 33104 renders selector 25",
@@ -493,7 +493,7 @@
     {
       "name": "original Board selection starts and advances a live sailboard fleet",
       "beforeTime": -170.5,
-      "afterTime": -170.33733857176833,
+      "afterTime": -170.21534250059457,
       "passed": true
     },
     {
@@ -663,7 +663,7 @@
     },
     {
       "name": "production uses browser JavaScript and data with no EXE or proof fixture requests",
-      "requests": 199,
+      "requests": 215,
       "passed": true
     }
   ],

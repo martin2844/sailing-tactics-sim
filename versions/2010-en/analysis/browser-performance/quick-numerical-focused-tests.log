@@ -1,0 +1,25 @@
+✔ binary64 carriers match captured native PC24/53/64 arithmetic and stored bits (29.167322ms)
+✔ PC53 arithmetic retains the x87 exponent range at binary64 overflow and underflow (0.479703ms)
+✔ carried values preserve frozen public fields, signed zeros and integer boundaries (0.898771ms)
+✔ shared immutable integer carriers retain exact values across other loads (1.00964ms)
+✔ PC53 square root uses only an exactly certified candidate and falls back on bad candidates (0.525489ms)
+✔ PC53 exact identities retain every operand bit, including binary64 subnormals (0.286649ms)
+✔ interval certification preserves exact m80 ties, signs, underflow and exponent limits at every PC (3.292324ms)
+✔ safe BigInt integer loads retain identical m80 images, integer returns and arithmetic precision (2.410015ms)
+✔ cold and warm transcendental caches retain every m80 input bit under PC24/53/64 (2.764752ms)
+✔ sin/cos returns fresh mutable wrappers without exposing the cached pair (0.221817ms)
+✔ sin/cos preserves signed-zero and tiny-input identity on repeated calls (0.363955ms)
+✔ atan cache preserves all signed-zero quadrants and PC64 tiny-ratio instruction scope (0.688986ms)
+✔ cached calls still reject invalid operands and out-of-range sin/cos inputs (0.535969ms)
+✔ fixed-point shifts preserve signed truncation around zero and every scale boundary (10.389288ms)
+✔ enclosure certification rejects ambiguous m80 rounding and near-zero results (0.332145ms)
+✔ certified series enforce their domains and preserve the original fallback near quadrant zero (7.624688ms)
+✔ both caches evict oldest entries and remain bounded across changing inputs and control words (33.847409ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.334111

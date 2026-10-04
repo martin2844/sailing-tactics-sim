@@ -8,6 +8,13 @@ import { scalarRead,scalarReadArgument,scalarStoreI32,scalarStoreF64 } from './s
 import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cString,
   pointerAdd,localPointer,readPointer,writePointer,writeLocalPoint,stockObject,dcMethod,selectGdiObject,selectOriginalGdiObject,importDrawingMethod,originalPoints,clipRegion,textOutCount,originalTrig,cStringHeaderLength,signedBorrow32,
   cF64,cAbs,createLocalFrame,framePointer,readLocal,readLocalArgument,cWordArgument,writeLocal,originalAtan,cConcat,bitsAsF64,cRawWord,cRawSlice,invokeDrawingPointer } from './typed-c.js';
+import { fpDrawingEnabled,fpLoad,fpBox,fpArgument,fpFromInteger,fpStoreF64,fpFormalF64,fpTrig,fpAtan,fpScalarStoreF64,fpScalarRead,fpScalarReadArgument,fpToNumber,fpAdd,fpSub,fpMul,fpDiv,fpNeg,fpAbs,fpCompare,fpTruth,fpI32,fpI64 } from './float-values.js';
+import { readLocalFloatNumber,wordsAsF64Number,writeLocalFloatNumber,readPointerFloatNumber,readLocalFloatWordsNumber } from './typed-c.js';
+import { callNumberDrawingDependencyOwned,registerOriginalNumberDrawing } from './dependencies.js';
+import { tryProjectScenePointOutputFast } from './projection-output-fast.js';
+import { tryProjectChartPointFast } from './chart-projection-fast.js';
+import {tryProjectChartPointOutputFast} from './chart-output-fast.js';
+import {originalNumberDrawingIsCurrent} from './dependencies.js';
 
 export const TUTORIAL_PAGE_ROUTINES = Object.freeze({"drawTutorial1": 4479072, "drawTutorial2": 4481616, "drawTutorial3": 4483696, "drawTutorial4": 4485600, "drawTutorial5": 4487664, "drawTutorial6": 4489472, "drawTutorial7": 4491632, "drawTutorial8": 4494816, "drawTutorial10": 4497120, "drawTutorial11": 4498896, "drawTutorial12": 4501728, "drawTutorial101": 4503856, "drawTutorial102": 4505840, "drawTutorial103": 4507472, "drawTutorial104": 4509888, "drawTutorial105": 4511376, "drawTutorial106": 4514368, "drawTutorial107": 4516752, "drawTutorial108": 4519360, "drawTutorial109": 4521696, "drawTutorial110": 4523408, "drawTutorial300": 4524400, "drawTutorial501": 4529760, "drawTutorial502": 4531808, "drawTutorial503": 4534832, "drawTutorial504": 4539856, "drawTutorial505": 4544960, "drawTutorial506": 4551296, "drawTutorial507": 4557984, "drawTutorial508": 4563280, "drawTutorial509": 4570512, "drawTutorial510": 4572224, "drawTutorial511": 4573904, "drawTutorial512": 4575216, "drawTutorial513": 4579136, "drawTutorial514": 4588656, "drawTutorial601": 4593568, "drawTutorial602": 4595552, "drawTutorial603": 4597408, "drawTutorial604": 4599504, "drawTutorial701": 4601536, "drawTutorial400": 4358832});
 
@@ -2804,8 +2811,13 @@ export function drawTutorial12(memory, dc, rng, options = {}, ...originalArgs) {
   } }
 }
 
-/** Complete recovered original 0x0044b930; static C control-flow translation. */
 export function drawTutorial101(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial101Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial101Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044b930; static C control-flow translation. */
+function drawTutorial101Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4503856]??[]);
@@ -2993,8 +3005,202 @@ export function drawTutorial101(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044c0f0; static C control-flow translation. */
+/** Complete recovered original 0x0044b930; static C control-flow translation. */
+function drawTutorial101Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4503856]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let uVar2;
+  let original_dc;
+  let iVar3;
+  let puVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let pc = 168;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,uVar2); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 3; continue; }
+    case 5: { w32(0x4fecd4,45); pc = 4; continue; }
+    case 6: { w32(0x53574c,45); pc = 5; continue; }
+    case 7: { w32(0x4fb38c,15); pc = 6; continue; }
+    case 8: { w32(0x4fdff4,60); pc = 7; continue; }
+    case 9: { w32(0x4fe824,2); pc = 8; continue; }
+    case 10: { w32(0x4fc2cc,15); pc = 9; continue; }
+    case 11: { w32(0x522ffc,4294967295); pc = 10; continue; }
+    case 12: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 11; continue; }
+    case 13: { w32(0x4fecd0,45); pc = 12; continue; }
+    case 14: { w32(0x535748,315); pc = 13; continue; }
+    case 15: { w32(0x4fb388,15); pc = 14; continue; }
+    case 16: { w32(0x4fdff0,60); pc = 15; continue; }
+    case 17: { w32(0x4fe820,2); pc = 16; continue; }
+    case 18: { w32(0x4fc2c8,15); pc = 17; continue; }
+    case 19: { w32(0x522ff8,1); pc = 18; continue; }
+    case 20: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc770)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 19; continue; }
+    case 21: { w32(0x4feccc,45); pc = 20; continue; }
+    case 22: { w32(0x535744,45); pc = 21; continue; }
+    case 23: { w32(0x4fb384,15); pc = 22; continue; }
+    case 24: { w32(0x4fdfec,60); pc = 23; continue; }
+    case 25: { w32(0x4fe81c,2); pc = 24; continue; }
+    case 26: { w32(0x4fc2c4,15); pc = 25; continue; }
+    case 27: { w32(0x522ff4,4294967295); pc = 26; continue; }
+    case 28: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 27 : 3; continue; }
+    case 29: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 28; continue; }
+    case 30: { w32(0x4fecd4,45); pc = 29; continue; }
+    case 31: { w32(0x53574c,315); pc = 30; continue; }
+    case 32: { w32(0x4fb38c,15); pc = 31; continue; }
+    case 33: { w32(0x4fdff4,60); pc = 32; continue; }
+    case 34: { w32(0x4fe824,2); pc = 33; continue; }
+    case 35: { w32(0x4fc2cc,15); pc = 34; continue; }
+    case 36: { w32(0x522ffc,1); pc = 35; continue; }
+    case 37: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 36; continue; }
+    case 38: { w32(0x4fecd0,45); pc = 37; continue; }
+    case 39: { w32(0x535748,45); pc = 38; continue; }
+    case 40: { w32(0x4fb388,15); pc = 39; continue; }
+    case 41: { w32(0x4fdff0,60); pc = 40; continue; }
+    case 42: { w32(0x4fe820,2); pc = 41; continue; }
+    case 43: { w32(0x4fc2c8,15); pc = 42; continue; }
+    case 44: { w32(0x522ff8,4294967295); pc = 43; continue; }
+    case 45: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5e0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 44; continue; }
+    case 46: { w32(0x4feccc,45); pc = 45; continue; }
+    case 47: { w32(0x535744,315); pc = 46; continue; }
+    case 48: { w32(0x4fb384,15); pc = 47; continue; }
+    case 49: { w32(0x4fdfec,60); pc = 48; continue; }
+    case 50: { w32(0x4fe81c,2); pc = 49; continue; }
+    case 51: { w32(0x4fc2c4,15); pc = 50; continue; }
+    case 52: { w32(0x522ff4,1); pc = 51; continue; }
+    case 53: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 52 : 28; continue; }
+    case 54: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 53; continue; }
+    case 55: { w32(0x4fecd4,45); pc = 54; continue; }
+    case 56: { w32(0x53574c,315); pc = 55; continue; }
+    case 57: { w32(0x4fb38c,15); pc = 56; continue; }
+    case 58: { w32(0x4fdff4,60); pc = 57; continue; }
+    case 59: { w32(0x4fe824,2); pc = 58; continue; }
+    case 60: { w32(0x4fc2cc,15); pc = 59; continue; }
+    case 61: { w32(0x522ffc,1); pc = 60; continue; }
+    case 62: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 61; continue; }
+    case 63: { w32(0x4fecd0,45); pc = 62; continue; }
+    case 64: { w32(0x535748,45); pc = 63; continue; }
+    case 65: { w32(0x4fb388,15); pc = 64; continue; }
+    case 66: { w32(0x4fdff0,60); pc = 65; continue; }
+    case 67: { w32(0x4fe820,2); pc = 66; continue; }
+    case 68: { w32(0x4fc2c8,15); pc = 67; continue; }
+    case 69: { w32(0x522ff8,4294967295); pc = 68; continue; }
+    case 70: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 69; continue; }
+    case 71: { w32(0x4feccc,45); pc = 70; continue; }
+    case 72: { w32(0x535744,315); pc = 71; continue; }
+    case 73: { w32(0x4fb384,15); pc = 72; continue; }
+    case 74: { w32(0x4fdfec,60); pc = 73; continue; }
+    case 75: { w32(0x4fe81c,2); pc = 74; continue; }
+    case 76: { w32(0x4fc2c4,15); pc = 75; continue; }
+    case 77: { w32(0x522ff4,1); pc = 76; continue; }
+    case 78: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 77 : 53; continue; }
+    case 79: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5e0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc7d0)),false), 4, 1],0,rng,options); pc = 78; continue; }
+    case 80: { w32(0x4fbb94,0); pc = 79; continue; }
+    case 81: { w32(0x4f71c4,2); pc = 80; continue; }
+    case 82: { w32(0x536458,2); pc = 81; continue; }
+    case 83: { (uVar2 = r32(0x4f71c4)); pc = 82; continue; }
+    case 84: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 83; continue; }
+    case 85: { w32(0x4da18c,2); pc = 84; continue; }
+    case 86: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 85; continue; }
+    case 87: { selectGdiObject(dc,h); pc = 86; continue; }
+    case 88: { (h = r32(0x4fc15c)); pc = 87; continue; }
+    case 89: { (hdc = dc); pc = 88; continue; }
+    case 90: { pc = 86; continue; }
+    case 91: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 90 : 89; continue; }
+    case 92: { (h = r32(0x5230cc)); pc = 87; continue; }
+    case 93: { (hdc = dc); pc = 92; continue; }
+    case 94: { pc = 86; continue; }
+    case 95: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 94 : 93; continue; }
+    case 96: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 91 : 95; continue; }
+    case 97: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, iVar3, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 96; continue; }
+    case 98: { undefined; pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 98; continue; }
+    case 100: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,256),4,"int"),iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,272),7,4,"int"); pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3a8c),4); pc = 101; continue; }
+    case 103: { undefined; pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 103; continue; }
+    case 105: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 104; continue; }
+    case 106: { writeLocal(framePointer(localFrame,272),6,4,"int"); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3ab8),4); pc = 106; continue; }
+    case 108: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 107; continue; }
+    case 109: { undefined; pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,272),5,4,"int"); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3b08),4); pc = 112; continue; }
+    case 114: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 113; continue; }
+    case 115: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 114; continue; }
+    case 116: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 115 : 114; continue; }
+    case 117: { undefined; pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 117; continue; }
+    case 119: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,272),4,4,"int"); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3b5c),4); pc = 120; continue; }
+    case 122: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 121; continue; }
+    case 123: { undefined; pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,272),3,4,"int"); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3bc4),4); pc = 126; continue; }
+    case 128: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 127; continue; }
+    case 129: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 128 : 127; continue; }
+    case 130: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 129; continue; }
+    case 131: { undefined; pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 131; continue; }
+    case 133: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,272),2,4,"int"); pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3c28),4); pc = 134; continue; }
+    case 136: { (iVar5 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 135; continue; }
+    case 137: { undefined; pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,272),1,4,"int"); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3c84),4); pc = 140; continue; }
+    case 142: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 141; continue; }
+    case 143: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 142 : 141; continue; }
+    case 144: { undefined; pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 144; continue; }
+    case 146: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 145; continue; }
+    case 147: { (pcVar1 = dcMethod(dc,100,memory)); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,272),0,4,"int"); pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3ce0),4); pc = 148; continue; }
+    case 150: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 149; continue; }
+    case 151: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 150 : 149; continue; }
+    case 152: { (iVar3 = 5); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 151; continue; }
+    case 156: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 155; continue; }
+    case 157: { (iVar3 = 20); pc = 156; continue; }
+    case 158: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 154 : 157; continue; }
+    case 159: { w32(0x4faf7c,fpI32(fpMul(r64(0x5230b0),r64(0x4cc770)),false)); pc = 158; continue; }
+    case 160: { pc = cTruth(cCompare(iVar3,0,"!=")) ? 163 : 159; continue; }
+    case 161: { (iVar3 = cAdd(iVar3,cNeg(1))); pc = 160; continue; }
+    case 162: { (puVar4 = cAdd(puVar4,cMul(1,4))); pc = 161; continue; }
+    case 163: { writePointer(memory,puVar4,0,4); pc = 162; continue; }
+    case 164: { (puVar4 = 0x5350dc); pc = 160; continue; }
+    case 165: { pc = cTruth(cCompare(0,iVar3,"<")) ? 164 : 159; continue; }
+    case 166: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 165; continue; }
+    case 167: { (iVar3 = r32(0x4da194)); pc = 166; continue; }
+    case 168: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 167; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial102(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial102Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial102Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044c0f0; static C control-flow translation. */
+function drawTutorial102Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4505840]??[]);
@@ -3156,8 +3362,176 @@ export function drawTutorial102(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044c750; static C control-flow translation. */
+/** Complete recovered original 0x0044c0f0; static C control-flow translation. */
+function drawTutorial102Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4505840]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let local_14;
+  let pc = 141;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x536458,0); pc = 1; continue; }
+    case 3: { w32(0x4f71c4,readLocal(framePointer(localFrame,264),4,"int")); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { undefined; pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar2),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cStringData(memory,local_14),cStringHeaderLength(memory,cStringData(memory,local_14))]); pc = 6; continue; }
+    case 8: { writeLocal(framePointer(localFrame,276),10,4,"int"); pc = 7; continue; }
+    case 9: { (local_14 = cString(memory,0x4e3d08)); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 9; continue; }
+    case 11: { w32(0x4fecd0,45); pc = 10; continue; }
+    case 12: { w32(0x535748,45); pc = 11; continue; }
+    case 13: { w32(0x4fb388,15); pc = 12; continue; }
+    case 14: { w32(0x4fc2c8,15); pc = 13; continue; }
+    case 15: { w32(0x4fdff0,60); pc = 14; continue; }
+    case 16: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 15; continue; }
+    case 17: { w32(0x4fe820,2); pc = 16; continue; }
+    case 18: { w32(0x522ff8,4294967295); pc = 17; continue; }
+    case 19: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 18; continue; }
+    case 20: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false)); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar2),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cStringData(memory,local_14),cStringHeaderLength(memory,cStringData(memory,local_14))]); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,276),9,4,"int"); pc = 23; continue; }
+    case 25: { (local_14 = cString(memory,0x4e3d1c)); pc = 24; continue; }
+    case 26: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 25; continue; }
+    case 27: { w32(0x4feccc,45); pc = 26; continue; }
+    case 28: { w32(0x535744,315); pc = 27; continue; }
+    case 29: { w32(0x4fb384,15); pc = 28; continue; }
+    case 30: { w32(0x4fdfec,60); pc = 29; continue; }
+    case 31: { w32(0x4fe81c,2); pc = 30; continue; }
+    case 32: { w32(0x4fc2c4,15); pc = 31; continue; }
+    case 33: { w32(0x522ff4,1); pc = 32; continue; }
+    case 34: { (iVar2 = cDiv(r32(0x4fe624),10)); pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 34; continue; }
+    case 36: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false)); pc = 35; continue; }
+    case 37: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc770)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 4; continue; }
+    case 38: { w32(0x4fecd0,120); pc = 37; continue; }
+    case 39: { w32(0x535748,120); pc = 38; continue; }
+    case 40: { w32(0x4fb388,15); pc = 39; continue; }
+    case 41: { w32(0x4fdff0,60); pc = 40; continue; }
+    case 42: { w32(0x4fe820,20); pc = 41; continue; }
+    case 43: { w32(0x4fc2c8,15); pc = 42; continue; }
+    case 44: { w32(0x522ff8,4294967295); pc = 43; continue; }
+    case 45: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 44; continue; }
+    case 46: { w32(0x4feccc,45); pc = 45; continue; }
+    case 47: { w32(0x535744,315); pc = 46; continue; }
+    case 48: { w32(0x4fb384,15); pc = 47; continue; }
+    case 49: { w32(0x4fdfec,60); pc = 48; continue; }
+    case 50: { w32(0x4fe81c,2); pc = 49; continue; }
+    case 51: { w32(0x4fc2c4,15); pc = 50; continue; }
+    case 52: { w32(0x522ff4,1); pc = 51; continue; }
+    case 53: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 36 : 52; continue; }
+    case 54: { w32(0x4fbb94,0); pc = 53; continue; }
+    case 55: { w32(0x4f71c4,2); pc = 54; continue; }
+    case 56: { writeLocal(framePointer(localFrame,264),r32(0x4f71c4),4,"int"); pc = 55; continue; }
+    case 57: { w32(0x536458,2); pc = 56; continue; }
+    case 58: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar4],0,rng,options); pc = 57; continue; }
+    case 59: { w32(0x4da18c,1); pc = 58; continue; }
+    case 60: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 59; continue; }
+    case 61: { selectGdiObject(dc,h); pc = 60; continue; }
+    case 62: { (h = r32(0x4fc15c)); pc = 61; continue; }
+    case 63: { (hdc = dc); pc = 62; continue; }
+    case 64: { pc = 60; continue; }
+    case 65: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 64 : 63; continue; }
+    case 66: { (h = r32(0x5230cc)); pc = 61; continue; }
+    case 67: { (hdc = dc); pc = 66; continue; }
+    case 68: { pc = 60; continue; }
+    case 69: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 68 : 67; continue; }
+    case 70: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 65 : 69; continue; }
+    case 71: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_14),false), iVar4],0,rng,options); pc = 70; continue; }
+    case 72: { undefined; pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 72; continue; }
+    case 74: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,276),8,4,"int"); pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3d34),4); pc = 75; continue; }
+    case 77: { undefined; pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 77; continue; }
+    case 79: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,276),7,4,"int"); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3d94),4); pc = 80; continue; }
+    case 82: { (iVar5 = cAdd(iVar5,iVar4)); pc = 81; continue; }
+    case 83: { undefined; pc = 82; continue; }
+    case 84: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 83; continue; }
+    case 85: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,276),6,4,"int"); pc = 85; continue; }
+    case 87: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3e00),4); pc = 86; continue; }
+    case 88: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 87; continue; }
+    case 89: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 88 : 87; continue; }
+    case 90: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 89; continue; }
+    case 91: { undefined; pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 91; continue; }
+    case 93: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,276),5,4,"int"); pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3e6c),4); pc = 94; continue; }
+    case 96: { (iVar5 = cAdd(iVar5,iVar4)); pc = 95; continue; }
+    case 97: { undefined; pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 97; continue; }
+    case 99: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 98; continue; }
+    case 100: { writeLocal(framePointer(localFrame,276),4,4,"int"); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3ecc),4); pc = 100; continue; }
+    case 102: { (iVar5 = cAdd(iVar5,iVar4)); pc = 101; continue; }
+    case 103: { undefined; pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 103; continue; }
+    case 105: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 104; continue; }
+    case 106: { writeLocal(framePointer(localFrame,276),3,4,"int"); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3f2c),4); pc = 106; continue; }
+    case 108: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 107; continue; }
+    case 109: { undefined; pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,276),2,4,"int"); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3f8c),4); pc = 112; continue; }
+    case 114: { (iVar5 = cAdd(cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),iVar4)); pc = 113; continue; }
+    case 115: { undefined; pc = 114; continue; }
+    case 116: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 115; continue; }
+    case 117: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,276),1,4,"int"); pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e3fb4),4); pc = 118; continue; }
+    case 120: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 119; continue; }
+    case 121: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 120 : 119; continue; }
+    case 122: { undefined; pc = 121; continue; }
+    case 123: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 122; continue; }
+    case 124: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 123; continue; }
+    case 125: { (pcVar1 = dcMethod(dc,100,memory)); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,276),0,4,"int"); pc = 125; continue; }
+    case 127: { (iVar5 = readPointer(memory,original_dc,4)); pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4004),4); pc = 127; continue; }
+    case 129: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 128; continue; }
+    case 130: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 129 : 128; continue; }
+    case 131: { (local_14 = 0x5); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 131; continue; }
+    case 133: { (iVar4 = 16); pc = 132; continue; }
+    case 134: { (local_14 = 20); pc = 130; continue; }
+    case 135: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 134; continue; }
+    case 136: { (iVar4 = 20); pc = 135; continue; }
+    case 137: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 133 : 136; continue; }
+    case 138: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 137; continue; }
+    case 139: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 139; continue; }
+    case 141: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 140; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial103(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial103Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial103Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044c750; static C control-flow translation. */
+function drawTutorial103Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4507472]??[]);
@@ -3371,8 +3745,228 @@ export function drawTutorial103(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044d0c0; static C control-flow translation. */
+/** Complete recovered original 0x0044c750; static C control-flow translation. */
+function drawTutorial103Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4507472]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let hdc;
+  let h;
+  let local_18 = new Array(2);
+  let pc = 194;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x536458,0); pc = 1; continue; }
+    case 3: { w32(0x4f71c4,readLocal(framePointer(localFrame,272),4,"int")); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 4; continue; }
+    case 6: { w32(0x4fecd0,90); pc = 5; continue; }
+    case 7: { w32(0x535748,90); pc = 6; continue; }
+    case 8: { w32(0x4fb388,15); pc = 7; continue; }
+    case 9: { w32(0x4fdff0,60); pc = 8; continue; }
+    case 10: { w32(0x4fe820,20); pc = 9; continue; }
+    case 11: { w32(0x4fc2c8,15); pc = 10; continue; }
+    case 12: { w32(0x522ff8,4294967295); pc = 11; continue; }
+    case 13: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc6c0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 12; continue; }
+    case 14: { w32(0x4fb384,15); pc = 13; continue; }
+    case 15: { w32(0x4fdfec,60); pc = 14; continue; }
+    case 16: { w32(0x4fe81c,20); pc = 15; continue; }
+    case 17: { w32(0x4fc2c4,15); pc = 16; continue; }
+    case 18: { w32(0x522ff4,4294967295); pc = 17; continue; }
+    case 19: { w32(0x4feccc,90); pc = 18; continue; }
+    case 20: { w32(0x535744,90); pc = 19; continue; }
+    case 21: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 20; continue; }
+    case 22: { w32(0x4fecd0,45); pc = 21; continue; }
+    case 23: { w32(0x535748,45); pc = 22; continue; }
+    case 24: { w32(0x4fb388,15); pc = 23; continue; }
+    case 25: { w32(0x4fdff0,60); pc = 24; continue; }
+    case 26: { w32(0x4fe820,5); pc = 25; continue; }
+    case 27: { w32(0x4fc2c8,15); pc = 26; continue; }
+    case 28: { w32(0x522ff8,4294967295); pc = 27; continue; }
+    case 29: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccbd8)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 28; continue; }
+    case 30: { w32(0x4feccc,35); pc = 29; continue; }
+    case 31: { w32(0x535744,35); pc = 30; continue; }
+    case 32: { w32(0x4fb384,15); pc = 31; continue; }
+    case 33: { w32(0x4fdfec,60); pc = 32; continue; }
+    case 34: { w32(0x4fc2c4,15); pc = 33; continue; }
+    case 35: { w32(0x522ff4,4294967295); pc = 34; continue; }
+    case 36: { w32(0x4fe81c,2); pc = 35; continue; }
+    case 37: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 36 : 4; continue; }
+    case 38: { undefined; pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 38; continue; }
+    case 40: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,iVar2),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,284),12,4,"int"); pc = 40; continue; }
+    case 42: { (local_18[0] = cString(memory,0x4e403c)); pc = 41; continue; }
+    case 43: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 42; continue; }
+    case 44: { w32(0x4fecd0,90); pc = 43; continue; }
+    case 45: { w32(0x535748,90); pc = 44; continue; }
+    case 46: { w32(0x4fdff0,60); pc = 45; continue; }
+    case 47: { w32(0x4fe820,20); pc = 46; continue; }
+    case 48: { w32(0x522ff8,4294967295); pc = 47; continue; }
+    case 49: { w32(0x4fb388,15); pc = 48; continue; }
+    case 50: { w32(0x4fc2c8,15); pc = 49; continue; }
+    case 51: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false),4,"int"); pc = 51; continue; }
+    case 53: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 52; continue; }
+    case 54: { undefined; pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 54; continue; }
+    case 56: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar2,iVar4),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 55; continue; }
+    case 57: { writeLocal(framePointer(localFrame,284),11,4,"int"); pc = 56; continue; }
+    case 58: { (local_18[0] = cString(memory,0x4e4050)); pc = 57; continue; }
+    case 59: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 58; continue; }
+    case 60: { w32(0x4fdfec,60); pc = 59; continue; }
+    case 61: { w32(0x4fe81c,20); pc = 60; continue; }
+    case 62: { w32(0x522ff4,4294967295); pc = 61; continue; }
+    case 63: { w32(0x4feccc,90); pc = 62; continue; }
+    case 64: { w32(0x535744,90); pc = 63; continue; }
+    case 65: { w32(0x4fb384,15); pc = 64; continue; }
+    case 66: { w32(0x4fc2c4,15); pc = 65; continue; }
+    case 67: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 66; continue; }
+    case 68: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc738)),false),4,"int"); pc = 67; continue; }
+    case 69: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 68; continue; }
+    case 70: { undefined; pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 70; continue; }
+    case 72: { invokeDrawingPointer(pcVar1,dc,[original_dc,r32(0x5228e0),cSub(r32(0x5229e0),cDiv(r32(0x4fe2a8),3)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,284),10,4,"int"); pc = 72; continue; }
+    case 74: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4064),4); pc = 73; continue; }
+    case 75: { dc.lineTo(r32(0x5228e0),r32(0x5229e0)); pc = 74; continue; }
+    case 76: { writeLocalPoint(localPointer(local_18),dc.moveTo(r32(0x5228e0),cSub(r32(0x5229e0),cDiv(r32(0x4fe2a8),3)))); pc = 75; continue; }
+    case 77: { invokeDrawingPointer(dcMethod(dc,44,memory),dc,[original_dc,7]); pc = 76; continue; }
+    case 78: { undefined; pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 78; continue; }
+    case 80: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,iVar2),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,284),9,4,"int"); pc = 80; continue; }
+    case 82: { (local_18[0] = cString(memory,0x4e4074)); pc = 81; continue; }
+    case 83: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 82; continue; }
+    case 84: { w32(0x4fecd0,90); pc = 83; continue; }
+    case 85: { w32(0x535748,90); pc = 84; continue; }
+    case 86: { w32(0x4fdff0,60); pc = 85; continue; }
+    case 87: { w32(0x4fb388,15); pc = 86; continue; }
+    case 88: { w32(0x4fc2c8,15); pc = 87; continue; }
+    case 89: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 88; continue; }
+    case 90: { w32(0x4fe820,20); pc = 89; continue; }
+    case 91: { w32(0x522ff8,4294967295); pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false),4,"int"); pc = 91; continue; }
+    case 93: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false)); pc = 92; continue; }
+    case 94: { undefined; pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 94; continue; }
+    case 96: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cAdd(iVar4,cMul(iVar2,cNeg(2))),cNeg(3)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,284),8,4,"int"); pc = 96; continue; }
+    case 98: { (local_18[0] = cString(memory,0x4e4084)); pc = 97; continue; }
+    case 99: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 98; continue; }
+    case 100: { w32(0x4fdfec,60); pc = 99; continue; }
+    case 101: { w32(0x4fe81c,20); pc = 100; continue; }
+    case 102: { w32(0x522ff4,4294967295); pc = 101; continue; }
+    case 103: { w32(0x4feccc,90); pc = 102; continue; }
+    case 104: { w32(0x535744,90); pc = 103; continue; }
+    case 105: { w32(0x4fb384,15); pc = 104; continue; }
+    case 106: { w32(0x4fc2c4,15); pc = 105; continue; }
+    case 107: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc738)),false),4,"int"); pc = 107; continue; }
+    case 109: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4ccbc8)),false)); pc = 108; continue; }
+    case 110: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 109 : 37; continue; }
+    case 111: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 110; continue; }
+    case 112: { w32(0x4da18c,1); pc = 111; continue; }
+    case 113: { w32(0x4fbb94,0); pc = 112; continue; }
+    case 114: { w32(0x4f71c4,2); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,272),r32(0x4f71c4),4,"int"); pc = 114; continue; }
+    case 116: { w32(0x536458,2); pc = 115; continue; }
+    case 117: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 116; continue; }
+    case 118: { selectGdiObject(dc,h); pc = 117; continue; }
+    case 119: { (h = r32(0x4fc15c)); pc = 118; continue; }
+    case 120: { (hdc = dc); pc = 119; continue; }
+    case 121: { pc = 117; continue; }
+    case 122: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 121 : 120; continue; }
+    case 123: { (h = r32(0x5230cc)); pc = 118; continue; }
+    case 124: { (hdc = dc); pc = 123; continue; }
+    case 125: { pc = 117; continue; }
+    case 126: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 125 : 124; continue; }
+    case 127: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 122 : 126; continue; }
+    case 128: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_18[cI32(0)]),false), readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 127; continue; }
+    case 129: { undefined; pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 129; continue; }
+    case 131: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,cAdd(readLocal(framePointer(localFrame,256),4,"int"),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,284),7,4,"int"); pc = 131; continue; }
+    case 133: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4098),4); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,284),6,4,"int"); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e40dc),4); pc = 137; continue; }
+    case 139: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 138; continue; }
+    case 140: { undefined; pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 140; continue; }
+    case 142: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,284),5,4,"int"); pc = 142; continue; }
+    case 144: { writeLocal(framePointer(localFrame,0),cString(memory,"Proper course is the course a boat would sail to finish as soon as possible without the other boats covered by this rule."),4); pc = 143; continue; }
+    case 145: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 144; continue; }
+    case 146: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 145 : 144; continue; }
+    case 147: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 146; continue; }
+    case 148: { undefined; pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 148; continue; }
+    case 150: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,284),4,4,"int"); pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4190),4); pc = 151; continue; }
+    case 153: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 152; continue; }
+    case 154: { undefined; pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 154; continue; }
+    case 156: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,284),3,4,"int"); pc = 156; continue; }
+    case 158: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e41ec),4); pc = 157; continue; }
+    case 159: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 158; continue; }
+    case 160: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 159 : 158; continue; }
+    case 161: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 160; continue; }
+    case 162: { undefined; pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 162; continue; }
+    case 164: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 163; continue; }
+    case 165: { writeLocal(framePointer(localFrame,284),2,4,"int"); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4248),4); pc = 165; continue; }
+    case 167: { (iVar4 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 166; continue; }
+    case 168: { undefined; pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 168; continue; }
+    case 170: { invokeDrawingPointer(pcVar1,dc,[original_dc,14,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,284),1,4,"int"); pc = 170; continue; }
+    case 172: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e42a4),4); pc = 171; continue; }
+    case 173: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 172; continue; }
+    case 174: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 173 : 172; continue; }
+    case 175: { undefined; pc = 174; continue; }
+    case 176: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 175; continue; }
+    case 177: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 176; continue; }
+    case 178: { (pcVar1 = dcMethod(dc,100,memory)); pc = 177; continue; }
+    case 179: { writeLocal(framePointer(localFrame,284),0,4,"int"); pc = 178; continue; }
+    case 180: { (iVar4 = readPointer(memory,original_dc,4)); pc = 179; continue; }
+    case 181: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e42f8),4); pc = 180; continue; }
+    case 182: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 181; continue; }
+    case 183: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 182 : 181; continue; }
+    case 184: { (local_18[cI32(0)] = 0x5); pc = 183; continue; }
+    case 185: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 184; continue; }
+    case 186: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 185; continue; }
+    case 187: { (local_18[cI32(0)] = 20); pc = 183; continue; }
+    case 188: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 188; continue; }
+    case 190: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 186 : 189; continue; }
+    case 191: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 190; continue; }
+    case 192: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 191; continue; }
+    case 193: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 192; continue; }
+    case 194: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 193; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial104(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial104Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial104Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044d0c0; static C control-flow translation. */
+function drawTutorial104Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4509888]??[]);
@@ -3511,8 +4105,153 @@ export function drawTutorial104(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044d690; static C control-flow translation. */
+/** Complete recovered original 0x0044d0c0; static C control-flow translation. */
+function drawTutorial104Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4509888]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let iVar1;
+  let pcVar2;
+  let dVar3;
+  let uVar4;
+  let original_dc;
+  let iVar5;
+  let hdc;
+  let h;
+  let local_14 = new Array(2);
+  let pc = 118;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,uVar4); pc = 1; continue; }
+    case 3: { w32(0x5350dc,0); pc = 2; continue; }
+    case 4: { w32(0x536458,0); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { undefined; pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(pcVar2,dc,[original_dc,r32(0x5228e0),cAdd(cDiv(r32(0x4fe2a8),10),r32(0x5229e0)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4064),4); pc = 9; continue; }
+    case 11: { dc.lineTo(r32(0x5228e0),cAdd(cDiv(r32(0x4fe2a8),10),r32(0x5229e0))); pc = 10; continue; }
+    case 12: { writeLocalPoint(localPointer(local_14),dc.moveTo(r32(0x5228e0),cSub(r32(0x5229e0),cBits(cI32(cAdd(r32(0x4fe2a8),cBits(cBits(r32(0x4fe2a8),31,">>"),3,"&")),false),2,">>")))); pc = 11; continue; }
+    case 13: { invokeDrawingPointer(dcMethod(dc,44,memory),dc,[original_dc,7]); pc = 12; continue; }
+    case 14: { undefined; pc = 13; continue; }
+    case 15: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 14; continue; }
+    case 16: { invokeDrawingPointer(pcVar2,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cAdd(iVar1,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_14[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_14[cI32(0)]))]); pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 16; continue; }
+    case 18: { (local_14[0] = cString(memory,0x4e4338)); pc = 17; continue; }
+    case 19: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, iVar1, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 18; continue; }
+    case 20: { w32(0x4fecd0,90); pc = 19; continue; }
+    case 21: { w32(0x535748,90); pc = 20; continue; }
+    case 22: { w32(0x4fdff0,60); pc = 21; continue; }
+    case 23: { w32(0x4fe820,20); pc = 22; continue; }
+    case 24: { w32(0x4fb388,15); pc = 23; continue; }
+    case 25: { w32(0x4fc2c8,15); pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),14),4,"int"); pc = 25; continue; }
+    case 27: { w32(0x522ff8,4294967295); pc = 26; continue; }
+    case 28: { (iVar1 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 27; continue; }
+    case 29: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false)); pc = 28; continue; }
+    case 30: { undefined; pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 30; continue; }
+    case 32: { invokeDrawingPointer(pcVar2,dc,[original_dc,cSub(iVar5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar1,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_14[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_14[cI32(0)]))]); pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 32; continue; }
+    case 34: { (local_14[0] = cString(memory,0x4e434c)); pc = 33; continue; }
+    case 35: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, iVar1, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 34; continue; }
+    case 36: { w32(0x4feccc,90); pc = 35; continue; }
+    case 37: { w32(0x535744,90); pc = 36; continue; }
+    case 38: { w32(0x4fdfec,60); pc = 37; continue; }
+    case 39: { w32(0x4fe81c,20); pc = 38; continue; }
+    case 40: { w32(0x522ff4,4294967295); pc = 39; continue; }
+    case 41: { w32(0x4fb384,15); pc = 40; continue; }
+    case 42: { w32(0x4fc2c4,15); pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),14),4,"int"); pc = 42; continue; }
+    case 44: { (iVar1 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 43; continue; }
+    case 45: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc8a8)),false)); pc = 44; continue; }
+    case 46: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc7e0)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 5; continue; }
+    case 47: { w32(0x4feccc,110); pc = 46; continue; }
+    case 48: { w32(0x535744,110); pc = 47; continue; }
+    case 49: { w32(0x4fb384,15); pc = 48; continue; }
+    case 50: { w32(0x4fdfec,60); pc = 49; continue; }
+    case 51: { w32(0x4fe81c,20); pc = 50; continue; }
+    case 52: { w32(0x4fc2c4,15); pc = 51; continue; }
+    case 53: { w32(0x522ff4,4294967295); pc = 52; continue; }
+    case 54: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 53; continue; }
+    case 55: { w32(0x4fecd0,90); pc = 54; continue; }
+    case 56: { w32(0x535748,90); pc = 55; continue; }
+    case 57: { w32(0x4fb388,15); pc = 56; continue; }
+    case 58: { w32(0x4fdff0,60); pc = 57; continue; }
+    case 59: { w32(0x4fe820,20); pc = 58; continue; }
+    case 60: { w32(0x4fc2c8,15); pc = 59; continue; }
+    case 61: { w32(0x522ff8,4294967295); pc = 60; continue; }
+    case 62: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 45 : 61; continue; }
+    case 63: { w32(0x5350dc,1); pc = 62; continue; }
+    case 64: { pc = cTruth((cTruth(cCompare(2,r32(0x4da190),"<")) && cTruth(cCompare(r32(0x4da190),9,"!=")))) ? 63 : 62; continue; }
+    case 65: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar5],0,rng,options); pc = 64; continue; }
+    case 66: { w32(0x4da18c,1); pc = 65; continue; }
+    case 67: { w32(0x4fbb94,0); pc = 66; continue; }
+    case 68: { w32(0x4f71c4,2); pc = 67; continue; }
+    case 69: { w32(0x536458,2); pc = 68; continue; }
+    case 70: { (uVar4 = r32(0x4f71c4)); pc = 69; continue; }
+    case 71: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 70; continue; }
+    case 72: { selectGdiObject(dc,h); pc = 71; continue; }
+    case 73: { (h = r32(0x4fc15c)); pc = 72; continue; }
+    case 74: { (hdc = dc); pc = 73; continue; }
+    case 75: { pc = 71; continue; }
+    case 76: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 75 : 74; continue; }
+    case 77: { (h = r32(0x5230cc)); pc = 72; continue; }
+    case 78: { (hdc = dc); pc = 77; continue; }
+    case 79: { pc = 71; continue; }
+    case 80: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 79 : 78; continue; }
+    case 81: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 76 : 80; continue; }
+    case 82: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_14[cI32(0)]),false), iVar5],0,rng,options); pc = 81; continue; }
+    case 83: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 82; continue; }
+    case 84: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 83 : 82; continue; }
+    case 85: { undefined; pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 85; continue; }
+    case 87: { invokeDrawingPointer(pcVar2,dc,[original_dc,14,cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int")),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4364),4); pc = 88; continue; }
+    case 90: { undefined; pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar2,dc,[original_dc,14,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4390),4); pc = 93; continue; }
+    case 95: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 94; continue; }
+    case 96: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 95 : 94; continue; }
+    case 97: { undefined; pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 97; continue; }
+    case 99: { invokeDrawingPointer(pcVar2,dc,[original_dc,20,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 98; continue; }
+    case 100: { (pcVar2 = dcMethod(dc,100,memory)); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 100; continue; }
+    case 102: { (iVar1 = readPointer(memory,original_dc,4)); pc = 101; continue; }
+    case 103: { writeLocal(framePointer(localFrame,0),cString(memory,"Same tack, not overlapped: The boat clear astern must keep clear (Rule 12)."),4); pc = 102; continue; }
+    case 104: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 103; continue; }
+    case 105: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 104 : 103; continue; }
+    case 106: { (local_14[cI32(0)] = 0x5); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 107; continue; }
+    case 109: { (iVar5 = 16); pc = 108; continue; }
+    case 110: { (iVar5 = 20); pc = 105; continue; }
+    case 111: { (local_14[cI32(0)] = 20); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 112; continue; }
+    case 114: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 109 : 113; continue; }
+    case 115: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 114; continue; }
+    case 116: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 116; continue; }
+    case 118: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 117; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial105(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial105Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial105Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044d690; static C control-flow translation. */
+function drawTutorial105Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4511376]??[]);
@@ -3771,8 +4510,273 @@ export function drawTutorial105(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044e240; static C control-flow translation. */
+/** Complete recovered original 0x0044d690; static C control-flow translation. */
+function drawTutorial105Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4511376]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let y2;
+  let uVar3;
+  let iVar4;
+  let iVar5;
+  let piVar6;
+  let TVar7;
+  let hdc;
+  let h;
+  let TStack_1c;
+  let local_18 = new Array(2);
+  let pc = 234;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,272),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x5350dc,0); pc = 2; continue; }
+    case 4: { w32(0x536458,0); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, piVar6, cStringData(memory,TVar7), 4, 1],0,rng,options); pc = 5; continue; }
+    case 7: { (TVar7 = cStringData(memory,TStack_1c)); pc = 6; continue; }
+    case 8: { undefined; pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 8; continue; }
+    case 10: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(piVar6,false),cI32(cAdd(y2,2),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 9; continue; }
+    case 11: { writeLocal(framePointer(localFrame,284),19,4,"int"); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4434),4); pc = 11; continue; }
+    case 13: { undefined; pc = 12; continue; }
+    case 14: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 13; continue; }
+    case 15: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cAdd(cStringData(memory,TStack_1c),cDiv(iVar5,14)),false),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 14; continue; }
+    case 16: { writeLocal(framePointer(localFrame,284),18,4,"int"); pc = 15; continue; }
+    case 17: { (piVar6 = readLocal(framePointer(localFrame,0),4,"int")); pc = 16; continue; }
+    case 18: { (local_18[0] = cString(memory,0x4e4444)); pc = 17; continue; }
+    case 19: { dc.arc(cI32(cStringData(memory,local_18[cI32(0)]),false),iVar4,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cI32(y2,false),cI32(cStringData(memory,local_18[cI32(0)]),false),iVar4,cI32(cStringData(memory,local_18[cI32(0)]),false),iVar4); pc = 18; continue; }
+    case 20: { (y2 = cAdd(cStringData(memory,TStack_1c),cDiv(iVar5,2))); pc = 19; continue; }
+    case 21: { (iVar4 = cSub(cI32(cStringData(memory,TStack_1c),false),cDiv(iVar5,2))); pc = 20; continue; }
+    case 22: { (local_18[cI32(0)] = cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar4,cNeg(2)))); pc = 21; continue; }
+    case 23: { (TStack_1c = fpI64(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,0),cAdd(cDiv(cMul(iVar4,8),5),r32(0x5228f4)),4,"int"); pc = 23; continue; }
+    case 25: { (iVar5 = cMul(iVar4,2)); pc = 24; continue; }
+    case 26: { (iVar4 = cSub(r32(0x5228f4),r32(0x5228e0))); pc = 25; continue; }
+    case 27: { undefined; pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 27; continue; }
+    case 29: { invokeDrawingPointer(pcVar1,dc,[original_dc,r32(0x5228e0),cAdd(cDiv(r32(0x4fe2a8),15),r32(0x5229e0)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 28; continue; }
+    case 30: { writeLocal(framePointer(localFrame,284),17,4,"int"); pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4064),4); pc = 30; continue; }
+    case 32: { dc.lineTo(r32(0x5228e0),cAdd(cDiv(r32(0x4fe2a8),15),r32(0x5229e0))); pc = 31; continue; }
+    case 33: { writeLocalPoint(localPointer(local_18),dc.moveTo(r32(0x5228e0),cSub(r32(0x5229e0),cBits(cI32(cAdd(r32(0x4fe2a8),cBits(cBits(r32(0x4fe2a8),31,">>"),3,"&")),false),2,">>")))); pc = 32; continue; }
+    case 34: { invokeDrawingPointer(dcMethod(dc,44,memory),dc,[original_dc,7]); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cAdd(cStringData(memory,TStack_1c),cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),false),cAdd(cDiv(uVar3,2),iVar4),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,284),16,4,"int"); pc = 37; continue; }
+    case 39: { (local_18[0] = cString(memory,0x4e4458)); pc = 38; continue; }
+    case 40: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar4, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 39; continue; }
+    case 41: { w32(0x4fdff0,60); pc = 40; continue; }
+    case 42: { w32(0x4fe820,20); pc = 41; continue; }
+    case 43: { w32(0x522ff8,4294967295); pc = 42; continue; }
+    case 44: { w32(0x4fecd0,90); pc = 43; continue; }
+    case 45: { w32(0x535748,90); pc = 44; continue; }
+    case 46: { w32(0x4fb388,15); pc = 45; continue; }
+    case 47: { w32(0x4fc2c8,15); pc = 46; continue; }
+    case 48: { (TStack_1c = cDiv(r32(0x4fe624),14)); pc = 47; continue; }
+    case 49: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc7e0)),false)); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false),4,"int"); pc = 49; continue; }
+    case 51: { undefined; pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 51; continue; }
+    case 53: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cDiv(cMul(cI32(cStringData(memory,TStack_1c),false),3),2)),cAdd(cDiv(cMul(uVar3,3),2),r32(0x4faf7c)),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,284),15,4,"int"); pc = 53; continue; }
+    case 55: { (local_18[0] = cString(memory,0x4e4460)); pc = 54; continue; }
+    case 56: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbe0)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 55; continue; }
+    case 57: { w32(0x4fecd4,90); pc = 56; continue; }
+    case 58: { w32(0x53574c,90); pc = 57; continue; }
+    case 59: { w32(0x4fb38c,15); pc = 58; continue; }
+    case 60: { w32(0x4fc2cc,15); pc = 59; continue; }
+    case 61: { w32(0x4fdff4,60); pc = 60; continue; }
+    case 62: { (TStack_1c = cDiv(r32(0x4fe624),14)); pc = 61; continue; }
+    case 63: { w32(0x4fe824,20); pc = 62; continue; }
+    case 64: { w32(0x522ffc,4294967295); pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc660)),false),4,"int"); pc = 64; continue; }
+    case 66: { undefined; pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 66; continue; }
+    case 68: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_1c),false)),cAdd(iVar4,uVar3),cStringData(memory,local_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_18[cI32(0)]))]); pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,284),14,4,"int"); pc = 68; continue; }
+    case 70: { (local_18[0] = cString(memory,0x4e4478)); pc = 69; continue; }
+    case 71: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar4, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 70; continue; }
+    case 72: { w32(0x4fdfec,60); pc = 71; continue; }
+    case 73: { w32(0x4fe81c,20); pc = 72; continue; }
+    case 74: { w32(0x522ff4,4294967295); pc = 73; continue; }
+    case 75: { w32(0x4feccc,90); pc = 74; continue; }
+    case 76: { w32(0x535744,90); pc = 75; continue; }
+    case 77: { w32(0x4fb384,15); pc = 76; continue; }
+    case 78: { w32(0x4fc2c4,15); pc = 77; continue; }
+    case 79: { (TStack_1c = cDiv(r32(0x4fe624),14)); pc = 78; continue; }
+    case 80: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccbe0)),false)); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc8a8)),false),4,"int"); pc = 80; continue; }
+    case 82: { (piVar6 = cAdd(cDiv(cMul(iVar4,2),3),r32(0x5228f4))); pc = 6; continue; }
+    case 83: { (TVar7 = fpI64(fpMul(r64(0x5230b0),r64(0x4ccbe8)),false)); pc = 82; continue; }
+    case 84: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 83; continue; }
+    case 85: { w32(0x4fecd0,110); pc = 84; continue; }
+    case 86: { w32(0x535748,110); pc = 85; continue; }
+    case 87: { w32(0x4fb388,15); pc = 86; continue; }
+    case 88: { w32(0x4fdff0,60); pc = 87; continue; }
+    case 89: { w32(0x4fe820,30); pc = 88; continue; }
+    case 90: { w32(0x4fc2c8,15); pc = 89; continue; }
+    case 91: { w32(0x522ff8,4294967295); pc = 90; continue; }
+    case 92: { (iVar4 = cSub(r32(0x5228f4),r32(0x5228e0))); pc = 91; continue; }
+    case 93: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 92; continue; }
+    case 94: { w32(0x4fecd4,95); pc = 93; continue; }
+    case 95: { w32(0x53574c,95); pc = 94; continue; }
+    case 96: { w32(0x4fb38c,15); pc = 95; continue; }
+    case 97: { w32(0x4fdff4,60); pc = 96; continue; }
+    case 98: { w32(0x4fe824,20); pc = 97; continue; }
+    case 99: { w32(0x4fc2cc,15); pc = 98; continue; }
+    case 100: { w32(0x522ffc,4294967295); pc = 99; continue; }
+    case 101: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc500)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 100; continue; }
+    case 102: { w32(0x4feccc,130); pc = 101; continue; }
+    case 103: { w32(0x535744,130); pc = 102; continue; }
+    case 104: { w32(0x4fb384,15); pc = 103; continue; }
+    case 105: { w32(0x4fdfec,60); pc = 104; continue; }
+    case 106: { w32(0x4fe81c,40); pc = 105; continue; }
+    case 107: { w32(0x4fc2c4,10); pc = 106; continue; }
+    case 108: { w32(0x522ff4,4294967295); pc = 107; continue; }
+    case 109: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 81 : 108; continue; }
+    case 110: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, uVar3],0,rng,options); pc = 109; continue; }
+    case 111: { w32(0x4da18c,1); pc = 110; continue; }
+    case 112: { w32(0x4fbb94,0); pc = 111; continue; }
+    case 113: { w32(0x4f71c4,3); pc = 112; continue; }
+    case 114: { writeLocal(framePointer(localFrame,272),r32(0x4f71c4),4,"int"); pc = 113; continue; }
+    case 115: { w32(0x536458,2); pc = 114; continue; }
+    case 116: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 115; continue; }
+    case 117: { selectGdiObject(dc,h); pc = 116; continue; }
+    case 118: { (h = r32(0x4fc15c)); pc = 117; continue; }
+    case 119: { (hdc = dc); pc = 118; continue; }
+    case 120: { pc = 116; continue; }
+    case 121: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 120 : 119; continue; }
+    case 122: { (h = r32(0x5230cc)); pc = 117; continue; }
+    case 123: { (hdc = dc); pc = 122; continue; }
+    case 124: { pc = 116; continue; }
+    case 125: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 124 : 123; continue; }
+    case 126: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 121 : 125; continue; }
+    case 127: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_18[cI32(0)]),false), uVar3],0,rng,options); pc = 126; continue; }
+    case 128: { undefined; pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 128; continue; }
+    case 130: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,284),13,4,"int"); pc = 130; continue; }
+    case 132: { (TStack_1c = cString(memory,0x4e448c)); pc = 131; continue; }
+    case 133: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 132; continue; }
+    case 134: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 133 : 132; continue; }
+    case 135: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 134; continue; }
+    case 136: { undefined; pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 136; continue; }
+    case 138: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 137; continue; }
+    case 139: { writeLocal(framePointer(localFrame,284),12,4,"int"); pc = 138; continue; }
+    case 140: { (TStack_1c = cString(memory,0x4e44e0)); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 140; continue; }
+    case 142: { undefined; pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 142; continue; }
+    case 144: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,284),11,4,"int"); pc = 144; continue; }
+    case 146: { (TStack_1c = cString(memory,0x4e454c)); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 146; continue; }
+    case 148: { undefined; pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 148; continue; }
+    case 150: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,284),10,4,"int"); pc = 150; continue; }
+    case 152: { (TStack_1c = cString(memory,0x4e45b4)); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 152; continue; }
+    case 154: { undefined; pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 154; continue; }
+    case 156: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,284),9,4,"int"); pc = 156; continue; }
+    case 158: { (TStack_1c = cString(memory,"Moored boats, right-of-way boats and shoals are obstructions. An outside boat must give an overlapped inside boat")); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 158; continue; }
+    case 160: { undefined; pc = 159; continue; }
+    case 161: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 160; continue; }
+    case 162: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,284),8,4,"int"); pc = 162; continue; }
+    case 164: { (TStack_1c = cString(memory,"")); pc = 163; continue; }
+    case 165: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 164; continue; }
+    case 166: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 165 : 164; continue; }
+    case 167: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 166; continue; }
+    case 168: { undefined; pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 168; continue; }
+    case 170: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,284),7,4,"int"); pc = 170; continue; }
+    case 172: { (TStack_1c = cString(memory,0x4e46f0)); pc = 171; continue; }
+    case 173: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 172; continue; }
+    case 174: { undefined; pc = 173; continue; }
+    case 175: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 174; continue; }
+    case 176: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 175; continue; }
+    case 177: { writeLocal(framePointer(localFrame,284),6,4,"int"); pc = 176; continue; }
+    case 178: { (TStack_1c = cString(memory,0x4e4758)); pc = 177; continue; }
+    case 179: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711935]); pc = 178; continue; }
+    case 180: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 179 : 178; continue; }
+    case 181: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 180; continue; }
+    case 182: { undefined; pc = 181; continue; }
+    case 183: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 182; continue; }
+    case 184: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 183; continue; }
+    case 185: { writeLocal(framePointer(localFrame,284),5,4,"int"); pc = 184; continue; }
+    case 186: { (TStack_1c = cString(memory,"O must give I mark-room even if O is on starboard tack and I is on port tack.")); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 186; continue; }
+    case 188: { undefined; pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 188; continue; }
+    case 190: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 189; continue; }
+    case 191: { writeLocal(framePointer(localFrame,284),4,4,"int"); pc = 190; continue; }
+    case 192: { (TStack_1c = cString(memory,0x4e4808)); pc = 191; continue; }
+    case 193: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 192; continue; }
+    case 194: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 193; continue; }
+    case 195: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 194 : 193; continue; }
+    case 196: { undefined; pc = 195; continue; }
+    case 197: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 196; continue; }
+    case 198: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 197; continue; }
+    case 199: { writeLocal(framePointer(localFrame,284),3,4,"int"); pc = 198; continue; }
+    case 200: { (TStack_1c = cString(memory,0x4e486c)); pc = 199; continue; }
+    case 201: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 200; continue; }
+    case 202: { undefined; pc = 201; continue; }
+    case 203: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 202; continue; }
+    case 204: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 203; continue; }
+    case 205: { writeLocal(framePointer(localFrame,284),2,4,"int"); pc = 204; continue; }
+    case 206: { (TStack_1c = cString(memory,"on her proper course. The mark-room rules do not apply to a starting mark when boats approach it to start,")); pc = 205; continue; }
+    case 207: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),uVar3),4,"int"); pc = 206; continue; }
+    case 208: { undefined; pc = 207; continue; }
+    case 209: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 208; continue; }
+    case 210: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 209; continue; }
+    case 211: { writeLocal(framePointer(localFrame,284),1,4,"int"); pc = 210; continue; }
+    case 212: { (TStack_1c = cString(memory,"There are exceptions. Mark-room is the space a boat needs to sail towards and at the mark")); pc = 211; continue; }
+    case 213: { writeLocal(framePointer(localFrame,0),cAdd(uVar3,2),4,"int"); pc = 212; continue; }
+    case 214: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 213; continue; }
+    case 215: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 214 : 213; continue; }
+    case 216: { undefined; pc = 215; continue; }
+    case 217: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 216; continue; }
+    case 218: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 217; continue; }
+    case 219: { (pcVar1 = dcMethod(dc,100,memory)); pc = 218; continue; }
+    case 220: { writeLocal(framePointer(localFrame,284),0,4,"int"); pc = 219; continue; }
+    case 221: { writeLocal(framePointer(localFrame,0),cString(memory,"Rounding a mark while not closehauled (Rule 18): An outside boat must give mark-room to an inside overlapped boat."),4); pc = 220; continue; }
+    case 222: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 221; continue; }
+    case 223: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 222 : 221; continue; }
+    case 224: { (local_18[cI32(0)] = 0x5); pc = 223; continue; }
+    case 225: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 224; continue; }
+    case 226: { (uVar3 = 15); pc = 225; continue; }
+    case 227: { (local_18[cI32(0)] = 20); pc = 223; continue; }
+    case 228: { writeLocal(framePointer(localFrame,256),24,4,"int"); pc = 227; continue; }
+    case 229: { (uVar3 = 17); pc = 228; continue; }
+    case 230: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 226 : 229; continue; }
+    case 231: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 230; continue; }
+    case 232: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 231; continue; }
+    case 233: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 232; continue; }
+    case 234: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 233; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial106(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial106Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial106Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044e240; static C control-flow translation. */
+function drawTutorial106Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4514368]??[]);
@@ -3987,8 +4991,229 @@ export function drawTutorial106(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044eb90; static C control-flow translation. */
+/** Complete recovered original 0x0044e240; static C control-flow translation. */
+function drawTutorial106Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4514368]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let piVar3;
+  let x1;
+  let iVar4;
+  let iVar5;
+  let iVar6;
+  let hdc;
+  let h;
+  let local_18;
+  let pc = 192;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,272),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x5350dc,0); pc = 2; continue; }
+    case 4: { w32(0x536458,0); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { undefined; pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(piVar3,false),readLocal(framePointer(localFrame,268),4,"int")),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,284),13,4,"int"); pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4434),4); pc = 9; continue; }
+    case 11: { undefined; pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 11; continue; }
+    case 13: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cDiv(iVar6,14)),cSub(cSub(iVar4,cDiv(iVar6,13)),readLocal(framePointer(localFrame,260),4,"int")),cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 12; continue; }
+    case 14: { writeLocal(framePointer(localFrame,284),12,4,"int"); pc = 13; continue; }
+    case 15: { (piVar3 = readLocal(framePointer(localFrame,0),4,"int")); pc = 14; continue; }
+    case 16: { (local_18 = cString(memory,0x4e4444)); pc = 15; continue; }
+    case 17: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar4, 3, 1],0,rng,options); pc = 16; continue; }
+    case 18: { dc.arc(x1,iVar5,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6),cAdd(readLocal(framePointer(localFrame,268),4,"int"),iVar4),x1,iVar5,x1,iVar5); pc = 17; continue; }
+    case 19: { (x1 = cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6)); pc = 18; continue; }
+    case 20: { (iVar5 = cSub(iVar4,readLocal(framePointer(localFrame,268),4,"int"))); pc = 19; continue; }
+    case 21: { writeLocal(framePointer(localFrame,268),cDiv(iVar6,2),4,"int"); pc = 20; continue; }
+    case 22: { invokeDrawingPointer(dcMethod(dc,44,memory),dc,[original_dc,7]); pc = 21; continue; }
+    case 23: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false)); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 23; continue; }
+    case 25: { (iVar6 = cDiv(cMul(cDiv(cMul(cSub(r32(0x5228f4),r32(0x5228e0)),3),2),5),2)); pc = 24; continue; }
+    case 26: { undefined; pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 26; continue; }
+    case 28: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(cAdd(iVar5,4),readLocal(framePointer(localFrame,260),4,"int")),cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 27; continue; }
+    case 29: { writeLocal(framePointer(localFrame,284),11,4,"int"); pc = 28; continue; }
+    case 30: { (local_18 = cString(memory,0x4e3d08)); pc = 29; continue; }
+    case 31: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, iVar5, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 30; continue; }
+    case 32: { w32(0x4fecd4,45); pc = 31; continue; }
+    case 33: { w32(0x53574c,45); pc = 32; continue; }
+    case 34: { w32(0x4fdff4,60); pc = 33; continue; }
+    case 35: { w32(0x4fe824,2); pc = 34; continue; }
+    case 36: { w32(0x522ffc,4294967295); pc = 35; continue; }
+    case 37: { w32(0x4fb38c,15); pc = 36; continue; }
+    case 38: { w32(0x4fc2cc,15); pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),15),4,"int"); pc = 38; continue; }
+    case 40: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc00)),false)); pc = 39; continue; }
+    case 41: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4ccbf8)),false)); pc = 40; continue; }
+    case 42: { undefined; pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 42; continue; }
+    case 44: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cBits(iVar5,4,">>")),cI32(cAdd(cAdd(cStringData(memory,local_18),readLocal(framePointer(localFrame,260),4,"int")),4),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,284),10,4,"int"); pc = 44; continue; }
+    case 46: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4460),4); pc = 45; continue; }
+    case 47: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, cStringData(memory,local_18), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 46; continue; }
+    case 48: { w32(0x4fecd0,45); pc = 47; continue; }
+    case 49: { w32(0x535748,315); pc = 48; continue; }
+    case 50: { w32(0x4fb388,15); pc = 49; continue; }
+    case 51: { w32(0x4fdff0,60); pc = 50; continue; }
+    case 52: { w32(0x4fe820,2); pc = 51; continue; }
+    case 53: { w32(0x4fc2c8,15); pc = 52; continue; }
+    case 54: { w32(0x522ff8,1); pc = 53; continue; }
+    case 55: { (iVar5 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),15,"&"))); pc = 54; continue; }
+    case 56: { (local_18 = fpI64(fpMul(r64(0x5230b0),r64(0x4cc620)),false)); pc = 55; continue; }
+    case 57: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 56; continue; }
+    case 58: { undefined; pc = 57; continue; }
+    case 59: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 58; continue; }
+    case 60: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cAdd(iVar5,4),cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,284),9,4,"int"); pc = 60; continue; }
+    case 62: { (local_18 = cString(memory,0x4e49e4)); pc = 61; continue; }
+    case 63: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 62; continue; }
+    case 64: { w32(0x4feccc,45); pc = 63; continue; }
+    case 65: { w32(0x535744,315); pc = 64; continue; }
+    case 66: { w32(0x4fb384,15); pc = 65; continue; }
+    case 67: { w32(0x4fdfec,60); pc = 66; continue; }
+    case 68: { w32(0x4fe81c,2); pc = 67; continue; }
+    case 69: { w32(0x4fc2c4,15); pc = 68; continue; }
+    case 70: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),20),4,"int"); pc = 69; continue; }
+    case 71: { w32(0x522ff4,1); pc = 70; continue; }
+    case 72: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccbf0)),false)); pc = 71; continue; }
+    case 73: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4ccbe8)),false)); pc = 72; continue; }
+    case 74: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccc18)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 5; continue; }
+    case 75: { w32(0x4fb38c,15); pc = 74; continue; }
+    case 76: { w32(0x4fdff4,60); pc = 75; continue; }
+    case 77: { w32(0x4fe824,20); pc = 76; continue; }
+    case 78: { w32(0x4fc2cc,15); pc = 77; continue; }
+    case 79: { w32(0x522ffc,4294967295); pc = 78; continue; }
+    case 80: { w32(0x4fecd4,90); pc = 79; continue; }
+    case 81: { w32(0x53574c,90); pc = 80; continue; }
+    case 82: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc778)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false), 3, 1],0,rng,options); pc = 81; continue; }
+    case 83: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbe0)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 82; continue; }
+    case 84: { w32(0x4fecd0,45); pc = 83; continue; }
+    case 85: { w32(0x535748,315); pc = 84; continue; }
+    case 86: { w32(0x4fb388,15); pc = 85; continue; }
+    case 87: { w32(0x4fdff0,60); pc = 86; continue; }
+    case 88: { w32(0x4fe820,2); pc = 87; continue; }
+    case 89: { w32(0x4fc2c8,15); pc = 88; continue; }
+    case 90: { w32(0x522ff8,1); pc = 89; continue; }
+    case 91: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccc10)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccc08)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 90; continue; }
+    case 92: { w32(0x4feccc,40); pc = 91; continue; }
+    case 93: { w32(0x535744,320); pc = 92; continue; }
+    case 94: { w32(0x4fb384,15); pc = 93; continue; }
+    case 95: { w32(0x4fdfec,60); pc = 94; continue; }
+    case 96: { w32(0x4fe81c,2); pc = 95; continue; }
+    case 97: { w32(0x4fc2c4,15); pc = 96; continue; }
+    case 98: { w32(0x522ff4,1); pc = 97; continue; }
+    case 99: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 73 : 98; continue; }
+    case 100: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar4],0,rng,options); pc = 99; continue; }
+    case 101: { w32(0x4da18c,1); pc = 100; continue; }
+    case 102: { w32(0x4fbb94,0); pc = 101; continue; }
+    case 103: { w32(0x4f71c4,3); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,272),r32(0x4f71c4),4,"int"); pc = 103; continue; }
+    case 105: { w32(0x536458,2); pc = 104; continue; }
+    case 106: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 105; continue; }
+    case 107: { selectGdiObject(dc,h); pc = 106; continue; }
+    case 108: { (h = r32(0x4fc15c)); pc = 107; continue; }
+    case 109: { (hdc = dc); pc = 108; continue; }
+    case 110: { pc = 106; continue; }
+    case 111: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 110 : 109; continue; }
+    case 112: { (h = r32(0x5230cc)); pc = 107; continue; }
+    case 113: { (hdc = dc); pc = 112; continue; }
+    case 114: { pc = 106; continue; }
+    case 115: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 114 : 113; continue; }
+    case 116: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 111 : 115; continue; }
+    case 117: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_18),false), iVar4],0,rng,options); pc = 116; continue; }
+    case 118: { undefined; pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 118; continue; }
+    case 120: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,284),8,4,"int"); pc = 120; continue; }
+    case 122: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e49ec),4); pc = 121; continue; }
+    case 123: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 122; continue; }
+    case 124: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 123 : 122; continue; }
+    case 125: { undefined; pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 125; continue; }
+    case 127: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,284),7,4,"int"); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4a30),4); pc = 128; continue; }
+    case 130: { (iVar5 = cAdd(iVar5,iVar4)); pc = 129; continue; }
+    case 131: { undefined; pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 131; continue; }
+    case 133: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,284),6,4,"int"); pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4aa0),4); pc = 134; continue; }
+    case 136: { (iVar5 = cAdd(iVar5,iVar4)); pc = 135; continue; }
+    case 137: { undefined; pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,284),5,4,"int"); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4b0c),4); pc = 140; continue; }
+    case 142: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 141; continue; }
+    case 143: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711935]); pc = 142; continue; }
+    case 144: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 143 : 142; continue; }
+    case 145: { undefined; pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 145; continue; }
+    case 147: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,284),4,4,"int"); pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4b7c),4); pc = 148; continue; }
+    case 150: { (iVar5 = cAdd(iVar5,iVar4)); pc = 149; continue; }
+    case 151: { undefined; pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 151; continue; }
+    case 153: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,284),3,4,"int"); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4bb8),4); pc = 154; continue; }
+    case 156: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 155; continue; }
+    case 157: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 156; continue; }
+    case 158: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 157 : 156; continue; }
+    case 159: { undefined; pc = 158; continue; }
+    case 160: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 159; continue; }
+    case 161: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,284),2,4,"int"); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4c1c),4); pc = 162; continue; }
+    case 164: { (iVar5 = cAdd(cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),iVar4)); pc = 163; continue; }
+    case 165: { undefined; pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 165; continue; }
+    case 167: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 166; continue; }
+    case 168: { writeLocal(framePointer(localFrame,284),1,4,"int"); pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,0),cString(memory,"An outside boat must give an overlapped boat mark-room only when they are on the same tack."),4); pc = 168; continue; }
+    case 170: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 169; continue; }
+    case 171: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 170 : 169; continue; }
+    case 172: { undefined; pc = 171; continue; }
+    case 173: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 172; continue; }
+    case 174: { invokeDrawingPointer(pcVar1,dc,[original_dc,20,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 173; continue; }
+    case 175: { (pcVar1 = dcMethod(dc,100,memory)); pc = 174; continue; }
+    case 176: { writeLocal(framePointer(localFrame,284),0,4,"int"); pc = 175; continue; }
+    case 177: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4cb0),4); pc = 176; continue; }
+    case 178: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 177; continue; }
+    case 179: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 178 : 177; continue; }
+    case 180: { (local_18 = 0x5); pc = 179; continue; }
+    case 181: { writeLocal(framePointer(localFrame,260),16,4,"int"); pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 181; continue; }
+    case 183: { (iVar4 = 16); pc = 182; continue; }
+    case 184: { (iVar4 = 20); pc = 179; continue; }
+    case 185: { (local_18 = 20); pc = 184; continue; }
+    case 186: { writeLocal(framePointer(localFrame,260),20,4,"int"); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 186; continue; }
+    case 188: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 183 : 187; continue; }
+    case 189: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 188; continue; }
+    case 190: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 189; continue; }
+    case 191: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 190; continue; }
+    case 192: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 191; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial107(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial107Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial107Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044eb90; static C control-flow translation. */
+function drawTutorial107Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4516752]??[]);
@@ -4213,8 +5438,239 @@ export function drawTutorial107(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044f5c0; static C control-flow translation. */
+/** Complete recovered original 0x0044eb90; static C control-flow translation. */
+function drawTutorial107Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4516752]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let dVar1;
+  let original_dc;
+  let iVar2;
+  let iVar3;
+  let pcVar4;
+  let iVar5;
+  let pHVar6;
+  let pvVar7;
+  let pc = 205;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4)); pc = 1; continue; }
+    case 3: { w32(0x5350dc,0); pc = 2; continue; }
+    case 4: { w32(0x536458,0); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { undefined; pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(readLocal(framePointer(localFrame,272),4,"int"),dc,[original_dc,cSub(iVar3,cBits(iVar2,3,">>")),cAdd(cAdd(iVar5,4),readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,284),10,4,"int"); pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4ce8),4); pc = 9; continue; }
+    case 11: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar3, iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 10; continue; }
+    case 12: { w32(0x4fecd0,45); pc = 11; continue; }
+    case 13: { w32(0x535748,315); pc = 12; continue; }
+    case 14: { w32(0x4fb388,15); pc = 13; continue; }
+    case 15: { w32(0x4fdff0,60); pc = 14; continue; }
+    case 16: { w32(0x4fe820,2); pc = 15; continue; }
+    case 17: { w32(0x4fc2c8,15); pc = 16; continue; }
+    case 18: { w32(0x522ff8,1); pc = 17; continue; }
+    case 19: { (iVar2 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),7,"&"))); pc = 18; continue; }
+    case 20: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 19; continue; }
+    case 21: { (iVar3 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false)); pc = 20; continue; }
+    case 22: { undefined; pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 22; continue; }
+    case 24: { invokeDrawingPointer(readLocal(framePointer(localFrame,272),4,"int"),dc,[original_dc,cAdd(iVar2,iVar3),cAdd(iVar5,4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,284),9,4,"int"); pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4d04),4); pc = 25; continue; }
+    case 27: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar3, iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 26; continue; }
+    case 28: { w32(0x4feccc,45); pc = 27; continue; }
+    case 29: { w32(0x535744,315); pc = 28; continue; }
+    case 30: { w32(0x4fb384,15); pc = 29; continue; }
+    case 31: { w32(0x4fdfec,60); pc = 30; continue; }
+    case 32: { w32(0x4fe81c,2); pc = 31; continue; }
+    case 33: { w32(0x4fc2c4,15); pc = 32; continue; }
+    case 34: { w32(0x522ff4,1); pc = 33; continue; }
+    case 35: { (iVar2 = cDiv(r32(0x4fe624),15)); pc = 34; continue; }
+    case 36: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 35; continue; }
+    case 37: { (iVar3 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc778)),false)); pc = 36; continue; }
+    case 38: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 5; continue; }
+    case 39: { w32(0x4fecd0,25); pc = 38; continue; }
+    case 40: { w32(0x535748,25); pc = 39; continue; }
+    case 41: { w32(0x4fb388,15); pc = 40; continue; }
+    case 42: { w32(0x4fdff0,60); pc = 41; continue; }
+    case 43: { w32(0x4fe820,2); pc = 42; continue; }
+    case 44: { w32(0x4fc2c8,15); pc = 43; continue; }
+    case 45: { w32(0x522ff8,4294967295); pc = 44; continue; }
+    case 46: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 45; continue; }
+    case 47: { w32(0x4feccc,50); pc = 46; continue; }
+    case 48: { w32(0x535744,50); pc = 47; continue; }
+    case 49: { w32(0x4fb384,15); pc = 48; continue; }
+    case 50: { w32(0x4fdfec,60); pc = 49; continue; }
+    case 51: { w32(0x4fe81c,2); pc = 50; continue; }
+    case 52: { w32(0x4fc2c4,15); pc = 51; continue; }
+    case 53: { w32(0x522ff4,4294967295); pc = 52; continue; }
+    case 54: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 37 : 53; continue; }
+    case 55: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, readLocalArgument(framePointer(localFrame,260),4,"int")],0,rng,options); pc = 54; continue; }
+    case 56: { w32(0x4da18c,1); pc = 55; continue; }
+    case 57: { w32(0x4fbb94,0); pc = 56; continue; }
+    case 58: { w32(0x4f71c4,2); pc = 57; continue; }
+    case 59: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),r32(0x4f71c4),4); pc = 58; continue; }
+    case 60: { w32(0x536458,2); pc = 59; continue; }
+    case 61: { dc.lineTo(0,cAdd(r32(0x4fe2a8),200)); pc = 60; continue; }
+    case 62: { dc.lineTo(cDiv(r32(0x4fe624),10),cAdd(r32(0x4faf7c),iVar3)); pc = 61; continue; }
+    case 63: { dc.lineTo(cDiv(r32(0x4fe624),9),cAdd(r32(0x4faf7c),iVar2)); pc = 62; continue; }
+    case 64: { dc.lineTo(cBits(cI32(cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),7,"&")),false),3,">>"),cAdd(r32(0x4faf7c),iVar5)); pc = 63; continue; }
+    case 65: { writeLocalPoint(framePointer(localFrame,264),dc.moveTo(cDiv(r32(0x4fe624),9),cAdd(cDiv(r32(0x4fe2a8),10),r32(0x4faf7c)))); pc = 64; continue; }
+    case 66: { invokeDrawingPointer(dcMethod(dc,44,memory),dc,[original_dc,6]); pc = 65; continue; }
+    case 67: { dc.polygon(originalPoints(memory,0x4f6e28,6)); pc = 66; continue; }
+    case 68: { writeLocal(framePointer(localFrame,0),r32(0x4f6e2c),4,"int"); pc = 67; continue; }
+    case 69: { w32(0x4f6e34,r32(0x4f6e2c)); pc = 68; continue; }
+    case 70: { w32(0x4f6e54,cAdd(r32(0x4fe2a8),200)); pc = 69; continue; }
+    case 71: { w32(0x4f6e48,cAdd(cDiv(r32(0x4fe624),10),cNeg(8))); pc = 70; continue; }
+    case 72: { w32(0x4f6e4c,cAdd(r32(0x4faf7c),iVar3)); pc = 71; continue; }
+    case 73: { w32(0x4f6e44,cAdd(r32(0x4faf7c),iVar2)); pc = 72; continue; }
+    case 74: { w32(0x4f6e3c,cAdd(r32(0x4faf7c),iVar5)); pc = 73; continue; }
+    case 75: { w32(0x4f6e40,cAdd(readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),cNeg(6))); pc = 74; continue; }
+    case 76: { w32(0x4f6e38,cAdd(cBits(cI32(cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),7,"&")),false),3,">>"),cNeg(4))); pc = 75; continue; }
+    case 77: { w32(0x4f6e30,cAdd(readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),cNeg(2))); pc = 76; continue; }
+    case 78: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),cDiv(r32(0x4fe624),9),4); pc = 77; continue; }
+    case 79: { w32(0x4f6e50,4294967286); pc = 78; continue; }
+    case 80: { w32(0x4f6e2c,cAdd(cDiv(r32(0x4fe2a8),10),r32(0x4faf7c))); pc = 79; continue; }
+    case 81: { w32(0x4f6e28,0); pc = 80; continue; }
+    case 82: { selectGdiObject(dc,pvVar7); pc = 81; continue; }
+    case 83: { (pvVar7 = r32(0x4fb244)); pc = 82; continue; }
+    case 84: { (pHVar6 = dc); pc = 83; continue; }
+    case 85: { pc = 81; continue; }
+    case 86: { pc = cTruth(cCompare(r32(0x4fb244),0,"==")) ? 85 : 84; continue; }
+    case 87: { (pvVar7 = r32(0x5230cc)); pc = 82; continue; }
+    case 88: { (pHVar6 = dc); pc = 87; continue; }
+    case 89: { pc = 81; continue; }
+    case 90: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 89 : 88; continue; }
+    case 91: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 86 : 90; continue; }
+    case 92: { dc.polygon(originalPoints(memory,0x4f6e28,6)); pc = 91; continue; }
+    case 93: { w32(0x4f6e40,r32(0x4f6e30)); pc = 92; continue; }
+    case 94: { w32(0x4f6e34,r32(0x4f6e2c)); pc = 93; continue; }
+    case 95: { w32(0x4f6e54,cAdd(r32(0x4fe2a8),200)); pc = 94; continue; }
+    case 96: { w32(0x4f6e4c,cAdd(r32(0x4faf7c),iVar3)); pc = 95; continue; }
+    case 97: { (iVar3 = cDiv(cMul(iVar3,4),5)); pc = 96; continue; }
+    case 98: { w32(0x4f6e48,cDiv(r32(0x4fe624),10)); pc = 97; continue; }
+    case 99: { w32(0x4f6e44,cAdd(r32(0x4faf7c),iVar2)); pc = 98; continue; }
+    case 100: { (iVar2 = cDiv(cMul(iVar3,3),5)); pc = 99; continue; }
+    case 101: { w32(0x4f6e3c,cAdd(r32(0x4faf7c),iVar5)); pc = 100; continue; }
+    case 102: { (iVar5 = cDiv(cMul(iVar3,2),5)); pc = 101; continue; }
+    case 103: { w32(0x4f6e38,cBits(cI32(cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),7,"&")),false),3,">>")); pc = 102; continue; }
+    case 104: { w32(0x4f6e30,cDiv(r32(0x4fe624),9)); pc = 103; continue; }
+    case 105: { w32(0x4f6e2c,cAdd(cDiv(r32(0x4fe2a8),10),r32(0x4faf7c))); pc = 104; continue; }
+    case 106: { w32(0x4f6e50,0); pc = 105; continue; }
+    case 107: { w32(0x4f6e28,0); pc = 106; continue; }
+    case 108: { invokeDrawingPointer(pcVar4,dc,[dc,r32(0x4fe07c)]); pc = 107; continue; }
+    case 109: { pc = cTruth(cCompare(r32(0x4fe07c),0,"!=")) ? 108 : 107; continue; }
+    case 110: { (iVar3 = cSub(r32(0x4fe2a8),r32(0x4faf7c))); pc = 109; continue; }
+    case 111: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),cAdd(cDiv(r32(0x4fe2a8),10),r32(0x4faf7c))); pc = 110; continue; }
+    case 112: { invokeDrawingPointer(pcVar4,dc,[pHVar6,pvVar7]); pc = 111; continue; }
+    case 113: { (pvVar7 = r32(0x4f4a5c)); pc = 112; continue; }
+    case 114: { (pHVar6 = dc); pc = 113; continue; }
+    case 115: { pc = cTruth(cCompare(r32(0x4f4a5c),0,"!=")) ? 114 : 111; continue; }
+    case 116: { pc = 112; continue; }
+    case 117: { (pvVar7 = r32(0x4f3f5c)); pc = 116; continue; }
+    case 118: { (pHVar6 = dc); pc = 117; continue; }
+    case 119: { pc = cTruth(cCompare(r32(0x4f3f5c),0,"!=")) ? 118 : 111; continue; }
+    case 120: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 115 : 119; continue; }
+    case 121: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 120; continue; }
+    case 122: { selectGdiObject(dc,r32(0x4fc15c)); pc = 121; continue; }
+    case 123: { pc = cTruth(cCompare(r32(0x4fc15c),0,"!=")) ? 122 : 121; continue; }
+    case 124: { (pcVar4 = importDrawingMethod(dc,memory,"SelectObject")); pc = 121; continue; }
+    case 125: { selectGdiObject(dc,r32(0x5230cc)); pc = 124; continue; }
+    case 126: { pc = cTruth(cCompare(r32(0x5230cc),0,"!=")) ? 125 : 121; continue; }
+    case 127: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 123 : 126; continue; }
+    case 128: { (pcVar4 = importDrawingMethod(dc,memory,"SelectObject")); pc = 127; continue; }
+    case 129: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4), iVar3],0,rng,options); pc = 128; continue; }
+    case 130: { undefined; pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 130; continue; }
+    case 132: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,cAdd(iVar3,iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 131; continue; }
+    case 133: { writeLocal(framePointer(localFrame,284),8,4,"int"); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4d0c),4); pc = 133; continue; }
+    case 135: { undefined; pc = 134; continue; }
+    case 136: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 135; continue; }
+    case 137: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,284),7,4,"int"); pc = 137; continue; }
+    case 139: { writeLocal(framePointer(localFrame,0),cString(memory,"Exception: If the obstruction is a mark W is about to round, such as a committee boat or its anchor line,"),4); pc = 138; continue; }
+    case 140: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 139; continue; }
+    case 141: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 140 : 139; continue; }
+    case 142: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 141; continue; }
+    case 143: { undefined; pc = 142; continue; }
+    case 144: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 143; continue; }
+    case 145: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,284),6,4,"int"); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4da8),4); pc = 146; continue; }
+    case 148: { (iVar5 = cAdd(iVar5,iVar3)); pc = 147; continue; }
+    case 149: { undefined; pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 149; continue; }
+    case 151: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,284),5,4,"int"); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,0),cString(memory,"W must keep clear of L. L must tack as soon as W replies or"),4); pc = 152; continue; }
+    case 154: { (iVar5 = cAdd(iVar5,iVar3)); pc = 153; continue; }
+    case 155: { undefined; pc = 154; continue; }
+    case 156: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 155; continue; }
+    case 157: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 156; continue; }
+    case 158: { writeLocal(framePointer(localFrame,284),4,4,"int"); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),cString(memory,"After L hails Room to Tack, W must tack immediately or immediately reply You Tack. In that case,"),4); pc = 158; continue; }
+    case 160: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 159; continue; }
+    case 161: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 160 : 159; continue; }
+    case 162: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 161; continue; }
+    case 163: { undefined; pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 163; continue; }
+    case 165: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,284),3,4,"int"); pc = 165; continue; }
+    case 167: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4e98),4); pc = 166; continue; }
+    case 168: { (iVar5 = cAdd(iVar5,iVar3)); pc = 167; continue; }
+    case 169: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32639]); pc = 168; continue; }
+    case 170: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 169 : 168; continue; }
+    case 171: { undefined; pc = 170; continue; }
+    case 172: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 171; continue; }
+    case 173: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 172; continue; }
+    case 174: { writeLocal(framePointer(localFrame,284),2,4,"int"); pc = 173; continue; }
+    case 175: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4f04),4); pc = 174; continue; }
+    case 176: { (iVar5 = cAdd(cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),iVar3)); pc = 175; continue; }
+    case 177: { undefined; pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 177; continue; }
+    case 179: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 178; continue; }
+    case 180: { writeLocal(framePointer(localFrame,284),1,4,"int"); pc = 179; continue; }
+    case 181: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4f4c),4); pc = 180; continue; }
+    case 182: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 181; continue; }
+    case 183: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 182 : 181; continue; }
+    case 184: { undefined; pc = 183; continue; }
+    case 185: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 184; continue; }
+    case 186: { invokeDrawingPointer(pcVar4,dc,[original_dc,20,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,272),pcVar4,4,"int"); pc = 186; continue; }
+    case 188: { (pcVar4 = dcMethod(dc,100,memory)); pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,284),0,4,"int"); pc = 188; continue; }
+    case 190: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4fac),4); pc = 189; continue; }
+    case 191: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 190; continue; }
+    case 192: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 191 : 190; continue; }
+    case 193: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),5,4); pc = 192; continue; }
+    case 194: { writeLocal(framePointer(localFrame,260),16,4,"int"); pc = 193; continue; }
+    case 195: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 194; continue; }
+    case 196: { (iVar3 = 16); pc = 195; continue; }
+    case 197: { (iVar3 = 20); pc = 192; continue; }
+    case 198: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),20,4); pc = 197; continue; }
+    case 199: { writeLocal(framePointer(localFrame,260),20,4,"int"); pc = 198; continue; }
+    case 200: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 199; continue; }
+    case 201: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 196 : 200; continue; }
+    case 202: { w32(0x4faf7c,fpI32(dVar1,false)); pc = 201; continue; }
+    case 203: { (dVar1 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 202; continue; }
+    case 204: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 203; continue; }
+    case 205: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 204; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial108(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial108Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial108Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044f5c0; static C control-flow translation. */
+function drawTutorial108Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4519360]??[]);
@@ -4416,8 +5872,216 @@ export function drawTutorial108(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0044fee0; static C control-flow translation. */
+/** Complete recovered original 0x0044f5c0; static C control-flow translation. */
+function drawTutorial108Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4519360]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let uVar3;
+  let original_dc;
+  let iVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let local_10;
+  let pc = 181;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,uVar3); pc = 1; continue; }
+    case 3: { w32(0x5350dc,0); pc = 2; continue; }
+    case 4: { w32(0x536458,0); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { undefined; pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cAdd(cDiv(r32(0x4fe2a8),70),iVar4),cStringData(memory,local_10),cStringHeaderLength(memory,cStringData(memory,local_10))]); pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,276),10,4,"int"); pc = 8; continue; }
+    case 10: { (local_10 = cString(memory,0x4e4fd4)); pc = 9; continue; }
+    case 11: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, iVar4, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 10; continue; }
+    case 12: { w32(0x4fece0,45); pc = 11; continue; }
+    case 13: { w32(0x535758,270); pc = 12; continue; }
+    case 14: { w32(0x4fb398,15); pc = 13; continue; }
+    case 15: { w32(0x4fe000,60); pc = 14; continue; }
+    case 16: { w32(0x4fe830,2); pc = 15; continue; }
+    case 17: { w32(0x4fc2d8,15); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),25),4,"int"); pc = 17; continue; }
+    case 19: { w32(0x523008,1); pc = 18; continue; }
+    case 20: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc620)),false)); pc = 19; continue; }
+    case 21: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc508)),false)); pc = 20; continue; }
+    case 22: { undefined; pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 22; continue; }
+    case 24: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(cSub(iVar4,readLocal(framePointer(localFrame,256),4,"int")),cNeg(4)),cStringData(memory,local_10),cStringHeaderLength(memory,cStringData(memory,local_10))]); pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,276),9,4,"int"); pc = 24; continue; }
+    case 26: { (local_10 = cString(memory,0x4e4fdc)); pc = 25; continue; }
+    case 27: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, iVar4, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 26; continue; }
+    case 28: { w32(0x4fecd4,45); pc = 27; continue; }
+    case 29: { w32(0x53574c,270); pc = 28; continue; }
+    case 30: { w32(0x4fb38c,15); pc = 29; continue; }
+    case 31: { w32(0x4fdff4,20); pc = 30; continue; }
+    case 32: { w32(0x4fe824,50); pc = 31; continue; }
+    case 33: { w32(0x4fc2cc,5); pc = 32; continue; }
+    case 34: { w32(0x522ffc,1); pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),7),4,"int"); pc = 34; continue; }
+    case 36: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 35; continue; }
+    case 37: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 36; continue; }
+    case 38: { undefined; pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 38; continue; }
+    case 40: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,cBits(iVar4,4,">>")),cI32(cAdd(cAdd(cStringData(memory,local_10),readLocal(framePointer(localFrame,256),4,"int")),4),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,276),8,4,"int"); pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4fe4),4); pc = 41; continue; }
+    case 43: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, cStringData(memory,local_10), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 42; continue; }
+    case 44: { w32(0x4fecd0,90); pc = 43; continue; }
+    case 45: { w32(0x535748,270); pc = 44; continue; }
+    case 46: { w32(0x4fb388,15); pc = 45; continue; }
+    case 47: { w32(0x4fdff0,20); pc = 46; continue; }
+    case 48: { w32(0x4fe820,40); pc = 47; continue; }
+    case 49: { w32(0x4fc2c8,9); pc = 48; continue; }
+    case 50: { w32(0x522ff8,1); pc = 49; continue; }
+    case 51: { (iVar4 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),15,"&"))); pc = 50; continue; }
+    case 52: { (local_10 = fpI64(fpMul(r64(0x5230b0),r64(0x4cc620)),false)); pc = 51; continue; }
+    case 53: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false)); pc = 52; continue; }
+    case 54: { undefined; pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 54; continue; }
+    case 56: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cSub(iVar4,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,local_10),cStringHeaderLength(memory,cStringData(memory,local_10))]); pc = 55; continue; }
+    case 57: { writeLocal(framePointer(localFrame,276),7,4,"int"); pc = 56; continue; }
+    case 58: { (local_10 = cString(memory,0x4e4d04)); pc = 57; continue; }
+    case 59: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, iVar4, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 58; continue; }
+    case 60: { w32(0x4feccc,90); pc = 59; continue; }
+    case 61: { w32(0x535744,270); pc = 60; continue; }
+    case 62: { w32(0x4fb384,15); pc = 61; continue; }
+    case 63: { w32(0x4fdfec,20); pc = 62; continue; }
+    case 64: { w32(0x4fe81c,40); pc = 63; continue; }
+    case 65: { w32(0x4fc2c4,9); pc = 64; continue; }
+    case 66: { w32(0x522ff4,1); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),20),4,"int"); pc = 66; continue; }
+    case 68: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 67; continue; }
+    case 69: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false)); pc = 68; continue; }
+    case 70: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccc20)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false), 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 5; continue; }
+    case 71: { w32(0x4fece0,45); pc = 70; continue; }
+    case 72: { w32(0x535758,315); pc = 71; continue; }
+    case 73: { w32(0x4fb398,15); pc = 72; continue; }
+    case 74: { w32(0x4fe000,60); pc = 73; continue; }
+    case 75: { w32(0x4fe830,2); pc = 74; continue; }
+    case 76: { w32(0x4fc2d8,15); pc = 75; continue; }
+    case 77: { w32(0x523008,1); pc = 76; continue; }
+    case 78: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 77; continue; }
+    case 79: { w32(0x4fecd4,35); pc = 78; continue; }
+    case 80: { w32(0x53574c,325); pc = 79; continue; }
+    case 81: { w32(0x4fb38c,15); pc = 80; continue; }
+    case 82: { w32(0x4fdff4,20); pc = 81; continue; }
+    case 83: { w32(0x4fe824,2); pc = 82; continue; }
+    case 84: { w32(0x4fc2cc,15); pc = 83; continue; }
+    case 85: { w32(0x522ffc,1); pc = 84; continue; }
+    case 86: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 85; continue; }
+    case 87: { w32(0x4fecd0,45); pc = 86; continue; }
+    case 88: { w32(0x535748,315); pc = 87; continue; }
+    case 89: { w32(0x4fb388,15); pc = 88; continue; }
+    case 90: { w32(0x4fdff0,50); pc = 89; continue; }
+    case 91: { w32(0x4fe820,2); pc = 90; continue; }
+    case 92: { w32(0x4fc2c8,15); pc = 91; continue; }
+    case 93: { w32(0x522ff8,1); pc = 92; continue; }
+    case 94: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 93; continue; }
+    case 95: { w32(0x4feccc,35); pc = 94; continue; }
+    case 96: { w32(0x535744,325); pc = 95; continue; }
+    case 97: { w32(0x4fb384,15); pc = 96; continue; }
+    case 98: { w32(0x4fdfec,50); pc = 97; continue; }
+    case 99: { w32(0x4fe81c,2); pc = 98; continue; }
+    case 100: { w32(0x4fc2c4,15); pc = 99; continue; }
+    case 101: { w32(0x522ff4,1); pc = 100; continue; }
+    case 102: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 69 : 101; continue; }
+    case 103: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 0, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 102; continue; }
+    case 104: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc618)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 3, 1],0,rng,options); pc = 103; continue; }
+    case 105: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar5],0,rng,options); pc = 104; continue; }
+    case 106: { w32(0x4da18c,1); pc = 105; continue; }
+    case 107: { w32(0x4fbb94,0); pc = 106; continue; }
+    case 108: { w32(0x4f71c4,3); pc = 107; continue; }
+    case 109: { w32(0x536458,2); pc = 108; continue; }
+    case 110: { (uVar3 = r32(0x4f71c4)); pc = 109; continue; }
+    case 111: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 110; continue; }
+    case 112: { selectGdiObject(dc,h); pc = 111; continue; }
+    case 113: { (h = r32(0x4fc15c)); pc = 112; continue; }
+    case 114: { (hdc = dc); pc = 113; continue; }
+    case 115: { pc = 111; continue; }
+    case 116: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 115 : 114; continue; }
+    case 117: { (h = r32(0x5230cc)); pc = 112; continue; }
+    case 118: { (hdc = dc); pc = 117; continue; }
+    case 119: { pc = 111; continue; }
+    case 120: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 119 : 118; continue; }
+    case 121: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 116 : 120; continue; }
+    case 122: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_10),false), iVar5],0,rng,options); pc = 121; continue; }
+    case 123: { undefined; pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cAdd(iVar5,iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,276),6,4,"int"); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e4fec),4); pc = 126; continue; }
+    case 128: { undefined; pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 128; continue; }
+    case 130: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,276),5,4,"int"); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e501c),4); pc = 131; continue; }
+    case 133: { (iVar4 = cAdd(iVar4,iVar5)); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,276),4,4,"int"); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,0),cString(memory,"Before the starting signal there is no proper course, so a leeward boat may luff to head to wind."),4); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 138; continue; }
+    case 140: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 139 : 138; continue; }
+    case 141: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 140; continue; }
+    case 142: { undefined; pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 142; continue; }
+    case 144: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,276),3,4,"int"); pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e50d8),4); pc = 145; continue; }
+    case 147: { (iVar4 = cAdd(iVar4,iVar5)); pc = 146; continue; }
+    case 148: { undefined; pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 148; continue; }
+    case 150: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,276),2,4,"int"); pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e50e4),4); pc = 151; continue; }
+    case 153: { (iVar4 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),iVar5)); pc = 152; continue; }
+    case 154: { undefined; pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 154; continue; }
+    case 156: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,276),1,4,"int"); pc = 156; continue; }
+    case 158: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5140),4); pc = 157; continue; }
+    case 159: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 158; continue; }
+    case 160: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 159 : 158; continue; }
+    case 161: { undefined; pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 161; continue; }
+    case 163: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 162; continue; }
+    case 164: { (pcVar1 = dcMethod(dc,100,memory)); pc = 163; continue; }
+    case 165: { writeLocal(framePointer(localFrame,276),0,4,"int"); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e51a0),4); pc = 165; continue; }
+    case 167: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 166; continue; }
+    case 168: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 167 : 166; continue; }
+    case 169: { (local_10 = 0x5); pc = 168; continue; }
+    case 170: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 170; continue; }
+    case 172: { (iVar5 = 16); pc = 171; continue; }
+    case 173: { (iVar5 = 20); pc = 168; continue; }
+    case 174: { (local_10 = 20); pc = 173; continue; }
+    case 175: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 174; continue; }
+    case 176: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 175; continue; }
+    case 177: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 172 : 176; continue; }
+    case 178: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 177; continue; }
+    case 179: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 178; continue; }
+    case 180: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 179; continue; }
+    case 181: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 180; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial109(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial109Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial109Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0044fee0; static C control-flow translation. */
+function drawTutorial109Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4521696]??[]);
@@ -4577,8 +6241,174 @@ export function drawTutorial109(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00450590; static C control-flow translation. */
+/** Complete recovered original 0x0044fee0; static C control-flow translation. */
+function drawTutorial109Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4521696]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let local_14;
+  let pc = 139;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x5350dc,0); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { w32(0x4f71c4,readLocal(framePointer(localFrame,264),4,"int")); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { undefined; pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cBits(iVar5,4,">>"),iVar4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,local_14),cStringHeaderLength(memory,cStringData(memory,local_14))]); pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,276),9,4,"int"); pc = 8; continue; }
+    case 10: { (local_14 = cString(memory,0x4e4d04)); pc = 9; continue; }
+    case 11: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 10; continue; }
+    case 12: { w32(0x4fecd0,65); pc = 11; continue; }
+    case 13: { w32(0x535748,290); pc = 12; continue; }
+    case 14: { w32(0x4fb388,15); pc = 13; continue; }
+    case 15: { w32(0x4fdff0,60); pc = 14; continue; }
+    case 16: { w32(0x4fe820,10); pc = 15; continue; }
+    case 17: { w32(0x4fc2c8,15); pc = 16; continue; }
+    case 18: { w32(0x522ff8,1); pc = 17; continue; }
+    case 19: { (iVar5 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),15,"&"))); pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc7e0)),false),4,"int"); pc = 19; continue; }
+    case 21: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4ccbe8)),false)); pc = 20; continue; }
+    case 22: { undefined; pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 22; continue; }
+    case 24: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar2),cAdd(cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),1),cStringData(memory,local_14),cStringHeaderLength(memory,cStringData(memory,local_14))]); pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,276),8,4,"int"); pc = 24; continue; }
+    case 26: { (local_14 = cString(memory,0x4e4fe4)); pc = 25; continue; }
+    case 27: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 26; continue; }
+    case 28: { w32(0x4feccc,45); pc = 27; continue; }
+    case 29: { w32(0x535744,315); pc = 28; continue; }
+    case 30: { w32(0x4fb384,15); pc = 29; continue; }
+    case 31: { w32(0x4fdfec,60); pc = 30; continue; }
+    case 32: { w32(0x4fe81c,2); pc = 31; continue; }
+    case 33: { w32(0x4fc2c4,15); pc = 32; continue; }
+    case 34: { w32(0x522ff4,1); pc = 33; continue; }
+    case 35: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 35; continue; }
+    case 37: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false)); pc = 36; continue; }
+    case 38: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbf0)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 5; continue; }
+    case 39: { w32(0x4fecd0,20); pc = 38; continue; }
+    case 40: { w32(0x535748,20); pc = 39; continue; }
+    case 41: { w32(0x4fb388,15); pc = 40; continue; }
+    case 42: { w32(0x4fdff0,20); pc = 41; continue; }
+    case 43: { w32(0x4fe820,10); pc = 42; continue; }
+    case 44: { w32(0x4fc2c8,1); pc = 43; continue; }
+    case 45: { w32(0x522ff8,4294967295); pc = 44; continue; }
+    case 46: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc510)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 45; continue; }
+    case 47: { w32(0x4feccc,45); pc = 46; continue; }
+    case 48: { w32(0x535744,315); pc = 47; continue; }
+    case 49: { w32(0x4fb384,15); pc = 48; continue; }
+    case 50: { w32(0x4fdfec,60); pc = 49; continue; }
+    case 51: { w32(0x4fe81c,2); pc = 50; continue; }
+    case 52: { w32(0x4fc2c4,15); pc = 51; continue; }
+    case 53: { w32(0x522ff4,1); pc = 52; continue; }
+    case 54: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 37 : 53; continue; }
+    case 55: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 0, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 54; continue; }
+    case 56: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc618)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 3, 1],0,rng,options); pc = 55; continue; }
+    case 57: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar4],0,rng,options); pc = 56; continue; }
+    case 58: { w32(0x4da18c,1); pc = 57; continue; }
+    case 59: { w32(0x4fbb94,0); pc = 58; continue; }
+    case 60: { w32(0x4f71c4,3); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,264),r32(0x4f71c4),4,"int"); pc = 60; continue; }
+    case 62: { w32(0x536458,2); pc = 61; continue; }
+    case 63: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 62; continue; }
+    case 64: { selectGdiObject(dc,h); pc = 63; continue; }
+    case 65: { (h = r32(0x4fc15c)); pc = 64; continue; }
+    case 66: { (hdc = dc); pc = 65; continue; }
+    case 67: { pc = 63; continue; }
+    case 68: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 67 : 66; continue; }
+    case 69: { (h = r32(0x5230cc)); pc = 64; continue; }
+    case 70: { (hdc = dc); pc = 69; continue; }
+    case 71: { pc = 63; continue; }
+    case 72: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 71 : 70; continue; }
+    case 73: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 68 : 72; continue; }
+    case 74: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_14),false), iVar4],0,rng,options); pc = 73; continue; }
+    case 75: { undefined; pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 75; continue; }
+    case 77: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,276),7,4,"int"); pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e51e0),4); pc = 78; continue; }
+    case 80: { undefined; pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 80; continue; }
+    case 82: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,276),6,4,"int"); pc = 82; continue; }
+    case 84: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5234),4); pc = 83; continue; }
+    case 85: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 84; continue; }
+    case 86: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 85 : 84; continue; }
+    case 87: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 86; continue; }
+    case 88: { undefined; pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 88; continue; }
+    case 90: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,276),5,4,"int"); pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5288),4); pc = 91; continue; }
+    case 93: { (iVar5 = cAdd(iVar5,iVar4)); pc = 92; continue; }
+    case 94: { undefined; pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 94; continue; }
+    case 96: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,276),4,4,"int"); pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e52b8),4); pc = 97; continue; }
+    case 99: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 98; continue; }
+    case 100: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 99 : 98; continue; }
+    case 101: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 100; continue; }
+    case 102: { undefined; pc = 101; continue; }
+    case 103: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 102; continue; }
+    case 104: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 103; continue; }
+    case 105: { writeLocal(framePointer(localFrame,276),3,4,"int"); pc = 104; continue; }
+    case 106: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e530c),4); pc = 105; continue; }
+    case 107: { (iVar5 = cAdd(iVar5,iVar4)); pc = 106; continue; }
+    case 108: { undefined; pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 108; continue; }
+    case 110: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 109; continue; }
+    case 111: { writeLocal(framePointer(localFrame,276),2,4,"int"); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5360),4); pc = 111; continue; }
+    case 113: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 112; continue; }
+    case 114: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 113 : 112; continue; }
+    case 115: { (iVar5 = cAdd(cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 114; continue; }
+    case 116: { undefined; pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 116; continue; }
+    case 118: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,276),1,4,"int"); pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e53ac),4); pc = 119; continue; }
+    case 121: { undefined; pc = 120; continue; }
+    case 122: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 121; continue; }
+    case 123: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 122; continue; }
+    case 124: { (pcVar1 = dcMethod(dc,100,memory)); pc = 123; continue; }
+    case 125: { writeLocal(framePointer(localFrame,276),0,4,"int"); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5404),4); pc = 125; continue; }
+    case 127: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 126; continue; }
+    case 128: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 127 : 126; continue; }
+    case 129: { (local_14 = 0x5); pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 129; continue; }
+    case 131: { (iVar4 = 16); pc = 130; continue; }
+    case 132: { (local_14 = 20); pc = 128; continue; }
+    case 133: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 132; continue; }
+    case 134: { (iVar4 = 20); pc = 133; continue; }
+    case 135: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 131 : 134; continue; }
+    case 136: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 135; continue; }
+    case 137: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,276),4294967295,4,"int"); pc = 137; continue; }
+    case 139: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 138; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial110(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial110Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial110Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00450590; static C control-flow translation. */
+function drawTutorial110Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4523408]??[]);
@@ -4688,8 +6518,124 @@ export function drawTutorial110(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00450970; static C control-flow translation. */
+/** Complete recovered original 0x00450590; static C control-flow translation. */
+function drawTutorial110Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4523408]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let uVar3;
+  let original_dc;
+  let iVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let pc = 90;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,uVar3); pc = 1; continue; }
+    case 3: { w32(0x5350dc,0); pc = 2; continue; }
+    case 4: { w32(0x536458,0); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc770)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 5; continue; }
+    case 7: { w32(0x4fdff0,60); pc = 6; continue; }
+    case 8: { w32(0x4fe820,2); pc = 7; continue; }
+    case 9: { w32(0x522ff8,4294967295); pc = 8; continue; }
+    case 10: { w32(0x4fecd0,45); pc = 9; continue; }
+    case 11: { w32(0x535748,45); pc = 10; continue; }
+    case 12: { w32(0x4fb388,15); pc = 11; continue; }
+    case 13: { w32(0x4fc2c8,15); pc = 12; continue; }
+    case 14: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 13; continue; }
+    case 15: { w32(0x4feccc,45); pc = 14; continue; }
+    case 16: { w32(0x535744,315); pc = 15; continue; }
+    case 17: { w32(0x4fb384,15); pc = 16; continue; }
+    case 18: { w32(0x4fdfec,60); pc = 17; continue; }
+    case 19: { w32(0x4fe81c,2); pc = 18; continue; }
+    case 20: { w32(0x4fc2c4,15); pc = 19; continue; }
+    case 21: { w32(0x522ff4,1); pc = 20; continue; }
+    case 22: { w32(0x4fbb94,0); pc = 21; continue; }
+    case 23: { w32(0x4f71c4,2); pc = 22; continue; }
+    case 24: { w32(0x536458,2); pc = 23; continue; }
+    case 25: { (uVar3 = r32(0x4f71c4)); pc = 24; continue; }
+    case 26: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 25; continue; }
+    case 27: { selectGdiObject(dc,h); pc = 26; continue; }
+    case 28: { (h = r32(0x4fc15c)); pc = 27; continue; }
+    case 29: { (hdc = dc); pc = 28; continue; }
+    case 30: { pc = 26; continue; }
+    case 31: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 30 : 29; continue; }
+    case 32: { (h = r32(0x5230cc)); pc = 27; continue; }
+    case 33: { (hdc = dc); pc = 32; continue; }
+    case 34: { pc = 26; continue; }
+    case 35: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 34 : 33; continue; }
+    case 36: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 31 : 35; continue; }
+    case 37: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,260),4,"int"), readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 36; continue; }
+    case 38: { undefined; pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 38; continue; }
+    case 40: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cAdd(readLocal(framePointer(localFrame,256),4,"int"),iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,272),5,4,"int"); pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,0),cString(memory,"assume it did not (Rule 18.2(d))."),4); pc = 41; continue; }
+    case 43: { undefined; pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 43; continue; }
+    case 45: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 44; continue; }
+    case 46: { writeLocal(framePointer(localFrame,272),4,4,"int"); pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5458),4); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 47; continue; }
+    case 49: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 48 : 47; continue; }
+    case 50: { (iVar5 = cAdd(iVar5,iVar4)); pc = 49; continue; }
+    case 51: { undefined; pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 51; continue; }
+    case 53: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,272),3,4,"int"); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e54ac),4); pc = 54; continue; }
+    case 56: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,272),2,4,"int"); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,0),cString(memory,"If a boat touches a mark, she may promptly sail clear of other boats and make a 360-degree turn including one tack and one jibe"),4); pc = 60; continue; }
+    case 62: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 61; continue; }
+    case 63: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 62 : 61; continue; }
+    case 64: { (iVar5 = cAdd(cAdd(iVar4,2),iVar4)); pc = 63; continue; }
+    case 65: { undefined; pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 65; continue; }
+    case 67: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,cAdd(iVar4,2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 66; continue; }
+    case 68: { writeLocal(framePointer(localFrame,272),1,4,"int"); pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5560),4); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 69; continue; }
+    case 71: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 70 : 69; continue; }
+    case 72: { undefined; pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 72; continue; }
+    case 74: { invokeDrawingPointer(pcVar1,dc,[original_dc,5,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 73; continue; }
+    case 75: { (pcVar1 = dcMethod(dc,100,memory)); pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,272),0,4,"int"); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e55c0),4); pc = 76; continue; }
+    case 78: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),127]); pc = 77; continue; }
+    case 79: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 78 : 77; continue; }
+    case 80: { writeLocal(framePointer(localFrame,260),5,4,"int"); pc = 79; continue; }
+    case 81: { (iVar4 = 22); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,260),20,4,"int"); pc = 79; continue; }
+    case 84: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 83; continue; }
+    case 85: { (iVar4 = 27); pc = 84; continue; }
+    case 86: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 82 : 85; continue; }
+    case 87: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 86; continue; }
+    case 88: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 88; continue; }
+    case 90: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 89; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial300(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial300Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial300Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00450970; static C control-flow translation. */
+function drawTutorial300Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(268,options.retainedDrawingStack?.[4524400]??[]);
@@ -5178,8 +7124,503 @@ export function drawTutorial300(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00451e60; static C control-flow translation. */
+/** Complete recovered original 0x00450970; static C control-flow translation. */
+function drawTutorial300Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(268,options.retainedDrawingStack?.[4524400]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let original_dc;
+  let pTVar2;
+  let iVar3;
+  let uVar4;
+  let iVar5;
+  let iVar6;
+  let TStack_14;
+  let TStack_10;
+  let pc = 468;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,cSub(r32(0x4faf7c),iVar3),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,264),14,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e60f8),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { undefined; pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 9; continue; }
+    case 11: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,cAdd(iVar6,20),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,264),13,4,"int"); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e55d8),4); pc = 12; continue; }
+    case 14: { pc = cTruth((cTruth(cCompare(r32(0x536424),1,"<")) && cTruth(cCompare(r32(0x5363f4),0,"==")))) ? 13 : 8; continue; }
+    case 15: { (iVar6 = cAdd(iVar6,20)); pc = 14; continue; }
+    case 16: { undefined; pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 16; continue; }
+    case 18: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 17; continue; }
+    case 19: { writeLocal(framePointer(localFrame,264),12,4,"int"); pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5614),4); pc = 19; continue; }
+    case 21: { pc = cTruth(cCompare(r32(0x536464),1,"==")) ? 20 : 14; continue; }
+    case 22: { (iVar6 = cAdd(iVar5,40)); pc = 21; continue; }
+    case 23: { undefined; pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 23; continue; }
+    case 25: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,264),11,4,"int"); pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5644),4); pc = 26; continue; }
+    case 28: { pc = cTruth(cCompare(r32(0x536460),1,"==")) ? 27 : 21; continue; }
+    case 29: { (iVar6 = cAdd(iVar5,20)); pc = 28; continue; }
+    case 30: { undefined; pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 30; continue; }
+    case 32: { undefined; pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,264),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,264),1),3)),cRawWord(9),3,1),4,"int"); pc = 32; continue; }
+    case 34: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readPointer(memory,pTVar2,4),cStringHeaderLength(memory,readPointer(memory,pTVar2,4))]); pc = 33; continue; }
+    case 35: { writePointer(memory,pointerAdd(framePointer(localFrame,264),0),10,1); pc = 34; continue; }
+    case 36: { (pTVar2 = writeLocal(framePointer(localFrame,0),cString(memory,0x4e566c) + cString(memory,pTVar2),4)); pc = 35; continue; }
+    case 37: { writeLocal(framePointer(localFrame,264),9,4,"int"); pc = 36; continue; }
+    case 38: { (pTVar2 = (TStack_10 = formatInteger(cI32(fpI32(fpDiv(fpMul(fpLoad(fpToNumber(fpFromInteger(r32(0x4fe768)))),r64(0x4cc488)),fpLoad(fpToNumber(fpFromInteger(r32(0x534ea4))))),false))))); pc = 37; continue; }
+    case 39: { (iVar5 = cAdd(iVar5,20)); pc = 38; continue; }
+    case 40: { undefined; pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 40; continue; }
+    case 42: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,264),8,4,"int"); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5688),4); pc = 43; continue; }
+    case 45: { pc = cTruth((cTruth(cCompare(cAdd(r32(0x5364f8),r32(0x535204)),cNeg(3),"<")) && cTruth(cCompare(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),76,"<")))) ? 44 : 38; continue; }
+    case 46: { (iVar5 = cAdd(iVar5,20)); pc = 45; continue; }
+    case 47: { undefined; pc = 46; continue; }
+    case 48: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 47; continue; }
+    case 49: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,264),7,4,"int"); pc = 49; continue; }
+    case 51: { (TStack_14 = cString(memory,0x4e56cc)); pc = 50; continue; }
+    case 52: { pc = cTruth((cTruth(cCompare(3,cAdd(r32(0x5364f8),r32(0x535204)),"<")) && cTruth(cCompare(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),76,"<")))) ? 51 : 45; continue; }
+    case 53: { (iVar5 = cAdd(iVar5,20)); pc = 52; continue; }
+    case 54: { undefined; pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 54; continue; }
+    case 56: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 55; continue; }
+    case 57: { writeLocal(framePointer(localFrame,264),6,4,"int"); pc = 56; continue; }
+    case 58: { (TStack_14 = cString(memory,0x4e5710)); pc = 57; continue; }
+    case 59: { pc = cTruth((cTruth((cTruth(cCompare(4,cI32(cSub(cBits(r32(0x5231b0),cBits(cI32(r32(0x5231b0),false),31,">>"),"^"),cBits(cI32(r32(0x5231b0),false),31,">>")),false),"<")) && cTruth(cCompare(r32(0x51158c),0,"==")))) && cTruth(cCompare(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),61,"<")))) ? 58 : 52; continue; }
+    case 60: { (iVar5 = cAdd(iVar5,20)); pc = 59; continue; }
+    case 61: { undefined; pc = 60; continue; }
+    case 62: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 61; continue; }
+    case 63: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,264),5,4,"int"); pc = 63; continue; }
+    case 65: { (TStack_14 = cString(memory,0x4e5748)); pc = 64; continue; }
+    case 66: { pc = cTruth((cTruth(cCompare(0,r32(0x51158c),"<")) && cTruth(cCompare(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),61,"<")))) ? 65 : 59; continue; }
+    case 67: { pc = 74; continue; }
+    case 68: { pc = cTruth(cCompare(75,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),"<")) ? 67 : 66; continue; }
+    case 69: { (iVar5 = cAdd(iVar5,20)); pc = 66; continue; }
+    case 70: { undefined; pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 70; continue; }
+    case 72: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,264),4,4,"int"); pc = 72; continue; }
+    case 74: { (TStack_14 = cString(memory,0x4e5778)); pc = 73; continue; }
+    case 75: { pc = 68; continue; }
+    case 76: { (iVar5 = 82); pc = 75; continue; }
+    case 77: { undefined; pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 77; continue; }
+    case 79: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,62,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,264),3,4,"int"); pc = 79; continue; }
+    case 81: { (TStack_14 = cString(memory,0x4e5798)); pc = 80; continue; }
+    case 82: { pc = cTruth(cCompare(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),76,"<")) ? 81 : 74; continue; }
+    case 83: { pc = cTruth(cCompare(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),61,"<")) ? 68 : 82; continue; }
+    case 84: { (iVar5 = 62); pc = 83; continue; }
+    case 85: { undefined; pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 85; continue; }
+    case 87: { undefined; pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,264),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,264),1),3)),cRawWord(1),3,1),4,"int"); pc = 87; continue; }
+    case 89: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,42,readPointer(memory,pTVar2,4),cStringHeaderLength(memory,readPointer(memory,pTVar2,4))]); pc = 88; continue; }
+    case 90: { writePointer(memory,pointerAdd(framePointer(localFrame,264),0),2,1); pc = 89; continue; }
+    case 91: { (pTVar2 = (TStack_14 = cString(memory,0x4e57b8) + cString(memory,pTVar2))); pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,264),1,4,"int"); pc = 91; continue; }
+    case 93: { (pTVar2 = (TStack_10 = formatInteger(cI32(cI32(readLocal(framePointer(localFrame,0),4,"int"),false))))); pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,0),fpI64(fpDiv(fpMul(fpLoad(fpToNumber(fpFromInteger(r32(0x4f6d2c)))),r64(0x4cc488)),fpLoad(fpToNumber(fpFromInteger(r32(0x534e94))))),false),4,"int"); pc = 93; continue; }
+    case 95: { undefined; pc = 94; continue; }
+    case 96: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 95; continue; }
+    case 97: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 96; continue; }
+    case 98: { (pcVar1 = dcMethod(dc,100,memory)); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,264),0,4,"int"); pc = 98; continue; }
+    case 100: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e57e0),4); pc = 99; continue; }
+    case 101: { pc = 3; continue; }
+    case 102: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,cSub(r32(0x4faf7c),iVar3),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 101; continue; }
+    case 103: { writeLocal(framePointer(localFrame,264),17,4,"int"); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e60f8),4); pc = 103; continue; }
+    case 105: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 104; continue; }
+    case 106: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 105 : 104; continue; }
+    case 107: { undefined; pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 107; continue; }
+    case 109: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,22,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,264),16,4,"int"); pc = 109; continue; }
+    case 111: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e613c),4); pc = 110; continue; }
+    case 112: { undefined; pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,264),15,4,"int"); pc = 114; continue; }
+    case 116: { (pcVar1 = dcMethod(dc,100,memory)); pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e617c),4); pc = 116; continue; }
+    case 118: { return; }
+    case 119: { dc.setBkMode(1); pc = 118; continue; }
+    case 120: { undefined; pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 120; continue; }
+    case 122: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,cSub(r32(0x4faf7c),iVar3),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 121; continue; }
+    case 123: { writeLocal(framePointer(localFrame,264),58,4,"int"); pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e60f8),4); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 124; continue; }
+    case 126: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 125 : 124; continue; }
+    case 127: { undefined; pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 127; continue; }
+    case 129: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,cAdd(iVar6,20),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,264),57,4,"int"); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e57fc),4); pc = 130; continue; }
+    case 132: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 131; continue; }
+    case 133: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(0,r32(0x4f69b8),"<")) && cTruth(cCompare(0,r32(0x53545c),"<")))) && cTruth(((uVar4 = cBits(cSub(r32(0x522b94),r32(0x5362d4)),31,">>")), (iVar5 = cSub(cBits(cSub(r32(0x522b94),r32(0x5362d4)),uVar4,"^"),uVar4)), cCompare(5,iVar5,"<"))))) && cTruth(cCompare(iVar5,355,"<")))) ? 132 : 126; continue; }
+    case 134: { w32(0x4fb210,1); pc = 133; continue; }
+    case 135: { (iVar6 = cAdd(iVar6,40)); pc = 134; continue; }
+    case 136: { undefined; pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 136; continue; }
+    case 138: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,cAdd(iVar6,20),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 137; continue; }
+    case 139: { writeLocal(framePointer(localFrame,264),56,4,"int"); pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5834),4); pc = 139; continue; }
+    case 141: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 140; continue; }
+    case 142: { pc = cTruth(cCompare(r32(0x4fb384),cAdd(r32(0x522ad0),cNeg(1)),"<")) ? 141 : 133; continue; }
+    case 143: { undefined; pc = 142; continue; }
+    case 144: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 143; continue; }
+    case 145: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,264),55,4,"int"); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5860),4); pc = 146; continue; }
+    case 148: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 147; continue; }
+    case 149: { (iVar6 = cAdd(iVar6,20)); pc = 148; continue; }
+    case 150: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4f69c4),cNeg(1),"==")) && cTruth(cCompare(7,cI32(cSub(cBits(r32(0x535a0c),cBits(cI32(r32(0x535a0c),false),31,">>"),"^"),cBits(cI32(r32(0x535a0c),false),31,">>")),false),"<")))) && cTruth(cCompare(0,r32(0x5359d0),"<")))) ? 149 : 142; continue; }
+    case 151: { undefined; pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 151; continue; }
+    case 153: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,264),54,4,"int"); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5894),4); pc = 154; continue; }
+    case 156: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 155; continue; }
+    case 157: { (iVar6 = cAdd(iVar6,20)); pc = 156; continue; }
+    case 158: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4f69c4),1,"==")) && cTruth(cCompare(7,cI32(cSub(cBits(r32(0x535a0c),cBits(cI32(r32(0x535a0c),false),31,">>"),"^"),cBits(cI32(r32(0x535a0c),false),31,">>")),false),"<")))) && cTruth(cCompare(0,r32(0x5359d0),"<")))) ? 157 : 150; continue; }
+    case 159: { w32(0x4fb210,1); pc = 158; continue; }
+    case 160: { undefined; pc = 159; continue; }
+    case 161: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 160; continue; }
+    case 162: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,264),53,4,"int"); pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e58d8),4); pc = 163; continue; }
+    case 165: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 164; continue; }
+    case 166: { (iVar6 = cAdd(iVar6,20)); pc = 165; continue; }
+    case 167: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x5230d8),cI32(r32(0x535a0c),false),"<")) && cTruth(cCompare(r32(0x522fd8),cNeg(1),"==")))) && cTruth(cCompare(0,r32(0x5359d0),"<")))) ? 166 : 158; continue; }
+    case 168: { invokeDrawingPointer(cStringData(memory,TStack_14),dc,[original_dc,8323072]); pc = 167; continue; }
+    case 169: { w32(0x4fb210,1); pc = 168; continue; }
+    case 170: { undefined; pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 170; continue; }
+    case 172: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 171; continue; }
+    case 173: { writeLocal(framePointer(localFrame,264),52,4,"int"); pc = 172; continue; }
+    case 174: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e590c),4); pc = 173; continue; }
+    case 175: { invokeDrawingPointer(cStringData(memory,TStack_14),dc,[original_dc,16711680]); pc = 174; continue; }
+    case 176: { (TStack_14 = dcMethod(dc,56,memory)); pc = 175; continue; }
+    case 177: { (iVar6 = cAdd(iVar6,20)); pc = 176; continue; }
+    case 178: { pc = cTruth((cTruth((cTruth(cCompare(cI32(r32(0x535a0c),false),r32(0x5230d8),"<")) && cTruth(cCompare(r32(0x522fd8),2,"==")))) && cTruth(cCompare(0,r32(0x5359d0),"<")))) ? 177 : 167; continue; }
+    case 179: { w32(0x4fb210,1); pc = 178; continue; }
+    case 180: { undefined; pc = 179; continue; }
+    case 181: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 180; continue; }
+    case 182: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 181; continue; }
+    case 183: { writeLocal(framePointer(localFrame,264),51,4,"int"); pc = 182; continue; }
+    case 184: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5940),4); pc = 183; continue; }
+    case 185: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 184; continue; }
+    case 186: { (iVar6 = cAdd(iVar6,20)); pc = 185; continue; }
+    case 187: { pc = cTruth((cTruth((cTruth(cCompare(cI32(r32(0x535a0c),false),r32(0x5230d8),"<")) && cTruth(cCompare(r32(0x522fd8),1,"==")))) && cTruth(cCompare(0,r32(0x5359d0),"<")))) ? 186 : 178; continue; }
+    case 188: { undefined; pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 188; continue; }
+    case 190: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 189; continue; }
+    case 191: { writeLocal(framePointer(localFrame,264),50,4,"int"); pc = 190; continue; }
+    case 192: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5974),4); pc = 191; continue; }
+    case 193: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 192; continue; }
+    case 194: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 193 : 192; continue; }
+    case 195: { (iVar6 = cAdd(iVar6,20)); pc = 194; continue; }
+    case 196: { pc = cTruth(cCompare(r32(0x536428),1,"==")) ? 195 : 187; continue; }
+    case 197: { w32(0x4fb210,1); pc = 196; continue; }
+    case 198: { undefined; pc = 197; continue; }
+    case 199: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 198; continue; }
+    case 200: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 199; continue; }
+    case 201: { writeLocal(framePointer(localFrame,264),49,4,"int"); pc = 200; continue; }
+    case 202: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e59b8),4); pc = 201; continue; }
+    case 203: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 202; continue; }
+    case 204: { (iVar6 = cAdd(iVar6,20)); pc = 203; continue; }
+    case 205: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(4,r32(0x4fea5c),"<")) && cTruth(cCompare(r32(0x53645c),0,"==")))) && cTruth(cCompare(10,r32(0x4f6d60),"<")))) && cTruth(cCompare(r32(0x4f6d60),18,"<")))) ? 204 : 196; continue; }
+    case 206: { w32(0x4fb210,1); pc = 205; continue; }
+    case 207: { undefined; pc = 206; continue; }
+    case 208: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 207; continue; }
+    case 209: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 208; continue; }
+    case 210: { writeLocal(framePointer(localFrame,264),48,4,"int"); pc = 209; continue; }
+    case 211: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5a04),4); pc = 210; continue; }
+    case 212: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 211; continue; }
+    case 213: { (iVar6 = cAdd(iVar6,20)); pc = 212; continue; }
+    case 214: { pc = cTruth((cTruth(cCompare(r32(0x4f8b74),1,"==")) && cTruth(cCompare(r32(0x535204),cNeg(3),"<")))) ? 213 : 205; continue; }
+    case 215: { w32(0x4fb210,1); pc = 214; continue; }
+    case 216: { undefined; pc = 215; continue; }
+    case 217: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 216; continue; }
+    case 218: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 217; continue; }
+    case 219: { writeLocal(framePointer(localFrame,264),47,4,"int"); pc = 218; continue; }
+    case 220: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5a4c),4); pc = 219; continue; }
+    case 221: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 220; continue; }
+    case 222: { (iVar6 = cAdd(iVar6,20)); pc = 221; continue; }
+    case 223: { pc = cTruth(cCompare(3,r32(0x535204),"<")) ? 222 : 214; continue; }
+    case 224: { pc = cTruth(cCompare(r32(0x4f8b74),1,"==")) ? 223 : 205; continue; }
+    case 225: { w32(0x4fb210,1); pc = 224; continue; }
+    case 226: { undefined; pc = 225; continue; }
+    case 227: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 226; continue; }
+    case 228: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 227; continue; }
+    case 229: { writeLocal(framePointer(localFrame,264),46,4,"int"); pc = 228; continue; }
+    case 230: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5a94),4); pc = 229; continue; }
+    case 231: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 230; continue; }
+    case 232: { (iVar6 = cAdd(iVar6,20)); pc = 231; continue; }
+    case 233: { pc = cTruth(cCompare(r32(0x51158c),1,"==")) ? 232 : 224; continue; }
+    case 234: { w32(0x4fb210,1); pc = 233; continue; }
+    case 235: { undefined; pc = 234; continue; }
+    case 236: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 235; continue; }
+    case 237: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 236; continue; }
+    case 238: { writeLocal(framePointer(localFrame,264),45,4,"int"); pc = 237; continue; }
+    case 239: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5ad8),4); pc = 238; continue; }
+    case 240: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 239; continue; }
+    case 241: { (iVar6 = cAdd(iVar6,20)); pc = 240; continue; }
+    case 242: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4da1f8),11,"==")) || cTruth(cCompare(r32(0x4da1f8),104,"==")))) || cTruth((cTruth(cCompare(r32(0x4da1f8),105,"==")) || cTruth((cTruth(cCompare(r32(0x4da1f8),106,"==")) || cTruth((cTruth(cCompare(r32(0x4da1f8),999,"==")) && cTruth(cCompare(r32(0x536524),1,"==")))))))))) ? 241 : 233; continue; }
+    case 243: { w32(0x4fb210,1); pc = 242; continue; }
+    case 244: { undefined; pc = 243; continue; }
+    case 245: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 244; continue; }
+    case 246: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 245; continue; }
+    case 247: { writeLocal(framePointer(localFrame,264),44,4,"int"); pc = 246; continue; }
+    case 248: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5b30),4); pc = 247; continue; }
+    case 249: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 248; continue; }
+    case 250: { (iVar6 = cAdd(iVar5,40)); pc = 249; continue; }
+    case 251: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(r32(0x522cac),1,"==")) && cTruth(cCompare(70,r32(0x4feccc),"<")))) && cTruth(cCompare(r32(0x4feccc),cSub(180,r32(0x4fae64)),"<")))) && cTruth(cCompare(0,r32(0x4fb998),"<")))) ? 250 : 242; continue; }
+    case 252: { w32(0x4fb210,1); pc = 251; continue; }
+    case 253: { undefined; pc = 252; continue; }
+    case 254: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 253; continue; }
+    case 255: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 254; continue; }
+    case 256: { writeLocal(framePointer(localFrame,264),43,4,"int"); pc = 255; continue; }
+    case 257: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5b78),4); pc = 256; continue; }
+    case 258: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 257; continue; }
+    case 259: { (iVar6 = cAdd(iVar5,20)); pc = 258; continue; }
+    case 260: { pc = cTruth(cCompare(r32(0x522cac),1,"==")) ? 259 : 242; continue; }
+    case 261: { (iVar6 = iVar5); pc = 260; continue; }
+    case 262: { w32(0x4fb210,1); pc = 261; continue; }
+    case 263: { undefined; pc = 262; continue; }
+    case 264: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 263; continue; }
+    case 265: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 264; continue; }
+    case 266: { writeLocal(framePointer(localFrame,264),42,4,"int"); pc = 265; continue; }
+    case 267: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5bb0),4); pc = 266; continue; }
+    case 268: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 267; continue; }
+    case 269: { (iVar5 = cAdd(iVar5,20)); pc = 268; continue; }
+    case 270: { pc = cTruth(cCompare(r32(0x5364ec),1,"==")) ? 269 : 261; continue; }
+    case 271: { w32(0x4fb210,1); pc = 270; continue; }
+    case 272: { undefined; pc = 271; continue; }
+    case 273: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 272; continue; }
+    case 274: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 273; continue; }
+    case 275: { writeLocal(framePointer(localFrame,264),41,4,"int"); pc = 274; continue; }
+    case 276: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5bf4),4); pc = 275; continue; }
+    case 277: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 276; continue; }
+    case 278: { (iVar5 = cAdd(iVar5,20)); pc = 277; continue; }
+    case 279: { pc = cTruth(cCompare(r32(0x534f44),1,"==")) ? 278 : 270; continue; }
+    case 280: { w32(0x4fb210,1); pc = 279; continue; }
+    case 281: { (iVar5 = cAdd(iVar5,20)); pc = 280; continue; }
+    case 282: { undefined; pc = 281; continue; }
+    case 283: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 282; continue; }
+    case 284: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 283; continue; }
+    case 285: { writeLocal(framePointer(localFrame,264),40,4,"int"); pc = 284; continue; }
+    case 286: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5c38),4); pc = 285; continue; }
+    case 287: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 286; continue; }
+    case 288: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 287 : 286; continue; }
+    case 289: { pc = cTruth(cCompare(r32(0x4da174),1,"==")) ? 288 : 279; continue; }
+    case 290: { w32(0x4fb210,1); pc = 289; continue; }
+    case 291: { (iVar5 = cAdd(iVar5,20)); pc = 290; continue; }
+    case 292: { undefined; pc = 291; continue; }
+    case 293: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 292; continue; }
+    case 294: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 293; continue; }
+    case 295: { writeLocal(framePointer(localFrame,264),39,4,"int"); pc = 294; continue; }
+    case 296: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5c70),4); pc = 295; continue; }
+    case 297: { pc = cTruth((cTruth((cTruth(cCompare(155,r32(0x4feccc),"<")) && cTruth((cTruth(cCompare(r32(0x4da190),2,"==")) || cTruth(cCompare(r32(0x5364c4),1,"==")))))) && cTruth((cTruth(cCompare(20,r32(0x4f8cd0),"<")) && cTruth(cCompare(r32(0x4f4520),0,"==")))))) ? 296 : 289; continue; }
+    case 298: { w32(0x4fb210,1); pc = 297; continue; }
+    case 299: { (iVar5 = cAdd(iVar5,20)); pc = 298; continue; }
+    case 300: { undefined; pc = 299; continue; }
+    case 301: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 300; continue; }
+    case 302: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 301; continue; }
+    case 303: { writeLocal(framePointer(localFrame,264),38,4,"int"); pc = 302; continue; }
+    case 304: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5ca4),4); pc = 303; continue; }
+    case 305: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(105,r32(0x4feccc),"<")) && cTruth(cCompare(2,r32(0x4da190),"<")))) && cTruth(cCompare(r32(0x4da190),9,"!=")))) && cTruth((cTruth((cTruth(cCompare(r32(0x5364c4),0,"==")) && cTruth(cCompare(20,r32(0x4f8cd0),"<")))) && cTruth(cCompare(r32(0x4f4520),0,"==")))))) ? 304 : 297; continue; }
+    case 306: { w32(0x4fb210,1); pc = 305; continue; }
+    case 307: { (iVar5 = cAdd(iVar5,20)); pc = 306; continue; }
+    case 308: { undefined; pc = 307; continue; }
+    case 309: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 308; continue; }
+    case 310: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 309; continue; }
+    case 311: { writeLocal(framePointer(localFrame,264),37,4,"int"); pc = 310; continue; }
+    case 312: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5cd8),4); pc = 311; continue; }
+    case 313: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4f4520),1,"==")) && cTruth(cCompare(30,r32(0x535f6c),"<")))) && cTruth((cTruth(cCompare(r32(0x4da190),2,"==")) || cTruth(cCompare(r32(0x5364c4),1,"==")))))) ? 312 : 305; continue; }
+    case 314: { w32(0x4fb210,1); pc = 313; continue; }
+    case 315: { (iVar5 = cAdd(iVar5,20)); pc = 314; continue; }
+    case 316: { undefined; pc = 315; continue; }
+    case 317: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 316; continue; }
+    case 318: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 317; continue; }
+    case 319: { writeLocal(framePointer(localFrame,264),36,4,"int"); pc = 318; continue; }
+    case 320: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5d0c),4); pc = 319; continue; }
+    case 321: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(r32(0x4fbab4),1,"==")) && cTruth(cCompare(r32(0x4f4520),1,"==")))) && cTruth(cCompare(2,r32(0x4da190),"<")))) && cTruth((cTruth(cCompare(r32(0x4da190),9,"!=")) && cTruth(cCompare(r32(0x5364c4),0,"==")))))) ? 320 : 313; continue; }
+    case 322: { w32(0x4fb210,1); pc = 321; continue; }
+    case 323: { (iVar5 = cAdd(iVar5,20)); pc = 322; continue; }
+    case 324: { undefined; pc = 323; continue; }
+    case 325: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 324; continue; }
+    case 326: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 325; continue; }
+    case 327: { writeLocal(framePointer(localFrame,264),35,4,"int"); pc = 326; continue; }
+    case 328: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5d40),4); pc = 327; continue; }
+    case 329: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4f4520),1,"==")) && cTruth(cCompare(0,r32(0x535f6c),"<")))) && cTruth((cTruth(cCompare(2,r32(0x4da190),"<")) && cTruth((cTruth(cCompare(r32(0x4da190),9,"!=")) && cTruth(cCompare(r32(0x5364c4),0,"==")))))))) ? 328 : 321; continue; }
+    case 330: { w32(0x4fb210,1); pc = 329; continue; }
+    case 331: { (iVar5 = cAdd(iVar5,20)); pc = 330; continue; }
+    case 332: { undefined; pc = 331; continue; }
+    case 333: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 332; continue; }
+    case 334: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 333; continue; }
+    case 335: { writeLocal(framePointer(localFrame,264),34,4,"int"); pc = 334; continue; }
+    case 336: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5d74),4); pc = 335; continue; }
+    case 337: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(r32(0x4da190),8,"==")) && cTruth(cCompare(100,r32(0x4feccc),"<")))) && cTruth(cCompare(r32(0x522ad0),13,"<")))) && cTruth((cTruth(cCompare(r32(0x4f42c4),3,"<")) && cTruth(cCompare(0,r32(0x4f8cd0),"<")))))) ? 336 : 329; continue; }
+    case 338: { w32(0x4fb210,1); pc = 337; continue; }
+    case 339: { (iVar5 = cAdd(iVar5,20)); pc = 338; continue; }
+    case 340: { undefined; pc = 339; continue; }
+    case 341: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 340; continue; }
+    case 342: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 341; continue; }
+    case 343: { writeLocal(framePointer(localFrame,264),33,4,"int"); pc = 342; continue; }
+    case 344: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5dac),4); pc = 343; continue; }
+    case 345: { pc = cTruth((cTruth((cTruth(cCompare(1,r32(0x4f7ee4),"<")) && cTruth(cCompare(6,r32(0x4da190),"<")))) && cTruth((cTruth((cTruth((cTruth(cCompare(r32(0x4da190),9,"<")) && cTruth((cTruth(cCompare(r32(0x51227c),0,"==")) && cTruth(cCompare(0,r32(0x4f8cd0),"<")))))) && cTruth(cCompare(r32(0x5350dc),0,"==")))) && cTruth((cTruth(cCompare(r32(0x4fc2c4),16,"<")) && cTruth(cCompare(r32(0x5364c8),0,"==")))))))) ? 344 : 337; continue; }
+    case 346: { w32(0x4fb210,1); pc = 345; continue; }
+    case 347: { (iVar5 = cAdd(iVar5,20)); pc = 346; continue; }
+    case 348: { undefined; pc = 347; continue; }
+    case 349: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 348; continue; }
+    case 350: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 349; continue; }
+    case 351: { writeLocal(framePointer(localFrame,264),32,4,"int"); pc = 350; continue; }
+    case 352: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5de0),4); pc = 351; continue; }
+    case 353: { pc = cTruth((cTruth((cTruth((cTruth((cTruth(cCompare(r32(0x4f7ee4),1,"==")) && cTruth(cCompare(6,r32(0x4da190),"<")))) && cTruth((cTruth(cCompare(r32(0x4da190),9,"<")) && cTruth((cTruth(cCompare(13,r32(0x51227c),"<")) && cTruth(cCompare(0,r32(0x4f8cd0),"<")))))))) && cTruth(cCompare(r32(0x5350dc),0,"==")))) && cTruth((cTruth((cTruth(cCompare(r32(0x5364c8),0,"==")) && cTruth(cCompare(15,r32(0x4fc2c4),"<")))) && cTruth(cCompare(r32(0x4feccc),55,"<")))))) ? 352 : 345; continue; }
+    case 354: { w32(0x4fb210,1); pc = 353; continue; }
+    case 355: { (iVar5 = cAdd(iVar5,20)); pc = 354; continue; }
+    case 356: { undefined; pc = 355; continue; }
+    case 357: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 356; continue; }
+    case 358: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,264),31,4,"int"); pc = 358; continue; }
+    case 360: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5e14),4); pc = 359; continue; }
+    case 361: { pc = cTruth((cTruth((cTruth((cTruth(cCompare(r32(0x4fe77c),3,"<")) && cTruth(cCompare(80,r32(0x4feccc),"<")))) && cTruth(cCompare(r32(0x51227c),20,"<")))) && cTruth(cCompare(r32(0x5364c8),0,"==")))) ? 360 : 353; continue; }
+    case 362: { w32(0x4fb210,1); pc = 361; continue; }
+    case 363: { (iVar5 = cAdd(iVar5,20)); pc = 362; continue; }
+    case 364: { undefined; pc = 363; continue; }
+    case 365: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 364; continue; }
+    case 366: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 365; continue; }
+    case 367: { writeLocal(framePointer(localFrame,264),30,4,"int"); pc = 366; continue; }
+    case 368: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5e48),4); pc = 367; continue; }
+    case 369: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4fe77c),1,"==")) && cTruth(cCompare(r32(0x4fb384),13,"<")))) && cTruth((cTruth(cCompare(r32(0x4feccc),81,"<")) && cTruth(cCompare(r32(0x5364c8),0,"==")))))) ? 368 : 361; continue; }
+    case 370: { w32(0x4fb210,1); pc = 369; continue; }
+    case 371: { (iVar5 = cAdd(iVar5,20)); pc = 370; continue; }
+    case 372: { undefined; pc = 371; continue; }
+    case 373: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 372; continue; }
+    case 374: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 373; continue; }
+    case 375: { writeLocal(framePointer(localFrame,264),29,4,"int"); pc = 374; continue; }
+    case 376: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5e7c),4); pc = 375; continue; }
+    case 377: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4fe77c),2,"==")) && cTruth(cCompare(r32(0x4feccc),60,"<")))) && cTruth((cTruth(cCompare(13,r32(0x4fb384),"<")) && cTruth(cCompare(r32(0x5364c8),0,"==")))))) ? 376 : 369; continue; }
+    case 378: { w32(0x4fb210,1); pc = 377; continue; }
+    case 379: { (iVar5 = cAdd(iVar5,20)); pc = 378; continue; }
+    case 380: { undefined; pc = 379; continue; }
+    case 381: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 380; continue; }
+    case 382: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 381; continue; }
+    case 383: { writeLocal(framePointer(localFrame,264),28,4,"int"); pc = 382; continue; }
+    case 384: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5eb8),4); pc = 383; continue; }
+    case 385: { pc = cTruth((cTruth((cTruth(cCompare(r32(0x4fe77c),3,"==")) && cTruth(cCompare(r32(0x4feccc),60,"<")))) && cTruth(cCompare(r32(0x5364c8),0,"==")))) ? 384 : 377; continue; }
+    case 386: { (iVar5 = cAdd(iVar5,20)); pc = 385; continue; }
+    case 387: { undefined; pc = 386; continue; }
+    case 388: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 387; continue; }
+    case 389: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 388; continue; }
+    case 390: { writeLocal(framePointer(localFrame,264),27,4,"int"); pc = 389; continue; }
+    case 391: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5eec),4); pc = 390; continue; }
+    case 392: { pc = cTruth(cCompare(r32(0x4fb220),1,"==")) ? 391 : 385; continue; }
+    case 393: { w32(0x536464,1); pc = 392; continue; }
+    case 394: { (iVar5 = cAdd(iVar5,20)); pc = 393; continue; }
+    case 395: { undefined; pc = 394; continue; }
+    case 396: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 395; continue; }
+    case 397: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 396; continue; }
+    case 398: { writeLocal(framePointer(localFrame,264),26,4,"int"); pc = 397; continue; }
+    case 399: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5f20),4); pc = 398; continue; }
+    case 400: { pc = cTruth(cCompare(r32(0x4fb234),cNeg(3),"==")) ? 399 : 392; continue; }
+    case 401: { (iVar5 = cAdd(iVar5,20)); pc = 400; continue; }
+    case 402: { undefined; pc = 401; continue; }
+    case 403: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 402; continue; }
+    case 404: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 403; continue; }
+    case 405: { writeLocal(framePointer(localFrame,264),25,4,"int"); pc = 404; continue; }
+    case 406: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5f4c),4); pc = 405; continue; }
+    case 407: { pc = cTruth(cCompare(r32(0x4fb234),cNeg(2),"==")) ? 406 : 400; continue; }
+    case 408: { (iVar5 = cAdd(iVar5,20)); pc = 407; continue; }
+    case 409: { undefined; pc = 408; continue; }
+    case 410: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 409; continue; }
+    case 411: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 410; continue; }
+    case 412: { writeLocal(framePointer(localFrame,264),24,4,"int"); pc = 411; continue; }
+    case 413: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5f88),4); pc = 412; continue; }
+    case 414: { pc = cTruth(cCompare(r32(0x4fb234),cNeg(1),"==")) ? 413 : 407; continue; }
+    case 415: { w32(0x536460,1); pc = 414; continue; }
+    case 416: { (iVar5 = cAdd(iVar5,20)); pc = 415; continue; }
+    case 417: { undefined; pc = 416; continue; }
+    case 418: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 417; continue; }
+    case 419: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 418; continue; }
+    case 420: { writeLocal(framePointer(localFrame,264),23,4,"int"); pc = 419; continue; }
+    case 421: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5fc4),4); pc = 420; continue; }
+    case 422: { pc = cTruth(cCompare(r32(0x4fb234),3,"==")) ? 421 : 414; continue; }
+    case 423: { (iVar5 = cAdd(iVar5,20)); pc = 422; continue; }
+    case 424: { undefined; pc = 423; continue; }
+    case 425: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 424; continue; }
+    case 426: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 425; continue; }
+    case 427: { writeLocal(framePointer(localFrame,264),22,4,"int"); pc = 426; continue; }
+    case 428: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e5ff8),4); pc = 427; continue; }
+    case 429: { pc = cTruth(cCompare(r32(0x4fb234),2,"==")) ? 428 : 422; continue; }
+    case 430: { (iVar5 = cAdd(iVar5,20)); pc = 429; continue; }
+    case 431: { undefined; pc = 430; continue; }
+    case 432: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 431; continue; }
+    case 433: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 432; continue; }
+    case 434: { writeLocal(framePointer(localFrame,264),21,4,"int"); pc = 433; continue; }
+    case 435: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e602c),4); pc = 434; continue; }
+    case 436: { pc = cTruth(cCompare(r32(0x4fb234),1,"==")) ? 435 : 429; continue; }
+    case 437: { (iVar5 = cAdd(iVar5,20)); pc = 436; continue; }
+    case 438: { undefined; pc = 437; continue; }
+    case 439: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 438; continue; }
+    case 440: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 439; continue; }
+    case 441: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 440; continue; }
+    case 442: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6068),4); pc = 441; continue; }
+    case 443: { pc = cTruth((cTruth(cCompare(r32(0x4fb21c),1,"==")) && cTruth(cCompare(cNeg(1),r32(0x500384),"<")))) ? 442 : 436; continue; }
+    case 444: { (iVar5 = 22); pc = 443; continue; }
+    case 445: { undefined; pc = 444; continue; }
+    case 446: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 445; continue; }
+    case 447: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 446; continue; }
+    case 448: { writeLocal(framePointer(localFrame,264),19,4,"int"); pc = 447; continue; }
+    case 449: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e609c),4); pc = 448; continue; }
+    case 450: { pc = cTruth((cTruth(cCompare(r32(0x4fafa0),0,"==")) && cTruth(cCompare(r32(0x4f8cd0),20,"<")))) ? 449 : 443; continue; }
+    case 451: { undefined; pc = 450; continue; }
+    case 452: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 451; continue; }
+    case 453: { invokeDrawingPointer(pcVar1,dc,[original_dc,30,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 452; continue; }
+    case 454: { (pcVar1 = dcMethod(dc,100,memory)); pc = 453; continue; }
+    case 455: { writeLocal(framePointer(localFrame,264),18,4,"int"); pc = 454; continue; }
+    case 456: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e60d4),4); pc = 455; continue; }
+    case 457: { pc = cTruth(cCompare(r32(0x4da198),11,"<")) ? 456 : 117; continue; }
+    case 458: { pc = cTruth((cTruth(cCompare(r32(0x5363f4),1,"!=")) && cTruth(cCompare(r32(0x4fe63c),1,"<")))) ? 457 : 100; continue; }
+    case 459: { invokeDrawingPointer(dcMethod(dc,52,memory),dc,[original_dc,16777215]); pc = 458; continue; }
+    case 460: { (iVar6 = readPointer(memory,original_dc,4)); pc = 459; continue; }
+    case 461: { dc.setBkMode(2); pc = 460; continue; }
+    case 462: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 461; continue; }
+    case 463: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 462 : 461; continue; }
+    case 464: { (iVar5 = 2); pc = 463; continue; }
+    case 465: { (iVar3 = cAdd(cBits(cSub(cCompare(699,r32(0x4fe624),"<"),1),4294967292,"&"),20)); pc = 464; continue; }
+    case 466: { w32(0x4faf7c,cDiv(r32(0x4fe2a8),3)); pc = 465; continue; }
+    case 467: { writeLocal(framePointer(localFrame,264),4294967295,4,"int"); pc = 466; continue; }
+    case 468: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 467; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial501(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial501Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial501Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00451e60; static C control-flow translation. */
+function drawTutorial501Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4529760]??[]);
@@ -5373,8 +7814,208 @@ export function drawTutorial501(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00452660; static C control-flow translation. */
+/** Complete recovered original 0x00451e60; static C control-flow translation. */
+function drawTutorial501Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4529760]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let uVar2;
+  let original_dc;
+  let iVar3;
+  let puVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let pc = 174;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,uVar2); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 3; continue; }
+    case 5: { w32(0x4fecd4,45); pc = 4; continue; }
+    case 6: { w32(0x53574c,45); pc = 5; continue; }
+    case 7: { w32(0x4fb38c,15); pc = 6; continue; }
+    case 8: { w32(0x4fdff4,60); pc = 7; continue; }
+    case 9: { w32(0x4fe824,2); pc = 8; continue; }
+    case 10: { w32(0x4fc2cc,15); pc = 9; continue; }
+    case 11: { w32(0x522ffc,4294967295); pc = 10; continue; }
+    case 12: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 11; continue; }
+    case 13: { w32(0x4fecd0,45); pc = 12; continue; }
+    case 14: { w32(0x535748,315); pc = 13; continue; }
+    case 15: { w32(0x4fb388,15); pc = 14; continue; }
+    case 16: { w32(0x4fdff0,60); pc = 15; continue; }
+    case 17: { w32(0x4fe820,2); pc = 16; continue; }
+    case 18: { w32(0x4fc2c8,15); pc = 17; continue; }
+    case 19: { w32(0x522ff8,1); pc = 18; continue; }
+    case 20: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc770)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 19; continue; }
+    case 21: { w32(0x4feccc,45); pc = 20; continue; }
+    case 22: { w32(0x535744,45); pc = 21; continue; }
+    case 23: { w32(0x4fb384,15); pc = 22; continue; }
+    case 24: { w32(0x4fdfec,60); pc = 23; continue; }
+    case 25: { w32(0x4fe81c,2); pc = 24; continue; }
+    case 26: { w32(0x4fc2c4,15); pc = 25; continue; }
+    case 27: { w32(0x522ff4,4294967295); pc = 26; continue; }
+    case 28: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 27 : 3; continue; }
+    case 29: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 28; continue; }
+    case 30: { w32(0x4fecd4,45); pc = 29; continue; }
+    case 31: { w32(0x53574c,315); pc = 30; continue; }
+    case 32: { w32(0x4fb38c,15); pc = 31; continue; }
+    case 33: { w32(0x4fdff4,60); pc = 32; continue; }
+    case 34: { w32(0x4fe824,2); pc = 33; continue; }
+    case 35: { w32(0x4fc2cc,15); pc = 34; continue; }
+    case 36: { w32(0x522ffc,1); pc = 35; continue; }
+    case 37: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 36; continue; }
+    case 38: { w32(0x4fecd0,45); pc = 37; continue; }
+    case 39: { w32(0x535748,45); pc = 38; continue; }
+    case 40: { w32(0x4fb388,15); pc = 39; continue; }
+    case 41: { w32(0x4fdff0,60); pc = 40; continue; }
+    case 42: { w32(0x4fe820,2); pc = 41; continue; }
+    case 43: { w32(0x4fc2c8,15); pc = 42; continue; }
+    case 44: { w32(0x522ff8,4294967295); pc = 43; continue; }
+    case 45: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5e0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 44; continue; }
+    case 46: { w32(0x4feccc,45); pc = 45; continue; }
+    case 47: { w32(0x535744,315); pc = 46; continue; }
+    case 48: { w32(0x4fb384,15); pc = 47; continue; }
+    case 49: { w32(0x4fdfec,60); pc = 48; continue; }
+    case 50: { w32(0x4fe81c,2); pc = 49; continue; }
+    case 51: { w32(0x4fc2c4,15); pc = 50; continue; }
+    case 52: { w32(0x522ff4,1); pc = 51; continue; }
+    case 53: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 52 : 28; continue; }
+    case 54: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 53; continue; }
+    case 55: { w32(0x4fecd4,45); pc = 54; continue; }
+    case 56: { w32(0x53574c,315); pc = 55; continue; }
+    case 57: { w32(0x4fb38c,15); pc = 56; continue; }
+    case 58: { w32(0x4fdff4,60); pc = 57; continue; }
+    case 59: { w32(0x4fe824,2); pc = 58; continue; }
+    case 60: { w32(0x4fc2cc,15); pc = 59; continue; }
+    case 61: { w32(0x522ffc,1); pc = 60; continue; }
+    case 62: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 61; continue; }
+    case 63: { w32(0x4fecd0,45); pc = 62; continue; }
+    case 64: { w32(0x535748,45); pc = 63; continue; }
+    case 65: { w32(0x4fb388,15); pc = 64; continue; }
+    case 66: { w32(0x4fdff0,60); pc = 65; continue; }
+    case 67: { w32(0x4fe820,2); pc = 66; continue; }
+    case 68: { w32(0x4fc2c8,15); pc = 67; continue; }
+    case 69: { w32(0x522ff8,4294967295); pc = 68; continue; }
+    case 70: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 69; continue; }
+    case 71: { w32(0x4feccc,45); pc = 70; continue; }
+    case 72: { w32(0x535744,315); pc = 71; continue; }
+    case 73: { w32(0x4fb384,15); pc = 72; continue; }
+    case 74: { w32(0x4fdfec,60); pc = 73; continue; }
+    case 75: { w32(0x4fe81c,2); pc = 74; continue; }
+    case 76: { w32(0x4fc2c4,15); pc = 75; continue; }
+    case 77: { w32(0x522ff4,1); pc = 76; continue; }
+    case 78: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 77 : 53; continue; }
+    case 79: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5e0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc7d0)),false), 4, 1],0,rng,options); pc = 78; continue; }
+    case 80: { w32(0x4fbb94,0); pc = 79; continue; }
+    case 81: { w32(0x4f71c4,2); pc = 80; continue; }
+    case 82: { w32(0x536458,2); pc = 81; continue; }
+    case 83: { (uVar2 = r32(0x4f71c4)); pc = 82; continue; }
+    case 84: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 83; continue; }
+    case 85: { w32(0x4da18c,2); pc = 84; continue; }
+    case 86: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 85; continue; }
+    case 87: { selectGdiObject(dc,h); pc = 86; continue; }
+    case 88: { (h = r32(0x4fc15c)); pc = 87; continue; }
+    case 89: { (hdc = dc); pc = 88; continue; }
+    case 90: { pc = 86; continue; }
+    case 91: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 90 : 89; continue; }
+    case 92: { (h = r32(0x5230cc)); pc = 87; continue; }
+    case 93: { (hdc = dc); pc = 92; continue; }
+    case 94: { pc = 86; continue; }
+    case 95: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 94 : 93; continue; }
+    case 96: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 91 : 95; continue; }
+    case 97: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, iVar3, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 96; continue; }
+    case 98: { undefined; pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 98; continue; }
+    case 100: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,256),4,"int"),iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,272),8,4,"int"); pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e61bc),4); pc = 101; continue; }
+    case 103: { undefined; pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 103; continue; }
+    case 105: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 104; continue; }
+    case 106: { writeLocal(framePointer(localFrame,272),7,4,"int"); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6220),4); pc = 106; continue; }
+    case 108: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 107; continue; }
+    case 109: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 108 : 107; continue; }
+    case 110: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 109; continue; }
+    case 111: { undefined; pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 111; continue; }
+    case 113: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 112; continue; }
+    case 114: { writeLocal(framePointer(localFrame,272),6,4,"int"); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6284),4); pc = 114; continue; }
+    case 116: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 115; continue; }
+    case 117: { undefined; pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 117; continue; }
+    case 119: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,272),5,4,"int"); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e62dc),4); pc = 120; continue; }
+    case 122: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 121; continue; }
+    case 123: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 122; continue; }
+    case 124: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 123 : 122; continue; }
+    case 125: { undefined; pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 125; continue; }
+    case 127: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,272),4,4,"int"); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e633c),4); pc = 128; continue; }
+    case 130: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 129; continue; }
+    case 131: { undefined; pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 131; continue; }
+    case 133: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,272),3,4,"int"); pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6380),4); pc = 134; continue; }
+    case 136: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 135; continue; }
+    case 137: { undefined; pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,272),2,4,"int"); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e63e0),4); pc = 140; continue; }
+    case 142: { (iVar5 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 141; continue; }
+    case 143: { undefined; pc = 142; continue; }
+    case 144: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 143; continue; }
+    case 145: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,272),1,4,"int"); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e643c),4); pc = 146; continue; }
+    case 148: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 147; continue; }
+    case 149: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 148 : 147; continue; }
+    case 150: { undefined; pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 150; continue; }
+    case 152: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 151; continue; }
+    case 153: { (pcVar1 = dcMethod(dc,100,memory)); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,272),0,4,"int"); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6494),4); pc = 154; continue; }
+    case 156: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 155; continue; }
+    case 157: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 156 : 155; continue; }
+    case 158: { (iVar3 = 5); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 158; continue; }
+    case 160: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 159; continue; }
+    case 161: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 157; continue; }
+    case 162: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 161; continue; }
+    case 163: { (iVar3 = 20); pc = 162; continue; }
+    case 164: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 160 : 163; continue; }
+    case 165: { w32(0x4faf7c,fpI32(fpMul(r64(0x5230b0),r64(0x4cc770)),false)); pc = 164; continue; }
+    case 166: { pc = cTruth(cCompare(iVar3,0,"!=")) ? 169 : 165; continue; }
+    case 167: { (iVar3 = cAdd(iVar3,cNeg(1))); pc = 166; continue; }
+    case 168: { (puVar4 = cAdd(puVar4,cMul(1,4))); pc = 167; continue; }
+    case 169: { writePointer(memory,puVar4,0,4); pc = 168; continue; }
+    case 170: { (puVar4 = 0x5350dc); pc = 166; continue; }
+    case 171: { pc = cTruth(cCompare(0,iVar3,"<")) ? 170 : 165; continue; }
+    case 172: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 171; continue; }
+    case 173: { (iVar3 = r32(0x4da194)); pc = 172; continue; }
+    case 174: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 173; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial502(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial502Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial502Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00452660; static C control-flow translation. */
+function drawTutorial502Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(296,options.retainedDrawingStack?.[4531808]??[]);
@@ -5631,8 +8272,271 @@ export function drawTutorial502(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00453230; static C control-flow translation. */
+/** Complete recovered original 0x00452660; static C control-flow translation. */
+function drawTutorial502Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(296,options.retainedDrawingStack?.[4531808]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let iVar3;
+  let dVar4;
+  let original_dc;
+  let uVar5;
+  let iVar6;
+  let hdc;
+  let h;
+  let aTStack_18 = new Array(2);
+  let pc = 235;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x536458,0); pc = 1; continue; }
+    case 3: { w32(0x4f71c4,readLocal(framePointer(localFrame,280),4,"int")); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc778)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 4; continue; }
+    case 6: { w32(0x4fecd0,45); pc = 5; continue; }
+    case 7: { w32(0x535748,45); pc = 6; continue; }
+    case 8: { w32(0x4fb388,15); pc = 7; continue; }
+    case 9: { w32(0x4fdff0,60); pc = 8; continue; }
+    case 10: { w32(0x4fe820,2); pc = 9; continue; }
+    case 11: { w32(0x4fc2c8,15); pc = 10; continue; }
+    case 12: { w32(0x522ff8,4294967295); pc = 11; continue; }
+    case 13: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 12; continue; }
+    case 14: { w32(0x4feccc,45); pc = 13; continue; }
+    case 15: { w32(0x535744,315); pc = 14; continue; }
+    case 16: { w32(0x4fb384,15); pc = 15; continue; }
+    case 17: { w32(0x4fdfec,60); pc = 16; continue; }
+    case 18: { w32(0x4fc2c4,15); pc = 17; continue; }
+    case 19: { w32(0x522ff4,1); pc = 18; continue; }
+    case 20: { w32(0x4fe81c,2); pc = 19; continue; }
+    case 21: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 20 : 4; continue; }
+    case 22: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 21; continue; }
+    case 23: { w32(0x4fecd0,45); pc = 22; continue; }
+    case 24: { w32(0x535748,45); pc = 23; continue; }
+    case 25: { w32(0x4fb388,15); pc = 24; continue; }
+    case 26: { w32(0x4fdff0,60); pc = 25; continue; }
+    case 27: { w32(0x4fe820,2); pc = 26; continue; }
+    case 28: { w32(0x4fc2c8,15); pc = 27; continue; }
+    case 29: { w32(0x522ff8,4294967295); pc = 28; continue; }
+    case 30: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 29; continue; }
+    case 31: { w32(0x4feccc,45); pc = 30; continue; }
+    case 32: { w32(0x535744,315); pc = 31; continue; }
+    case 33: { w32(0x4fb384,15); pc = 32; continue; }
+    case 34: { w32(0x4fdfec,60); pc = 33; continue; }
+    case 35: { w32(0x4fe81c,2); pc = 34; continue; }
+    case 36: { w32(0x4fc2c4,15); pc = 35; continue; }
+    case 37: { w32(0x522ff4,1); pc = 36; continue; }
+    case 38: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 37 : 21; continue; }
+    case 39: { undefined; pc = 38; continue; }
+    case 40: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 39; continue; }
+    case 41: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),cSub(iVar2,uVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,292),16,4,"int"); pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,0),cString(memory,"Overstanding"),4); pc = 42; continue; }
+    case 44: { undefined; pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 44; continue; }
+    case 46: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),cAdd(iVar2,cMul(uVar5,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,292),15,4,"int"); pc = 46; continue; }
+    case 48: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),cAdd(iVar6,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),4); pc = 47; continue; }
+    case 49: { (aTStack_18[0] = cString(memory,"Boat C:")); pc = 48; continue; }
+    case 50: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar6, iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 49; continue; }
+    case 51: { w32(0x4fecd4,55); pc = 50; continue; }
+    case 52: { w32(0x53574c,325); pc = 51; continue; }
+    case 53: { w32(0x4fb38c,15); pc = 52; continue; }
+    case 54: { w32(0x4fdff4,60); pc = 53; continue; }
+    case 55: { w32(0x4fe824,10); pc = 54; continue; }
+    case 56: { w32(0x4fc2cc,15); pc = 55; continue; }
+    case 57: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),100),4,"int"); pc = 56; continue; }
+    case 58: { w32(0x522ffc,1); pc = 57; continue; }
+    case 59: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 58; continue; }
+    case 60: { (iVar6 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc6c0)),false)); pc = 59; continue; }
+    case 61: { undefined; pc = 60; continue; }
+    case 62: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 61; continue; }
+    case 63: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar6,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,uVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,292),14,4,"int"); pc = 63; continue; }
+    case 65: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 64; continue; }
+    case 66: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar6, iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 65; continue; }
+    case 67: { w32(0x4fecd0,45); pc = 66; continue; }
+    case 68: { w32(0x535748,315); pc = 67; continue; }
+    case 69: { w32(0x4fb388,15); pc = 68; continue; }
+    case 70: { w32(0x4fc2c8,15); pc = 69; continue; }
+    case 71: { w32(0x4fdff0,60); pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),14),4,"int"); pc = 71; continue; }
+    case 73: { w32(0x4fe820,2); pc = 72; continue; }
+    case 74: { w32(0x522ff8,1); pc = 73; continue; }
+    case 75: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 74; continue; }
+    case 76: { (iVar6 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false)); pc = 75; continue; }
+    case 77: { undefined; pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 77; continue; }
+    case 79: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar6,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,uVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,292),13,4,"int"); pc = 79; continue; }
+    case 81: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 80; continue; }
+    case 82: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar6, iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 81; continue; }
+    case 83: { w32(0x4feccc,45); pc = 82; continue; }
+    case 84: { w32(0x535744,315); pc = 83; continue; }
+    case 85: { w32(0x4fb384,15); pc = 84; continue; }
+    case 86: { w32(0x4fdfec,60); pc = 85; continue; }
+    case 87: { w32(0x4fe81c,2); pc = 86; continue; }
+    case 88: { w32(0x4fc2c4,15); pc = 87; continue; }
+    case 89: { w32(0x522ff4,1); pc = 88; continue; }
+    case 90: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),10),4,"int"); pc = 89; continue; }
+    case 91: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 90; continue; }
+    case 92: { (iVar6 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false)); pc = 91; continue; }
+    case 93: { w32(0x5362d4,0); pc = 92; continue; }
+    case 94: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 93 : 38; continue; }
+    case 95: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,0]); pc = 94; continue; }
+    case 96: { undefined; pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 96; continue; }
+    case 98: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,292),12,4,"int"); pc = 98; continue; }
+    case 100: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 99; continue; }
+    case 101: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,32512]); pc = 100; continue; }
+    case 102: { dc.lineTo(r32(0x4fe624),iVar6); pc = 101; continue; }
+    case 103: { writeLocalPoint(framePointer(localFrame,264),dc.moveTo(0,iVar6)); pc = 102; continue; }
+    case 104: { (iVar6 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 103; continue; }
+    case 105: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 104; continue; }
+    case 106: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 105 : 104; continue; }
+    case 107: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"<")) ? 106 : 94; continue; }
+    case 108: { undefined; pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 108; continue; }
+    case 110: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cDiv(r32(0x4fe624),100),readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4)),cSub(iVar6,cDiv(uVar5,2)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 109; continue; }
+    case 111: { writeLocal(framePointer(localFrame,292),11,4,"int"); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 111; continue; }
+    case 113: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4), iVar6, 4, 1],0,rng,options); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,0]); pc = 113; continue; }
+    case 115: { (aTStack_18[cI32(0)] = dcMethod(dc,56,memory)); pc = 114; continue; }
+    case 116: { undefined; pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 116; continue; }
+    case 118: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar2,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar3,cMul(uVar5,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,292),10,4,"int"); pc = 118; continue; }
+    case 120: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),24),4,"int"); pc = 120; continue; }
+    case 122: { dc.lineTo(iVar2,iVar3); pc = 121; continue; }
+    case 123: { (iVar3 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 122; continue; }
+    case 124: { (iVar2 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false)); pc = 123; continue; }
+    case 125: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),iVar6)); pc = 124; continue; }
+    case 126: { undefined; pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 126; continue; }
+    case 128: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar2,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar3,cMul(uVar5,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,292),9,4,"int"); pc = 128; continue; }
+    case 130: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),50),4,"int"); pc = 130; continue; }
+    case 132: { dc.lineTo(iVar2,iVar3); pc = 131; continue; }
+    case 133: { (iVar3 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 132; continue; }
+    case 134: { (iVar2 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc618)),false)); pc = 133; continue; }
+    case 135: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),iVar6)); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 135; continue; }
+    case 137: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 136 : 135; continue; }
+    case 138: { selectGdiObject(dc,r32(0x5362ec)); pc = 137; continue; }
+    case 139: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 138 : 137; continue; }
+    case 140: { (iVar6 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc778)),false)); pc = 139; continue; }
+    case 141: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4); pc = 140; continue; }
+    case 142: { w32(0x4fbb94,0); pc = 141; continue; }
+    case 143: { w32(0x4f71c4,2); pc = 142; continue; }
+    case 144: { writeLocal(framePointer(localFrame,280),r32(0x4f71c4),4,"int"); pc = 143; continue; }
+    case 145: { w32(0x536458,2); pc = 144; continue; }
+    case 146: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, uVar5],0,rng,options); pc = 145; continue; }
+    case 147: { w32(0x4da18c,2); pc = 146; continue; }
+    case 148: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 147; continue; }
+    case 149: { selectGdiObject(dc,h); pc = 148; continue; }
+    case 150: { (h = r32(0x4fc15c)); pc = 149; continue; }
+    case 151: { (hdc = dc); pc = 150; continue; }
+    case 152: { pc = 148; continue; }
+    case 153: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 152 : 151; continue; }
+    case 154: { (h = r32(0x5230cc)); pc = 149; continue; }
+    case 155: { (hdc = dc); pc = 154; continue; }
+    case 156: { pc = 148; continue; }
+    case 157: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 156 : 155; continue; }
+    case 158: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 153 : 157; continue; }
+    case 159: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,260),4,"int"), uVar5],0,rng,options); pc = 158; continue; }
+    case 160: { undefined; pc = 159; continue; }
+    case 161: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 160; continue; }
+    case 162: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(uVar5,iVar6),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,292),8,4,"int"); pc = 162; continue; }
+    case 164: { (aTStack_18[0] = cString(memory,0x4e6508)); pc = 163; continue; }
+    case 165: { undefined; pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 165; continue; }
+    case 167: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 166; continue; }
+    case 168: { writeLocal(framePointer(localFrame,292),7,4,"int"); pc = 167; continue; }
+    case 169: { (aTStack_18[0] = cString(memory,0x4e6560)); pc = 168; continue; }
+    case 170: { (iVar6 = cAdd(iVar6,uVar5)); pc = 169; continue; }
+    case 171: { undefined; pc = 170; continue; }
+    case 172: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 171; continue; }
+    case 173: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 172; continue; }
+    case 174: { writeLocal(framePointer(localFrame,292),6,4,"int"); pc = 173; continue; }
+    case 175: { (aTStack_18[0] = cString(memory,0x4e65c0)); pc = 174; continue; }
+    case 176: { (iVar6 = cAdd(iVar6,uVar5)); pc = 175; continue; }
+    case 177: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 176; continue; }
+    case 178: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 177 : 176; continue; }
+    case 179: { undefined; pc = 178; continue; }
+    case 180: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 179; continue; }
+    case 181: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,292),5,4,"int"); pc = 181; continue; }
+    case 183: { (aTStack_18[0] = cString(memory,0x4e6618)); pc = 182; continue; }
+    case 184: { (iVar6 = cAdd(iVar6,uVar5)); pc = 183; continue; }
+    case 185: { undefined; pc = 184; continue; }
+    case 186: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 185; continue; }
+    case 187: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 186; continue; }
+    case 188: { writeLocal(framePointer(localFrame,292),4,4,"int"); pc = 187; continue; }
+    case 189: { (aTStack_18[0] = cString(memory,0x4e6660)); pc = 188; continue; }
+    case 190: { (iVar6 = cAdd(iVar6,uVar5)); pc = 189; continue; }
+    case 191: { undefined; pc = 190; continue; }
+    case 192: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 191; continue; }
+    case 193: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,260),4,"int"),iVar6,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 192; continue; }
+    case 194: { writeLocal(framePointer(localFrame,292),3,4,"int"); pc = 193; continue; }
+    case 195: { (aTStack_18[0] = cString(memory,0x4e66bc)); pc = 194; continue; }
+    case 196: { (iVar6 = cAdd(iVar6,readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4))); pc = 195; continue; }
+    case 197: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 196; continue; }
+    case 198: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 197 : 196; continue; }
+    case 199: { undefined; pc = 198; continue; }
+    case 200: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 199; continue; }
+    case 201: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar6,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 200; continue; }
+    case 202: { writeLocal(framePointer(localFrame,292),2,4,"int"); pc = 201; continue; }
+    case 203: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,256),4,"int"),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 202; continue; }
+    case 204: { (aTStack_18[0] = cString(memory,0x4e6718)); pc = 203; continue; }
+    case 205: { (iVar6 = cAdd(iVar6,uVar5)); pc = 204; continue; }
+    case 206: { undefined; pc = 205; continue; }
+    case 207: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 206; continue; }
+    case 208: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,260),4,"int"),iVar6,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 207; continue; }
+    case 209: { writeLocal(framePointer(localFrame,292),1,4,"int"); pc = 208; continue; }
+    case 210: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e677c),4); pc = 209; continue; }
+    case 211: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 210; continue; }
+    case 212: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 211 : 210; continue; }
+    case 213: { (iVar6 = cAdd(readPointer(memory,pointerAdd(framePointer(localFrame,264),cMul(0,4)),4),2)); pc = 212; continue; }
+    case 214: { undefined; pc = 213; continue; }
+    case 215: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 214; continue; }
+    case 216: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,260),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 215; continue; }
+    case 217: { (pcVar1 = dcMethod(dc,100,memory)); pc = 216; continue; }
+    case 218: { writeLocal(framePointer(localFrame,292),0,4,"int"); pc = 217; continue; }
+    case 219: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e67e0),4); pc = 218; continue; }
+    case 220: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 219; continue; }
+    case 221: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 220 : 219; continue; }
+    case 222: { writeLocal(framePointer(localFrame,256),10,4,"int"); pc = 221; continue; }
+    case 223: { writeLocal(framePointer(localFrame,260),5,4,"int"); pc = 222; continue; }
+    case 224: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),22,4); pc = 223; continue; }
+    case 225: { (uVar5 = 16); pc = 224; continue; }
+    case 226: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 221; continue; }
+    case 227: { writeLocal(framePointer(localFrame,260),20,4,"int"); pc = 226; continue; }
+    case 228: { writePointer(memory,pointerAdd(framePointer(localFrame,264), cMul(0, 4)),27,4); pc = 227; continue; }
+    case 229: { (uVar5 = 20); pc = 228; continue; }
+    case 230: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 225 : 229; continue; }
+    case 231: { w32(0x5362d4,0); pc = 230; continue; }
+    case 232: { w32(0x4faf7c,fpI32(dVar4,false)); pc = 231; continue; }
+    case 233: { (dVar4 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 232; continue; }
+    case 234: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 233; continue; }
+    case 235: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 234; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial503(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial503Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial503Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00453230; static C control-flow translation. */
+function drawTutorial503Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(296,options.retainedDrawingStack?.[4534832]??[]);
@@ -6022,8 +8926,404 @@ export function drawTutorial503(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x004545d0; static C control-flow translation. */
+/** Complete recovered original 0x00453230; static C control-flow translation. */
+function drawTutorial503Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(296,options.retainedDrawingStack?.[4534832]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let hdc;
+  let h;
+  let TStack_24;
+  let aTStack_18 = new Array(2);
+  let pc = 369;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,280),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { undefined; pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 6; continue; }
+    case 8: { writeLocal(framePointer(localFrame,292),31,4,"int"); pc = 7; continue; }
+    case 9: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 9; continue; }
+    case 11: { w32(0x4fecd0,45); pc = 10; continue; }
+    case 12: { w32(0x535748,65); pc = 11; continue; }
+    case 13: { w32(0x4fdff0,60); pc = 12; continue; }
+    case 14: { w32(0x4fe820,2); pc = 13; continue; }
+    case 15: { w32(0x522ff8,4294967295); pc = 14; continue; }
+    case 16: { w32(0x4fb388,15); pc = 15; continue; }
+    case 17: { w32(0x4fc2c8,15); pc = 16; continue; }
+    case 18: { (TStack_24 = cDiv(r32(0x4fe624),14)); pc = 17; continue; }
+    case 19: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,292),30,4,"int"); pc = 23; continue; }
+    case 25: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 24; continue; }
+    case 26: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 25; continue; }
+    case 27: { w32(0x4feccc,45); pc = 26; continue; }
+    case 28: { w32(0x535744,335); pc = 27; continue; }
+    case 29: { w32(0x4fdfec,60); pc = 28; continue; }
+    case 30: { w32(0x4fe81c,2); pc = 29; continue; }
+    case 31: { w32(0x522ff4,1); pc = 30; continue; }
+    case 32: { w32(0x4fb384,15); pc = 31; continue; }
+    case 33: { w32(0x4fc2c4,15); pc = 32; continue; }
+    case 34: { (TStack_24 = cDiv(r32(0x4fe624),10)); pc = 33; continue; }
+    case 35: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false)); pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 36; continue; }
+    case 38: { undefined; pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 38; continue; }
+    case 40: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,292),29,4,"int"); pc = 40; continue; }
+    case 42: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 41; continue; }
+    case 43: { (TStack_24 = cDiv(r32(0x4fe624),25)); pc = 42; continue; }
+    case 44: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 43; continue; }
+    case 45: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 44; continue; }
+    case 46: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 45; continue; }
+    case 47: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 46; continue; }
+    case 48: { undefined; pc = 47; continue; }
+    case 49: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 48; continue; }
+    case 50: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 49; continue; }
+    case 51: { writeLocal(framePointer(localFrame,292),28,4,"int"); pc = 50; continue; }
+    case 52: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 51; continue; }
+    case 53: { (TStack_24 = cDiv(r32(0x4fe624),50)); pc = 52; continue; }
+    case 54: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 53; continue; }
+    case 55: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 54; continue; }
+    case 56: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc618)),false),4,"int"); pc = 55; continue; }
+    case 57: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 56; continue; }
+    case 58: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 57; continue; }
+    case 59: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 58 : 57; continue; }
+    case 60: { selectGdiObject(dc,r32(0x5362ec)); pc = 59; continue; }
+    case 61: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 60 : 59; continue; }
+    case 62: { w32(0x5362d4,4294967276); pc = 61; continue; }
+    case 63: { pc = cTruth(cCompare(1,r32(0x4fb9b4),"<")) ? 62 : 4; continue; }
+    case 64: { undefined; pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 64; continue; }
+    case 66: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,292),27,4,"int"); pc = 66; continue; }
+    case 68: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 67; continue; }
+    case 69: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 68; continue; }
+    case 70: { w32(0x4fecd0,45); pc = 69; continue; }
+    case 71: { w32(0x535748,335); pc = 70; continue; }
+    case 72: { w32(0x4fdff0,60); pc = 71; continue; }
+    case 73: { w32(0x4fe820,2); pc = 72; continue; }
+    case 74: { w32(0x522ff8,1); pc = 73; continue; }
+    case 75: { w32(0x4fb388,15); pc = 74; continue; }
+    case 76: { w32(0x4fc2c8,15); pc = 75; continue; }
+    case 77: { (TStack_24 = cDiv(r32(0x4fe624),14)); pc = 76; continue; }
+    case 78: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false),4,"int"); pc = 78; continue; }
+    case 80: { undefined; pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 80; continue; }
+    case 82: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,292),26,4,"int"); pc = 82; continue; }
+    case 84: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 83; continue; }
+    case 85: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 84; continue; }
+    case 86: { w32(0x4feccc,45); pc = 85; continue; }
+    case 87: { w32(0x535744,335); pc = 86; continue; }
+    case 88: { w32(0x4fb384,15); pc = 87; continue; }
+    case 89: { w32(0x4fdfec,60); pc = 88; continue; }
+    case 90: { w32(0x4fe81c,2); pc = 89; continue; }
+    case 91: { w32(0x4fc2c4,15); pc = 90; continue; }
+    case 92: { w32(0x522ff4,1); pc = 91; continue; }
+    case 93: { (TStack_24 = cDiv(r32(0x4fe624),10)); pc = 92; continue; }
+    case 94: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc600)),false),4,"int"); pc = 94; continue; }
+    case 96: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,0]); pc = 95; continue; }
+    case 97: { undefined; pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 97; continue; }
+    case 99: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 98; continue; }
+    case 100: { writeLocal(framePointer(localFrame,292),25,4,"int"); pc = 99; continue; }
+    case 101: { (aTStack_18[0] = cString(memory,"Equal Position Line")); pc = 100; continue; }
+    case 102: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,32512]); pc = 101; continue; }
+    case 103: { dc.lineTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 102; continue; }
+    case 104: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false))); pc = 103; continue; }
+    case 105: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 104; continue; }
+    case 106: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 105 : 104; continue; }
+    case 107: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,0]); pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,0),dcMethod(dc,56,memory),4,"int"); pc = 107; continue; }
+    case 109: { undefined; pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,292),24,4,"int"); pc = 111; continue; }
+    case 113: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 112; continue; }
+    case 114: { (TStack_24 = cDiv(r32(0x4fe624),25)); pc = 113; continue; }
+    case 115: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 114; continue; }
+    case 116: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 116; continue; }
+    case 118: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 117; continue; }
+    case 119: { undefined; pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 119; continue; }
+    case 121: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 120; continue; }
+    case 122: { writeLocal(framePointer(localFrame,292),23,4,"int"); pc = 121; continue; }
+    case 123: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 122; continue; }
+    case 124: { (TStack_24 = cDiv(r32(0x4fe624),50)); pc = 123; continue; }
+    case 125: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 124; continue; }
+    case 126: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc618)),false),4,"int"); pc = 126; continue; }
+    case 128: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 127; continue; }
+    case 129: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 128; continue; }
+    case 130: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 129 : 128; continue; }
+    case 131: { selectGdiObject(dc,r32(0x5362ec)); pc = 130; continue; }
+    case 132: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 131 : 130; continue; }
+    case 133: { w32(0x5362d4,4294967276); pc = 132; continue; }
+    case 134: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 133 : 63; continue; }
+    case 135: { undefined; pc = 134; continue; }
+    case 136: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 135; continue; }
+    case 137: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,292),22,4,"int"); pc = 137; continue; }
+    case 139: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 138; continue; }
+    case 140: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 139; continue; }
+    case 141: { w32(0x4fecd0,45); pc = 140; continue; }
+    case 142: { w32(0x535748,315); pc = 141; continue; }
+    case 143: { w32(0x4fdff0,60); pc = 142; continue; }
+    case 144: { w32(0x4fe820,2); pc = 143; continue; }
+    case 145: { w32(0x522ff8,1); pc = 144; continue; }
+    case 146: { w32(0x4fb388,15); pc = 145; continue; }
+    case 147: { w32(0x4fc2c8,15); pc = 146; continue; }
+    case 148: { (TStack_24 = cDiv(r32(0x4fe624),14)); pc = 147; continue; }
+    case 149: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false),4,"int"); pc = 149; continue; }
+    case 151: { undefined; pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 151; continue; }
+    case 153: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,292),21,4,"int"); pc = 153; continue; }
+    case 155: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 154; continue; }
+    case 156: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 155; continue; }
+    case 157: { w32(0x4feccc,45); pc = 156; continue; }
+    case 158: { w32(0x535744,315); pc = 157; continue; }
+    case 159: { w32(0x4fdfec,60); pc = 158; continue; }
+    case 160: { w32(0x4fe81c,2); pc = 159; continue; }
+    case 161: { w32(0x522ff4,1); pc = 160; continue; }
+    case 162: { w32(0x4fb384,15); pc = 161; continue; }
+    case 163: { w32(0x4fc2c4,15); pc = 162; continue; }
+    case 164: { (TStack_24 = cDiv(r32(0x4fe624),10)); pc = 163; continue; }
+    case 165: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc600)),false),4,"int"); pc = 165; continue; }
+    case 167: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,0]); pc = 166; continue; }
+    case 168: { undefined; pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 168; continue; }
+    case 170: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),iVar2,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,292),20,4,"int"); pc = 170; continue; }
+    case 172: { (aTStack_18[0] = cString(memory,"Equal Position Line")); pc = 171; continue; }
+    case 173: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,32512]); pc = 172; continue; }
+    case 174: { dc.lineTo(r32(0x4fe624),iVar2); pc = 173; continue; }
+    case 175: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(0,iVar2)); pc = 174; continue; }
+    case 176: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 175; continue; }
+    case 177: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 176; continue; }
+    case 178: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 177 : 176; continue; }
+    case 179: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,0]); pc = 178; continue; }
+    case 180: { writeLocal(framePointer(localFrame,0),dcMethod(dc,56,memory),4,"int"); pc = 179; continue; }
+    case 181: { undefined; pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 181; continue; }
+    case 183: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 182; continue; }
+    case 184: { writeLocal(framePointer(localFrame,292),19,4,"int"); pc = 183; continue; }
+    case 185: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 184; continue; }
+    case 186: { (TStack_24 = cDiv(r32(0x4fe624),25)); pc = 185; continue; }
+    case 187: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 186; continue; }
+    case 188: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 188; continue; }
+    case 190: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 189; continue; }
+    case 191: { undefined; pc = 190; continue; }
+    case 192: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 191; continue; }
+    case 193: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cI32(cStringData(memory,TStack_24),false)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 192; continue; }
+    case 194: { writeLocal(framePointer(localFrame,292),18,4,"int"); pc = 193; continue; }
+    case 195: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 194; continue; }
+    case 196: { (TStack_24 = cDiv(r32(0x4fe624),50)); pc = 195; continue; }
+    case 197: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 196; continue; }
+    case 198: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 197; continue; }
+    case 199: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc618)),false),4,"int"); pc = 198; continue; }
+    case 200: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 199; continue; }
+    case 201: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 200; continue; }
+    case 202: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 201 : 200; continue; }
+    case 203: { selectGdiObject(dc,r32(0x5362ec)); pc = 202; continue; }
+    case 204: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 203 : 202; continue; }
+    case 205: { w32(0x5362d4,0); pc = 204; continue; }
+    case 206: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 205 : 134; continue; }
+    case 207: { undefined; pc = 206; continue; }
+    case 208: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 207; continue; }
+    case 209: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cDiv(r32(0x4fe624),100),readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,268),4,"int"),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 208; continue; }
+    case 210: { writeLocal(framePointer(localFrame,292),17,4,"int"); pc = 209; continue; }
+    case 211: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 210; continue; }
+    case 212: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, readLocalArgument(framePointer(localFrame,264),4,"int"), readLocalArgument(framePointer(localFrame,268),4,"int"), 4, 1],0,rng,options); pc = 211; continue; }
+    case 213: { writeLocal(framePointer(localFrame,268),fpI32(fpMul(r64(0x5230b0),r64(0x4cc5e0)),false),4,"int"); pc = 212; continue; }
+    case 214: { writeLocal(framePointer(localFrame,264),fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 213; continue; }
+    case 215: { w32(0x4fbb94,0); pc = 214; continue; }
+    case 216: { w32(0x4f71c4,2); pc = 215; continue; }
+    case 217: { writeLocal(framePointer(localFrame,280),r32(0x4f71c4),4,"int"); pc = 216; continue; }
+    case 218: { w32(0x536458,2); pc = 217; continue; }
+    case 219: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar4],0,rng,options); pc = 218; continue; }
+    case 220: { w32(0x4da18c,3); pc = 219; continue; }
+    case 221: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 220; continue; }
+    case 222: { selectGdiObject(dc,h); pc = 221; continue; }
+    case 223: { (h = r32(0x4fc15c)); pc = 222; continue; }
+    case 224: { (hdc = dc); pc = 223; continue; }
+    case 225: { pc = 221; continue; }
+    case 226: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 225 : 224; continue; }
+    case 227: { (h = r32(0x5230cc)); pc = 222; continue; }
+    case 228: { (hdc = dc); pc = 227; continue; }
+    case 229: { pc = 221; continue; }
+    case 230: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 229 : 228; continue; }
+    case 231: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 226 : 230; continue; }
+    case 232: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int"), iVar4],0,rng,options); pc = 231; continue; }
+    case 233: { undefined; pc = 232; continue; }
+    case 234: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 233; continue; }
+    case 235: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cAdd(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 234; continue; }
+    case 236: { writeLocal(framePointer(localFrame,292),16,4,"int"); pc = 235; continue; }
+    case 237: { (aTStack_18[0] = cString(memory,0x4e6820)); pc = 236; continue; }
+    case 238: { undefined; pc = 237; continue; }
+    case 239: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 238; continue; }
+    case 240: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 239; continue; }
+    case 241: { writeLocal(framePointer(localFrame,292),15,4,"int"); pc = 240; continue; }
+    case 242: { (aTStack_18[0] = cString(memory,"crew compares compass headings before and after a shift, he can tell the helmsperson how much the wind shifted.")); pc = 241; continue; }
+    case 243: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 242; continue; }
+    case 244: { undefined; pc = 243; continue; }
+    case 245: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 244; continue; }
+    case 246: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 245; continue; }
+    case 247: { writeLocal(framePointer(localFrame,292),14,4,"int"); pc = 246; continue; }
+    case 248: { (aTStack_18[0] = cString(memory,0x4e6898)); pc = 247; continue; }
+    case 249: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 248; continue; }
+    case 250: { undefined; pc = 249; continue; }
+    case 251: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 250; continue; }
+    case 252: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 251; continue; }
+    case 253: { writeLocal(framePointer(localFrame,292),13,4,"int"); pc = 252; continue; }
+    case 254: { (aTStack_18[0] = cString(memory,0x4e68f4)); pc = 253; continue; }
+    case 255: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 254; continue; }
+    case 256: { undefined; pc = 255; continue; }
+    case 257: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 256; continue; }
+    case 258: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 257; continue; }
+    case 259: { writeLocal(framePointer(localFrame,292),12,4,"int"); pc = 258; continue; }
+    case 260: { (TStack_24 = cAdd(readLocal(framePointer(localFrame,256),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 259; continue; }
+    case 261: { (aTStack_18[0] = cString(memory,0x4e6950)); pc = 260; continue; }
+    case 262: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 261; continue; }
+    case 263: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 262 : 261; continue; }
+    case 264: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 263 : 232; continue; }
+    case 265: { undefined; pc = 264; continue; }
+    case 266: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 265; continue; }
+    case 267: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 266; continue; }
+    case 268: { writeLocal(framePointer(localFrame,292),11,4,"int"); pc = 267; continue; }
+    case 269: { (aTStack_18[0] = cString(memory,0x4e697c)); pc = 268; continue; }
+    case 270: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 269; continue; }
+    case 271: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 270 : 269; continue; }
+    case 272: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 271; continue; }
+    case 273: { undefined; pc = 272; continue; }
+    case 274: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 273; continue; }
+    case 275: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 274; continue; }
+    case 276: { writeLocal(framePointer(localFrame,292),10,4,"int"); pc = 275; continue; }
+    case 277: { (aTStack_18[0] = cString(memory,0x4e69b4)); pc = 276; continue; }
+    case 278: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 277; continue; }
+    case 279: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 278 : 277; continue; }
+    case 280: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 279; continue; }
+    case 281: { undefined; pc = 280; continue; }
+    case 282: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 281; continue; }
+    case 283: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 282; continue; }
+    case 284: { writeLocal(framePointer(localFrame,292),9,4,"int"); pc = 283; continue; }
+    case 285: { (aTStack_18[0] = cString(memory,0x4e69fc)); pc = 284; continue; }
+    case 286: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 285; continue; }
+    case 287: { undefined; pc = 286; continue; }
+    case 288: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 287; continue; }
+    case 289: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 288; continue; }
+    case 290: { writeLocal(framePointer(localFrame,292),8,4,"int"); pc = 289; continue; }
+    case 291: { (aTStack_18[0] = cString(memory,0x4e6a30)); pc = 290; continue; }
+    case 292: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 291; continue; }
+    case 293: { undefined; pc = 292; continue; }
+    case 294: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 293; continue; }
+    case 295: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 294; continue; }
+    case 296: { writeLocal(framePointer(localFrame,292),7,4,"int"); pc = 295; continue; }
+    case 297: { (TStack_24 = cAdd(readLocal(framePointer(localFrame,256),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 296; continue; }
+    case 298: { (aTStack_18[0] = cString(memory,0x4e6a84)); pc = 297; continue; }
+    case 299: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 298 : 264; continue; }
+    case 300: { undefined; pc = 299; continue; }
+    case 301: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 300; continue; }
+    case 302: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 301; continue; }
+    case 303: { writeLocal(framePointer(localFrame,292),6,4,"int"); pc = 302; continue; }
+    case 304: { (aTStack_18[0] = cString(memory,0x4e6adc)); pc = 303; continue; }
+    case 305: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 304; continue; }
+    case 306: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 305 : 304; continue; }
+    case 307: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 306; continue; }
+    case 308: { undefined; pc = 307; continue; }
+    case 309: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 308; continue; }
+    case 310: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 309; continue; }
+    case 311: { writeLocal(framePointer(localFrame,292),5,4,"int"); pc = 310; continue; }
+    case 312: { (aTStack_18[0] = cString(memory,0x4e6b1c)); pc = 311; continue; }
+    case 313: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 312; continue; }
+    case 314: { undefined; pc = 313; continue; }
+    case 315: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 314; continue; }
+    case 316: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,TStack_24),false),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 315; continue; }
+    case 317: { writeLocal(framePointer(localFrame,292),4,4,"int"); pc = 316; continue; }
+    case 318: { (TStack_24 = cAdd(readLocal(framePointer(localFrame,256),4,"int"),readLocal(framePointer(localFrame,268),4,"int"))); pc = 317; continue; }
+    case 319: { (aTStack_18[0] = cString(memory,0x4e6b64)); pc = 318; continue; }
+    case 320: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 319 : 299; continue; }
+    case 321: { undefined; pc = 320; continue; }
+    case 322: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 321; continue; }
+    case 323: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_24),cStringHeaderLength(memory,cStringData(memory,TStack_24))]); pc = 322; continue; }
+    case 324: { writeLocal(framePointer(localFrame,292),3,4,"int"); pc = 323; continue; }
+    case 325: { (TStack_24 = cString(memory,0x4e6b84)); pc = 324; continue; }
+    case 326: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 325; continue; }
+    case 327: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 326 : 325; continue; }
+    case 328: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 327; continue; }
+    case 329: { undefined; pc = 328; continue; }
+    case 330: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 329; continue; }
+    case 331: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_24),cStringHeaderLength(memory,cStringData(memory,TStack_24))]); pc = 330; continue; }
+    case 332: { writeLocal(framePointer(localFrame,292),2,4,"int"); pc = 331; continue; }
+    case 333: { (TStack_24 = cString(memory,0x4e6bbc)); pc = 332; continue; }
+    case 334: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 333; continue; }
+    case 335: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 334 : 333; continue; }
+    case 336: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 335; continue; }
+    case 337: { undefined; pc = 336; continue; }
+    case 338: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 337; continue; }
+    case 339: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_24),cStringHeaderLength(memory,cStringData(memory,TStack_24))]); pc = 338; continue; }
+    case 340: { writeLocal(framePointer(localFrame,292),1,4,"int"); pc = 339; continue; }
+    case 341: { (TStack_24 = cString(memory,0x4e6be0)); pc = 340; continue; }
+    case 342: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 341; continue; }
+    case 343: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 342 : 341; continue; }
+    case 344: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 343 : 320; continue; }
+    case 345: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 344; continue; }
+    case 346: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 345; continue; }
+    case 347: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 346 : 345; continue; }
+    case 348: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,264),4,"int"),2),4,"int"); pc = 347; continue; }
+    case 349: { undefined; pc = 348; continue; }
+    case 350: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 349; continue; }
+    case 351: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 350; continue; }
+    case 352: { (pcVar1 = dcMethod(dc,100,memory)); pc = 351; continue; }
+    case 353: { writeLocal(framePointer(localFrame,292),0,4,"int"); pc = 352; continue; }
+    case 354: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6c34),4); pc = 353; continue; }
+    case 355: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 354; continue; }
+    case 356: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 355 : 354; continue; }
+    case 357: { writeLocal(framePointer(localFrame,268),10,4,"int"); pc = 356; continue; }
+    case 358: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,264),22,4,"int"); pc = 358; continue; }
+    case 360: { (iVar4 = 16); pc = 359; continue; }
+    case 361: { writeLocal(framePointer(localFrame,268),20,4,"int"); pc = 356; continue; }
+    case 362: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 361; continue; }
+    case 363: { writeLocal(framePointer(localFrame,264),27,4,"int"); pc = 362; continue; }
+    case 364: { (iVar4 = 20); pc = 363; continue; }
+    case 365: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 360 : 364; continue; }
+    case 366: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 365; continue; }
+    case 367: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 366; continue; }
+    case 368: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 367; continue; }
+    case 369: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 368; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial504(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial504Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial504Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x004545d0; static C control-flow translation. */
+function drawTutorial504Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(304,options.retainedDrawingStack?.[4539856]??[]);
@@ -6443,8 +9743,434 @@ export function drawTutorial504(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x004559c0; static C control-flow translation. */
+/** Complete recovered original 0x004545d0; static C control-flow translation. */
+function drawTutorial504Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(304,options.retainedDrawingStack?.[4539856]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let pcVar2;
+  let iVar3;
+  let dVar4;
+  let original_dc;
+  let iVar5;
+  let TVar6;
+  let iVar7;
+  let hdc;
+  let h;
+  let aTStack_20 = new Array(2);
+  let aTStack_18 = new Array(2);
+  let pc = 396;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,288),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { undefined; pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 6; continue; }
+    case 8: { writeLocal(framePointer(localFrame,300),33,4,"int"); pc = 7; continue; }
+    case 9: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 9; continue; }
+    case 11: { w32(0x4feccc,45); pc = 10; continue; }
+    case 12: { w32(0x535744,295); pc = 11; continue; }
+    case 13: { w32(0x4fb384,15); pc = 12; continue; }
+    case 14: { w32(0x4fdfec,60); pc = 13; continue; }
+    case 15: { w32(0x4fe81c,2); pc = 14; continue; }
+    case 16: { w32(0x4fc2c4,15); pc = 15; continue; }
+    case 17: { w32(0x522ff4,1); pc = 16; continue; }
+    case 18: { (iVar3 = cDiv(r32(0x4fe624),10)); pc = 17; continue; }
+    case 19: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc738)),false),4,"int"); pc = 18; continue; }
+    case 20: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false)); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cSub(iVar5,iVar7),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,300),32,4,"int"); pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat A"),4); pc = 24; continue; }
+    case 26: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4), iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 25; continue; }
+    case 27: { w32(0x4fecd0,45); pc = 26; continue; }
+    case 28: { w32(0x535748,295); pc = 27; continue; }
+    case 29: { w32(0x4fb388,15); pc = 28; continue; }
+    case 30: { w32(0x4fdff0,60); pc = 29; continue; }
+    case 31: { w32(0x4fe820,2); pc = 30; continue; }
+    case 32: { w32(0x4fc2c8,15); pc = 31; continue; }
+    case 33: { w32(0x522ff8,1); pc = 32; continue; }
+    case 34: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 33 : 26; continue; }
+    case 35: { w32(0x4fecd0,45); pc = 34; continue; }
+    case 36: { w32(0x535748,25); pc = 35; continue; }
+    case 37: { w32(0x4fb388,15); pc = 36; continue; }
+    case 38: { w32(0x4fdff0,60); pc = 37; continue; }
+    case 39: { w32(0x4fe820,2); pc = 38; continue; }
+    case 40: { w32(0x4fc2c8,15); pc = 39; continue; }
+    case 41: { w32(0x522ff8,cNeg(1)); pc = 40; continue; }
+    case 42: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 41 : 34; continue; }
+    case 43: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 42; continue; }
+    case 44: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false)); pc = 43; continue; }
+    case 45: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4); pc = 44; continue; }
+    case 46: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 45; continue; }
+    case 47: { undefined; pc = 46; continue; }
+    case 48: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 47; continue; }
+    case 49: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,300),31,4,"int"); pc = 49; continue; }
+    case 51: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 50; continue; }
+    case 52: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 51; continue; }
+    case 53: { dc.lineTo(iVar5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc820)),false),4,"int"); pc = 53; continue; }
+    case 55: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc598)),false)); pc = 54; continue; }
+    case 56: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(cI32(cStringData(memory,TVar6),false),readLocal(framePointer(localFrame,268),4,"int"))); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,300),30,4,"int"); pc = 59; continue; }
+    case 61: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 60; continue; }
+    case 62: { dc.lineTo(readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 61; continue; }
+    case 63: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false),4,"int"); pc = 62; continue; }
+    case 64: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4); pc = 63; continue; }
+    case 65: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(cI32(cStringData(memory,TVar6),false),readLocal(framePointer(localFrame,268),4,"int"))); pc = 64; continue; }
+    case 66: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 65; continue; }
+    case 67: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 66 : 65; continue; }
+    case 68: { selectGdiObject(dc,r32(0x5362ec)); pc = 67; continue; }
+    case 69: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 68 : 67; continue; }
+    case 70: { w32(0x5362d4,20); pc = 69; continue; }
+    case 71: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),3,"==")) || cTruth(cCompare(r32(0x4fb9b4),4,"==")))) ? 70 : 4; continue; }
+    case 72: { (TVar6 = cStringData(memory,aTStack_18[cI32(0)])); pc = 71; continue; }
+    case 73: { undefined; pc = 72; continue; }
+    case 74: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 73; continue; }
+    case 75: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,300),29,4,"int"); pc = 75; continue; }
+    case 77: { (aTStack_20[0] = cString(memory,"Boat A")); pc = 76; continue; }
+    case 78: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 77; continue; }
+    case 79: { w32(0x4fecd0,45); pc = 78; continue; }
+    case 80: { w32(0x535748,25); pc = 79; continue; }
+    case 81: { w32(0x4fb388,15); pc = 80; continue; }
+    case 82: { w32(0x4fdff0,60); pc = 81; continue; }
+    case 83: { w32(0x4fe820,r32(0x4fb9b4)); pc = 82; continue; }
+    case 84: { w32(0x4fc2c8,15); pc = 83; continue; }
+    case 85: { w32(0x522ff8,cNeg(1)); pc = 84; continue; }
+    case 86: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 85 : 78; continue; }
+    case 87: { w32(0x4fecd0,45); pc = 86; continue; }
+    case 88: { w32(0x535748,295); pc = 87; continue; }
+    case 89: { w32(0x4fb388,15); pc = 88; continue; }
+    case 90: { w32(0x4fdff0,60); pc = 89; continue; }
+    case 91: { w32(0x4fe820,2); pc = 90; continue; }
+    case 92: { w32(0x4fc2c8,15); pc = 91; continue; }
+    case 93: { w32(0x522ff8,r32(0x4fb9b4)); pc = 92; continue; }
+    case 94: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 93 : 86; continue; }
+    case 95: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 94; continue; }
+    case 96: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 95; continue; }
+    case 97: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false)); pc = 96; continue; }
+    case 98: { undefined; pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 98; continue; }
+    case 100: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,300),28,4,"int"); pc = 100; continue; }
+    case 102: { (aTStack_20[0] = cString(memory,"Boat B")); pc = 101; continue; }
+    case 103: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 102; continue; }
+    case 104: { w32(0x4feccc,45); pc = 103; continue; }
+    case 105: { w32(0x535744,295); pc = 104; continue; }
+    case 106: { w32(0x4fb384,15); pc = 105; continue; }
+    case 107: { w32(0x4fdfec,60); pc = 106; continue; }
+    case 108: { w32(0x4fe81c,2); pc = 107; continue; }
+    case 109: { w32(0x4fc2c4,15); pc = 108; continue; }
+    case 110: { w32(0x522ff4,1); pc = 109; continue; }
+    case 111: { (iVar3 = cDiv(r32(0x4fe624),10)); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 111; continue; }
+    case 113: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc508)),false)); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 113; continue; }
+    case 115: { undefined; pc = 114; continue; }
+    case 116: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 115; continue; }
+    case 117: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,300),27,4,"int"); pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 118; continue; }
+    case 120: { invokeDrawingPointer(pcVar2,dc,[original_dc,32512]); pc = 119; continue; }
+    case 121: { dc.lineTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 120; continue; }
+    case 122: { writeLocalPoint(localPointer(aTStack_20),dc.moveTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc508)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4ccc28)),false))); pc = 121; continue; }
+    case 123: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 122; continue; }
+    case 124: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 123 : 122; continue; }
+    case 125: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 124; continue; }
+    case 126: { (pcVar2 = dcMethod(dc,56,memory)); pc = 125; continue; }
+    case 127: { undefined; pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 127; continue; }
+    case 129: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,300),26,4,"int"); pc = 129; continue; }
+    case 131: { (aTStack_20[0] = cString(memory,"LayLine")); pc = 130; continue; }
+    case 132: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 131; continue; }
+    case 133: { dc.lineTo(iVar5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc820)),false),4,"int"); pc = 133; continue; }
+    case 135: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc598)),false)); pc = 134; continue; }
+    case 136: { writeLocalPoint(localPointer(aTStack_20),dc.moveTo(cI32(cStringData(memory,TVar6),false),readLocal(framePointer(localFrame,268),4,"int"))); pc = 135; continue; }
+    case 137: { undefined; pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,300),25,4,"int"); pc = 139; continue; }
+    case 141: { (aTStack_20[0] = cString(memory,"LayLine")); pc = 140; continue; }
+    case 142: { dc.lineTo(readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false),4,"int"); pc = 142; continue; }
+    case 144: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4); pc = 143; continue; }
+    case 145: { writeLocalPoint(localPointer(aTStack_20),dc.moveTo(cI32(cStringData(memory,TVar6),false),readLocal(framePointer(localFrame,268),4,"int"))); pc = 144; continue; }
+    case 146: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 145; continue; }
+    case 147: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 146 : 145; continue; }
+    case 148: { selectGdiObject(dc,r32(0x5362ec)); pc = 147; continue; }
+    case 149: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 148 : 147; continue; }
+    case 150: { w32(0x5362d4,20); pc = 149; continue; }
+    case 151: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),1,"==")) || cTruth(cCompare(r32(0x4fb9b4),2,"==")))) ? 150 : 71; continue; }
+    case 152: { (TVar6 = cStringData(memory,aTStack_18[cI32(0)])); pc = 151; continue; }
+    case 153: { undefined; pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 153; continue; }
+    case 155: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 154; continue; }
+    case 156: { writeLocal(framePointer(localFrame,300),24,4,"int"); pc = 155; continue; }
+    case 157: { (aTStack_20[0] = cString(memory,"Boat A")); pc = 156; continue; }
+    case 158: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 157; continue; }
+    case 159: { w32(0x4fecd0,45); pc = 158; continue; }
+    case 160: { w32(0x535748,315); pc = 159; continue; }
+    case 161: { w32(0x4fb388,15); pc = 160; continue; }
+    case 162: { w32(0x4fdff0,60); pc = 161; continue; }
+    case 163: { w32(0x4fe820,2); pc = 162; continue; }
+    case 164: { w32(0x4fc2c8,15); pc = 163; continue; }
+    case 165: { w32(0x522ff8,1); pc = 164; continue; }
+    case 166: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 165; continue; }
+    case 167: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 166; continue; }
+    case 168: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false)); pc = 167; continue; }
+    case 169: { undefined; pc = 168; continue; }
+    case 170: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 169; continue; }
+    case 171: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 170; continue; }
+    case 172: { writeLocal(framePointer(localFrame,300),23,4,"int"); pc = 171; continue; }
+    case 173: { (aTStack_20[0] = cString(memory,"Boat B")); pc = 172; continue; }
+    case 174: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 173; continue; }
+    case 175: { w32(0x4feccc,45); pc = 174; continue; }
+    case 176: { w32(0x535744,315); pc = 175; continue; }
+    case 177: { w32(0x4fb384,15); pc = 176; continue; }
+    case 178: { w32(0x4fdfec,60); pc = 177; continue; }
+    case 179: { w32(0x4fe81c,2); pc = 178; continue; }
+    case 180: { w32(0x4fc2c4,15); pc = 179; continue; }
+    case 181: { w32(0x522ff4,1); pc = 180; continue; }
+    case 182: { (iVar3 = cDiv(r32(0x4fe624),10)); pc = 181; continue; }
+    case 183: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 182; continue; }
+    case 184: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc508)),false)); pc = 183; continue; }
+    case 185: { invokeDrawingPointer(cStringData(memory,aTStack_20[cI32(0)]),dc,[original_dc,0]); pc = 184; continue; }
+    case 186: { undefined; pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 186; continue; }
+    case 188: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,300),22,4,"int"); pc = 188; continue; }
+    case 190: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 189; continue; }
+    case 191: { invokeDrawingPointer(cStringData(memory,aTStack_20[cI32(0)]),dc,[original_dc,32512]); pc = 190; continue; }
+    case 192: { dc.lineTo(r32(0x4fe624),iVar5); pc = 191; continue; }
+    case 193: { writeLocalPoint(framePointer(localFrame,260),dc.moveTo(0,iVar5)); pc = 192; continue; }
+    case 194: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 193; continue; }
+    case 195: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 194; continue; }
+    case 196: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 195 : 194; continue; }
+    case 197: { invokeDrawingPointer(cStringData(memory,aTStack_20[cI32(0)]),dc,[original_dc,0]); pc = 196; continue; }
+    case 198: { (aTStack_20[cI32(0)] = dcMethod(dc,56,memory)); pc = 197; continue; }
+    case 199: { undefined; pc = 198; continue; }
+    case 200: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 199; continue; }
+    case 201: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar5,iVar3),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 200; continue; }
+    case 202: { writeLocal(framePointer(localFrame,300),21,4,"int"); pc = 201; continue; }
+    case 203: { (aTStack_20[0] = cString(memory,"LayLine")); pc = 202; continue; }
+    case 204: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 203; continue; }
+    case 205: { dc.lineTo(iVar5,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 204; continue; }
+    case 206: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc508)),false),4,"int"); pc = 205; continue; }
+    case 207: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc598)),false)); pc = 206; continue; }
+    case 208: { writeLocalPoint(localPointer(aTStack_20),dc.moveTo(cI32(cStringData(memory,TVar6),false),readLocal(framePointer(localFrame,268),4,"int"))); pc = 207; continue; }
+    case 209: { undefined; pc = 208; continue; }
+    case 210: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 209; continue; }
+    case 211: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 210; continue; }
+    case 212: { writeLocal(framePointer(localFrame,300),20,4,"int"); pc = 211; continue; }
+    case 213: { (aTStack_20[0] = cString(memory,"LayLine")); pc = 212; continue; }
+    case 214: { dc.lineTo(readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 213; continue; }
+    case 215: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc508)),false),4,"int"); pc = 214; continue; }
+    case 216: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4); pc = 215; continue; }
+    case 217: { writeLocalPoint(localPointer(aTStack_20),dc.moveTo(cI32(cStringData(memory,TVar6),false),readLocal(framePointer(localFrame,268),4,"int"))); pc = 216; continue; }
+    case 218: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 217; continue; }
+    case 219: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 218 : 217; continue; }
+    case 220: { selectGdiObject(dc,r32(0x5362ec)); pc = 219; continue; }
+    case 221: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 220 : 219; continue; }
+    case 222: { w32(0x5362d4,r32(0x4fb9b4)); pc = 221; continue; }
+    case 223: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 222 : 151; continue; }
+    case 224: { undefined; pc = 223; continue; }
+    case 225: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 224; continue; }
+    case 226: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cAdd(cStringData(memory,TVar6),cDiv(r32(0x4fe624),100)),false),readLocal(framePointer(localFrame,268),4,"int"),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 225; continue; }
+    case 227: { writeLocal(framePointer(localFrame,300),19,4,"int"); pc = 226; continue; }
+    case 228: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 227; continue; }
+    case 229: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, cStringData(memory,TVar6), readLocalArgument(framePointer(localFrame,268),4,"int"), 4, 1],0,rng,options); pc = 228; continue; }
+    case 230: { (aTStack_18[cI32(0)] = cStringData(memory,TVar6)); pc = 229; continue; }
+    case 231: { writeLocal(framePointer(localFrame,268),fpI32(fpMul(r64(0x5230b0),r64(0x4cc5e0)),false),4,"int"); pc = 230; continue; }
+    case 232: { (TVar6 = fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false)); pc = 231; continue; }
+    case 233: { w32(0x4fbb94,0); pc = 232; continue; }
+    case 234: { w32(0x4f71c4,2); pc = 233; continue; }
+    case 235: { writeLocal(framePointer(localFrame,288),r32(0x4f71c4),4,"int"); pc = 234; continue; }
+    case 236: { w32(0x536458,2); pc = 235; continue; }
+    case 237: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar7],0,rng,options); pc = 236; continue; }
+    case 238: { w32(0x4da18c,4); pc = 237; continue; }
+    case 239: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 238; continue; }
+    case 240: { selectGdiObject(dc,h); pc = 239; continue; }
+    case 241: { (h = r32(0x4fc15c)); pc = 240; continue; }
+    case 242: { (hdc = dc); pc = 241; continue; }
+    case 243: { pc = 239; continue; }
+    case 244: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 243 : 242; continue; }
+    case 245: { (h = r32(0x5230cc)); pc = 240; continue; }
+    case 246: { (hdc = dc); pc = 245; continue; }
+    case 247: { pc = 239; continue; }
+    case 248: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 247 : 246; continue; }
+    case 249: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 244 : 248; continue; }
+    case 250: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4), iVar7],0,rng,options); pc = 249; continue; }
+    case 251: { undefined; pc = 250; continue; }
+    case 252: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 251; continue; }
+    case 253: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar5,iVar7),readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 252; continue; }
+    case 254: { writeLocal(framePointer(localFrame,300),18,4,"int"); pc = 253; continue; }
+    case 255: { (aTStack_20[0] = cString(memory,0x4e6c50)); pc = 254; continue; }
+    case 256: { undefined; pc = 255; continue; }
+    case 257: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 256; continue; }
+    case 258: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar5,iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 257; continue; }
+    case 259: { writeLocal(framePointer(localFrame,300),17,4,"int"); pc = 258; continue; }
+    case 260: { (aTStack_20[0] = cString(memory,0x4e6ca0)); pc = 259; continue; }
+    case 261: { undefined; pc = 260; continue; }
+    case 262: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 261; continue; }
+    case 263: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 262; continue; }
+    case 264: { writeLocal(framePointer(localFrame,300),16,4,"int"); pc = 263; continue; }
+    case 265: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,268),4,"int"),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),4,"int"); pc = 264; continue; }
+    case 266: { (aTStack_20[0] = cString(memory,0x4e6cd0)); pc = 265; continue; }
+    case 267: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 266 : 250; continue; }
+    case 268: { undefined; pc = 267; continue; }
+    case 269: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 268; continue; }
+    case 270: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 269; continue; }
+    case 271: { writeLocal(framePointer(localFrame,300),15,4,"int"); pc = 270; continue; }
+    case 272: { (aTStack_20[0] = cString(memory,0x4e6e2c)); pc = 271; continue; }
+    case 273: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 272; continue; }
+    case 274: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 273 : 272; continue; }
+    case 275: { (iVar5 = cAdd(cAdd(iVar5,iVar7),readLocal(framePointer(localFrame,256),4,"int"))); pc = 274; continue; }
+    case 276: { undefined; pc = 275; continue; }
+    case 277: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 276; continue; }
+    case 278: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar5,iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 277; continue; }
+    case 279: { writeLocal(framePointer(localFrame,300),14,4,"int"); pc = 278; continue; }
+    case 280: { (aTStack_20[0] = cString(memory,0x4e6d20)); pc = 279; continue; }
+    case 281: { undefined; pc = 280; continue; }
+    case 282: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 281; continue; }
+    case 283: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 282; continue; }
+    case 284: { writeLocal(framePointer(localFrame,300),13,4,"int"); pc = 283; continue; }
+    case 285: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,268),4,"int"),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),4,"int"); pc = 284; continue; }
+    case 286: { (aTStack_20[0] = cString(memory,0x4e6d64)); pc = 285; continue; }
+    case 287: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 286 : 267; continue; }
+    case 288: { undefined; pc = 287; continue; }
+    case 289: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 288; continue; }
+    case 290: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 289; continue; }
+    case 291: { writeLocal(framePointer(localFrame,300),12,4,"int"); pc = 290; continue; }
+    case 292: { (aTStack_20[0] = cString(memory,0x4e6e2c)); pc = 291; continue; }
+    case 293: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 292; continue; }
+    case 294: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 293 : 292; continue; }
+    case 295: { (iVar5 = cAdd(cAdd(iVar5,iVar7),readLocal(framePointer(localFrame,256),4,"int"))); pc = 294; continue; }
+    case 296: { undefined; pc = 295; continue; }
+    case 297: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 296; continue; }
+    case 298: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar5,iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 297; continue; }
+    case 299: { writeLocal(framePointer(localFrame,300),11,4,"int"); pc = 298; continue; }
+    case 300: { (aTStack_20[0] = cString(memory,0x4e6db4)); pc = 299; continue; }
+    case 301: { undefined; pc = 300; continue; }
+    case 302: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 301; continue; }
+    case 303: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 302; continue; }
+    case 304: { writeLocal(framePointer(localFrame,300),10,4,"int"); pc = 303; continue; }
+    case 305: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,268),4,"int"),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),4,"int"); pc = 304; continue; }
+    case 306: { (aTStack_20[0] = cString(memory,0x4e6dd8)); pc = 305; continue; }
+    case 307: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 306 : 287; continue; }
+    case 308: { undefined; pc = 307; continue; }
+    case 309: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 308; continue; }
+    case 310: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 309; continue; }
+    case 311: { writeLocal(framePointer(localFrame,300),9,4,"int"); pc = 310; continue; }
+    case 312: { (aTStack_20[0] = cString(memory,0x4e6e2c)); pc = 311; continue; }
+    case 313: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 312; continue; }
+    case 314: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 313 : 312; continue; }
+    case 315: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 314; continue; }
+    case 316: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 315; continue; }
+    case 317: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 316 : 315; continue; }
+    case 318: { undefined; pc = 317; continue; }
+    case 319: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 318; continue; }
+    case 320: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 319; continue; }
+    case 321: { writeLocal(framePointer(localFrame,300),8,4,"int"); pc = 320; continue; }
+    case 322: { (aTStack_20[0] = cString(memory,0x4e6e50)); pc = 321; continue; }
+    case 323: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 322; continue; }
+    case 324: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 323 : 322; continue; }
+    case 325: { (iVar5 = cAdd(iVar5,iVar7)); pc = 324; continue; }
+    case 326: { undefined; pc = 325; continue; }
+    case 327: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 326; continue; }
+    case 328: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 327; continue; }
+    case 329: { writeLocal(framePointer(localFrame,300),7,4,"int"); pc = 328; continue; }
+    case 330: { (aTStack_20[0] = cString(memory,0x4e6e74)); pc = 329; continue; }
+    case 331: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 330; continue; }
+    case 332: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 331 : 330; continue; }
+    case 333: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 332; continue; }
+    case 334: { undefined; pc = 333; continue; }
+    case 335: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 334; continue; }
+    case 336: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 335; continue; }
+    case 337: { writeLocal(framePointer(localFrame,300),6,4,"int"); pc = 336; continue; }
+    case 338: { (aTStack_20[0] = cString(memory,0x4e6ecc)); pc = 337; continue; }
+    case 339: { (iVar5 = cAdd(cAdd(iVar5,iVar7),iVar7)); pc = 338; continue; }
+    case 340: { undefined; pc = 339; continue; }
+    case 341: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 340; continue; }
+    case 342: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar5,iVar7),cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 341; continue; }
+    case 343: { writeLocal(framePointer(localFrame,300),5,4,"int"); pc = 342; continue; }
+    case 344: { (aTStack_20[0] = cString(memory,0x4e6f2c)); pc = 343; continue; }
+    case 345: { undefined; pc = 344; continue; }
+    case 346: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 345; continue; }
+    case 347: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5,cStringData(memory,aTStack_20[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_20[cI32(0)]))]); pc = 346; continue; }
+    case 348: { writeLocal(framePointer(localFrame,300),4,4,"int"); pc = 347; continue; }
+    case 349: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,268),4,"int"),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),4,"int"); pc = 348; continue; }
+    case 350: { (aTStack_20[0] = cString(memory,0x4e6f90)); pc = 349; continue; }
+    case 351: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 350 : 307; continue; }
+    case 352: { undefined; pc = 351; continue; }
+    case 353: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 352; continue; }
+    case 354: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 353; continue; }
+    case 355: { writeLocal(framePointer(localFrame,300),3,4,"int"); pc = 354; continue; }
+    case 356: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6ff4),4); pc = 355; continue; }
+    case 357: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 356; continue; }
+    case 358: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 357 : 356; continue; }
+    case 359: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int")),readLocal(framePointer(localFrame,256),4,"int"))); pc = 358; continue; }
+    case 360: { undefined; pc = 359; continue; }
+    case 361: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 360; continue; }
+    case 362: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 361; continue; }
+    case 363: { writeLocal(framePointer(localFrame,300),2,4,"int"); pc = 362; continue; }
+    case 364: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6bbc),4); pc = 363; continue; }
+    case 365: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 364; continue; }
+    case 366: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 365 : 364; continue; }
+    case 367: { undefined; pc = 366; continue; }
+    case 368: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 367; continue; }
+    case 369: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 368; continue; }
+    case 370: { writeLocal(framePointer(localFrame,300),1,4,"int"); pc = 369; continue; }
+    case 371: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7030),4); pc = 370; continue; }
+    case 372: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 371; continue; }
+    case 373: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 372 : 371; continue; }
+    case 374: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 373 : 351; continue; }
+    case 375: { (iVar5 = cAdd(readLocal(framePointer(localFrame,256),4,"int"),2)); pc = 374; continue; }
+    case 376: { undefined; pc = 375; continue; }
+    case 377: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 376; continue; }
+    case 378: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 377; continue; }
+    case 379: { (pcVar1 = dcMethod(dc,100,memory)); pc = 378; continue; }
+    case 380: { writeLocal(framePointer(localFrame,300),0,4,"int"); pc = 379; continue; }
+    case 381: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e708c),4); pc = 380; continue; }
+    case 382: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 381; continue; }
+    case 383: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 382 : 381; continue; }
+    case 384: { writeLocal(framePointer(localFrame,268),10,4,"int"); pc = 383; continue; }
+    case 385: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),5,4); pc = 384; continue; }
+    case 386: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 385; continue; }
+    case 387: { (iVar7 = 16); pc = 386; continue; }
+    case 388: { writeLocal(framePointer(localFrame,268),20,4,"int"); pc = 383; continue; }
+    case 389: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),20,4); pc = 388; continue; }
+    case 390: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 389; continue; }
+    case 391: { (iVar7 = 20); pc = 390; continue; }
+    case 392: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 387 : 391; continue; }
+    case 393: { w32(0x4faf7c,fpI32(dVar4,false)); pc = 392; continue; }
+    case 394: { (dVar4 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 393; continue; }
+    case 395: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 394; continue; }
+    case 396: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 395; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial505(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial505Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial505Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x004559c0; static C control-flow translation. */
+function drawTutorial505Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4544960]??[]);
@@ -6947,8 +10673,517 @@ export function drawTutorial505(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00457280; static C control-flow translation. */
+/** Complete recovered original 0x004559c0; static C control-flow translation. */
+function drawTutorial505Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4544960]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let pcVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let local_28 = new Array(2);
+  let aTStack_18 = new Array(2);
+  let pc = 481;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,272),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { undefined; pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 6; continue; }
+    case 8: { writeLocal(framePointer(localFrame,284),39,4,"int"); pc = 7; continue; }
+    case 9: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 9; continue; }
+    case 11: { w32(0x4feccc,45); pc = 10; continue; }
+    case 12: { w32(0x535744,295); pc = 11; continue; }
+    case 13: { w32(0x4fb384,15); pc = 12; continue; }
+    case 14: { w32(0x4fdfec,60); pc = 13; continue; }
+    case 15: { w32(0x4fe81c,2); pc = 14; continue; }
+    case 16: { w32(0x4fc2c4,15); pc = 15; continue; }
+    case 17: { w32(0x522ff4,1); pc = 16; continue; }
+    case 18: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 17; continue; }
+    case 19: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc738)),false),4,"int"); pc = 18; continue; }
+    case 20: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false)); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,284),38,4,"int"); pc = 23; continue; }
+    case 25: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 24; continue; }
+    case 26: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 25; continue; }
+    case 27: { w32(0x4fecd0,45); pc = 26; continue; }
+    case 28: { w32(0x4fb388,15); pc = 27; continue; }
+    case 29: { w32(0x4fc2c8,15); pc = 28; continue; }
+    case 30: { w32(0x4fdff0,60); pc = 29; continue; }
+    case 31: { w32(0x4fe820,2); pc = 30; continue; }
+    case 32: { w32(0x535748,295); pc = 31; continue; }
+    case 33: { w32(0x522ff8,1); pc = 32; continue; }
+    case 34: { w32(0x535748,25); pc = 31; continue; }
+    case 35: { w32(0x522ff8,4294967295); pc = 34; continue; }
+    case 36: { pc = cTruth(cCompare(r32(0x4fb9b4),7,"==")) ? 33 : 35; continue; }
+    case 37: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),14)); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc668)),false),4,"int"); pc = 37; continue; }
+    case 39: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 38; continue; }
+    case 40: { w32(0x5362d4,30); pc = 39; continue; }
+    case 41: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),6,"==")) || cTruth(cCompare(r32(0x4fb9b4),7,"==")))) ? 40 : 4; continue; }
+    case 42: { undefined; pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 42; continue; }
+    case 44: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,284),37,4,"int"); pc = 44; continue; }
+    case 46: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 45; continue; }
+    case 47: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 46; continue; }
+    case 48: { w32(0x4fecd0,45); pc = 47; continue; }
+    case 49: { w32(0x4fb388,15); pc = 48; continue; }
+    case 50: { w32(0x4fc2c8,15); pc = 49; continue; }
+    case 51: { w32(0x4fdff0,60); pc = 50; continue; }
+    case 52: { w32(0x4fe820,2); pc = 51; continue; }
+    case 53: { w32(0x535748,295); pc = 52; continue; }
+    case 54: { w32(0x522ff8,1); pc = 53; continue; }
+    case 55: { w32(0x535748,25); pc = 52; continue; }
+    case 56: { w32(0x522ff8,4294967295); pc = 55; continue; }
+    case 57: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 54 : 56; continue; }
+    case 58: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),14)); pc = 57; continue; }
+    case 59: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 58; continue; }
+    case 60: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false)); pc = 59; continue; }
+    case 61: { undefined; pc = 60; continue; }
+    case 62: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 61; continue; }
+    case 63: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,284),36,4,"int"); pc = 63; continue; }
+    case 65: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 64; continue; }
+    case 66: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 65; continue; }
+    case 67: { w32(0x4feccc,45); pc = 66; continue; }
+    case 68: { w32(0x535744,295); pc = 67; continue; }
+    case 69: { w32(0x4fb384,15); pc = 68; continue; }
+    case 70: { w32(0x4fdfec,60); pc = 69; continue; }
+    case 71: { w32(0x4fe81c,2); pc = 70; continue; }
+    case 72: { w32(0x4fc2c4,15); pc = 71; continue; }
+    case 73: { w32(0x522ff4,1); pc = 72; continue; }
+    case 74: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 74; continue; }
+    case 76: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc6b0)),false)); pc = 75; continue; }
+    case 77: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 76; continue; }
+    case 78: { undefined; pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 78; continue; }
+    case 80: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),3),fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,284),35,4,"int"); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 81; continue; }
+    case 83: { invokeDrawingPointer(pcVar2,dc,[original_dc,32512]); pc = 82; continue; }
+    case 84: { dc.lineTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 83; continue; }
+    case 85: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc6b0)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false))); pc = 84; continue; }
+    case 86: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 85; continue; }
+    case 87: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 86 : 85; continue; }
+    case 88: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 87; continue; }
+    case 89: { (pcVar2 = dcMethod(dc,56,memory)); pc = 88; continue; }
+    case 90: { undefined; pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cMul(iVar5,cNeg(5))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,284),34,4,"int"); pc = 92; continue; }
+    case 94: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 93; continue; }
+    case 95: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),6)); pc = 94; continue; }
+    case 96: { dc.lineTo(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc738)),false),4,"int"); pc = 96; continue; }
+    case 98: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc6b0)),false)); pc = 97; continue; }
+    case 99: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,260),4,"int"),iVar4)); pc = 98; continue; }
+    case 100: { dc.lineTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc570)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc6b0)),false)); pc = 99; continue; }
+    case 101: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,260),4,"int"),readLocal(framePointer(localFrame,256),4,"int"))); pc = 100; continue; }
+    case 102: { (iVar4 = readLocal(framePointer(localFrame,256),4,"int")); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 102; continue; }
+    case 104: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 103 : 102; continue; }
+    case 105: { selectGdiObject(dc,r32(0x5362ec)); pc = 104; continue; }
+    case 106: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 105 : 104; continue; }
+    case 107: { w32(0x5362d4,30); pc = 106; continue; }
+    case 108: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),4,"==")) || cTruth(cCompare(r32(0x4fb9b4),5,"==")))) ? 107 : 41; continue; }
+    case 109: { undefined; pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,284),33,4,"int"); pc = 111; continue; }
+    case 113: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 112; continue; }
+    case 114: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 113 : 108; continue; }
+    case 115: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 114; continue; }
+    case 116: { w32(0x4fecd0,45); pc = 115; continue; }
+    case 117: { w32(0x535748,335); pc = 116; continue; }
+    case 118: { w32(0x4fb388,15); pc = 117; continue; }
+    case 119: { w32(0x4fdff0,60); pc = 118; continue; }
+    case 120: { w32(0x4fe820,2); pc = 119; continue; }
+    case 121: { w32(0x4fc2c8,15); pc = 120; continue; }
+    case 122: { w32(0x522ff8,1); pc = 121; continue; }
+    case 123: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),14)); pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc820)),false),4,"int"); pc = 123; continue; }
+    case 125: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc668)),false)); pc = 124; continue; }
+    case 126: { undefined; pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 126; continue; }
+    case 128: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,284),32,4,"int"); pc = 128; continue; }
+    case 130: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 129; continue; }
+    case 131: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 130 : 125; continue; }
+    case 132: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 131; continue; }
+    case 133: { w32(0x4feccc,65); pc = 132; continue; }
+    case 134: { w32(0x535744,330); pc = 133; continue; }
+    case 135: { w32(0x4fb384,15); pc = 134; continue; }
+    case 136: { w32(0x4fdfec,60); pc = 135; continue; }
+    case 137: { w32(0x4fe81c,12); pc = 136; continue; }
+    case 138: { w32(0x4fc2c4,15); pc = 137; continue; }
+    case 139: { w32(0x522ff4,1); pc = 138; continue; }
+    case 140: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc508)),false),4,"int"); pc = 140; continue; }
+    case 142: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 141; continue; }
+    case 143: { w32(0x5362d4,4294967276); pc = 142; continue; }
+    case 144: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),2,"==")) || cTruth(cCompare(r32(0x4fb9b4),8,"==")))) ? 143 : 108; continue; }
+    case 145: { undefined; pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 145; continue; }
+    case 147: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,284),31,4,"int"); pc = 147; continue; }
+    case 149: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 148; continue; }
+    case 150: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 149; continue; }
+    case 151: { w32(0x4fecd0,45); pc = 150; continue; }
+    case 152: { w32(0x535748,335); pc = 151; continue; }
+    case 153: { w32(0x4fb388,15); pc = 152; continue; }
+    case 154: { w32(0x4fdff0,60); pc = 153; continue; }
+    case 155: { w32(0x4fe820,2); pc = 154; continue; }
+    case 156: { w32(0x4fc2c8,15); pc = 155; continue; }
+    case 157: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),14)); pc = 156; continue; }
+    case 158: { w32(0x522ff8,1); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 158; continue; }
+    case 160: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 159; continue; }
+    case 161: { undefined; pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 161; continue; }
+    case 163: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,284),30,4,"int"); pc = 163; continue; }
+    case 165: { writeLocal(framePointer(localFrame,0),cString(memory,"Overstanding"),4); pc = 164; continue; }
+    case 166: { undefined; pc = 165; continue; }
+    case 167: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 166; continue; }
+    case 168: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,284),29,4,"int"); pc = 168; continue; }
+    case 170: { (local_28[cI32(0)] = cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,local_28[cI32(0)]))); pc = 169; continue; }
+    case 171: { (aTStack_18[0] = cString(memory,"Boat B:")); pc = 170; continue; }
+    case 172: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar4, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 171; continue; }
+    case 173: { w32(0x4feccc,65); pc = 172; continue; }
+    case 174: { w32(0x535744,325); pc = 173; continue; }
+    case 175: { w32(0x4fb384,15); pc = 174; continue; }
+    case 176: { w32(0x4fdfec,60); pc = 175; continue; }
+    case 177: { w32(0x4fe81c,12); pc = 176; continue; }
+    case 178: { w32(0x4fc2c4,15); pc = 177; continue; }
+    case 179: { w32(0x522ff4,1); pc = 178; continue; }
+    case 180: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 179; continue; }
+    case 181: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6b0)),false),4,"int"); pc = 181; continue; }
+    case 183: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 182; continue; }
+    case 184: { undefined; pc = 183; continue; }
+    case 185: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 184; continue; }
+    case 186: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cI32(cAdd(readLocal(framePointer(localFrame,0),4,"int"),cMul(cNeg(iVar5),4)),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,284),28,4,"int"); pc = 186; continue; }
+    case 188: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 187; continue; }
+    case 189: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 188; continue; }
+    case 190: { dc.lineTo(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 189; continue; }
+    case 191: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 190; continue; }
+    case 192: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 191; continue; }
+    case 193: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,260),4,"int"),iVar4)); pc = 192; continue; }
+    case 194: { dc.lineTo(fpI32(fpMul(r64(0x5230e8),r64(0x4cc8b0)),false),fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 193; continue; }
+    case 195: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,260),4,"int"),readLocal(framePointer(localFrame,256),4,"int"))); pc = 194; continue; }
+    case 196: { (iVar4 = readLocal(framePointer(localFrame,256),4,"int")); pc = 195; continue; }
+    case 197: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 196; continue; }
+    case 198: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 197 : 196; continue; }
+    case 199: { selectGdiObject(dc,r32(0x5362ec)); pc = 198; continue; }
+    case 200: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 199 : 198; continue; }
+    case 201: { w32(0x5362d4,4294967276); pc = 200; continue; }
+    case 202: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 201 : 144; continue; }
+    case 203: { undefined; pc = 202; continue; }
+    case 204: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 203; continue; }
+    case 205: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 204; continue; }
+    case 206: { writeLocal(framePointer(localFrame,284),27,4,"int"); pc = 205; continue; }
+    case 207: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 206; continue; }
+    case 208: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 207; continue; }
+    case 209: { w32(0x4fecd0,45); pc = 208; continue; }
+    case 210: { w32(0x535748,315); pc = 209; continue; }
+    case 211: { w32(0x4fb388,15); pc = 210; continue; }
+    case 212: { w32(0x4fdff0,60); pc = 211; continue; }
+    case 213: { w32(0x4fe820,2); pc = 212; continue; }
+    case 214: { w32(0x4fc2c8,15); pc = 213; continue; }
+    case 215: { w32(0x522ff8,1); pc = 214; continue; }
+    case 216: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),14)); pc = 215; continue; }
+    case 217: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 216; continue; }
+    case 218: { (iVar4 = fpI32(fpMul(r64(0x5230e8),dVar3),false)); pc = 217; continue; }
+    case 219: { (dVar3 = r64(0x4cc738)); pc = 218; continue; }
+    case 220: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 219 : 218; continue; }
+    case 221: { (dVar3 = r64(0x4cc668)); pc = 220; continue; }
+    case 222: { undefined; pc = 221; continue; }
+    case 223: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 222; continue; }
+    case 224: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 223; continue; }
+    case 225: { writeLocal(framePointer(localFrame,284),26,4,"int"); pc = 224; continue; }
+    case 226: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 225; continue; }
+    case 227: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,0),4,"int"), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 226; continue; }
+    case 228: { w32(0x4feccc,45); pc = 227; continue; }
+    case 229: { w32(0x535744,315); pc = 228; continue; }
+    case 230: { w32(0x4fb384,15); pc = 229; continue; }
+    case 231: { w32(0x4fdfec,60); pc = 230; continue; }
+    case 232: { w32(0x4fe81c,2); pc = 231; continue; }
+    case 233: { w32(0x4fc2c4,15); pc = 232; continue; }
+    case 234: { w32(0x522ff4,1); pc = 233; continue; }
+    case 235: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 234; continue; }
+    case 236: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 235; continue; }
+    case 237: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc6b0)),false)); pc = 236; continue; }
+    case 238: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,0]); pc = 237; continue; }
+    case 239: { undefined; pc = 238; continue; }
+    case 240: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 239; continue; }
+    case 241: { invokeDrawingPointer(pcVar1,dc,[original_dc,cBits(cI32(cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),3,"&")),false),2,">>"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 240; continue; }
+    case 242: { writeLocal(framePointer(localFrame,284),25,4,"int"); pc = 241; continue; }
+    case 243: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 242; continue; }
+    case 244: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,32512]); pc = 243; continue; }
+    case 245: { dc.lineTo(r32(0x4fe624),iVar4); pc = 244; continue; }
+    case 246: { writeLocalPoint(localPointer(local_28),dc.moveTo(0,iVar4)); pc = 245; continue; }
+    case 247: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 246; continue; }
+    case 248: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 247; continue; }
+    case 249: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 248 : 247; continue; }
+    case 250: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,0]); pc = 249; continue; }
+    case 251: { (aTStack_18[cI32(0)] = dcMethod(dc,56,memory)); pc = 250; continue; }
+    case 252: { undefined; pc = 251; continue; }
+    case 253: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 252; continue; }
+    case 254: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(cStringData(memory,local_28[cI32(0)]),false)),cI32(cAdd(readLocal(framePointer(localFrame,0),4,"int"),cMul(cNeg(iVar5),4)),false),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 253; continue; }
+    case 255: { writeLocal(framePointer(localFrame,284),24,4,"int"); pc = 254; continue; }
+    case 256: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 255; continue; }
+    case 257: { (local_28[cI32(0)] = cDiv(r32(0x4fe624),10)); pc = 256; continue; }
+    case 258: { dc.lineTo(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)); pc = 257; continue; }
+    case 259: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230b0),r64(0x4cc600)),false),4,"int"); pc = 258; continue; }
+    case 260: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc6b0)),false)); pc = 259; continue; }
+    case 261: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,260),4,"int"),readLocal(framePointer(localFrame,256),4,"int"))); pc = 260; continue; }
+    case 262: { undefined; pc = 261; continue; }
+    case 263: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 262; continue; }
+    case 264: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar4,cMul(iVar5,cNeg(2))),cStringData(memory,local_28[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,local_28[cI32(0)]))]); pc = 263; continue; }
+    case 265: { writeLocal(framePointer(localFrame,284),23,4,"int"); pc = 264; continue; }
+    case 266: { (local_28[0] = cString(memory,"LayLine")); pc = 265; continue; }
+    case 267: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4); pc = 266; continue; }
+    case 268: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 267; continue; }
+    case 269: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc570)),false),4,"int"); pc = 268; continue; }
+    case 270: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,260),4,"int"),readLocal(framePointer(localFrame,256),4,"int"))); pc = 269; continue; }
+    case 271: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 270; continue; }
+    case 272: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 271 : 270; continue; }
+    case 273: { selectGdiObject(dc,r32(0x5362ec)); pc = 272; continue; }
+    case 274: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 273 : 272; continue; }
+    case 275: { w32(0x5362d4,0); pc = 274; continue; }
+    case 276: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),0,"==")) || cTruth(cCompare(r32(0x4fb9b4),3,"==")))) ? 275 : 202; continue; }
+    case 277: { undefined; pc = 276; continue; }
+    case 278: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 277; continue; }
+    case 279: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cDiv(r32(0x4fe624),100),iVar4),readLocal(framePointer(localFrame,256),4,"int"),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 278; continue; }
+    case 280: { writeLocal(framePointer(localFrame,284),22,4,"int"); pc = 279; continue; }
+    case 281: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 280; continue; }
+    case 282: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, iVar4, readLocalArgument(framePointer(localFrame,256),4,"int"), 4, 1],0,rng,options); pc = 281; continue; }
+    case 283: { writeLocal(framePointer(localFrame,260),iVar4,4,"int"); pc = 282; continue; }
+    case 284: { writeLocal(framePointer(localFrame,256),fpI32(fpMul(r64(0x5230b0),dVar3),false),4,"int"); pc = 283; continue; }
+    case 285: { (dVar3 = r64(0x4cc5e0)); pc = 284; continue; }
+    case 286: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),2,"!=")) && cTruth(cCompare(r32(0x4fb9b4),8,"!=")))) ? 285 : 284; continue; }
+    case 287: { (dVar3 = r64(0x4ccc30)); pc = 286; continue; }
+    case 288: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false)); pc = 287; continue; }
+    case 289: { w32(0x4fbb94,0); pc = 288; continue; }
+    case 290: { w32(0x4f71c4,3); pc = 289; continue; }
+    case 291: { writeLocal(framePointer(localFrame,272),r32(0x4f71c4),4,"int"); pc = 290; continue; }
+    case 292: { w32(0x536458,2); pc = 291; continue; }
+    case 293: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar5],0,rng,options); pc = 292; continue; }
+    case 294: { w32(0x4da18c,8); pc = 293; continue; }
+    case 295: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 294; continue; }
+    case 296: { selectGdiObject(dc,h); pc = 295; continue; }
+    case 297: { (h = r32(0x4fc15c)); pc = 296; continue; }
+    case 298: { (hdc = dc); pc = 297; continue; }
+    case 299: { pc = 295; continue; }
+    case 300: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 299 : 298; continue; }
+    case 301: { (h = r32(0x5230cc)); pc = 296; continue; }
+    case 302: { (hdc = dc); pc = 301; continue; }
+    case 303: { pc = 295; continue; }
+    case 304: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 303 : 302; continue; }
+    case 305: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 300 : 304; continue; }
+    case 306: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, cI32(cStringData(memory,local_28[cI32(0)]),false), iVar5],0,rng,options); pc = 305; continue; }
+    case 307: { undefined; pc = 306; continue; }
+    case 308: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 307; continue; }
+    case 309: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),cAdd(iVar5,iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 308; continue; }
+    case 310: { writeLocal(framePointer(localFrame,284),21,4,"int"); pc = 309; continue; }
+    case 311: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e70b0),4); pc = 310; continue; }
+    case 312: { undefined; pc = 311; continue; }
+    case 313: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 312; continue; }
+    case 314: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 313; continue; }
+    case 315: { writeLocal(framePointer(localFrame,284),20,4,"int"); pc = 314; continue; }
+    case 316: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7108),4); pc = 315; continue; }
+    case 317: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 316; continue; }
+    case 318: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 317 : 316; continue; }
+    case 319: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 318; continue; }
+    case 320: { undefined; pc = 319; continue; }
+    case 321: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 320; continue; }
+    case 322: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 321; continue; }
+    case 323: { writeLocal(framePointer(localFrame,284),19,4,"int"); pc = 322; continue; }
+    case 324: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7160),4); pc = 323; continue; }
+    case 325: { (iVar4 = cAdd(iVar4,iVar5)); pc = 324; continue; }
+    case 326: { undefined; pc = 325; continue; }
+    case 327: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 326; continue; }
+    case 328: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 327; continue; }
+    case 329: { writeLocal(framePointer(localFrame,284),18,4,"int"); pc = 328; continue; }
+    case 330: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7198),4); pc = 329; continue; }
+    case 331: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 330; continue; }
+    case 332: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 331 : 330; continue; }
+    case 333: { (iVar4 = cAdd(cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,256),4,"int"))); pc = 332; continue; }
+    case 334: { undefined; pc = 333; continue; }
+    case 335: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 334; continue; }
+    case 336: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 335; continue; }
+    case 337: { writeLocal(framePointer(localFrame,284),17,4,"int"); pc = 336; continue; }
+    case 338: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e71f0),4); pc = 337; continue; }
+    case 339: { undefined; pc = 338; continue; }
+    case 340: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 339; continue; }
+    case 341: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 340; continue; }
+    case 342: { writeLocal(framePointer(localFrame,284),16,4,"int"); pc = 341; continue; }
+    case 343: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7240),4); pc = 342; continue; }
+    case 344: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 343; continue; }
+    case 345: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 344 : 343; continue; }
+    case 346: { pc = cTruth(cCompare(r32(0x4fb9b4),8,"==")) ? 345 : 306; continue; }
+    case 347: { undefined; pc = 346; continue; }
+    case 348: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 347; continue; }
+    case 349: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 348; continue; }
+    case 350: { writeLocal(framePointer(localFrame,284),15,4,"int"); pc = 349; continue; }
+    case 351: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e729c),4); pc = 350; continue; }
+    case 352: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 351; continue; }
+    case 353: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 352 : 351; continue; }
+    case 354: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 353; continue; }
+    case 355: { undefined; pc = 354; continue; }
+    case 356: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 355; continue; }
+    case 357: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 356; continue; }
+    case 358: { writeLocal(framePointer(localFrame,284),14,4,"int"); pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e72d0),4); pc = 358; continue; }
+    case 360: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 359; continue; }
+    case 361: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 360 : 359; continue; }
+    case 362: { pc = cTruth(cCompare(r32(0x4fb9b4),7,"==")) ? 361 : 346; continue; }
+    case 363: { undefined; pc = 362; continue; }
+    case 364: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 363; continue; }
+    case 365: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 364; continue; }
+    case 366: { writeLocal(framePointer(localFrame,284),13,4,"int"); pc = 365; continue; }
+    case 367: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 366; continue; }
+    case 368: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 367; continue; }
+    case 369: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 368 : 367; continue; }
+    case 370: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 369; continue; }
+    case 371: { undefined; pc = 370; continue; }
+    case 372: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 371; continue; }
+    case 373: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 372; continue; }
+    case 374: { writeLocal(framePointer(localFrame,284),12,4,"int"); pc = 373; continue; }
+    case 375: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7300),4); pc = 374; continue; }
+    case 376: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 375; continue; }
+    case 377: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 376 : 375; continue; }
+    case 378: { pc = cTruth(cCompare(r32(0x4fb9b4),6,"==")) ? 377 : 362; continue; }
+    case 379: { undefined; pc = 378; continue; }
+    case 380: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 379; continue; }
+    case 381: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 380; continue; }
+    case 382: { writeLocal(framePointer(localFrame,284),11,4,"int"); pc = 381; continue; }
+    case 383: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 382; continue; }
+    case 384: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 383; continue; }
+    case 385: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 384 : 383; continue; }
+    case 386: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 385; continue; }
+    case 387: { undefined; pc = 386; continue; }
+    case 388: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 387; continue; }
+    case 389: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 388; continue; }
+    case 390: { writeLocal(framePointer(localFrame,284),10,4,"int"); pc = 389; continue; }
+    case 391: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7348),4); pc = 390; continue; }
+    case 392: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 391; continue; }
+    case 393: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 392 : 391; continue; }
+    case 394: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),4,"==")) || cTruth(cCompare(r32(0x4fb9b4),5,"==")))) ? 393 : 378; continue; }
+    case 395: { undefined; pc = 394; continue; }
+    case 396: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 395; continue; }
+    case 397: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 396; continue; }
+    case 398: { writeLocal(framePointer(localFrame,284),9,4,"int"); pc = 397; continue; }
+    case 399: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 398; continue; }
+    case 400: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 399; continue; }
+    case 401: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 400 : 399; continue; }
+    case 402: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 401; continue; }
+    case 403: { undefined; pc = 402; continue; }
+    case 404: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 403; continue; }
+    case 405: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 404; continue; }
+    case 406: { writeLocal(framePointer(localFrame,284),8,4,"int"); pc = 405; continue; }
+    case 407: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e737c),4); pc = 406; continue; }
+    case 408: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 407; continue; }
+    case 409: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 408 : 407; continue; }
+    case 410: { (iVar4 = cAdd(cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,256),4,"int"))); pc = 409; continue; }
+    case 411: { undefined; pc = 410; continue; }
+    case 412: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 411; continue; }
+    case 413: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),cAdd(iVar4,iVar5),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 412; continue; }
+    case 414: { writeLocal(framePointer(localFrame,284),7,4,"int"); pc = 413; continue; }
+    case 415: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e73bc),4); pc = 414; continue; }
+    case 416: { undefined; pc = 415; continue; }
+    case 417: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 416; continue; }
+    case 418: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 417; continue; }
+    case 419: { writeLocal(framePointer(localFrame,284),6,4,"int"); pc = 418; continue; }
+    case 420: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7404),4); pc = 419; continue; }
+    case 421: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 420; continue; }
+    case 422: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 421 : 420; continue; }
+    case 423: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),1,"==")) || cTruth(cCompare(r32(0x4fb9b4),2,"==")))) ? 422 : 394; continue; }
+    case 424: { undefined; pc = 423; continue; }
+    case 425: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 424; continue; }
+    case 426: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 425; continue; }
+    case 427: { writeLocal(framePointer(localFrame,284),5,4,"int"); pc = 426; continue; }
+    case 428: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e743c),4); pc = 427; continue; }
+    case 429: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711935]); pc = 428; continue; }
+    case 430: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 429 : 423; continue; }
+    case 431: { undefined; pc = 430; continue; }
+    case 432: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 431; continue; }
+    case 433: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 432; continue; }
+    case 434: { writeLocal(framePointer(localFrame,284),4,4,"int"); pc = 433; continue; }
+    case 435: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7478),4); pc = 434; continue; }
+    case 436: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 435 : 430; continue; }
+    case 437: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 436; continue; }
+    case 438: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 437 : 436; continue; }
+    case 439: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 438; continue; }
+    case 440: { undefined; pc = 439; continue; }
+    case 441: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 440; continue; }
+    case 442: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 441; continue; }
+    case 443: { writeLocal(framePointer(localFrame,284),3,4,"int"); pc = 442; continue; }
+    case 444: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e74b0),4); pc = 443; continue; }
+    case 445: { (iVar4 = cAdd(iVar4,iVar5)); pc = 444; continue; }
+    case 446: { undefined; pc = 445; continue; }
+    case 447: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 446; continue; }
+    case 448: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 447; continue; }
+    case 449: { writeLocal(framePointer(localFrame,284),2,4,"int"); pc = 448; continue; }
+    case 450: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e74e0),4); pc = 449; continue; }
+    case 451: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 450; continue; }
+    case 452: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 451 : 450; continue; }
+    case 453: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 452; continue; }
+    case 454: { undefined; pc = 453; continue; }
+    case 455: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 454; continue; }
+    case 456: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 455; continue; }
+    case 457: { writeLocal(framePointer(localFrame,284),1,4,"int"); pc = 456; continue; }
+    case 458: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7514),4); pc = 457; continue; }
+    case 459: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 458; continue; }
+    case 460: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 459 : 458; continue; }
+    case 461: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),0,"==")) || cTruth(cCompare(r32(0x4fb9b4),3,"==")))) ? 460 : 423; continue; }
+    case 462: { (iVar4 = cAdd(readLocal(framePointer(localFrame,256),4,"int"),2)); pc = 461; continue; }
+    case 463: { undefined; pc = 462; continue; }
+    case 464: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 463; continue; }
+    case 465: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(cStringData(memory,local_28[cI32(0)]),false),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 464; continue; }
+    case 466: { (pcVar1 = dcMethod(dc,100,memory)); pc = 465; continue; }
+    case 467: { writeLocal(framePointer(localFrame,284),0,4,"int"); pc = 466; continue; }
+    case 468: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7570),4); pc = 467; continue; }
+    case 469: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 468; continue; }
+    case 470: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 469 : 468; continue; }
+    case 471: { (local_28[cI32(0)] = 0x5); pc = 470; continue; }
+    case 472: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 471; continue; }
+    case 473: { (iVar5 = 16); pc = 472; continue; }
+    case 474: { (local_28[cI32(0)] = 20); pc = 470; continue; }
+    case 475: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 474; continue; }
+    case 476: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 473 : 475; continue; }
+    case 477: { (iVar5 = 20); pc = 476; continue; }
+    case 478: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 477; continue; }
+    case 479: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 478; continue; }
+    case 480: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 479; continue; }
+    case 481: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 480; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial506(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial506Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial506Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00457280; static C control-flow translation. */
+function drawTutorial506Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(300,options.retainedDrawingStack?.[4551296]??[]);
@@ -7456,8 +11691,522 @@ export function drawTutorial506(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00458ca0; static C control-flow translation. */
+/** Complete recovered original 0x00457280; static C control-flow translation. */
+function drawTutorial506Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(300,options.retainedDrawingStack?.[4551296]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let hdc;
+  let h;
+  let TStack_1c;
+  let aTStack_18 = new Array(2);
+  let pc = 487;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,284),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { undefined; pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 6; continue; }
+    case 8: { writeLocal(framePointer(localFrame,296),40,4,"int"); pc = 7; continue; }
+    case 9: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 9; continue; }
+    case 11: { w32(0x4fecd0,45); pc = 10; continue; }
+    case 12: { w32(0x535748,65); pc = 11; continue; }
+    case 13: { w32(0x4fdff0,60); pc = 12; continue; }
+    case 14: { w32(0x4fe820,2); pc = 13; continue; }
+    case 15: { w32(0x522ff8,4294967295); pc = 14; continue; }
+    case 16: { w32(0x4fb388,15); pc = 15; continue; }
+    case 17: { w32(0x4fc2c8,15); pc = 16; continue; }
+    case 18: { dc.lineTo(r32(0x4fe620),r32(0x4fb24c)); pc = 17; continue; }
+    case 19: { dc.lineTo(r32(0x4f4148),r32(0x5354b8)); pc = 18; continue; }
+    case 20: { dc.lineTo(r32(0x5357d0),r32(0x4fb9ec)); pc = 19; continue; }
+    case 21: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2)); pc = 20; continue; }
+    case 22: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 21; continue; }
+    case 23: { pc = cTruth((cTruth(cCompare(r32(0x5363e4),0,"==")) && cTruth(cCompare(r32(0x4f3c0c),0,"!=")))) ? 22 : 21; continue; }
+    case 24: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 23; continue; }
+    case 25: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 25; continue; }
+    case 27: { undefined; pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 27; continue; }
+    case 29: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 28; continue; }
+    case 30: { writeLocal(framePointer(localFrame,296),39,4,"int"); pc = 29; continue; }
+    case 31: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 30; continue; }
+    case 32: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 31; continue; }
+    case 33: { w32(0x4feccc,45); pc = 32; continue; }
+    case 34: { w32(0x535744,335); pc = 33; continue; }
+    case 35: { w32(0x4fdfec,60); pc = 34; continue; }
+    case 36: { w32(0x4fe81c,2); pc = 35; continue; }
+    case 37: { w32(0x522ff4,1); pc = 36; continue; }
+    case 38: { w32(0x4fb384,15); pc = 37; continue; }
+    case 39: { w32(0x4fc2c4,15); pc = 38; continue; }
+    case 40: { dc.lineTo(r32(0x5127a0),r32(0x4f721c)); pc = 39; continue; }
+    case 41: { dc.lineTo(r32(0x535604),r32(0x5354c0)); pc = 40; continue; }
+    case 42: { dc.lineTo(r32(0x523394),r32(0x52365c)); pc = 41; continue; }
+    case 43: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2)); pc = 42; continue; }
+    case 44: { selectGdiObject(dc,r32(0x5362ec)); pc = 43; continue; }
+    case 45: { pc = cTruth((cTruth(cCompare(r32(0x5363e4),0,"==")) && cTruth(cCompare(r32(0x5362ec),0,"!=")))) ? 44 : 43; continue; }
+    case 46: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),20),4); pc = 45; continue; }
+    case 47: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false)); pc = 46; continue; }
+    case 48: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 47; continue; }
+    case 49: { w32(0x5362d4,4294967276); pc = 48; continue; }
+    case 50: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 49 : 4; continue; }
+    case 51: { undefined; pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 51; continue; }
+    case 53: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(r32(0x5357d0),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(r32(0x4fb9ec),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,296),38,4,"int"); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat B"),4); pc = 54; continue; }
+    case 56: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, r32(0x5357d0), r32(0x4fb9ec), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 55; continue; }
+    case 57: { w32(0x4fecd0,45); pc = 56; continue; }
+    case 58: { w32(0x535748,65); pc = 57; continue; }
+    case 59: { w32(0x4fdff0,60); pc = 58; continue; }
+    case 60: { w32(0x4fe820,2); pc = 59; continue; }
+    case 61: { w32(0x522ff8,4294967295); pc = 60; continue; }
+    case 62: { w32(0x4fb388,15); pc = 61; continue; }
+    case 63: { w32(0x4fc2c8,15); pc = 62; continue; }
+    case 64: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 63; continue; }
+    case 65: { w32(0x4fb9ec,fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 64; continue; }
+    case 66: { w32(0x5357d0,fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false)); pc = 65; continue; }
+    case 67: { undefined; pc = 66; continue; }
+    case 68: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 67; continue; }
+    case 69: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(r32(0x523394),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(r32(0x52365c),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 68; continue; }
+    case 70: { writeLocal(framePointer(localFrame,296),37,4,"int"); pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat A"),4); pc = 70; continue; }
+    case 72: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, r32(0x523394), r32(0x52365c), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 71; continue; }
+    case 73: { w32(0x4feccc,45); pc = 72; continue; }
+    case 74: { w32(0x535744,335); pc = 73; continue; }
+    case 75: { w32(0x4fdfec,60); pc = 74; continue; }
+    case 76: { w32(0x4fe81c,2); pc = 75; continue; }
+    case 77: { w32(0x522ff4,1); pc = 76; continue; }
+    case 78: { w32(0x4fb384,15); pc = 77; continue; }
+    case 79: { w32(0x4fc2c4,15); pc = 78; continue; }
+    case 80: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),20),4); pc = 79; continue; }
+    case 81: { w32(0x52365c,fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 80; continue; }
+    case 82: { w32(0x523394,fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 81; continue; }
+    case 83: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 82; continue; }
+    case 84: { undefined; pc = 83; continue; }
+    case 85: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 84; continue; }
+    case 86: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 85; continue; }
+    case 87: { writeLocal(framePointer(localFrame,296),36,4,"int"); pc = 86; continue; }
+    case 88: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 87; continue; }
+    case 89: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 88; continue; }
+    case 90: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 89; continue; }
+    case 91: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc598)),false),4,"int"); pc = 91; continue; }
+    case 93: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 92; continue; }
+    case 94: { undefined; pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 94; continue; }
+    case 96: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,296),35,4,"int"); pc = 96; continue; }
+    case 98: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 97; continue; }
+    case 99: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 98; continue; }
+    case 100: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4,"int"); pc = 100; continue; }
+    case 102: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 102; continue; }
+    case 104: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 103 : 102; continue; }
+    case 105: { selectGdiObject(dc,r32(0x5362ec)); pc = 104; continue; }
+    case 106: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 105 : 104; continue; }
+    case 107: { w32(0x5362d4,4294967276); pc = 106; continue; }
+    case 108: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 107 : 50; continue; }
+    case 109: { undefined; pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(r32(0x4f4148),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(r32(0x5354b8),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,296),34,4,"int"); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat B"),4); pc = 112; continue; }
+    case 114: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, r32(0x4f4148), r32(0x5354b8), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 113; continue; }
+    case 115: { w32(0x4fecd0,45); pc = 114; continue; }
+    case 116: { w32(0x535748,295); pc = 115; continue; }
+    case 117: { w32(0x4fdff0,60); pc = 116; continue; }
+    case 118: { w32(0x4fe820,2); pc = 117; continue; }
+    case 119: { w32(0x522ff8,1); pc = 118; continue; }
+    case 120: { w32(0x4fb388,15); pc = 119; continue; }
+    case 121: { w32(0x4fc2c8,15); pc = 120; continue; }
+    case 122: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 121; continue; }
+    case 123: { w32(0x5354b8,fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 122; continue; }
+    case 124: { w32(0x4f4148,fpI32(fpMul(r64(0x5230e8),r64(0x4cc660)),false)); pc = 123; continue; }
+    case 125: { undefined; pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 125; continue; }
+    case 127: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(r32(0x535604),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(r32(0x5354c0),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,296),33,4,"int"); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat A"),4); pc = 128; continue; }
+    case 130: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, r32(0x535604), r32(0x5354c0), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 129; continue; }
+    case 131: { w32(0x4feccc,45); pc = 130; continue; }
+    case 132: { w32(0x535744,25); pc = 131; continue; }
+    case 133: { w32(0x4fdfec,60); pc = 132; continue; }
+    case 134: { w32(0x4fe81c,2); pc = 133; continue; }
+    case 135: { w32(0x522ff4,4294967295); pc = 134; continue; }
+    case 136: { w32(0x4fb384,15); pc = 135; continue; }
+    case 137: { w32(0x4fc2c4,15); pc = 136; continue; }
+    case 138: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),20),4); pc = 137; continue; }
+    case 139: { w32(0x5354c0,fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 138; continue; }
+    case 140: { w32(0x535604,fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 139; continue; }
+    case 141: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 140; continue; }
+    case 142: { undefined; pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 142; continue; }
+    case 144: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,296),32,4,"int"); pc = 144; continue; }
+    case 146: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 145; continue; }
+    case 147: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 146; continue; }
+    case 148: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 147; continue; }
+    case 149: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc598)),false),4,"int"); pc = 149; continue; }
+    case 151: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 150; continue; }
+    case 152: { undefined; pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 152; continue; }
+    case 154: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,296),31,4,"int"); pc = 154; continue; }
+    case 156: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 155; continue; }
+    case 157: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 156; continue; }
+    case 158: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4,"int"); pc = 158; continue; }
+    case 160: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 159; continue; }
+    case 161: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 160; continue; }
+    case 162: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 161 : 160; continue; }
+    case 163: { selectGdiObject(dc,r32(0x5362ec)); pc = 162; continue; }
+    case 164: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 163 : 162; continue; }
+    case 165: { w32(0x5362d4,30); pc = 164; continue; }
+    case 166: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 165 : 108; continue; }
+    case 167: { undefined; pc = 166; continue; }
+    case 168: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 167; continue; }
+    case 169: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(r32(0x4fe620),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(r32(0x4fb24c),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 168; continue; }
+    case 170: { writeLocal(framePointer(localFrame,296),30,4,"int"); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat B"),4); pc = 170; continue; }
+    case 172: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, r32(0x4fe620), r32(0x4fb24c), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 171; continue; }
+    case 173: { w32(0x4fecd0,45); pc = 172; continue; }
+    case 174: { w32(0x535748,295); pc = 173; continue; }
+    case 175: { w32(0x4fdff0,60); pc = 174; continue; }
+    case 176: { w32(0x4fe820,2); pc = 175; continue; }
+    case 177: { w32(0x522ff8,1); pc = 176; continue; }
+    case 178: { w32(0x4fb388,15); pc = 177; continue; }
+    case 179: { w32(0x4fc2c8,15); pc = 178; continue; }
+    case 180: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 179; continue; }
+    case 181: { w32(0x4fb24c,fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 180; continue; }
+    case 182: { w32(0x4fe620,fpI32(fpMul(r64(0x5230e8),r64(0x4cc778)),false)); pc = 181; continue; }
+    case 183: { undefined; pc = 182; continue; }
+    case 184: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 183; continue; }
+    case 185: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(r32(0x5127a0),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(r32(0x4f721c),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 184; continue; }
+    case 186: { writeLocal(framePointer(localFrame,296),29,4,"int"); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat A"),4); pc = 186; continue; }
+    case 188: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, r32(0x5127a0), r32(0x4f721c), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 187; continue; }
+    case 189: { w32(0x4feccc,45); pc = 188; continue; }
+    case 190: { w32(0x535744,25); pc = 189; continue; }
+    case 191: { w32(0x4fdfec,60); pc = 190; continue; }
+    case 192: { w32(0x4fe81c,2); pc = 191; continue; }
+    case 193: { w32(0x522ff4,4294967295); pc = 192; continue; }
+    case 194: { w32(0x4fb384,15); pc = 193; continue; }
+    case 195: { w32(0x4fc2c4,15); pc = 194; continue; }
+    case 196: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),20),4); pc = 195; continue; }
+    case 197: { w32(0x4f721c,fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 196; continue; }
+    case 198: { w32(0x5127a0,fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false)); pc = 197; continue; }
+    case 199: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 198; continue; }
+    case 200: { undefined; pc = 199; continue; }
+    case 201: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 200; continue; }
+    case 202: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 201; continue; }
+    case 203: { writeLocal(framePointer(localFrame,296),28,4,"int"); pc = 202; continue; }
+    case 204: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 203; continue; }
+    case 205: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 204; continue; }
+    case 206: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 205; continue; }
+    case 207: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 206; continue; }
+    case 208: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc598)),false),4,"int"); pc = 207; continue; }
+    case 209: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 208; continue; }
+    case 210: { undefined; pc = 209; continue; }
+    case 211: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 210; continue; }
+    case 212: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 211; continue; }
+    case 213: { writeLocal(framePointer(localFrame,296),27,4,"int"); pc = 212; continue; }
+    case 214: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 213; continue; }
+    case 215: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 214; continue; }
+    case 216: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 215; continue; }
+    case 217: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4,"int"); pc = 216; continue; }
+    case 218: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 217; continue; }
+    case 219: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 218; continue; }
+    case 220: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 219 : 218; continue; }
+    case 221: { selectGdiObject(dc,r32(0x5362ec)); pc = 220; continue; }
+    case 222: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 221 : 220; continue; }
+    case 223: { w32(0x5362d4,30); pc = 222; continue; }
+    case 224: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 223 : 166; continue; }
+    case 225: { undefined; pc = 224; continue; }
+    case 226: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 225; continue; }
+    case 227: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 226; continue; }
+    case 228: { writeLocal(framePointer(localFrame,296),26,4,"int"); pc = 227; continue; }
+    case 229: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 228; continue; }
+    case 230: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 229; continue; }
+    case 231: { w32(0x4fecd0,45); pc = 230; continue; }
+    case 232: { w32(0x535748,315); pc = 231; continue; }
+    case 233: { w32(0x4fdff0,60); pc = 232; continue; }
+    case 234: { w32(0x4fe820,2); pc = 233; continue; }
+    case 235: { w32(0x522ff8,1); pc = 234; continue; }
+    case 236: { w32(0x4fb388,15); pc = 235; continue; }
+    case 237: { w32(0x4fc2c8,15); pc = 236; continue; }
+    case 238: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),14),4); pc = 237; continue; }
+    case 239: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 238; continue; }
+    case 240: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 239; continue; }
+    case 241: { undefined; pc = 240; continue; }
+    case 242: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 241; continue; }
+    case 243: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,iVar4),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 242; continue; }
+    case 244: { writeLocal(framePointer(localFrame,296),25,4,"int"); pc = 243; continue; }
+    case 245: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 244; continue; }
+    case 246: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 245; continue; }
+    case 247: { w32(0x4feccc,45); pc = 246; continue; }
+    case 248: { w32(0x535744,315); pc = 247; continue; }
+    case 249: { w32(0x4fdfec,60); pc = 248; continue; }
+    case 250: { w32(0x4fe81c,2); pc = 249; continue; }
+    case 251: { w32(0x522ff4,1); pc = 250; continue; }
+    case 252: { w32(0x4fb384,15); pc = 251; continue; }
+    case 253: { w32(0x4fc2c4,15); pc = 252; continue; }
+    case 254: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),20),4); pc = 253; continue; }
+    case 255: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 254; continue; }
+    case 256: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 255; continue; }
+    case 257: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,0]); pc = 256; continue; }
+    case 258: { undefined; pc = 257; continue; }
+    case 259: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 258; continue; }
+    case 260: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(r32(0x4fe624),5),iVar2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 259; continue; }
+    case 261: { writeLocal(framePointer(localFrame,296),24,4,"int"); pc = 260; continue; }
+    case 262: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 261; continue; }
+    case 263: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,32512]); pc = 262; continue; }
+    case 264: { dc.lineTo(r32(0x4fe624),iVar2); pc = 263; continue; }
+    case 265: { writeLocalPoint(framePointer(localFrame,260),dc.moveTo(0,iVar2)); pc = 264; continue; }
+    case 266: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 265; continue; }
+    case 267: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 266; continue; }
+    case 268: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 267 : 266; continue; }
+    case 269: { invokeDrawingPointer(cStringData(memory,aTStack_18[cI32(0)]),dc,[original_dc,0]); pc = 268; continue; }
+    case 270: { (aTStack_18[cI32(0)] = dcMethod(dc,56,memory)); pc = 269; continue; }
+    case 271: { undefined; pc = 270; continue; }
+    case 272: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 271; continue; }
+    case 273: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 272; continue; }
+    case 274: { writeLocal(framePointer(localFrame,296),23,4,"int"); pc = 273; continue; }
+    case 275: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 274; continue; }
+    case 276: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),15),4); pc = 275; continue; }
+    case 277: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 276; continue; }
+    case 278: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 277; continue; }
+    case 279: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc598)),false),4,"int"); pc = 278; continue; }
+    case 280: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 279; continue; }
+    case 281: { undefined; pc = 280; continue; }
+    case 282: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 281; continue; }
+    case 283: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4)),cAdd(iVar2,cMul(iVar4,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 282; continue; }
+    case 284: { writeLocal(framePointer(localFrame,296),22,4,"int"); pc = 283; continue; }
+    case 285: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 284; continue; }
+    case 286: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),cDiv(r32(0x4fe624),50),4); pc = 285; continue; }
+    case 287: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 286; continue; }
+    case 288: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 287; continue; }
+    case 289: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc958)),false),4,"int"); pc = 288; continue; }
+    case 290: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(readLocal(framePointer(localFrame,268),4,"int"),cI32(cStringData(memory,TStack_1c),false))); pc = 289; continue; }
+    case 291: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 290; continue; }
+    case 292: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 291 : 290; continue; }
+    case 293: { selectGdiObject(dc,r32(0x5362ec)); pc = 292; continue; }
+    case 294: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 293 : 292; continue; }
+    case 295: { w32(0x5362d4,0); pc = 294; continue; }
+    case 296: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 295 : 224; continue; }
+    case 297: { undefined; pc = 296; continue; }
+    case 298: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 297; continue; }
+    case 299: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cDiv(r32(0x4fe624),100),readLocal(framePointer(localFrame,268),4,"int")),cI32(cStringData(memory,TStack_1c),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 298; continue; }
+    case 300: { writeLocal(framePointer(localFrame,296),21,4,"int"); pc = 299; continue; }
+    case 301: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 300; continue; }
+    case 302: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, readLocalArgument(framePointer(localFrame,268),4,"int"), cStringData(memory,TStack_1c), 4, 1],0,rng,options); pc = 301; continue; }
+    case 303: { (TStack_1c = fpI64(fpMul(r64(0x5230b0),r64(0x4cc5e0)),false)); pc = 302; continue; }
+    case 304: { writeLocal(framePointer(localFrame,268),fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 303; continue; }
+    case 305: { w32(0x4fbb94,0); pc = 304; continue; }
+    case 306: { w32(0x4f71c4,2); pc = 305; continue; }
+    case 307: { writeLocal(framePointer(localFrame,284),r32(0x4f71c4),4,"int"); pc = 306; continue; }
+    case 308: { w32(0x536458,2); pc = 307; continue; }
+    case 309: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar4],0,rng,options); pc = 308; continue; }
+    case 310: { w32(0x4da18c,4); pc = 309; continue; }
+    case 311: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 310; continue; }
+    case 312: { selectGdiObject(dc,h); pc = 311; continue; }
+    case 313: { (h = r32(0x4fc15c)); pc = 312; continue; }
+    case 314: { (hdc = dc); pc = 313; continue; }
+    case 315: { pc = 311; continue; }
+    case 316: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 315 : 314; continue; }
+    case 317: { (h = r32(0x5230cc)); pc = 312; continue; }
+    case 318: { (hdc = dc); pc = 317; continue; }
+    case 319: { pc = 311; continue; }
+    case 320: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 319 : 318; continue; }
+    case 321: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 316 : 320; continue; }
+    case 322: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4), iVar4],0,rng,options); pc = 321; continue; }
+    case 323: { undefined; pc = 322; continue; }
+    case 324: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 323; continue; }
+    case 325: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cAdd(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 324; continue; }
+    case 326: { writeLocal(framePointer(localFrame,296),20,4,"int"); pc = 325; continue; }
+    case 327: { (TStack_1c = cString(memory,0x4e7588)); pc = 326; continue; }
+    case 328: { undefined; pc = 327; continue; }
+    case 329: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 328; continue; }
+    case 330: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 329; continue; }
+    case 331: { writeLocal(framePointer(localFrame,296),19,4,"int"); pc = 330; continue; }
+    case 332: { (TStack_1c = cString(memory,0x4e75b8)); pc = 331; continue; }
+    case 333: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 332; continue; }
+    case 334: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 333 : 332; continue; }
+    case 335: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 334; continue; }
+    case 336: { undefined; pc = 335; continue; }
+    case 337: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 336; continue; }
+    case 338: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 337; continue; }
+    case 339: { writeLocal(framePointer(localFrame,296),18,4,"int"); pc = 338; continue; }
+    case 340: { (TStack_1c = cString(memory,0x4e7608)); pc = 339; continue; }
+    case 341: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 340; continue; }
+    case 342: { undefined; pc = 341; continue; }
+    case 343: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 342; continue; }
+    case 344: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 343; continue; }
+    case 345: { writeLocal(framePointer(localFrame,296),17,4,"int"); pc = 344; continue; }
+    case 346: { (TStack_1c = cString(memory,0x4e7658)); pc = 345; continue; }
+    case 347: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 346; continue; }
+    case 348: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 347 : 346; continue; }
+    case 349: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 348; continue; }
+    case 350: { undefined; pc = 349; continue; }
+    case 351: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 350; continue; }
+    case 352: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 351; continue; }
+    case 353: { writeLocal(framePointer(localFrame,296),16,4,"int"); pc = 352; continue; }
+    case 354: { (TStack_1c = cString(memory,0x4e76ac)); pc = 353; continue; }
+    case 355: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 354; continue; }
+    case 356: { undefined; pc = 355; continue; }
+    case 357: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 356; continue; }
+    case 358: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,296),15,4,"int"); pc = 358; continue; }
+    case 360: { (TStack_1c = cString(memory,0x4e76fc)); pc = 359; continue; }
+    case 361: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 360; continue; }
+    case 362: { undefined; pc = 361; continue; }
+    case 363: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 362; continue; }
+    case 364: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 363; continue; }
+    case 365: { writeLocal(framePointer(localFrame,296),14,4,"int"); pc = 364; continue; }
+    case 366: { (TStack_1c = cString(memory,0x4e774c)); pc = 365; continue; }
+    case 367: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 366; continue; }
+    case 368: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 367 : 366; continue; }
+    case 369: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 368 : 322; continue; }
+    case 370: { undefined; pc = 369; continue; }
+    case 371: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 370; continue; }
+    case 372: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 371; continue; }
+    case 373: { writeLocal(framePointer(localFrame,296),13,4,"int"); pc = 372; continue; }
+    case 374: { (TStack_1c = cString(memory,0x4e6e2c)); pc = 373; continue; }
+    case 375: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 374; continue; }
+    case 376: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 375 : 374; continue; }
+    case 377: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 376; continue; }
+    case 378: { undefined; pc = 377; continue; }
+    case 379: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 378; continue; }
+    case 380: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 379; continue; }
+    case 381: { writeLocal(framePointer(localFrame,296),12,4,"int"); pc = 380; continue; }
+    case 382: { (TStack_1c = cString(memory,0x4e77a4)); pc = 381; continue; }
+    case 383: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 382; continue; }
+    case 384: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 383 : 382; continue; }
+    case 385: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 384 : 369; continue; }
+    case 386: { undefined; pc = 385; continue; }
+    case 387: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 386; continue; }
+    case 388: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 387; continue; }
+    case 389: { writeLocal(framePointer(localFrame,296),11,4,"int"); pc = 388; continue; }
+    case 390: { (TStack_1c = cString(memory,0x4e6e2c)); pc = 389; continue; }
+    case 391: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 390; continue; }
+    case 392: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 391 : 390; continue; }
+    case 393: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 392; continue; }
+    case 394: { undefined; pc = 393; continue; }
+    case 395: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 394; continue; }
+    case 396: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 395; continue; }
+    case 397: { writeLocal(framePointer(localFrame,296),10,4,"int"); pc = 396; continue; }
+    case 398: { (TStack_1c = cString(memory,0x4e77ec)); pc = 397; continue; }
+    case 399: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 398; continue; }
+    case 400: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 399 : 398; continue; }
+    case 401: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 400 : 385; continue; }
+    case 402: { undefined; pc = 401; continue; }
+    case 403: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 402; continue; }
+    case 404: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 403; continue; }
+    case 405: { writeLocal(framePointer(localFrame,296),9,4,"int"); pc = 404; continue; }
+    case 406: { (TStack_1c = cString(memory,0x4e6e2c)); pc = 405; continue; }
+    case 407: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 406; continue; }
+    case 408: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 407 : 406; continue; }
+    case 409: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 408; continue; }
+    case 410: { undefined; pc = 409; continue; }
+    case 411: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 410; continue; }
+    case 412: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 411; continue; }
+    case 413: { writeLocal(framePointer(localFrame,296),8,4,"int"); pc = 412; continue; }
+    case 414: { (TStack_1c = cString(memory,0x4e7808)); pc = 413; continue; }
+    case 415: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 414; continue; }
+    case 416: { undefined; pc = 415; continue; }
+    case 417: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 416; continue; }
+    case 418: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 417; continue; }
+    case 419: { writeLocal(framePointer(localFrame,296),7,4,"int"); pc = 418; continue; }
+    case 420: { (TStack_1c = cString(memory,0x4e784c)); pc = 419; continue; }
+    case 421: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 420; continue; }
+    case 422: { undefined; pc = 421; continue; }
+    case 423: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 422; continue; }
+    case 424: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 423; continue; }
+    case 425: { writeLocal(framePointer(localFrame,296),6,4,"int"); pc = 424; continue; }
+    case 426: { (TStack_1c = cString(memory,0x4e787c)); pc = 425; continue; }
+    case 427: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 426; continue; }
+    case 428: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 427 : 426; continue; }
+    case 429: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 428 : 401; continue; }
+    case 430: { undefined; pc = 429; continue; }
+    case 431: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 430; continue; }
+    case 432: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 431; continue; }
+    case 433: { writeLocal(framePointer(localFrame,296),5,4,"int"); pc = 432; continue; }
+    case 434: { (TStack_1c = cString(memory,0x4e6e2c)); pc = 433; continue; }
+    case 435: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 434; continue; }
+    case 436: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 435 : 434; continue; }
+    case 437: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 436; continue; }
+    case 438: { undefined; pc = 437; continue; }
+    case 439: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 438; continue; }
+    case 440: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 439; continue; }
+    case 441: { writeLocal(framePointer(localFrame,296),4,4,"int"); pc = 440; continue; }
+    case 442: { (TStack_1c = cString(memory,0x4e78c0)); pc = 441; continue; }
+    case 443: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 442; continue; }
+    case 444: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 443 : 442; continue; }
+    case 445: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 444; continue; }
+    case 446: { undefined; pc = 445; continue; }
+    case 447: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 446; continue; }
+    case 448: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 447; continue; }
+    case 449: { writeLocal(framePointer(localFrame,296),3,4,"int"); pc = 448; continue; }
+    case 450: { (TStack_1c = cString(memory,0x4e7904)); pc = 449; continue; }
+    case 451: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),4,"int"); pc = 450; continue; }
+    case 452: { undefined; pc = 451; continue; }
+    case 453: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 452; continue; }
+    case 454: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 453; continue; }
+    case 455: { writeLocal(framePointer(localFrame,296),2,4,"int"); pc = 454; continue; }
+    case 456: { (TStack_1c = cString(memory,0x4e7924)); pc = 455; continue; }
+    case 457: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 456; continue; }
+    case 458: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 457 : 456; continue; }
+    case 459: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 458; continue; }
+    case 460: { undefined; pc = 459; continue; }
+    case 461: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 460; continue; }
+    case 462: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 461; continue; }
+    case 463: { writeLocal(framePointer(localFrame,296),1,4,"int"); pc = 462; continue; }
+    case 464: { (TStack_1c = cString(memory,0x4e7980)); pc = 463; continue; }
+    case 465: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 464 : 429; continue; }
+    case 466: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 465; continue; }
+    case 467: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 466 : 465; continue; }
+    case 468: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,256),4,"int"),2),4,"int"); pc = 467; continue; }
+    case 469: { undefined; pc = 468; continue; }
+    case 470: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 469; continue; }
+    case 471: { invokeDrawingPointer(pcVar1,dc,[original_dc,readPointer(memory,pointerAdd(framePointer(localFrame,260),cMul(0,4)),4),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 470; continue; }
+    case 472: { (pcVar1 = dcMethod(dc,100,memory)); pc = 471; continue; }
+    case 473: { writeLocal(framePointer(localFrame,296),0,4,"int"); pc = 472; continue; }
+    case 474: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e79dc),4); pc = 473; continue; }
+    case 475: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 474; continue; }
+    case 476: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 475 : 474; continue; }
+    case 477: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),5,4); pc = 476; continue; }
+    case 478: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 477; continue; }
+    case 479: { (iVar4 = 16); pc = 478; continue; }
+    case 480: { writePointer(memory,pointerAdd(framePointer(localFrame,260), cMul(0, 4)),20,4); pc = 476; continue; }
+    case 481: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 480; continue; }
+    case 482: { (iVar4 = 20); pc = 481; continue; }
+    case 483: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 479 : 482; continue; }
+    case 484: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 483; continue; }
+    case 485: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 484; continue; }
+    case 486: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 485; continue; }
+    case 487: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 486; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial507(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial507Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial507Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00458ca0; static C control-flow translation. */
+function drawTutorial507Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(296,options.retainedDrawingStack?.[4557984]??[]);
@@ -7874,8 +12623,431 @@ export function drawTutorial507(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0045a150; static C control-flow translation. */
+/** Complete recovered original 0x00458ca0; static C control-flow translation. */
+function drawTutorial507Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(296,options.retainedDrawingStack?.[4557984]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let pcVar2;
+  let iVar3;
+  let iVar4;
+  let iVar5;
+  let dVar6;
+  let original_dc;
+  let iVar7;
+  let iVar8;
+  let hdc;
+  let h;
+  let aTStack_18 = new Array(2);
+  let pc = 393;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,280),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 3; continue; }
+    case 5: { undefined; pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar8,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar3,iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 6; continue; }
+    case 8: { writeLocal(framePointer(localFrame,292),35,4,"int"); pc = 7; continue; }
+    case 9: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar8, iVar3, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 9; continue; }
+    case 11: { w32(0x4fecd0,45); pc = 10; continue; }
+    case 12: { w32(0x535748,335); pc = 11; continue; }
+    case 13: { w32(0x4fdff0,60); pc = 12; continue; }
+    case 14: { w32(0x4fe820,2); pc = 13; continue; }
+    case 15: { w32(0x522ff8,1); pc = 14; continue; }
+    case 16: { w32(0x4fb388,15); pc = 15; continue; }
+    case 17: { w32(0x4fc2c8,15); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),14),4,"int"); pc = 17; continue; }
+    case 19: { (iVar3 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 18; continue; }
+    case 20: { (iVar8 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false)); pc = 19; continue; }
+    case 21: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 20; continue; }
+    case 22: { undefined; pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 22; continue; }
+    case 24: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),cSub(iVar3,cDiv(r32(0x4fe2a8),10)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,292),34,4,"int"); pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 25; continue; }
+    case 27: { invokeDrawingPointer(pcVar2,dc,[original_dc,32512]); pc = 26; continue; }
+    case 28: { dc.lineTo(cDiv(r32(0x4fe624),5),cSub(iVar3,cDiv(r32(0x4fe2a8),5))); pc = 27; continue; }
+    case 29: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 28; continue; }
+    case 30: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 29; continue; }
+    case 31: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 30 : 29; continue; }
+    case 32: { undefined; pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 32; continue; }
+    case 34: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar8),cAdd(iVar3,iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,292),33,4,"int"); pc = 34; continue; }
+    case 36: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 35; continue; }
+    case 37: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar8, iVar3, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 36; continue; }
+    case 38: { w32(0x4feccc,45); pc = 37; continue; }
+    case 39: { w32(0x535744,335); pc = 38; continue; }
+    case 40: { w32(0x4fb384,15); pc = 39; continue; }
+    case 41: { w32(0x4fdfec,60); pc = 40; continue; }
+    case 42: { w32(0x4fe81c,2); pc = 41; continue; }
+    case 43: { w32(0x4fc2c4,15); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),20),4,"int"); pc = 43; continue; }
+    case 45: { w32(0x522ff4,1); pc = 44; continue; }
+    case 46: { (iVar3 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 45; continue; }
+    case 47: { (iVar8 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 47; continue; }
+    case 49: { (pcVar2 = dcMethod(dc,56,memory)); pc = 48; continue; }
+    case 50: { undefined; pc = 49; continue; }
+    case 51: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 50; continue; }
+    case 52: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar8,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar3,cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,292),32,4,"int"); pc = 52; continue; }
+    case 54: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),10),4,"int"); pc = 54; continue; }
+    case 56: { dc.lineTo(iVar8,iVar3); pc = 55; continue; }
+    case 57: { (iVar3 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 56; continue; }
+    case 58: { (iVar8 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc598)),false)); pc = 57; continue; }
+    case 59: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 58; continue; }
+    case 60: { undefined; pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 60; continue; }
+    case 62: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 61; continue; }
+    case 63: { writeLocal(framePointer(localFrame,292),31,4,"int"); pc = 62; continue; }
+    case 64: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),50),4,"int"); pc = 64; continue; }
+    case 66: { dc.lineTo(iVar4,iVar5); pc = 65; continue; }
+    case 67: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 66; continue; }
+    case 68: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false)); pc = 67; continue; }
+    case 69: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 69; continue; }
+    case 71: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 70 : 69; continue; }
+    case 72: { selectGdiObject(dc,r32(0x5362ec)); pc = 71; continue; }
+    case 73: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 72 : 71; continue; }
+    case 74: { w32(0x5362d4,cNeg(20)); pc = 73; continue; }
+    case 75: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 74 : 4; continue; }
+    case 76: { undefined; pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 76; continue; }
+    case 78: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,292),30,4,"int"); pc = 78; continue; }
+    case 80: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 79; continue; }
+    case 81: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 80; continue; }
+    case 82: { w32(0x4fecd0,45); pc = 81; continue; }
+    case 83: { w32(0x535748,325); pc = 82; continue; }
+    case 84: { w32(0x4fdff0,60); pc = 83; continue; }
+    case 85: { w32(0x4fe820,2); pc = 84; continue; }
+    case 86: { w32(0x522ff8,1); pc = 85; continue; }
+    case 87: { w32(0x4fb388,15); pc = 86; continue; }
+    case 88: { w32(0x4fc2c8,15); pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),14),4,"int"); pc = 88; continue; }
+    case 90: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 89; continue; }
+    case 91: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false)); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 91; continue; }
+    case 93: { undefined; pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 93; continue; }
+    case 95: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),cSub(iVar5,cDiv(r32(0x4fe2a8),20)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 94; continue; }
+    case 96: { writeLocal(framePointer(localFrame,292),29,4,"int"); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 96; continue; }
+    case 98: { invokeDrawingPointer(pcVar2,dc,[original_dc,32512]); pc = 97; continue; }
+    case 99: { dc.lineTo(cDiv(r32(0x4fe624),5),cSub(iVar5,cDiv(r32(0x4fe2a8),10))); pc = 98; continue; }
+    case 100: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar4,iVar5)); pc = 99; continue; }
+    case 101: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 100; continue; }
+    case 102: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 101 : 100; continue; }
+    case 103: { undefined; pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 103; continue; }
+    case 105: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cAdd(iVar5,iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 104; continue; }
+    case 106: { writeLocal(framePointer(localFrame,292),28,4,"int"); pc = 105; continue; }
+    case 107: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 106; continue; }
+    case 108: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 107; continue; }
+    case 109: { w32(0x4feccc,45); pc = 108; continue; }
+    case 110: { w32(0x4fb384,15); pc = 109; continue; }
+    case 111: { w32(0x4fc2c4,15); pc = 110; continue; }
+    case 112: { w32(0x4fdfec,60); pc = 111; continue; }
+    case 113: { w32(0x4fe81c,2); pc = 112; continue; }
+    case 114: { w32(0x535744,35); pc = 113; continue; }
+    case 115: { w32(0x522ff4,4294967295); pc = 114; continue; }
+    case 116: { w32(0x535744,325); pc = 113; continue; }
+    case 117: { w32(0x522ff4,1); pc = 116; continue; }
+    case 118: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 115 : 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),20),4,"int"); pc = 118; continue; }
+    case 120: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 119; continue; }
+    case 121: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 120; continue; }
+    case 122: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 121; continue; }
+    case 123: { (pcVar2 = dcMethod(dc,56,memory)); pc = 122; continue; }
+    case 124: { undefined; pc = 123; continue; }
+    case 125: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 124; continue; }
+    case 126: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,292),27,4,"int"); pc = 126; continue; }
+    case 128: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),10),4,"int"); pc = 128; continue; }
+    case 130: { dc.lineTo(iVar4,iVar5); pc = 129; continue; }
+    case 131: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 130; continue; }
+    case 132: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc598)),false)); pc = 131; continue; }
+    case 133: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,292),26,4,"int"); pc = 136; continue; }
+    case 138: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 137; continue; }
+    case 139: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),50),4,"int"); pc = 138; continue; }
+    case 140: { dc.lineTo(iVar4,iVar5); pc = 139; continue; }
+    case 141: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 140; continue; }
+    case 142: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false)); pc = 141; continue; }
+    case 143: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 142; continue; }
+    case 144: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 143; continue; }
+    case 145: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 144 : 143; continue; }
+    case 146: { selectGdiObject(dc,r32(0x5362ec)); pc = 145; continue; }
+    case 147: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 146 : 145; continue; }
+    case 148: { w32(0x5362d4,cNeg(10)); pc = 147; continue; }
+    case 149: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),1,"==")) || cTruth(cCompare(r32(0x4fb9b4),2,"==")))) ? 148 : 75; continue; }
+    case 150: { undefined; pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 150; continue; }
+    case 152: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,292),25,4,"int"); pc = 152; continue; }
+    case 154: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 153; continue; }
+    case 155: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 154; continue; }
+    case 156: { w32(0x4fecd0,45); pc = 155; continue; }
+    case 157: { w32(0x535748,315); pc = 156; continue; }
+    case 158: { w32(0x4fdff0,60); pc = 157; continue; }
+    case 159: { w32(0x4fe820,2); pc = 158; continue; }
+    case 160: { w32(0x522ff8,1); pc = 159; continue; }
+    case 161: { w32(0x4fb388,15); pc = 160; continue; }
+    case 162: { w32(0x4fc2c8,15); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),14),4,"int"); pc = 162; continue; }
+    case 164: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 163; continue; }
+    case 165: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc778)),false)); pc = 164; continue; }
+    case 166: { undefined; pc = 165; continue; }
+    case 167: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 166; continue; }
+    case 168: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cAdd(iVar5,iVar7),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,292),24,4,"int"); pc = 168; continue; }
+    case 170: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 169; continue; }
+    case 171: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar4, iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 170; continue; }
+    case 172: { w32(0x4feccc,45); pc = 171; continue; }
+    case 173: { w32(0x535744,45); pc = 172; continue; }
+    case 174: { w32(0x4fdfec,60); pc = 173; continue; }
+    case 175: { w32(0x4fe81c,2); pc = 174; continue; }
+    case 176: { w32(0x522ff4,4294967295); pc = 175; continue; }
+    case 177: { w32(0x4fb384,15); pc = 176; continue; }
+    case 178: { w32(0x4fc2c4,15); pc = 177; continue; }
+    case 179: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),20),4,"int"); pc = 178; continue; }
+    case 180: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 179; continue; }
+    case 181: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false)); pc = 180; continue; }
+    case 182: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 181; continue; }
+    case 183: { undefined; pc = 182; continue; }
+    case 184: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 183; continue; }
+    case 185: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(r32(0x4fe624),5),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 184; continue; }
+    case 186: { writeLocal(framePointer(localFrame,292),23,4,"int"); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 186; continue; }
+    case 188: { invokeDrawingPointer(pcVar2,dc,[original_dc,32512]); pc = 187; continue; }
+    case 189: { dc.lineTo(r32(0x4fe624),iVar4); pc = 188; continue; }
+    case 190: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(0,iVar4)); pc = 189; continue; }
+    case 191: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 190; continue; }
+    case 192: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 191; continue; }
+    case 193: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 192 : 191; continue; }
+    case 194: { invokeDrawingPointer(pcVar2,dc,[original_dc,0]); pc = 193; continue; }
+    case 195: { (pcVar2 = dcMethod(dc,56,memory)); pc = 194; continue; }
+    case 196: { undefined; pc = 195; continue; }
+    case 197: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 196; continue; }
+    case 198: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 197; continue; }
+    case 199: { writeLocal(framePointer(localFrame,292),22,4,"int"); pc = 198; continue; }
+    case 200: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 199; continue; }
+    case 201: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),10),4,"int"); pc = 200; continue; }
+    case 202: { dc.lineTo(iVar4,iVar5); pc = 201; continue; }
+    case 203: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 202; continue; }
+    case 204: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc598)),false)); pc = 203; continue; }
+    case 205: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 204; continue; }
+    case 206: { undefined; pc = 205; continue; }
+    case 207: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 206; continue; }
+    case 208: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(iVar4,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,cMul(iVar7,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 207; continue; }
+    case 209: { writeLocal(framePointer(localFrame,292),21,4,"int"); pc = 208; continue; }
+    case 210: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 209; continue; }
+    case 211: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe624),50),4,"int"); pc = 210; continue; }
+    case 212: { dc.lineTo(iVar4,iVar5); pc = 211; continue; }
+    case 213: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 212; continue; }
+    case 214: { (iVar4 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false)); pc = 213; continue; }
+    case 215: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar8,iVar3)); pc = 214; continue; }
+    case 216: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 215; continue; }
+    case 217: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 216 : 215; continue; }
+    case 218: { selectGdiObject(dc,r32(0x5362ec)); pc = 217; continue; }
+    case 219: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 218 : 217; continue; }
+    case 220: { w32(0x5362d4,r32(0x4fb9b4)); pc = 219; continue; }
+    case 221: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 220 : 149; continue; }
+    case 222: { undefined; pc = 221; continue; }
+    case 223: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 222; continue; }
+    case 224: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cDiv(r32(0x4fe624),100),iVar8),iVar3,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 223; continue; }
+    case 225: { writeLocal(framePointer(localFrame,292),20,4,"int"); pc = 224; continue; }
+    case 226: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 225; continue; }
+    case 227: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, iVar8, iVar3, 4, 1],0,rng,options); pc = 226; continue; }
+    case 228: { (iVar3 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc5e0)),false)); pc = 227; continue; }
+    case 229: { (iVar8 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false)); pc = 228; continue; }
+    case 230: { w32(0x4fbb94,0); pc = 229; continue; }
+    case 231: { w32(0x4f71c4,2); pc = 230; continue; }
+    case 232: { writeLocal(framePointer(localFrame,280),r32(0x4f71c4),4,"int"); pc = 231; continue; }
+    case 233: { w32(0x536458,2); pc = 232; continue; }
+    case 234: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar7],0,rng,options); pc = 233; continue; }
+    case 235: { w32(0x4da18c,3); pc = 234; continue; }
+    case 236: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 235; continue; }
+    case 237: { selectGdiObject(dc,h); pc = 236; continue; }
+    case 238: { (h = r32(0x4fc15c)); pc = 237; continue; }
+    case 239: { (hdc = dc); pc = 238; continue; }
+    case 240: { pc = 236; continue; }
+    case 241: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 240 : 239; continue; }
+    case 242: { (h = r32(0x5230cc)); pc = 237; continue; }
+    case 243: { (hdc = dc); pc = 242; continue; }
+    case 244: { pc = 236; continue; }
+    case 245: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 244 : 243; continue; }
+    case 246: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 241 : 245; continue; }
+    case 247: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int"), iVar7],0,rng,options); pc = 246; continue; }
+    case 248: { undefined; pc = 247; continue; }
+    case 249: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 248; continue; }
+    case 250: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar7,iVar8),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 249; continue; }
+    case 251: { writeLocal(framePointer(localFrame,292),19,4,"int"); pc = 250; continue; }
+    case 252: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7a10),4); pc = 251; continue; }
+    case 253: { undefined; pc = 252; continue; }
+    case 254: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 253; continue; }
+    case 255: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 254; continue; }
+    case 256: { writeLocal(framePointer(localFrame,292),18,4,"int"); pc = 255; continue; }
+    case 257: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7a54),4); pc = 256; continue; }
+    case 258: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 257; continue; }
+    case 259: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 258 : 257; continue; }
+    case 260: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int"))); pc = 259; continue; }
+    case 261: { undefined; pc = 260; continue; }
+    case 262: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 261; continue; }
+    case 263: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 262; continue; }
+    case 264: { writeLocal(framePointer(localFrame,292),17,4,"int"); pc = 263; continue; }
+    case 265: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7ab4),4); pc = 264; continue; }
+    case 266: { (iVar8 = cAdd(iVar8,iVar7)); pc = 265; continue; }
+    case 267: { undefined; pc = 266; continue; }
+    case 268: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 267; continue; }
+    case 269: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 268; continue; }
+    case 270: { writeLocal(framePointer(localFrame,292),16,4,"int"); pc = 269; continue; }
+    case 271: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7b18),4); pc = 270; continue; }
+    case 272: { (iVar8 = cAdd(cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int")),iVar7)); pc = 271; continue; }
+    case 273: { undefined; pc = 272; continue; }
+    case 274: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 273; continue; }
+    case 275: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 274; continue; }
+    case 276: { writeLocal(framePointer(localFrame,292),15,4,"int"); pc = 275; continue; }
+    case 277: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7b7c),4); pc = 276; continue; }
+    case 278: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 277; continue; }
+    case 279: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 278 : 277; continue; }
+    case 280: { undefined; pc = 279; continue; }
+    case 281: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 280; continue; }
+    case 282: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 281; continue; }
+    case 283: { writeLocal(framePointer(localFrame,292),14,4,"int"); pc = 282; continue; }
+    case 284: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7be0),4); pc = 283; continue; }
+    case 285: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 284 : 247; continue; }
+    case 286: { undefined; pc = 285; continue; }
+    case 287: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 286; continue; }
+    case 288: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 287; continue; }
+    case 289: { writeLocal(framePointer(localFrame,292),13,4,"int"); pc = 288; continue; }
+    case 290: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 289; continue; }
+    case 291: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 290; continue; }
+    case 292: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 291 : 290; continue; }
+    case 293: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int"))); pc = 292; continue; }
+    case 294: { undefined; pc = 293; continue; }
+    case 295: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 294; continue; }
+    case 296: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 295; continue; }
+    case 297: { writeLocal(framePointer(localFrame,292),12,4,"int"); pc = 296; continue; }
+    case 298: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7c40),4); pc = 297; continue; }
+    case 299: { (iVar8 = cAdd(iVar8,iVar7)); pc = 298; continue; }
+    case 300: { undefined; pc = 299; continue; }
+    case 301: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 300; continue; }
+    case 302: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 301; continue; }
+    case 303: { writeLocal(framePointer(localFrame,292),11,4,"int"); pc = 302; continue; }
+    case 304: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7c58),4); pc = 303; continue; }
+    case 305: { (iVar8 = cAdd(iVar8,iVar7)); pc = 304; continue; }
+    case 306: { undefined; pc = 305; continue; }
+    case 307: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 306; continue; }
+    case 308: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 307; continue; }
+    case 309: { writeLocal(framePointer(localFrame,292),10,4,"int"); pc = 308; continue; }
+    case 310: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7cb4),4); pc = 309; continue; }
+    case 311: { (iVar8 = cAdd(cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int")),iVar7)); pc = 310; continue; }
+    case 312: { undefined; pc = 311; continue; }
+    case 313: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 312; continue; }
+    case 314: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 313; continue; }
+    case 315: { writeLocal(framePointer(localFrame,292),9,4,"int"); pc = 314; continue; }
+    case 316: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7d10),4); pc = 315; continue; }
+    case 317: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 316; continue; }
+    case 318: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 317 : 316; continue; }
+    case 319: { undefined; pc = 318; continue; }
+    case 320: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 319; continue; }
+    case 321: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 320; continue; }
+    case 322: { writeLocal(framePointer(localFrame,292),8,4,"int"); pc = 321; continue; }
+    case 323: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7d70),4); pc = 322; continue; }
+    case 324: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 323 : 285; continue; }
+    case 325: { undefined; pc = 324; continue; }
+    case 326: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 325; continue; }
+    case 327: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 326; continue; }
+    case 328: { writeLocal(framePointer(localFrame,292),7,4,"int"); pc = 327; continue; }
+    case 329: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 328; continue; }
+    case 330: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 329; continue; }
+    case 331: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 330 : 329; continue; }
+    case 332: { (iVar8 = cAdd(iVar8,iVar7)); pc = 331; continue; }
+    case 333: { undefined; pc = 332; continue; }
+    case 334: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 333; continue; }
+    case 335: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 334; continue; }
+    case 336: { writeLocal(framePointer(localFrame,292),6,4,"int"); pc = 335; continue; }
+    case 337: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7da0),4); pc = 336; continue; }
+    case 338: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 337 : 324; continue; }
+    case 339: { undefined; pc = 338; continue; }
+    case 340: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 339; continue; }
+    case 341: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 340; continue; }
+    case 342: { writeLocal(framePointer(localFrame,292),5,4,"int"); pc = 341; continue; }
+    case 343: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 342; continue; }
+    case 344: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 343; continue; }
+    case 345: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 344 : 343; continue; }
+    case 346: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int"))); pc = 345; continue; }
+    case 347: { undefined; pc = 346; continue; }
+    case 348: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 347; continue; }
+    case 349: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 348; continue; }
+    case 350: { writeLocal(framePointer(localFrame,292),4,4,"int"); pc = 349; continue; }
+    case 351: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7de8),4); pc = 350; continue; }
+    case 352: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 351; continue; }
+    case 353: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 352 : 351; continue; }
+    case 354: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int"))); pc = 353; continue; }
+    case 355: { undefined; pc = 354; continue; }
+    case 356: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 355; continue; }
+    case 357: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 356; continue; }
+    case 358: { writeLocal(framePointer(localFrame,292),3,4,"int"); pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7e40),4); pc = 358; continue; }
+    case 360: { (iVar8 = cAdd(cAdd(iVar8,iVar7),iVar7)); pc = 359; continue; }
+    case 361: { undefined; pc = 360; continue; }
+    case 362: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 361; continue; }
+    case 363: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar8,iVar7),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 362; continue; }
+    case 364: { writeLocal(framePointer(localFrame,292),2,4,"int"); pc = 363; continue; }
+    case 365: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7e98),4); pc = 364; continue; }
+    case 366: { undefined; pc = 365; continue; }
+    case 367: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 366; continue; }
+    case 368: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar8,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 367; continue; }
+    case 369: { writeLocal(framePointer(localFrame,292),1,4,"int"); pc = 368; continue; }
+    case 370: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7eec),4); pc = 369; continue; }
+    case 371: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 370 : 338; continue; }
+    case 372: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 371; continue; }
+    case 373: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 372 : 371; continue; }
+    case 374: { (iVar8 = cAdd(readLocal(framePointer(localFrame,260),4,"int"),2)); pc = 373; continue; }
+    case 375: { undefined; pc = 374; continue; }
+    case 376: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 375; continue; }
+    case 377: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 376; continue; }
+    case 378: { (pcVar1 = dcMethod(dc,100,memory)); pc = 377; continue; }
+    case 379: { writeLocal(framePointer(localFrame,292),0,4,"int"); pc = 378; continue; }
+    case 380: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7f38),4); pc = 379; continue; }
+    case 381: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 380; continue; }
+    case 382: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 381 : 380; continue; }
+    case 383: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 382; continue; }
+    case 384: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 383; continue; }
+    case 385: { (iVar7 = 16); pc = 384; continue; }
+    case 386: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 382; continue; }
+    case 387: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 386; continue; }
+    case 388: { (iVar7 = 20); pc = 387; continue; }
+    case 389: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 385 : 388; continue; }
+    case 390: { w32(0x4faf7c,fpI32(dVar6,false)); pc = 389; continue; }
+    case 391: { (dVar6 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 390; continue; }
+    case 392: { writeLocal(framePointer(localFrame,292),4294967295,4,"int"); pc = 391; continue; }
+    case 393: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 392; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial508(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial508Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial508Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0045a150; static C control-flow translation. */
+function drawTutorial508Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(300,options.retainedDrawingStack?.[4563280]??[]);
@@ -8445,8 +13617,584 @@ export function drawTutorial508(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0045bd90; static C control-flow translation. */
+/** Complete recovered original 0x0045a150; static C control-flow translation. */
+function drawTutorial508Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(300,options.retainedDrawingStack?.[4563280]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let iVar3;
+  let dVar4;
+  let original_dc;
+  let iVar5;
+  let iVar6;
+  let hdc;
+  let h;
+  let TStack_20;
+  let aTStack_18 = new Array(2);
+  let pc = 547;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x5363bc,r32(0x4fb6b0)); pc = 1; continue; }
+    case 3: { w32(0x5363c0,r32(0x4f6d30)); pc = 2; continue; }
+    case 4: { w32(0x4da190,r32(0x4fb6b0)); pc = 3; continue; }
+    case 5: { w32(0x5350e0,0); pc = 4; continue; }
+    case 6: { w32(0x5350dc,0); pc = 5; continue; }
+    case 7: { w32(0x5363b8,r32(0x4f385c)); pc = 6; continue; }
+    case 8: { w32(0x4f71c4,readLocal(framePointer(localFrame,284),4,"int")); pc = 7; continue; }
+    case 9: { w32(0x536458,0); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 9; continue; }
+    case 11: { undefined; pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 11; continue; }
+    case 13: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2),cAdd(iVar5,iVar6),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 12; continue; }
+    case 14: { writeLocal(framePointer(localFrame,296),47,4,"int"); pc = 13; continue; }
+    case 15: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 14; continue; }
+    case 16: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 15 : 10; continue; }
+    case 17: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 16; continue; }
+    case 18: { w32(0x4fecd0,135); pc = 17; continue; }
+    case 19: { w32(0x4fb388,15); pc = 18; continue; }
+    case 20: { w32(0x4fc2c8,0); pc = 19; continue; }
+    case 21: { w32(0x4fdff0,60); pc = 20; continue; }
+    case 22: { w32(0x4fe820,20); pc = 21; continue; }
+    case 23: { w32(0x535748,335); pc = 22; continue; }
+    case 24: { w32(0x522ff8,4294967295); pc = 23; continue; }
+    case 25: { w32(0x535748,65); pc = 22; continue; }
+    case 26: { w32(0x522ff8,1); pc = 25; continue; }
+    case 27: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 24 : 26; continue; }
+    case 28: { (iVar2 = cDiv(r32(0x4fe624),14)); pc = 27; continue; }
+    case 29: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 28; continue; }
+    case 30: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 29; continue; }
+    case 31: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,0]); pc = 30; continue; }
+    case 32: { undefined; pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 32; continue; }
+    case 34: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(r32(0x4fe624),6),cSub(iVar5,cDiv(r32(0x4fe2a8),30)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,296),46,4,"int"); pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,32512]); pc = 36; continue; }
+    case 38: { dc.lineTo(cDiv(r32(0x4fe624),10),cSub(iVar5,cDiv(r32(0x4fe2a8),10))); pc = 37; continue; }
+    case 39: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5)); pc = 38; continue; }
+    case 40: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 39; continue; }
+    case 41: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 40 : 39; continue; }
+    case 42: { undefined; pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 42; continue; }
+    case 44: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar2,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar5,iVar6),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,296),45,4,"int"); pc = 44; continue; }
+    case 46: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 45; continue; }
+    case 47: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 46 : 41; continue; }
+    case 48: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 47; continue; }
+    case 49: { w32(0x4feccc,135); pc = 48; continue; }
+    case 50: { w32(0x4fb384,15); pc = 49; continue; }
+    case 51: { w32(0x4fc2c4,0); pc = 50; continue; }
+    case 52: { w32(0x4fdfec,60); pc = 51; continue; }
+    case 53: { w32(0x4fe81c,20); pc = 52; continue; }
+    case 54: { w32(0x535744,65); pc = 53; continue; }
+    case 55: { w32(0x522ff4,1); pc = 54; continue; }
+    case 56: { w32(0x535744,335); pc = 53; continue; }
+    case 57: { w32(0x522ff4,4294967295); pc = 56; continue; }
+    case 58: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 55 : 57; continue; }
+    case 59: { (iVar2 = cDiv(r32(0x4fe624),20)); pc = 58; continue; }
+    case 60: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false)); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 60; continue; }
+    case 62: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,0]); pc = 61; continue; }
+    case 63: { (TStack_20 = dcMethod(dc,56,memory)); pc = 62; continue; }
+    case 64: { undefined; pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 64; continue; }
+    case 66: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2),cAdd(iVar5,cMul(iVar6,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,296),44,4,"int"); pc = 66; continue; }
+    case 68: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 67; continue; }
+    case 69: { (iVar2 = cDiv(r32(0x4fe624),10)); pc = 68; continue; }
+    case 70: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5); pc = 69; continue; }
+    case 71: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 71; continue; }
+    case 73: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar5,readLocal(framePointer(localFrame,272),4,"int"))); pc = 72; continue; }
+    case 74: { undefined; pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 74; continue; }
+    case 76: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,cMul(iVar6,cNeg(2))),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,296),43,4,"int"); pc = 76; continue; }
+    case 78: { (aTStack_18[0] = cString(memory,"LayLine")); pc = 77; continue; }
+    case 79: { (iVar3 = cDiv(r32(0x4fe624),50)); pc = 78; continue; }
+    case 80: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 79; continue; }
+    case 81: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc618)),false),4,"int"); pc = 81; continue; }
+    case 83: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar5,readLocal(framePointer(localFrame,272),4,"int"))); pc = 82; continue; }
+    case 84: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 83; continue; }
+    case 85: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 84 : 83; continue; }
+    case 86: { selectGdiObject(dc,r32(0x5362ec)); pc = 85; continue; }
+    case 87: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 86 : 85; continue; }
+    case 88: { w32(0x5363bc,0); pc = 87; continue; }
+    case 89: { w32(0x5363c0,0); pc = 88; continue; }
+    case 90: { w32(0x4da190,10); pc = 89; continue; }
+    case 91: { w32(0x5362d4,160); pc = 90; continue; }
+    case 92: { w32(0x5350e0,1); pc = 91; continue; }
+    case 93: { w32(0x5350dc,1); pc = 92; continue; }
+    case 94: { w32(0x5363b8,1); pc = 93; continue; }
+    case 95: { w32(0x4f6d30,r32(0x5363c0)); pc = 94; continue; }
+    case 96: { w32(0x5359dc,r32(0x5363bc)); pc = 95; continue; }
+    case 97: { w32(0x4fb6b0,r32(0x4da190)); pc = 96; continue; }
+    case 98: { w32(0x4f385c,r32(0x5363b8)); pc = 97; continue; }
+    case 99: { pc = cTruth(cCompare(3,r32(0x4fb9b4),"<")) ? 98 : 10; continue; }
+    case 100: { undefined; pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 100; continue; }
+    case 102: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,iVar6),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 101; continue; }
+    case 103: { writeLocal(framePointer(localFrame,296),42,4,"int"); pc = 102; continue; }
+    case 104: { (aTStack_18[0] = cString(memory,"Boat B")); pc = 103; continue; }
+    case 105: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 104; continue; }
+    case 106: { w32(0x4fecd0,135); pc = 105; continue; }
+    case 107: { w32(0x4fb388,15); pc = 106; continue; }
+    case 108: { w32(0x4fc2c8,0); pc = 107; continue; }
+    case 109: { w32(0x4fdff0,60); pc = 108; continue; }
+    case 110: { w32(0x4fe820,20); pc = 109; continue; }
+    case 111: { w32(0x535748,335); pc = 110; continue; }
+    case 112: { w32(0x522ff8,4294967295); pc = 111; continue; }
+    case 113: { w32(0x535748,65); pc = 110; continue; }
+    case 114: { w32(0x522ff8,1); pc = 113; continue; }
+    case 115: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 112 : 114; continue; }
+    case 116: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 115; continue; }
+    case 117: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false),4,"int"); pc = 117; continue; }
+    case 119: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,0]); pc = 118; continue; }
+    case 120: { undefined; pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 120; continue; }
+    case 122: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(cMul(r32(0x4fe624),2),5),cSub(iVar2,cDiv(r32(0x4fe2a8),30)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 121; continue; }
+    case 123: { writeLocal(framePointer(localFrame,296),41,4,"int"); pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,32512]); pc = 124; continue; }
+    case 126: { dc.lineTo(cDiv(r32(0x4fe624),10),cSub(iVar2,cDiv(r32(0x4fe2a8),10))); pc = 125; continue; }
+    case 127: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2)); pc = 126; continue; }
+    case 128: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 127; continue; }
+    case 129: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 128 : 127; continue; }
+    case 130: { undefined; pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 130; continue; }
+    case 132: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,iVar6),cStringData(memory,aTStack_18[cI32(0)]),cStringHeaderLength(memory,cStringData(memory,aTStack_18[cI32(0)]))]); pc = 131; continue; }
+    case 133: { writeLocal(framePointer(localFrame,296),40,4,"int"); pc = 132; continue; }
+    case 134: { (aTStack_18[0] = cString(memory,"Boat A")); pc = 133; continue; }
+    case 135: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 134; continue; }
+    case 136: { w32(0x4feccc,135); pc = 135; continue; }
+    case 137: { w32(0x4fb384,15); pc = 136; continue; }
+    case 138: { w32(0x4fc2c4,0); pc = 137; continue; }
+    case 139: { w32(0x4fdfec,60); pc = 138; continue; }
+    case 140: { w32(0x4fe81c,20); pc = 139; continue; }
+    case 141: { w32(0x535744,65); pc = 140; continue; }
+    case 142: { w32(0x522ff4,1); pc = 141; continue; }
+    case 143: { w32(0x535744,335); pc = 140; continue; }
+    case 144: { w32(0x522ff4,4294967295); pc = 143; continue; }
+    case 145: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 142 : 144; continue; }
+    case 146: { (iVar3 = cDiv(r32(0x4fe624),20)); pc = 145; continue; }
+    case 147: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc820)),false),4,"int"); pc = 147; continue; }
+    case 149: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,0]); pc = 148; continue; }
+    case 150: { (TStack_20 = dcMethod(dc,56,memory)); pc = 149; continue; }
+    case 151: { undefined; pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 151; continue; }
+    case 153: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,cMul(iVar6,cNeg(2))),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,296),39,4,"int"); pc = 153; continue; }
+    case 155: { (TStack_20 = cString(memory,"LayLine")); pc = 154; continue; }
+    case 156: { (iVar3 = cDiv(r32(0x4fe624),10)); pc = 155; continue; }
+    case 157: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 156; continue; }
+    case 158: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 158; continue; }
+    case 160: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar5,readLocal(framePointer(localFrame,272),4,"int"))); pc = 159; continue; }
+    case 161: { undefined; pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 161; continue; }
+    case 163: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,cMul(iVar6,cNeg(2))),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,296),38,4,"int"); pc = 163; continue; }
+    case 165: { (TStack_20 = cString(memory,"LayLine")); pc = 164; continue; }
+    case 166: { (iVar3 = cDiv(r32(0x4fe624),50)); pc = 165; continue; }
+    case 167: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 166; continue; }
+    case 168: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc618)),false),4,"int"); pc = 168; continue; }
+    case 170: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar5,readLocal(framePointer(localFrame,272),4,"int"))); pc = 169; continue; }
+    case 171: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 170; continue; }
+    case 172: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 171 : 170; continue; }
+    case 173: { selectGdiObject(dc,r32(0x5362ec)); pc = 172; continue; }
+    case 174: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 173 : 172; continue; }
+    case 175: { w32(0x5363bc,0); pc = 174; continue; }
+    case 176: { w32(0x5363c0,0); pc = 175; continue; }
+    case 177: { w32(0x4da190,10); pc = 176; continue; }
+    case 178: { w32(0x5362d4,160); pc = 177; continue; }
+    case 179: { w32(0x5350e0,1); pc = 178; continue; }
+    case 180: { w32(0x5350dc,1); pc = 179; continue; }
+    case 181: { w32(0x5363b8,1); pc = 180; continue; }
+    case 182: { w32(0x5359dc,r32(0x5363bc)); pc = 181; continue; }
+    case 183: { w32(0x4f6d30,r32(0x5363c0)); pc = 182; continue; }
+    case 184: { w32(0x4f385c,r32(0x5363b8)); pc = 183; continue; }
+    case 185: { w32(0x4fb6b0,r32(0x4da190)); pc = 184; continue; }
+    case 186: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),2,"==")) || cTruth(cCompare(r32(0x4fb9b4),3,"==")))) ? 185 : 99; continue; }
+    case 187: { undefined; pc = 186; continue; }
+    case 188: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 187; continue; }
+    case 189: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,iVar6),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 188; continue; }
+    case 190: { writeLocal(framePointer(localFrame,296),37,4,"int"); pc = 189; continue; }
+    case 191: { (TStack_20 = cString(memory,"Boat B")); pc = 190; continue; }
+    case 192: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 191; continue; }
+    case 193: { w32(0x4fecd0,135); pc = 192; continue; }
+    case 194: { w32(0x535748,315); pc = 193; continue; }
+    case 195: { w32(0x4fb388,15); pc = 194; continue; }
+    case 196: { w32(0x4fdff0,60); pc = 195; continue; }
+    case 197: { w32(0x4fe820,20); pc = 196; continue; }
+    case 198: { w32(0x4fc2c8,0); pc = 197; continue; }
+    case 199: { w32(0x522ff8,4294967295); pc = 198; continue; }
+    case 200: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 199; continue; }
+    case 201: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 200; continue; }
+    case 202: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 201; continue; }
+    case 203: { undefined; pc = 202; continue; }
+    case 204: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 203; continue; }
+    case 205: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,iVar6),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 204; continue; }
+    case 206: { writeLocal(framePointer(localFrame,296),36,4,"int"); pc = 205; continue; }
+    case 207: { (TStack_20 = cString(memory,"Boat A")); pc = 206; continue; }
+    case 208: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 207; continue; }
+    case 209: { w32(0x4feccc,135); pc = 208; continue; }
+    case 210: { w32(0x535744,45); pc = 209; continue; }
+    case 211: { w32(0x4fb384,15); pc = 210; continue; }
+    case 212: { w32(0x4fdfec,60); pc = 211; continue; }
+    case 213: { w32(0x4fe81c,20); pc = 212; continue; }
+    case 214: { w32(0x4fc2c4,0); pc = 213; continue; }
+    case 215: { w32(0x522ff4,1); pc = 214; continue; }
+    case 216: { (iVar3 = cDiv(r32(0x4fe624),20)); pc = 215; continue; }
+    case 217: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 216; continue; }
+    case 218: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 217; continue; }
+    case 219: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,0]); pc = 218; continue; }
+    case 220: { undefined; pc = 219; continue; }
+    case 221: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 220; continue; }
+    case 222: { invokeDrawingPointer(pcVar1,dc,[original_dc,cDiv(r32(0x4fe624),6),iVar2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 221; continue; }
+    case 223: { writeLocal(framePointer(localFrame,296),35,4,"int"); pc = 222; continue; }
+    case 224: { writeLocal(framePointer(localFrame,0),cString(memory,"Equal Position Line"),4); pc = 223; continue; }
+    case 225: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,32512]); pc = 224; continue; }
+    case 226: { dc.lineTo(r32(0x4fe624),iVar2); pc = 225; continue; }
+    case 227: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(0,iVar2)); pc = 226; continue; }
+    case 228: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 227; continue; }
+    case 229: { selectGdiObject(dc,r32(0x4f3c0c)); pc = 228; continue; }
+    case 230: { pc = cTruth(cCompare(r32(0x4f3c0c),0,"!=")) ? 229 : 228; continue; }
+    case 231: { invokeDrawingPointer(cStringData(memory,TStack_20),dc,[original_dc,0]); pc = 230; continue; }
+    case 232: { (TStack_20 = dcMethod(dc,56,memory)); pc = 231; continue; }
+    case 233: { undefined; pc = 232; continue; }
+    case 234: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 233; continue; }
+    case 235: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,cMul(iVar6,cNeg(2))),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 234; continue; }
+    case 236: { writeLocal(framePointer(localFrame,296),34,4,"int"); pc = 235; continue; }
+    case 237: { (TStack_20 = cString(memory,"LayLine")); pc = 236; continue; }
+    case 238: { (iVar3 = cDiv(r32(0x4fe624),10)); pc = 237; continue; }
+    case 239: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 238; continue; }
+    case 240: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 239; continue; }
+    case 241: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 240; continue; }
+    case 242: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar5,readLocal(framePointer(localFrame,272),4,"int"))); pc = 241; continue; }
+    case 243: { undefined; pc = 242; continue; }
+    case 244: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 243; continue; }
+    case 245: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,cMul(iVar6,cNeg(2))),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 244; continue; }
+    case 246: { writeLocal(framePointer(localFrame,296),33,4,"int"); pc = 245; continue; }
+    case 247: { (TStack_20 = cString(memory,"LayLine")); pc = 246; continue; }
+    case 248: { (iVar3 = cDiv(r32(0x4fe624),50)); pc = 247; continue; }
+    case 249: { dc.lineTo(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar2); pc = 248; continue; }
+    case 250: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 249; continue; }
+    case 251: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc618)),false),4,"int"); pc = 250; continue; }
+    case 252: { writeLocalPoint(localPointer(aTStack_18),dc.moveTo(iVar5,readLocal(framePointer(localFrame,272),4,"int"))); pc = 251; continue; }
+    case 253: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 252; continue; }
+    case 254: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 253 : 252; continue; }
+    case 255: { selectGdiObject(dc,r32(0x5362ec)); pc = 254; continue; }
+    case 256: { pc = cTruth(cCompare(r32(0x5362ec),0,"!=")) ? 255 : 254; continue; }
+    case 257: { w32(0x5363bc,0); pc = 256; continue; }
+    case 258: { w32(0x5363c0,0); pc = 257; continue; }
+    case 259: { w32(0x4da190,10); pc = 258; continue; }
+    case 260: { w32(0x5362d4,180); pc = 259; continue; }
+    case 261: { w32(0x5350e0,1); pc = 260; continue; }
+    case 262: { w32(0x5350dc,1); pc = 261; continue; }
+    case 263: { w32(0x5363b8,1); pc = 262; continue; }
+    case 264: { w32(0x5359dc,r32(0x5363bc)); pc = 263; continue; }
+    case 265: { w32(0x4f6d30,r32(0x5363c0)); pc = 264; continue; }
+    case 266: { w32(0x4f385c,r32(0x5363b8)); pc = 265; continue; }
+    case 267: { w32(0x4fb6b0,r32(0x4da190)); pc = 266; continue; }
+    case 268: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 267 : 186; continue; }
+    case 269: { undefined; pc = 268; continue; }
+    case 270: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 269; continue; }
+    case 271: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(iVar2,iVar6),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 270; continue; }
+    case 272: { writeLocal(framePointer(localFrame,296),32,4,"int"); pc = 271; continue; }
+    case 273: { (TStack_20 = cString(memory,"Boat B")); pc = 272; continue; }
+    case 274: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 273; continue; }
+    case 275: { w32(0x4fecd0,180); pc = 274; continue; }
+    case 276: { w32(0x535748,345); pc = 275; continue; }
+    case 277: { w32(0x4fb388,15); pc = 276; continue; }
+    case 278: { w32(0x4fc2c8,0); pc = 277; continue; }
+    case 279: { w32(0x522ff8,4294967295); pc = 278; continue; }
+    case 280: { w32(0x4fdff0,60); pc = 279; continue; }
+    case 281: { w32(0x4fe820,60); pc = 280; continue; }
+    case 282: { (iVar3 = cDiv(r32(0x4fe624),14)); pc = 281; continue; }
+    case 283: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 282; continue; }
+    case 284: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 283; continue; }
+    case 285: { undefined; pc = 284; continue; }
+    case 286: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 285; continue; }
+    case 287: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cAdd(iVar2,iVar6),cStringData(memory,TStack_20),cStringHeaderLength(memory,cStringData(memory,TStack_20))]); pc = 286; continue; }
+    case 288: { writeLocal(framePointer(localFrame,296),31,4,"int"); pc = 287; continue; }
+    case 289: { (TStack_20 = cString(memory,"Boat A")); pc = 288; continue; }
+    case 290: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 289; continue; }
+    case 291: { w32(0x4feccc,180); pc = 290; continue; }
+    case 292: { w32(0x4fc2c4,0); pc = 291; continue; }
+    case 293: { w32(0x522ff4,1); pc = 292; continue; }
+    case 294: { w32(0x535744,15); pc = 293; continue; }
+    case 295: { w32(0x4fb384,15); pc = 294; continue; }
+    case 296: { w32(0x4fdfec,60); pc = 295; continue; }
+    case 297: { w32(0x4fe81c,60); pc = 296; continue; }
+    case 298: { (iVar3 = cDiv(r32(0x4fe624),20)); pc = 297; continue; }
+    case 299: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 298; continue; }
+    case 300: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 299; continue; }
+    case 301: { w32(0x5350e0,1); pc = 300; continue; }
+    case 302: { w32(0x5350dc,1); pc = 301; continue; }
+    case 303: { w32(0x5363bc,0); pc = 302; continue; }
+    case 304: { w32(0x5363c0,0); pc = 303; continue; }
+    case 305: { w32(0x5363b8,0); pc = 304; continue; }
+    case 306: { w32(0x4da190,6); pc = 305; continue; }
+    case 307: { w32(0x4f6d30,r32(0x5363c0)); pc = 306; continue; }
+    case 308: { w32(0x5362d4,180); pc = 307; continue; }
+    case 309: { w32(0x5359dc,r32(0x5363bc)); pc = 308; continue; }
+    case 310: { w32(0x4fb6b0,r32(0x4da190)); pc = 309; continue; }
+    case 311: { w32(0x4f385c,r32(0x5363b8)); pc = 310; continue; }
+    case 312: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 311 : 268; continue; }
+    case 313: { undefined; pc = 312; continue; }
+    case 314: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 313; continue; }
+    case 315: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(cDiv(r32(0x4fe624),100),iVar5),readLocal(framePointer(localFrame,272),4,"int"),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 314; continue; }
+    case 316: { writeLocal(framePointer(localFrame,296),30,4,"int"); pc = 315; continue; }
+    case 317: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dd748),4); pc = 316; continue; }
+    case 318: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, iVar5, readLocalArgument(framePointer(localFrame,272),4,"int"), 4, 1],0,rng,options); pc = 317; continue; }
+    case 319: { writeLocal(framePointer(localFrame,272),fpI32(fpMul(r64(0x5230b0),r64(0x4cc5e0)),false),4,"int"); pc = 318; continue; }
+    case 320: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false)); pc = 319; continue; }
+    case 321: { w32(0x4fbb94,0); pc = 320; continue; }
+    case 322: { w32(0x4f71c4,2); pc = 321; continue; }
+    case 323: { writeLocal(framePointer(localFrame,284),r32(0x4f71c4),4,"int"); pc = 322; continue; }
+    case 324: { w32(0x536458,2); pc = 323; continue; }
+    case 325: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar6],0,rng,options); pc = 324; continue; }
+    case 326: { w32(0x4da18c,5); pc = 325; continue; }
+    case 327: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 326; continue; }
+    case 328: { selectGdiObject(dc,h); pc = 327; continue; }
+    case 329: { (h = r32(0x4fc15c)); pc = 328; continue; }
+    case 330: { (hdc = dc); pc = 329; continue; }
+    case 331: { pc = 327; continue; }
+    case 332: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 331 : 330; continue; }
+    case 333: { (h = r32(0x5230cc)); pc = 328; continue; }
+    case 334: { (hdc = dc); pc = 333; continue; }
+    case 335: { pc = 327; continue; }
+    case 336: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 335 : 334; continue; }
+    case 337: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 332 : 336; continue; }
+    case 338: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int"), iVar6],0,rng,options); pc = 337; continue; }
+    case 339: { undefined; pc = 338; continue; }
+    case 340: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 339; continue; }
+    case 341: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 340; continue; }
+    case 342: { writeLocal(framePointer(localFrame,296),29,4,"int"); pc = 341; continue; }
+    case 343: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7f68),4); pc = 342; continue; }
+    case 344: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 343; continue; }
+    case 345: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 344 : 343; continue; }
+    case 346: { undefined; pc = 345; continue; }
+    case 347: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 346; continue; }
+    case 348: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 347; continue; }
+    case 349: { writeLocal(framePointer(localFrame,296),28,4,"int"); pc = 348; continue; }
+    case 350: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e7fac),4); pc = 349; continue; }
+    case 351: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 350; continue; }
+    case 352: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 351 : 350; continue; }
+    case 353: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 352; continue; }
+    case 354: { undefined; pc = 353; continue; }
+    case 355: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 354; continue; }
+    case 356: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 355; continue; }
+    case 357: { writeLocal(framePointer(localFrame,296),27,4,"int"); pc = 356; continue; }
+    case 358: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8008),4); pc = 357; continue; }
+    case 359: { (iVar5 = cAdd(iVar5,iVar6)); pc = 358; continue; }
+    case 360: { undefined; pc = 359; continue; }
+    case 361: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 360; continue; }
+    case 362: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 361; continue; }
+    case 363: { writeLocal(framePointer(localFrame,296),26,4,"int"); pc = 362; continue; }
+    case 364: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8034),4); pc = 363; continue; }
+    case 365: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 364; continue; }
+    case 366: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 365 : 364; continue; }
+    case 367: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 366; continue; }
+    case 368: { undefined; pc = 367; continue; }
+    case 369: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 368; continue; }
+    case 370: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 369; continue; }
+    case 371: { writeLocal(framePointer(localFrame,296),25,4,"int"); pc = 370; continue; }
+    case 372: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8094),4); pc = 371; continue; }
+    case 373: { (iVar5 = cAdd(cAdd(iVar5,iVar6),iVar6)); pc = 372; continue; }
+    case 374: { undefined; pc = 373; continue; }
+    case 375: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 374; continue; }
+    case 376: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 375; continue; }
+    case 377: { writeLocal(framePointer(localFrame,296),24,4,"int"); pc = 376; continue; }
+    case 378: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e80e0),4); pc = 377; continue; }
+    case 379: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 378; continue; }
+    case 380: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 379 : 378; continue; }
+    case 381: { undefined; pc = 380; continue; }
+    case 382: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 381; continue; }
+    case 383: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 382; continue; }
+    case 384: { writeLocal(framePointer(localFrame,296),23,4,"int"); pc = 383; continue; }
+    case 385: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8140),4); pc = 384; continue; }
+    case 386: { pc = cTruth(cCompare(r32(0x4fb9b4),5,"==")) ? 385 : 338; continue; }
+    case 387: { undefined; pc = 386; continue; }
+    case 388: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 387; continue; }
+    case 389: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 388; continue; }
+    case 390: { writeLocal(framePointer(localFrame,296),22,4,"int"); pc = 389; continue; }
+    case 391: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 390; continue; }
+    case 392: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 391; continue; }
+    case 393: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 392 : 391; continue; }
+    case 394: { (iVar5 = cAdd(cAdd(cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,260),4,"int")),iVar6)); pc = 393; continue; }
+    case 395: { undefined; pc = 394; continue; }
+    case 396: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 395; continue; }
+    case 397: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 396; continue; }
+    case 398: { writeLocal(framePointer(localFrame,296),21,4,"int"); pc = 397; continue; }
+    case 399: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8178),4); pc = 398; continue; }
+    case 400: { undefined; pc = 399; continue; }
+    case 401: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 400; continue; }
+    case 402: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 401; continue; }
+    case 403: { writeLocal(framePointer(localFrame,296),20,4,"int"); pc = 402; continue; }
+    case 404: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e81ac),4); pc = 403; continue; }
+    case 405: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 404 : 386; continue; }
+    case 406: { undefined; pc = 405; continue; }
+    case 407: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 406; continue; }
+    case 408: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 407; continue; }
+    case 409: { writeLocal(framePointer(localFrame,296),19,4,"int"); pc = 408; continue; }
+    case 410: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 409; continue; }
+    case 411: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 410; continue; }
+    case 412: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 411 : 410; continue; }
+    case 413: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int")),iVar6)); pc = 412; continue; }
+    case 414: { undefined; pc = 413; continue; }
+    case 415: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 414; continue; }
+    case 416: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 415; continue; }
+    case 417: { writeLocal(framePointer(localFrame,296),18,4,"int"); pc = 416; continue; }
+    case 418: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e81f4),4); pc = 417; continue; }
+    case 419: { (iVar5 = cAdd(cAdd(iVar5,iVar6),iVar6)); pc = 418; continue; }
+    case 420: { undefined; pc = 419; continue; }
+    case 421: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 420; continue; }
+    case 422: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 421; continue; }
+    case 423: { writeLocal(framePointer(localFrame,296),17,4,"int"); pc = 422; continue; }
+    case 424: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8214),4); pc = 423; continue; }
+    case 425: { undefined; pc = 424; continue; }
+    case 426: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 425; continue; }
+    case 427: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 426; continue; }
+    case 428: { writeLocal(framePointer(localFrame,296),16,4,"int"); pc = 427; continue; }
+    case 429: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8268),4); pc = 428; continue; }
+    case 430: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 429 : 405; continue; }
+    case 431: { undefined; pc = 430; continue; }
+    case 432: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 431; continue; }
+    case 433: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 432; continue; }
+    case 434: { writeLocal(framePointer(localFrame,296),15,4,"int"); pc = 433; continue; }
+    case 435: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 434; continue; }
+    case 436: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 435; continue; }
+    case 437: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 436 : 435; continue; }
+    case 438: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int")),iVar6)); pc = 437; continue; }
+    case 439: { undefined; pc = 438; continue; }
+    case 440: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 439; continue; }
+    case 441: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 440; continue; }
+    case 442: { writeLocal(framePointer(localFrame,296),14,4,"int"); pc = 441; continue; }
+    case 443: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e827c),4); pc = 442; continue; }
+    case 444: { (iVar5 = cAdd(cAdd(iVar5,iVar6),iVar6)); pc = 443; continue; }
+    case 445: { undefined; pc = 444; continue; }
+    case 446: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 445; continue; }
+    case 447: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 446; continue; }
+    case 448: { writeLocal(framePointer(localFrame,296),13,4,"int"); pc = 447; continue; }
+    case 449: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e82dc),4); pc = 448; continue; }
+    case 450: { undefined; pc = 449; continue; }
+    case 451: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 450; continue; }
+    case 452: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 451; continue; }
+    case 453: { writeLocal(framePointer(localFrame,296),12,4,"int"); pc = 452; continue; }
+    case 454: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e831c),4); pc = 453; continue; }
+    case 455: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 454 : 430; continue; }
+    case 456: { undefined; pc = 455; continue; }
+    case 457: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 456; continue; }
+    case 458: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 457; continue; }
+    case 459: { writeLocal(framePointer(localFrame,296),11,4,"int"); pc = 458; continue; }
+    case 460: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 459; continue; }
+    case 461: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 460; continue; }
+    case 462: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 461 : 460; continue; }
+    case 463: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int")),iVar6)); pc = 462; continue; }
+    case 464: { undefined; pc = 463; continue; }
+    case 465: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 464; continue; }
+    case 466: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 465; continue; }
+    case 467: { writeLocal(framePointer(localFrame,296),10,4,"int"); pc = 466; continue; }
+    case 468: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8380),4); pc = 467; continue; }
+    case 469: { (iVar5 = cAdd(cAdd(iVar5,iVar6),iVar6)); pc = 468; continue; }
+    case 470: { undefined; pc = 469; continue; }
+    case 471: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 470; continue; }
+    case 472: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 471; continue; }
+    case 473: { writeLocal(framePointer(localFrame,296),9,4,"int"); pc = 472; continue; }
+    case 474: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e83e8),4); pc = 473; continue; }
+    case 475: { undefined; pc = 474; continue; }
+    case 476: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 475; continue; }
+    case 477: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 476; continue; }
+    case 478: { writeLocal(framePointer(localFrame,296),8,4,"int"); pc = 477; continue; }
+    case 479: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8444),4); pc = 478; continue; }
+    case 480: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 479 : 455; continue; }
+    case 481: { undefined; pc = 480; continue; }
+    case 482: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 481; continue; }
+    case 483: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 482; continue; }
+    case 484: { writeLocal(framePointer(localFrame,296),7,4,"int"); pc = 483; continue; }
+    case 485: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e6e2c),4); pc = 484; continue; }
+    case 486: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 485; continue; }
+    case 487: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 486 : 485; continue; }
+    case 488: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 487; continue; }
+    case 489: { undefined; pc = 488; continue; }
+    case 490: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 489; continue; }
+    case 491: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 490; continue; }
+    case 492: { writeLocal(framePointer(localFrame,296),6,4,"int"); pc = 491; continue; }
+    case 493: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e84a4),4); pc = 492; continue; }
+    case 494: { (iVar5 = cAdd(iVar5,iVar6)); pc = 493; continue; }
+    case 495: { undefined; pc = 494; continue; }
+    case 496: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 495; continue; }
+    case 497: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 496; continue; }
+    case 498: { writeLocal(framePointer(localFrame,296),5,4,"int"); pc = 497; continue; }
+    case 499: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e84ec),4); pc = 498; continue; }
+    case 500: { (iVar5 = cAdd(iVar5,iVar6)); pc = 499; continue; }
+    case 501: { undefined; pc = 500; continue; }
+    case 502: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 501; continue; }
+    case 503: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 502; continue; }
+    case 504: { writeLocal(framePointer(localFrame,296),4,4,"int"); pc = 503; continue; }
+    case 505: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8540),4); pc = 504; continue; }
+    case 506: { (iVar5 = cAdd(iVar5,iVar6)); pc = 505; continue; }
+    case 507: { undefined; pc = 506; continue; }
+    case 508: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 507; continue; }
+    case 509: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 508; continue; }
+    case 510: { writeLocal(framePointer(localFrame,296),3,4,"int"); pc = 509; continue; }
+    case 511: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8594),4); pc = 510; continue; }
+    case 512: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 511; continue; }
+    case 513: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 512 : 511; continue; }
+    case 514: { (iVar5 = cAdd(cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,260),4,"int"))); pc = 513; continue; }
+    case 515: { undefined; pc = 514; continue; }
+    case 516: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 515; continue; }
+    case 517: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,iVar6),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 516; continue; }
+    case 518: { writeLocal(framePointer(localFrame,296),2,4,"int"); pc = 517; continue; }
+    case 519: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e85f0),4); pc = 518; continue; }
+    case 520: { undefined; pc = 519; continue; }
+    case 521: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 520; continue; }
+    case 522: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 521; continue; }
+    case 523: { writeLocal(framePointer(localFrame,296),1,4,"int"); pc = 522; continue; }
+    case 524: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8644),4); pc = 523; continue; }
+    case 525: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 524 : 480; continue; }
+    case 526: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 525; continue; }
+    case 527: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 526 : 525; continue; }
+    case 528: { (iVar5 = cAdd(readLocal(framePointer(localFrame,260),4,"int"),2)); pc = 527; continue; }
+    case 529: { undefined; pc = 528; continue; }
+    case 530: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 529; continue; }
+    case 531: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 530; continue; }
+    case 532: { (pcVar1 = dcMethod(dc,100,memory)); pc = 531; continue; }
+    case 533: { writeLocal(framePointer(localFrame,296),0,4,"int"); pc = 532; continue; }
+    case 534: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e86a0),4); pc = 533; continue; }
+    case 535: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 534; continue; }
+    case 536: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 535 : 534; continue; }
+    case 537: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 536; continue; }
+    case 538: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 537; continue; }
+    case 539: { (iVar6 = 16); pc = 538; continue; }
+    case 540: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 536; continue; }
+    case 541: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 540; continue; }
+    case 542: { (iVar6 = 20); pc = 541; continue; }
+    case 543: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 539 : 542; continue; }
+    case 544: { w32(0x4faf7c,fpI32(dVar4,false)); pc = 543; continue; }
+    case 545: { (dVar4 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 544; continue; }
+    case 546: { writeLocal(framePointer(localFrame,296),4294967295,4,"int"); pc = 545; continue; }
+    case 547: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 546; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial509(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial509Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial509Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0045bd90; static C control-flow translation. */
+function drawTutorial509Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4570512]??[]);
@@ -8629,8 +14377,197 @@ export function drawTutorial509(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0045c440; static C control-flow translation. */
+/** Complete recovered original 0x0045bd90; static C control-flow translation. */
+function drawTutorial509Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4570512]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let TStack_10;
+  let pc = 165;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x536458,0); pc = 1; continue; }
+    case 3: { undefined; pc = 2; continue; }
+    case 4: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 3; continue; }
+    case 5: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar3,r32(0x4faf7c)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e86c0),4); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 7; continue; }
+    case 9: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 8 : 7; continue; }
+    case 10: { undefined; pc = 9; continue; }
+    case 11: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 10; continue; }
+    case 12: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar3,iVar4),cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 12; continue; }
+    case 14: { (TStack_10 = cString(memory,0x4e8720)); pc = 13; continue; }
+    case 15: { undefined; pc = 14; continue; }
+    case 16: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 15; continue; }
+    case 17: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 17; continue; }
+    case 19: { (TStack_10 = cString(memory,0x4e8754)); pc = 18; continue; }
+    case 20: { (iVar4 = cAdd(iVar4,iVar3)); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 23; continue; }
+    case 25: { (TStack_10 = cString(memory,0x4e87b4)); pc = 24; continue; }
+    case 26: { (iVar4 = cAdd(iVar4,iVar3)); pc = 25; continue; }
+    case 27: { undefined; pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 27; continue; }
+    case 29: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 28; continue; }
+    case 30: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 29; continue; }
+    case 31: { (TStack_10 = cString(memory,0x4e8814)); pc = 30; continue; }
+    case 32: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 31; continue; }
+    case 33: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 32 : 31; continue; }
+    case 34: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 37; continue; }
+    case 39: { (TStack_10 = cString(memory,0x4e8878)); pc = 38; continue; }
+    case 40: { (iVar4 = cAdd(iVar4,iVar3)); pc = 39; continue; }
+    case 41: { undefined; pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 41; continue; }
+    case 43: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 43; continue; }
+    case 45: { (TStack_10 = cString(memory,0x4e88ac)); pc = 44; continue; }
+    case 46: { (iVar4 = cAdd(iVar4,iVar3)); pc = 45; continue; }
+    case 47: { undefined; pc = 46; continue; }
+    case 48: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 47; continue; }
+    case 49: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 49; continue; }
+    case 51: { (TStack_10 = cString(memory,0x4e8908)); pc = 50; continue; }
+    case 52: { (iVar4 = cAdd(iVar4,iVar3)); pc = 51; continue; }
+    case 53: { undefined; pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 53; continue; }
+    case 55: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 54; continue; }
+    case 56: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 55; continue; }
+    case 57: { (TStack_10 = cString(memory,0x4e8964)); pc = 56; continue; }
+    case 58: { (iVar4 = cAdd(iVar4,iVar3)); pc = 57; continue; }
+    case 59: { undefined; pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 59; continue; }
+    case 61: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 60; continue; }
+    case 62: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 61; continue; }
+    case 63: { (TStack_10 = cString(memory,0x4e89c0)); pc = 62; continue; }
+    case 64: { (iVar4 = cAdd(iVar4,iVar3)); pc = 63; continue; }
+    case 65: { undefined; pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 65; continue; }
+    case 67: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 66; continue; }
+    case 68: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 67; continue; }
+    case 69: { (TStack_10 = cString(memory,0x4e8a1c)); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 69; continue; }
+    case 71: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 70 : 69; continue; }
+    case 72: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 71; continue; }
+    case 73: { undefined; pc = 72; continue; }
+    case 74: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 73; continue; }
+    case 75: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 76; continue; }
+    case 78: { (TStack_10 = cString(memory,0x4e8a78)); pc = 77; continue; }
+    case 79: { (iVar4 = cAdd(iVar4,iVar3)); pc = 78; continue; }
+    case 80: { undefined; pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 80; continue; }
+    case 82: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 82; continue; }
+    case 84: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8ab4),4); pc = 83; continue; }
+    case 85: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 84; continue; }
+    case 86: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 85 : 84; continue; }
+    case 87: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 86; continue; }
+    case 88: { undefined; pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 88; continue; }
+    case 90: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8b10),4); pc = 91; continue; }
+    case 93: { (iVar4 = cAdd(iVar4,iVar3)); pc = 92; continue; }
+    case 94: { undefined; pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 94; continue; }
+    case 96: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8b70),4); pc = 97; continue; }
+    case 99: { (iVar4 = cAdd(iVar4,iVar3)); pc = 98; continue; }
+    case 100: { undefined; pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 100; continue; }
+    case 102: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 101; continue; }
+    case 103: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8bd0),4); pc = 103; continue; }
+    case 105: { (iVar4 = cAdd(iVar4,iVar3)); pc = 104; continue; }
+    case 106: { undefined; pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 106; continue; }
+    case 108: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8c30),4); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 110; continue; }
+    case 112: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 111 : 110; continue; }
+    case 113: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 112; continue; }
+    case 114: { undefined; pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 114; continue; }
+    case 116: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8c8c),4); pc = 117; continue; }
+    case 119: { (iVar4 = cAdd(iVar4,iVar3)); pc = 118; continue; }
+    case 120: { undefined; pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 120; continue; }
+    case 122: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 121; continue; }
+    case 123: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8ce4),4); pc = 123; continue; }
+    case 125: { (iVar4 = cAdd(iVar4,iVar3)); pc = 124; continue; }
+    case 126: { undefined; pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 126; continue; }
+    case 128: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8d3c),4); pc = 129; continue; }
+    case 131: { (iVar4 = cAdd(iVar4,iVar3)); pc = 130; continue; }
+    case 132: { undefined; pc = 131; continue; }
+    case 133: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 132; continue; }
+    case 134: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 134; continue; }
+    case 136: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8d98),4); pc = 135; continue; }
+    case 137: { (iVar4 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),iVar3)); pc = 136; continue; }
+    case 138: { undefined; pc = 137; continue; }
+    case 139: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 138; continue; }
+    case 140: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 140; continue; }
+    case 142: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8df4),4); pc = 141; continue; }
+    case 143: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 142; continue; }
+    case 144: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 143 : 142; continue; }
+    case 145: { undefined; pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 145; continue; }
+    case 147: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 146; continue; }
+    case 148: { (pcVar1 = dcMethod(dc,100,memory)); pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8e4c),4); pc = 149; continue; }
+    case 151: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 150; continue; }
+    case 152: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 151 : 150; continue; }
+    case 153: { writeLocal(framePointer(localFrame,264),10,4,"int"); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 154; continue; }
+    case 156: { (iVar3 = 16); pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 152; continue; }
+    case 158: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 158; continue; }
+    case 160: { (iVar3 = 20); pc = 159; continue; }
+    case 161: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 156 : 160; continue; }
+    case 162: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 161; continue; }
+    case 163: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc608))); pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 163; continue; }
+    case 165: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 164; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial510(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial510Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial510Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0045c440; static C control-flow translation. */
+function drawTutorial510Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4572224]??[]);
@@ -8810,8 +14747,194 @@ export function drawTutorial510(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0045cad0; static C control-flow translation. */
+/** Complete recovered original 0x0045c440; static C control-flow translation. */
+function drawTutorial510Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4572224]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let pc = 163;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,264),4,"int"),cAdd(readLocal(framePointer(localFrame,256),4,"int"),r32(0x4faf7c)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e86c0),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { w32(0x536458,0); pc = 8; continue; }
+    case 10: { undefined; pc = 9; continue; }
+    case 11: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 10; continue; }
+    case 12: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,264),4,"int"),cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 12; continue; }
+    case 14: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8e64),4); pc = 13; continue; }
+    case 15: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 14; continue; }
+    case 16: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 15 : 14; continue; }
+    case 17: { undefined; pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 17; continue; }
+    case 19: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,264),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 19; continue; }
+    case 21: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8ec0),4); pc = 20; continue; }
+    case 22: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 21; continue; }
+    case 23: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 22 : 21; continue; }
+    case 24: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 23; continue; }
+    case 25: { undefined; pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 25; continue; }
+    case 27: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 27; continue; }
+    case 29: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8f24),4); pc = 28; continue; }
+    case 30: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 29; continue; }
+    case 31: { undefined; pc = 30; continue; }
+    case 32: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 31; continue; }
+    case 33: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 32; continue; }
+    case 34: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8f80),4); pc = 34; continue; }
+    case 36: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 35; continue; }
+    case 37: { undefined; pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 37; continue; }
+    case 39: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 38; continue; }
+    case 40: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e8fe0),4); pc = 40; continue; }
+    case 42: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 41; continue; }
+    case 43: { undefined; pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 43; continue; }
+    case 45: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 44; continue; }
+    case 46: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9038),4); pc = 46; continue; }
+    case 48: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 47; continue; }
+    case 49: { undefined; pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 49; continue; }
+    case 51: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,264),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9078),4); pc = 52; continue; }
+    case 54: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 53; continue; }
+    case 55: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 54 : 53; continue; }
+    case 56: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e90dc),4); pc = 60; continue; }
+    case 62: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 61; continue; }
+    case 63: { undefined; pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 63; continue; }
+    case 65: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,264),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9140),4); pc = 66; continue; }
+    case 68: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 67; continue; }
+    case 69: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 68 : 67; continue; }
+    case 70: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 69; continue; }
+    case 71: { undefined; pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 71; continue; }
+    case 73: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 72; continue; }
+    case 74: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e91a4),4); pc = 74; continue; }
+    case 76: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 75; continue; }
+    case 77: { undefined; pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 77; continue; }
+    case 79: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9204),4); pc = 80; continue; }
+    case 82: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 81; continue; }
+    case 83: { undefined; pc = 82; continue; }
+    case 84: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 83; continue; }
+    case 85: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 85; continue; }
+    case 87: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9264),4); pc = 86; continue; }
+    case 88: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 87; continue; }
+    case 89: { undefined; pc = 88; continue; }
+    case 90: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 89; continue; }
+    case 91: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,264),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 90; continue; }
+    case 92: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e92c0),4); pc = 92; continue; }
+    case 94: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 93; continue; }
+    case 95: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 94 : 93; continue; }
+    case 96: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 95; continue; }
+    case 97: { undefined; pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 97; continue; }
+    case 99: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 98; continue; }
+    case 100: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9320),4); pc = 100; continue; }
+    case 102: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 101; continue; }
+    case 103: { undefined; pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 103; continue; }
+    case 105: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 104; continue; }
+    case 106: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9384),4); pc = 106; continue; }
+    case 108: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 107; continue; }
+    case 109: { undefined; pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 109; continue; }
+    case 111: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e93e0),4); pc = 112; continue; }
+    case 114: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 113; continue; }
+    case 115: { undefined; pc = 114; continue; }
+    case 116: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 115; continue; }
+    case 117: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9440),4); pc = 118; continue; }
+    case 120: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 119; continue; }
+    case 121: { undefined; pc = 120; continue; }
+    case 122: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 121; continue; }
+    case 123: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 123; continue; }
+    case 125: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9460),4); pc = 124; continue; }
+    case 126: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 125; continue; }
+    case 127: { undefined; pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 127; continue; }
+    case 129: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 129; continue; }
+    case 131: { (iVar3 = cAdd(iVar3,readLocal(framePointer(localFrame,268),4,"int"))); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e94bc),4); pc = 131; continue; }
+    case 133: { (iVar4 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9518),4); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 138; continue; }
+    case 140: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 139 : 138; continue; }
+    case 141: { undefined; pc = 140; continue; }
+    case 142: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 141; continue; }
+    case 143: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 142; continue; }
+    case 144: { (pcVar1 = dcMethod(dc,100,memory)); pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9578),4); pc = 145; continue; }
+    case 147: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 146; continue; }
+    case 148: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 147 : 146; continue; }
+    case 149: { writeLocal(framePointer(localFrame,268),10,4,"int"); pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,264),5,4,"int"); pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 150; continue; }
+    case 152: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 151; continue; }
+    case 153: { (iVar3 = 5); pc = 152; continue; }
+    case 154: { (iVar3 = 20); pc = 148; continue; }
+    case 155: { writeLocal(framePointer(localFrame,268),20,4,"int"); pc = 154; continue; }
+    case 156: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 156; continue; }
+    case 158: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 157; continue; }
+    case 159: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 153 : 158; continue; }
+    case 160: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 159; continue; }
+    case 161: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc608))); pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 161; continue; }
+    case 163: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 162; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial511(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial511Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial511Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0045cad0; static C control-flow translation. */
+function drawTutorial511Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4573904]??[]);
@@ -8954,8 +15077,157 @@ export function drawTutorial511(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0045cff0; static C control-flow translation. */
+/** Complete recovered original 0x0045cad0; static C control-flow translation. */
+function drawTutorial511Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(276,options.retainedDrawingStack?.[4573904]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let pc = 126;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,256),4,"int"),r32(0x4faf7c)),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,272),16,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e86c0),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { w32(0x536458,0); pc = 8; continue; }
+    case 10: { undefined; pc = 9; continue; }
+    case 11: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 10; continue; }
+    case 12: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,256),4,"int"),iVar4),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,272),15,4,"int"); pc = 12; continue; }
+    case 14: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9590),4); pc = 13; continue; }
+    case 15: { undefined; pc = 14; continue; }
+    case 16: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 15; continue; }
+    case 17: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,272),14,4,"int"); pc = 17; continue; }
+    case 19: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e95c4),4); pc = 18; continue; }
+    case 20: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 19; continue; }
+    case 21: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 20 : 19; continue; }
+    case 22: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 21; continue; }
+    case 23: { undefined; pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 23; continue; }
+    case 25: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 24; continue; }
+    case 26: { writeLocal(framePointer(localFrame,272),13,4,"int"); pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9620),4); pc = 26; continue; }
+    case 28: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 27; continue; }
+    case 29: { undefined; pc = 28; continue; }
+    case 30: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 29; continue; }
+    case 31: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 30; continue; }
+    case 32: { writeLocal(framePointer(localFrame,272),12,4,"int"); pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9654),4); pc = 32; continue; }
+    case 34: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,272),11,4,"int"); pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e96a8),4); pc = 38; continue; }
+    case 40: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 39; continue; }
+    case 41: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 40 : 39; continue; }
+    case 42: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 41; continue; }
+    case 43: { undefined; pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 43; continue; }
+    case 45: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 44; continue; }
+    case 46: { writeLocal(framePointer(localFrame,272),10,4,"int"); pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e96fc),4); pc = 46; continue; }
+    case 48: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 47; continue; }
+    case 49: { undefined; pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 49; continue; }
+    case 51: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,272),9,4,"int"); pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e974c),4); pc = 52; continue; }
+    case 54: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 53; continue; }
+    case 55: { undefined; pc = 54; continue; }
+    case 56: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 55; continue; }
+    case 57: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,272),8,4,"int"); pc = 57; continue; }
+    case 59: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e97a4),4); pc = 58; continue; }
+    case 60: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 59; continue; }
+    case 61: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 60 : 59; continue; }
+    case 62: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 61; continue; }
+    case 63: { undefined; pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 63; continue; }
+    case 65: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,272),7,4,"int"); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e97fc),4); pc = 66; continue; }
+    case 68: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 67; continue; }
+    case 69: { undefined; pc = 68; continue; }
+    case 70: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 69; continue; }
+    case 71: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,272),6,4,"int"); pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9848),4); pc = 72; continue; }
+    case 74: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 73; continue; }
+    case 75: { undefined; pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 75; continue; }
+    case 77: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,272),5,4,"int"); pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e989c),4); pc = 78; continue; }
+    case 80: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 79; continue; }
+    case 81: { undefined; pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 81; continue; }
+    case 83: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 82; continue; }
+    case 84: { writeLocal(framePointer(localFrame,272),4,4,"int"); pc = 83; continue; }
+    case 85: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e98f0),4); pc = 84; continue; }
+    case 86: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 85; continue; }
+    case 87: { undefined; pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 87; continue; }
+    case 89: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 88; continue; }
+    case 90: { writeLocal(framePointer(localFrame,272),3,4,"int"); pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9944),4); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 91; continue; }
+    case 93: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 92 : 91; continue; }
+    case 94: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 93; continue; }
+    case 95: { undefined; pc = 94; continue; }
+    case 96: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 95; continue; }
+    case 97: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,272),2,4,"int"); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9990),4); pc = 98; continue; }
+    case 100: { (iVar4 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 99; continue; }
+    case 101: { undefined; pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,272),1,4,"int"); pc = 103; continue; }
+    case 105: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e99c8),4); pc = 104; continue; }
+    case 106: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 105; continue; }
+    case 107: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 106 : 105; continue; }
+    case 108: { undefined; pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 108; continue; }
+    case 110: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 109; continue; }
+    case 111: { (pcVar1 = dcMethod(dc,100,memory)); pc = 110; continue; }
+    case 112: { writeLocal(framePointer(localFrame,272),0,4,"int"); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,0),cString(memory,0x4e9a20),4); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 113; continue; }
+    case 115: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 114 : 113; continue; }
+    case 116: { (iVar3 = 5); pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 115; continue; }
+    case 120: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 119; continue; }
+    case 121: { (iVar3 = 20); pc = 120; continue; }
+    case 122: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 118 : 121; continue; }
+    case 123: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 122; continue; }
+    case 124: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc608))); pc = 123; continue; }
+    case 125: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 124; continue; }
+    case 126: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 125; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial512(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial512Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial512Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0045cff0; static C control-flow translation. */
+function drawTutorial512Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(304,options.retainedDrawingStack?.[4575216]??[]);
@@ -9304,8 +15576,363 @@ export function drawTutorial512(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x0045df40; static C control-flow translation. */
+/** Complete recovered original 0x0045cff0; static C control-flow translation. */
+function drawTutorial512Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(304,options.retainedDrawingStack?.[4575216]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let iVar1;
+  let dVar2;
+  let original_dc;
+  let piVar3;
+  let iVar4;
+  let iVar5;
+  let iVar6;
+  let iVar7;
+  let iVar8;
+  let hdc;
+  let h;
+  let local_20;
+  let TStack_1c;
+  let pc = 324;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x5363bc,r32(0x523590)); pc = 1; continue; }
+    case 3: { w32(0x5363c0,r32(0x511384)); pc = 2; continue; }
+    case 4: { w32(0x4da190,r32(0x523590)); pc = 3; continue; }
+    case 5: { w32(0x5350e0,0); pc = 4; continue; }
+    case 6: { w32(0x5350dc,0); pc = 5; continue; }
+    case 7: { w32(0x536458,0); pc = 6; continue; }
+    case 8: { w32(0x5363b8,r32(0x522dc8)); pc = 7; continue; }
+    case 9: { w32(0x4f71c4,readLocal(framePointer(localFrame,288),4,"int")); pc = 8; continue; }
+    case 10: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 9; continue; }
+    case 11: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc6c0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false), 5, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 10; continue; }
+    case 12: { w32(0x4fecdc,55); pc = 11; continue; }
+    case 13: { w32(0x535754,315); pc = 12; continue; }
+    case 14: { w32(0x4fb394,15); pc = 13; continue; }
+    case 15: { w32(0x4fdffc,60); pc = 14; continue; }
+    case 16: { w32(0x4fe82c,2); pc = 15; continue; }
+    case 17: { w32(0x4fc2d4,15); pc = 16; continue; }
+    case 18: { w32(0x523004,1); pc = 17; continue; }
+    case 19: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc508)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false), 4, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 18; continue; }
+    case 20: { w32(0x4fecd8,45); pc = 19; continue; }
+    case 21: { w32(0x535750,315); pc = 20; continue; }
+    case 22: { w32(0x4fb390,15); pc = 21; continue; }
+    case 23: { w32(0x4fdff8,60); pc = 22; continue; }
+    case 24: { w32(0x4fe828,2); pc = 23; continue; }
+    case 25: { w32(0x4fc2d0,10); pc = 24; continue; }
+    case 26: { w32(0x523000,1); pc = 25; continue; }
+    case 27: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccc10)),false), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 26; continue; }
+    case 28: { w32(0x4fecd4,45); pc = 27; continue; }
+    case 29: { w32(0x53574c,315); pc = 28; continue; }
+    case 30: { w32(0x4fb38c,15); pc = 29; continue; }
+    case 31: { w32(0x4fdff4,60); pc = 30; continue; }
+    case 32: { w32(0x4fe824,2); pc = 31; continue; }
+    case 33: { w32(0x4fc2cc,25); pc = 32; continue; }
+    case 34: { w32(0x522ffc,1); pc = 33; continue; }
+    case 35: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 34; continue; }
+    case 36: { w32(0x4fecd0,180); pc = 35; continue; }
+    case 37: { w32(0x535748,220); pc = 36; continue; }
+    case 38: { w32(0x4fb388,15); pc = 37; continue; }
+    case 39: { w32(0x4fdff0,60); pc = 38; continue; }
+    case 40: { w32(0x4fe820,60); pc = 39; continue; }
+    case 41: { w32(0x4fc2c8,0); pc = 40; continue; }
+    case 42: { w32(0x522ff8,1); pc = 41; continue; }
+    case 43: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc570)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 42; continue; }
+    case 44: { w32(0x4feccc,180); pc = 43; continue; }
+    case 45: { w32(0x535744,220); pc = 44; continue; }
+    case 46: { w32(0x4fb384,15); pc = 45; continue; }
+    case 47: { w32(0x4fdfec,60); pc = 46; continue; }
+    case 48: { w32(0x4fe81c,60); pc = 47; continue; }
+    case 49: { w32(0x4fc2c4,0); pc = 48; continue; }
+    case 50: { w32(0x522ff4,1); pc = 49; continue; }
+    case 51: { w32(0x5350e0,1); pc = 50; continue; }
+    case 52: { w32(0x5350dc,1); pc = 51; continue; }
+    case 53: { w32(0x5363bc,0); pc = 52; continue; }
+    case 54: { w32(0x5363c0,0); pc = 53; continue; }
+    case 55: { w32(0x5363b8,0); pc = 54; continue; }
+    case 56: { w32(0x4da190,6); pc = 55; continue; }
+    case 57: { w32(0x4f4a50,r32(0x5363bc)); pc = 56; continue; }
+    case 58: { w32(0x511384,r32(0x5363c0)); pc = 57; continue; }
+    case 59: { w32(0x523590,r32(0x4da190)); pc = 58; continue; }
+    case 60: { w32(0x522dc8,r32(0x5363b8)); pc = 59; continue; }
+    case 61: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 60 : 10; continue; }
+    case 62: { undefined; pc = 61; continue; }
+    case 63: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 62; continue; }
+    case 64: { invokeDrawingPointer(piVar3,dc,[original_dc,cAdd(iVar5,iVar7),cAdd(iVar8,cMul(readLocal(framePointer(localFrame,256),4,"int"),cNeg(2))),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,300),17,4,"int"); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat E"),4); pc = 65; continue; }
+    case 67: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar7, iVar8, 5, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 66; continue; }
+    case 68: { w32(0x4fecdc,55); pc = 67; continue; }
+    case 69: { w32(0x535754,305); pc = 68; continue; }
+    case 70: { w32(0x4fb394,15); pc = 69; continue; }
+    case 71: { w32(0x4fdffc,60); pc = 70; continue; }
+    case 72: { w32(0x4fe82c,2); pc = 71; continue; }
+    case 73: { w32(0x4fc2d4,15); pc = 72; continue; }
+    case 74: { (iVar5 = cDiv(r32(0x4fe624),20)); pc = 73; continue; }
+    case 75: { w32(0x523004,1); pc = 74; continue; }
+    case 76: { (iVar8 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 75; continue; }
+    case 77: { (iVar7 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false)); pc = 76; continue; }
+    case 78: { undefined; pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 78; continue; }
+    case 80: { invokeDrawingPointer(piVar3,dc,[original_dc,cSub(iVar7,iVar5),cSub(iVar8,readLocal(framePointer(localFrame,256),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,300),16,4,"int"); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat D"),4); pc = 81; continue; }
+    case 83: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar7, iVar8, 4, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 82; continue; }
+    case 84: { w32(0x4fecd8,45); pc = 83; continue; }
+    case 85: { w32(0x535750,315); pc = 84; continue; }
+    case 86: { w32(0x4fb390,15); pc = 85; continue; }
+    case 87: { w32(0x4fdff8,60); pc = 86; continue; }
+    case 88: { w32(0x4fe828,2); pc = 87; continue; }
+    case 89: { w32(0x4fc2d0,10); pc = 88; continue; }
+    case 90: { (iVar5 = cDiv(r32(0x4fe624),9)); pc = 89; continue; }
+    case 91: { w32(0x523000,1); pc = 90; continue; }
+    case 92: { (iVar8 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 91; continue; }
+    case 93: { (iVar7 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc738)),false)); pc = 92; continue; }
+    case 94: { undefined; pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 94; continue; }
+    case 96: { invokeDrawingPointer(piVar3,dc,[original_dc,cSub(iVar7,iVar1),cSub(iVar8,readLocal(framePointer(localFrame,256),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,300),15,4,"int"); pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat C"),4); pc = 97; continue; }
+    case 99: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar7, iVar8, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 98; continue; }
+    case 100: { w32(0x4fecd4,45); pc = 99; continue; }
+    case 101: { w32(0x53574c,315); pc = 100; continue; }
+    case 102: { w32(0x4fb38c,15); pc = 101; continue; }
+    case 103: { w32(0x4fdff4,60); pc = 102; continue; }
+    case 104: { w32(0x4fe824,2); pc = 103; continue; }
+    case 105: { w32(0x4fc2cc,25); pc = 104; continue; }
+    case 106: { w32(0x522ffc,1); pc = 105; continue; }
+    case 107: { undefined; pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 107; continue; }
+    case 109: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,cSub(iVar7,readLocal(framePointer(localFrame,284),4,"int")),cAdd(iVar5,iVar8),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,300),14,4,"int"); pc = 109; continue; }
+    case 111: { (piVar3 = readLocal(framePointer(localFrame,0),4,"int")); pc = 110; continue; }
+    case 112: { (TStack_1c = cString(memory,"Blanket Zone")); pc = 111; continue; }
+    case 113: { dc.polygon(originalPoints(memory,0x4f6e28,6)); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(readLocal(framePointer(localFrame,280),4,"int"),dc,[original_dc,4]); pc = 113; continue; }
+    case 115: { (local_20 = r32(0x4f6e3c)); pc = 114; continue; }
+    case 116: { w32(0x4f6e54,iVar8); pc = 115; continue; }
+    case 117: { w32(0x4f6e4c,r32(0x4f6e34)); pc = 116; continue; }
+    case 118: { w32(0x4f6e44,r32(0x4f6e3c)); pc = 117; continue; }
+    case 119: { w32(0x4f6e30,iVar7); pc = 118; continue; }
+    case 120: { w32(0x4f6e2c,iVar8); pc = 119; continue; }
+    case 121: { w32(0x4f6e50,cAdd(r32(0x4f6e50),iVar7)); pc = 120; continue; }
+    case 122: { w32(0x4f6e40,cAdd(cAdd(cDiv(cMul(r32(0x4f6e50),6),2),iVar7),cDiv(r32(0x4f6e50),2))); pc = 121; continue; }
+    case 123: { w32(0x4f6e48,cAdd(cMul(r32(0x4f6e50),3),iVar7)); pc = 122; continue; }
+    case 124: { w32(0x4f6e3c,cAdd(iVar8,cMul(iVar5,4))); pc = 123; continue; }
+    case 125: { w32(0x4f6e38,cSub(cAdd(cDiv(readLocal(framePointer(localFrame,284),4,"int"),2),iVar7),cDiv(r32(0x4f6e50),2))); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,284),cMul(r32(0x4f6e50),3),4,"int"); pc = 125; continue; }
+    case 127: { w32(0x4f6e28,cSub(iVar7,r32(0x4f6e50))); pc = 126; continue; }
+    case 128: { w32(0x4f6e34,cAdd(cAdd(iVar5,iVar8),cMul(iVar5,2))); pc = 127; continue; }
+    case 129: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc638)),false)); pc = 128; continue; }
+    case 130: { w32(0x4f6e50,fpI32(fpMul(r64(0x5230e8),r64(0x4ccc38)),false)); pc = 129; continue; }
+    case 131: { undefined; pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 131; continue; }
+    case 133: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,cAdd(cAdd(iVar5,iVar7),cMul(iVar5,2)),iVar6,cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,300),13,4,"int"); pc = 133; continue; }
+    case 135: { (TStack_1c = cString(memory,0x4e9a48)); pc = 134; continue; }
+    case 136: { dc.polygon(originalPoints(memory,0x4f6e28,6)); pc = 135; continue; }
+    case 137: { selectGdiObject(dc,r32(0x4fe07c)); pc = 136; continue; }
+    case 138: { pc = cTruth(cCompare(r32(0x4fe07c),0,"!=")) ? 137 : 136; continue; }
+    case 139: { w32(0x4f6e54,r32(0x4f6e2c)); pc = 138; continue; }
+    case 140: { w32(0x4f6e34,iVar6); pc = 139; continue; }
+    case 141: { w32(0x4f6e28,iVar7); pc = 140; continue; }
+    case 142: { w32(0x4f6e50,cAdd(iVar5,iVar7)); pc = 141; continue; }
+    case 143: { w32(0x4f6e48,cAdd(cAdd(cDiv(cMul(iVar5,10),3),iVar5),iVar7)); pc = 142; continue; }
+    case 144: { w32(0x4f6e44,cAdd(cDiv(cMul(iVar4,7),2),iVar8)); pc = 143; continue; }
+    case 145: { w32(0x4f6e4c,cAdd(iVar8,cMul(iVar4,2))); pc = 144; continue; }
+    case 146: { w32(0x4f6e40,cAdd(cAdd(cStringData(memory,local_20),iVar7),cI32(cStringData(memory,TStack_1c),false))); pc = 145; continue; }
+    case 147: { w32(0x4f6e3c,cAdd(iVar8,cMul(iVar4,4))); pc = 146; continue; }
+    case 148: { w32(0x4f6e38,cAdd(cStringData(memory,local_20),cSub(iVar7,cI32(cStringData(memory,TStack_1c),false)))); pc = 147; continue; }
+    case 149: { (local_20 = cDiv(cMul(iVar5,5),2)); pc = 148; continue; }
+    case 150: { (TStack_1c = cDiv(iVar5,2)); pc = 149; continue; }
+    case 151: { (iVar6 = cAdd(cAdd(iVar8,cMul(iVar4,2)),iVar4)); pc = 150; continue; }
+    case 152: { w32(0x4f6e30,cAdd(cSub(cBits(cI32(cAdd(cMul(iVar5,5),cBits(cBits(cMul(iVar5,5),31,">>"),3,"&")),false),2,">>"),iVar5),iVar7)); pc = 151; continue; }
+    case 153: { w32(0x4f6e2c,cSub(iVar8,cDiv(iVar4,2))); pc = 152; continue; }
+    case 154: { (iVar4 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc530)),false)); pc = 153; continue; }
+    case 155: { (iVar5 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc528)),false)); pc = 154; continue; }
+    case 156: { (iVar1 = cDiv(r32(0x4fe624),9)); pc = 155; continue; }
+    case 157: { (iVar8 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 156; continue; }
+    case 158: { (iVar7 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc820)),false)); pc = 157; continue; }
+    case 159: { undefined; pc = 158; continue; }
+    case 160: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 159; continue; }
+    case 161: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,cSub(iVar7,cBits(iVar5,3,">>")),cSub(iVar8,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,300),12,4,"int"); pc = 161; continue; }
+    case 163: { (TStack_1c = cString(memory,"Boat B")); pc = 162; continue; }
+    case 164: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar7, iVar8, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 163; continue; }
+    case 165: { w32(0x4fecd0,180); pc = 164; continue; }
+    case 166: { w32(0x535748,220); pc = 165; continue; }
+    case 167: { w32(0x4fb388,15); pc = 166; continue; }
+    case 168: { w32(0x4fdff0,60); pc = 167; continue; }
+    case 169: { w32(0x4fe820,60); pc = 168; continue; }
+    case 170: { w32(0x4fc2c8,0); pc = 169; continue; }
+    case 171: { w32(0x522ff8,1); pc = 170; continue; }
+    case 172: { (iVar5 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),7,"&"))); pc = 171; continue; }
+    case 173: { (iVar8 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc40)),false)); pc = 172; continue; }
+    case 174: { (iVar7 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc518)),false)); pc = 173; continue; }
+    case 175: { undefined; pc = 174; continue; }
+    case 176: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 175; continue; }
+    case 177: { invokeDrawingPointer(piVar3,dc,[original_dc,cSub(iVar7,cBits(iVar4,3,">>")),cSub(iVar8,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,300),11,4,"int"); pc = 177; continue; }
+    case 179: { (TStack_1c = cString(memory,"Boat A")); pc = 178; continue; }
+    case 180: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, iVar7, iVar8, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 179; continue; }
+    case 181: { w32(0x4feccc,180); pc = 180; continue; }
+    case 182: { w32(0x535744,220); pc = 181; continue; }
+    case 183: { w32(0x4fb384,15); pc = 182; continue; }
+    case 184: { w32(0x4fc2c4,0); pc = 183; continue; }
+    case 185: { w32(0x522ff4,1); pc = 184; continue; }
+    case 186: { w32(0x4fdfec,60); pc = 185; continue; }
+    case 187: { w32(0x4fe81c,60); pc = 186; continue; }
+    case 188: { undefined; pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 188; continue; }
+    case 190: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,cI32(cAdd(cStringData(memory,TStack_1c),iVar7),false),cAdd(iVar5,iVar8),cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 189; continue; }
+    case 191: { writeLocal(framePointer(localFrame,300),10,4,"int"); pc = 190; continue; }
+    case 192: { (piVar3 = readLocal(framePointer(localFrame,0),4,"int")); pc = 191; continue; }
+    case 193: { (local_20 = cString(memory,"Blanket Zone")); pc = 192; continue; }
+    case 194: { dc.polygon(originalPoints(memory,0x4f6e28,6)); pc = 193; continue; }
+    case 195: { invokeDrawingPointer(readLocal(framePointer(localFrame,280),4,"int"),dc,[original_dc,4]); pc = 194; continue; }
+    case 196: { (local_20 = r32(0x4f6e3c)); pc = 195; continue; }
+    case 197: { w32(0x4f6e54,iVar8); pc = 196; continue; }
+    case 198: { w32(0x4f6e4c,r32(0x4f6e34)); pc = 197; continue; }
+    case 199: { w32(0x4f6e44,r32(0x4f6e3c)); pc = 198; continue; }
+    case 200: { w32(0x4f6e30,iVar7); pc = 199; continue; }
+    case 201: { w32(0x4f6e2c,iVar8); pc = 200; continue; }
+    case 202: { writeLocal(framePointer(localFrame,280),dcMethod(dc,44,memory),4,"int"); pc = 201; continue; }
+    case 203: { w32(0x4f6e50,cAdd(r32(0x4f6e50),iVar7)); pc = 202; continue; }
+    case 204: { w32(0x4f6e48,cAdd(cMul(r32(0x4f6e50),3),iVar7)); pc = 203; continue; }
+    case 205: { w32(0x4f6e40,cAdd(cAdd(cDiv(cMul(r32(0x4f6e50),6),2),iVar7),cDiv(r32(0x4f6e50),2))); pc = 204; continue; }
+    case 206: { (TStack_1c = cMul(r32(0x4f6e50),2)); pc = 205; continue; }
+    case 207: { w32(0x4f6e3c,cAdd(iVar8,cMul(iVar5,4))); pc = 206; continue; }
+    case 208: { w32(0x4f6e38,cSub(cAdd(cDiv(cMul(r32(0x4f6e50),3),2),iVar7),cDiv(r32(0x4f6e50),2))); pc = 207; continue; }
+    case 209: { w32(0x4f6e28,cSub(iVar7,r32(0x4f6e50))); pc = 208; continue; }
+    case 210: { w32(0x4f6e34,cAdd(cAdd(iVar5,iVar8),cMul(iVar5,2))); pc = 209; continue; }
+    case 211: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc640)),false)); pc = 210; continue; }
+    case 212: { w32(0x4f6e50,fpI32(fpMul(r64(0x5230e8),r64(0x4ccc38)),false)); pc = 211; continue; }
+    case 213: { (iVar4 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),7,"&"))); pc = 212; continue; }
+    case 214: { (iVar8 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc28)),false)); pc = 213; continue; }
+    case 215: { (iVar7 = fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false)); pc = 214; continue; }
+    case 216: { w32(0x5350e0,1); pc = 215; continue; }
+    case 217: { w32(0x5350dc,1); pc = 216; continue; }
+    case 218: { w32(0x5363bc,0); pc = 217; continue; }
+    case 219: { w32(0x5363c0,0); pc = 218; continue; }
+    case 220: { w32(0x5363b8,0); pc = 219; continue; }
+    case 221: { w32(0x4da190,6); pc = 220; continue; }
+    case 222: { w32(0x4f4a50,r32(0x5363bc)); pc = 221; continue; }
+    case 223: { w32(0x511384,r32(0x5363c0)); pc = 222; continue; }
+    case 224: { w32(0x522dc8,r32(0x5363b8)); pc = 223; continue; }
+    case 225: { w32(0x5362d4,0); pc = 224; continue; }
+    case 226: { w32(0x523590,r32(0x4da190)); pc = 225; continue; }
+    case 227: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 226 : 61; continue; }
+    case 228: { w32(0x4fbb94,0); pc = 227; continue; }
+    case 229: { w32(0x4f71c4,2); pc = 228; continue; }
+    case 230: { w32(0x536458,2); pc = 229; continue; }
+    case 231: { writeLocal(framePointer(localFrame,288),r32(0x4f71c4),4,"int"); pc = 230; continue; }
+    case 232: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 231; continue; }
+    case 233: { w32(0x4da18c,1); pc = 232; continue; }
+    case 234: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 233; continue; }
+    case 235: { selectGdiObject(dc,h); pc = 234; continue; }
+    case 236: { (h = r32(0x4fc15c)); pc = 235; continue; }
+    case 237: { (hdc = dc); pc = 236; continue; }
+    case 238: { pc = 234; continue; }
+    case 239: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 238 : 237; continue; }
+    case 240: { (h = r32(0x5230cc)); pc = 235; continue; }
+    case 241: { (hdc = dc); pc = 240; continue; }
+    case 242: { pc = 234; continue; }
+    case 243: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 242 : 241; continue; }
+    case 244: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 239 : 243; continue; }
+    case 245: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, iVar7, readLocalArgument(framePointer(localFrame,256),4,"int")],0,rng,options); pc = 244; continue; }
+    case 246: { undefined; pc = 245; continue; }
+    case 247: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 246; continue; }
+    case 248: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int")),cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 247; continue; }
+    case 249: { writeLocal(framePointer(localFrame,300),9,4,"int"); pc = 248; continue; }
+    case 250: { (local_20 = cString(memory,0x4e9a68)); pc = 249; continue; }
+    case 251: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 250; continue; }
+    case 252: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 251 : 250; continue; }
+    case 253: { undefined; pc = 252; continue; }
+    case 254: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 253; continue; }
+    case 255: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 254; continue; }
+    case 256: { writeLocal(framePointer(localFrame,300),8,4,"int"); pc = 255; continue; }
+    case 257: { (local_20 = cString(memory,0x4e9ac8)); pc = 256; continue; }
+    case 258: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,256),4,"int"))); pc = 257; continue; }
+    case 259: { undefined; pc = 258; continue; }
+    case 260: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 259; continue; }
+    case 261: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 260; continue; }
+    case 262: { writeLocal(framePointer(localFrame,300),7,4,"int"); pc = 261; continue; }
+    case 263: { (local_20 = cString(memory,0x4e9b14)); pc = 262; continue; }
+    case 264: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,256),4,"int"))); pc = 263; continue; }
+    case 265: { undefined; pc = 264; continue; }
+    case 266: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 265; continue; }
+    case 267: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 266; continue; }
+    case 268: { writeLocal(framePointer(localFrame,300),6,4,"int"); pc = 267; continue; }
+    case 269: { (local_20 = cString(memory,0x4e9b70)); pc = 268; continue; }
+    case 270: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 269; continue; }
+    case 271: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 270 : 269; continue; }
+    case 272: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int"))); pc = 271; continue; }
+    case 273: { undefined; pc = 272; continue; }
+    case 274: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 273; continue; }
+    case 275: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 274; continue; }
+    case 276: { writeLocal(framePointer(localFrame,300),5,4,"int"); pc = 275; continue; }
+    case 277: { (local_20 = cString(memory,0x4e9bd0)); pc = 276; continue; }
+    case 278: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,256),4,"int"))); pc = 277; continue; }
+    case 279: { undefined; pc = 278; continue; }
+    case 280: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 279; continue; }
+    case 281: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 280; continue; }
+    case 282: { writeLocal(framePointer(localFrame,300),4,4,"int"); pc = 281; continue; }
+    case 283: { (local_20 = cString(memory,0x4e9c14)); pc = 282; continue; }
+    case 284: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 283; continue; }
+    case 285: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 284 : 283; continue; }
+    case 286: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,260),4,"int"))); pc = 285; continue; }
+    case 287: { undefined; pc = 286; continue; }
+    case 288: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 287; continue; }
+    case 289: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 288; continue; }
+    case 290: { writeLocal(framePointer(localFrame,300),3,4,"int"); pc = 289; continue; }
+    case 291: { (local_20 = cString(memory,0x4e9c60)); pc = 290; continue; }
+    case 292: { (iVar8 = cAdd(iVar8,readLocal(framePointer(localFrame,256),4,"int"))); pc = 291; continue; }
+    case 293: { undefined; pc = 292; continue; }
+    case 294: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 293; continue; }
+    case 295: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,iVar8,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 294; continue; }
+    case 296: { writeLocal(framePointer(localFrame,300),2,4,"int"); pc = 295; continue; }
+    case 297: { (local_20 = cString(memory,0x4e9cc0)); pc = 296; continue; }
+    case 298: { (iVar8 = cAdd(cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),readLocal(framePointer(localFrame,256),4,"int"))); pc = 297; continue; }
+    case 299: { undefined; pc = 298; continue; }
+    case 300: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 299; continue; }
+    case 301: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,cAdd(readLocal(framePointer(localFrame,260),4,"int"),2),cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 300; continue; }
+    case 302: { writeLocal(framePointer(localFrame,300),1,4,"int"); pc = 301; continue; }
+    case 303: { (local_20 = cString(memory,0x4e9d20)); pc = 302; continue; }
+    case 304: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 303; continue; }
+    case 305: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 304 : 303; continue; }
+    case 306: { undefined; pc = 305; continue; }
+    case 307: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 306; continue; }
+    case 308: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar7,2,cStringData(memory,local_20),cStringHeaderLength(memory,cStringData(memory,local_20))]); pc = 307; continue; }
+    case 309: { writeLocal(framePointer(localFrame,0),dcMethod(dc,100,memory),4,"int"); pc = 308; continue; }
+    case 310: { writeLocal(framePointer(localFrame,300),0,4,"int"); pc = 309; continue; }
+    case 311: { (local_20 = cString(memory,0x4e9d84)); pc = 310; continue; }
+    case 312: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 311; continue; }
+    case 313: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 312 : 311; continue; }
+    case 314: { (iVar7 = 5); pc = 313; continue; }
+    case 315: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 314; continue; }
+    case 316: { writeLocal(framePointer(localFrame,256),16,4,"int"); pc = 315; continue; }
+    case 317: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 313; continue; }
+    case 318: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 317; continue; }
+    case 319: { (iVar7 = 20); pc = 318; continue; }
+    case 320: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 316 : 319; continue; }
+    case 321: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 320; continue; }
+    case 322: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4cc778))); pc = 321; continue; }
+    case 323: { writeLocal(framePointer(localFrame,300),4294967295,4,"int"); pc = 322; continue; }
+    case 324: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 323; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial513(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial513Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial513Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x0045df40; static C control-flow translation. */
+function drawTutorial513Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4579136]??[]);
@@ -10053,8 +16680,762 @@ export function drawTutorial513(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00460470; static C control-flow translation. */
+/** Complete recovered original 0x0045df40; static C control-flow translation. */
+function drawTutorial513Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4579136]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let iVar2;
+  let dVar3;
+  let original_dc;
+  let iVar4;
+  let iVar5;
+  let hdc;
+  let h;
+  let TStack_14;
+  let pc = 727;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x5362d4,0); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { w32(0x4f71c4,readLocal(framePointer(localFrame,268),4,"int")); pc = 3; continue; }
+    case 5: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 4; continue; }
+    case 6: { undefined; pc = 5; continue; }
+    case 7: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 7; continue; }
+    case 9: { writeLocal(framePointer(localFrame,280),59,4,"int"); pc = 8; continue; }
+    case 10: { (TStack_14 = cString(memory,"Boat E")); pc = 9; continue; }
+    case 11: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 7, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 10; continue; }
+    case 12: { w32(0x4fece4,45); pc = 11; continue; }
+    case 13: { w32(0x53575c,315); pc = 12; continue; }
+    case 14: { w32(0x4fb39c,15); pc = 13; continue; }
+    case 15: { w32(0x4fe004,60); pc = 14; continue; }
+    case 16: { w32(0x4fe834,2); pc = 15; continue; }
+    case 17: { w32(0x4fc2dc,12); pc = 16; continue; }
+    case 18: { w32(0x52300c,1); pc = 17; continue; }
+    case 19: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4ccc48)),false),4,"int"); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 22; continue; }
+    case 24: { writeLocal(framePointer(localFrame,280),58,4,"int"); pc = 23; continue; }
+    case 25: { (TStack_14 = cString(memory,"Boat D")); pc = 24; continue; }
+    case 26: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 25; continue; }
+    case 27: { w32(0x4fece0,45); pc = 26; continue; }
+    case 28: { w32(0x535758,315); pc = 27; continue; }
+    case 29: { w32(0x4fb398,15); pc = 28; continue; }
+    case 30: { w32(0x4fe000,60); pc = 29; continue; }
+    case 31: { w32(0x4fe830,2); pc = 30; continue; }
+    case 32: { w32(0x4fc2d8,12); pc = 31; continue; }
+    case 33: { w32(0x523008,1); pc = 32; continue; }
+    case 34: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccbe0)),false)); pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc600)),false),4,"int"); pc = 34; continue; }
+    case 36: { undefined; pc = 35; continue; }
+    case 37: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 36; continue; }
+    case 38: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,280),57,4,"int"); pc = 38; continue; }
+    case 40: { (TStack_14 = cString(memory,"Boat C")); pc = 39; continue; }
+    case 41: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 40; continue; }
+    case 42: { w32(0x4fecd4,45); pc = 41; continue; }
+    case 43: { w32(0x53574c,315); pc = 42; continue; }
+    case 44: { w32(0x4fb38c,15); pc = 43; continue; }
+    case 45: { w32(0x4fdff4,60); pc = 44; continue; }
+    case 46: { w32(0x4fe824,2); pc = 45; continue; }
+    case 47: { w32(0x4fc2cc,12); pc = 46; continue; }
+    case 48: { w32(0x522ffc,1); pc = 47; continue; }
+    case 49: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc668)),false),4,"int"); pc = 49; continue; }
+    case 51: { undefined; pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 51; continue; }
+    case 53: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,280),56,4,"int"); pc = 53; continue; }
+    case 55: { (TStack_14 = cString(memory,"Boat B")); pc = 54; continue; }
+    case 56: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 55; continue; }
+    case 57: { w32(0x4fecd0,45); pc = 56; continue; }
+    case 58: { w32(0x535748,315); pc = 57; continue; }
+    case 59: { w32(0x4fb388,15); pc = 58; continue; }
+    case 60: { w32(0x4fdff0,60); pc = 59; continue; }
+    case 61: { w32(0x4fe820,2); pc = 60; continue; }
+    case 62: { w32(0x4fc2c8,12); pc = 61; continue; }
+    case 63: { w32(0x522ff8,1); pc = 62; continue; }
+    case 64: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false)); pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc770)),false),4,"int"); pc = 64; continue; }
+    case 66: { undefined; pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 66; continue; }
+    case 68: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,280),55,4,"int"); pc = 68; continue; }
+    case 70: { (TStack_14 = cString(memory,"Boat A")); pc = 69; continue; }
+    case 71: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 70; continue; }
+    case 72: { w32(0x4feccc,45); pc = 71; continue; }
+    case 73: { w32(0x535744,315); pc = 72; continue; }
+    case 74: { w32(0x4fb384,15); pc = 73; continue; }
+    case 75: { w32(0x4fdfec,20); pc = 74; continue; }
+    case 76: { w32(0x4fe81c,2); pc = 75; continue; }
+    case 77: { w32(0x4fc2c4,12); pc = 76; continue; }
+    case 78: { w32(0x522ff4,1); pc = 77; continue; }
+    case 79: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc600)),false)); pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc660)),false),4,"int"); pc = 79; continue; }
+    case 81: { pc = cTruth(cCompare(r32(0x4fb9b4),5,"==")) ? 80 : 5; continue; }
+    case 82: { undefined; pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 82; continue; }
+    case 84: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 83; continue; }
+    case 85: { writeLocal(framePointer(localFrame,280),54,4,"int"); pc = 84; continue; }
+    case 86: { (TStack_14 = cString(memory,"Boat E")); pc = 85; continue; }
+    case 87: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 7, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 86; continue; }
+    case 88: { w32(0x53575c,300); pc = 87; continue; }
+    case 89: { w32(0x4fb39c,15); pc = 88; continue; }
+    case 90: { w32(0x4fe834,10); pc = 89; continue; }
+    case 91: { w32(0x4fc2dc,12); pc = 90; continue; }
+    case 92: { w32(0x52300c,1); pc = 91; continue; }
+    case 93: { w32(0x4fece4,60); pc = 92; continue; }
+    case 94: { w32(0x4fe004,60); pc = 93; continue; }
+    case 95: { (iVar4 = cDiv(r32(0x4fe624),25)); pc = 94; continue; }
+    case 96: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc7e0)),false)); pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc940)),false),4,"int"); pc = 96; continue; }
+    case 98: { undefined; pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 98; continue; }
+    case 100: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,280),53,4,"int"); pc = 100; continue; }
+    case 102: { (TStack_14 = cString(memory,"Boat D")); pc = 101; continue; }
+    case 103: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 102; continue; }
+    case 104: { w32(0x4fece0,70); pc = 103; continue; }
+    case 105: { w32(0x535758,290); pc = 104; continue; }
+    case 106: { w32(0x4fb398,15); pc = 105; continue; }
+    case 107: { w32(0x4fe000,30); pc = 106; continue; }
+    case 108: { w32(0x4fe830,40); pc = 107; continue; }
+    case 109: { w32(0x4fc2d8,10); pc = 108; continue; }
+    case 110: { w32(0x523008,1); pc = 109; continue; }
+    case 111: { (iVar4 = cDiv(r32(0x4fe624),25)); pc = 110; continue; }
+    case 112: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc620)),false)); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6c0)),false),4,"int"); pc = 112; continue; }
+    case 114: { undefined; pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 114; continue; }
+    case 116: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 115; continue; }
+    case 117: { writeLocal(framePointer(localFrame,280),52,4,"int"); pc = 116; continue; }
+    case 118: { (TStack_14 = cString(memory,"Boat C")); pc = 117; continue; }
+    case 119: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 118; continue; }
+    case 120: { w32(0x4fecd4,60); pc = 119; continue; }
+    case 121: { w32(0x53574c,300); pc = 120; continue; }
+    case 122: { w32(0x4fb38c,15); pc = 121; continue; }
+    case 123: { w32(0x4fdff4,30); pc = 122; continue; }
+    case 124: { w32(0x4fe824,30); pc = 123; continue; }
+    case 125: { w32(0x4fc2cc,5); pc = 124; continue; }
+    case 126: { w32(0x522ffc,1); pc = 125; continue; }
+    case 127: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc70)),false)); pc = 126; continue; }
+    case 128: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc820)),false),4,"int"); pc = 127; continue; }
+    case 129: { undefined; pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 129; continue; }
+    case 131: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,280),51,4,"int"); pc = 131; continue; }
+    case 133: { (TStack_14 = cString(memory,"Boat B")); pc = 132; continue; }
+    case 134: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 133; continue; }
+    case 135: { w32(0x4fecd0,90); pc = 134; continue; }
+    case 136: { w32(0x535748,270); pc = 135; continue; }
+    case 137: { w32(0x4fb388,15); pc = 136; continue; }
+    case 138: { w32(0x4fdff0,60); pc = 137; continue; }
+    case 139: { w32(0x4fe820,20); pc = 138; continue; }
+    case 140: { w32(0x4fc2c8,12); pc = 139; continue; }
+    case 141: { w32(0x522ff8,1); pc = 140; continue; }
+    case 142: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc608)),false)); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 142; continue; }
+    case 144: { undefined; pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 144; continue; }
+    case 146: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,280),50,4,"int"); pc = 146; continue; }
+    case 148: { (TStack_14 = cString(memory,"Boat A")); pc = 147; continue; }
+    case 149: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 148; continue; }
+    case 150: { w32(0x4feccc,45); pc = 149; continue; }
+    case 151: { w32(0x535744,315); pc = 150; continue; }
+    case 152: { w32(0x4fb384,15); pc = 151; continue; }
+    case 153: { w32(0x4fdfec,20); pc = 152; continue; }
+    case 154: { w32(0x4fe81c,20); pc = 153; continue; }
+    case 155: { w32(0x4fc2c4,12); pc = 154; continue; }
+    case 156: { w32(0x522ff4,1); pc = 155; continue; }
+    case 157: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 156; continue; }
+    case 158: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc518)),false),4,"int"); pc = 157; continue; }
+    case 159: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 158 : 81; continue; }
+    case 160: { undefined; pc = 159; continue; }
+    case 161: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 160; continue; }
+    case 162: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,280),49,4,"int"); pc = 162; continue; }
+    case 164: { (TStack_14 = cString(memory,"Boat E")); pc = 163; continue; }
+    case 165: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 7, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 164; continue; }
+    case 166: { w32(0x4fece4,45); pc = 165; continue; }
+    case 167: { w32(0x53575c,315); pc = 166; continue; }
+    case 168: { w32(0x4fb39c,15); pc = 167; continue; }
+    case 169: { w32(0x4fe004,60); pc = 168; continue; }
+    case 170: { w32(0x4fe834,2); pc = 169; continue; }
+    case 171: { w32(0x4fc2dc,12); pc = 170; continue; }
+    case 172: { w32(0x52300c,1); pc = 171; continue; }
+    case 173: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc68)),false)); pc = 172; continue; }
+    case 174: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6c0)),false),4,"int"); pc = 173; continue; }
+    case 175: { undefined; pc = 174; continue; }
+    case 176: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 175; continue; }
+    case 177: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,280),48,4,"int"); pc = 177; continue; }
+    case 179: { (TStack_14 = cString(memory,"Boat D")); pc = 178; continue; }
+    case 180: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 179; continue; }
+    case 181: { w32(0x4fece0,45); pc = 180; continue; }
+    case 182: { w32(0x535758,315); pc = 181; continue; }
+    case 183: { w32(0x4fb398,15); pc = 182; continue; }
+    case 184: { w32(0x4fe000,60); pc = 183; continue; }
+    case 185: { w32(0x4fe830,2); pc = 184; continue; }
+    case 186: { w32(0x4fc2d8,12); pc = 185; continue; }
+    case 187: { w32(0x523008,1); pc = 186; continue; }
+    case 188: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc620)),false)); pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc508)),false),4,"int"); pc = 188; continue; }
+    case 190: { undefined; pc = 189; continue; }
+    case 191: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 190; continue; }
+    case 192: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 191; continue; }
+    case 193: { writeLocal(framePointer(localFrame,280),47,4,"int"); pc = 192; continue; }
+    case 194: { (TStack_14 = cString(memory,"Boat C")); pc = 193; continue; }
+    case 195: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 194; continue; }
+    case 196: { w32(0x4fecd4,45); pc = 195; continue; }
+    case 197: { w32(0x53574c,315); pc = 196; continue; }
+    case 198: { w32(0x4fb38c,15); pc = 197; continue; }
+    case 199: { w32(0x4fdff4,60); pc = 198; continue; }
+    case 200: { w32(0x4fe824,2); pc = 199; continue; }
+    case 201: { w32(0x4fc2cc,12); pc = 200; continue; }
+    case 202: { w32(0x522ffc,1); pc = 201; continue; }
+    case 203: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc00)),false)); pc = 202; continue; }
+    case 204: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 203; continue; }
+    case 205: { undefined; pc = 204; continue; }
+    case 206: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 205; continue; }
+    case 207: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 206; continue; }
+    case 208: { writeLocal(framePointer(localFrame,280),46,4,"int"); pc = 207; continue; }
+    case 209: { (TStack_14 = cString(memory,"Boat B")); pc = 208; continue; }
+    case 210: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 209; continue; }
+    case 211: { w32(0x4fecd0,45); pc = 210; continue; }
+    case 212: { w32(0x535748,315); pc = 211; continue; }
+    case 213: { w32(0x4fb388,15); pc = 212; continue; }
+    case 214: { w32(0x4fdff0,60); pc = 213; continue; }
+    case 215: { w32(0x4fe820,2); pc = 214; continue; }
+    case 216: { w32(0x4fc2c8,12); pc = 215; continue; }
+    case 217: { w32(0x522ff8,1); pc = 216; continue; }
+    case 218: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 217; continue; }
+    case 219: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false),4,"int"); pc = 218; continue; }
+    case 220: { undefined; pc = 219; continue; }
+    case 221: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 220; continue; }
+    case 222: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 221; continue; }
+    case 223: { writeLocal(framePointer(localFrame,280),45,4,"int"); pc = 222; continue; }
+    case 224: { (TStack_14 = cString(memory,"Boat A")); pc = 223; continue; }
+    case 225: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 224; continue; }
+    case 226: { w32(0x4feccc,45); pc = 225; continue; }
+    case 227: { w32(0x535744,315); pc = 226; continue; }
+    case 228: { w32(0x4fb384,15); pc = 227; continue; }
+    case 229: { w32(0x4fdfec,20); pc = 228; continue; }
+    case 230: { w32(0x4fe81c,2); pc = 229; continue; }
+    case 231: { w32(0x4fc2c4,12); pc = 230; continue; }
+    case 232: { w32(0x522ff4,1); pc = 231; continue; }
+    case 233: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc78)),false)); pc = 232; continue; }
+    case 234: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6d8)),false),4,"int"); pc = 233; continue; }
+    case 235: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 234 : 159; continue; }
+    case 236: { undefined; pc = 235; continue; }
+    case 237: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 236; continue; }
+    case 238: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cBits(iVar4,4,">>")),cSub(iVar2,fpI32(fpMul(r64(0x5230b0),r64(0x4cc8a0)),false)),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 237; continue; }
+    case 239: { writeLocal(framePointer(localFrame,280),44,4,"int"); pc = 238; continue; }
+    case 240: { (TStack_14 = cString(memory,"Boat E")); pc = 239; continue; }
+    case 241: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 7, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 240; continue; }
+    case 242: { w32(0x4fece4,65); pc = 241; continue; }
+    case 243: { w32(0x53575c,300); pc = 242; continue; }
+    case 244: { w32(0x4fb39c,15); pc = 243; continue; }
+    case 245: { w32(0x4fe004,20); pc = 244; continue; }
+    case 246: { w32(0x4fe834,40); pc = 245; continue; }
+    case 247: { w32(0x4fc2dc,5); pc = 246; continue; }
+    case 248: { w32(0x52300c,1); pc = 247; continue; }
+    case 249: { (iVar4 = cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),15,"&"))); pc = 248; continue; }
+    case 250: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc40)),false)); pc = 249; continue; }
+    case 251: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 250; continue; }
+    case 252: { undefined; pc = 251; continue; }
+    case 253: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 252; continue; }
+    case 254: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 253; continue; }
+    case 255: { writeLocal(framePointer(localFrame,280),43,4,"int"); pc = 254; continue; }
+    case 256: { (TStack_14 = cString(memory,"Boat D")); pc = 255; continue; }
+    case 257: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 256; continue; }
+    case 258: { w32(0x4fece0,70); pc = 257; continue; }
+    case 259: { w32(0x535758,290); pc = 258; continue; }
+    case 260: { w32(0x4fb398,15); pc = 259; continue; }
+    case 261: { w32(0x4fe000,30); pc = 260; continue; }
+    case 262: { w32(0x4fe830,40); pc = 261; continue; }
+    case 263: { w32(0x4fc2d8,10); pc = 262; continue; }
+    case 264: { w32(0x523008,1); pc = 263; continue; }
+    case 265: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc70)),false)); pc = 264; continue; }
+    case 266: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc600)),false),4,"int"); pc = 265; continue; }
+    case 267: { undefined; pc = 266; continue; }
+    case 268: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 267; continue; }
+    case 269: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 268; continue; }
+    case 270: { writeLocal(framePointer(localFrame,280),42,4,"int"); pc = 269; continue; }
+    case 271: { (TStack_14 = cString(memory,"Boat C")); pc = 270; continue; }
+    case 272: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 271; continue; }
+    case 273: { w32(0x4fecd4,60); pc = 272; continue; }
+    case 274: { w32(0x53574c,300); pc = 273; continue; }
+    case 275: { w32(0x4fb38c,15); pc = 274; continue; }
+    case 276: { w32(0x4fdff4,30); pc = 275; continue; }
+    case 277: { w32(0x4fe824,30); pc = 276; continue; }
+    case 278: { w32(0x4fc2cc,5); pc = 277; continue; }
+    case 279: { w32(0x522ffc,1); pc = 278; continue; }
+    case 280: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccbd0)),false)); pc = 279; continue; }
+    case 281: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc668)),false),4,"int"); pc = 280; continue; }
+    case 282: { undefined; pc = 281; continue; }
+    case 283: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 282; continue; }
+    case 284: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 283; continue; }
+    case 285: { writeLocal(framePointer(localFrame,280),41,4,"int"); pc = 284; continue; }
+    case 286: { (TStack_14 = cString(memory,"Boat B")); pc = 285; continue; }
+    case 287: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 286; continue; }
+    case 288: { w32(0x4fecd0,90); pc = 287; continue; }
+    case 289: { w32(0x535748,270); pc = 288; continue; }
+    case 290: { w32(0x4fb388,15); pc = 289; continue; }
+    case 291: { w32(0x4fdff0,60); pc = 290; continue; }
+    case 292: { w32(0x4fe820,20); pc = 291; continue; }
+    case 293: { w32(0x4fc2c8,12); pc = 292; continue; }
+    case 294: { w32(0x522ff8,1); pc = 293; continue; }
+    case 295: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 294; continue; }
+    case 296: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 295; continue; }
+    case 297: { undefined; pc = 296; continue; }
+    case 298: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 297; continue; }
+    case 299: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 298; continue; }
+    case 300: { writeLocal(framePointer(localFrame,280),40,4,"int"); pc = 299; continue; }
+    case 301: { (TStack_14 = cString(memory,"Boat A")); pc = 300; continue; }
+    case 302: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 301; continue; }
+    case 303: { w32(0x4feccc,45); pc = 302; continue; }
+    case 304: { w32(0x535744,315); pc = 303; continue; }
+    case 305: { w32(0x4fb384,15); pc = 304; continue; }
+    case 306: { w32(0x4fdfec,20); pc = 305; continue; }
+    case 307: { w32(0x4fe81c,20); pc = 306; continue; }
+    case 308: { w32(0x4fc2c4,12); pc = 307; continue; }
+    case 309: { w32(0x522ff4,1); pc = 308; continue; }
+    case 310: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccbe0)),false)); pc = 309; continue; }
+    case 311: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false),4,"int"); pc = 310; continue; }
+    case 312: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 311 : 235; continue; }
+    case 313: { undefined; pc = 312; continue; }
+    case 314: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 313; continue; }
+    case 315: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 314; continue; }
+    case 316: { writeLocal(framePointer(localFrame,280),39,4,"int"); pc = 315; continue; }
+    case 317: { (TStack_14 = cString(memory,"Boat E")); pc = 316; continue; }
+    case 318: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 7, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 317; continue; }
+    case 319: { w32(0x4fece4,45); pc = 318; continue; }
+    case 320: { w32(0x53575c,315); pc = 319; continue; }
+    case 321: { w32(0x4fb39c,15); pc = 320; continue; }
+    case 322: { w32(0x4fe004,60); pc = 321; continue; }
+    case 323: { w32(0x4fe834,2); pc = 322; continue; }
+    case 324: { w32(0x4fc2dc,12); pc = 323; continue; }
+    case 325: { w32(0x52300c,1); pc = 324; continue; }
+    case 326: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 325; continue; }
+    case 327: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6c0)),false),4,"int"); pc = 326; continue; }
+    case 328: { undefined; pc = 327; continue; }
+    case 329: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 328; continue; }
+    case 330: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 329; continue; }
+    case 331: { writeLocal(framePointer(localFrame,280),38,4,"int"); pc = 330; continue; }
+    case 332: { (TStack_14 = cString(memory,"Boat D")); pc = 331; continue; }
+    case 333: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 332; continue; }
+    case 334: { w32(0x4fece0,45); pc = 333; continue; }
+    case 335: { w32(0x535758,315); pc = 334; continue; }
+    case 336: { w32(0x4fb398,15); pc = 335; continue; }
+    case 337: { w32(0x4fe000,60); pc = 336; continue; }
+    case 338: { w32(0x4fe830,2); pc = 337; continue; }
+    case 339: { w32(0x4fc2d8,12); pc = 338; continue; }
+    case 340: { w32(0x523008,1); pc = 339; continue; }
+    case 341: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 340; continue; }
+    case 342: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc508)),false),4,"int"); pc = 341; continue; }
+    case 343: { undefined; pc = 342; continue; }
+    case 344: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 343; continue; }
+    case 345: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 344; continue; }
+    case 346: { writeLocal(framePointer(localFrame,280),37,4,"int"); pc = 345; continue; }
+    case 347: { (TStack_14 = cString(memory,"Boat C")); pc = 346; continue; }
+    case 348: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 347; continue; }
+    case 349: { w32(0x4fecd4,45); pc = 348; continue; }
+    case 350: { w32(0x53574c,315); pc = 349; continue; }
+    case 351: { w32(0x4fb38c,15); pc = 350; continue; }
+    case 352: { w32(0x4fdff4,60); pc = 351; continue; }
+    case 353: { w32(0x4fe824,2); pc = 352; continue; }
+    case 354: { w32(0x4fc2cc,12); pc = 353; continue; }
+    case 355: { w32(0x522ffc,1); pc = 354; continue; }
+    case 356: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 355; continue; }
+    case 357: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 356; continue; }
+    case 358: { undefined; pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 358; continue; }
+    case 360: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 359; continue; }
+    case 361: { writeLocal(framePointer(localFrame,280),36,4,"int"); pc = 360; continue; }
+    case 362: { (TStack_14 = cString(memory,"Boat B")); pc = 361; continue; }
+    case 363: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 362; continue; }
+    case 364: { w32(0x4fecd0,45); pc = 363; continue; }
+    case 365: { w32(0x535748,315); pc = 364; continue; }
+    case 366: { w32(0x4fb388,15); pc = 365; continue; }
+    case 367: { w32(0x4fdff0,60); pc = 366; continue; }
+    case 368: { w32(0x4fe820,2); pc = 367; continue; }
+    case 369: { w32(0x4fc2c8,12); pc = 368; continue; }
+    case 370: { w32(0x522ff8,1); pc = 369; continue; }
+    case 371: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 370; continue; }
+    case 372: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false),4,"int"); pc = 371; continue; }
+    case 373: { undefined; pc = 372; continue; }
+    case 374: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 373; continue; }
+    case 375: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 374; continue; }
+    case 376: { writeLocal(framePointer(localFrame,280),35,4,"int"); pc = 375; continue; }
+    case 377: { (TStack_14 = cString(memory,"Boat A")); pc = 376; continue; }
+    case 378: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 377; continue; }
+    case 379: { w32(0x4feccc,45); pc = 378; continue; }
+    case 380: { w32(0x535744,315); pc = 379; continue; }
+    case 381: { w32(0x4fb384,15); pc = 380; continue; }
+    case 382: { w32(0x4fdfec,20); pc = 381; continue; }
+    case 383: { w32(0x4fe81c,2); pc = 382; continue; }
+    case 384: { w32(0x4fc2c4,12); pc = 383; continue; }
+    case 385: { w32(0x522ff4,1); pc = 384; continue; }
+    case 386: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 385; continue; }
+    case 387: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6d8)),false),4,"int"); pc = 386; continue; }
+    case 388: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 387 : 312; continue; }
+    case 389: { undefined; pc = 388; continue; }
+    case 390: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 389; continue; }
+    case 391: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 390; continue; }
+    case 392: { writeLocal(framePointer(localFrame,280),34,4,"int"); pc = 391; continue; }
+    case 393: { (TStack_14 = cString(memory,"Boat E")); pc = 392; continue; }
+    case 394: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 7, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 393; continue; }
+    case 395: { w32(0x4fece0,65); pc = 394; continue; }
+    case 396: { w32(0x53575c,300); pc = 395; continue; }
+    case 397: { w32(0x4fb39c,15); pc = 396; continue; }
+    case 398: { w32(0x4fe004,20); pc = 397; continue; }
+    case 399: { w32(0x4fe834,40); pc = 398; continue; }
+    case 400: { w32(0x4fc2dc,5); pc = 399; continue; }
+    case 401: { w32(0x52300c,1); pc = 400; continue; }
+    case 402: { (iVar4 = cDiv(r32(0x4fe624),15)); pc = 401; continue; }
+    case 403: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4ccc68)),false)); pc = 402; continue; }
+    case 404: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7b8)),false),4,"int"); pc = 403; continue; }
+    case 405: { undefined; pc = 404; continue; }
+    case 406: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 405; continue; }
+    case 407: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 406; continue; }
+    case 408: { writeLocal(framePointer(localFrame,280),33,4,"int"); pc = 407; continue; }
+    case 409: { (TStack_14 = cString(memory,"Boat D")); pc = 408; continue; }
+    case 410: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 409; continue; }
+    case 411: { w32(0x4fece0,70); pc = 410; continue; }
+    case 412: { w32(0x535758,290); pc = 411; continue; }
+    case 413: { w32(0x4fb398,15); pc = 412; continue; }
+    case 414: { w32(0x4fe000,30); pc = 413; continue; }
+    case 415: { w32(0x4fe830,40); pc = 414; continue; }
+    case 416: { w32(0x4fc2d8,10); pc = 415; continue; }
+    case 417: { w32(0x523008,1); pc = 416; continue; }
+    case 418: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 417; continue; }
+    case 419: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc600)),false),4,"int"); pc = 418; continue; }
+    case 420: { undefined; pc = 419; continue; }
+    case 421: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 420; continue; }
+    case 422: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 421; continue; }
+    case 423: { writeLocal(framePointer(localFrame,280),32,4,"int"); pc = 422; continue; }
+    case 424: { (TStack_14 = cString(memory,"Boat C")); pc = 423; continue; }
+    case 425: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 424; continue; }
+    case 426: { w32(0x4fecd4,60); pc = 425; continue; }
+    case 427: { w32(0x53574c,300); pc = 426; continue; }
+    case 428: { w32(0x4fb38c,15); pc = 427; continue; }
+    case 429: { w32(0x4fdff4,30); pc = 428; continue; }
+    case 430: { w32(0x4fe824,30); pc = 429; continue; }
+    case 431: { w32(0x4fc2cc,5); pc = 430; continue; }
+    case 432: { w32(0x522ffc,1); pc = 431; continue; }
+    case 433: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 432; continue; }
+    case 434: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc668)),false),4,"int"); pc = 433; continue; }
+    case 435: { undefined; pc = 434; continue; }
+    case 436: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 435; continue; }
+    case 437: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 436; continue; }
+    case 438: { writeLocal(framePointer(localFrame,280),31,4,"int"); pc = 437; continue; }
+    case 439: { (TStack_14 = cString(memory,"Boat B")); pc = 438; continue; }
+    case 440: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 439; continue; }
+    case 441: { w32(0x4fecd0,90); pc = 440; continue; }
+    case 442: { w32(0x535748,270); pc = 441; continue; }
+    case 443: { w32(0x4fb388,15); pc = 442; continue; }
+    case 444: { w32(0x4fdff0,60); pc = 443; continue; }
+    case 445: { w32(0x4fe820,20); pc = 444; continue; }
+    case 446: { w32(0x4fc2c8,12); pc = 445; continue; }
+    case 447: { w32(0x522ff8,1); pc = 446; continue; }
+    case 448: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 447; continue; }
+    case 449: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false),4,"int"); pc = 448; continue; }
+    case 450: { undefined; pc = 449; continue; }
+    case 451: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 450; continue; }
+    case 452: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(cAdd(iVar2,4),iVar5),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 451; continue; }
+    case 453: { writeLocal(framePointer(localFrame,280),30,4,"int"); pc = 452; continue; }
+    case 454: { (TStack_14 = cString(memory,"Boat A")); pc = 453; continue; }
+    case 455: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar2, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 454; continue; }
+    case 456: { w32(0x4feccc,45); pc = 455; continue; }
+    case 457: { w32(0x535744,315); pc = 456; continue; }
+    case 458: { w32(0x4fb384,15); pc = 457; continue; }
+    case 459: { w32(0x4fc2c4,12); pc = 458; continue; }
+    case 460: { w32(0x522ff4,1); pc = 459; continue; }
+    case 461: { w32(0x4fdfec,20); pc = 460; continue; }
+    case 462: { w32(0x4fe81c,20); pc = 461; continue; }
+    case 463: { (iVar2 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 462; continue; }
+    case 464: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false),4,"int"); pc = 463; continue; }
+    case 465: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 464 : 388; continue; }
+    case 466: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccc60)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccc50)),false), 0, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 465; continue; }
+    case 467: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc958)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccc58)),false), 3, 1],0,rng,options); pc = 466; continue; }
+    case 468: { w32(0x5362d4,330); pc = 467; continue; }
+    case 469: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),4,"==")) || cTruth(cCompare(r32(0x4fb9b4),5,"==")))) ? 468 : 465; continue; }
+    case 470: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccc48)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccc58)),false), 0, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 469; continue; }
+    case 471: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc618)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4ccc50)),false), 3, 1],0,rng,options); pc = 470; continue; }
+    case 472: { w32(0x5362d4,20); pc = 471; continue; }
+    case 473: { pc = cTruth((cTruth(cCompare(r32(0x4fb9b4),2,"==")) || cTruth(cCompare(r32(0x4fb9b4),3,"==")))) ? 472 : 469; continue; }
+    case 474: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4ccc48)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 0, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 473; continue; }
+    case 475: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc618)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 3, 1],0,rng,options); pc = 474; continue; }
+    case 476: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"<")) ? 475 : 473; continue; }
+    case 477: { w32(0x4fbb94,0); pc = 476; continue; }
+    case 478: { w32(0x4f71c4,3); pc = 477; continue; }
+    case 479: { writeLocal(framePointer(localFrame,268),r32(0x4f71c4),4,"int"); pc = 478; continue; }
+    case 480: { w32(0x536458,2); pc = 479; continue; }
+    case 481: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, iVar5],0,rng,options); pc = 480; continue; }
+    case 482: { w32(0x4da18c,5); pc = 481; continue; }
+    case 483: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 482; continue; }
+    case 484: { selectGdiObject(dc,h); pc = 483; continue; }
+    case 485: { (h = r32(0x4fc15c)); pc = 484; continue; }
+    case 486: { (hdc = dc); pc = 485; continue; }
+    case 487: { pc = 483; continue; }
+    case 488: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 487 : 486; continue; }
+    case 489: { (h = r32(0x5230cc)); pc = 484; continue; }
+    case 490: { (hdc = dc); pc = 489; continue; }
+    case 491: { pc = 483; continue; }
+    case 492: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 491 : 490; continue; }
+    case 493: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 488 : 492; continue; }
+    case 494: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int"), iVar5],0,rng,options); pc = 493; continue; }
+    case 495: { undefined; pc = 494; continue; }
+    case 496: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 495; continue; }
+    case 497: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 496; continue; }
+    case 498: { writeLocal(framePointer(localFrame,280),29,4,"int"); pc = 497; continue; }
+    case 499: { (TStack_14 = cString(memory,0x4e9dac)); pc = 498; continue; }
+    case 500: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 499; continue; }
+    case 501: { undefined; pc = 500; continue; }
+    case 502: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 501; continue; }
+    case 503: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 502; continue; }
+    case 504: { writeLocal(framePointer(localFrame,280),28,4,"int"); pc = 503; continue; }
+    case 505: { (TStack_14 = cString(memory,0x4e9df8)); pc = 504; continue; }
+    case 506: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 505; continue; }
+    case 507: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 506 : 505; continue; }
+    case 508: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 507; continue; }
+    case 509: { undefined; pc = 508; continue; }
+    case 510: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 509; continue; }
+    case 511: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 510; continue; }
+    case 512: { writeLocal(framePointer(localFrame,280),27,4,"int"); pc = 511; continue; }
+    case 513: { (TStack_14 = cString(memory,0x4e9e50)); pc = 512; continue; }
+    case 514: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 513; continue; }
+    case 515: { undefined; pc = 514; continue; }
+    case 516: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 515; continue; }
+    case 517: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 516; continue; }
+    case 518: { writeLocal(framePointer(localFrame,280),26,4,"int"); pc = 517; continue; }
+    case 519: { (TStack_14 = cString(memory,0x4e9e78)); pc = 518; continue; }
+    case 520: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 519; continue; }
+    case 521: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 520 : 519; continue; }
+    case 522: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 521; continue; }
+    case 523: { undefined; pc = 522; continue; }
+    case 524: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 523; continue; }
+    case 525: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 524; continue; }
+    case 526: { writeLocal(framePointer(localFrame,280),25,4,"int"); pc = 525; continue; }
+    case 527: { (TStack_14 = cString(memory,0x4e9ed8)); pc = 526; continue; }
+    case 528: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 527; continue; }
+    case 529: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 528 : 527; continue; }
+    case 530: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 529; continue; }
+    case 531: { undefined; pc = 530; continue; }
+    case 532: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 531; continue; }
+    case 533: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 532; continue; }
+    case 534: { writeLocal(framePointer(localFrame,280),24,4,"int"); pc = 533; continue; }
+    case 535: { (TStack_14 = cString(memory,0x4e9f18)); pc = 534; continue; }
+    case 536: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 535; continue; }
+    case 537: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 536 : 535; continue; }
+    case 538: { pc = cTruth(cCompare(r32(0x4fb9b4),5,"==")) ? 537 : 494; continue; }
+    case 539: { undefined; pc = 538; continue; }
+    case 540: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 539; continue; }
+    case 541: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 540; continue; }
+    case 542: { writeLocal(framePointer(localFrame,280),23,4,"int"); pc = 541; continue; }
+    case 543: { (TStack_14 = cString(memory,0x4e9f18)); pc = 542; continue; }
+    case 544: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 543; continue; }
+    case 545: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 544 : 543; continue; }
+    case 546: { pc = cTruth(cCompare(r32(0x4fb9b4),4,"==")) ? 545 : 538; continue; }
+    case 547: { undefined; pc = 546; continue; }
+    case 548: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 547; continue; }
+    case 549: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 548; continue; }
+    case 550: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 549; continue; }
+    case 551: { (TStack_14 = cString(memory,0x4e9f54)); pc = 550; continue; }
+    case 552: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 551; continue; }
+    case 553: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 552 : 551; continue; }
+    case 554: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 553; continue; }
+    case 555: { undefined; pc = 554; continue; }
+    case 556: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 555; continue; }
+    case 557: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 556; continue; }
+    case 558: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 557; continue; }
+    case 559: { (TStack_14 = cString(memory,0x4e9fb8)); pc = 558; continue; }
+    case 560: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 559; continue; }
+    case 561: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 560 : 559; continue; }
+    case 562: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 561; continue; }
+    case 563: { undefined; pc = 562; continue; }
+    case 564: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 563; continue; }
+    case 565: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 564; continue; }
+    case 566: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 565; continue; }
+    case 567: { (TStack_14 = cString(memory,0x4ea014)); pc = 566; continue; }
+    case 568: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 567; continue; }
+    case 569: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 568 : 567; continue; }
+    case 570: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 569; continue; }
+    case 571: { undefined; pc = 570; continue; }
+    case 572: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 571; continue; }
+    case 573: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 572; continue; }
+    case 574: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 573; continue; }
+    case 575: { (TStack_14 = cString(memory,0x4ea060)); pc = 574; continue; }
+    case 576: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 575; continue; }
+    case 577: { undefined; pc = 576; continue; }
+    case 578: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 577; continue; }
+    case 579: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 578; continue; }
+    case 580: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 579; continue; }
+    case 581: { (TStack_14 = cString(memory,0x4ea07c)); pc = 580; continue; }
+    case 582: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 581; continue; }
+    case 583: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 582 : 581; continue; }
+    case 584: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 583; continue; }
+    case 585: { undefined; pc = 584; continue; }
+    case 586: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 585; continue; }
+    case 587: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 586; continue; }
+    case 588: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 587; continue; }
+    case 589: { (TStack_14 = cString(memory,0x4ea0d0)); pc = 588; continue; }
+    case 590: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 589; continue; }
+    case 591: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 590 : 589; continue; }
+    case 592: { pc = cTruth(cCompare(r32(0x4fb9b4),3,"==")) ? 591 : 546; continue; }
+    case 593: { undefined; pc = 592; continue; }
+    case 594: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 593; continue; }
+    case 595: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 594; continue; }
+    case 596: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 595; continue; }
+    case 597: { (TStack_14 = cString(memory,0x4ea0d0)); pc = 596; continue; }
+    case 598: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 597; continue; }
+    case 599: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 598 : 597; continue; }
+    case 600: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 599 : 592; continue; }
+    case 601: { undefined; pc = 600; continue; }
+    case 602: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 601; continue; }
+    case 603: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 602; continue; }
+    case 604: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 603; continue; }
+    case 605: { (TStack_14 = cString(memory,0x4ea100)); pc = 604; continue; }
+    case 606: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 605; continue; }
+    case 607: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 606 : 605; continue; }
+    case 608: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 607; continue; }
+    case 609: { undefined; pc = 608; continue; }
+    case 610: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 609; continue; }
+    case 611: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 610; continue; }
+    case 612: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 611; continue; }
+    case 613: { (TStack_14 = cString(memory,0x4ea164)); pc = 612; continue; }
+    case 614: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 613; continue; }
+    case 615: { undefined; pc = 614; continue; }
+    case 616: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 615; continue; }
+    case 617: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 616; continue; }
+    case 618: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 617; continue; }
+    case 619: { (TStack_14 = cString(memory,0x4ea1ac)); pc = 618; continue; }
+    case 620: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 619; continue; }
+    case 621: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 620 : 619; continue; }
+    case 622: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 621; continue; }
+    case 623: { undefined; pc = 622; continue; }
+    case 624: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 623; continue; }
+    case 625: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 624; continue; }
+    case 626: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 625; continue; }
+    case 627: { (TStack_14 = cString(memory,0x4ea208)); pc = 626; continue; }
+    case 628: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 627; continue; }
+    case 629: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 628 : 627; continue; }
+    case 630: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 629; continue; }
+    case 631: { undefined; pc = 630; continue; }
+    case 632: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 631; continue; }
+    case 633: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 632; continue; }
+    case 634: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 633; continue; }
+    case 635: { (TStack_14 = cString(memory,0x4ea248)); pc = 634; continue; }
+    case 636: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 635; continue; }
+    case 637: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 636 : 635; continue; }
+    case 638: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 637; continue; }
+    case 639: { undefined; pc = 638; continue; }
+    case 640: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 639; continue; }
+    case 641: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 640; continue; }
+    case 642: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 641; continue; }
+    case 643: { (TStack_14 = cString(memory,0x4ea2a8)); pc = 642; continue; }
+    case 644: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 643; continue; }
+    case 645: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 644 : 643; continue; }
+    case 646: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 645 : 600; continue; }
+    case 647: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 646; continue; }
+    case 648: { undefined; pc = 647; continue; }
+    case 649: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 648; continue; }
+    case 650: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 649; continue; }
+    case 651: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 650; continue; }
+    case 652: { (TStack_14 = cString(memory,0x4ea2f4)); pc = 651; continue; }
+    case 653: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 652; continue; }
+    case 654: { undefined; pc = 653; continue; }
+    case 655: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 654; continue; }
+    case 656: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 655; continue; }
+    case 657: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 656; continue; }
+    case 658: { (TStack_14 = cString(memory,0x4ea354)); pc = 657; continue; }
+    case 659: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 658; continue; }
+    case 660: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 659 : 658; continue; }
+    case 661: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 660; continue; }
+    case 662: { undefined; pc = 661; continue; }
+    case 663: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 662; continue; }
+    case 664: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 663; continue; }
+    case 665: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 664; continue; }
+    case 666: { (TStack_14 = cString(memory,0x4ea3b0)); pc = 665; continue; }
+    case 667: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 666; continue; }
+    case 668: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 667 : 666; continue; }
+    case 669: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),readLocal(framePointer(localFrame,260),4,"int")),4,"int"); pc = 668; continue; }
+    case 670: { undefined; pc = 669; continue; }
+    case 671: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 670; continue; }
+    case 672: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 671; continue; }
+    case 673: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 672; continue; }
+    case 674: { (TStack_14 = cString(memory,0x4ea3f4)); pc = 673; continue; }
+    case 675: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 674; continue; }
+    case 676: { undefined; pc = 675; continue; }
+    case 677: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 676; continue; }
+    case 678: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 677; continue; }
+    case 679: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 678; continue; }
+    case 680: { (TStack_14 = cString(memory,0x4ea428)); pc = 679; continue; }
+    case 681: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 680; continue; }
+    case 682: { undefined; pc = 681; continue; }
+    case 683: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 682; continue; }
+    case 684: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 683; continue; }
+    case 685: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 684; continue; }
+    case 686: { (TStack_14 = cString(memory,0x4ea45c)); pc = 685; continue; }
+    case 687: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 686; continue; }
+    case 688: { undefined; pc = 687; continue; }
+    case 689: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 688; continue; }
+    case 690: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 689; continue; }
+    case 691: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 690; continue; }
+    case 692: { (TStack_14 = cString(memory,0x4ea46c)); pc = 691; continue; }
+    case 693: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 692; continue; }
+    case 694: { undefined; pc = 693; continue; }
+    case 695: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 694; continue; }
+    case 696: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 695; continue; }
+    case 697: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 696; continue; }
+    case 698: { (TStack_14 = cString(memory,0x4ea4b4)); pc = 697; continue; }
+    case 699: { writeLocal(framePointer(localFrame,0),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar5),4,"int"); pc = 698; continue; }
+    case 700: { undefined; pc = 699; continue; }
+    case 701: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 700; continue; }
+    case 702: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 701; continue; }
+    case 703: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 702; continue; }
+    case 704: { (TStack_14 = cString(memory,0x4ea510)); pc = 703; continue; }
+    case 705: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 704 : 646; continue; }
+    case 706: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 705; continue; }
+    case 707: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 706 : 705; continue; }
+    case 708: { writeLocal(framePointer(localFrame,0),cAdd(iVar5,2),4,"int"); pc = 707; continue; }
+    case 709: { undefined; pc = 708; continue; }
+    case 710: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 709; continue; }
+    case 711: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 710; continue; }
+    case 712: { (pcVar1 = dcMethod(dc,100,memory)); pc = 711; continue; }
+    case 713: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 712; continue; }
+    case 714: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea544),4); pc = 713; continue; }
+    case 715: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 714; continue; }
+    case 716: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 715 : 714; continue; }
+    case 717: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 716; continue; }
+    case 718: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 717; continue; }
+    case 719: { (iVar5 = 16); pc = 718; continue; }
+    case 720: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 716; continue; }
+    case 721: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 720; continue; }
+    case 722: { (iVar5 = 20); pc = 721; continue; }
+    case 723: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 719 : 722; continue; }
+    case 724: { w32(0x4faf7c,fpI32(dVar3,false)); pc = 723; continue; }
+    case 725: { (dVar3 = fpMul(r64(0x5230b0),r64(0x4cc5e0))); pc = 724; continue; }
+    case 726: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 725; continue; }
+    case 727: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 726; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial514(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial514Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial514Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00460470; static C control-flow translation. */
+function drawTutorial514Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4588656]??[]);
@@ -10464,8 +17845,424 @@ export function drawTutorial514(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x004617a0; static C control-flow translation. */
+/** Complete recovered original 0x00460470; static C control-flow translation. */
+function drawTutorial514Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(288,options.retainedDrawingStack?.[4588656]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let piVar2;
+  let iVar3;
+  let dVar4;
+  let original_dc;
+  let iVar5;
+  let hdc;
+  let h;
+  let TStack_14;
+  let pc = 389;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { w32(0x4f71c4,readLocal(framePointer(localFrame,272),4,"int")); pc = 1; continue; }
+    case 3: { w32(0x536458,0); pc = 2; continue; }
+    case 4: { w32(0x5350e4,r32(0x53658c)); pc = 3; continue; }
+    case 5: { w32(0x5350f0,r32(0x536598)); pc = 4; continue; }
+    case 6: { w32(0x5350e0,r32(0x536588)); pc = 5; continue; }
+    case 7: { w32(0x5350dc,r32(0x536584)); pc = 6; continue; }
+    case 8: { callNumberDrawingDependencyOwned(memory,dc,0x442560,[original_dc, 0, 1, 0, r32(0x4faf7c), r32(0x4fe624)],0,rng,options); pc = 7; continue; }
+    case 9: { undefined; pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 9; continue; }
+    case 11: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(piVar2,false),iVar3),cAdd(cAdd(iVar5,4),readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,284),32,4,"int"); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,0),cString(memory,"Boat D"),4); pc = 12; continue; }
+    case 14: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, piVar2, iVar5, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 13; continue; }
+    case 15: { writeLocal(framePointer(localFrame,0),piVar2,4,"int"); pc = 14; continue; }
+    case 16: { w32(0x4fece0,45); pc = 15; continue; }
+    case 17: { w32(0x535758,45); pc = 16; continue; }
+    case 18: { w32(0x4fe000,60); pc = 17; continue; }
+    case 19: { w32(0x4fe830,2); pc = 18; continue; }
+    case 20: { w32(0x523008,4294967295); pc = 19; continue; }
+    case 21: { w32(0x4fb398,15); pc = 20; continue; }
+    case 22: { w32(0x4fc2d8,15); pc = 21; continue; }
+    case 23: { (iVar3 = cDiv(r32(0x4fe624),25)); pc = 22; continue; }
+    case 24: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 23; continue; }
+    case 25: { (piVar2 = fpI64(fpMul(r64(0x5230e8),r64(0x4cc778)),false)); pc = 24; continue; }
+    case 26: { undefined; pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 26; continue; }
+    case 28: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 27; continue; }
+    case 29: { writeLocal(framePointer(localFrame,284),31,4,"int"); pc = 28; continue; }
+    case 30: { (TStack_14 = cString(memory,"Boat C")); pc = 29; continue; }
+    case 31: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 30; continue; }
+    case 32: { w32(0x4fb38c,15); pc = 31; continue; }
+    case 33: { w32(0x4fdff4,40); pc = 32; continue; }
+    case 34: { w32(0x4fe824,2); pc = 33; continue; }
+    case 35: { w32(0x4fc2cc,10); pc = 34; continue; }
+    case 36: { w32(0x522ffc,4294967295); pc = 35; continue; }
+    case 37: { w32(0x4fecd4,51); pc = 36; continue; }
+    case 38: { w32(0x53574c,51); pc = 37; continue; }
+    case 39: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 38; continue; }
+    case 40: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc508)),false),4,"int"); pc = 40; continue; }
+    case 42: { undefined; pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 42; continue; }
+    case 44: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cSub(iVar5,readLocal(framePointer(localFrame,264),4,"int")),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,284),30,4,"int"); pc = 44; continue; }
+    case 46: { (TStack_14 = cString(memory,0x4ea554)); pc = 45; continue; }
+    case 47: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 46; continue; }
+    case 48: { w32(0x4fb388,15); pc = 47; continue; }
+    case 49: { w32(0x4fdff0,50); pc = 48; continue; }
+    case 50: { w32(0x4fe820,2); pc = 49; continue; }
+    case 51: { w32(0x4fc2c8,10); pc = 50; continue; }
+    case 52: { w32(0x4fecd0,48); pc = 51; continue; }
+    case 53: { w32(0x535748,48); pc = 52; continue; }
+    case 54: { w32(0x522ff8,4294967295); pc = 53; continue; }
+    case 55: { (iVar3 = cDiv(r32(0x4fe624),20)); pc = 54; continue; }
+    case 56: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 55; continue; }
+    case 57: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc820)),false),4,"int"); pc = 56; continue; }
+    case 58: { undefined; pc = 57; continue; }
+    case 59: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 58; continue; }
+    case 60: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),cSub(iVar5,readLocal(framePointer(localFrame,264),4,"int")),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,284),29,4,"int"); pc = 60; continue; }
+    case 62: { (TStack_14 = cString(memory,0x4ea558)); pc = 61; continue; }
+    case 63: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 62; continue; }
+    case 64: { w32(0x4fb384,15); pc = 63; continue; }
+    case 65: { w32(0x4fdfec,60); pc = 64; continue; }
+    case 66: { w32(0x4fe81c,2); pc = 65; continue; }
+    case 67: { w32(0x4fc2c4,15); pc = 66; continue; }
+    case 68: { w32(0x522ff4,4294967295); pc = 67; continue; }
+    case 69: { w32(0x4feccc,45); pc = 68; continue; }
+    case 70: { w32(0x535744,45); pc = 69; continue; }
+    case 71: { (iVar3 = cDiv(r32(0x4fe624),20)); pc = 70; continue; }
+    case 72: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false),4,"int"); pc = 72; continue; }
+    case 74: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc770)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 3, 1],0,rng,options); pc = 73; continue; }
+    case 75: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 74 : 8; continue; }
+    case 76: { undefined; pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 76; continue; }
+    case 78: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(cAdd(iVar5,4),readLocal(framePointer(localFrame,264),4,"int")),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,284),28,4,"int"); pc = 78; continue; }
+    case 80: { (TStack_14 = cString(memory,"Boat D")); pc = 79; continue; }
+    case 81: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 80; continue; }
+    case 82: { w32(0x4fb398,15); pc = 81; continue; }
+    case 83: { w32(0x4fe000,30); pc = 82; continue; }
+    case 84: { w32(0x4fe830,40); pc = 83; continue; }
+    case 85: { w32(0x4fc2d8,5); pc = 84; continue; }
+    case 86: { w32(0x523008,4294967295); pc = 85; continue; }
+    case 87: { w32(0x4fece0,110); pc = 86; continue; }
+    case 88: { w32(0x535758,110); pc = 87; continue; }
+    case 89: { (iVar3 = cDiv(r32(0x4fe624),25)); pc = 88; continue; }
+    case 90: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc660)),false),4,"int"); pc = 90; continue; }
+    case 92: { undefined; pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 92; continue; }
+    case 94: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,284),27,4,"int"); pc = 94; continue; }
+    case 96: { (TStack_14 = cString(memory,"Boat C")); pc = 95; continue; }
+    case 97: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 96; continue; }
+    case 98: { w32(0x4fecd4,110); pc = 97; continue; }
+    case 99: { w32(0x53574c,100); pc = 98; continue; }
+    case 100: { w32(0x4fb38c,15); pc = 99; continue; }
+    case 101: { w32(0x4fdff4,30); pc = 100; continue; }
+    case 102: { w32(0x4fe824,20); pc = 101; continue; }
+    case 103: { w32(0x4fc2cc,5); pc = 102; continue; }
+    case 104: { w32(0x522ffc,4294967295); pc = 103; continue; }
+    case 105: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 104; continue; }
+    case 106: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 106; continue; }
+    case 108: { undefined; pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 108; continue; }
+    case 110: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 109; continue; }
+    case 111: { writeLocal(framePointer(localFrame,284),26,4,"int"); pc = 110; continue; }
+    case 112: { (TStack_14 = cString(memory,"Boat B")); pc = 111; continue; }
+    case 113: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 112; continue; }
+    case 114: { w32(0x4fecd0,100); pc = 113; continue; }
+    case 115: { w32(0x535748,90); pc = 114; continue; }
+    case 116: { w32(0x4fb388,15); pc = 115; continue; }
+    case 117: { w32(0x4fdff0,60); pc = 116; continue; }
+    case 118: { w32(0x4fe820,20); pc = 117; continue; }
+    case 119: { w32(0x4fc2c8,5); pc = 118; continue; }
+    case 120: { w32(0x522ff8,4294967295); pc = 119; continue; }
+    case 121: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 120; continue; }
+    case 122: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 121; continue; }
+    case 123: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 122; continue; }
+    case 124: { undefined; pc = 123; continue; }
+    case 125: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 124; continue; }
+    case 126: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,284),25,4,"int"); pc = 126; continue; }
+    case 128: { (TStack_14 = cString(memory,"Boat A")); pc = 127; continue; }
+    case 129: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 128; continue; }
+    case 130: { w32(0x4feccc,90); pc = 129; continue; }
+    case 131: { w32(0x535744,120); pc = 130; continue; }
+    case 132: { w32(0x4fb384,15); pc = 131; continue; }
+    case 133: { w32(0x4fc2c4,5); pc = 132; continue; }
+    case 134: { w32(0x522ff4,4294967295); pc = 133; continue; }
+    case 135: { w32(0x4fdfec,20); pc = 134; continue; }
+    case 136: { w32(0x4fe81c,20); pc = 135; continue; }
+    case 137: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 136; continue; }
+    case 138: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 137; continue; }
+    case 139: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false),4,"int"); pc = 138; continue; }
+    case 140: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc668)),false), 3, 1],0,rng,options); pc = 139; continue; }
+    case 141: { w32(0x5350f0,0); pc = 140; continue; }
+    case 142: { w32(0x5350e4,0); pc = 141; continue; }
+    case 143: { w32(0x5350e0,0); pc = 142; continue; }
+    case 144: { w32(0x5350dc,0); pc = 143; continue; }
+    case 145: { pc = cTruth((cTruth(cCompare(2,r32(0x4da190),"<")) && cTruth(cCompare(r32(0x4da190),9,"!=")))) ? 144 : 140; continue; }
+    case 146: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 145 : 75; continue; }
+    case 147: { undefined; pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 147; continue; }
+    case 149: { invokeDrawingPointer(pcVar1,dc,[original_dc,cSub(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar3),cAdd(cAdd(iVar5,4),readLocal(framePointer(localFrame,264),4,"int")),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,284),24,4,"int"); pc = 149; continue; }
+    case 151: { (TStack_14 = cString(memory,"Boat D")); pc = 150; continue; }
+    case 152: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 6, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 151; continue; }
+    case 153: { w32(0x4fece0,120); pc = 152; continue; }
+    case 154: { w32(0x535758,130); pc = 153; continue; }
+    case 155: { w32(0x4fb398,15); pc = 154; continue; }
+    case 156: { w32(0x4fe000,30); pc = 155; continue; }
+    case 157: { w32(0x4fe830,40); pc = 156; continue; }
+    case 158: { w32(0x4fc2d8,5); pc = 157; continue; }
+    case 159: { w32(0x523008,4294967295); pc = 158; continue; }
+    case 160: { (iVar3 = cDiv(r32(0x4fe624),25)); pc = 159; continue; }
+    case 161: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false)); pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc6d8)),false),4,"int"); pc = 161; continue; }
+    case 163: { undefined; pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 163; continue; }
+    case 165: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,284),23,4,"int"); pc = 165; continue; }
+    case 167: { (TStack_14 = cString(memory,"Boat C")); pc = 166; continue; }
+    case 168: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 167; continue; }
+    case 169: { w32(0x4fecd4,120); pc = 168; continue; }
+    case 170: { w32(0x53574c,130); pc = 169; continue; }
+    case 171: { w32(0x4fb38c,15); pc = 170; continue; }
+    case 172: { w32(0x4fc2cc,5); pc = 171; continue; }
+    case 173: { w32(0x522ffc,4294967295); pc = 172; continue; }
+    case 174: { w32(0x4fdff4,30); pc = 173; continue; }
+    case 175: { w32(0x4fe824,30); pc = 174; continue; }
+    case 176: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 175; continue; }
+    case 177: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc6c0)),false)); pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4cc8c0)),false),4,"int"); pc = 177; continue; }
+    case 179: { undefined; pc = 178; continue; }
+    case 180: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 179; continue; }
+    case 181: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,284),22,4,"int"); pc = 181; continue; }
+    case 183: { (TStack_14 = cString(memory,"Boat B")); pc = 182; continue; }
+    case 184: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 183; continue; }
+    case 185: { w32(0x4fecd0,120); pc = 184; continue; }
+    case 186: { w32(0x535748,130); pc = 185; continue; }
+    case 187: { w32(0x4fb388,15); pc = 186; continue; }
+    case 188: { w32(0x4fdff0,60); pc = 187; continue; }
+    case 189: { w32(0x4fe820,30); pc = 188; continue; }
+    case 190: { w32(0x4fc2c8,5); pc = 189; continue; }
+    case 191: { w32(0x522ff8,4294967295); pc = 190; continue; }
+    case 192: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 191; continue; }
+    case 193: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc508)),false)); pc = 192; continue; }
+    case 194: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4ccc88)),false),4,"int"); pc = 193; continue; }
+    case 195: { undefined; pc = 194; continue; }
+    case 196: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 195; continue; }
+    case 197: { invokeDrawingPointer(pcVar1,dc,[original_dc,cAdd(iVar3,cI32(readLocal(framePointer(localFrame,0),4,"int"),false)),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 196; continue; }
+    case 198: { writeLocal(framePointer(localFrame,284),21,4,"int"); pc = 197; continue; }
+    case 199: { (TStack_14 = cString(memory,"Boat A")); pc = 198; continue; }
+    case 200: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, readLocalArgument(framePointer(localFrame,0),4,"int"), iVar5, 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 199; continue; }
+    case 201: { w32(0x4feccc,120); pc = 200; continue; }
+    case 202: { w32(0x535744,130); pc = 201; continue; }
+    case 203: { w32(0x4fb384,15); pc = 202; continue; }
+    case 204: { w32(0x4fdfec,20); pc = 203; continue; }
+    case 205: { w32(0x4fe81c,30); pc = 204; continue; }
+    case 206: { w32(0x4fc2c4,5); pc = 205; continue; }
+    case 207: { w32(0x522ff4,4294967295); pc = 206; continue; }
+    case 208: { (iVar3 = cDiv(r32(0x4fe624),15)); pc = 207; continue; }
+    case 209: { (iVar5 = fpI32(fpMul(r64(0x5230b0),r64(0x4cc820)),false)); pc = 208; continue; }
+    case 210: { writeLocal(framePointer(localFrame,0),fpI64(fpMul(r64(0x5230e8),r64(0x4ccc80)),false),4,"int"); pc = 209; continue; }
+    case 211: { callNumberDrawingDependencyOwned(memory,dc,0x43faa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc7d0)),false), fpI32(fpMul(r64(0x5230b0),r64(0x4cc738)),false), 3, 1],0,rng,options); pc = 210; continue; }
+    case 212: { w32(0x5350f0,1); pc = 211; continue; }
+    case 213: { w32(0x5350e4,1); pc = 212; continue; }
+    case 214: { w32(0x5350e0,1); pc = 213; continue; }
+    case 215: { w32(0x5350dc,1); pc = 214; continue; }
+    case 216: { pc = cTruth((cTruth(cCompare(2,r32(0x4da190),"<")) && cTruth(cCompare(r32(0x4da190),9,"!=")))) ? 215 : 211; continue; }
+    case 217: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 216 : 146; continue; }
+    case 218: { w32(0x4fbb94,0); pc = 217; continue; }
+    case 219: { w32(0x4f71c4,3); pc = 218; continue; }
+    case 220: { writeLocal(framePointer(localFrame,272),r32(0x4f71c4),4,"int"); pc = 219; continue; }
+    case 221: { w32(0x536458,2); pc = 220; continue; }
+    case 222: { callNumberDrawingDependencyOwned(memory,dc,0x463c90,[original_dc, readLocalArgument(framePointer(localFrame,264),4,"int")],0,rng,options); pc = 221; continue; }
+    case 223: { w32(0x4da18c,2); pc = 222; continue; }
+    case 224: { dc.rectangle(0,r32(0x4faf7c),r32(0x4fe624),r32(0x4fe2a8)); pc = 223; continue; }
+    case 225: { selectGdiObject(dc,h); pc = 224; continue; }
+    case 226: { (h = r32(0x4fc15c)); pc = 225; continue; }
+    case 227: { (hdc = dc); pc = 226; continue; }
+    case 228: { pc = 224; continue; }
+    case 229: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 228 : 227; continue; }
+    case 230: { (h = r32(0x5230cc)); pc = 225; continue; }
+    case 231: { (hdc = dc); pc = 230; continue; }
+    case 232: { pc = 224; continue; }
+    case 233: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 232 : 231; continue; }
+    case 234: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 229 : 233; continue; }
+    case 235: { callNumberDrawingDependencyOwned(memory,dc,0x463df0,[original_dc, readLocalArgument(framePointer(localFrame,256),4,"int"), readLocalArgument(framePointer(localFrame,264),4,"int")],0,rng,options); pc = 234; continue; }
+    case 236: { undefined; pc = 235; continue; }
+    case 237: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 236; continue; }
+    case 238: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 237; continue; }
+    case 239: { writeLocal(framePointer(localFrame,284),20,4,"int"); pc = 238; continue; }
+    case 240: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea55c),4); pc = 239; continue; }
+    case 241: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,0]); pc = 240; continue; }
+    case 242: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 241 : 240; continue; }
+    case 243: { undefined; pc = 242; continue; }
+    case 244: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 243; continue; }
+    case 245: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 244; continue; }
+    case 246: { writeLocal(framePointer(localFrame,284),19,4,"int"); pc = 245; continue; }
+    case 247: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea5b4),4); pc = 246; continue; }
+    case 248: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 247; continue; }
+    case 249: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 248 : 247; continue; }
+    case 250: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 249; continue; }
+    case 251: { undefined; pc = 250; continue; }
+    case 252: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 251; continue; }
+    case 253: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 252; continue; }
+    case 254: { writeLocal(framePointer(localFrame,284),18,4,"int"); pc = 253; continue; }
+    case 255: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea60c),4); pc = 254; continue; }
+    case 256: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 255; continue; }
+    case 257: { undefined; pc = 256; continue; }
+    case 258: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 257; continue; }
+    case 259: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 258; continue; }
+    case 260: { writeLocal(framePointer(localFrame,284),17,4,"int"); pc = 259; continue; }
+    case 261: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea658),4); pc = 260; continue; }
+    case 262: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 261; continue; }
+    case 263: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 262 : 261; continue; }
+    case 264: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,260),4,"int"))); pc = 263; continue; }
+    case 265: { undefined; pc = 264; continue; }
+    case 266: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 265; continue; }
+    case 267: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 266; continue; }
+    case 268: { writeLocal(framePointer(localFrame,284),16,4,"int"); pc = 267; continue; }
+    case 269: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea6b0),4); pc = 268; continue; }
+    case 270: { undefined; pc = 269; continue; }
+    case 271: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 270; continue; }
+    case 272: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 271; continue; }
+    case 273: { writeLocal(framePointer(localFrame,284),15,4,"int"); pc = 272; continue; }
+    case 274: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea6f8),4); pc = 273; continue; }
+    case 275: { pc = cTruth(cCompare(r32(0x4fb9b4),2,"==")) ? 274 : 235; continue; }
+    case 276: { undefined; pc = 275; continue; }
+    case 277: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 276; continue; }
+    case 278: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 277; continue; }
+    case 279: { writeLocal(framePointer(localFrame,284),14,4,"int"); pc = 278; continue; }
+    case 280: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea730),4); pc = 279; continue; }
+    case 281: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 280; continue; }
+    case 282: { undefined; pc = 281; continue; }
+    case 283: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 282; continue; }
+    case 284: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 283; continue; }
+    case 285: { writeLocal(framePointer(localFrame,284),13,4,"int"); pc = 284; continue; }
+    case 286: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea770),4); pc = 285; continue; }
+    case 287: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 286; continue; }
+    case 288: { undefined; pc = 287; continue; }
+    case 289: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 288; continue; }
+    case 290: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 289; continue; }
+    case 291: { writeLocal(framePointer(localFrame,284),12,4,"int"); pc = 290; continue; }
+    case 292: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea7c4),4); pc = 291; continue; }
+    case 293: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 292; continue; }
+    case 294: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 293; continue; }
+    case 295: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 294 : 293; continue; }
+    case 296: { undefined; pc = 295; continue; }
+    case 297: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 296; continue; }
+    case 298: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 297; continue; }
+    case 299: { writeLocal(framePointer(localFrame,284),11,4,"int"); pc = 298; continue; }
+    case 300: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea818),4); pc = 299; continue; }
+    case 301: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 300; continue; }
+    case 302: { undefined; pc = 301; continue; }
+    case 303: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 302; continue; }
+    case 304: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 303; continue; }
+    case 305: { writeLocal(framePointer(localFrame,284),10,4,"int"); pc = 304; continue; }
+    case 306: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea868),4); pc = 305; continue; }
+    case 307: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,264),4,"int"))); pc = 306; continue; }
+    case 308: { undefined; pc = 307; continue; }
+    case 309: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 308; continue; }
+    case 310: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 309; continue; }
+    case 311: { writeLocal(framePointer(localFrame,284),9,4,"int"); pc = 310; continue; }
+    case 312: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea8bc),4); pc = 311; continue; }
+    case 313: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 312; continue; }
+    case 314: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 313 : 312; continue; }
+    case 315: { undefined; pc = 314; continue; }
+    case 316: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 315; continue; }
+    case 317: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 316; continue; }
+    case 318: { writeLocal(framePointer(localFrame,284),8,4,"int"); pc = 317; continue; }
+    case 319: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea910),4); pc = 318; continue; }
+    case 320: { pc = cTruth(cCompare(r32(0x4fb9b4),1,"==")) ? 319 : 275; continue; }
+    case 321: { undefined; pc = 320; continue; }
+    case 322: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 321; continue; }
+    case 323: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 322; continue; }
+    case 324: { writeLocal(framePointer(localFrame,284),7,4,"int"); pc = 323; continue; }
+    case 325: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea95c),4); pc = 324; continue; }
+    case 326: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 325; continue; }
+    case 327: { undefined; pc = 326; continue; }
+    case 328: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 327; continue; }
+    case 329: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 328; continue; }
+    case 330: { writeLocal(framePointer(localFrame,284),6,4,"int"); pc = 329; continue; }
+    case 331: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ea9bc),4); pc = 330; continue; }
+    case 332: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 331; continue; }
+    case 333: { undefined; pc = 332; continue; }
+    case 334: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 333; continue; }
+    case 335: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 334; continue; }
+    case 336: { writeLocal(framePointer(localFrame,284),5,4,"int"); pc = 335; continue; }
+    case 337: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaa14),4); pc = 336; continue; }
+    case 338: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 337; continue; }
+    case 339: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 338 : 337; continue; }
+    case 340: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,260),4,"int"))); pc = 339; continue; }
+    case 341: { undefined; pc = 340; continue; }
+    case 342: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 341; continue; }
+    case 343: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 342; continue; }
+    case 344: { writeLocal(framePointer(localFrame,284),4,4,"int"); pc = 343; continue; }
+    case 345: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaa5c),4); pc = 344; continue; }
+    case 346: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int"))); pc = 345; continue; }
+    case 347: { undefined; pc = 346; continue; }
+    case 348: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 347; continue; }
+    case 349: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 348; continue; }
+    case 350: { writeLocal(framePointer(localFrame,284),3,4,"int"); pc = 349; continue; }
+    case 351: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaa98),4); pc = 350; continue; }
+    case 352: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,260),4,"int"))); pc = 351; continue; }
+    case 353: { undefined; pc = 352; continue; }
+    case 354: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 353; continue; }
+    case 355: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar5,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 354; continue; }
+    case 356: { writeLocal(framePointer(localFrame,284),2,4,"int"); pc = 355; continue; }
+    case 357: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaaf0),4); pc = 356; continue; }
+    case 358: { undefined; pc = 357; continue; }
+    case 359: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 358; continue; }
+    case 360: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar5,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 359; continue; }
+    case 361: { writeLocal(framePointer(localFrame,284),1,4,"int"); pc = 360; continue; }
+    case 362: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eab28),4); pc = 361; continue; }
+    case 363: { pc = cTruth(cCompare(r32(0x4fb9b4),0,"==")) ? 362 : 320; continue; }
+    case 364: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 363; continue; }
+    case 365: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 364 : 363; continue; }
+    case 366: { (iVar5 = cAdd(readLocal(framePointer(localFrame,264),4,"int"),2)); pc = 365; continue; }
+    case 367: { undefined; pc = 366; continue; }
+    case 368: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 367; continue; }
+    case 369: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 368; continue; }
+    case 370: { (pcVar1 = dcMethod(dc,100,memory)); pc = 369; continue; }
+    case 371: { writeLocal(framePointer(localFrame,284),0,4,"int"); pc = 370; continue; }
+    case 372: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eab80),4); pc = 371; continue; }
+    case 373: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 372; continue; }
+    case 374: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 373 : 372; continue; }
+    case 375: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 374; continue; }
+    case 376: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 375; continue; }
+    case 377: { writeLocal(framePointer(localFrame,264),16,4,"int"); pc = 376; continue; }
+    case 378: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 374; continue; }
+    case 379: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 378; continue; }
+    case 380: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 379; continue; }
+    case 381: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 377 : 380; continue; }
+    case 382: { w32(0x4faf7c,fpI32(dVar4,false)); pc = 381; continue; }
+    case 383: { w32(0x536598,r32(0x5350f0)); pc = 382; continue; }
+    case 384: { (dVar4 = fpMul(r64(0x5230b0),r64(0x4cc770))); pc = 383; continue; }
+    case 385: { writeLocal(framePointer(localFrame,284),4294967295,4,"int"); pc = 384; continue; }
+    case 386: { w32(0x536584,r32(0x5350dc)); pc = 385; continue; }
+    case 387: { w32(0x536588,r32(0x5350e0)); pc = 386; continue; }
+    case 388: { w32(0x53658c,r32(0x5350e4)); pc = 387; continue; }
+    case 389: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 388; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial601(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial601Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial601Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x004617a0; static C control-flow translation. */
+function drawTutorial601Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4593568]??[]);
@@ -10666,8 +18463,215 @@ export function drawTutorial601(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00461f60; static C control-flow translation. */
+/** Complete recovered original 0x004617a0; static C control-flow translation. */
+function drawTutorial601Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4593568]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let pc = 184;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cSub(r32(0x4faf7c),readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,280),29,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eab94),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { undefined; pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 9; continue; }
+    case 11: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,280),28,4,"int"); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eabd8),4); pc = 12; continue; }
+    case 14: { undefined; pc = 13; continue; }
+    case 15: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 14; continue; }
+    case 16: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,280),27,4,"int"); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eac14),4); pc = 17; continue; }
+    case 19: { undefined; pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 19; continue; }
+    case 21: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,280),26,4,"int"); pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ead88),4); pc = 22; continue; }
+    case 24: { undefined; pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 24; continue; }
+    case 26: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,280),25,4,"int"); pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eac1c),4); pc = 27; continue; }
+    case 29: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 28; continue; }
+    case 30: { undefined; pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 30; continue; }
+    case 32: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,280),24,4,"int"); pc = 32; continue; }
+    case 34: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eac2c),4); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,280),23,4,"int"); pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eac5c),4); pc = 38; continue; }
+    case 40: { (iVar4 = cAdd(cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,260),4,"int"))); pc = 39; continue; }
+    case 41: { undefined; pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 41; continue; }
+    case 43: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eac68),4); pc = 44; continue; }
+    case 46: { undefined; pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 47; continue; }
+    case 49: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eacb4),4); pc = 49; continue; }
+    case 51: { undefined; pc = 50; continue; }
+    case 52: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 51; continue; }
+    case 53: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 52; continue; }
+    case 54: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eacf8),4); pc = 54; continue; }
+    case 56: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ead08),4); pc = 60; continue; }
+    case 62: { undefined; pc = 61; continue; }
+    case 63: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 62; continue; }
+    case 64: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 63; continue; }
+    case 65: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ead40),4); pc = 65; continue; }
+    case 67: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 66; continue; }
+    case 68: { undefined; pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ead4c),4); pc = 71; continue; }
+    case 73: { undefined; pc = 72; continue; }
+    case 74: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 73; continue; }
+    case 75: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 74; continue; }
+    case 76: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ead78),4); pc = 76; continue; }
+    case 78: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 77; continue; }
+    case 79: { undefined; pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 79; continue; }
+    case 81: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ead88),4); pc = 82; continue; }
+    case 84: { undefined; pc = 83; continue; }
+    case 85: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 84; continue; }
+    case 86: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 85; continue; }
+    case 87: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eadc8),4); pc = 87; continue; }
+    case 89: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 88; continue; }
+    case 90: { undefined; pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eadd4),4); pc = 93; continue; }
+    case 95: { undefined; pc = 94; continue; }
+    case 96: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 95; continue; }
+    case 97: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eadf8),4); pc = 98; continue; }
+    case 100: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 99; continue; }
+    case 101: { undefined; pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 103; continue; }
+    case 105: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eae04),4); pc = 104; continue; }
+    case 106: { undefined; pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 106; continue; }
+    case 108: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eae38),4); pc = 109; continue; }
+    case 111: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 110; continue; }
+    case 112: { undefined; pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 114; continue; }
+    case 116: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eae44),4); pc = 115; continue; }
+    case 117: { undefined; pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 117; continue; }
+    case 119: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eae90),4); pc = 120; continue; }
+    case 122: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 121; continue; }
+    case 123: { undefined; pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaea0),4); pc = 126; continue; }
+    case 128: { undefined; pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 128; continue; }
+    case 130: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaee8),4); pc = 131; continue; }
+    case 133: { (iVar4 = cAdd(cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,260),4,"int"))); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaef8),4); pc = 137; continue; }
+    case 139: { undefined; pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 139; continue; }
+    case 141: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 140; continue; }
+    case 142: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,0),cString(memory,"Wind perceived while sailing: a combination of true wind and the motion of the boat."),4); pc = 142; continue; }
+    case 144: { undefined; pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 144; continue; }
+    case 146: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaf54),4); pc = 147; continue; }
+    case 149: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 148; continue; }
+    case 150: { undefined; pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 150; continue; }
+    case 152: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 152; continue; }
+    case 154: { (iVar3 = cAdd(iVar3,readLocal(framePointer(localFrame,268),4,"int"))); pc = 153; continue; }
+    case 155: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaf64),4); pc = 154; continue; }
+    case 156: { undefined; pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 156; continue; }
+    case 158: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 158; continue; }
+    case 160: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaf88),4); pc = 159; continue; }
+    case 161: { (iVar4 = cAdd(readLocal(framePointer(localFrame,260),4,"int"),2)); pc = 160; continue; }
+    case 162: { undefined; pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 162; continue; }
+    case 164: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 163; continue; }
+    case 165: { (pcVar1 = dcMethod(dc,100,memory)); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 165; continue; }
+    case 167: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eaf90),4); pc = 166; continue; }
+    case 168: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 167; continue; }
+    case 169: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 168 : 167; continue; }
+    case 170: { writeLocal(framePointer(localFrame,268),120,4,"int"); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,256),3,4,"int"); pc = 170; continue; }
+    case 172: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 171; continue; }
+    case 173: { writeLocal(framePointer(localFrame,264),16,4,"int"); pc = 172; continue; }
+    case 174: { (iVar3 = 3); pc = 173; continue; }
+    case 175: { writeLocal(framePointer(localFrame,268),140,4,"int"); pc = 169; continue; }
+    case 176: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 175; continue; }
+    case 177: { (iVar3 = 10); pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 177; continue; }
+    case 179: { writeLocal(framePointer(localFrame,256),10,4,"int"); pc = 178; continue; }
+    case 180: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 174 : 179; continue; }
+    case 181: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 180; continue; }
+    case 182: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4ccc90))); pc = 181; continue; }
+    case 183: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 182; continue; }
+    case 184: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 183; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial602(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial602Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial602Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00461f60; static C control-flow translation. */
+function drawTutorial602Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4595552]??[]);
@@ -10858,8 +18862,205 @@ export function drawTutorial602(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x004626a0; static C control-flow translation. */
+/** Complete recovered original 0x00461f60; static C control-flow translation. */
+function drawTutorial602Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4595552]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let pc = 174;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cSub(r32(0x4faf7c),readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,280),27,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eafac),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { undefined; pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 9; continue; }
+    case 11: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,280),26,4,"int"); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb00c),4); pc = 12; continue; }
+    case 14: { undefined; pc = 13; continue; }
+    case 15: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 14; continue; }
+    case 16: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,280),25,4,"int"); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb04c),4); pc = 17; continue; }
+    case 19: { undefined; pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 19; continue; }
+    case 21: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,280),24,4,"int"); pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb05c),4); pc = 22; continue; }
+    case 24: { undefined; pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 24; continue; }
+    case 26: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,280),23,4,"int"); pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb0ac),4); pc = 27; continue; }
+    case 29: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 28; continue; }
+    case 30: { undefined; pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 30; continue; }
+    case 32: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 32; continue; }
+    case 34: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb0b8),4); pc = 33; continue; }
+    case 35: { (iVar4 = cAdd(cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,264),4,"int"))); pc = 34; continue; }
+    case 36: { undefined; pc = 35; continue; }
+    case 37: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 36; continue; }
+    case 38: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 38; continue; }
+    case 40: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb100),4); pc = 39; continue; }
+    case 41: { undefined; pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 41; continue; }
+    case 43: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb154),4); pc = 44; continue; }
+    case 46: { undefined; pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 47; continue; }
+    case 49: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb1a0),4); pc = 49; continue; }
+    case 51: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 50; continue; }
+    case 52: { undefined; pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 52; continue; }
+    case 54: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 54; continue; }
+    case 56: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb1ac),4); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb1cc),4); pc = 60; continue; }
+    case 62: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 61; continue; }
+    case 63: { undefined; pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 63; continue; }
+    case 65: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb1d8),4); pc = 66; continue; }
+    case 68: { undefined; pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb214),4); pc = 71; continue; }
+    case 73: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 72; continue; }
+    case 74: { undefined; pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 74; continue; }
+    case 76: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb220),4); pc = 77; continue; }
+    case 79: { undefined; pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 79; continue; }
+    case 81: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb258),4); pc = 82; continue; }
+    case 84: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 83; continue; }
+    case 85: { undefined; pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 85; continue; }
+    case 87: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb260),4); pc = 88; continue; }
+    case 90: { undefined; pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb28c),4); pc = 93; continue; }
+    case 95: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 94; continue; }
+    case 96: { undefined; pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 96; continue; }
+    case 98: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 98; continue; }
+    case 100: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb294),4); pc = 99; continue; }
+    case 101: { undefined; pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 103; continue; }
+    case 105: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb2bc),4); pc = 104; continue; }
+    case 106: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 105; continue; }
+    case 107: { undefined; pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 107; continue; }
+    case 109: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 109; continue; }
+    case 111: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb2cc),4); pc = 110; continue; }
+    case 112: { undefined; pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 114; continue; }
+    case 116: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb2f4),4); pc = 115; continue; }
+    case 117: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 116; continue; }
+    case 118: { undefined; pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 118; continue; }
+    case 120: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 120; continue; }
+    case 122: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb2fc),4); pc = 121; continue; }
+    case 123: { undefined; pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb314),4); pc = 126; continue; }
+    case 128: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 127; continue; }
+    case 129: { undefined; pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 129; continue; }
+    case 131: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 131; continue; }
+    case 133: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb324),4); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb36c),4); pc = 137; continue; }
+    case 139: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 138; continue; }
+    case 140: { undefined; pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 140; continue; }
+    case 142: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 142; continue; }
+    case 144: { (iVar3 = cAdd(iVar3,readLocal(framePointer(localFrame,268),4,"int"))); pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb378),4); pc = 144; continue; }
+    case 146: { undefined; pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 146; continue; }
+    case 148: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 147; continue; }
+    case 149: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 148; continue; }
+    case 150: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb3bc),4); pc = 149; continue; }
+    case 151: { (iVar4 = cAdd(readLocal(framePointer(localFrame,260),4,"int"),2)); pc = 150; continue; }
+    case 152: { undefined; pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 152; continue; }
+    case 154: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 153; continue; }
+    case 155: { (pcVar1 = dcMethod(dc,100,memory)); pc = 154; continue; }
+    case 156: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb3c4),4); pc = 156; continue; }
+    case 158: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 157; continue; }
+    case 159: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 158 : 157; continue; }
+    case 160: { writeLocal(framePointer(localFrame,268),120,4,"int"); pc = 159; continue; }
+    case 161: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,264),16,4,"int"); pc = 162; continue; }
+    case 164: { (iVar3 = 5); pc = 163; continue; }
+    case 165: { (iVar3 = 20); pc = 159; continue; }
+    case 166: { writeLocal(framePointer(localFrame,268),140,4,"int"); pc = 165; continue; }
+    case 167: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 166; continue; }
+    case 168: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 168; continue; }
+    case 170: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 164 : 169; continue; }
+    case 171: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 170; continue; }
+    case 172: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4ccc90))); pc = 171; continue; }
+    case 173: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 172; continue; }
+    case 174: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 173; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial603(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial603Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial603Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x004626a0; static C control-flow translation. */
+function drawTutorial603Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4597408]??[]);
@@ -11071,8 +19272,226 @@ export function drawTutorial603(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x00462ed0; static C control-flow translation. */
+/** Complete recovered original 0x004626a0; static C control-flow translation. */
+function drawTutorial603Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4597408]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let pc = 195;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cSub(r32(0x4faf7c),readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,280),31,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eafac),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { undefined; pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 9; continue; }
+    case 11: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,280),30,4,"int"); pc = 11; continue; }
+    case 13: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb3dc),4); pc = 12; continue; }
+    case 14: { undefined; pc = 13; continue; }
+    case 15: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 14; continue; }
+    case 16: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,280),29,4,"int"); pc = 16; continue; }
+    case 18: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb420),4); pc = 17; continue; }
+    case 19: { undefined; pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 19; continue; }
+    case 21: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,280),28,4,"int"); pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb428),4); pc = 22; continue; }
+    case 24: { undefined; pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 24; continue; }
+    case 26: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,280),27,4,"int"); pc = 26; continue; }
+    case 28: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb45c),4); pc = 27; continue; }
+    case 29: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 28; continue; }
+    case 30: { undefined; pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 30; continue; }
+    case 32: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,280),26,4,"int"); pc = 32; continue; }
+    case 34: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb468),4); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,280),25,4,"int"); pc = 37; continue; }
+    case 39: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb48c),4); pc = 38; continue; }
+    case 40: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 39; continue; }
+    case 41: { undefined; pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 41; continue; }
+    case 43: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,280),24,4,"int"); pc = 43; continue; }
+    case 45: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb494),4); pc = 44; continue; }
+    case 46: { undefined; pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 47; continue; }
+    case 49: { writeLocal(framePointer(localFrame,280),23,4,"int"); pc = 48; continue; }
+    case 50: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb4c4),4); pc = 49; continue; }
+    case 51: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 50; continue; }
+    case 52: { undefined; pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 52; continue; }
+    case 54: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 54; continue; }
+    case 56: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb4cc),4); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb514),4); pc = 60; continue; }
+    case 62: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 61; continue; }
+    case 63: { undefined; pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 63; continue; }
+    case 65: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb51c),4); pc = 66; continue; }
+    case 68: { undefined; pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 70; continue; }
+    case 72: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb560),4); pc = 71; continue; }
+    case 73: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 72; continue; }
+    case 74: { undefined; pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 74; continue; }
+    case 76: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 76; continue; }
+    case 78: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb56c),4); pc = 77; continue; }
+    case 79: { undefined; pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 79; continue; }
+    case 81: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 81; continue; }
+    case 83: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb59c),4); pc = 82; continue; }
+    case 84: { (iVar4 = cAdd(cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,260),4,"int"))); pc = 83; continue; }
+    case 85: { undefined; pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 85; continue; }
+    case 87: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 87; continue; }
+    case 89: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb5b0),4); pc = 88; continue; }
+    case 90: { undefined; pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 92; continue; }
+    case 94: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb5dc),4); pc = 93; continue; }
+    case 95: { undefined; pc = 94; continue; }
+    case 96: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 95; continue; }
+    case 97: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 96; continue; }
+    case 98: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb61c),4); pc = 98; continue; }
+    case 100: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 99; continue; }
+    case 101: { undefined; pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 103; continue; }
+    case 105: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb630),4); pc = 104; continue; }
+    case 106: { undefined; pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 106; continue; }
+    case 108: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 107; continue; }
+    case 109: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb658),4); pc = 109; continue; }
+    case 111: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 110; continue; }
+    case 112: { undefined; pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 114; continue; }
+    case 116: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb664),4); pc = 115; continue; }
+    case 117: { undefined; pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 117; continue; }
+    case 119: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb6b0),4); pc = 120; continue; }
+    case 122: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 121; continue; }
+    case 123: { undefined; pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb6bc),4); pc = 126; continue; }
+    case 128: { undefined; pc = 127; continue; }
+    case 129: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 128; continue; }
+    case 130: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb6f0),4); pc = 131; continue; }
+    case 133: { (iVar4 = cAdd(cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,260),4,"int"))); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,264),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 136; continue; }
+    case 138: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb700),4); pc = 137; continue; }
+    case 139: { undefined; pc = 138; continue; }
+    case 140: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 139; continue; }
+    case 141: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 140; continue; }
+    case 142: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb73c),4); pc = 142; continue; }
+    case 144: { undefined; pc = 143; continue; }
+    case 145: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 144; continue; }
+    case 146: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 145; continue; }
+    case 147: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb77c),4); pc = 147; continue; }
+    case 149: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 148; continue; }
+    case 150: { undefined; pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 150; continue; }
+    case 152: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 152; continue; }
+    case 154: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb784),4); pc = 153; continue; }
+    case 155: { undefined; pc = 154; continue; }
+    case 156: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 155; continue; }
+    case 157: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 156; continue; }
+    case 158: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb7a4),4); pc = 158; continue; }
+    case 160: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 159; continue; }
+    case 161: { undefined; pc = 160; continue; }
+    case 162: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 161; continue; }
+    case 163: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 162; continue; }
+    case 164: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 163; continue; }
+    case 165: { (iVar3 = cAdd(iVar3,readLocal(framePointer(localFrame,268),4,"int"))); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb7ac),4); pc = 165; continue; }
+    case 167: { undefined; pc = 166; continue; }
+    case 168: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 167; continue; }
+    case 169: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 168; continue; }
+    case 170: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 169; continue; }
+    case 171: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb7e4),4); pc = 170; continue; }
+    case 172: { (iVar4 = cAdd(readLocal(framePointer(localFrame,260),4,"int"),2)); pc = 171; continue; }
+    case 173: { undefined; pc = 172; continue; }
+    case 174: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 173; continue; }
+    case 175: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 174; continue; }
+    case 176: { (pcVar1 = dcMethod(dc,100,memory)); pc = 175; continue; }
+    case 177: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eb7ec),4); pc = 177; continue; }
+    case 179: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 178; continue; }
+    case 180: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 179 : 178; continue; }
+    case 181: { writeLocal(framePointer(localFrame,268),120,4,"int"); pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,256),5,4,"int"); pc = 181; continue; }
+    case 183: { writeLocal(framePointer(localFrame,260),22,4,"int"); pc = 182; continue; }
+    case 184: { writeLocal(framePointer(localFrame,264),16,4,"int"); pc = 183; continue; }
+    case 185: { (iVar3 = 5); pc = 184; continue; }
+    case 186: { (iVar3 = 20); pc = 180; continue; }
+    case 187: { writeLocal(framePointer(localFrame,268),140,4,"int"); pc = 186; continue; }
+    case 188: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 187; continue; }
+    case 189: { writeLocal(framePointer(localFrame,264),20,4,"int"); pc = 188; continue; }
+    case 190: { writeLocal(framePointer(localFrame,260),27,4,"int"); pc = 189; continue; }
+    case 191: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 185 : 190; continue; }
+    case 192: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 191; continue; }
+    case 193: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4ccc90))); pc = 192; continue; }
+    case 194: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 193; continue; }
+    case 195: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 194; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial604(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial604Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial604Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x00462ed0; static C control-flow translation. */
+function drawTutorial604Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4599504]??[]);
@@ -11278,8 +19697,220 @@ export function drawTutorial604(memory, dc, rng, options = {}, ...originalArgs) 
   } }
 }
 
-/** Complete recovered original 0x004636c0; static C control-flow translation. */
+/** Complete recovered original 0x00462ed0; static C control-flow translation. */
+function drawTutorial604Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4599504]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let TStack_10;
+  let pc = 188;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cSub(r32(0x4faf7c),readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,280),30,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4eafac),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { undefined; pc = 8; continue; }
+    case 10: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 9; continue; }
+    case 11: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,280),29,4,"int"); pc = 11; continue; }
+    case 13: { (TStack_10 = cString(memory,0x4eb804)); pc = 12; continue; }
+    case 14: { undefined; pc = 13; continue; }
+    case 15: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 14; continue; }
+    case 16: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int")),cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,280),28,4,"int"); pc = 16; continue; }
+    case 18: { (TStack_10 = cString(memory,0x4eb82c)); pc = 17; continue; }
+    case 19: { undefined; pc = 18; continue; }
+    case 20: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 19; continue; }
+    case 21: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 20; continue; }
+    case 22: { writeLocal(framePointer(localFrame,280),27,4,"int"); pc = 21; continue; }
+    case 23: { (TStack_10 = cString(memory,0x4eb840)); pc = 22; continue; }
+    case 24: { undefined; pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 24; continue; }
+    case 26: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 25; continue; }
+    case 27: { writeLocal(framePointer(localFrame,280),26,4,"int"); pc = 26; continue; }
+    case 28: { (TStack_10 = cString(memory,0x4eb88c)); pc = 27; continue; }
+    case 29: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 28; continue; }
+    case 30: { undefined; pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 30; continue; }
+    case 32: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 31; continue; }
+    case 33: { writeLocal(framePointer(localFrame,280),25,4,"int"); pc = 32; continue; }
+    case 34: { (TStack_10 = cString(memory,0x4eb89c)); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 36; continue; }
+    case 38: { writeLocal(framePointer(localFrame,280),24,4,"int"); pc = 37; continue; }
+    case 39: { (TStack_10 = cString(memory,0x4eb8d0)); pc = 38; continue; }
+    case 40: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 39; continue; }
+    case 41: { undefined; pc = 40; continue; }
+    case 42: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 41; continue; }
+    case 43: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 42; continue; }
+    case 44: { writeLocal(framePointer(localFrame,280),23,4,"int"); pc = 43; continue; }
+    case 45: { (TStack_10 = cString(memory,0x4eb8e0)); pc = 44; continue; }
+    case 46: { undefined; pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 47; continue; }
+    case 49: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 48; continue; }
+    case 50: { (TStack_10 = cString(memory,0x4eb910)); pc = 49; continue; }
+    case 51: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 50; continue; }
+    case 52: { undefined; pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 52; continue; }
+    case 54: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,280),21,4,"int"); pc = 54; continue; }
+    case 56: { (TStack_10 = cString(memory,0x4eb91c)); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 58; continue; }
+    case 60: { writeLocal(framePointer(localFrame,280),20,4,"int"); pc = 59; continue; }
+    case 61: { (TStack_10 = cString(memory,0x4eb95c)); pc = 60; continue; }
+    case 62: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 61; continue; }
+    case 63: { undefined; pc = 62; continue; }
+    case 64: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 63; continue; }
+    case 65: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 64; continue; }
+    case 66: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 65; continue; }
+    case 67: { (TStack_10 = cString(memory,0x4eb96c)); pc = 66; continue; }
+    case 68: { undefined; pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 68; continue; }
+    case 70: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 69; continue; }
+    case 71: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 70; continue; }
+    case 72: { (TStack_10 = cString(memory,0x4eb980)); pc = 71; continue; }
+    case 73: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 72; continue; }
+    case 74: { undefined; pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 74; continue; }
+    case 76: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 75; continue; }
+    case 77: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 76; continue; }
+    case 78: { (TStack_10 = cString(memory,0x4eb98c)); pc = 77; continue; }
+    case 79: { undefined; pc = 78; continue; }
+    case 80: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 79; continue; }
+    case 81: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 80; continue; }
+    case 82: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 81; continue; }
+    case 83: { (TStack_10 = cString(memory,0x4eb9d4)); pc = 82; continue; }
+    case 84: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 83; continue; }
+    case 85: { undefined; pc = 84; continue; }
+    case 86: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 85; continue; }
+    case 87: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 86; continue; }
+    case 88: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 87; continue; }
+    case 89: { (TStack_10 = cString(memory,0x4eb9e0)); pc = 88; continue; }
+    case 90: { undefined; pc = 89; continue; }
+    case 91: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 90; continue; }
+    case 92: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 92; continue; }
+    case 94: { (TStack_10 = cString(memory,0x4eba24)); pc = 93; continue; }
+    case 95: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 94; continue; }
+    case 96: { undefined; pc = 95; continue; }
+    case 97: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 96; continue; }
+    case 98: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 98; continue; }
+    case 100: { (TStack_10 = cString(memory,0x4eba38)); pc = 99; continue; }
+    case 101: { undefined; pc = 100; continue; }
+    case 102: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 102; continue; }
+    case 104: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 103; continue; }
+    case 105: { (TStack_10 = cString(memory,0x4eba70)); pc = 104; continue; }
+    case 106: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 105; continue; }
+    case 107: { undefined; pc = 106; continue; }
+    case 108: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 107; continue; }
+    case 109: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 108; continue; }
+    case 110: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 109; continue; }
+    case 111: { (TStack_10 = cString(memory,0x4eba84)); pc = 110; continue; }
+    case 112: { undefined; pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 112; continue; }
+    case 114: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 113; continue; }
+    case 115: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 114; continue; }
+    case 116: { (TStack_10 = cString(memory,0x4ebaa8)); pc = 115; continue; }
+    case 117: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 116; continue; }
+    case 118: { undefined; pc = 117; continue; }
+    case 119: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 118; continue; }
+    case 120: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 120; continue; }
+    case 122: { (TStack_10 = cString(memory,0x4ebab4)); pc = 121; continue; }
+    case 123: { undefined; pc = 122; continue; }
+    case 124: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 125; continue; }
+    case 127: { (TStack_10 = cString(memory,0x4ebaf4)); pc = 126; continue; }
+    case 128: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 127; continue; }
+    case 129: { undefined; pc = 128; continue; }
+    case 130: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 129; continue; }
+    case 131: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 130; continue; }
+    case 132: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 131; continue; }
+    case 133: { (TStack_10 = cString(memory,0x4ebafc)); pc = 132; continue; }
+    case 134: { undefined; pc = 133; continue; }
+    case 135: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 134; continue; }
+    case 136: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 136; continue; }
+    case 138: { (TStack_10 = cString(memory,0x4ebb1c)); pc = 137; continue; }
+    case 139: { (iVar4 = cAdd(cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,256),4,"int"))); pc = 138; continue; }
+    case 140: { undefined; pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 140; continue; }
+    case 142: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int")),cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 141; continue; }
+    case 143: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 142; continue; }
+    case 144: { (TStack_10 = cString(memory,0x4ebb2c)); pc = 143; continue; }
+    case 145: { undefined; pc = 144; continue; }
+    case 146: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 145; continue; }
+    case 147: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 146; continue; }
+    case 148: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 147; continue; }
+    case 149: { (TStack_10 = cString(memory,0x4ebb74)); pc = 148; continue; }
+    case 150: { undefined; pc = 149; continue; }
+    case 151: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 150; continue; }
+    case 152: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 151; continue; }
+    case 153: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 152; continue; }
+    case 154: { (TStack_10 = cString(memory,0x4ebbc0)); pc = 153; continue; }
+    case 155: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,256),4,"int"))); pc = 154; continue; }
+    case 156: { undefined; pc = 155; continue; }
+    case 157: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 156; continue; }
+    case 158: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 157; continue; }
+    case 159: { writeLocal(framePointer(localFrame,0),cAdd(iVar3,readLocal(framePointer(localFrame,264),4,"int")),4,"int"); pc = 158; continue; }
+    case 160: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 159; continue; }
+    case 161: { (TStack_10 = cString(memory,0x4ebbc8)); pc = 160; continue; }
+    case 162: { undefined; pc = 161; continue; }
+    case 163: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 162; continue; }
+    case 164: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,iVar4,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 163; continue; }
+    case 165: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 164; continue; }
+    case 166: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ebbf4),4); pc = 165; continue; }
+    case 167: { (iVar4 = cAdd(readLocal(framePointer(localFrame,256),4,"int"),2)); pc = 166; continue; }
+    case 168: { undefined; pc = 167; continue; }
+    case 169: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 168; continue; }
+    case 170: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar3,2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 169; continue; }
+    case 171: { (pcVar1 = dcMethod(dc,100,memory)); pc = 170; continue; }
+    case 172: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 171; continue; }
+    case 173: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ebc04),4); pc = 172; continue; }
+    case 174: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 173; continue; }
+    case 175: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 174 : 173; continue; }
+    case 176: { writeLocal(framePointer(localFrame,264),135,4,"int"); pc = 175; continue; }
+    case 177: { (iVar3 = 5); pc = 176; continue; }
+    case 178: { writeLocal(framePointer(localFrame,256),22,4,"int"); pc = 177; continue; }
+    case 179: { writeLocal(framePointer(localFrame,260),16,4,"int"); pc = 178; continue; }
+    case 180: { writeLocal(framePointer(localFrame,264),170,4,"int"); pc = 175; continue; }
+    case 181: { writeLocal(framePointer(localFrame,260),20,4,"int"); pc = 180; continue; }
+    case 182: { writeLocal(framePointer(localFrame,256),27,4,"int"); pc = 181; continue; }
+    case 183: { (iVar3 = 20); pc = 182; continue; }
+    case 184: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 179 : 183; continue; }
+    case 185: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 184; continue; }
+    case 186: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4ccc90))); pc = 185; continue; }
+    case 187: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 186; continue; }
+    case 188: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 187; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
 export function drawTutorial701(memory, dc, rng, options = {}, ...originalArgs) {
+  return fpDrawingEnabled(options) ? drawTutorial701Number(memory,dc,rng,options,false,...originalArgs)
+    : drawTutorial701Original(memory,dc,rng,options,...originalArgs);
+}
+
+/** Complete recovered original 0x004636c0; static C control-flow translation. */
+function drawTutorial701Original(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
   const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4601536]??[]);
@@ -11433,6 +20064,167 @@ export function drawTutorial701(memory, dc, rng, options = {}, ...originalArgs) 
     case 138: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 133 : 137; continue; }
     case 139: { w32(0x4faf7c,cI32(cI64(dVar2,false),false)); pc = 138; continue; }
     case 140: { (dVar2 = cMul(r64(0x5230b0),r64(0x4ccc90))); pc = 139; continue; }
+    case 141: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 140; continue; }
+    case 142: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 141; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
+/** Complete recovered original 0x004636c0; static C control-flow translation. */
+function drawTutorial701Number(memory, dc, rng, options, numberArgumentImages) {
+  const r32 = address => memory.readI32(address), r64 = address => fpLoad(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,fpToNumber(value));
+  const localFrame=createLocalFrame(284,options.retainedDrawingStack?.[4601536]??[]);
+  writeLocal(framePointer(localFrame,0),dc,4,"int");
+  let pcVar1;
+  let dVar2;
+  let original_dc;
+  let iVar3;
+  let iVar4;
+  let TStack_10;
+  let pc = 142;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 2; continue; }
+    case 4: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cSub(r32(0x4faf7c),readLocal(framePointer(localFrame,260),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 3; continue; }
+    case 5: { writeLocal(framePointer(localFrame,280),19,4,"int"); pc = 4; continue; }
+    case 6: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ebc1c),4); pc = 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 6; continue; }
+    case 8: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 7 : 6; continue; }
+    case 9: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 8; continue; }
+    case 10: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 9 : 6; continue; }
+    case 11: { undefined; pc = 10; continue; }
+    case 12: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 11; continue; }
+    case 13: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(iVar4,iVar3),cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 12; continue; }
+    case 14: { writeLocal(framePointer(localFrame,280),18,4,"int"); pc = 13; continue; }
+    case 15: { (TStack_10 = cString(memory,0x4ebc4c)); pc = 14; continue; }
+    case 16: { undefined; pc = 15; continue; }
+    case 17: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 16; continue; }
+    case 18: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 17; continue; }
+    case 19: { writeLocal(framePointer(localFrame,280),17,4,"int"); pc = 18; continue; }
+    case 20: { (TStack_10 = cString(memory,0x4ebca8)); pc = 19; continue; }
+    case 21: { (iVar4 = cAdd(iVar4,iVar3)); pc = 20; continue; }
+    case 22: { undefined; pc = 21; continue; }
+    case 23: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 22; continue; }
+    case 24: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 23; continue; }
+    case 25: { writeLocal(framePointer(localFrame,280),16,4,"int"); pc = 24; continue; }
+    case 26: { (TStack_10 = cString(memory,0x4ebd08)); pc = 25; continue; }
+    case 27: { (iVar4 = cAdd(iVar4,iVar3)); pc = 26; continue; }
+    case 28: { undefined; pc = 27; continue; }
+    case 29: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 28; continue; }
+    case 30: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 29; continue; }
+    case 31: { writeLocal(framePointer(localFrame,280),15,4,"int"); pc = 30; continue; }
+    case 32: { (TStack_10 = cString(memory,0x4ebd64)); pc = 31; continue; }
+    case 33: { (iVar4 = cAdd(iVar4,iVar3)); pc = 32; continue; }
+    case 34: { undefined; pc = 33; continue; }
+    case 35: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 34; continue; }
+    case 36: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 35; continue; }
+    case 37: { writeLocal(framePointer(localFrame,280),14,4,"int"); pc = 36; continue; }
+    case 38: { (TStack_10 = cString(memory,0x4ebdc0)); pc = 37; continue; }
+    case 39: { (iVar4 = cAdd(iVar4,iVar3)); pc = 38; continue; }
+    case 40: { undefined; pc = 39; continue; }
+    case 41: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 40; continue; }
+    case 42: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 41; continue; }
+    case 43: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 42; continue; }
+    case 44: { (TStack_10 = cString(memory,0x4ebe20)); pc = 43; continue; }
+    case 45: { (iVar4 = cAdd(iVar4,iVar3)); pc = 44; continue; }
+    case 46: { undefined; pc = 45; continue; }
+    case 47: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 47; continue; }
+    case 49: { writeLocal(framePointer(localFrame,280),12,4,"int"); pc = 48; continue; }
+    case 50: { (TStack_10 = cString(memory,0x4ebe7c)); pc = 49; continue; }
+    case 51: { (iVar4 = cAdd(iVar4,iVar3)); pc = 50; continue; }
+    case 52: { undefined; pc = 51; continue; }
+    case 53: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 52; continue; }
+    case 54: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 53; continue; }
+    case 55: { writeLocal(framePointer(localFrame,280),11,4,"int"); pc = 54; continue; }
+    case 56: { (TStack_10 = cString(memory,0x4ebee4)); pc = 55; continue; }
+    case 57: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 56; continue; }
+    case 58: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 57 : 56; continue; }
+    case 59: { (iVar4 = cAdd(iVar4,iVar3)); pc = 58; continue; }
+    case 60: { undefined; pc = 59; continue; }
+    case 61: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 60; continue; }
+    case 62: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 61; continue; }
+    case 63: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 62; continue; }
+    case 64: { (TStack_10 = cString(memory,0x4ebefc)); pc = 63; continue; }
+    case 65: { (iVar4 = cAdd(iVar4,iVar3)); pc = 64; continue; }
+    case 66: { undefined; pc = 65; continue; }
+    case 67: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 66; continue; }
+    case 68: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 67; continue; }
+    case 69: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 68; continue; }
+    case 70: { (TStack_10 = cString(memory,0x4ebf58)); pc = 69; continue; }
+    case 71: { (iVar4 = cAdd(iVar4,iVar3)); pc = 70; continue; }
+    case 72: { undefined; pc = 71; continue; }
+    case 73: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 72; continue; }
+    case 74: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 73; continue; }
+    case 75: { writeLocal(framePointer(localFrame,280),8,4,"int"); pc = 74; continue; }
+    case 76: { (TStack_10 = cString(memory,0x4ebfa8)); pc = 75; continue; }
+    case 77: { (iVar4 = cAdd(iVar4,iVar3)); pc = 76; continue; }
+    case 78: { undefined; pc = 77; continue; }
+    case 79: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 78; continue; }
+    case 80: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 79; continue; }
+    case 81: { writeLocal(framePointer(localFrame,280),7,4,"int"); pc = 80; continue; }
+    case 82: { (TStack_10 = cString(memory,0x4ebff4)); pc = 81; continue; }
+    case 83: { (iVar4 = cAdd(iVar4,iVar3)); pc = 82; continue; }
+    case 84: { undefined; pc = 83; continue; }
+    case 85: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 84; continue; }
+    case 86: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 85; continue; }
+    case 87: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 86; continue; }
+    case 88: { (TStack_10 = cString(memory,0x4ec040)); pc = 87; continue; }
+    case 89: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 88; continue; }
+    case 90: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 89 : 88; continue; }
+    case 91: { (iVar4 = cAdd(iVar4,iVar3)); pc = 90; continue; }
+    case 92: { undefined; pc = 91; continue; }
+    case 93: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 92; continue; }
+    case 94: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 93; continue; }
+    case 95: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 94; continue; }
+    case 96: { (TStack_10 = cString(memory,0x4ec054)); pc = 95; continue; }
+    case 97: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 96; continue; }
+    case 98: { undefined; pc = 97; continue; }
+    case 99: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 98; continue; }
+    case 100: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 99; continue; }
+    case 101: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 100; continue; }
+    case 102: { (TStack_10 = cString(memory,0x4ec080)); pc = 101; continue; }
+    case 103: { (iVar4 = cAdd(iVar4,iVar3)); pc = 102; continue; }
+    case 104: { undefined; pc = 103; continue; }
+    case 105: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 104; continue; }
+    case 106: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 105; continue; }
+    case 107: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 106; continue; }
+    case 108: { (TStack_10 = cString(memory,0x4ec0c0)); pc = 107; continue; }
+    case 109: { (iVar4 = cAdd(iVar4,readLocal(framePointer(localFrame,260),4,"int"))); pc = 108; continue; }
+    case 110: { undefined; pc = 109; continue; }
+    case 111: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 110; continue; }
+    case 112: { invokeDrawingPointer(pcVar1,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar4,cStringData(memory,TStack_10),cStringHeaderLength(memory,cStringData(memory,TStack_10))]); pc = 111; continue; }
+    case 113: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 112; continue; }
+    case 114: { writeLocal(framePointer(localFrame,0),cAdd(readLocal(framePointer(localFrame,264),4,"int"),readLocal(framePointer(localFrame,256),4,"int")),4,"int"); pc = 113; continue; }
+    case 115: { (TStack_10 = cString(memory,0x4ec0f8)); pc = 114; continue; }
+    case 116: { (iVar4 = cAdd(cAdd(iVar3,2),iVar3)); pc = 115; continue; }
+    case 117: { undefined; pc = 116; continue; }
+    case 118: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 117; continue; }
+    case 119: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),cAdd(iVar3,2),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 118; continue; }
+    case 120: { writeLocal(framePointer(localFrame,280),1,4,"int"); pc = 119; continue; }
+    case 121: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ec158),4); pc = 120; continue; }
+    case 122: { undefined; pc = 121; continue; }
+    case 123: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 122; continue; }
+    case 124: { invokeDrawingPointer(pcVar1,dc,[original_dc,readLocal(framePointer(localFrame,256),4,"int"),2,readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 123; continue; }
+    case 125: { (pcVar1 = dcMethod(dc,100,memory)); pc = 124; continue; }
+    case 126: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 125; continue; }
+    case 127: { writeLocal(framePointer(localFrame,0),cString(memory,0x4ec168),4); pc = 126; continue; }
+    case 128: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 127; continue; }
+    case 129: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 128 : 127; continue; }
+    case 130: { writeLocal(framePointer(localFrame,264),5,4,"int"); pc = 129; continue; }
+    case 131: { writeLocal(framePointer(localFrame,256),3,4,"int"); pc = 130; continue; }
+    case 132: { (iVar3 = 22); pc = 131; continue; }
+    case 133: { writeLocal(framePointer(localFrame,260),16,4,"int"); pc = 132; continue; }
+    case 134: { writeLocal(framePointer(localFrame,264),10,4,"int"); pc = 129; continue; }
+    case 135: { writeLocal(framePointer(localFrame,256),10,4,"int"); pc = 134; continue; }
+    case 136: { (iVar3 = 27); pc = 135; continue; }
+    case 137: { writeLocal(framePointer(localFrame,260),20,4,"int"); pc = 136; continue; }
+    case 138: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 133 : 137; continue; }
+    case 139: { w32(0x4faf7c,fpI32(dVar2,false)); pc = 138; continue; }
+    case 140: { (dVar2 = fpMul(r64(0x5230b0),r64(0x4ccc90))); pc = 139; continue; }
     case 141: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 140; continue; }
     case 142: { (original_dc = readLocal(framePointer(localFrame,0),4,"int")); pc = 141; continue; }
     default: throw new Error("Unreachable tutorial control-flow node");
@@ -11672,3 +20464,33 @@ registerOriginalDrawing(0x4626a0,drawTutorial603);
 registerOriginalDrawing(0x462ed0,drawTutorial604);
 registerOriginalDrawing(0x4636c0,drawTutorial701);
 registerOriginalDrawing(0x4282b0,drawTutorial400);
+registerOriginalNumberDrawing(0x44b930,drawTutorial101Number,[]);
+registerOriginalNumberDrawing(0x44c0f0,drawTutorial102Number,[]);
+registerOriginalNumberDrawing(0x44c750,drawTutorial103Number,[]);
+registerOriginalNumberDrawing(0x44d0c0,drawTutorial104Number,[]);
+registerOriginalNumberDrawing(0x44d690,drawTutorial105Number,[]);
+registerOriginalNumberDrawing(0x44e240,drawTutorial106Number,[]);
+registerOriginalNumberDrawing(0x44eb90,drawTutorial107Number,[]);
+registerOriginalNumberDrawing(0x44f5c0,drawTutorial108Number,[]);
+registerOriginalNumberDrawing(0x44fee0,drawTutorial109Number,[]);
+registerOriginalNumberDrawing(0x450590,drawTutorial110Number,[]);
+registerOriginalNumberDrawing(0x450970,drawTutorial300Number,[]);
+registerOriginalNumberDrawing(0x451e60,drawTutorial501Number,[]);
+registerOriginalNumberDrawing(0x452660,drawTutorial502Number,[]);
+registerOriginalNumberDrawing(0x453230,drawTutorial503Number,[]);
+registerOriginalNumberDrawing(0x4545d0,drawTutorial504Number,[]);
+registerOriginalNumberDrawing(0x4559c0,drawTutorial505Number,[]);
+registerOriginalNumberDrawing(0x457280,drawTutorial506Number,[]);
+registerOriginalNumberDrawing(0x458ca0,drawTutorial507Number,[]);
+registerOriginalNumberDrawing(0x45a150,drawTutorial508Number,[]);
+registerOriginalNumberDrawing(0x45bd90,drawTutorial509Number,[]);
+registerOriginalNumberDrawing(0x45c440,drawTutorial510Number,[]);
+registerOriginalNumberDrawing(0x45cad0,drawTutorial511Number,[]);
+registerOriginalNumberDrawing(0x45cff0,drawTutorial512Number,[]);
+registerOriginalNumberDrawing(0x45df40,drawTutorial513Number,[]);
+registerOriginalNumberDrawing(0x460470,drawTutorial514Number,[]);
+registerOriginalNumberDrawing(0x4617a0,drawTutorial601Number,[]);
+registerOriginalNumberDrawing(0x461f60,drawTutorial602Number,[]);
+registerOriginalNumberDrawing(0x4626a0,drawTutorial603Number,[]);
+registerOriginalNumberDrawing(0x462ed0,drawTutorial604Number,[]);
+registerOriginalNumberDrawing(0x4636c0,drawTutorial701Number,[]);

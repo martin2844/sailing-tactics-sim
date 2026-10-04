@@ -100,7 +100,7 @@ actual startup, original notice, race progression, controls, freeze, menus,
 modal pause/resume, and results screen, and reject uncaught exceptions and
 production requests for executables or test fixtures. The workbench check
 covers its separate numerical tools and source/resource browser.
-The current 2002 suite passes **363 tests**, including eleven evidence-restoration
+The current 2002 suite passes **397 tests**, including eleven evidence-restoration
 checks. The exported player passes ten
 startup/race checks and the island path; the broader Chrome check passes 57
 interactions while confirming 25 original demo or context restrictions.

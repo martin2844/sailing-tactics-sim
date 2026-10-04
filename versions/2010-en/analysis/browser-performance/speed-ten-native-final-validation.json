@@ -1,0 +1,1014 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T16:46:31.824562+00:00",
+  "scope": "Final current-source native frame replay after private shoreline I32 scalarization, certified chart-output closed CFG windows, four private18-cell Number466330 arrays, exact chart/perspective projection, shared certified square root and pixel buffering. All251original byte bodies and immutable native captures remain unchanged. Browser-player source pins identify the release graph, but native replay does not execute its asynchronous scheduler or measure browser responsiveness.",
+  "nativeReplay": {
+    "command": "node --test versions/2010-en/tests/retained-speed-ten-frames.test.js",
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "elapsedMs": 8869.063235,
+    "uniqueNativeFrameRows": 150,
+    "nativeMatchedFrameExecutions": 190,
+    "arithmeticModes": [
+      "default Number rendering",
+      "forced original rendering"
+    ],
+    "scenarios": [
+      "20 pre-start speed10 frames in both arithmetic modes",
+      "20 post-start speed10 frames in both arithmetic modes",
+      "80 original speed15 frames, native menu32909 transition after clock100, then30 actual speed10 frames"
+    ],
+    "compared": [
+      "complete mutable native image and outside writes",
+      "RNG",
+      "C strings",
+      "ordered GDI commands",
+      "sound requests",
+      "declared pixel/tick inputs",
+      "native menu invalidation callback"
+    ],
+    "originalFullEditionFlag": {
+      "address": "0x4da16c",
+      "value": 0
+    },
+    "externalCallerPatchOnly": "0x5364e8 paint phase = frame % 60 + 1",
+    "speed10": {
+      "selectionAddress": "0x4da174",
+      "selection": 10,
+      "divisorAddress": "0x4da178",
+      "divisor": 76
+    },
+    "includesCertifiedProjectionOutput": true,
+    "timingNote": "Replay receipt time, not a controlled performance benchmark.",
+    "certifiedProjectionSelectors": [
+      0,
+      5
+    ],
+    "includesExactChartProjection": true,
+    "partialNumberFunction": "0x466330",
+    "includesCertifiedChartWindows": true,
+    "privateArrays": {
+      "function": "0x466330",
+      "count": 4,
+      "cellsPerArray": 18,
+      "arrayAccesses": 128,
+      "scalarSlots": 9,
+      "scalarAccesses": 115
+    },
+    "schedulerNotExecuted": true,
+    "includesPartialShoreline": {
+      "function": "0x47ed40",
+      "privateI32Slots": 9,
+      "scalarAccesses": 326
+    }
+  },
+  "byteFallbackAudit": {
+    "command": "tools/python-runtime/bin/python3 versions/2010-en/tools/diagnostics/check-scalar-stack.py",
+    "referenceCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+    "originalFunctionBodiesExactlyPreserved": 251,
+    "scalarBoundaryTests": 4,
+    "focusedDrawingTestsPassed": 43,
+    "report": "versions/2010-en/analysis/scalar-stack-validation.json"
+  },
+  "numberCompilerBoundaryTests": {
+    "command": "tools/python-runtime/bin/python3 versions/2010-en/tools/test_floating_drawing.py",
+    "passed": 3
+  },
+  "nativeInputs": [
+    {
+      "path": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+      "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-speed-ten-frames.json",
+      "sha256": "dd83cba9d13b2e0f4b7945ab9e314667af5cd12a43de61ba2d79f4d310fb5269"
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-speed-ten-long-frames.json",
+      "sha256": "b23b2e343a84e76b9b7fcab7209cabb0580eb710335ed51e0745a3beba3263d1"
+    },
+    {
+      "path": "versions/2010-en/tests/retained-speed-ten-frames.test.js",
+      "sha256": "16677e1cd8e05803d5eb8bfc8793a8936dfe6a4cdbeb138f02933c59ea4ec536"
+    }
+  ],
+  "sourcePins": [
+    {
+      "path": "src/browser.js",
+      "sha256": "1c4b311ecd4f115a1fed0b56dc94b140c351b1ad180ba57ca3f6fc36d43f4367"
+    },
+    {
+      "path": "src/engine/ai-tactics.js",
+      "sha256": "503f7ac40c07a5773ab9091a2217e274809a54564488aad89b823ee6f1555b8a"
+    },
+    {
+      "path": "src/engine/ai.js",
+      "sha256": "f1e8907402b02456e4b04e331b1fcb909a5228b5e145551e9f3efe2b358d5161"
+    },
+    {
+      "path": "src/engine/angles.js",
+      "sha256": "389f29fb3bb74729d5acb8717c556eca2c765d2ed230f111560ad52a1e199612"
+    },
+    {
+      "path": "src/engine/apparent-wind.js",
+      "sha256": "2724bc885e084a665b78196c86f0138c576f154bef6209d5c55dd9d5b6df8bdd"
+    },
+    {
+      "path": "src/engine/application.js",
+      "sha256": "7bbef48167f8d7586453754c15fca2e4f89892bf0f10270d68238d314c215d00"
+    },
+    {
+      "path": "src/engine/avoidance.js",
+      "sha256": "760e14accc316c8df0c2e8a58eeb5c5949850eecbd7fd51f276e8fa79c7357ad"
+    },
+    {
+      "path": "src/engine/boat-dynamics.js",
+      "sha256": "3582edad20d4549ae2c1a37cb95177fc1dc71c58821068a196353983fc57265d"
+    },
+    {
+      "path": "src/engine/boat-options.js",
+      "sha256": "404f97776d9fc9b4310f638fc6f71f6ffef80dd89ab6ecff0f321029a677752c"
+    },
+    {
+      "path": "src/engine/boat-sway.js",
+      "sha256": "0c43bd19564e09fad2d366caac92ebbfc040a187c74e11798ea51add6e1fd8f7"
+    },
+    {
+      "path": "src/engine/course.js",
+      "sha256": "46c05aee10c506bee8fe12d886125163999af46eb3c509a29040462bf024d249"
+    },
+    {
+      "path": "src/engine/current.js",
+      "sha256": "e0b2c66c1b9948679464e474720023605684848170ac539cffa5243d30548777"
+    },
+    {
+      "path": "src/engine/dialogs.js",
+      "sha256": "ba338295fdd6f021423592eb45f8d3d8485a9d9b1f927afb0c237d117d78aa5b"
+    },
+    {
+      "path": "src/engine/encounter-geometry.js",
+      "sha256": "36e2e9cf5fe58776dec87006502e223605c209878568e78b206b590c41e43b04"
+    },
+    {
+      "path": "src/engine/frame.js",
+      "sha256": "76914cf894b82a8d98d68c8e5fe3bd57a690bd6ff4a657c19d1ad0d9185ab472"
+    },
+    {
+      "path": "src/engine/helpers.js",
+      "sha256": "c2384785ed0c7c398de322c9e9bc95c15ec50fc300230953950c6d8097f7c438"
+    },
+    {
+      "path": "src/engine/hud-state.js",
+      "sha256": "10f985271fcbdaf09e9296279548ff7ca26cfe08ba12256760b80758437021a7"
+    },
+    {
+      "path": "src/engine/hull-geometry.js",
+      "sha256": "9e118f92cda0cb0257afb97e5cc35f9aa3f54d49a382b6fe255def1278a27454"
+    },
+    {
+      "path": "src/engine/initialization.js",
+      "sha256": "020a8af83da5e59b678e64b15d49a224d8a571724b193e6905a70207553dea5c"
+    },
+    {
+      "path": "src/engine/integer-core.js",
+      "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633"
+    },
+    {
+      "path": "src/engine/integration.js",
+      "sha256": "5511b9457ea9914a26ad688f01e0d80722e8181c3d2bd272db9344800929ab8b"
+    },
+    {
+      "path": "src/engine/interference.js",
+      "sha256": "7c22bfe461e78af83590c07c4d96a3afcd713140a1c9f8b0072fce859d141f8f"
+    },
+    {
+      "path": "src/engine/keyboard.js",
+      "sha256": "ea523d7fdfa2a619d61964b052cd1ac0d0e1291c88971574e9c016fadaeca279"
+    },
+    {
+      "path": "src/engine/menu-controller.js",
+      "sha256": "ff04cdf8660d775a290d24c9e5410de7c3bca79b48db965f84761ea744974335"
+    },
+    {
+      "path": "src/engine/mouse.js",
+      "sha256": "b943d9b71fc0e6ee82619406bb1cca511b260e9c820f30d65d06a50d27043732"
+    },
+    {
+      "path": "src/engine/movement-helpers.js",
+      "sha256": "06d1cfe40c92ff6258782f954c668177874e17021d96a4987e62df17d1c08697"
+    },
+    {
+      "path": "src/engine/native-trig.js",
+      "sha256": "f2dd25e6bb21aa16148f0913268cc7293a35b3e6401ed92c48a159df24c24054"
+    },
+    {
+      "path": "src/engine/penalties.js",
+      "sha256": "7bba8dfe1ba94019f31a7ed7ffd695dc722c38b2ca32b899f31c0bf8bb752717"
+    },
+    {
+      "path": "src/engine/race-targets.js",
+      "sha256": "44cc88a6aa4b238c04b1571344e57157b57545b833e53fa4c78620d52fa57c7c"
+    },
+    {
+      "path": "src/engine/snapshot-maps.js",
+      "sha256": "e596af411059fe29ff899dad7ee6dba4d09b27707bd4d5158a7e8e1b0e87f63e"
+    },
+    {
+      "path": "src/engine/snapshots.js",
+      "sha256": "ac72cd98399f3eec7478acb147989fadf0087d31ddfb6b342910a90cd1f4bb45"
+    },
+    {
+      "path": "src/engine/spatial-wind.js",
+      "sha256": "c0fbd00243f428a6413d6088925937b83c26d4a0e4280010150bb369ce67fd74"
+    },
+    {
+      "path": "src/engine/steering.js",
+      "sha256": "aec4d9a14ff7641b3ff8deda128d3968b6d647cc32fba1e4bcb592ee77a71216"
+    },
+    {
+      "path": "src/engine/target-bearing.js",
+      "sha256": "a786c02298c81828c46e2ce1684a774fb7ea3e1a4f4bb76049e12656fe0071fc"
+    },
+    {
+      "path": "src/engine/terrain.js",
+      "sha256": "de9fbf81abc94df5298a97b6c1be2c81de681b83bd448199b367e85f04f585a0"
+    },
+    {
+      "path": "src/engine/trails.js",
+      "sha256": "8d6adc3faec257feacf70d5fe7fa86309598dcd307adfa5795996a8f0e14d288"
+    },
+    {
+      "path": "src/engine/upwind-tactics.js",
+      "sha256": "170f25fad82ac72946f7a9c80306ce642366c3006e64c7f32fb1bd41b3352c3c"
+    },
+    {
+      "path": "src/engine/wind-initialization.js",
+      "sha256": "8c86b25014263a85061a6d8a14abb0400c094fdacc787188a8fba1df3651985d"
+    },
+    {
+      "path": "src/engine/wind.js",
+      "sha256": "20888195418ef4517516ecb5b22a92079ce995549216825d416b9580e0a9d674"
+    },
+    {
+      "path": "src/play.js",
+      "sha256": "a9d5fd4fd5fa1e2a7f812aa629d3301a152129cd46b785817ddb74c91340a1ce"
+    },
+    {
+      "path": "src/render/bitmap-font.js",
+      "sha256": "d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3"
+    },
+    {
+      "path": "src/render/boat-details.js",
+      "sha256": "1ac83ae8bbd3c46351aa34c1551bef3a2ad5518a39015cb0bfbbf0c4eca58e94"
+    },
+    {
+      "path": "src/render/boat-panels.js",
+      "sha256": "47beffd07591895e1281574096e09b78326bd7b5b8e66609fffd5db89c1d37c6"
+    },
+    {
+      "path": "src/render/boat-primitives.js",
+      "sha256": "8a5e29e957e25a84a8802c6af35da1fbc3220969c8a170781e2fa60825573afe"
+    },
+    {
+      "path": "src/render/boat-rigging.js",
+      "sha256": "1b9c974586343cc45c4e656fab0513da6cae24d80af5236035224075200b982b"
+    },
+    {
+      "path": "src/render/boat.js",
+      "sha256": "f120e3fb2d2dbe9ceee3809224014c3202a2b7a422e7e98db3c937b4055695b8"
+    },
+    {
+      "path": "src/render/chart-boat.js",
+      "sha256": "9adbf5bc5ee79af0bfbbd70f3145424db5a8ad886fd07d7b44243d77d175aaef"
+    },
+    {
+      "path": "src/render/chart-details.js",
+      "sha256": "f16f7ed60cc019f123f80f2c9ec15bd803071f2c73982e5ffcdc79b16ebfa52d"
+    },
+    {
+      "path": "src/render/chart-labels.js",
+      "sha256": "4d3dbc8a24f13b5bf7ba36508e73b1cf96668f9b0fe8733157962a7e49d62cad"
+    },
+    {
+      "path": "src/render/chart-overlays.js",
+      "sha256": "a1ad0f889fb894b794b15a81b732c4af02949da12475ba9ca20ddb6dbda0e96f"
+    },
+    {
+      "path": "src/render/chart-symbols.js",
+      "sha256": "998b23f53790fb0c5fe87d84ae5a47bd920e726312e8396e2f960f35aecfae97"
+    },
+    {
+      "path": "src/render/chart-terrain.js",
+      "sha256": "5cddc624eda543c39af917a2a3dd246ff81847db8cf7ab31d020b8fa65e40219"
+    },
+    {
+      "path": "src/render/chart.js",
+      "sha256": "dcd47dc4b945dc0eb0f1eb76cf6b060bdbaa807e310f9ec996f5ffc0d8722c2e"
+    },
+    {
+      "path": "src/render/crew-drawing.js",
+      "sha256": "cd296dab673c074cbf8595de9ae51c9beedfc3c974694469a4837ef80bf4f56a"
+    },
+    {
+      "path": "src/render/crew-geometry.js",
+      "sha256": "aa8412e664985ddfff67054aa9d65874b11e2d79df13c9830a1b290aad7d9ddf"
+    },
+    {
+      "path": "src/render/gdi-objects.js",
+      "sha256": "153aa996c32052347a4c9f1e20ac8f176e8d71008e07a0d970e6dc711b1f51a3"
+    },
+    {
+      "path": "src/render/gdi.js",
+      "sha256": "45d1ac32ed6ef1f33fa45c5a230355ddec48d50d7e4dc299722300d7a7ba0c3a"
+    },
+    {
+      "path": "src/render/headsails.js",
+      "sha256": "e2d04d7ee00de7fd03dd6b52759bd69f6acdc50f13e5c8152581299a314f70c1"
+    },
+    {
+      "path": "src/render/hud.js",
+      "sha256": "fd557ff793727f582eec8366fd4ded08ef8d226e87fc16a8e17c0f2902706250"
+    },
+    {
+      "path": "src/render/paint-lifecycle.js",
+      "sha256": "0322085f7343502cff3c47e609e553bb007ff0c206a21b592ba7517aa4022905"
+    },
+    {
+      "path": "src/render/projection.js",
+      "sha256": "2df72c858e98745c771a943b599d87ec2fd693e6f8783932e7dd9fb98d8f8822"
+    },
+    {
+      "path": "src/render/sail-geometry.js",
+      "sha256": "a80ef9f7b2d5f9da4b67c9de09656e8792a8cb295b99759db36078b319ceb61b"
+    },
+    {
+      "path": "src/render/scene-objects.js",
+      "sha256": "379737b102e37c11bc2da72678c7f7636ce309807f2a980c1a4eeb4e73c21fec"
+    },
+    {
+      "path": "src/render/scene-wind.js",
+      "sha256": "c77c9c371c6f02ebdb745ca30b0692ec957544bd36c95978426cdae58d5c5fcd"
+    },
+    {
+      "path": "src/render/scene.js",
+      "sha256": "6d53f987449828b7200d4db3667320a5e1ad881386c22d661f318b75b2f29980"
+    },
+    {
+      "path": "src/render/screens.js",
+      "sha256": "f38b7c23067a4f31c9fab3e825cbba1157441a201a779278095a505589cdf141"
+    },
+    {
+      "path": "src/render/shore-stack.js",
+      "sha256": "9ac426f85d71da8242cb82cfa70a9b2b5ce212a51e35ae2c18d01d1e129b6f9f"
+    },
+    {
+      "path": "src/render/shore.js",
+      "sha256": "f0533c2480c0ec0882c2f488b46eb38169adc11ea9d1e2885d72f80ce36ca30e"
+    },
+    {
+      "path": "src/render/sky.js",
+      "sha256": "0adff077a05846fc114cf7350e70f83618806270d4628efee1cf4b0f7c91b177"
+    },
+    {
+      "path": "src/render/tutorial-basics.js",
+      "sha256": "b2405f3545e6aed4480506faf81eea8423ecbce3ef681460eb98475e583ef3ee"
+    },
+    {
+      "path": "src/render/tutorial-controls.js",
+      "sha256": "a18147428d70e2912e16fcd1a1f481459d42ebca4d8199253bfe59ac71fdef1b"
+    },
+    {
+      "path": "src/render/tutorial-pages.js",
+      "sha256": "316a59dd1ec7a288ccf6452fc6a738f9ba795f8b800713b85d4e8af78e56023b"
+    },
+    {
+      "path": "src/render/tutorial-source.js",
+      "sha256": "0c7341cd8bd38c763b12a87ef33bcdee9a3065639a9cab673e1bd9a241a69893"
+    },
+    {
+      "path": "src/render/tutorials.js",
+      "sha256": "7af5f0f2ba2b7dafedec719bff432127e80ccc72e4aef5f8d94c9a0538d3d0df"
+    },
+    {
+      "path": "src/render/water.js",
+      "sha256": "caf619bdef4a0562384de7d8db4307a19ebd77963209659d30780766bedd7087"
+    },
+    {
+      "path": "src/runtime/atan.js",
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
+    },
+    {
+      "path": "src/runtime/c-types.js",
+      "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
+    },
+    {
+      "path": "src/runtime/certified-sqrt.js",
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "src/runtime/double-double.js",
+      "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
+    },
+    {
+      "path": "src/runtime/index.js",
+      "sha256": "cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72"
+    },
+    {
+      "path": "src/runtime/memory.js",
+      "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
+    },
+    {
+      "path": "src/runtime/original-data.js",
+      "sha256": "e01adcb3fff46e27d840edbc88b028594b50cd7862d7bfafe22ea94610b0410c"
+    },
+    {
+      "path": "src/runtime/output-interval.js",
+      "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7"
+    },
+    {
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
+    },
+    {
+      "path": "src/wind-panel.js",
+      "sha256": "fdc2d16fce4a2ee4dbac83edf8a15928864e530772a828f50449a15f0fdf207d"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-functions.js",
+      "sha256": "8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-geometry.js",
+      "sha256": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai.js",
+      "sha256": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913"
+    },
+    {
+      "path": "versions/2010-en/src/engine/apparent-wind.js",
+      "sha256": "bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/application.js",
+      "sha256": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-dynamics.js",
+      "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-options.js",
+      "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252"
+    },
+    {
+      "path": "versions/2010-en/src/engine/configuration.js",
+      "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/controller-values.js",
+      "sha256": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0"
+    },
+    {
+      "path": "versions/2010-en/src/engine/course.js",
+      "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97"
+    },
+    {
+      "path": "versions/2010-en/src/engine/current.js",
+      "sha256": "5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117"
+    },
+    {
+      "path": "versions/2010-en/src/engine/custom-venue.js",
+      "sha256": "074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/dialogs.js",
+      "sha256": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/frame.js",
+      "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+    },
+    {
+      "path": "versions/2010-en/src/engine/initialization.js",
+      "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39"
+    },
+    {
+      "path": "versions/2010-en/src/engine/integration.js",
+      "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/keyboard.js",
+      "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf"
+    },
+    {
+      "path": "versions/2010-en/src/engine/menu-controller.js",
+      "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+    },
+    {
+      "path": "versions/2010-en/src/engine/mouse.js",
+      "sha256": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/movement-history.js",
+      "sha256": "7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/movement.js",
+      "sha256": "e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/native-trig.js",
+      "sha256": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181"
+    },
+    {
+      "path": "versions/2010-en/src/engine/penalties.js",
+      "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496"
+    },
+    {
+      "path": "versions/2010-en/src/engine/port.js",
+      "sha256": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856"
+    },
+    {
+      "path": "versions/2010-en/src/engine/race-targets.js",
+      "sha256": "f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/snapshot-maps.js",
+      "sha256": "e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/snapshots.js",
+      "sha256": "9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/spatial-metrics.js",
+      "sha256": "a3f67ff26558b0a1b2e8b3567a168f611674b31fc5dc20096cb75ce9bf77bee7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/starting-positions.js",
+      "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2"
+    },
+    {
+      "path": "versions/2010-en/src/engine/steering.js",
+      "sha256": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/terrain.js",
+      "sha256": "da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/venue-definitions.js",
+      "sha256": "5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/venue-geometry.js",
+      "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wave-motion.js",
+      "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/waypoints.js",
+      "sha256": "1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind-initialization.js",
+      "sha256": "f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind.js",
+      "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-output-fast.js",
+      "sha256": "4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-projection-fast.js",
+      "sha256": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart.js",
+      "sha256": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088"
+    },
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "sha256": "6f98471599de0e35fc97397fa8024168909f0eb4eb6833854508acd6bb434887"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "sha256": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "sha256": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963"
+    },
+    {
+      "path": "versions/2010-en/src/render/gdi.js",
+      "sha256": "2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae"
+    },
+    {
+      "path": "versions/2010-en/src/render/host.js",
+      "sha256": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68"
+    },
+    {
+      "path": "versions/2010-en/src/render/hud.js",
+      "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c"
+    },
+    {
+      "path": "versions/2010-en/src/render/index.js",
+      "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b"
+    },
+    {
+      "path": "versions/2010-en/src/render/paint-lifecycle.js",
+      "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-fast.js",
+      "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-output-fast.js",
+      "sha256": "10bb48f75cbb7d56d627afdb2edda673d2868c617d9a201bf03a3818b26d764c"
+    },
+    {
+      "path": "versions/2010-en/src/render/render-functions.js",
+      "sha256": "e09a0c535739b3bceb60aca75d8d7edaab9e3c1cfff215d55ec830cd9a7ab31c"
+    },
+    {
+      "path": "versions/2010-en/src/render/sail-geometry.js",
+      "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281"
+    },
+    {
+      "path": "versions/2010-en/src/render/scalar-stack.js",
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "path": "versions/2010-en/src/render/scene-depth.js",
+      "sha256": "834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4"
+    },
+    {
+      "path": "versions/2010-en/src/render/scene.js",
+      "sha256": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace"
+    },
+    {
+      "path": "versions/2010-en/src/render/screen-helper-functions.js",
+      "sha256": "54d2b3ef7929729736cd7a7c2de80d457bae9ad39681f1c58a5f7c598cbb1380"
+    },
+    {
+      "path": "versions/2010-en/src/render/screens.js",
+      "sha256": "c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d"
+    },
+    {
+      "path": "versions/2010-en/src/render/shore-stack.js",
+      "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1"
+    },
+    {
+      "path": "versions/2010-en/src/render/text.js",
+      "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-controls.js",
+      "sha256": "39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-pages.js",
+      "sha256": "1e80d2c6bb1c137fd2c57885858c60eb35721d28675434b108d5ca1535856128"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/browser-clock.js",
+      "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/original-data.js",
+      "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
+    }
+  ],
+  "compilerPins": [
+    {
+      "path": "versions/2010-en/tools/floating_drawing.py",
+      "sha256": "e532409fd141fe6bdc53ac5e69f8fcb004dbc3ea10c706b3f76017b2f8763e96"
+    },
+    {
+      "path": "versions/2010-en/tools/translate_drawing.py",
+      "sha256": "7513f2e4c742ca9cd938eed5fcab39c439e16c2c06cebe7dc0c341f33f2fb2c5"
+    },
+    {
+      "path": "versions/2010-en/tools/translate_drawing_closure.py",
+      "sha256": "5762765269eb7c5f659b4ff889044b47f9486d47ad0afe21b91ccf8472d49f98"
+    },
+    {
+      "path": "versions/2010-en/tools/test_floating_drawing.py",
+      "sha256": "fca7248732170a4557f8a9f5b8e26bd27087d7fdb11ba95e1cee63d6ad891423"
+    },
+    {
+      "path": "versions/2010-en/tools/optimize_static_locals.py",
+      "sha256": "c0c7fc3e514cb060403ff8cb5143329ec6f327b796e02a488eb548784d8af4f5"
+    },
+    {
+      "path": "versions/2010-en/tools/fuse_chart_windows.py",
+      "sha256": "9de8dec9916ce1fa16e8cd480fb974b75079ee87128f220ef3845b244280321a"
+    },
+    {
+      "path": "versions/2010-en/tools/optimize_shore_private_locals.py",
+      "sha256": "204106a146e42315c5a98d3cc39519fba5a082d93ad61c86461b28cc1f6f4c45"
+    }
+  ],
+  "projectionLeafDiagnostic": {
+    "command": "node versions/2010-en/tools/diagnostics/measure-projection-output.mjs",
+    "report": "versions/2010-en/analysis/browser-performance/projection-output-leaf-throughput.json",
+    "note": "This earlier receipt covers selector0 before singleton arithmetic and selector5 extension; it does not estimate browser FPS or the latest candidate performance."
+  },
+  "sourceSnapshotExceptions": [],
+  "replayLogSha256": "f38016c61b75534ad537886c1470c5c3f395c37183e139882dd39117d6b1ce41",
+  "focusedProofLogs": [
+    {
+      "name": "251 original byte-body audit plus43 focused drawing tests",
+      "sha256": "9978ce06c8a04fab338a63ec7deb5d28867ff1cde5fe05989c9830d9f05c535f"
+    },
+    {
+      "name": "three Number compiler boundaries",
+      "sha256": "4dd1b1e8f95b8d448ca7cf0c5542d3beaa6d56203cab6f3b25e5060b41917970"
+    }
+  ],
+  "newCompilerProofs": [
+    {
+      "address": 4612912,
+      "function": "originalDrawing00466330",
+      "eligible": true,
+      "floatingOperations": 215,
+      "reasons": [],
+      "scalarLocals": true,
+      "scalarMode": "partial",
+      "slots": [
+        {
+          "offset": 0,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 4,
+          "size": 8,
+          "kind": "float"
+        },
+        {
+          "offset": 12,
+          "size": 8,
+          "kind": "float"
+        },
+        {
+          "offset": 20,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 24,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 264,
+          "size": 8,
+          "kind": "float"
+        },
+        {
+          "offset": 280,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 308,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 552,
+          "size": 8,
+          "kind": "float"
+        }
+      ],
+      "retainedByteRanges": [
+        {
+          "start": 256,
+          "end": 264
+        },
+        {
+          "start": 272,
+          "end": 280
+        }
+      ],
+      "induction": {
+        "iterations": 18,
+        "floatStep": 8,
+        "intStep": 4,
+        "postTestLimit": 137
+      },
+      "scalarAccesses": 115,
+      "arrays": [
+        {
+          "offset": 396,
+          "size": 4,
+          "kind": "int",
+          "length": 18
+        },
+        {
+          "offset": 476,
+          "size": 4,
+          "kind": "int",
+          "length": 18
+        },
+        {
+          "offset": 568,
+          "size": 8,
+          "kind": "float",
+          "length": 18
+        },
+        {
+          "offset": 728,
+          "size": 8,
+          "kind": "float",
+          "length": 18
+        }
+      ],
+      "arrayAccesses": 128,
+      "floatingByteStoreExpressions": 57,
+      "floatingPointerLoadExpressions": 0,
+      "localConcatLoadExpressions": 2,
+      "floatingParameters": [
+        1,
+        2
+      ],
+      "fixedNumberArguments": 4,
+      "certifiedProjectionOutput": false,
+      "exactChartProjection": false
+    },
+    {
+      "address": 4621376,
+      "function": "originalDrawing00468440",
+      "eligible": true,
+      "floatingOperations": 69,
+      "reasons": [],
+      "scalarLocals": false,
+      "floatingByteStoreExpressions": 11,
+      "floatingPointerLoadExpressions": 1,
+      "localConcatLoadExpressions": 0,
+      "floatingParameters": [
+        5
+      ],
+      "fixedNumberArguments": 10,
+      "certifiedProjectionOutput": false,
+      "exactChartProjection": false,
+      "certifiedChartWindows": {
+        "eligible": true,
+        "address": 4621376,
+        "caseTableSha256": "697bfce630b29a4aca69903158e73712f1da33a9ed22745666b3b12fa25675c4",
+        "prefixSha256": "625a80c189b5aecd83053d048ba0b696056d2e8f9e76a0775fb5dd8c4292efc2",
+        "windows": [
+          {
+            "entry": 284,
+            "successor": 266
+          },
+          {
+            "entry": 263,
+            "successor": 244
+          }
+        ],
+        "deadFloatingTemporary": {
+          "offset": 272,
+          "bytes": 8,
+          "remainingLowWordConsumer": 63,
+          "conditionalLowWordReplacement": 68
+        },
+        "safeFormalCapture": {
+          "floatScaleArgument": 4,
+          "integerCenters": [
+            2,
+            3
+          ]
+        },
+        "dependencyIdentityGuard": "0x43ec20"
+      }
+    },
+    {
+      "address": 4713792,
+      "function": "originalDrawing0047ed40",
+      "eligible": true,
+      "floatingOperations": 10,
+      "reasons": [],
+      "scalarLocals": true,
+      "scalarMode": "partial",
+      "slots": [
+        {
+          "offset": 0,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 256,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 260,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 268,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 272,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 276,
+          "size": 4,
+          "kind": "int"
+        },
+        {
+          "offset": 280,
+          "size": 4,
+          "kind": "int"
+        }
+      ],
+      "retainedByteRanges": [
+        {
+          "start": 264,
+          "end": 268
+        },
+        {
+          "start": 300,
+          "end": 920
+        }
+      ],
+      "induction": {
+        "writeIndices": [
+          1,
+          72
+        ],
+        "readIndices": [
+          1,
+          71
+        ],
+        "readSteps": [
+          1,
+          2
+        ]
+      },
+      "scalarAccesses": 326,
+      "pointerCalleeSha256": {
+        "cI32": "4945bf329b40ed09201c3fa21715c841332f779f9af6e9adbb9a1678fe47817d",
+        "pointerAdd": "e96b44a00909aedecc8ab99415f3daf5094e226c152cb16179560fb463304a3a",
+        "cAdd": "bfe75acd8a09a6ea7122a8aefd4257d4fca5159a8e9943f6e5b4ee69659e9f43",
+        "readPointer": "8ad9a3edfbd091ed525db01a6a4c1be58da192eccb7851b5234fccbb0d8e7d88",
+        "writePointer": "42df05c07af66352861d80502c7c42efde3b65d46703be0a4b3f74411756e4bf",
+        "writeLocalPoint": "525c13dadfd6bc58b16771af21d749ef8503a83809a0dc02d4abc4be1e48da99"
+      },
+      "floatingByteStoreExpressions": 0,
+      "floatingPointerLoadExpressions": 3,
+      "localConcatLoadExpressions": 0,
+      "floatingParameters": [],
+      "fixedNumberArguments": 2,
+      "certifiedProjectionOutput": false,
+      "exactChartProjection": false
+    }
+  ],
+  "browserSchedulerEvidence": {
+    "report": "versions/2010-en/analysis/browser-performance/speed-ten-default-arrays-chart.json",
+    "sha256": "297534686e9e6b478c77fd6abaa6d8f12011a0b81d6a32f231d02a4542108a23",
+    "scope": "Separate isolated headless Chrome evidence on the immediately preceding arrays/chart graph, before final shoreline scalarization, for genuine continuous MessageChannel paints and real simulation-clock progress. The report pins its own tested modules; it is neither native state/GDI proof nor the final shoreline performance receipt.",
+    "frames": 120,
+    "framesPerSecond": 26.072477104404342,
+    "meanFrameMilliseconds": 37.62083333271245,
+    "reportedExceptions": 0,
+    "simulationClockUnitsPerWallSecond": 5.31464576945969
+  }
+}

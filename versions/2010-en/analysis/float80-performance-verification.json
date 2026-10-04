@@ -1,6 +1,12 @@
 {
   "kind": "Exact Float80 PC53 acceleration verification",
-  "sourceHash": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b",
+  "sourceHash": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba",
+  "sourceDependencies": [
+    {
+      "path": "src/runtime/certified-sqrt.js",
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    }
+  ],
   "baselineCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
   "baselineSourceHash": "a71e5aff8342af6bf603d03b07a827a3f71aaa6ba97effb09760fca1c224d5bc",
   "probeSource": "tools/capture_precision_native.c",
@@ -24,20 +30,20 @@
     "medianOf": 5,
     "description": "fromNumber plus multiply/add/divide/subtract chain and binary64/int32 stores",
     "uniqueValues": {
-      "baselineMs": 474.8318140000001,
-      "acceleratedMs": 20.98667599999999,
-      "speedup": 22.625394035720586
+      "baselineMs": 451.77153799999996,
+      "acceleratedMs": 18.75773900000013,
+      "speedup": 24.08454121256282
     },
     "repeated512Values": {
-      "baselineMs": 485.561025,
-      "acceleratedMs": 19.4839979999997,
-      "speedup": 24.921015953707624
+      "baselineMs": 458.46594600000026,
+      "acceleratedMs": 19.818226000000323,
+      "speedup": 23.13355120685337
     },
     "sqrt": {
-      "baselineMs": 174.03602899999987,
-      "acceleratedMs": 21.052560000000085,
-      "speedup": 8.266739484414208
+      "baselineMs": 167.6690410000001,
+      "acceleratedMs": 6.957462999999734,
+      "speedup": 24.099163876258704
     }
   },
-  "limitations": "Microbenchmarks are not browser frame timing; native x87 evidence is from the current x86 host. Math.sqrt supplies a candidate only: exact squared integer midpoint comparisons certify PC53 rounding; failed certificates use the original BigInt square root."
+  "limitations": "Microbenchmarks are not browser frame timing; native x87 evidence is from the current x86 host. Math.sqrt supplies a candidate only: bounded exact-product residuals certify an inward PC53 rounding cell, followed by exact squared integer midpoint comparisons when needed; failed certificates use the original BigInt square root."
 }

@@ -66,6 +66,7 @@ class NumericTranslator(drawing.Translator):
                 raise ValueError('Unreviewed non-I32 tactical formal')
             self.stack.pop(parameter.name)
         self.parameter_offsets = {}
+        self.dead_stack_reads_elided = 0
 
     def expression_type(self, node):
         if isinstance(node, c_ast.Constant):
@@ -73,6 +74,21 @@ class NumericTranslator(drawing.Translator):
         return super().expression_type(node)
 
     def expr(self, node):
+        if (self.routine_address == 0x437e60 and isinstance(node, c_ast.BinaryOp)
+                and node.op == '&&' and isinstance(node.left, c_ast.BinaryOp)
+                and node.left.op == '<' and isinstance(node.left.left, c_ast.Constant)
+                and node.left.left.value == '0' and isinstance(node.left.right, c_ast.ID)
+                and node.left.right.name == 'local_1c' and isinstance(node.right, c_ast.BinaryOp)
+                and node.right.op == '==' and isinstance(node.right.left, c_ast.ID)
+                and node.right.left.name == 'iVar4' and isinstance(node.right.right, c_ast.Constant)
+                and node.right.right.value == '2'):
+            # 4380b6 reads [ESP+18] before the ESI==2 guard at 4380c2.
+            # That cell is initialized only on the two-boat path. With any
+            # other fleet both possible integer comparisons return at 4390f1,
+            # so the retained byte is dead and has no observable consequence.
+            # Guard its read rather than inventing a value for the native stack.
+            self.dead_stack_reads_elided += 1
+            return f'(cTruth({self.expr(node.right)}) && cTruth({self.expr(node.left)}))'
         if isinstance(node, c_ast.Cast):
             typ = drawing.base_type(node.to_type)
             if typ == 'double' and isinstance(node.expr, c_ast.BinaryOp) and node.expr.op == '<<':
@@ -218,12 +234,22 @@ def main():
             translated.append(translator.generate(name))
         except Exception as error:
             raise RuntimeError('%08x: %s' % (address, error)) from error
+        if translator.dead_stack_reads_elided != (1 if address == 0x437e60 else 0):
+            raise ValueError('Reviewed dead-stack conjunction no longer matches exactly once')
         records.append({'address': address, 'name': name, 'argumentCount': count,
             'source': str(path.relative_to(EDITION)), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'dependencies': sorted(translator.dependencies)})
     (EDITION/'src/engine/ai-functions.js').write_text(IMPORTS + '\n' + '\n\n'.join(translated) + '\n')
     (EDITION/'analysis/ai-translation-sources.json').write_text(json.dumps({'format': 1,
-        'sourceSha256': SHA, 'tool': 'tools/translate_ai.py', 'parser': 'pycparser2.23', 'routines': records}, indent=2) + '\n')
+        'sourceSha256': SHA, 'tool': 'tools/translate_ai.py', 'parser': 'pycparser2.23',
+        'semanticCorrections': [{
+            'address': 0x437e60, 'kind': 'guard-unobservable-retained-stack-read',
+            'originalLoad': {'address': 0x4380b6, 'bytes': '8b442418'},
+            'originalFleetGuard': {'address': 0x4380c2, 'bytes': '83fe02'},
+            'original': '(0 < local_1c) && (iVar4 == 2)',
+            'translated': '(iVar4 == 2) && (0 < local_1c)',
+            'reason': 'For fleet != 2, the cell is uninitialized and both comparison outcomes return without additional stores. The initialized two-boat path retains its original comparison.'
+        }], 'routines': records}, indent=2) + '\n')
     print('Translated %d complete original English tactical routines' % len(translated))
 
 if __name__ == '__main__':

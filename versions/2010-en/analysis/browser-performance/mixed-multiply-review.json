@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "status": "exact",
+  "findings": [],
+  "cases": 20000,
+  "images": 60000,
+  "otherPrecisionImages": 512,
+  "nativeImages": 93,
+  "accepted": 19996,
+  "declined": 4,
+  "scope": "All2048low-bit residues around four rounding/power-of-two boundaries, random bounded m80×binary64 pairs, both operand orders, primitive Number entry, alternate controls and existing native multiplication captures. Microtiming compares only the additive branch and operand carrier allocation against the same source with that optimization removed.",
+  "sourcePins": [
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
+    },
+    {
+      "path": "src/runtime/certified-sqrt.js",
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "tools/diagnostics/review-mixed-multiply.mjs",
+      "sha256": "9fdf39c5a365cac895e9006ddb7924a2d676e53121982c02a551eca184b77364"
+    }
+  ],
+  "benchmark": {
+    "callsPerSample": 20000,
+    "samples": [
+      {
+        "current": 3.7092359999999758,
+        "baseline": 12.186680000000024
+      },
+      {
+        "current": 3.758938999999998,
+        "baseline": 12.214231999999981
+      },
+      {
+        "current": 3.2391399999999635,
+        "baseline": 12.799894999999992
+      },
+      {
+        "current": 3.4822279999999637,
+        "baseline": 12.535908000000006
+      },
+      {
+        "current": 3.2876110000000267,
+        "baseline": 12.677364000000011
+      },
+      {
+        "current": 3.4698340000000485,
+        "baseline": 12.473921000000018
+      },
+      {
+        "current": 3.3644160000000056,
+        "baseline": 12.211437000000046
+      }
+    ],
+    "currentMedian": 3.4698340000000485,
+    "baselineMedian": 12.473921000000018,
+    "speedup": 3.594961891548657,
+    "scope": "Isolated leaf method; no browser FPS inference."
+  }
+}

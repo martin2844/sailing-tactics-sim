@@ -1,0 +1,45 @@
+✔ bounded double-double arithmetic retains cancellation and division correction beyond binary64 (2.006891ms)
+✔ fixed conversions preserve the low component and truncate both signs within two units (0.376541ms)
+✔ exact binary64 ratio correction stays bounded across both large-operand domain edges (0.819138ms)
+✔ Number trigonometric cache keeps signs, precision controls, finite validation and immutable images (5.140251ms)
+✔ Number trigonometric retention is bounded and clears when the control word changes (30.621379ms)
+✔ Number drawing trigonometry calls an explicit provider with the original Float80 operand (0.425955ms)
+✔ interval certification preserves exact m80 ties, signs, underflow and exponent limits at every PC (3.702274ms)
+✔ safe BigInt integer loads retain identical m80 images, integer returns and arithmetic precision (2.760715ms)
+✔ typed floating Number arithmetic keeps exact m80 under every supported precision (175.129356ms)
+✔ typed loads, integer conversions, binary64 spills and forwarding retain signed zero and failures (1.552985ms)
+✔ Number drawing dispatch preserves retained/custom host paths without reading callback getters (0.33865ms)
+✔ Number scalar storage preserves deferred nonfinite errors, unknown arguments and semantic values (0.400115ms)
+✔ numeric F64 formals distinguish exact floating images from original integer arguments (0.676378ms)
+✔ large retained frames preserve byte images and validity across every 32-byte boundary (5.32993ms)
+✔ large frame semantics, partial overwrites and public storage changes stay visible to escaped pointers (0.606255ms)
+✔ high aligned writes retain exact bounds, undefined inputs and failing host coercions (0.663203ms)
+✔ direct Number loads preserve the exact binary64 images, signed zeros and extended-load failures (9.787821ms)
+✔ direct Number loads preserve semantic slots, array replacements and strict unknown/bounds errors (0.759345ms)
+✔ private numeric calls preserve each stored F64 image and the original DC argument mapping (4.492918ms)
+✔ custom callbacks, original-only callees and non-PC53 calls retain boxed external floating arguments (0.685626ms)
+✔ floating actual arguments to integer formals retain the original truncation and raw-word representation (0.351765ms)
+✔ changed public DC registration metadata declines the private numeric ABI (0.308503ms)
+✔ owned compiler arguments remove DC in place while public arrays and fallback callbacks retain their contract (0.639188ms)
+✔ floating masks preserve position31 and array fallback handles position32 without shift-count aliasing (0.334422ms)
+✔ bounded camera projection matches the unchanged byte translation across camera changes and exact Float80 arguments (81.477567ms)
+✔ projection preserves signed zero, coincident points and mutated camera constants (5.149709ms)
+✔ custom trig/atan callbacks and explicitly retained local frames keep the original invocation semantics (3.648683ms)
+✔ non-PC53 control words, extended/subnormal arithmetic and malformed arguments decline without target writes (12.852301ms)
+✔ raw floating pointer loads preserve binary64 images and all other pointer dispatch (12.132951ms)
+✔ fused local DWORD floating loads retain every finite/nonfinite image in packed and public byte frames (25.224314ms)
+✔ fused local floating loads preserve high-word-first failures, semantic words and wraparound (2.167314ms)
+✔ raw floating pointer loads keep inherited numeric events and their getter order (0.364218ms)
+✔ floating Number stores preserve binary64 images and alias validity across packed and public frames (36.820111ms)
+✔ floating stores keep conversion failures, deferred infinity reads and signed-zero origins (1.351884ms)
+✔ direct DWORD-to-binary64 loads match complete original CONCAT44 decoding, including signed zero and nonfinite failures (29.054469ms)
+✔ unusual DWORD arguments retain the complete original coercion and failure path (1.88955ms)
+✔ fused floating FTOL64 and low-DWORD casts preserve the existing signed and unsigned results and overflow checks (1.249441ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 332.232265

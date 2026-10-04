@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "status": "exact",
+  "findings": [],
+  "scope": "Independent interval/constructor differential against15fd6ac and unrounded80/112-bit candidate bounds plus final m80 outputs against the unchanged original224-bit algorithm atfb856db; fixed-seed finite corpus and separately established analytic enclosure bounds. This is not a universal claim about vendor transcendental approximations.",
+  "comparisons": {
+    "constructors": 18000,
+    "intervals": 18000,
+    "integerLoads": 9000,
+    "atanBounds": {
+      "80": {
+        "candidates": 8388,
+        "maximumUnits": 3.8450508712159666
+      },
+      "112": {
+        "candidates": 8388,
+        "maximumUnits": 7.481703817282234
+      }
+    },
+    "trigBounds": {
+      "80": {
+        "components": 4400,
+        "maximumUnits": 1.99788457383932
+      },
+      "112": {
+        "components": 4400,
+        "maximumUnits": 3.5949110952489898
+      }
+    },
+    "atanOutputs": 21600,
+    "trigOutputs": 13200
+  },
+  "originalSources": [
+    {
+      "commit": "15fd6ac",
+      "path": "src/runtime/float80.js",
+      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+    },
+    {
+      "commit": "fb856db",
+      "path": "src/runtime/atan.js",
+      "sha256": "e790c4353052bca3c438190ec2f03d742a13c87eec6af921b08bf2dde5db71b0"
+    },
+    {
+      "commit": "fb856db",
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "f74b7269d8e6e29704eb18ecd370157d71d44e266dea1338d53f217dd6c493bb"
+    }
+  ],
+  "reviewedSources": [
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "4bd6531193d2c5b32167352ff188a28e7baa66389ff34ab46aa22c28578940d6"
+    },
+    {
+      "path": "src/runtime/atan.js",
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
+    },
+    {
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
+    }
+  ],
+  "analyticBounds": {
+    "interval": "Both endpoints are rounded by the same64-bit normalized() function as the previous public constructor. Monotonic nearest/even rounding certifies the complete interval only if canonical sign, mantissa and exponent agree; crossing signed zero remains uncertified.",
+    "atan": "Exact nearest k/64 anchors leave residual magnitude<=1/128. Single quotient adds<1unit, original224-bit table truncation<1unit, initial ratio truncation<1unit; the existing229-unit series bound, PI/quadrant operations and negligible224-bit algorithm errors remain below244candidateunits at80/112 bits, within1024.",
+    "sinCos": "The twelve-term quick polynomial has cos remainder S80/24!<2units and sin remainder S80/25!<1unit. Coefficient truncation<12units, eleven Horner truncations<11units, squared-input error<1unit (coefficient derivative sum<1), angle truncation<1unit and final sine multiply<1unit. Original224-bit error is negligible; total<30units. The112-bit series retains its previous<262-unit bound."
+  }
+}

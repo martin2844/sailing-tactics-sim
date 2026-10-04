@@ -59,13 +59,13 @@
     },
     {
       "path": "src/render/gdi.js",
-      "bytes": 10430,
-      "sha256": "ece9711e627d94cb35fdd263da4ead8d821eee3804e4a01e7986c1938cdf4524"
+      "bytes": 11258,
+      "sha256": "45d1ac32ed6ef1f33fa45c5a230355ddec48d50d7e4dc299722300d7a7ba0c3a"
     },
     {
       "path": "src/runtime/atan.js",
-      "bytes": 6521,
-      "sha256": "84dee62628d0444a38d248d91f660350fb231023cf73ab75c0452c60645d2a12"
+      "bytes": 11155,
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
     },
     {
       "path": "src/runtime/c-types.js",
@@ -73,9 +73,19 @@
       "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
     },
     {
+      "path": "src/runtime/certified-sqrt.js",
+      "bytes": 2146,
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "src/runtime/double-double.js",
+      "bytes": 1359,
+      "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff"
+    },
+    {
       "path": "src/runtime/float80.js",
-      "bytes": 19322,
-      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+      "bytes": 24999,
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
     },
     {
       "path": "src/runtime/index.js",
@@ -88,9 +98,14 @@
       "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
     },
     {
+      "path": "src/runtime/output-interval.js",
+      "bytes": 6815,
+      "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7"
+    },
+    {
       "path": "src/runtime/transcendentals.js",
-      "bytes": 7125,
-      "sha256": "d75d9e92a828686735734b1f76ddce51db217acb6c1e67dc33dfc63d55b2e2f4"
+      "bytes": 14799,
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
     },
     {
       "path": "THIRD-PARTY-NOTICES.md",
@@ -325,7 +340,7 @@
     {
       "path": "versions/2010-en/src/engine/ai-functions.js",
       "bytes": 185351,
-      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+      "sha256": "8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829"
     },
     {
       "path": "versions/2010-en/src/engine/ai-geometry.js",
@@ -509,8 +524,18 @@
     },
     {
       "path": "versions/2010-en/src/play.js",
-      "bytes": 15475,
-      "sha256": "8618ff9eebb225691610cfb18b4c2fab8365084e85a1bf1d66af7829b4f9f735"
+      "bytes": 15842,
+      "sha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-output-fast.js",
+      "bytes": 4827,
+      "sha256": "4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-projection-fast.js",
+      "bytes": 3673,
+      "sha256": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf"
     },
     {
       "path": "versions/2010-en/src/render/chart.js",
@@ -519,13 +544,18 @@
     },
     {
       "path": "versions/2010-en/src/render/dependencies.js",
-      "bytes": 4167,
-      "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+      "bytes": 7702,
+      "sha256": "6f98471599de0e35fc97397fa8024168909f0eb4eb6833854508acd6bb434887"
     },
     {
       "path": "versions/2010-en/src/render/drawing-functions.js",
-      "bytes": 3045056,
-      "sha256": "0024e2bc308d02a38ccd29d07b897993c0a657b8ec97050ac2aa47d48e850b1c"
+      "bytes": 5603616,
+      "sha256": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "bytes": 6479,
+      "sha256": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963"
     },
     {
       "path": "versions/2010-en/src/render/gdi.js",
@@ -553,9 +583,19 @@
       "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
     },
     {
+      "path": "versions/2010-en/src/render/projection-fast.js",
+      "bytes": 5856,
+      "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-output-fast.js",
+      "bytes": 4656,
+      "sha256": "10bb48f75cbb7d56d627afdb2edda673d2868c617d9a201bf03a3818b26d764c"
+    },
+    {
       "path": "versions/2010-en/src/render/render-functions.js",
-      "bytes": 377315,
-      "sha256": "ec4854a097e03aab2eefa6434e8245cf29240444d1ca1b89be432357a37c3f5e"
+      "bytes": 623272,
+      "sha256": "e09a0c535739b3bceb60aca75d8d7edaab9e3c1cfff215d55ec830cd9a7ab31c"
     },
     {
       "path": "versions/2010-en/src/render/sail-geometry.js",
@@ -579,8 +619,8 @@
     },
     {
       "path": "versions/2010-en/src/render/screen-helper-functions.js",
-      "bytes": 148106,
-      "sha256": "0d8d39b604c706bd77104973693567eaf93a4915585f8f31db2baf6d8bfc83f6"
+      "bytes": 148890,
+      "sha256": "54d2b3ef7929729736cd7a7c2de80d457bae9ad39681f1c58a5f7c598cbb1380"
     },
     {
       "path": "versions/2010-en/src/render/screens.js",
@@ -604,13 +644,13 @@
     },
     {
       "path": "versions/2010-en/src/render/tutorial-pages.js",
-      "bytes": 1144666,
-      "sha256": "907f3e3d2b6665189eea134dec4cffb9f9d220077e214bb600832a02b4fd18d7"
+      "bytes": 1994998,
+      "sha256": "1e80d2c6bb1c137fd2c57885858c60eb35721d28675434b108d5ca1535856128"
     },
     {
       "path": "versions/2010-en/src/render/typed-c.js",
-      "bytes": 20064,
-      "sha256": "0a43ce405278c7c985098f873c7cd03b491af1ffa4f9e9505857e499fb1f33b5"
+      "bytes": 25909,
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
     },
     {
       "path": "versions/2010-en/src/runtime/browser-clock.js",
@@ -623,5 +663,5 @@
       "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
     }
   ],
-  "totalBytes": 7990409
+  "totalBytes": 11710413
 }

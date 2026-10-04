@@ -1,0 +1,44 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:00:00.693537Z",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "2010 asynchronous zero-delay paint scheduling and diagnostic observation. No simulation arithmetic, tick duration, frame advance or positive paint delay changes.",
+  "checks": [
+    "One MessageChannel is created and its callback is the hoisted paint function. Posting remains asynchronous; state.pending deduplicates both immediate and timed requests.",
+    "Positive delays retain the prior setTimeout route. Missing MessageChannel uses the original zero-delay timer fallback.",
+    "Ready/closed/error/modal request gating and nextPaint behavior are unchanged; a pending paint clears pending before its existing modal/closed/error early return.",
+    "The instrumentation intercepts the actual onmessage setter and wraps only callbacks named paint. Other message handlers remain uncounted, and timer measurement retains its original argument delivery."
+  ],
+  "validation": {
+    "isolatedActualFunctionTests": 3,
+    "allPassed": true,
+    "log": "versions/2010-en/analysis/browser-performance/paint-scheduler-review.log",
+    "sourceBrowserControlsReportedByParent": 119,
+    "browserPaceReportedByParent": {
+      "frames": 120,
+      "fps": 23.68,
+      "meanPaintMs": 41.38,
+      "exceptions": 0,
+      "scope": "Current pre-chart-window graph, default poststart settings. Scheduler instrumentation records both MessageChannel and timer paints."
+    }
+  },
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7"
+    },
+    {
+      "path": "tools/paint-measurements.js",
+      "sha256": "483060366797d18f2c478a5aef214fd80c6e898fb56e5719732fa8873d409b2c"
+    },
+    {
+      "path": "tools/profile-2010-browser.js",
+      "sha256": "9f1f6fc0afd8e2e0c0f3dfd0b57c2b9851d6957353b90e7cdc7df213384a713a"
+    },
+    {
+      "path": "versions/2010-en/tests/paint-scheduler-review.test.js",
+      "sha256": "452f4d0d9942426ef23bd88d00e2ac99b7d03975432ecd86a93cf278c69bf74f"
+    }
+  ]
+}

@@ -136,6 +136,11 @@ export class GdiTrace {
  * asserted to reproduce Windows GDI pixels.
  */
 export function createCanvasGdi(context, options = {}) {
+  // Opt-in only for a DC whose canvas is exclusively drawn through this sink
+  // during its lifetime. The browser paint creates a fresh DC for each frame.
+  // Every intervening GDI event except a read invalidates these tiny tiles.
+  const pixelTiles=options.cachePixelReads===true&&options.recordEvents===false
+    &&options.readPixel==null&&options.sink==null?new Map():null;
   const fillAndStroke = dc => {
     if (!dc.brush.null) { context.fillStyle = colorRefCss(dc.brush.color); context.fill('evenodd'); }
     if (!dc.pen.null) {
@@ -146,10 +151,22 @@ export function createCanvasGdi(context, options = {}) {
   };
   const readPixel = options.readPixel ?? ((x, y) => {
     if (x < 0 || y < 0 || x >= context.canvas.width || y >= context.canvas.height) return 0xffffffff;
+    if(pixelTiles){
+      const top=y-y%4,key=`${x}:${top}`;
+      let pixels=pixelTiles.get(key);
+      if(!pixels){
+        pixels=context.getImageData(x,top,1,Math.min(4,context.canvas.height-top)).data;
+        if(pixelTiles.size>=64)pixelTiles.clear();
+        pixelTiles.set(key,pixels);
+      }
+      const at=(y-top)*4;
+      return (pixels[at]|pixels[at+1]<<8|pixels[at+2]<<16)>>>0;
+    }
     const pixel = context.getImageData(x, y, 1, 1).data;
     return (pixel[0] | pixel[1] << 8 | pixel[2] << 16) >>> 0;
   });
   return new GdiTrace({ ...options, readPixel, sink(event, dc) {
+    if(event.op!=='getPixel')pixelTiles?.clear();
     if (options.sink) options.sink(event, dc);
     switch (event.op) {
       case 'messageBeep': options.messageBeep?.(event.type); break;

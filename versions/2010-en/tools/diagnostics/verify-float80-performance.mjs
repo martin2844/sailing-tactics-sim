@@ -133,6 +133,8 @@ current.setX87ControlWord(0x037f); original.setX87ControlWord(0x037f);
 const report = {
   kind:'Exact Float80 PC53 acceleration verification',
   sourceHash:createHash('sha256').update(readFileSync(join(root, 'src/runtime/float80.js'))).digest('hex'),
+  sourceDependencies:['src/runtime/certified-sqrt.js'].map(path=>({path,
+    sha256:createHash('sha256').update(readFileSync(join(root,path))).digest('hex')})),
   baselineCommit,
   baselineSourceHash:createHash('sha256').update(baseline.stdout).digest('hex'),
   probeSource:'tools/capture_precision_native.c',
@@ -140,7 +142,7 @@ const report = {
   differential:{loads:loadChecks,integerConversions:conversionChecks,arithmeticAcrossThreeControlWords:arithmeticChecks,extendedOperandArithmetic:extendedChecks,failures:0},
   nativeX87:{controlWord:'0x027f',cases:nativeCases.length,m80AndBinary64Comparisons:nativeCases.length*2,failures:0},
   benchmark:{runtime:process.version,rounds,medianOf:5,description:'fromNumber plus multiply/add/divide/subtract chain and binary64/int32 stores',uniqueValues:{baselineMs:oldMs,acceleratedMs:newMs,speedup:oldMs/newMs},repeated512Values:{baselineMs:oldRepeatedMs,acceleratedMs:newRepeatedMs,speedup:oldRepeatedMs/newRepeatedMs},sqrt:{baselineMs:oldSqrtMs,acceleratedMs:newSqrtMs,speedup:oldSqrtMs/newSqrtMs}},
-  limitations:'Microbenchmarks are not browser frame timing; native x87 evidence is from the current x86 host. Math.sqrt supplies a candidate only: exact squared integer midpoint comparisons certify PC53 rounding; failed certificates use the original BigInt square root.'
+  limitations:'Microbenchmarks are not browser frame timing; native x87 evidence is from the current x86 host. Math.sqrt supplies a candidate only: bounded exact-product residuals certify an inward PC53 rounding cell, followed by exact squared integer midpoint comparisons when needed; failed certificates use the original BigInt square root.'
 };
 writeFileSync(new URL('../../analysis/float80-performance-verification.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));

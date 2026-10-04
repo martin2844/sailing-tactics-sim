@@ -1,0 +1,107 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:00:00.693537Z",
+  "reviewer": "/root/ai_crash_fix",
+  "openFindings": [],
+  "scope": "Current numerical helpers, projection and chart kernels/closed windows, House partial scalarization, buffered pixel cache and paint scheduler. Shoreline scalar integration evidence is attributed to its author and the root reviewer.",
+  "receipts": [
+    {
+      "path": "versions/2010-en/analysis/browser-performance/projection-output-source-review.json",
+      "sha256": "6d203a778b9f37a3f748ec0b61f3c4f6f4ea2f6ff9f09c84aa2494da3aed6fb0"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/partial-scalar-source-review.json",
+      "sha256": "6edd6e19bdede2dd9a4bfb11d1563c3393fa5d13d41633b8d5f43fd1ccac6f18"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/gdi-pixel-cache-source-review.json",
+      "sha256": "738abd29e1c32f9694823d8c648c36b3155c50d16565b628f106529b53c9f4c8"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/paint-scheduler-source-review.json",
+      "sha256": "de1355a696fbd521887d0ad360a0b2c89cd1844ddfcb69ab049b6d3dcece9bd3"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/projection-output-interval-review.json",
+      "sha256": "653844f81690f7e41aa0b1a610acd0483d10afaabd7af4531b5d3b9d0408225b"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/double-double-review.json",
+      "sha256": "61882ae265266ef116eff0e0a8744946001ac658990ebd89344904a223dd6891"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/mixed-multiply-review.json",
+      "sha256": "df5eb9a2c3698a3a8a9388d243909b68bbbc42cf7037664a95bebd6c46c38a30"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/number-reduction-review.json",
+      "sha256": "1697fda8c4db7c136b3c5a8fe86f2296564fe8fa1bd792de5c0036abf32937f8"
+    }
+  ],
+  "toolingPins": [
+    {
+      "path": "tools/python-command.js",
+      "sha256": "25f9997ca4b72d26fdf43dd5c171111f118a0ab606f2c212db3d5dab6391c64b"
+    },
+    {
+      "path": "versions/2010-en/tests/chart-window-generator.test.js",
+      "sha256": "3cc9e01350b33fc5577319939c0c7420b72e754efc4c3d801e2b1f786635941a"
+    },
+    {
+      "path": "versions/2010-en/tests/partial-scalar-generator.test.js",
+      "sha256": "bc3abef08c93442fb3037fbd97ad019e6750b476f36d65f830ffd3229ef06318"
+    },
+    {
+      "path": "versions/2010-en/tests/shore-scalar-generator.test.js",
+      "sha256": "e536bc60991e50e2f0259af3ed07cd89ac88ff6ed7ca96c67b84fa6223544445"
+    },
+    {
+      "path": "versions/2010-en/README.md",
+      "sha256": "39efe55e5024715718abb7f52fca1c8c1bec845c76f50702f5e56694baeb70ef"
+    }
+  ],
+  "integrationEvidenceReportedByOwners": {
+    "nativeExecutions": 190,
+    "unchangedOriginalByteBodies": 251,
+    "drawingChecks": 43,
+    "scalarBoundaryChecks": 4,
+    "numberCompilerBoundaryChecks": 3,
+    "allPassed": true
+  },
+  "releaseEvidenceReportedByParent": {
+    "mainTests2002": 397,
+    "mainTests2010": 423,
+    "additionalShorelineTests": 4,
+    "sourceBrowserControls": 119,
+    "standaloneBrowserControls": 119,
+    "sourceFullModeChecks": 7,
+    "standaloneFullModeChecks": 7,
+    "edition2002ExportChecks": 10,
+    "allPassed": true,
+    "final2010Pace": {
+      "startupFps": 22.01,
+      "racingFps": 28.5,
+      "laterRacingFps": 29.6,
+      "standaloneFps": 28.96,
+      "errors": 0
+    }
+  },
+  "limitations": "This is a correctness review receipt. Responsiveness measurements, full-suite results, browser exports and repository publication are owned and reported by the parent agent.",
+  "resolvedFindings": [
+    {
+      "issue": "Full-I64 chart reference coordinate narrowed before later division.",
+      "fix": "Signed-I32 representability guard before reference stores.",
+      "verifiedBy": "Independent kernel and complete-window regressions."
+    },
+    {
+      "issue": "Shoreline proof could accept unpinned preheader induction writes.",
+      "fix": "Root reviewer required the complete 17-store lifetime ledger and mutation regressions.",
+      "verifiedBy": "Root source review and author tests; final native integration reported passing."
+    },
+    {
+      "issue": "Generator Node tests required a machine-local ignored Python executable.",
+      "fix": "Root supplied shared TACT_PYTHON/local/PATH selector and dependency documentation.",
+      "verifiedBy": "Independent selector/source review; runtime is unchanged."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+✔ partial scalar generation proves array bounds, alias disjointness and unchanged retained fallback (2097.259903ms)
+✔ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW7f (3.88704ms)
+✔ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW27f (0.528175ms)
+✔ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW37f (0.470326ms)
+✔ promoted I32 array stores retain signed wrapping and strict invalidation (0.849299ms)
+✔ array overflow spills fail only when loaded and can be overwritten (0.30797ms)
+✔ emitted CONCAT44 helper retains the zero-byte image of semantic F64 cells (0.200898ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2186.67401

@@ -1,0 +1,162 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:00:00.693537Z",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "Independent semantic and numerical review of bounded PC53 projection geometry, certified 43e730 outputs, exact 43ec20 chart leaf, 468440 chart arithmetic and closed CFG windows, and their scoped Number entry hooks. Retained, unsupported and custom callback contexts preserve original fallback behavior.",
+  "checks": [
+    "Each accepted subtraction/product/sum matches original RN53 in the normal binary64 range or proves exact zero; unsupported exponents decline.",
+    "Exact m80 FSIN/FCOS origin products remain rounded through the original PC53 arithmetic before camera origin caching; cache keys preserve signed-zero distinctions and all mutable camera inputs.",
+    "Certified square roots use an exact Dekker residual and strict inward squared midpoint limits, with asymmetric lower spacing at powers of two; ambiguous cases retain the exact previous root path.",
+    "Original angle-wrap and depth comparisons are sequential and strict. Selector five applies all three row overrides independently and uses the untruncated floating row for horizontal scale.",
+    "43ec20 preserves the stored-pi axis branch, negative-selector and unknown-heading-mode dx return, full m80 degree product, final F64 bearing spill, and distance then absolute-degree stores.",
+    "468440 chart output arithmetic preserves sine/cosine multiplication associations, sequential X/Y clamps including reversed mutable limits, and the original optional two-DWORD literal distance clamp.",
+    "Number hooks run only after the original formal storage conversions and retain providers/retained/unsupported fallback dispatch. Failed helpers perform no output stores.",
+    "The 468440 pass pins the complete 302-case table and prefix, verifies closed reference/loop windows and their incoming/outgoing edges, and proves every replaced temporary is dead or has a separately retained observer.",
+    "Reference pixel coordinates must retain the complete signed-I64 value for later venue102 division; accepted reference coordinates now prove signed-I32 representability before any store. Loop outputs keep their original low-DWORD consumers.",
+    "The floating scale is captured at its existing formal conversion, original projection arguments are evaluated once, and declined helpers re-enter the same window. Unknown scale still fails after the original distance/degree stores.",
+    "A successful final loop permits only the later low-word landmark expression to skip an unobserved high-word read. Any declined loop clears that flag and executes the complete original expression; mixed final-success/final-decline cases preserve memory, GDI and RNG.",
+    "The portable test interpreter selector uses the explicit TACT_PYTHON executable, then an existing optional local interpreter, then python3 on PATH. Test bodies and runtime are unchanged by the selector import."
+  ],
+  "validation": {
+    "independentNumericalReceipt": "versions/2010-en/analysis/browser-performance/projection-output-interval-review.json",
+    "wholeImageSceneBoundaryCases": 2376,
+    "sceneAccepted": 2084,
+    "sceneCleanDeclines": 292,
+    "wholeImageChartBoundaryCases": 1440,
+    "chartAccepted": 832,
+    "chartCleanDeclines": 608,
+    "focusedProjectionTests": 11,
+    "focusedChartOutputTests": 3,
+    "allPassed": true,
+    "logs": [
+      "versions/2010-en/analysis/browser-performance/projection-output-boundaries.log",
+      "versions/2010-en/analysis/browser-performance/projection-output-focused-review.log",
+      "versions/2010-en/analysis/browser-performance/chart-output-boundary-review.log",
+      "versions/2010-en/analysis/browser-performance/chart-window-cfg-review.log"
+    ],
+    "scope": "Independent arithmetic boundary and whole-window memory/GDI/RNG tests passed. The integration agent separately reported 190 executions of the final native fixture bundle and all 251 unchanged original byte bodies passing after shoreline integration.",
+    "completeWindowNodeTests": 5,
+    "closedWindowPythonMutationTests": 4,
+    "currentNativeExecutionsReportedByIntegrationAgent": 190,
+    "unchangedOriginalByteBodiesReportedByIntegrationAgent": 251
+  },
+  "sourcePins": [
+    {
+      "path": "src/runtime/output-interval.js",
+      "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7"
+    },
+    {
+      "path": "src/runtime/certified-sqrt.js",
+      "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-fast.js",
+      "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-output-fast.js",
+      "sha256": "10bb48f75cbb7d56d627afdb2edda673d2868c617d9a201bf03a3818b26d764c"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-projection-fast.js",
+      "sha256": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart-output-fast.js",
+      "sha256": "4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788"
+    },
+    {
+      "path": "versions/2010-en/tools/floating_drawing.py",
+      "sha256": "e532409fd141fe6bdc53ac5e69f8fcb004dbc3ea10c706b3f76017b2f8763e96"
+    },
+    {
+      "path": "versions/2010-en/decompiled/functions/0043e730.c",
+      "sha256": "33ff7c171762a66fc17ac2f0b70d7f3493dd5230d524bf1f8d41aa1d130a71f1"
+    },
+    {
+      "path": "versions/2010-en/decompiled/functions/0043ea10.c",
+      "sha256": "1a7771e1f72491f06017bd95b9edadc81d93ccb048252d73fb771a1404e4b7b0"
+    },
+    {
+      "path": "versions/2010-en/decompiled/functions/0043ec20.c",
+      "sha256": "72f1be46eaee3437851cdd43b2f1e7fff8b0e386fbf8e31a1fd91407a3bc3d02"
+    },
+    {
+      "path": "versions/2010-en/decompiled/functions/00468440.c",
+      "sha256": "23095bb44cd45793157a9fce3e193a4f5eca1558fe8a24bbeb3b135d2212be5a"
+    },
+    {
+      "path": "versions/2010-en/tests/projection-output-boundaries.test.js",
+      "sha256": "6e4fb563b1207fbfb65ce8096fc7c2a524931b66646ae58e063e8aff1b870a6a"
+    },
+    {
+      "path": "versions/2010-en/tests/chart-output-boundaries.test.js",
+      "sha256": "3aaed274343636bad8af7b294ecd5b243458c6a11a30ac948fbc9f5abbf6a81a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/projection-output-bounds.md",
+      "sha256": "3743f64bece0fecc13e048b814a5ac57da82f41cc2969ef4c2e13992e4b4ad94"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/projection-output-interval-review.json",
+      "sha256": "653844f81690f7e41aa0b1a610acd0483d10afaabd7af4531b5d3b9d0408225b"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
+    },
+    {
+      "path": "src/runtime/atan.js",
+      "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6"
+    },
+    {
+      "path": "src/runtime/transcendentals.js",
+      "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
+    },
+    {
+      "path": "src/runtime/double-double.js",
+      "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff"
+    },
+    {
+      "path": "versions/2010-en/tools/fuse_chart_windows.py",
+      "sha256": "9de8dec9916ce1fa16e8cd480fb974b75079ee87128f220ef3845b244280321a"
+    },
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "sha256": "6f98471599de0e35fc97397fa8024168909f0eb4eb6833854508acd6bb434887"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "sha256": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38"
+    },
+    {
+      "path": "versions/2010-en/tests/chart-window-generator.py",
+      "sha256": "194ca1b10bd454733195aeb277751ea0dc5c617446314d7ca1202b18f03e4bfa"
+    },
+    {
+      "path": "versions/2010-en/tests/chart-window-generator.test.js",
+      "sha256": "3cc9e01350b33fc5577319939c0c7420b72e754efc4c3d801e2b1f786635941a"
+    },
+    {
+      "path": "tools/python-command.js",
+      "sha256": "25f9997ca4b72d26fdf43dd5c171111f118a0ab606f2c212db3d5dab6391c64b"
+    },
+    {
+      "path": "versions/2010-en/README.md",
+      "sha256": "39efe55e5024715718abb7f52fca1c8c1bec845c76f50702f5e56694baeb70ef"
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "severity": "high",
+      "issue": "A certified reference-window coordinate was narrowed to I32 before a later full-I64 venue102 division; mutable clamps above 2^32 could produce the wrong landmark label.",
+      "fix": "Decline reference certificates unless both unwrapped truncated coordinate endpoints fit signed I32, before output stores. Loop coordinates retain their original low-word contract.",
+      "regressionTests": [
+        "versions/2010-en/tests/chart-output-boundaries.test.js",
+        "versions/2010-en/tests/chart-window-generator.test.js"
+      ],
+      "status": "fixed and verified"
+    }
+  ]
+}

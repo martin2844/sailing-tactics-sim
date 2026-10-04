@@ -1,0 +1,32 @@
+✔ unknown register spills retain undefined bytes until original stores define them (1.799638ms)
+✔ an unused argument propagates unknown bytes and still fails if the callee reads them (0.28172ms)
+✔ CString object inputs retain semantic boat names independently of allocator identities (0.284245ms)
+✔ raw DWORD extraction reconstructs floating bits independently of numeric truncation (0.539205ms)
+✔ original scene DWORD constructions preserve binary64 values rather than numeric integer casts (0.202802ms)
+✔ packed double argument slots preserve the untouched word after an original DWORD write (0.189937ms)
+✔ partial three-byte state reads preserve the remaining byte and avoid a four-byte access (0.213201ms)
+✔ cached local views enforce declared scalar widths and exact frame bounds (0.499921ms)
+✔ local byte validity preserves original index coercion for unusual host pointers (0.240593ms)
+✔ compact frame materialization retains double words, undefined bytes and escaped pointers (3.883211ms)
+✔ public local byte and validity mutations remain visible to retained pointers (0.445659ms)
+✔ replacement local byte arrays and slices become the storage seen by retained pointers (0.480785ms)
+✔ malformed replacement byte storage fails on access and can be replaced again (0.46252ms)
+✔ compact nonsemantic I32 stores retain DataView coercion and failure behavior (0.582547ms)
+✔ compact frames preserve semantic overlap and caller mutations of the public Map (0.173978ms)
+✔ prepared retained local byte rows keep their original validity and bounds (0.342705ms)
+✔ CDC virtual pointers and semantic CString data preserve their separate meanings (0.476998ms)
+✔ large retained frames preserve byte images and validity across every 32-byte boundary (4.633423ms)
+✔ large frame semantics, partial overwrites and public storage changes stay visible to escaped pointers (0.380005ms)
+✔ high aligned writes retain exact bounds, undefined inputs and failing host coercions (0.461358ms)
+✔ direct Number loads preserve the exact binary64 images, signed zeros and extended-load failures (9.708508ms)
+✔ direct Number loads preserve semantic slots, array replacements and strict unknown/bounds errors (0.663469ms)
+✔ the elided dead stack read is pinned to unchanged original instructions and its precise guard (6.41627ms)
+✔ engaged upwind tactics preserve every native mutable byte, RNG and sound across all fleet sizes (526.094698ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1071.01034
