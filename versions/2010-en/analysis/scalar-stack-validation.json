@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "scope": "Supplementary scalar-stack optimization verification against the committed byte-frame implementation; this does not add new native captures. Existing native expectations and recovered C are unchanged.",
+  "referenceCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "byteFrameFunctionsExactlyPreserved": 251,
+  "eligibleFunctions": 113,
+  "modules": [
+    {
+      "module": "drawing-functions.js",
+      "routines": 198,
+      "promoted": 109,
+      "sha256": "0024e2bc308d02a38ccd29d07b897993c0a657b8ec97050ac2aa47d48e850b1c"
+    },
+    {
+      "module": "render-functions.js",
+      "routines": 8,
+      "promoted": 2,
+      "sha256": "ec4854a097e03aab2eefa6434e8245cf29240444d1ca1b89be432357a37c3f5e"
+    },
+    {
+      "module": "screen-helper-functions.js",
+      "routines": 3,
+      "promoted": 1,
+      "sha256": "0d8d39b604c706bd77104973693567eaf93a4915585f8f31db2baf6d8bfc83f6"
+    },
+    {
+      "module": "tutorial-pages.js",
+      "routines": 42,
+      "promoted": 1,
+      "sha256": "907f3e3d2b6665189eea134dec4cffb9f9d220077e214bb600832a02b4fd18d7"
+    }
+  ],
+  "generatorBoundaryTests": {
+    "command": "/home/martin/tact/tools/python-runtime/bin/python3 versions/2010-en/tools/test_optimize_static_locals.py",
+    "passed": 4,
+    "explicitRejectedCases": 15
+  },
+  "nodeFocusedChecks": {
+    "command": "node --test --test-reporter=tap --test-concurrency=1 versions/2010-en/tests/scalar-stack.test.js versions/2010-en/tests/scalar-drawing.test.js versions/2010-en/tests/drawing-types.test.js versions/2010-en/tests/closed-drawing.test.js versions/2010-en/tests/initialized-venue-render.test.js",
+    "tests": 43,
+    "passed": 43,
+    "failed": 0,
+    "elapsedMs": 3236.868794,
+    "forcedFallbackNativeCaptures": 92,
+    "forcedFallbackAndScalarExecutions": 184
+  },
+  "sourcePins": [
+    {
+      "file": "versions/2010-en/tools/optimize_static_locals.py",
+      "sha256": "60206523688a747be4081075d5133c7f04a8ababbadd48ba736bd626d28fad0e"
+    },
+    {
+      "file": "versions/2010-en/src/render/scalar-stack.js",
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "file": "versions/2010-en/tools/translate_drawing.py",
+      "sha256": "1c4ebfc8d481d680453993fc57539ecc05168ff0d69853448e8186974a3cd634"
+    },
+    {
+      "file": "versions/2010-en/tools/translate_drawing_closure.py",
+      "sha256": "17eb325015876ff0865f9bf7dfc6a83cee87a60248654651c763b03c310656f6"
+    },
+    {
+      "file": "versions/2010-en/tools/test_optimize_static_locals.py",
+      "sha256": "f5994fa2cf1c6bcb4361fec7470bc0c6998caf9c5d20e55a79ee2d86994c4944"
+    },
+    {
+      "file": "versions/2010-en/tools/diagnostics/check-scalar-stack.py",
+      "sha256": "119f78f0f95084b4dfe52e80477bde84cb979e214102e9d8ed32d869a7e6a6e0"
+    },
+    {
+      "file": "versions/2010-en/tests/scalar-stack.test.js",
+      "sha256": "e01d4c49633596acafddbcb7e4bd7c45f792c8002875ba39949e7e4c94cafd7f"
+    },
+    {
+      "file": "versions/2010-en/tests/scalar-drawing.test.js",
+      "sha256": "bfde6a78b78ac82349d8c9dc32154d52ef9335c35a46e930ff12cefec9b1f81a"
+    }
+  ]
+}

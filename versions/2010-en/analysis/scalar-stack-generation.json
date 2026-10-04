@@ -1,0 +1,3961 @@
+{
+  "format": 1,
+  "scope": "Static drawing generation only; private nonoverlapping fixed I32/F64 slots. Original control flow and arithmetic remain unchanged. Explicit retained bytes use the complete byte frame.",
+  "modules": {
+    "drawing-functions.js": [
+      {
+        "address": 4215584,
+        "function": "originalDrawScene",
+        "frameBytes": 324,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4219504,
+        "function": "originalDrawing00406270",
+        "frameBytes": 336,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4227056,
+        "function": "originalDrawChart",
+        "frameBytes": 320,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4236992,
+        "function": "originalDrawing0040a6c0",
+        "frameBytes": 308,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 264,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 268,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 272,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4238000,
+        "function": "originalDrawing0040aab0",
+        "frameBytes": 304,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 264,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 268,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4238640,
+        "function": "originalDrawing0040ad30",
+        "frameBytes": 272,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4239664,
+        "function": "originalDrawing0040b130",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4241696,
+        "function": "originalDrawing0040b920",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4256320,
+        "function": "originalDrawSailingHud",
+        "frameBytes": 352,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4242368,
+        "function": "originalDrawing0040bbc0",
+        "frameBytes": 292,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4245888,
+        "function": "originalDrawing0040c980",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4266160,
+        "function": "originalDrawing004118b0",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4271408,
+        "function": "originalDrawCompactHud",
+        "frameBytes": 304,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4253408,
+        "function": "originalDrawing0040e6e0",
+        "frameBytes": 292,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4250464,
+        "function": "originalDrawing0040db60",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4291232,
+        "function": "originalDrawBoat",
+        "frameBytes": 1728,
+        "eligible": false,
+        "reason": "Local write result or expression context is observable"
+      },
+      {
+        "address": 4300000,
+        "function": "originalDrawing00419ce0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4302304,
+        "function": "originalDrawing0041a5e0",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4304048,
+        "function": "originalDrawing0041acb0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 8,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4304672,
+        "function": "originalDrawing0041af20",
+        "frameBytes": 280,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 272,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4307232,
+        "function": "originalDrawing0041b920",
+        "frameBytes": 264,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4307312,
+        "function": "originalDrawing0041b970",
+        "frameBytes": 280,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 8,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 16,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 24,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 36,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 40,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 44,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 48,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4308032,
+        "function": "originalDrawing0041bc40",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4312704,
+        "function": "originalDrawing0041ce80",
+        "frameBytes": 276,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 264,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 268,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4316016,
+        "function": "originalDrawing0041db70",
+        "frameBytes": 312,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4316368,
+        "function": "originalDrawing0041dcd0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4317344,
+        "function": "originalDrawing0041e0a0",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "No fixed local accesses"
+      },
+      {
+        "address": 4317728,
+        "function": "originalDrawing0041e220",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "No fixed local accesses"
+      },
+      {
+        "address": 4318112,
+        "function": "originalDrawing0041e3a0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4318144,
+        "function": "originalDrawing0041e3c0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4319056,
+        "function": "originalDrawing0041e750",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4319984,
+        "function": "originalDrawing0041eaf0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4320656,
+        "function": "originalDrawing0041ed90",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4322592,
+        "function": "originalDrawing0041f520",
+        "frameBytes": 272,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4324976,
+        "function": "originalDrawing0041fe70",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4327712,
+        "function": "originalDrawing00420920",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4330720,
+        "function": "originalDrawing004214e0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4331056,
+        "function": "originalDrawing00421630",
+        "frameBytes": 260,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4331472,
+        "function": "originalDrawing004217d0",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4331728,
+        "function": "originalDrawing004218d0",
+        "frameBytes": 260,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4332208,
+        "function": "originalDrawing00421ab0",
+        "frameBytes": 296,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 276,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4333328,
+        "function": "originalDrawing00421f10",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4334112,
+        "function": "originalDrawing00422220",
+        "frameBytes": 260,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4334528,
+        "function": "originalDrawing004223c0",
+        "frameBytes": 260,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4335024,
+        "function": "originalDrawing004225b0",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4339104,
+        "function": "originalDrawing004235a0",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4340096,
+        "function": "originalDrawing00423980",
+        "frameBytes": 308,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4340784,
+        "function": "originalDrawing00423c30",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4341376,
+        "function": "originalDrawing00423e80",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4341728,
+        "function": "originalDrawing00423fe0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4342064,
+        "function": "originalDrawing00424130",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4342560,
+        "function": "originalDrawing00424320",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4342704,
+        "function": "originalDrawing004243b0",
+        "frameBytes": 308,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4344784,
+        "function": "originalDrawing00424bd0",
+        "frameBytes": 272,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4347504,
+        "function": "originalDrawing00425670",
+        "frameBytes": 392,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4351312,
+        "function": "originalDrawing00426550",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4351824,
+        "function": "originalDrawing00426750",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4352144,
+        "function": "originalDrawing00426890",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4357856,
+        "function": "originalDrawing00427ee0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4390048,
+        "function": "originalDrawing0042fca0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4387632,
+        "function": "originalDrawing0042f330",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4387440,
+        "function": "originalDrawing0042f270",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4387968,
+        "function": "originalDrawing0042f480",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4395520,
+        "function": "originalDrawing00431200",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4397744,
+        "function": "originalDrawing00431ab0",
+        "frameBytes": 348,
+        "eligible": false,
+        "reason": "Local write result or expression context is observable"
+      },
+      {
+        "address": 4321584,
+        "function": "originalDrawing0041f130",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4401904,
+        "function": "originalDrawing00432af0",
+        "frameBytes": 292,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4402592,
+        "function": "originalDrawing00432da0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4403488,
+        "function": "originalDrawing00433120",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4405008,
+        "function": "originalDrawing00433710",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4405920,
+        "function": "originalDrawing00433aa0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4407152,
+        "function": "originalDrawing00433f70",
+        "frameBytes": 656,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4406368,
+        "function": "originalDrawing00433c60",
+        "frameBytes": 336,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4410464,
+        "function": "originalDrawing00434c60",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4418464,
+        "function": "originalDrawing00436ba0",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Local write result or expression context is observable"
+      },
+      {
+        "address": 4443824,
+        "function": "originalDrawing0043ceb0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4450096,
+        "function": "originalDrawing0043e730",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4450832,
+        "function": "originalDrawing0043ea10",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 8,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4451072,
+        "function": "originalDrawing0043eb00",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4451360,
+        "function": "originalDrawing0043ec20",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 8,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4452304,
+        "function": "originalDrawing0043efd0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4451696,
+        "function": "originalDrawing0043ed70",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4455072,
+        "function": "originalDrawSceneMark",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4456144,
+        "function": "originalDrawing0043fed0",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "No fixed local accesses"
+      },
+      {
+        "address": 4457296,
+        "function": "originalDrawing00440350",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4456176,
+        "function": "originalDrawing0043fef0",
+        "frameBytes": 260,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4431488,
+        "function": "originalDrawing00439e80",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4457472,
+        "function": "originalDrawing00440400",
+        "frameBytes": 3180,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4459376,
+        "function": "originalDrawing00440b70",
+        "frameBytes": 308,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4465264,
+        "function": "originalDrawing00442270",
+        "frameBytes": 316,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4466016,
+        "function": "originalDrawShoreline",
+        "frameBytes": 296,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4468688,
+        "function": "originalDrawing00442fd0",
+        "frameBytes": 268,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4470304,
+        "function": "originalDrawing00443620",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4473456,
+        "function": "originalDrawing00444270",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4473584,
+        "function": "originalDrawing004442f0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4473680,
+        "function": "originalDrawing00444350",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4475024,
+        "function": "originalDrawing00444890",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4387360,
+        "function": "originalDrawing0042f220",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4476992,
+        "function": "originalDrawing00445040",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 36,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 40,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 44,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4477808,
+        "function": "originalDrawing00445370",
+        "frameBytes": 300,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4603728,
+        "function": "originalDrawing00463f50",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4604128,
+        "function": "originalDrawing004640e0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4610512,
+        "function": "originalDrawing004659d0",
+        "frameBytes": 288,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4611296,
+        "function": "originalDrawing00465ce0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4612912,
+        "function": "originalDrawing00466330",
+        "frameBytes": 880,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4611728,
+        "function": "originalDrawing00465e90",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4612080,
+        "function": "originalDrawing00465ff0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4621376,
+        "function": "originalDrawing00468440",
+        "frameBytes": 320,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4626000,
+        "function": "originalDrawing00469650",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4626032,
+        "function": "originalDrawing00469670",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4626064,
+        "function": "originalDrawing00469690",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4626688,
+        "function": "originalDrawing00469900",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4630272,
+        "function": "originalDrawing0046a700",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4630320,
+        "function": "originalDrawing0046a730",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4630368,
+        "function": "originalDrawing0046a760",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4630672,
+        "function": "originalDrawing0046a890",
+        "frameBytes": 296,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4657376,
+        "function": "originalDrawing004710e0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4657408,
+        "function": "originalDrawing00471100",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4657504,
+        "function": "originalDrawing00471160",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4705952,
+        "function": "originalDrawing0047cea0",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4710128,
+        "function": "originalDrawing0047def0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4710464,
+        "function": "originalDrawing0047e040",
+        "frameBytes": 300,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4219424,
+        "function": "originalDrawing00406220",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4461936,
+        "function": "originalDrawing00441570",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4463008,
+        "function": "originalDrawing004419a0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4463552,
+        "function": "originalDrawing00441bc0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4463840,
+        "function": "originalDrawing00441ce0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4464096,
+        "function": "originalDrawing00441de0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4464560,
+        "function": "originalDrawing00441fb0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4713792,
+        "function": "originalDrawing0047ed40",
+        "frameBytes": 920,
+        "eligible": false,
+        "reason": "Local write result or expression context is observable"
+      },
+      {
+        "address": 4721984,
+        "function": "originalDrawing00480d40",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4723024,
+        "function": "originalDrawing00481150",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4723536,
+        "function": "originalDrawing00481350",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4723696,
+        "function": "originalDrawing004813f0",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4724640,
+        "function": "originalDrawing004817a0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 36,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4726416,
+        "function": "originalDrawing00481e90",
+        "frameBytes": 344,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4728848,
+        "function": "originalDrawing00482810",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4729488,
+        "function": "originalDrawing00482a90",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4729568,
+        "function": "originalDrawing00482ae0",
+        "frameBytes": 680,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4731888,
+        "function": "originalDrawing004833f0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4732080,
+        "function": "originalDrawing004834b0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4732624,
+        "function": "originalDrawing004836d0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4733456,
+        "function": "originalDrawing00483a10",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4733632,
+        "function": "originalDrawing00483ac0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4734432,
+        "function": "originalDrawing00483de0",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4734880,
+        "function": "originalDrawing00483fa0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4735168,
+        "function": "originalDrawing004840c0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4735600,
+        "function": "originalDrawing00484270",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4735776,
+        "function": "originalDrawing00484320",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4736800,
+        "function": "originalDrawing00484720",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4737504,
+        "function": "originalDrawing004849e0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4737920,
+        "function": "originalDrawing00484b80",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4738352,
+        "function": "originalDrawing00484d30",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4738624,
+        "function": "originalDrawing00484e40",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4738752,
+        "function": "originalDrawing00484ec0",
+        "frameBytes": 272,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4739504,
+        "function": "originalDrawing004851b0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4739888,
+        "function": "originalDrawing00485330",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4740096,
+        "function": "originalDrawing00485400",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4740304,
+        "function": "originalDrawing004854d0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4741152,
+        "function": "originalDrawing00485820",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4741712,
+        "function": "originalDrawing00485a50",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4742400,
+        "function": "originalDrawing00485d00",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4742608,
+        "function": "originalDrawing00485dd0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4742928,
+        "function": "originalDrawing00485f10",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4743264,
+        "function": "originalDrawing00486060",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4743760,
+        "function": "originalDrawing00486250",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4743872,
+        "function": "originalDrawing004862c0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4744192,
+        "function": "originalDrawing00486400",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4744640,
+        "function": "originalDrawing004865c0",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4745904,
+        "function": "originalDrawing00486ab0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4746704,
+        "function": "originalDrawing00486dd0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4747296,
+        "function": "originalDrawing00487020",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4747920,
+        "function": "originalDrawing00487290",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4748384,
+        "function": "originalDrawing00487460",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4748768,
+        "function": "originalDrawing004875e0",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4749296,
+        "function": "originalDrawing004877f0",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4750160,
+        "function": "originalDrawing00487b50",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4751232,
+        "function": "originalDrawing00487f80",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4751664,
+        "function": "originalDrawing00488130",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4751968,
+        "function": "originalDrawing00488260",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4752720,
+        "function": "originalDrawing00488550",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4752784,
+        "function": "originalDrawing00488590",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4753056,
+        "function": "originalDrawing004886a0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4753168,
+        "function": "originalDrawing00488710",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4753296,
+        "function": "originalDrawing00488790",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4753520,
+        "function": "originalDrawing00488870",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4753888,
+        "function": "originalDrawing004889e0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4754208,
+        "function": "originalDrawing00488b20",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4754320,
+        "function": "originalDrawing00488b90",
+        "frameBytes": 272,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 260,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 264,
+            "size": 8,
+            "kind": "float"
+          }
+        ]
+      },
+      {
+        "address": 4754800,
+        "function": "originalDrawing00488d70",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Local write result or expression context is observable"
+      },
+      {
+        "address": 4710304,
+        "function": "originalDrawing0047dfa0",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4757856,
+        "function": "originalDrawing00489960",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "No fixed local accesses"
+      },
+      {
+        "address": 4757888,
+        "function": "originalDrawing00489980",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4765664,
+        "function": "originalDrawing0048b7e0",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4777776,
+        "function": "originalDrawing0048e730",
+        "frameBytes": 340,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4781088,
+        "function": "originalDrawing0048f420",
+        "frameBytes": 256,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      },
+      {
+        "address": 4781648,
+        "function": "originalDrawing0048f650",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 8,
+            "kind": "float"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4781856,
+        "function": "originalDrawing0048f720",
+        "frameBytes": 264,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      }
+    ],
+    "render-functions.js": [
+      {
+        "address": 4275136,
+        "function": "originalDrawStartScreen",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4361072,
+        "function": "originalDrawResultsScreen",
+        "frameBytes": 476,
+        "eligible": false,
+        "reason": "Local write result or expression context is observable"
+      },
+      {
+        "address": 4364528,
+        "function": "originalDrawForecastScreen",
+        "frameBytes": 436,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4220304,
+        "function": "originalDrawAdvice",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4357904,
+        "function": "originalDrawPauseScreen",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4286736,
+        "function": "originalDrawDemoScreen",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4220544,
+        "function": "originalDrawJibeAdvice",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4222528,
+        "function": "originalDrawTackAdvice",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      }
+    ],
+    "screen-helper-functions.js": [
+      {
+        "address": 4278512,
+        "function": "originalDrawMajorOptions",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4771664,
+        "function": "originalDrawVenueOptions",
+        "frameBytes": 272,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4405872,
+        "function": "originalDrawCircle",
+        "frameBytes": 256,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      }
+    ],
+    "tutorial-pages.js": [
+      {
+        "address": 4479072,
+        "function": "drawTutorial1",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4481616,
+        "function": "drawTutorial2",
+        "frameBytes": 280,
+        "eligible": true,
+        "slots": [
+          {
+            "offset": 0,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 256,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 264,
+            "size": 4,
+            "kind": "int"
+          },
+          {
+            "offset": 276,
+            "size": 4,
+            "kind": "int"
+          }
+        ]
+      },
+      {
+        "address": 4483696,
+        "function": "drawTutorial3",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4485600,
+        "function": "drawTutorial4",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4487664,
+        "function": "drawTutorial5",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4489472,
+        "function": "drawTutorial6",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4491632,
+        "function": "drawTutorial7",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4494816,
+        "function": "drawTutorial8",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4497120,
+        "function": "drawTutorial10",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4498896,
+        "function": "drawTutorial11",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4501728,
+        "function": "drawTutorial12",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4503856,
+        "function": "drawTutorial101",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4505840,
+        "function": "drawTutorial102",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4507472,
+        "function": "drawTutorial103",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4509888,
+        "function": "drawTutorial104",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4511376,
+        "function": "drawTutorial105",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4514368,
+        "function": "drawTutorial106",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4516752,
+        "function": "drawTutorial107",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4519360,
+        "function": "drawTutorial108",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4521696,
+        "function": "drawTutorial109",
+        "frameBytes": 280,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4523408,
+        "function": "drawTutorial110",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4524400,
+        "function": "drawTutorial300",
+        "frameBytes": 268,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4529760,
+        "function": "drawTutorial501",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4531808,
+        "function": "drawTutorial502",
+        "frameBytes": 296,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4534832,
+        "function": "drawTutorial503",
+        "frameBytes": 296,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4539856,
+        "function": "drawTutorial504",
+        "frameBytes": 304,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4544960,
+        "function": "drawTutorial505",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4551296,
+        "function": "drawTutorial506",
+        "frameBytes": 300,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4557984,
+        "function": "drawTutorial507",
+        "frameBytes": 296,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4563280,
+        "function": "drawTutorial508",
+        "frameBytes": 300,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4570512,
+        "function": "drawTutorial509",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4572224,
+        "function": "drawTutorial510",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4573904,
+        "function": "drawTutorial511",
+        "frameBytes": 276,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4575216,
+        "function": "drawTutorial512",
+        "frameBytes": 304,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4579136,
+        "function": "drawTutorial513",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4588656,
+        "function": "drawTutorial514",
+        "frameBytes": 288,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4593568,
+        "function": "drawTutorial601",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4595552,
+        "function": "drawTutorial602",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4597408,
+        "function": "drawTutorial603",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4599504,
+        "function": "drawTutorial604",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4601536,
+        "function": "drawTutorial701",
+        "frameBytes": 284,
+        "eligible": false,
+        "reason": "Access has implicit or unsupported width/kind"
+      },
+      {
+        "address": 4358832,
+        "function": "drawTutorial400",
+        "frameBytes": 472,
+        "eligible": false,
+        "reason": "Frame address escapes scalar accesses"
+      }
+    ]
+  },
+  "eligibleFunctions": 113,
+  "functions": 251
+}

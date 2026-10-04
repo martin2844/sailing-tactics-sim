@@ -1,0 +1,159 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T08:14:29.078661+00:00",
+  "referenceCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "verdict": "No unresolved findings. Two scalar-storage contract differences found during review were fixed and independently verified.",
+  "scope": "Independent big review of bounded exact transcendental caches, signed power-of-two division replacements, certified 112-bit candidate enclosures, and static scalar-stack promotion. This report does not claim universal native-vendor transcendental equivalence, raster identity, or a browser FPS measurement. Shared Float80 and compact frame arithmetic received a separate review; the corresponding files are pinned here as dependencies.",
+  "cleared": "Generated drawing outputs are reviewed through exact regeneration of all 251 baseline functions and the generator eligibility proof rather than individual formatting comments.",
+  "resolvedFindings": [
+    {
+      "severity": "Medium",
+      "issue": "An I32 store whose nonsemantic host-like object has a false pointer field must retain the original DataView ToNumber coercion.",
+      "trigger": "{frame:null}, {array:null}, {dc:null}, or similar objects with a valueOf implementation.",
+      "originalEvidence": "Independently imported HEAD typed-c.js and compared original storage against compact and scalar storage: original returned 0 for all three plain objects while both optimized stores returned the object.",
+      "resolution": "The semantic guard still preserves real semantic identities. Scalar I32 storage now applies (+cI32(value))|0, and compact-frame storage received the corresponding fix. Regression inputs include positive/negative custom valueOf conversions and thrown/BigInt/Symbol conversion results.",
+      "status": "fixed"
+    },
+    {
+      "severity": "Medium",
+      "issue": "A finite extended value may overflow at a binary64 store and be overwritten before a later load; early scalar-store rejection changed observable behavior.",
+      "trigger": "new Float80(1,1n<<63n,2000), store to F64, overwrite with 7, then read. Original byte storage returned 7; the initial scalar helper threw at the first store.",
+      "resolution": "A private stored-nonfinite marker defers the original floating load failure until scalarRead or scalarReadArgument. Undefined argument propagation and invalid Number Infinity/NaN store failures retain their original timing. The generator now routes F64 argument reads through scalarReadArgument.",
+      "status": "fixed"
+    }
+  ],
+  "checkedClean": [
+    "Both caches retain at most 2,048 entries, distinguish full canonical m80 values and signed zero, include the x87 control word, and cache only successful evaluations.",
+    "Cached Float80 components remain immutable. Sin/cos returns a fresh mutable pair; zero and sufficiently tiny input identity shortcuts run without cache retention.",
+    "Magnitude right shifts followed by sign restoration exactly preserve BigInt truncation toward zero for the old divisions by 2^224.",
+    "The 224-bit Machin PI and 66-bit x87 quadrant reduction are unchanged. Mathematical sin/cos retains the complete 224-bit series.",
+    "The candidate is accepted only after its domain and termination guards and only when the entire conservative integer enclosure rounds to one canonical m80 value. Ambiguous or near-zero enclosures keep the original 224-bit path.",
+    "The static local pass requires literal in-frame I32/F64 offsets, one view per slot, disjoint slots, no escaping localFrame identifier, and complete discarded-result write statements. Nested reads are preserved in evaluation order.",
+    "Explicit retained-byte inputs, including empty arrays, use the unchanged byte frame. The retained options property is observed once; malformed initialization and missing-byte failures remain visible."
+  ],
+  "analyticalEnclosure": {
+    "scales": "S=2^112; original scale T=2^224; K=T/S=2^112. Both algorithms use signed truncation toward zero. The certified interval is [candidate-1024,candidate+1024] in S units.",
+    "sinCos": {
+      "domain": "After the unchanged 224-bit x87 reduction, the reduced candidate has |a/S|<1.",
+      "termBound": "Truncating the squared argument changes it by <1 scale unit. Each product introduces <1 further unit before division by d. With |term/scale|<=1 and d>=2, term error obeys E_next < E_previous/2+2, hence E<4 units.",
+      "terminationAndTail": "Magnitude truncation cannot enlarge a Taylor term; scale/(2n)! is below 1 for n=64 at either precision. The first omitted alternating term has magnitude <4 units. At most 64 per-term errors plus the tail give <260 units at each algorithm scale.",
+      "candidateToOriginal": "Input quantization changes sin/cos by <1 fast unit. The combined candidate-to-original error is <261+260/K <262 fast units; quadrant sign/permutation does not enlarge it. This is below 1024."
+    },
+    "atan": {
+      "domain": "The direct or transformed series has |a/scale|<=1/2; the ratio transform preserves this domain. Threshold quantization may choose a different branch, but both branches approximate the same atan of the exact ratio.",
+      "termBound": "Squared-input truncation and power truncation obey E_next < E_previous/4+1.5, so E<2 units. Divided-term errors are <2 units.",
+      "terminationAndTail": "Successive powers contract by at least 1/4, so both precisions terminate within 113 iterations. A conservative sum-and-tail bound is <229 units at the respective scale.",
+      "piAndTransforms": "The untouched Machin PI error is below 20*(229+1)=4600 original units. Ratio quantization, the transform and its rounding, FAST_PI truncation, and integer PI divisions/quadrants fit inside the stated additional bounds. Quadrant coefficients of PI have magnitude at most 1.",
+      "candidateToOriginal": "A conservative bound is <240 fast units +10000 original units, i.e. <241 fast units. This covers the original integer series as well as the mathematical function and is below 1024."
+    },
+    "rounding": "Float80 construction always performs canonical 64-bit nearest/even normalization. That rounding is monotone for finite values. Identical sign, mantissa and exponent at both enclosure endpoints therefore establish the same result for the enclosed original 224-bit integer. A crossing of zero or a rounding boundary rejects the candidate."
+  },
+  "independentIntegerChecks": {
+    "scope": "Independent unrounded integer comparison: both 112-bit and original 224-bit recurrence evaluated with direct BigInt division, including quantization, ratio transform, unchanged PI and all atan quadrants. This verifies sampled enclosure membership, not a replacement for the analytical bound or a native-vendor claim.",
+    "reducedSinCosPairs": 4137,
+    "sinCosComponentComparisons": 8274,
+    "atanRatios": 4115,
+    "atanSignedQuadrantComparisons": 32920,
+    "maxObservedSineDifferenceFastUnits": 3.84565,
+    "maxObservedCosineDifferenceFastUnits": 3.845534,
+    "maxObservedAtanDifferenceFastUnits": 6.376917,
+    "enclosureFastUnits": 1024,
+    "maxOriginalOrFastSinIterations": 25,
+    "maxOriginalOrFastAtanIterations": 108,
+    "unchangedPi": "3243f6a8885a308d313198a2e03707344a4093822299f31d0082efa94"
+  },
+  "checks": [
+    {
+      "command": "node --test --test-reporter=tap --test-concurrency=1 tests/transcendental-cache.test.js tests/native-numerics.test.js tests/precision.test.js",
+      "tests": 15,
+      "passed": 15,
+      "failed": 0,
+      "elapsedMs": 468.509693
+    },
+    {
+      "command": "node --test --test-reporter=tap --test-concurrency=1 versions/2010-en/tests/scalar-stack.test.js versions/2010-en/tests/scalar-drawing.test.js",
+      "tests": 11,
+      "passed": 11,
+      "failed": 0,
+      "elapsedMs": 774.718376
+    },
+    {
+      "command": "tools/python-runtime/bin/python3 versions/2010-en/tools/test_optimize_static_locals.py",
+      "tests": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "check": "Independently invoke promote_static_locals on each HEAD routine, compare every emitted fast/fallback function and eligibility record to the final generated sources.",
+      "baselineRoutines": 251,
+      "eligibleRoutines": 113,
+      "functionComparisonsPassed": 251
+    }
+  ],
+  "sourcePins": [
+    {
+      "file": "src/runtime/atan.js",
+      "sha256": "84dee62628d0444a38d248d91f660350fb231023cf73ab75c0452c60645d2a12"
+    },
+    {
+      "file": "src/runtime/transcendentals.js",
+      "sha256": "d75d9e92a828686735734b1f76ddce51db217acb6c1e67dc33dfc63d55b2e2f4"
+    },
+    {
+      "file": "src/runtime/float80.js",
+      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+    },
+    {
+      "file": "tests/transcendental-cache.test.js",
+      "sha256": "9ebbbd66d12c254b64515db7618f70d1bc259419246e4d1a8a7852c28e12a706"
+    },
+    {
+      "file": "versions/2010-en/src/render/scalar-stack.js",
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "file": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "0a43ce405278c7c985098f873c7cd03b491af1ffa4f9e9505857e499fb1f33b5"
+    },
+    {
+      "file": "versions/2010-en/tools/optimize_static_locals.py",
+      "sha256": "60206523688a747be4081075d5133c7f04a8ababbadd48ba736bd626d28fad0e"
+    },
+    {
+      "file": "versions/2010-en/tools/translate_drawing.py",
+      "sha256": "1c4ebfc8d481d680453993fc57539ecc05168ff0d69853448e8186974a3cd634"
+    },
+    {
+      "file": "versions/2010-en/tools/translate_drawing_closure.py",
+      "sha256": "17eb325015876ff0865f9bf7dfc6a83cee87a60248654651c763b03c310656f6"
+    },
+    {
+      "file": "versions/2010-en/tools/test_optimize_static_locals.py",
+      "sha256": "f5994fa2cf1c6bcb4361fec7470bc0c6998caf9c5d20e55a79ee2d86994c4944"
+    },
+    {
+      "file": "versions/2010-en/tests/scalar-stack.test.js",
+      "sha256": "e01d4c49633596acafddbcb7e4bd7c45f792c8002875ba39949e7e4c94cafd7f"
+    },
+    {
+      "file": "versions/2010-en/tests/scalar-drawing.test.js",
+      "sha256": "bfde6a78b78ac82349d8c9dc32154d52ef9335c35a46e930ff12cefec9b1f81a"
+    },
+    {
+      "file": "versions/2010-en/src/render/drawing-functions.js",
+      "sha256": "0024e2bc308d02a38ccd29d07b897993c0a657b8ec97050ac2aa47d48e850b1c"
+    },
+    {
+      "file": "versions/2010-en/src/render/render-functions.js",
+      "sha256": "ec4854a097e03aab2eefa6434e8245cf29240444d1ca1b89be432357a37c3f5e"
+    },
+    {
+      "file": "versions/2010-en/src/render/screen-helper-functions.js",
+      "sha256": "0d8d39b604c706bd77104973693567eaf93a4915585f8f31db2baf6d8bfc83f6"
+    },
+    {
+      "file": "versions/2010-en/src/render/tutorial-pages.js",
+      "sha256": "907f3e3d2b6665189eea134dec4cffb9f9d220077e214bb600832a02b4fd18d7"
+    }
+  ]
+}

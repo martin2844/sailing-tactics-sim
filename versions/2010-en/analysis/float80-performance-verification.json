@@ -1,0 +1,43 @@
+{
+  "kind": "Exact Float80 PC53 acceleration verification",
+  "sourceHash": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b",
+  "baselineCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "baselineSourceHash": "a71e5aff8342af6bf603d03b07a827a3f71aaa6ba97effb09760fca1c224d5bc",
+  "probeSource": "tools/capture_precision_native.c",
+  "probeSha256": "33120889c4d0b3c559bf3b9d041422822d5e0eea265765163194ad994daaa577",
+  "differential": {
+    "loads": 4289,
+    "integerConversions": 4766,
+    "arithmeticAcrossThreeControlWords": 58095,
+    "extendedOperandArithmetic": 24000,
+    "failures": 0
+  },
+  "nativeX87": {
+    "controlWord": "0x027f",
+    "cases": 9059,
+    "m80AndBinary64Comparisons": 18118,
+    "failures": 0
+  },
+  "benchmark": {
+    "runtime": "v24.19.0",
+    "rounds": 50000,
+    "medianOf": 5,
+    "description": "fromNumber plus multiply/add/divide/subtract chain and binary64/int32 stores",
+    "uniqueValues": {
+      "baselineMs": 474.8318140000001,
+      "acceleratedMs": 20.98667599999999,
+      "speedup": 22.625394035720586
+    },
+    "repeated512Values": {
+      "baselineMs": 485.561025,
+      "acceleratedMs": 19.4839979999997,
+      "speedup": 24.921015953707624
+    },
+    "sqrt": {
+      "baselineMs": 174.03602899999987,
+      "acceleratedMs": 21.052560000000085,
+      "speedup": 8.266739484414208
+    }
+  },
+  "limitations": "Microbenchmarks are not browser frame timing; native x87 evidence is from the current x86 host. Math.sqrt supplies a candidate only: exact squared integer midpoint comparisons certify PC53 rounding; failed certificates use the original BigInt square root."
+}

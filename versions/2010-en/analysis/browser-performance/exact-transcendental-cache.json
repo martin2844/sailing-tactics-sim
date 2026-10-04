@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-03T21:52:41.193Z",
+  "baselineCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "scope": "Uncached baseline transcendental source compared with cached source using the same current Float80 implementation. This validates exact caching and sign-preserving power-of-two shifts; it is not a native-vendor equivalence claim or an overall FPS claim.",
+  "equivalence": {
+    "sineComparisons": 10764,
+    "mathematicalSineComparisons": 10764,
+    "atanComparisons": 10800,
+    "controlWords": [
+      127,
+      639,
+      895
+    ],
+    "operandCases": "Deterministic full-mantissa extended values, signed zeros, tiny/large ratios, m80 subnormal/extreme exponents, and exact binary64-backed values; cold and warm evaluations."
+  },
+  "cacheBound": {
+    "sinCos": 2048,
+    "atan2": 2048,
+    "validation": "tests/transcendental-cache.test.js exercises eviction and proves both map sizes remain within their bound after more than 2,048 distinct inputs."
+  },
+  "benchmarks": [
+    {
+      "kind": "sinCos",
+      "callsPerSample": 12000,
+      "distinctInputTuples": 64,
+      "inputs": "Fresh exact binary64-backed Float80 operands per call, same full mathematical implementation",
+      "samples": [
+        {
+          "uncachedMs": 147.47821599999992,
+          "warmCacheMs": 3.767509000000018,
+          "speedup": 39.14475479686955
+        },
+        {
+          "uncachedMs": 143.442321,
+          "warmCacheMs": 3.753673000000049,
+          "speedup": 38.21385640144949
+        },
+        {
+          "uncachedMs": 141.43571500000007,
+          "warmCacheMs": 3.76065600000004,
+          "speedup": 37.60932002288924
+        }
+      ]
+    },
+    {
+      "kind": "atan2",
+      "callsPerSample": 12000,
+      "distinctInputTuples": 64,
+      "inputs": "Fresh exact binary64-backed Float80 operands per call, same full mathematical implementation",
+      "samples": [
+        {
+          "uncachedMs": 140.08666800000015,
+          "warmCacheMs": 7.247796999999991,
+          "speedup": 19.328172132856412
+        },
+        {
+          "uncachedMs": 138.59467000000018,
+          "warmCacheMs": 6.797580000000153,
+          "speedup": 20.38882514071141
+        },
+        {
+          "uncachedMs": 138.345681,
+          "warmCacheMs": 7.184227999999848,
+          "speedup": 19.256861140821663
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { formatInteger, formatDecimal, readAnsiString, readAnsiBytes,readCString
 import { drawingTick,drawingSystemMetric,drawingPrintf,drawingSound,drawingCursor } from './host.js';
 import { callDrawingDependency, registerOriginalDrawing } from './dependencies.js';
 import { restoreShoreStackFrame,saveShoreStackFrame } from './shore-stack.js';
+import { scalarRead,scalarReadArgument,scalarStoreI32,scalarStoreF64 } from './scalar-stack.js';
 import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cString,
   pointerAdd,localPointer,readPointer,writePointer,writeLocalPoint,stockObject,dcMethod,selectGdiObject,selectOriginalGdiObject,importDrawingMethod,originalPoints,clipRegion,textOutCount,originalTrig,cStringHeaderLength,signedBorrow32,
   cF64,cAbs,createLocalFrame,framePointer,readLocal,readLocalArgument,cWordArgument,writeLocal,originalAtan,cConcat,bitsAsF64,cRawWord,cRawSlice,invokeDrawingPointer } from './typed-c.js';
@@ -283,7 +284,221 @@ export function drawTutorial1(memory, dc, rng, options = {}, ...originalArgs) {
 export function drawTutorial2(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
-  const localFrame=createLocalFrame(280,options.retainedDrawingStack?.[4481616]??[]);
+  const retainedLocalBytes=options.retainedDrawingStack?.[4481616];
+  if(retainedLocalBytes!=null)return drawTutorial2ByteFrame(memory,dc,rng,options,originalArgs,retainedLocalBytes);
+  let scalarStack0,scalarStack256,scalarStack264,scalarStack276;
+  scalarStack0=scalarStoreI32(dc);
+  let iVar1;
+  let pcVar2;
+  let iVar3;
+  let iVar4;
+  let TStack_14;
+  let pc = 194;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),0]); pc = 1; continue; }
+    case 3: { undefined; pc = 2; continue; }
+    case 4: { scalarStack276=scalarStoreI32(4294967295); pc = 3; continue; }
+    case 5: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),30,cSub(cDiv(r32(0x4fe2a8),3),iVar3),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 4; continue; }
+    case 6: { scalarStack276=scalarStoreI32(27); pc = 5; continue; }
+    case 7: { (TStack_14 = cString(memory,0x4dd9ec)); pc = 6; continue; }
+    case 8: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),255]); pc = 7; continue; }
+    case 9: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 8 : 7; continue; }
+    case 10: { undefined; pc = 9; continue; }
+    case 11: { scalarStack276=scalarStoreI32(4294967295); pc = 10; continue; }
+    case 12: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,cAdd(iVar3,iVar4),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 11; continue; }
+    case 13: { scalarStack276=scalarStoreI32(26); pc = 12; continue; }
+    case 14: { (TStack_14 = cString(memory,0x4de250)); pc = 13; continue; }
+    case 15: { undefined; pc = 14; continue; }
+    case 16: { scalarStack276=scalarStoreI32(4294967295); pc = 15; continue; }
+    case 17: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 16; continue; }
+    case 18: { scalarStack276=scalarStoreI32(25); pc = 17; continue; }
+    case 19: { (TStack_14 = cString(memory,0x4de280)); pc = 18; continue; }
+    case 20: { (iVar4 = cAdd(iVar4,iVar3)); pc = 19; continue; }
+    case 21: { undefined; pc = 20; continue; }
+    case 22: { scalarStack276=scalarStoreI32(4294967295); pc = 21; continue; }
+    case 23: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 22; continue; }
+    case 24: { scalarStack276=scalarStoreI32(24); pc = 23; continue; }
+    case 25: { (TStack_14 = cString(memory,0x4de2d8)); pc = 24; continue; }
+    case 26: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),8323072]); pc = 25; continue; }
+    case 27: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 26 : 25; continue; }
+    case 28: { (iVar4 = cAdd(iVar4,iVar3)); pc = 27; continue; }
+    case 29: { undefined; pc = 28; continue; }
+    case 30: { scalarStack276=scalarStoreI32(4294967295); pc = 29; continue; }
+    case 31: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 30; continue; }
+    case 32: { scalarStack276=scalarStoreI32(23); pc = 31; continue; }
+    case 33: { (TStack_14 = cString(memory,0x4de328)); pc = 32; continue; }
+    case 34: { (iVar4 = cAdd(iVar4,iVar3)); pc = 33; continue; }
+    case 35: { undefined; pc = 34; continue; }
+    case 36: { scalarStack276=scalarStoreI32(4294967295); pc = 35; continue; }
+    case 37: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 36; continue; }
+    case 38: { scalarStack276=scalarStoreI32(22); pc = 37; continue; }
+    case 39: { (TStack_14 = cString(memory,0x4de374)); pc = 38; continue; }
+    case 40: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),16711680]); pc = 39; continue; }
+    case 41: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 40 : 39; continue; }
+    case 42: { (iVar4 = cAdd(cAdd(iVar4,iVar3),iVar3)); pc = 41; continue; }
+    case 43: { undefined; pc = 42; continue; }
+    case 44: { scalarStack276=scalarStoreI32(4294967295); pc = 43; continue; }
+    case 45: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,cAdd(iVar4,iVar3),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 44; continue; }
+    case 46: { scalarStack276=scalarStoreI32(21); pc = 45; continue; }
+    case 47: { (TStack_14 = cString(memory,0x4de3c8)); pc = 46; continue; }
+    case 48: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),8323072]); pc = 47; continue; }
+    case 49: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 48 : 47; continue; }
+    case 50: { undefined; pc = 49; continue; }
+    case 51: { scalarStack276=scalarStoreI32(4294967295); pc = 50; continue; }
+    case 52: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 51; continue; }
+    case 53: { scalarStack276=scalarStoreI32(20); pc = 52; continue; }
+    case 54: { (TStack_14 = cString(memory,0x4de41c)); pc = 53; continue; }
+    case 55: { pc = cTruth(cCompare(r32(0x4da140),2,"==")) ? 54 : 9; continue; }
+    case 56: { (iVar4 = cAdd(iVar4,iVar3)); pc = 55; continue; }
+    case 57: { undefined; pc = 56; continue; }
+    case 58: { scalarStack276=scalarStoreI32(4294967295); pc = 57; continue; }
+    case 59: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 58; continue; }
+    case 60: { scalarStack276=scalarStoreI32(19); pc = 59; continue; }
+    case 61: { (TStack_14 = cString(memory,0x4de474)); pc = 60; continue; }
+    case 62: { (iVar4 = cAdd(iVar4,iVar3)); pc = 61; continue; }
+    case 63: { undefined; pc = 62; continue; }
+    case 64: { scalarStack276=scalarStoreI32(4294967295); pc = 63; continue; }
+    case 65: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 64; continue; }
+    case 66: { scalarStack276=scalarStoreI32(18); pc = 65; continue; }
+    case 67: { (TStack_14 = cString(memory,0x4de4a8)); pc = 66; continue; }
+    case 68: { (iVar4 = cAdd(iVar4,iVar3)); pc = 67; continue; }
+    case 69: { undefined; pc = 68; continue; }
+    case 70: { scalarStack276=scalarStoreI32(4294967295); pc = 69; continue; }
+    case 71: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 70; continue; }
+    case 72: { scalarStack276=scalarStoreI32(17); pc = 71; continue; }
+    case 73: { (TStack_14 = cString(memory,0x4de4f4)); pc = 72; continue; }
+    case 74: { (iVar4 = cAdd(cAdd(iVar4,scalarRead(scalarStack256)),iVar3)); pc = 73; continue; }
+    case 75: { undefined; pc = 74; continue; }
+    case 76: { scalarStack276=scalarStoreI32(4294967295); pc = 75; continue; }
+    case 77: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,cAdd(iVar4,scalarRead(scalarStack256)),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 76; continue; }
+    case 78: { scalarStack276=scalarStoreI32(16); pc = 77; continue; }
+    case 79: { (TStack_14 = cString(memory,0x4de544)); pc = 78; continue; }
+    case 80: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),8323072]); pc = 79; continue; }
+    case 81: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 80 : 79; continue; }
+    case 82: { undefined; pc = 81; continue; }
+    case 83: { scalarStack276=scalarStoreI32(4294967295); pc = 82; continue; }
+    case 84: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 83; continue; }
+    case 85: { scalarStack276=scalarStoreI32(14); pc = 84; continue; }
+    case 86: { (TStack_14 = cString(memory,0x4de5ec)); pc = 85; continue; }
+    case 87: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 83; continue; }
+    case 88: { scalarStack276=scalarStoreI32(15); pc = 87; continue; }
+    case 89: { (TStack_14 = cString(memory,0x4de598)); pc = 88; continue; }
+    case 90: { pc = cTruth(cCompare(r32(0x536498),0,"==")) ? 86 : 89; continue; }
+    case 91: { (iVar4 = cAdd(iVar4,iVar3)); pc = 90; continue; }
+    case 92: { undefined; pc = 91; continue; }
+    case 93: { scalarStack276=scalarStoreI32(4294967295); pc = 92; continue; }
+    case 94: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 93; continue; }
+    case 95: { scalarStack276=scalarStoreI32(13); pc = 94; continue; }
+    case 96: { (TStack_14 = cString(memory,0x4de644)); pc = 95; continue; }
+    case 97: { invokeDrawingPointer(scalarRead(scalarStack264),dc,[scalarRead(scalarStack0),16777215]); pc = 96; continue; }
+    case 98: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 97 : 96; continue; }
+    case 99: { pc = cTruth((cTruth(cCompare(r32(0x4da140),1,"==")) && cTruth(cCompare(r32(0x4f71c4),3,"==")))) ? 98 : 55; continue; }
+    case 100: { (iVar4 = cAdd(iVar4,iVar3)); pc = 99; continue; }
+    case 101: { undefined; pc = 100; continue; }
+    case 102: { scalarStack276=scalarStoreI32(4294967295); pc = 101; continue; }
+    case 103: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 102; continue; }
+    case 104: { scalarStack276=scalarStoreI32(7); pc = 103; continue; }
+    case 105: { (TStack_14 = cString(memory,0x4de870)); pc = 104; continue; }
+    case 106: { (iVar4 = cAdd(iVar4,iVar3)); pc = 105; continue; }
+    case 107: { undefined; pc = 106; continue; }
+    case 108: { scalarStack276=scalarStoreI32(4294967295); pc = 107; continue; }
+    case 109: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 108; continue; }
+    case 110: { scalarStack276=scalarStoreI32(6); pc = 109; continue; }
+    case 111: { (TStack_14 = cString(memory,"and control buttons on a gray background, plus a Steering Zone that, when controlled with the pointer, shows")); pc = 110; continue; }
+    case 112: { (iVar4 = cAdd(cAdd(iVar4,iVar3),iVar3)); pc = 111; continue; }
+    case 113: { undefined; pc = 112; continue; }
+    case 114: { scalarStack276=scalarStoreI32(4294967295); pc = 113; continue; }
+    case 115: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,cAdd(iVar4,iVar3),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 114; continue; }
+    case 116: { scalarStack276=scalarStoreI32(5); pc = 115; continue; }
+    case 117: { (TStack_14 = cString(memory,"Your boat is a red boat shape or cross. Between the two views is a Text Window with performance data on a white background")); pc = 116; continue; }
+    case 118: { undefined; pc = 117; continue; }
+    case 119: { scalarStack276=scalarStoreI32(4294967295); pc = 118; continue; }
+    case 120: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 119; continue; }
+    case 121: { scalarStack276=scalarStoreI32(4); pc = 120; continue; }
+    case 122: { (TStack_14 = cString(memory,"Top Views fill the lower half of the screen: a zoomable Tactical View on the right and a Strategic View on the left.")); pc = 121; continue; }
+    case 123: { undefined; pc = 99; continue; }
+    case 124: { scalarStack276=scalarStoreI32(4294967295); pc = 123; continue; }
+    case 125: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 124; continue; }
+    case 126: { scalarStack276=scalarStoreI32(12); pc = 125; continue; }
+    case 127: { (TStack_14 = cString(memory,0x4de6a8)); pc = 126; continue; }
+    case 128: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),16711680]); pc = 127; continue; }
+    case 129: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 128 : 127; continue; }
+    case 130: { (iVar4 = cAdd(iVar4,iVar3)); pc = 129; continue; }
+    case 131: { undefined; pc = 130; continue; }
+    case 132: { scalarStack276=scalarStoreI32(4294967295); pc = 131; continue; }
+    case 133: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 132; continue; }
+    case 134: { scalarStack276=scalarStoreI32(11); pc = 133; continue; }
+    case 135: { (TStack_14 = cString(memory,0x4de6fc)); pc = 134; continue; }
+    case 136: { (iVar4 = cAdd(iVar4,iVar3)); pc = 135; continue; }
+    case 137: { undefined; pc = 136; continue; }
+    case 138: { scalarStack276=scalarStoreI32(4294967295); pc = 137; continue; }
+    case 139: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 138; continue; }
+    case 140: { scalarStack276=scalarStoreI32(10); pc = 139; continue; }
+    case 141: { (TStack_14 = cString(memory,0x4de75c)); pc = 140; continue; }
+    case 142: { (iVar4 = cAdd(cAdd(iVar4,iVar3),iVar3)); pc = 141; continue; }
+    case 143: { undefined; pc = 142; continue; }
+    case 144: { scalarStack276=scalarStoreI32(4294967295); pc = 143; continue; }
+    case 145: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,cAdd(iVar4,iVar3),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 144; continue; }
+    case 146: { scalarStack276=scalarStoreI32(9); pc = 145; continue; }
+    case 147: { (TStack_14 = cString(memory,"On the left are performance data on a white background and control buttons on a gray background,")); pc = 146; continue; }
+    case 148: { undefined; pc = 147; continue; }
+    case 149: { scalarStack276=scalarStoreI32(4294967295); pc = 148; continue; }
+    case 150: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 149; continue; }
+    case 151: { scalarStack276=scalarStoreI32(8); pc = 150; continue; }
+    case 152: { (TStack_14 = cString(memory,"A zoomable Tactical View is at the lower left of the screen. Your boat is a red cross or a boat shape.")); pc = 151; continue; }
+    case 153: { pc = cTruth(cCompare(r32(0x4da1a8),0,"==")) ? 122 : 152; continue; }
+    case 154: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),8323072]); pc = 153; continue; }
+    case 155: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 154 : 153; continue; }
+    case 156: { (iVar4 = cAdd(iVar4,scalarRead(scalarStack256))); pc = 155; continue; }
+    case 157: { undefined; pc = 156; continue; }
+    case 158: { scalarStack276=scalarStoreI32(4294967295); pc = 157; continue; }
+    case 159: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 158; continue; }
+    case 160: { scalarStack276=scalarStoreI32(2); pc = 159; continue; }
+    case 161: { (TStack_14 = cString(memory,0x4dea38)); pc = 160; continue; }
+    case 162: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 158; continue; }
+    case 163: { scalarStack276=scalarStoreI32(3); pc = 162; continue; }
+    case 164: { (TStack_14 = cString(memory,0x4de9e0)); pc = 163; continue; }
+    case 165: { pc = cTruth(cCompare(r32(0x536498),0,"==")) ? 161 : 164; continue; }
+    case 166: { (iVar4 = cAdd(iVar4,iVar3)); pc = 165; continue; }
+    case 167: { undefined; pc = 166; continue; }
+    case 168: { scalarStack276=scalarStoreI32(4294967295); pc = 167; continue; }
+    case 169: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,iVar4,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 168; continue; }
+    case 170: { scalarStack276=scalarStoreI32(1); pc = 169; continue; }
+    case 171: { (TStack_14 = cString(memory,0x4dea94)); pc = 170; continue; }
+    case 172: { pc = cTruth(cCompare(r32(0x4f71c4),3,"<")) ? 171 : 99; continue; }
+    case 173: { pc = cTruth(cCompare(r32(0x4da140),1,"==")) ? 172 : 55; continue; }
+    case 174: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),16711680]); pc = 173; continue; }
+    case 175: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 174 : 173; continue; }
+    case 176: { (iVar4 = cAdd(scalarRead(scalarStack256),2)); pc = 175; continue; }
+    case 177: { undefined; pc = 176; continue; }
+    case 178: { scalarStack276=scalarStoreI32(4294967295); pc = 177; continue; }
+    case 179: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),20,2,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 178; continue; }
+    case 180: { scalarStack276=scalarStoreI32(0); pc = 179; continue; }
+    case 181: { (pcVar2 = dcMethod(dc,100,memory)); pc = 180; continue; }
+    case 182: { (TStack_14 = cString(memory,0x4deaf4)); pc = 181; continue; }
+    case 183: { invokeDrawingPointer(scalarRead(scalarStack264),dc,[scalarRead(scalarStack0),16777215]); pc = 182; continue; }
+    case 184: { scalarStack264=scalarStoreI32(dcMethod(dc,52,memory)); pc = 183; continue; }
+    case 185: { (iVar1 = readPointer(memory,scalarRead(scalarStack0),4)); pc = 184; continue; }
+    case 186: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),8323072]); pc = 185; continue; }
+    case 187: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 186 : 185; continue; }
+    case 188: { scalarStack256=scalarStoreI32(22); pc = 187; continue; }
+    case 189: { (iVar3 = 16); pc = 188; continue; }
+    case 190: { scalarStack256=scalarStoreI32(30); pc = 187; continue; }
+    case 191: { (iVar3 = 20); pc = 190; continue; }
+    case 192: { pc = cTruth(cCompare(iVar3,700,"<")) ? 189 : 191; continue; }
+    case 193: { scalarStack276=scalarStoreI32(4294967295); pc = 192; continue; }
+    case 194: { (iVar3 = r32(0x4fe624)); pc = 193; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
+/** Complete recovered original 0x00446250; static C control-flow translation. */
+function drawTutorial2ByteFrame(memory, dc, rng, options, originalArgs, retainedLocalBytes) {
+  const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
+  const localFrame=createLocalFrame(280,retainedLocalBytes);
   writeLocal(framePointer(localFrame,0),dc,4,"int");
   let iVar1;
   let pcVar2;

@@ -1,0 +1,35 @@
+✔ x87 fixtures identify source, precision64 rounding mode and native probes (2.046748ms)
+✔ all captured native boat factors match extended division then sqrt and binary64 store (1.704083ms)
+✔ every finite arithmetic result matches native m80 and binary64 stored bits (24.354444ms)
+✔ every native CRT __ftol truncation matches signed64 and low signed32 (0.731425ms)
+✔ binary64 loading is exact for signedzero, subnormals and boundary values (0.391045ms)
+✔ canonical m80 loading and byte copies retain finite values and signs (0.47875ms)
+✔ signedzero, exact cancellation, ordering and underflow are preserved (0.188584ms)
+✔ unsupported nonfinite encodings, exceptions and invalid conversions throw (0.390153ms)
+✔ 24/53/64-bit x87 arithmetic matches independent native instruction results (76.246997ms)
+✔ FPATAN small-ratio results retain native m80 precision under PC24/53/64 (108) (5.376858ms)
+✔ 2010 demo: exact original requests/state/text/RNG (65.91834ms)
+✔ 2010 results: exact original requests/state/text/RNG (47.913572ms)
+✔ 2010 advice: exact original requests/state/text/RNG (45.096606ms)
+✔ 2010 jibe: exact original requests/state/text/RNG (29.431638ms)
+✔ 2010 tack: exact original requests/state/text/RNG (40.33765ms)
+✔ 2010 text-color: exact original requests/state/text/RNG (22.625914ms)
+✔ 2010 advance-button: exact original requests/state/text/RNG (27.99625ms)
+✔ 2010 advance-hint: exact original requests/state/text/RNG (22.714821ms)
+✔ 2010 depth-sort: exact original requests/state/text/RNG (22.770016ms)
+✔ 2010 depth-select: exact original requests/state/text/RNG (25.253975ms)
+✔ initialized screens retain original code, caller state, names and constructor GDI evidence (5.226285ms)
+✔ selector1-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (82.379455ms)
+✔ selector7-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (43.829024ms)
+✔ selector12-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (40.329966ms)
+✔ selector17-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (35.330298ms)
+✔ selector26-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (34.666599ms)
+✔ selector27-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (23.153706ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.852465

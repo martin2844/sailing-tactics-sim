@@ -15,6 +15,10 @@ import { fetchGdiBitmapFont } from '../../../src/render/bitmap-font.js';
 
 const $=id=>document.getElementById(id);
 const canvas=$('race'),context=canvas.getContext('2d',{willReadFrequently:true});
+// Reuse the backing surface. Selecting each original bitmap still resets its
+// dimensions and drawing state, so no pixels or clipping survive a paint.
+const bufferCanvas=document.createElement('canvas');
+const bufferContext=bufferCanvas.getContext('2d',{willReadFrequently:true});
 const state={memory:null,rng:null,objects:null,options:null,ready:false,closed:false,modal:false,pending:false,
   nextPaint:false,delay:0,frames:0,error:null,cursor:{x:0,y:0},soundEnabled:false,activeSound:null,sounds:new Map(),menuHelp:null};
 const assetUrl=path=>new URL(`../${path}`,import.meta.url);
@@ -112,9 +116,9 @@ function paint(){
   state.pending=false;if(state.modal||state.closed||state.error)return;
   state.nextPaint=false;state.delay=0;paintClock.beginPaint();const start=performance.now();
   try{
-    const front=createCanvasGdi(context,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep});front.canvas=canvas;
+    const front=createCanvasGdi(context,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep,recordEvents:false});front.canvas=canvas;
     const host={
-      constructBufferedDC(){const surface=document.createElement('canvas'),ctx=surface.getContext('2d',{willReadFrequently:true});const dc=createCanvasGdi(ctx,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep});dc.canvas=surface;dc.context=ctx;return dc;},
+      constructBufferedDC(){const dc=createCanvasGdi(bufferContext,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep,recordEvents:false});dc.canvas=bufferCanvas;dc.context=bufferContext;return dc;},
       getDeviceCaps(_dc,index){return index===12?dimensions.bitsPixel:index===8?dimensions.width:dimensions.height;},
       applicationInstance(){return 1;},createBitmap(descriptor){return descriptor;},attachBitmap(){},
       createCompatibleDC(){return 1;},attachCompatibleDC(){},

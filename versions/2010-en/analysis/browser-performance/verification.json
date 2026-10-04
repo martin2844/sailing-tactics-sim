@@ -1,0 +1,497 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T08:20:48.294863+00:00",
+  "baselineCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "originalSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "scope": "Exact preservation-oriented performance changes. Native captures and recovered C unchanged. All timing samples are 20 genuine continuous paints in fresh headless Chrome processes on this host; no scene or physics reduction. Startup/JIT and scene phase affect short samples. These timings do not establish a universal FPS guarantee or universal x87/vendor equivalence.",
+  "performance": {
+    "baseline": "baseline-final.json",
+    "optimized": "optimized-final.json",
+    "meanPaintMsBefore": 862.369999999553,
+    "meanPaintMsAfter": 180.74500000029803,
+    "paintSpeedup": 4.771196990224521,
+    "fpsBefore": 1.151920068873007,
+    "fpsAfter": 5.400028421202217,
+    "additionalFullFleetChecks": [
+      "optimized-two-boats.json",
+      "optimized-thirty-boats.json"
+    ]
+  },
+  "validation": {
+    "final2002": {
+      "command": "npm test (2002 phase)",
+      "tests": 379,
+      "passed": 379,
+      "failed": 0,
+      "log": "full-tests.log",
+      "productionScope": "Shared numerical/GDI changes; 2010-only review corrections were applied afterward."
+    },
+    "final2010": {
+      "command": "npm run test:2010",
+      "tests": 354,
+      "passed": 354,
+      "failed": 0,
+      "log": "final-2010-tests.log",
+      "retainedFullFrames": 438
+    },
+    "browserSource": {
+      "checks": 119,
+      "passed": true,
+      "report": "../browser-verification.json",
+      "sha256": "e3d13ed2d4bf1e7abe2349483d4a95bb047f5ce61c54cf1118860341a095f777"
+    },
+    "browserStandalone": {
+      "checks": 119,
+      "passed": true,
+      "report": "../standalone-browser-verification.json",
+      "sha256": "ea5e03e1d810369b099a276a84934ed3cd41cede2c27a716394a7183e188bee6"
+    },
+    "browser2002": {
+      "checks": 10,
+      "passed": true,
+      "log": "browser-2002.log"
+    },
+    "fullVersionSource": {
+      "checks": 7,
+      "passed": true,
+      "report": "../full-version-browser-check.json",
+      "sha256": "8f43123e2de1bd93dee2bc041af2b1b45fda9e5897fa5d398315ff4e2061a07f"
+    },
+    "fullVersionStandalone": {
+      "checks": 7,
+      "passed": true,
+      "report": "../full-version-standalone-check.json",
+      "sha256": "2af5a883d898d48a4af413d5848ad2b5f293a92c86ac5e1fe8edcccfa8c15452"
+    },
+    "scalarGeneration": {
+      "originalByteFrameFunctionsPreserved": 251,
+      "promotedFunctions": 113,
+      "generatorTests": 4,
+      "nodeFocusedTests": 43,
+      "report": "../scalar-stack-validation.json"
+    }
+  },
+  "review": {
+    "verdict": "No unresolved findings.",
+    "reports": [
+      "numerical-review.json",
+      "transcendental-scalar-review.json"
+    ],
+    "rootCheckedClean": [
+      "GDI recording remains enabled by default for native proof consumers; disabling it preserves sink/state/pixel returns.",
+      "The reused buffered Canvas is reset by every original bitmap selection and uses fresh GDI state per paint; no clip/pixel state survives.",
+      "Source/standalone menu, physical input, modal pause, tutorials and preference reload checks pass.",
+      "2010 full mode comes from unchanged supplied data; mode is neither patched nor stored in the preference archive."
+    ]
+  },
+  "finalProductionModules": [
+    {
+      "path": "src/engine/integer-core.js",
+      "bytes": 3073,
+      "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633"
+    },
+    {
+      "path": "src/render/bitmap-font.js",
+      "bytes": 2799,
+      "sha256": "d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3"
+    },
+    {
+      "path": "src/render/gdi.js",
+      "bytes": 10430,
+      "sha256": "ece9711e627d94cb35fdd263da4ead8d821eee3804e4a01e7986c1938cdf4524"
+    },
+    {
+      "path": "src/runtime/atan.js",
+      "bytes": 6521,
+      "sha256": "84dee62628d0444a38d248d91f660350fb231023cf73ab75c0452c60645d2a12"
+    },
+    {
+      "path": "src/runtime/c-types.js",
+      "bytes": 3251,
+      "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "bytes": 19322,
+      "sha256": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b"
+    },
+    {
+      "path": "src/runtime/index.js",
+      "bytes": 59,
+      "sha256": "cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72"
+    },
+    {
+      "path": "src/runtime/memory.js",
+      "bytes": 7100,
+      "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
+    },
+    {
+      "path": "src/runtime/transcendentals.js",
+      "bytes": 7125,
+      "sha256": "d75d9e92a828686735734b1f76ddce51db217acb6c1e67dc33dfc63d55b2e2f4"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-functions.js",
+      "bytes": 185351,
+      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-geometry.js",
+      "bytes": 6798,
+      "sha256": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai.js",
+      "bytes": 2949,
+      "sha256": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913"
+    },
+    {
+      "path": "versions/2010-en/src/engine/apparent-wind.js",
+      "bytes": 2671,
+      "sha256": "bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/application.js",
+      "bytes": 14549,
+      "sha256": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-dynamics.js",
+      "bytes": 17087,
+      "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-options.js",
+      "bytes": 9335,
+      "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252"
+    },
+    {
+      "path": "versions/2010-en/src/engine/configuration.js",
+      "bytes": 10595,
+      "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/controller-values.js",
+      "bytes": 2550,
+      "sha256": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0"
+    },
+    {
+      "path": "versions/2010-en/src/engine/course.js",
+      "bytes": 8631,
+      "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97"
+    },
+    {
+      "path": "versions/2010-en/src/engine/current.js",
+      "bytes": 14328,
+      "sha256": "5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117"
+    },
+    {
+      "path": "versions/2010-en/src/engine/custom-venue.js",
+      "bytes": 10919,
+      "sha256": "074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/dialogs.js",
+      "bytes": 1818,
+      "sha256": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/frame.js",
+      "bytes": 4404,
+      "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+    },
+    {
+      "path": "versions/2010-en/src/engine/initialization.js",
+      "bytes": 9389,
+      "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39"
+    },
+    {
+      "path": "versions/2010-en/src/engine/integration.js",
+      "bytes": 10371,
+      "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/keyboard.js",
+      "bytes": 26566,
+      "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf"
+    },
+    {
+      "path": "versions/2010-en/src/engine/menu-controller.js",
+      "bytes": 294172,
+      "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+    },
+    {
+      "path": "versions/2010-en/src/engine/mouse.js",
+      "bytes": 2515,
+      "sha256": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/movement-history.js",
+      "bytes": 2828,
+      "sha256": "7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/movement.js",
+      "bytes": 833,
+      "sha256": "e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/native-trig.js",
+      "bytes": 2586,
+      "sha256": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181"
+    },
+    {
+      "path": "versions/2010-en/src/engine/penalties.js",
+      "bytes": 11873,
+      "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496"
+    },
+    {
+      "path": "versions/2010-en/src/engine/port.js",
+      "bytes": 1104,
+      "sha256": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856"
+    },
+    {
+      "path": "versions/2010-en/src/engine/race-targets.js",
+      "bytes": 5951,
+      "sha256": "f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/snapshot-maps.js",
+      "bytes": 11496,
+      "sha256": "e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/snapshots.js",
+      "bytes": 2117,
+      "sha256": "9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/spatial-metrics.js",
+      "bytes": 10173,
+      "sha256": "a3f67ff26558b0a1b2e8b3567a168f611674b31fc5dc20096cb75ce9bf77bee7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/starting-positions.js",
+      "bytes": 6130,
+      "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2"
+    },
+    {
+      "path": "versions/2010-en/src/engine/steering.js",
+      "bytes": 10625,
+      "sha256": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/terrain.js",
+      "bytes": 16658,
+      "sha256": "da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/venue-definitions.js",
+      "bytes": 239241,
+      "sha256": "5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/venue-geometry.js",
+      "bytes": 5187,
+      "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wave-motion.js",
+      "bytes": 2697,
+      "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a"
+    },
+    {
+      "path": "versions/2010-en/src/engine/waypoints.js",
+      "bytes": 5175,
+      "sha256": "1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind-initialization.js",
+      "bytes": 12514,
+      "sha256": "f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind.js",
+      "bytes": 11101,
+      "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "bytes": 15475,
+      "sha256": "8618ff9eebb225691610cfb18b4c2fab8365084e85a1bf1d66af7829b4f9f735"
+    },
+    {
+      "path": "versions/2010-en/src/render/chart.js",
+      "bytes": 320,
+      "sha256": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088"
+    },
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "bytes": 4167,
+      "sha256": "faee828400f9ce44ca8d679200f0305a95a2fe66e253ccceecd888d0ce62e0a0"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "bytes": 3045056,
+      "sha256": "0024e2bc308d02a38ccd29d07b897993c0a657b8ec97050ac2aa47d48e850b1c"
+    },
+    {
+      "path": "versions/2010-en/src/render/gdi.js",
+      "bytes": 123,
+      "sha256": "2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae"
+    },
+    {
+      "path": "versions/2010-en/src/render/host.js",
+      "bytes": 2996,
+      "sha256": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68"
+    },
+    {
+      "path": "versions/2010-en/src/render/hud.js",
+      "bytes": 541,
+      "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c"
+    },
+    {
+      "path": "versions/2010-en/src/render/index.js",
+      "bytes": 1575,
+      "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b"
+    },
+    {
+      "path": "versions/2010-en/src/render/paint-lifecycle.js",
+      "bytes": 9033,
+      "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+    },
+    {
+      "path": "versions/2010-en/src/render/render-functions.js",
+      "bytes": 377315,
+      "sha256": "ec4854a097e03aab2eefa6434e8245cf29240444d1ca1b89be432357a37c3f5e"
+    },
+    {
+      "path": "versions/2010-en/src/render/sail-geometry.js",
+      "bytes": 11601,
+      "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281"
+    },
+    {
+      "path": "versions/2010-en/src/render/scalar-stack.js",
+      "bytes": 1532,
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "path": "versions/2010-en/src/render/scene-depth.js",
+      "bytes": 1084,
+      "sha256": "834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4"
+    },
+    {
+      "path": "versions/2010-en/src/render/scene.js",
+      "bytes": 508,
+      "sha256": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace"
+    },
+    {
+      "path": "versions/2010-en/src/render/screen-helper-functions.js",
+      "bytes": 148106,
+      "sha256": "0d8d39b604c706bd77104973693567eaf93a4915585f8f31db2baf6d8bfc83f6"
+    },
+    {
+      "path": "versions/2010-en/src/render/screens.js",
+      "bytes": 1665,
+      "sha256": "c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d"
+    },
+    {
+      "path": "versions/2010-en/src/render/shore-stack.js",
+      "bytes": 3210,
+      "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1"
+    },
+    {
+      "path": "versions/2010-en/src/render/text.js",
+      "bytes": 2960,
+      "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-controls.js",
+      "bytes": 2745,
+      "sha256": "39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-pages.js",
+      "bytes": 1144666,
+      "sha256": "907f3e3d2b6665189eea134dec4cffb9f9d220077e214bb600832a02b4fd18d7"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "bytes": 20064,
+      "sha256": "0a43ce405278c7c985098f873c7cd03b491af1ffa4f9e9505857e499fb1f33b5"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/browser-clock.js",
+      "bytes": 840,
+      "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/original-data.js",
+      "bytes": 3041,
+      "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
+    }
+  ],
+  "exports": [
+    {
+      "edition": "2002",
+      "archive": "posey-2002-browser.zip",
+      "entries": 135,
+      "bytes": 685658,
+      "sha256": "3ab7a1e3de6ec36583b26a9f54789e855329393aca1f434611961f2acd0c9bc9",
+      "manifestSha256": "55f08648a48b8069233dea2627ef95f5a47ea933634f3c95e655b4237b4eb4e8",
+      "allExportFilesAndZipEntriesExact": true
+    },
+    {
+      "edition": "2010",
+      "archive": "posey-2010-browser.zip",
+      "entries": 125,
+      "bytes": 1305712,
+      "sha256": "3a34422a46aaeb504804233fb10b15c9983429186e52c78102a3007ac33a3258",
+      "manifestSha256": "1ffda942b3293b13d5f1304e9b488dfc3c2af84b264a67ae9c0774514a50f85b",
+      "allExportFilesAndZipEntriesExact": true
+    }
+  ],
+  "receipts": [
+    {
+      "path": "full-tests.log",
+      "sha256": "8d794249ff6fefb553543657ad9a426f54dbb4c5eddc0c789674820812bcb912",
+      "bytes": 76215
+    },
+    {
+      "path": "final-2010-tests.log",
+      "sha256": "88e2a8588e7bf20a97086872feb99cb186d258a2f913951ba716b7b4063f9279",
+      "bytes": 36175
+    },
+    {
+      "path": "browser-source-final.log",
+      "sha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442",
+      "bytes": 32
+    },
+    {
+      "path": "browser-standalone.log",
+      "sha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442",
+      "bytes": 32
+    },
+    {
+      "path": "full-version-source.log",
+      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9",
+      "bytes": 38
+    },
+    {
+      "path": "full-version-standalone.log",
+      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9",
+      "bytes": 38
+    },
+    {
+      "path": "browser-2002.log",
+      "sha256": "6cc4e22a415b39f821d793cf5232b94499881cc396440154492aae51285bf20f",
+      "bytes": 90
+    },
+    {
+      "path": "scalar-final-verification.log",
+      "sha256": "9978ce06c8a04fab338a63ec7deb5d28867ff1cde5fe05989c9830d9f05c535f",
+      "bytes": 239
+    }
+  ],
+  "historicalEvidence": "Prior publication reports and production snapshots describe the original fb856db release. This separate report and final logs describe the optimized source hashes."
+}

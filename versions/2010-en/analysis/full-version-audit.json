@@ -1,0 +1,167 @@
+{
+  "format": 2,
+  "status": "passed",
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "baseCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "mode": {
+    "address": 5087596,
+    "originalBytes": "00000000",
+    "suppliedExecutableValue": 0,
+    "browserInitialDataValue": 0,
+    "meaning": "Full mode",
+    "writtenByConstructor": false,
+    "preferenceArchiveContainsMode": false,
+    "recoveredOriginalWrites": 0
+  },
+  "originalBranches": [
+    {
+      "routine": 4411248,
+      "condition": "mode > 0 && clock > 260",
+      "effect": "writes5363f4=1",
+      "fullModeResult": "conditionfalse"
+    },
+    {
+      "routine": 4411248,
+      "condition": "mode == 1 && saved sessions > 10",
+      "effect": "writes5363f4=10",
+      "fullModeResult": "conditionfalse"
+    },
+    {
+      "routine": 4208288,
+      "condition": "mode == 1 && saved sessions < 12",
+      "effect": "increments536420before636bytearchive",
+      "fullModeResult": "counterunchanged"
+    },
+    {
+      "routine": 4791728,
+      "condition": "Space while app0, mode > 0 and notice0",
+      "effect": "demo notice startup branch",
+      "fullModeResult": "skipped"
+    }
+  ],
+  "regression": {
+    "path": "tests/full-version.test.js",
+    "checks": 3,
+    "passed": 3,
+    "failed": 0,
+    "scope": "Original data mode, all636preference ranges/sessioncounterboundaryreloads, alllegitimatefleetmenus plusfullmodetutorial availability"
+  },
+  "browser": {
+    "path": "analysis/full-version-browser-check.json",
+    "sha256": "8f43123e2de1bd93dee2bc041af2b1b45fda9e5897fa5d398315ff4e2061a07f",
+    "checks": 7,
+    "passed": true,
+    "preparedClockInput": {
+      "preciseTime": 261.5,
+      "clock": 261,
+      "scope": "Declared finite input beyond the260integer clock gate after actual original initialization; mode is never written."
+    }
+  },
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/engine/application.js",
+      "bytes": 14549,
+      "sha256": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5"
+    },
+    {
+      "path": "versions/2010-en/src/engine/ai-functions.js",
+      "bytes": 185351,
+      "sha256": "35a9a3732d45dedab8fc395b7ec9beeaec583f0ddc618378d10e8d0a4d25d55f"
+    },
+    {
+      "path": "src/render/gdi.js",
+      "bytes": 10430,
+      "sha256": "ece9711e627d94cb35fdd263da4ead8d821eee3804e4a01e7986c1938cdf4524"
+    },
+    {
+      "path": "src/render/bitmap-font.js",
+      "bytes": 2799,
+      "sha256": "d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "bytes": 15475,
+      "sha256": "8618ff9eebb225691610cfb18b4c2fab8365084e85a1bf1d66af7829b4f9f735"
+    },
+    {
+      "path": "tools/check-2010-full-version.js",
+      "bytes": 7403,
+      "sha256": "3dba980fb86c8ecdbec6e8d4fa9be90250d084e99b14752e972bd138d42f75fe"
+    },
+    {
+      "path": "versions/2010-en/tests/full-version.test.js",
+      "bytes": 3208,
+      "sha256": "5b38b1430293742e0fadc893475cb1b0923e6881510b97f50d3210107e8fbcd8"
+    }
+  ],
+  "productionModeEdits": false,
+  "originalExecutableEdits": false,
+  "scope": "Own source/data/fullmode audit and browser finite boundary probe; no new universal nativeequivalence claim.",
+  "sourcePinsScope": "Current static audit inputs. Browser full-mode checks are actual initialized finite boundary probes; final loaded production sources and performance measurements are separately pinned in browser-performance/verification.json.",
+  "performanceBeforeOptimizations": {
+    "samples": [
+      {
+        "before": {
+          "frames": 10,
+          "time": 261.56051536478446,
+          "clock": 261
+        },
+        "elapsedMs": 661.3999999761581,
+        "counts": {
+          "events": 1032,
+          "eventMs": 2.100000023841858,
+          "getPixel": 10,
+          "getPixelMs": 0.6000000238418579,
+          "textCalls": 36,
+          "glyphs": 278
+        },
+        "after": {
+          "frames": 11,
+          "time": 261.62103072956893,
+          "clock": 261
+        }
+      },
+      {
+        "before": {
+          "frames": 16,
+          "time": 261.92360755349125,
+          "clock": 261
+        },
+        "elapsedMs": 686.6000000238419,
+        "counts": {
+          "events": 1098,
+          "eventMs": 1.5000000596046448,
+          "getPixel": 10,
+          "getPixelMs": 0.6000000238418579,
+          "textCalls": 36,
+          "glyphs": 278
+        },
+        "after": {
+          "frames": 17,
+          "time": 261.9841229182757,
+          "clock": 261
+        }
+      }
+    ],
+    "environment": "Owned headless Chrome --disable-gpu; sink-inclusive emit/getImageData observational wrappers",
+    "conclusion": "Measured GDI sink and pixel-read times are below 0.4% of the two finite initialized 2-boat paints. Math and translated control-flow optimization are the primary candidates; GetPixel batching or bitmap-font changes are not justified by these samples.",
+    "readOnlyCandidates": [
+      {
+        "candidate": "Disable event retention in production DCs",
+        "reason": "Every paint allocates ordered event arrays without a proof consumer; preserve state and sink calls while keeping tracing enabled by default for tests."
+      },
+      {
+        "candidate": "Reuse the offscreen Canvas with fresh GDI state per original constructor",
+        "reason": "The host recreates canvas and context each paint; reset DC state and pixels explicitly when reusing it."
+      }
+    ],
+    "guard": "GetPixel is order-sensitive and may observe prior drawing within the same frame. A cache must track intervening writes; no stale whole-frame pixel cache is proposed."
+  },
+  "standaloneBrowser": {
+    "path": "analysis/full-version-standalone-check.json",
+    "sha256": "2af5a883d898d48a4af413d5848ad2b5f293a92c86ac5e1fe8edcccfa8c15452",
+    "checks": 7,
+    "passed": true
+  },
+  "currentPerformanceReport": "analysis/browser-performance/verification.json"
+}

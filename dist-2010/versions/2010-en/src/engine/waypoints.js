@@ -16,45 +16,69 @@ export function clampedPointDistanceExtended(memory,x0,y0,x1,y1){
 
 const normalOrZero=value=>Number.isFinite(value)&&(value===0||Math.abs(value)>=2.2250738585072014e-308);
 
+// Only PC53 arithmetic with representable normal intermediates enters this
+// path. Undefined selects the original extended-exponent implementation.
+function normalClampedDistance(memory,x0,y0,x1,y1){
+ if(!Number.isFinite(x0)||!Number.isFinite(y0)||!Number.isFinite(x1)||!Number.isFinite(y1))return;
+ const dx=x0-x1,dy=y1-y0;
+ if(!normalOrZero(dx)||!normalOrZero(dy))return;
+ const xx=dx*dx,yy=dy*dy;
+ if(!normalOrZero(xx)||!normalOrZero(yy)||(xx===0&&dx!==0)||(yy===0&&dy!==0))return;
+ const square=yy+xx;
+ if(!normalOrZero(square))return;
+ const floor=memory.readF64(0x4cc658);
+ if(!Number.isFinite(floor))return;
+ if(square<=floor)return floor;
+ const ceiling=memory.readF64(0x4cccc8);
+ if(!Number.isFinite(ceiling))return;
+ if(square<ceiling)return Math.sqrt(square);
+ const cap=memory.readF64(0x4cccc0);
+ if(Number.isFinite(cap))return cap;
+}
+
 /** Complete 0x4662d0. PC53 normal arithmetic has binary64 significand rounding. */
 export function clampedPointDistance(memory,x0,y0,x1,y1){
  if(getX87ControlWord()===0x027f&&
     [x0,y0,x1,y1].every(value=>typeof value==='number'&&Number.isFinite(value))){
-  const dx=x0-x1,dy=y1-y0;
-  if(normalOrZero(dx)&&normalOrZero(dy)){
-   const xx=dx*dx,yy=dy*dy;
-   if(normalOrZero(xx)&&normalOrZero(yy)&&!(xx===0&&dx!==0)&&!(yy===0&&dy!==0)){
-    const square=yy+xx;
-    if(normalOrZero(square)){
-     const floor=memory.readF64(0x4cc658);
-     if(Number.isFinite(floor)){
-      if(square<=floor)return Float80.fromNumber(floor);
-      const ceiling=memory.readF64(0x4cccc8);
-      if(Number.isFinite(ceiling)){
-       if(square<ceiling)return Float80.fromNumber(Math.sqrt(square));
-       return f(memory,0x4cccc0);
-      }
-     }
-    }
-   }
-  }
+  const value=normalClampedDistance(memory,x0,y0,x1,y1);
+  if(value!==undefined)return Float80.fromNumber(value);
  }
  // Binary64's exponent limits differ from x87. Keep the exact original path
  // for other control words, nonfinite inputs, subnormals and product underflow.
  return clampedPointDistanceExtended(memory,x0,y0,x1,y1);
 }
 
-/** Complete0x466230, including the F64 store after every new nearest result. */
-export function nearestWaypointDistance(memory,x,y,excluded){
+/** Original extended scan, including the F64 spill after each new minimum. */
+export function nearestWaypointDistanceExtended(memory,x,y,excluded){
  excluded=i32(excluded);
  let nearest=Float80.fromNumber(50000);
  for(let index=0;index<=memory.readI32(0x4da1f4);index++){
   if(excluded<0||index!==excluded){
-   const distance=clampedPointDistance(memory,x,y,memory.readF64(at(0x4f7220,index,8)),memory.readF64(at(0x4ff038,index,8)));
+   const distance=clampedPointDistanceExtended(memory,x,y,memory.readF64(at(0x4f7220,index,8)),memory.readF64(at(0x4ff038,index,8)));
    if(distance.compare(nearest)<0)nearest=Float80.fromNumber(distance.toNumber());
   }
  }
  return nearest;
+}
+
+/** Complete0x466230; PC53 normal distances and stored minima are binary64. */
+export function nearestWaypointDistance(memory,x,y,excluded){
+ if(getX87ControlWord()!==0x027f||typeof x!=='number'||typeof y!=='number')return nearestWaypointDistanceExtended(memory,x,y,excluded);
+ excluded=i32(excluded);
+ let nearest=50000;
+ for(let index=0;index<=memory.readI32(0x4da1f4);index++){
+  if(excluded<0||index!==excluded){
+   const x1=memory.readF64(at(0x4f7220,index,8)),y1=memory.readF64(at(0x4ff038,index,8));
+   const distance=normalClampedDistance(memory,x,y,x1,y1);
+   if(distance!==undefined){
+    if(distance<nearest)nearest=distance;
+   }else{
+    const extended=clampedPointDistanceExtended(memory,x,y,x1,y1);
+    if(extended.compare(Float80.fromNumber(nearest))<0)nearest=extended.toNumber();
+   }
+  }
+ }
+ return Float80.fromNumber(nearest);
 }
 
 /** Complete0x465ff0, with allthree original collision attempts and RNG draws. */

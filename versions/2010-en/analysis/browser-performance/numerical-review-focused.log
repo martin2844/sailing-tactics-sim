@@ -1,0 +1,44 @@
+✔ binary64 carriers match captured native PC24/53/64 arithmetic and stored bits (33.942768ms)
+✔ PC53 arithmetic retains the x87 exponent range at binary64 overflow and underflow (0.380866ms)
+✔ carried values preserve frozen public fields, signed zeros and integer boundaries (0.849267ms)
+✔ shared immutable integer carriers retain exact values across other loads (1.374183ms)
+✔ PC53 square root uses only an exactly certified candidate and falls back on bad candidates (0.882619ms)
+✔ PC53 exact identities retain every operand bit, including binary64 subnormals (0.548451ms)
+✔ drawing F64 spill preserves m80 bits, signed zero and failures under CW7f (6.543671ms)
+✔ drawing F64 spill preserves m80 bits, signed zero and failures under CW27f (3.758515ms)
+✔ drawing F64 spill preserves m80 bits, signed zero and failures under CW37f (2.224001ms)
+✔ drawing F64 spills preserve every captured native extended sine/cosine (34.761418ms)
+✔ drawing F64 spills preserve every captured native stored sine/cosine (32.003332ms)
+✔ exact binary64 drawing operands reuse their immutable Float80 value (0.225624ms)
+✔ unknown register spills retain undefined bytes until original stores define them (1.693714ms)
+✔ an unused argument propagates unknown bytes and still fails if the callee reads them (0.26057ms)
+✔ CString object inputs retain semantic boat names independently of allocator identities (0.231566ms)
+✔ raw DWORD extraction reconstructs floating bits independently of numeric truncation (0.389843ms)
+✔ original scene DWORD constructions preserve binary64 values rather than numeric integer casts (0.214573ms)
+✔ packed double argument slots preserve the untouched word after an original DWORD write (0.211968ms)
+✔ partial three-byte state reads preserve the remaining byte and avoid a four-byte access (0.190889ms)
+✔ cached local views enforce declared scalar widths and exact frame bounds (0.547359ms)
+✔ local byte validity preserves original index coercion for unusual host pointers (0.179989ms)
+✔ compact frame materialization retains double words, undefined bytes and escaped pointers (0.828989ms)
+✔ public local byte and validity mutations remain visible to retained pointers (0.219883ms)
+✔ replacement local byte arrays and slices become the storage seen by retained pointers (0.274847ms)
+✔ malformed replacement byte storage fails on access and can be replaced again (9.055503ms)
+✔ compact nonsemantic I32 stores retain DataView coercion and failure behavior (0.72329ms)
+✔ compact frames preserve semantic overlap and caller mutations of the public Map (0.248136ms)
+✔ prepared retained local byte rows keep their original validity and bounds (0.384773ms)
+✔ CDC virtual pointers and semantic CString data preserve their separate meanings (0.576474ms)
+✔ distance guards preserve extended results and failures under CW27f (35.085897ms)
+✔ distance guards preserve extended results and failures under CW37f (58.579021ms)
+✔ nearest scan preserves extended minimum spills and failures under CW7f (70.512334ms)
+✔ nearest scan preserves extended minimum spills and failures under CW27f (12.20304ms)
+✔ nearest scan preserves extended minimum spills and failures under CW37f (63.544586ms)
+✔ distance and nearest guards preserve altered clamp constants and unsupported loads (2.89371ms)
+✔ nearest scan preserves failed original memory reads and count bounds (0.325763ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 325.199915

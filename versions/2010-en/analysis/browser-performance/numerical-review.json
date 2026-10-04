@@ -1,0 +1,87 @@
+{
+  "kind": "Independent review of exact numerical performance changes",
+  "checkedAt": "2026-10-04T08:13:05.591648+00:00",
+  "baselineCommit": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+  "verdict": "No unresolved findings.",
+  "scope": [
+    "Read src/runtime/float80.js, versions/2010-en/src/render/typed-c.js, and versions/2010-en/src/engine/waypoints.js end-to-end and compared against HEAD.",
+    "Reviewed focused tests first, then production callers, exported local-frame storage contracts, and prior captured native arithmetic/drawing/screen evidence.",
+    "No browser benchmark or live Wine/native runner was executed by this reviewer."
+  ],
+  "sourcePins": {
+    "src/runtime/float80.js": "94387b1780ff93894c272911abe69515b7e510a5a17c08db91debc70f7e9a55b",
+    "versions/2010-en/src/render/typed-c.js": "0a43ce405278c7c985098f873c7cd03b491af1ffa4f9e9505857e499fb1f33b5",
+    "versions/2010-en/src/engine/waypoints.js": "1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa",
+    "tests/float80-fast.test.js": "eea73f4011524dd4abcc82093649e6973ec876c16eb8395db07b3f2cba4cf85e",
+    "versions/2010-en/tests/drawing-types.test.js": "2941bad786c79b490961813854326ed04ab8346e6a7356794670913424222b41",
+    "versions/2010-en/tests/drawing-spill-precision.test.js": "363107438f8813c9ec4fa3e5b6994196c9f6a9c2c19d8afb233060eb149a51ff",
+    "versions/2010-en/tests/waypoint-precision.test.js": "fce0e3afa882f42f5bef97c10f3d4561e11e08269d26d3195c060eec05f4a048"
+  },
+  "checkedClean": [
+    "PC53 Number arithmetic only applies to exact binary64 operands with a normal representable result or a proven exact zero/identity; extended exponent, nonrepresentable m80, PC24/64, and nonzero-underflow paths retain exact arithmetic.",
+    "PC53 square-root candidate is accepted only through an exact integer-product identity or squared BigInt midpoint certificate with ties-to-even; malformed, inaccurate, and throwing candidates fall back to the original algorithm.",
+    "Signed zeros, signed64 truncation bounds, low32 wrapping, m80 serialization, and stored binary64 conversion remain covered by captured native and boundary tests.",
+    "Integer carrier reuse is bounded to 8,193 integer slots plus distinct negative zero; values stay frozen, and lazy m80 parts cannot be externally mutated.",
+    "Mantissa/exponent prototype getter enumerability differs intentionally. Production caller searches found no serialization, spread, Object.keys/entries/values/assign, or structuredClone dependency on Float80 own properties.",
+    "Compact frames preserve per-frame lifetime, overlapping byte validity, undefined reads/arguments, semantic overlap, materialization, mutable byte/validity arrays and semantic Maps, local width bounds, and original index coercion.",
+    "Waypoint scans re-read the original count, preserve excluded indices and traversal order, preserve the clamped distance branch order and X spill, fall back for unsupported exponent/intermediate cases, and store each selected minimum as binary64."
+  ],
+  "resolvedFindings": [
+    {
+      "severity": "Medium",
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "title": "Replacing the public byte array left scalar access attached to the old cached buffer",
+      "beforeSourceSha256": "f93e4767d9e5faa7b493cbb4505c6f87caa4cc3e4791744547a1a73cdf65c3aa",
+      "trigger": "Write 123 at offset 0, assign a replacement Uint8Array holding 456 to frame.bytes, then read offset 0 and write 789.",
+      "evidence": "HEAD returns 456 and writes 789 to the replacement; pre-fix compact implementation returned 123 and left replacement at 456. No production caller replaces the array, but the exported frame interface and supplied setter accept replacement.",
+      "disproofAttempt": "Checked all production and test callers, re-read the cached DataView getter and replacement setter, and reproduced the difference against HEAD loaded independently via a data URL.",
+      "resolution": "The bytes setter invalidates the cached view; the view getter rebuilds it with the replacement buffer, byteOffset, and byteLength. Materialization follows the retained word state, allowing malformed replacement to fail on access and later replacement to restore access.",
+      "validation": "Regression tests cover whole arrays, nonzero-offset slices, malformed replacements, deferred failures, restoration, direct mutation, and original bounds."
+    },
+    {
+      "severity": "Medium",
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "title": "Nonsemantic host-shaped I32 values bypassed DataView numeric coercion in compact storage",
+      "trigger": "Store {frame:null}, {array:null}, or {dc:null} in a compact I32 slot.",
+      "evidence": "The pointer/table presence test returns the object from cI32, while the semantic store guard rejects the falsy field. Original DataView.setInt32 converts that object to zero; pre-fix compact storage retained the object. An independent sibling reviewer established the HEAD difference.",
+      "disproofAttempt": "Checked semantic guard symmetry and verified that host-shaped objects with Number, BigInt, Symbol, and throwing conversion callbacks must follow DataView ToNumber behavior, including failure name and message.",
+      "resolution": "After the semantic branch, compact I32 storage now applies (+cI32(value))|0 to preserve DataView ToNumber and ToInt32 conversion.",
+      "validation": "Regression tests compare stored value and failure name/message with an actual DataView for falsy frame/array/dc objects and Number/BigInt/Symbol/throwing coercion callbacks."
+    }
+  ],
+  "validation": [
+    {
+      "command": "node --test tests/float80-fast.test.js versions/2010-en/tests/drawing-types.test.js versions/2010-en/tests/drawing-spill-precision.test.js versions/2010-en/tests/waypoint-precision.test.js",
+      "tests": 36,
+      "pass": 36,
+      "fail": 0,
+      "log": "numerical-review-focused.log"
+    },
+    {
+      "command": "node --test tests/float80.test.js tests/precision.test.js versions/2010-en/tests/closed-drawing.test.js versions/2010-en/tests/initialized-screens.test.js",
+      "tests": 27,
+      "pass": 27,
+      "fail": 0,
+      "log": "numerical-review-native-focused.log",
+      "scope": "Uses retained original native captures; no new live native calls."
+    },
+    {
+      "command": "node versions/2010-en/tools/diagnostics/check-cached-local-frame.mjs <report>",
+      "boundaryChecks": 5780,
+      "sequences": 600,
+      "sequenceOperations": 24600,
+      "failures": 0,
+      "report": "numerical-review-local-differential.json"
+    },
+    {
+      "command": "git diff --check -- src/runtime/float80.js versions/2010-en/src/render/typed-c.js versions/2010-en/src/engine/waypoints.js versions/2010-en/tests/drawing-types.test.js",
+      "exitCode": 0
+    }
+  ],
+  "receiptSha256": {
+    "numerical-review-focused.log": "584caabf6ed237e9edfd799cfb12a88279732c2a434ef6ce469f6ff7d33902a8",
+    "numerical-review-native-focused.log": "28875592eba1c8b6ddbf40ffab4618df478ba6791936f75ceea4c6ae7ea78ea6",
+    "numerical-review-local-differential.json": "5edb16d1406569356884c6fda1cc6f89f5e997cc16de4663ce844d32d492b5d6"
+  },
+  "limitations": "Review and tests cover the finite arithmetic, native captures, and local-memory contracts named above. The broader final game regression suite, browser checks, current source snapshot, and whole-game performance measurements are owned by the root agent; this report does not assert pixel-identical rasterization or historical CPU timing."
+}

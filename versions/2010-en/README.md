@@ -48,6 +48,12 @@ The [localization record](runtime/localization-record.json) preserves the prior
 restoration's provenance; rebuilding that separate restoration requires its
 Japanese and 2008 reference inputs.
 
+The player is the **full version**: all original fleet choices through 30 boats
+are available. Original demo time and session branches remain inactive in the
+supplied full mode. The [full-version audit](analysis/full-version-audit.json)
+and actual source/standalone browser probes check startup, preferences, menus,
+and play beyond the demo clock boundary.
+
 Ghidra exports **5,281 functions and compiler funclets**, with zero failures.
 The [recovered C](decompiled/recovered.c), [function index](decompiled/functions.jsonl),
 individual bodies, resource inventories and original discovery evidence are
@@ -87,11 +93,11 @@ preference reload. It rejects uncaught browser exceptions and production
 requests for executables or proof fixtures. Browser reports are preserved in
 [browser-verification.json](analysis/browser-verification.json).
 
-The final [review](analysis/big-review.md) records the corrected findings and
-review scope. The [publication checks](analysis/publication-verification.json)
-link the complete checkout run, focused fixes, current retained-frame proofs,
-both browser checks and export hashes. A historical failing checkout run is
-retained alongside its passing corrections.
+The original port's [review](analysis/big-review.md) and
+[publication checks](analysis/publication-verification.json) preserve that
+release's findings, source hashes and proof runs. The current performance
+update has a separate [review and verification record](analysis/browser-performance/README.md),
+including the final test runs, source/standalone browser checks and export hashes.
 
 The [native reference index](analysis/native-reference-index.json) lists exact
 fixture hashes and counts original calls without adding overlapping reports.
@@ -144,8 +150,11 @@ claimed. The [initialization domain](analysis/initialization-domain.md)
 documents original unsupported inputs, including 35 boats; the native menu's
 maximum is 30. Other editions and their Wine state are not browser inputs.
 
-Exact floating-point reconstruction is CPU intensive. The guarded distance
-optimization reduced one measured full-frame replay from 8.66 to 1.18 seconds;
-this is a Node measurement, not a browser frame-rate guarantee. Original
-display-detail and fleet-size controls remain available. See the
-[performance evidence](analysis/retained-standard-performance-review.md).
+The performance update uses guarded exact PC53 arithmetic, certified square
+roots and trigonometric results, bounded caches, and private scalar stack slots.
+Full extended arithmetic and original byte frames remain available for their
+required cases. In the final headless Chrome 20-boat benchmark, mean paint time
+fell from 862 ms to 181 ms (about 4.8× faster), and measured frame rate rose from
+1.15 to 5.40 FPS. Heavy scenes still depend on browser and CPU performance;
+these measurements are not a frame-rate guarantee. The original scene and
+physics remain enabled. See the [current evidence](analysis/browser-performance/verification.json).

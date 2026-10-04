@@ -4,6 +4,7 @@ import { formatInteger, formatDecimal, readAnsiString, readAnsiBytes,readCString
 import { drawingTick,drawingSystemMetric,drawingPrintf,drawingSound,drawingCursor } from './host.js';
 import { callDrawingDependency, registerOriginalDrawing } from './dependencies.js';
 import { restoreShoreStackFrame,saveShoreStackFrame } from './shore-stack.js';
+import { scalarRead,scalarReadArgument,scalarStoreI32,scalarStoreF64 } from './scalar-stack.js';
 import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cString,
   pointerAdd,localPointer,readPointer,writePointer,writeLocalPoint,stockObject,dcMethod,selectGdiObject,selectOriginalGdiObject,importDrawingMethod,originalPoints,clipRegion,textOutCount,originalTrig,cStringHeaderLength,signedBorrow32,
   cF64,cAbs,createLocalFrame,framePointer,readLocal,readLocalArgument,cWordArgument,writeLocal,originalAtan,cConcat,bitsAsF64,cRawWord,cRawSlice,invokeDrawingPointer } from './typed-c.js';
@@ -2929,7 +2930,50 @@ export function originalDrawForecastScreen(memory, dc, rng, options = {}, ...ori
 export function originalDrawAdvice(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
-  const localFrame=createLocalFrame(256,options.retainedDrawingStack?.[4220304]??[]);
+  const retainedLocalBytes=options.retainedDrawingStack?.[4220304];
+  if(retainedLocalBytes!=null)return originalDrawAdviceByteFrame(memory,dc,rng,options,originalArgs,retainedLocalBytes);
+  let scalarStack0,scalarStack4,scalarStack8,scalarStack12,scalarStack16,scalarStack20,scalarStack24;
+  scalarStack0=scalarStoreI32(dc);
+  scalarStack4=scalarStoreI32(originalArgs[0]);
+  scalarStack8=scalarStoreI32(originalArgs[1]);
+  scalarStack12=scalarStoreI32(originalArgs[2]);
+  scalarStack16=scalarStoreI32(originalArgs[3]);
+  scalarStack20=scalarStoreI32(originalArgs[4]);
+  scalarStack24=scalarStoreI32(originalArgs[5]);
+  let hdc;
+  let iVar1;
+  let pcVar2;
+  let iVar3;
+  let h;
+  let h_00;
+  let pc = 16;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { undefined; pc = 1; continue; }
+    case 3: { selectGdiObject(dc,h_00); pc = 2; continue; }
+    case 4: { callDrawingDependency(memory,dc,0x406e40,[scalarStack0, scalarStack8, scalarStack4, iVar3],rng,options); pc = 3; continue; }
+    case 5: { callDrawingDependency(memory,dc,0x406680,[scalarStack0, scalarStack8, scalarStack4, iVar3],rng,options); pc = 3; continue; }
+    case 6: { pc = cTruth(cCompare(r32(0x4fecd0),cSub(170,r32(0x4fae68)),"<")) ? 4 : 5; continue; }
+    case 7: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[scalarRead(scalarStack0),8323072]); pc = 6; continue; }
+    case 8: { dc.rectangle(scalarRead(scalarStack4),scalarRead(scalarStack8),scalarRead(scalarStack12),scalarRead(scalarStack16)); pc = 7; continue; }
+    case 9: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),0]); pc = 8; continue; }
+    case 10: { invokeDrawingPointer(pcVar2,dc,[scalarRead(scalarStack0),7]); pc = 9; continue; }
+    case 11: { (pcVar2 = dcMethod(dc,44,memory)); pc = 10; continue; }
+    case 12: { (iVar1 = readPointer(memory,scalarRead(scalarStack0),4)); pc = 11; continue; }
+    case 13: { (h_00 = selectGdiObject(dc,h)); pc = 12; continue; }
+    case 14: { (h = clipRegion(scalarRead(scalarStack4),scalarRead(scalarStack8),scalarRead(scalarStack12),scalarRead(scalarStack16))); pc = 13; continue; }
+    case 15: { (iVar3 = cAdd(cBits(cSub(cCompare(699,r32(0x4fe624),"<"),1),4294967292,"&"),20)); pc = 14; continue; }
+    case 16: { (hdc = dc); pc = 15; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
+/** Complete recovered original 0x00406590; static C control-flow translation. */
+function originalDrawAdviceByteFrame(memory, dc, rng, options, originalArgs, retainedLocalBytes) {
+  const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
+  const localFrame=createLocalFrame(256,retainedLocalBytes);
   writeLocal(framePointer(localFrame,0),dc,4,"int");
   writeLocal(framePointer(localFrame,4),originalArgs[0],4,"int");
   writeLocal(framePointer(localFrame,8),originalArgs[1],4,"int");
@@ -2970,7 +3014,117 @@ export function originalDrawAdvice(memory, dc, rng, options = {}, ...originalArg
 export function originalDrawPauseScreen(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
-  const localFrame=createLocalFrame(256,options.retainedDrawingStack?.[4357904]??[]);
+  const retainedLocalBytes=options.retainedDrawingStack?.[4357904];
+  if(retainedLocalBytes!=null)return originalDrawPauseScreenByteFrame(memory,dc,rng,options,originalArgs,retainedLocalBytes);
+  let scalarStack0;
+  scalarStack0=scalarStoreI32(dc);
+  let pcVar1;
+  let iVar2;
+  let pc = 93;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { callDrawingDependency(memory,dc,0x4282b0,[scalarStack0],rng,options); pc = 1; continue; }
+    case 3: { pc = cTruth(cCompare(r32(0x536444),400,"==")) ? 2 : 1; continue; }
+    case 4: { callDrawingDependency(memory,dc,0x4636c0,[scalarStack0],rng,options); pc = 3; continue; }
+    case 5: { pc = cTruth(cCompare(r32(0x536444),701,"==")) ? 4 : 3; continue; }
+    case 6: { callDrawingDependency(memory,dc,0x462ed0,[scalarStack0],rng,options); pc = 5; continue; }
+    case 7: { pc = cTruth(cCompare(r32(0x536444),604,"==")) ? 6 : 5; continue; }
+    case 8: { callDrawingDependency(memory,dc,0x4626a0,[scalarStack0],rng,options); pc = 7; continue; }
+    case 9: { pc = cTruth(cCompare(r32(0x536444),603,"==")) ? 8 : 7; continue; }
+    case 10: { callDrawingDependency(memory,dc,0x461f60,[scalarStack0],rng,options); pc = 9; continue; }
+    case 11: { pc = cTruth(cCompare(r32(0x536444),602,"==")) ? 10 : 9; continue; }
+    case 12: { callDrawingDependency(memory,dc,0x4617a0,[scalarStack0],rng,options); pc = 11; continue; }
+    case 13: { pc = cTruth(cCompare(r32(0x536444),601,"==")) ? 12 : 11; continue; }
+    case 14: { callDrawingDependency(memory,dc,0x460470,[scalarStack0],rng,options); pc = 13; continue; }
+    case 15: { pc = cTruth(cCompare(r32(0x536444),514,"==")) ? 14 : 13; continue; }
+    case 16: { callDrawingDependency(memory,dc,0x45df40,[scalarStack0],rng,options); pc = 15; continue; }
+    case 17: { pc = cTruth(cCompare(r32(0x536444),513,"==")) ? 16 : 15; continue; }
+    case 18: { callDrawingDependency(memory,dc,0x45cff0,[scalarStack0],rng,options); pc = 17; continue; }
+    case 19: { pc = cTruth(cCompare(r32(0x536444),512,"==")) ? 18 : 17; continue; }
+    case 20: { callDrawingDependency(memory,dc,0x45cad0,[scalarStack0],rng,options); pc = 19; continue; }
+    case 21: { pc = cTruth(cCompare(r32(0x536444),511,"==")) ? 20 : 19; continue; }
+    case 22: { callDrawingDependency(memory,dc,0x45c440,[scalarStack0],rng,options); pc = 21; continue; }
+    case 23: { pc = cTruth(cCompare(r32(0x536444),510,"==")) ? 22 : 21; continue; }
+    case 24: { callDrawingDependency(memory,dc,0x45bd90,[scalarStack0],rng,options); pc = 23; continue; }
+    case 25: { pc = cTruth(cCompare(r32(0x536444),509,"==")) ? 24 : 23; continue; }
+    case 26: { callDrawingDependency(memory,dc,0x45a150,[scalarStack0],rng,options); pc = 25; continue; }
+    case 27: { pc = cTruth(cCompare(r32(0x536444),508,"==")) ? 26 : 25; continue; }
+    case 28: { callDrawingDependency(memory,dc,0x458ca0,[scalarStack0],rng,options); pc = 27; continue; }
+    case 29: { pc = cTruth(cCompare(r32(0x536444),507,"==")) ? 28 : 27; continue; }
+    case 30: { callDrawingDependency(memory,dc,0x457280,[scalarStack0],rng,options); pc = 29; continue; }
+    case 31: { pc = cTruth(cCompare(r32(0x536444),506,"==")) ? 30 : 29; continue; }
+    case 32: { callDrawingDependency(memory,dc,0x4559c0,[scalarStack0],rng,options); pc = 31; continue; }
+    case 33: { pc = cTruth(cCompare(r32(0x536444),505,"==")) ? 32 : 31; continue; }
+    case 34: { callDrawingDependency(memory,dc,0x4545d0,[scalarStack0],rng,options); pc = 33; continue; }
+    case 35: { pc = cTruth(cCompare(r32(0x536444),504,"==")) ? 34 : 33; continue; }
+    case 36: { callDrawingDependency(memory,dc,0x453230,[scalarStack0],rng,options); pc = 35; continue; }
+    case 37: { pc = cTruth(cCompare(r32(0x536444),503,"==")) ? 36 : 35; continue; }
+    case 38: { callDrawingDependency(memory,dc,0x452660,[scalarStack0],rng,options); pc = 37; continue; }
+    case 39: { pc = cTruth(cCompare(r32(0x536444),502,"==")) ? 38 : 37; continue; }
+    case 40: { callDrawingDependency(memory,dc,0x451e60,[scalarStack0],rng,options); pc = 39; continue; }
+    case 41: { pc = cTruth(cCompare(r32(0x536444),501,"==")) ? 40 : 39; continue; }
+    case 42: { callDrawingDependency(memory,dc,0x450970,[scalarStack0],rng,options); pc = 41; continue; }
+    case 43: { pc = cTruth(cCompare(r32(0x536444),300,"==")) ? 42 : 41; continue; }
+    case 44: { callDrawingDependency(memory,dc,0x450590,[scalarStack0],rng,options); pc = 43; continue; }
+    case 45: { pc = cTruth(cCompare(r32(0x536444),110,"==")) ? 44 : 43; continue; }
+    case 46: { callDrawingDependency(memory,dc,0x44fee0,[scalarStack0],rng,options); pc = 45; continue; }
+    case 47: { pc = cTruth(cCompare(r32(0x536444),109,"==")) ? 46 : 45; continue; }
+    case 48: { callDrawingDependency(memory,dc,0x44f5c0,[scalarStack0],rng,options); pc = 47; continue; }
+    case 49: { pc = cTruth(cCompare(r32(0x536444),108,"==")) ? 48 : 47; continue; }
+    case 50: { callDrawingDependency(memory,dc,0x44eb90,[scalarStack0],rng,options); pc = 49; continue; }
+    case 51: { pc = cTruth(cCompare(r32(0x536444),107,"==")) ? 50 : 49; continue; }
+    case 52: { callDrawingDependency(memory,dc,0x44e240,[scalarStack0],rng,options); pc = 51; continue; }
+    case 53: { pc = cTruth(cCompare(r32(0x536444),106,"==")) ? 52 : 51; continue; }
+    case 54: { callDrawingDependency(memory,dc,0x44d690,[scalarStack0],rng,options); pc = 53; continue; }
+    case 55: { pc = cTruth(cCompare(r32(0x536444),105,"==")) ? 54 : 53; continue; }
+    case 56: { callDrawingDependency(memory,dc,0x44d0c0,[scalarStack0],rng,options); pc = 55; continue; }
+    case 57: { pc = cTruth(cCompare(r32(0x536444),104,"==")) ? 56 : 55; continue; }
+    case 58: { callDrawingDependency(memory,dc,0x44c750,[scalarStack0],rng,options); pc = 57; continue; }
+    case 59: { pc = cTruth(cCompare(r32(0x536444),103,"==")) ? 58 : 57; continue; }
+    case 60: { callDrawingDependency(memory,dc,0x44c0f0,[scalarStack0],rng,options); pc = 59; continue; }
+    case 61: { pc = cTruth(cCompare(r32(0x536444),102,"==")) ? 60 : 59; continue; }
+    case 62: { callDrawingDependency(memory,dc,0x44b930,[scalarStack0],rng,options); pc = 61; continue; }
+    case 63: { pc = cTruth(cCompare(r32(0x536444),101,"==")) ? 62 : 61; continue; }
+    case 64: { callDrawingDependency(memory,dc,0x44b0e0,[scalarStack0],rng,options); pc = 63; continue; }
+    case 65: { pc = cTruth(cCompare(r32(0x536444),12,"==")) ? 64 : 63; continue; }
+    case 66: { callDrawingDependency(memory,dc,0x44a5d0,[scalarStack0],rng,options); pc = 65; continue; }
+    case 67: { pc = cTruth(cCompare(r32(0x536444),11,"==")) ? 66 : 65; continue; }
+    case 68: { callDrawingDependency(memory,dc,0x449ee0,[scalarStack0],rng,options); pc = 67; continue; }
+    case 69: { pc = cTruth(cCompare(r32(0x536444),10,"==")) ? 68 : 67; continue; }
+    case 70: { callDrawingDependency(memory,dc,0x4495e0,[scalarStack0],rng,options); pc = 69; continue; }
+    case 71: { pc = cTruth(cCompare(r32(0x536444),8,"==")) ? 70 : 69; continue; }
+    case 72: { callDrawingDependency(memory,dc,0x448970,[scalarStack0],rng,options); pc = 71; continue; }
+    case 73: { pc = cTruth(cCompare(r32(0x536444),7,"==")) ? 72 : 71; continue; }
+    case 74: { callDrawingDependency(memory,dc,0x448100,[scalarStack0],rng,options); pc = 73; continue; }
+    case 75: { pc = cTruth(cCompare(r32(0x536444),6,"==")) ? 74 : 73; continue; }
+    case 76: { callDrawingDependency(memory,dc,0x4479f0,[scalarStack0],rng,options); pc = 75; continue; }
+    case 77: { pc = cTruth(cCompare(r32(0x536444),5,"==")) ? 76 : 75; continue; }
+    case 78: { callDrawingDependency(memory,dc,0x4471e0,[scalarStack0],rng,options); pc = 77; continue; }
+    case 79: { pc = cTruth(cCompare(r32(0x536444),4,"==")) ? 78 : 77; continue; }
+    case 80: { callDrawingDependency(memory,dc,0x446a70,[scalarStack0],rng,options); pc = 79; continue; }
+    case 81: { pc = cTruth(cCompare(r32(0x536444),3,"==")) ? 80 : 79; continue; }
+    case 82: { callDrawingDependency(memory,dc,0x446250,[scalarStack0],rng,options); pc = 81; continue; }
+    case 83: { pc = cTruth(cCompare(r32(0x536444),2,"==")) ? 82 : 81; continue; }
+    case 84: { callDrawingDependency(memory,dc,0x445860,[scalarStack0],rng,options); pc = 83; continue; }
+    case 85: { pc = cTruth(cCompare(r32(0x536444),1,"==")) ? 84 : 83; continue; }
+    case 86: { dc.rectangle(0,0,r32(0x4fe624),iVar2); pc = 85; continue; }
+    case 87: { (iVar2 = cDiv(r32(0x4fe2a8),3)); pc = 86; continue; }
+    case 88: { pc = cTruth((cTruth(cCompare(r32(0x536444),2,"==")) || cTruth(((iVar2 = r32(0x4fe2a8)), cCompare(r32(0x536444),300,"=="))))) ? 87 : 86; continue; }
+    case 89: { invokeDrawingPointer(dcMethod(dc,52,memory),dc,[scalarRead(scalarStack0),16777215]); pc = 88; continue; }
+    case 90: { invokeDrawingPointer(pcVar1,dc,[scalarRead(scalarStack0),0]); pc = 89; continue; }
+    case 91: { invokeDrawingPointer(pcVar1,dc,[scalarRead(scalarStack0),7]); pc = 90; continue; }
+    case 92: { (pcVar1 = dcMethod(dc,44,memory)); pc = 91; continue; }
+    case 93: { (iVar2 = readPointer(memory,scalarRead(scalarStack0),4)); pc = 92; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
+/** Complete recovered original 0x00427f10; static C control-flow translation. */
+function originalDrawPauseScreenByteFrame(memory, dc, rng, options, originalArgs, retainedLocalBytes) {
+  const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
+  const localFrame=createLocalFrame(256,retainedLocalBytes);
   writeLocal(framePointer(localFrame,0),dc,4,"int");
   let pcVar1;
   let iVar2;

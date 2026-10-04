@@ -4,6 +4,7 @@ import { formatInteger, formatDecimal, readAnsiString, readAnsiBytes,readCString
 import { drawingTick,drawingSystemMetric,drawingPrintf,drawingSound,drawingCursor } from './host.js';
 import { callDrawingDependency, registerOriginalDrawing } from './dependencies.js';
 import { restoreShoreStackFrame,saveShoreStackFrame } from './shore-stack.js';
+import { scalarRead,scalarReadArgument,scalarStoreI32,scalarStoreF64 } from './scalar-stack.js';
 import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cString,
   pointerAdd,localPointer,readPointer,writePointer,writeLocalPoint,stockObject,dcMethod,selectGdiObject,selectOriginalGdiObject,importDrawingMethod,originalPoints,clipRegion,textOutCount,originalTrig,cStringHeaderLength,signedBorrow32,
   cF64,cAbs,createLocalFrame,framePointer,readLocal,readLocalArgument,cWordArgument,writeLocal,originalAtan,cConcat,bitsAsF64,cRawWord,cRawSlice,invokeDrawingPointer } from './typed-c.js';
@@ -1311,7 +1312,27 @@ export function originalDrawVenueOptions(memory, dc, rng, options = {}, ...origi
 export function originalDrawCircle(memory, dc, rng, options = {}, ...originalArgs) {
   const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
   const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
-  const localFrame=createLocalFrame(256,options.retainedDrawingStack?.[4405872]??[]);
+  const retainedLocalBytes=options.retainedDrawingStack?.[4405872];
+  if(retainedLocalBytes!=null)return originalDrawCircleByteFrame(memory,dc,rng,options,originalArgs,retainedLocalBytes);
+  let scalarStack0,scalarStack4,scalarStack8,scalarStack12;
+  scalarStack0=scalarStoreI32(dc);
+  scalarStack4=scalarStoreI32(originalArgs[0]);
+  scalarStack8=scalarStoreI32(originalArgs[1]);
+  scalarStack12=scalarStoreI32(originalArgs[2]);
+  let pc = 2;
+  for (;;) { switch (pc) {
+    case 0: { return; }
+    case 1: { return; }
+    case 2: { dc.ellipse(cSub(scalarRead(scalarStack8),scalarRead(scalarStack4)),cSub(scalarRead(scalarStack12),scalarRead(scalarStack4)),cAdd(scalarRead(scalarStack8),scalarRead(scalarStack4)),cAdd(scalarRead(scalarStack12),scalarRead(scalarStack4))); pc = 1; continue; }
+    default: throw new Error("Unreachable tutorial control-flow node");
+  } }
+}
+
+/** Complete recovered original 0x00433a70; static C control-flow translation. */
+function originalDrawCircleByteFrame(memory, dc, rng, options, originalArgs, retainedLocalBytes) {
+  const r32 = address => memory.readI32(address), r64 = address => Float80.fromNumber(memory.readF64(address));
+  const w32 = (address,value) => memory.writeI32(address,cI32(value)), w64 = (address,value) => memory.writeF64(address,cFloat(value).toNumber());
+  const localFrame=createLocalFrame(256,retainedLocalBytes);
   writeLocal(framePointer(localFrame,0),dc,4,"int");
   writeLocal(framePointer(localFrame,4),originalArgs[0],4,"int");
   writeLocal(framePointer(localFrame,8),originalArgs[1],4,"int");

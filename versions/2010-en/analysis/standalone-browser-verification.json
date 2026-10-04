@@ -1,6 +1,6 @@
 {
-  "url": "http://127.0.0.1:8766/index.html",
-  "checkedAt": "2026-10-03T20:04:16.417Z",
+  "url": "http://127.0.0.1:8766/play.html",
+  "checkedAt": "2026-10-04T08:11:52.300Z",
   "passed": true,
   "checks": [
     {
@@ -27,7 +27,7 @@
       "name": "Space dismisses the active original startup overlay",
       "before": {
         "ready": true,
-        "frames": 4,
+        "frames": 7,
         "error": null,
         "app": 2,
         "view": 2,
@@ -46,7 +46,7 @@
       },
       "after": {
         "ready": true,
-        "frames": 7,
+        "frames": 8,
         "error": null,
         "app": 2,
         "view": 2,
@@ -67,7 +67,7 @@
     {
       "name": "original Space starts a continuously advancing race",
       "ready": true,
-      "frames": 15,
+      "frames": 16,
       "error": null,
       "app": 2,
       "view": 2,
@@ -87,7 +87,7 @@
     {
       "name": "keyboard controls tutorial",
       "ready": true,
-      "frames": 19,
+      "frames": 20,
       "error": null,
       "app": 2,
       "view": 2,
@@ -493,7 +493,7 @@
     {
       "name": "original Board selection starts and advances a live sailboard fleet",
       "beforeTime": -170.5,
-      "afterTime": -170.37800392882625,
+      "afterTime": -170.33733857176833,
       "passed": true
     },
     {
@@ -663,7 +663,7 @@
     },
     {
       "name": "production uses browser JavaScript and data with no EXE or proof fixture requests",
-      "requests": 197,
+      "requests": 199,
       "passed": true
     }
   ],

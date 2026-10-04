@@ -6,6 +6,7 @@ p-code execution. Generated code requires strict unchanged-native comparison.
 """
 import hashlib,json,re
 from translate_drawing import ROOT,PAGES,Translator
+from optimize_static_locals import write_optimization_report
 
 ROOTS={0x407ff0:'originalDrawChart',0x405320:'originalDrawScene',
  0x40f240:'originalDrawSailingHud',0x412d30:'originalDrawCompactHud',
@@ -21,13 +22,14 @@ import { formatInteger,formatDecimal,readAnsiString,readAnsiBytes,readCString,wr
 import { drawingTick,drawingSystemMetric,drawingPrintf,drawingSound,drawingCursor } from './host.js';
 import { callDrawingDependency,registerOriginalDrawing } from './dependencies.js';
 import { restoreShoreStackFrame,saveShoreStackFrame } from './shore-stack.js';
+import { scalarRead,scalarReadArgument,scalarStoreI32,scalarStoreF64 } from './scalar-stack.js';
 import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cString,
  pointerAdd,localPointer,readPointer,writePointer,writeLocalPoint,stockObject,dcMethod,selectGdiObject,selectOriginalGdiObject,importDrawingMethod,originalPoints,clipRegion,textOutCount,originalTrig,cStringHeaderLength,signedBorrow32,
  cF64,cAbs,createLocalFrame,framePointer,readLocal,readLocalArgument,cWordArgument,writeLocal,originalAtan,cConcat,bitsAsF64,cRawWord,cRawSlice,invokeDrawingPointer } from './typed-c.js';
 '''
 
 def main():
- pending=set(ROOTS);seen=set();sources=[];translated=[];failures=[]
+ pending=set(ROOTS);seen=set();sources=[];translated=[];failures=[];optimizations=[]
  # Pages call into the same original geometry graph.
  for source in json.loads((ROOT/'analysis/drawing-translation-sources.json').read_text())['sources']:
   pending.update(source['dependencies'])
@@ -51,11 +53,13 @@ def main():
    pending.update(int(m,16) for m in re.findall(r'\bFUN_([0-9a-fA-F]{8})\s*\(',source))
    continue
   dc=translator.has_dc
+  optimizations.append(translator.scalar_stack_optimization)
   translated.append((address,name,code,dc,translator.dc_index))
   sources.append({'address':address,'name':name,'hasDc':dc,'dcIndex':translator.dc_index,'source':str(path.relative_to(ROOT)),
    'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'dependencies':sorted(translator.dependencies)})
   pending.update(translator.dependencies)
  (ROOT/'src/render/drawing-functions.js').write_text(IMPORTS+'\n\n'.join(row[2] for row in translated)+'\n'+''.join(f'registerOriginalDrawing({hex(a)},{name},{str(dc).lower()},{json.dumps(dc_index)});\n' for a,name,_,dc,dc_index in translated))
+ write_optimization_report(ROOT,'drawing-functions.js',optimizations)
  report={'format':1,'sourceSha256':'d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787',
   'scope':'Static source generation only. Each complete routine still requires original native drawing/state/RNG proof.',
   'roots':ROOTS,'generated':len(translated),'unresolved':len(failures),'sources':sources,'failures':failures}

@@ -1,6 +1,6 @@
 # Tact: Posey Sailing Tactics Simulator
 
-The preserved 2002 demo and supplied 2010 English edition, reconstructed in
+The preserved 2002 demo and supplied 2010 English full version, reconstructed in
 native JavaScript for the browser. The [2010 edition notes](versions/2010-en/README.md)
 describe its target, reconstruction and independent native comparisons.
 The 2002 player includes the original simulation, boat presets, opponents, race
@@ -15,16 +15,17 @@ cd ~/tact
 npm start
 ```
 
-Open <http://127.0.0.1:8765/play.html>. Press **Space** through the original start
-screens; press **?** for controls. The footer enables sound and full screen.
+Open <http://127.0.0.1:8765/versions/2010-en/play.html> for the 2010 English full
+version. Press **Space** to begin; press **?** for controls. The footer enables
+sound and full screen. All original fleet choices through 30 boats are available.
 Node serves the files; no npm installation, Wine, Windows executable, or x86
 emulator is needed to play. `npm start` restores the small reference set used
 by the separate workbench. The browser requires localhost or HTTPS for asset
 SHA-256 verification. `TACT_PORT` and `TACT_HOST` configure the local server.
 
-For the 2010 English edition, open
-<http://127.0.0.1:8765/versions/2010-en/play.html>. Its original controls and
-preferences are separate from the 2002 demo. Build its standalone static site
+The preserved 2002 demo remains at <http://127.0.0.1:8765/play.html>. Its original
+controls and preferences are separate from the 2010 full version. Build the
+2010 standalone static site
 with `npm run build:2010`; the output is `dist-2010/` and
 [posey-2010-browser.zip](posey-2010-browser.zip).
 

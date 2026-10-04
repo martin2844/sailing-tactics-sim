@@ -24,10 +24,11 @@ const STOCK_OBJECTS = Object.freeze({
  * Every coordinate remains a signed 32-bit integer until Canvas consumes it.
  */
 export class GdiTrace {
-  constructor({ objects = new Map(), sink, readPixel } = {}) {
+  constructor({ objects = new Map(), sink, readPixel, recordEvents = true } = {}) {
     this.objects = objects;
     this.sink = sink;
     this.readPixel = readPixel;
+    this.recordEvents = recordEvents;
     this.events = [];
     this.position = { x: 0, y: 0 };
     this.pen = STOCK_OBJECTS[7];
@@ -37,7 +38,7 @@ export class GdiTrace {
     this.backgroundMode = 2;
   }
   emit(event) {
-    this.events.push(event);
+    if (this.recordEvents) this.events.push(event);
     if (this.sink) this.sink(event, this);
     return event;
   }
