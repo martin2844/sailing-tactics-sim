@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "routineAddress": "0x482ae0",
+  "method": "Read-only original instruction decoding and unchanged original native execution; corrected recovered C only.",
+  "finding": "Five integer DWORD stores into reused double/POINT stack cells were reconstructed as CONCAT44 followed by binary64 decoding. A negative POINT high word can encode NaN, although the original never evaluates that word as floating point.",
+  "correction": "Replace all five CONCAT44 assignments with explicit low-DWORD lvalues. Initial double arithmetic, signed integer values, high words, POINT writes, and subsequent raw reads remain unchanged.",
+  "instructions": [
+    {
+      "address": "0x482f3e",
+      "bytes": "89442438",
+      "instruction": "mov dword ptr [esp + 0x38], eax",
+      "recoveredLocal": "local_180",
+      "storeBytes": 4,
+      "espOffset": 56,
+      "temporaryCallerArgumentBytes": 0
+    },
+    {
+      "address": "0x483028",
+      "bytes": "8944242c",
+      "instruction": "mov dword ptr [esp + 0x2c], eax",
+      "recoveredLocal": "local_190",
+      "storeBytes": 4,
+      "espOffset": 44,
+      "temporaryCallerArgumentBytes": 4
+    },
+    {
+      "address": "0x483056",
+      "bytes": "89442410",
+      "instruction": "mov dword ptr [esp + 0x10], eax",
+      "recoveredLocal": "local_1a8",
+      "storeBytes": 4,
+      "espOffset": 16,
+      "temporaryCallerArgumentBytes": 0
+    },
+    {
+      "address": "0x48332f",
+      "bytes": "89542410",
+      "instruction": "mov dword ptr [esp + 0x10], edx",
+      "recoveredLocal": "local_1a8",
+      "storeBytes": 4,
+      "espOffset": 16,
+      "temporaryCallerArgumentBytes": 0
+    },
+    {
+      "address": "0x48336d",
+      "bytes": "89542428",
+      "instruction": "mov dword ptr [esp + 0x28], edx",
+      "recoveredLocal": "local_190",
+      "storeBytes": 4,
+      "espOffset": 40,
+      "temporaryCallerArgumentBytes": 0
+    }
+  ],
+  "sourcePins": {
+    "analysis/drawing-corrections/00482ae0.c": "4cd1c04bcbd9085565efc6e5aa70caa72ee2e8a1d9d8da5d28da85a0d27156b8",
+    "decompiled/functions/00482ae0.c": "86f610efb87ecc4798536fa6e95e25aa4ce1a179d2b2918941d7fdc00a2e09fa",
+    "src/render/drawing-functions.js": "2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e",
+    "tools/translate_drawing.py": "7513f2e4c742ca9cd938eed5fcab39c439e16c2c06cebe7dc0c341f33f2fb2c5",
+    "tools/floating_drawing.py": "a0ed7ba447cdef9f52a67d45005a97a621e0384d9152b4c1b586582c9a549cda",
+    "tests/sail-graphic-word-stores.test.js": "b06cbef0316df3aa6a72be4dc678c30fbf41186e3e76f4895315439d5373f200"
+  },
+  "nativeEvidence": {
+    "fixture": "tests/fixtures/original-sail-graphic-points.json",
+    "test": "tests/sail-graphic-native.test.js",
+    "cases": 8,
+    "routes": 3,
+    "domains": "Two speed values and horizon -200, -1, 0, 200; exact mutable memory, ordered drawing requests and RNG.",
+    "fixtureSha256": "438bb7780b2f32bead84ebf0c75d3014125de5509c195c64fdd6002420c4f587",
+    "testSha256": "3bb84347d65dd6b6d52ddc7db40e28893bed6e9791649b0a5c68066dee0f6068"
+  },
+  "browserReproduction": "Observed source view-click failure after direction, sail, and up/down HUD controls; tools/check-2010-hud-browser.js.",
+  "browserValidation": "analysis/hud-controls-source.json: physical HUD sequence passes after correction.",
+  "focusedValidation": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "log": "/tmp/tact-sail-graphic-word-stores.log",
+    "scope": "Eight unchanged native cases across original, Number, and retained routes, plus generator/store-width and strict invalid-floating-input checks."
+  }
+}

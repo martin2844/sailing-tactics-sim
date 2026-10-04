@@ -411,6 +411,8 @@ static const struct routine routines[] = {
   {0x4049f0,1,0,3}, /* complete initialized simulation frame */
   {0x4432b0,0,0,2}, /* complete wave motion and near-wave sounds */
   {0x41bfb0,8,0,0}, /* complete sail geometry D,I,I,I,I,D */
+  {0x4640e0,4,0,3}, /* tooltip CDC, vertical offset, left, normal X */
+  {0x482ae0,14,0,3}, /* sail graphic CDC,I,I,D,D,D,D,D,I */
 };
 static void run_case(uint32_t command) {
   uint32_t id,flags,seed,count,words[16],patches;

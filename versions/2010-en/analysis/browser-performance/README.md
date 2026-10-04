@@ -1,5 +1,10 @@
 # 2010 rendering smoothness and native verification
 
+This record describes performance release `57ecb9f`. Its measurements and
+source hashes are historical. The later [HUD repair verification](../hud-controls-verification.json)
+records the tooltip argument and view-rendering storage corrections, current
+interaction tests and rebuilt export; those fixes do not have a new FPS claim.
+
 The player now defaults to smoother graphics. Browser sine, cosine and atan2
 avoid extended-precision drawing objects, and the common perspective projection
 uses ordinary arithmetic for screen coordinates. Small drawing-rounding

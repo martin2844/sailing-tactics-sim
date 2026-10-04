@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "results": [
+    {
+      "width": 1280,
+      "height": 1050,
+      "graphics": "smooth",
+      "url": "http://127.0.0.1:8766/index.html?graphics=smooth",
+      "checks": [],
+      "activeControl": "faster",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: RangeError: Original 2010 drawing reads an undefined retained local\n    at integer (http://127.0.0.1:8766/versions/2010-en/src/render/typed-c.js:10:34)\n    at cSub (http://127.0.0.1:8766/versions/2010-en/src/render/typed-c.js:210:27)\n    at Object.originalDrawing004640e0 [as routine] (http://127.0.0.1:8766/versions/2010-en/src/render/drawing-functions.js:30889:89)\n    at callDrawingDependency (http://127.0.0.1:8766/versions/2010-en/src/render/dependencies.js:139:27)\n    at callNumberDrawingDependencyImpl (http://127.0.0.1:8766/versions/2010-en/src/render/dependencies.js:104:10)\n    at callNumberDrawingDependencyOwned (http://127.0.0.1:8766/versions/2010-en/src/render/dependencies.js:69:10)\n    at originalDrawSailingHudNumber (http://127.0.0.1:8766/versions/2010-en/src/render/drawing-functions.js:4831:17)\n    at originalDrawSailingHud (http://127.0.0.1:8766/versions/2010-en/src/render/drawing-functions.js:3801:38)\n    at drawSailingHud (http://127.0.0.1:8766/versions/2010-en/src/render/hud.js:6:10)\n    at http://127.0.0.1:8766/versions/2010-en/src/render/index.js:19:21\n+ actual - expected\n\n+ 'Original 2010 drawing reads an undefined retained local'\n- null\n\n    at healthy (file:///home/martin/tact/tools/check-2010-hud-browser.js:15:33)\n    at async rendered (file:///home/martin/tact/tools/check-2010-hud-browser.js:21:5)\n    at async hover (file:///home/martin/tact/tools/check-2010-hud-browser.js:83:7)\n    at async file:///home/martin/tact/tools/check-2010-hud-browser.js:93:5"
+    }
+  ]
+}

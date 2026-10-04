@@ -1,0 +1,114 @@
+{
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "method": "Read-only original x86 stack-load and caller-push inspection; executable bytes remain unchanged.",
+  "scope": "HUD hover tooltip 0x4640e0 and its three calls from 0x40f240.",
+  "routines": [
+    {
+      "address": "0x4640e0",
+      "packedTypes": "CIII",
+      "stackBytes": 16,
+      "returnType": "void",
+      "callingConvention": "__cdecl",
+      "cdcParameterIndex": 0,
+      "calleeStackPurgeBytes": 0,
+      "parameters": [
+        {
+          "type": "CDC*",
+          "entryEspOffset": 4
+        },
+        {
+          "type": "I32",
+          "name": "vertical offset",
+          "entryEspOffset": 8
+        },
+        {
+          "type": "I32",
+          "name": "left coordinate",
+          "entryEspOffset": 12
+        },
+        {
+          "type": "I32",
+          "name": "normal tooltip X",
+          "entryEspOffset": 16
+        }
+      ],
+      "calleeEvidence": [
+        {
+          "address": "0x4640f4",
+          "instruction": "mov esi,[esp+0xc]",
+          "entryEspOffset": 4,
+          "savedRegisterWords": 2
+        },
+        {
+          "address": "0x464119",
+          "instruction": "mov eax,[esp+0x18]",
+          "entryEspOffset": 12,
+          "savedRegisterWords": 3
+        },
+        {
+          "address": "0x464122",
+          "instruction": "mov ebx,[esp+0x1c]",
+          "entryEspOffset": 16,
+          "savedRegisterWords": 3
+        },
+        {
+          "address": "0x464160",
+          "instruction": "mov eax,[esp+0x1c]",
+          "entryEspOffset": 8,
+          "savedRegisterWords": 3,
+          "textArgumentWords": 2
+        },
+        {
+          "address": "0x464166",
+          "instruction": "sub ecx,eax",
+          "meaning": "Subtract vertical offset from 0x52318c - 0x4fe2a8/50."
+        },
+        {
+          "address": "0x46417b",
+          "instruction": "ret",
+          "meaning": "Caller cleanup."
+        }
+      ],
+      "callerEvidence": [
+        {
+          "caller": "0x40f240",
+          "callsite": "0x41086a",
+          "arguments": [
+            "ESI = CDC",
+            "[ESP+0x14] = local_60",
+            "[EBP+0xc] = param_2",
+            "[ESP+0x20] = TStack_54.data"
+          ],
+          "callerCleanupBytes": 16
+        },
+        {
+          "caller": "0x40f240",
+          "callsite": "0x410e62",
+          "arguments": [
+            "ESI = CDC",
+            "[ESP+0x14] = local_60",
+            "[EBP+0xc] = param_2",
+            "[ESP+0x20] = TStack_54.data"
+          ],
+          "callerCleanupBytes": 16
+        },
+        {
+          "caller": "0x40f240",
+          "callsite": "0x410fa9",
+          "arguments": [
+            "ESI = CDC",
+            "[ESP+0x14] = local_60",
+            "[EBP+0xc] = param_2",
+            "[ESP+0x20] = TStack_54.data"
+          ],
+          "callerCleanupBytes": 16
+        }
+      ],
+      "recoveredSourcePath": "analysis/drawing-corrections/004640e0.c",
+      "recoveredSourceSha256": "155d76c35d21715adee72d054ed0a49d71ca7a044c5edcfa26bdcf676e7b2409",
+      "correctedCallerPath": "analysis/drawing-corrections/0040f240.c",
+      "correctedCallerSha256": "ebb5fbaa31a4c159429638da18423293cde7e4a56ae9622baf6454e2556d659b",
+      "finding": "Decompiler lost the vertical-offset argument and called it unaff_retaddr; its three recovered HUD calls also lost normal tooltip X. Hovering faster/slower with explanations enabled therefore subtracted undefined."
+    }
+  ]
+}

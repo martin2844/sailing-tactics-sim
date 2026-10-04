@@ -136,7 +136,7 @@ FUN_00482ae0(int *param_1,int param_2,int param_3,double param_4,double param_5,
   iVar6 = aiStack_148[3] - aiStack_80[3];
   _DAT_004f6e44 = aiStack_148[8] - aiStack_80[8];
   _DAT_004f6e2c = iVar1;
-  local_180 = (double)CONCAT44(local_180._4_4_,_DAT_004f6e44);
+  local_180._0_4_ = _DAT_004f6e44;
   _DAT_004f6e38 = aiStack_170[3];
   _DAT_004f6e40 = aiStack_170[8];
   _DAT_004f6e48 = aiStack_170[9];
@@ -156,11 +156,11 @@ FUN_00482ae0(int *param_1,int param_2,int param_3,double param_4,double param_5,
   _DAT_004f6e30 = aiStack_170[2];
   _DAT_004f6e2c = aiStack_148[1];
   _DAT_004f6e34 = aiStack_148[2] - aiStack_80[2];
-  local_190 = (double)CONCAT44(local_190._4_4_,_DAT_004f6e34);
+  local_190._0_4_ = _DAT_004f6e34;
   _DAT_004f6e40 = aiStack_170[4];
   _DAT_004f6e44 = aiStack_148[4] - aiStack_80[4];
   _DAT_004f6e38 = aiStack_170[3];
-  local_1a8 = (double)CONCAT44(local_1a8._4_4_,_DAT_004f6e44);
+  local_1a8._0_4_ = _DAT_004f6e44;
   _DAT_004f6e48 = aiStack_170[5];
   _DAT_004f6e4c = aiStack_148[5];
   _DAT_004f6e3c = iVar6;
@@ -235,11 +235,10 @@ LAB_00483174:
   if ((DAT_005363e0 != 1) && (DAT_004da174 < 0xc)) {
     piStack_19c = &DAT_00512d78;
     local_198[0] = (code *)&DAT_00512d9c;
-    local_1a8 = (double)CONCAT44(local_1a8._4_4_,aiStack_80[3] * 2);
+    local_1a8._0_4_ = aiStack_80[3] * 2;
     do {
-      local_190 = (double)CONCAT44(local_190._4_4_,
-                                   ((aiStack_80[3] * *(int *)local_198[0] * 4) / 100 +
-                                   aiStack_170[3]) - local_1a8._0_4_);
+      local_190._0_4_ = ((aiStack_80[3] * *(int *)local_198[0] * 4) / 100 +
+                        aiStack_170[3]) - local_1a8._0_4_;
       iVar4 = aiStack_148[3] - (aiStack_80[3] * *piStack_19c) / 0x8c;
       if (DAT_004f7084 != (HGDIOBJ)0x0) {
         SelectObject((HDC)param_1[1],DAT_004f7084);
@@ -252,4 +251,3 @@ LAB_00483174:
   }
   return;
 }
-

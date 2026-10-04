@@ -109,10 +109,21 @@ preference reload. It rejects uncaught browser exceptions and production
 requests for executables or proof fixtures. Browser reports are preserved in
 [browser-verification.json](analysis/browser-verification.json).
 
+The browser command also runs physical canvas hover/click checks, including
+the tooltip, speed, steering, camera and sail controls at wide and narrow sizes.
+Run those checks alone with `npm run check:hud:2010`. Earlier menu/dialog browser
+checks did not exercise these interactions; their pass counts were not evidence
+that all HUD controls worked. These checks still cover finite scenarios rather
+than every interaction or a complete race.
+
+The [HUD repair verification](analysis/hud-controls-verification.json) records
+the reproduced tooltip failure, corrected view-rendering stores, current
+source/standalone interaction checks and export hashes.
+
 The original port's [review](analysis/big-review.md) and
 [publication checks](analysis/publication-verification.json) preserve that
-release's findings, source hashes and proof runs. The current performance
-update has a separate [review and verification record](analysis/browser-performance/README.md),
+release's findings, source hashes and proof runs. The preceding performance
+release has a separate [review and verification record](analysis/browser-performance/README.md),
 including the final test runs, source/standalone browser checks and export hashes.
 
 The [native reference index](analysis/native-reference-index.json) lists exact

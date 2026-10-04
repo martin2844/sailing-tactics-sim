@@ -1,0 +1,135 @@
+{
+  "format": 1,
+  "sourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "verdict": "No open findings in the corrected HUD tooltip ABI or sail graphic DWORD stores.",
+  "findingsFixed": [
+    {
+      "address": "0x4640e0",
+      "cause": "Recovered source dropped one native cdecl parameter, leaving a fictitious undefined unaff_retaddr; all three recovered callers also omitted normal tooltip X.",
+      "fix": "Restore CDC, vertical offset, left, and normalX in the source signature and all three calls. Native stack loads and 16-byte caller cleanup prove the layout."
+    },
+    {
+      "address": "0x482ae0",
+      "cause": "Five recovered CONCAT44 assignments attempted to interpret temporary integer POINT high words as floating values. Negative Y can give a nonfinite bit pattern.",
+      "fix": "Restore the five original DWORD-only writes. Original MOV32 evidence and all later low-word uses independently reviewed."
+    }
+  ],
+  "validation": {
+    "nativeCases": 62,
+    "javascriptNativeComparisons": 204,
+    "focusedTests": 10,
+    "strictUndefinedArgumentChecks": 2,
+    "coverage": [
+      "36 native tooltip cases, four routes: public, dependency, owned Number, retained byte frame. Help 0/1/2; theme 0/1; width 699/700/1024; positive and negative height and vertical offset.",
+      "18 full HUD native cases, original and Number routes. Clock -71, 20 boats, speed 1 with divisor 2919. Ahead/faster/slower hovers exercise all three native calls; faster/slower clicks verify speed, divisor and consumed click.",
+      "8 sail graphic native cases, original/Number/byte frame routes; horizons -200/-1/0/200, speeds 10/12 and real negative MoveTo coordinates.",
+      "Every native comparison includes complete mutable image SHA/bytes, ordered GDI, original RNG and sound requests.",
+      "Six new gzip archives restored atomically in a temporary root; canonical bytes compared, then a second restore verified all six existing paths."
+    ],
+    "limitations": "Finite original-native fixture coverage; actual browser interaction coverage is recorded separately by tools/check-2010-hud-browser.js."
+  },
+  "sources": [
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/0040f240.c",
+      "sha256": "ebb5fbaa31a4c159429638da18423293cde7e4a56ae9622baf6454e2556d659b"
+    },
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/004640e0.c",
+      "sha256": "155d76c35d21715adee72d054ed0a49d71ca7a044c5edcfa26bdcf676e7b2409"
+    },
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/00482ae0.c",
+      "sha256": "4cd1c04bcbd9085565efc6e5aa70caa72ee2e8a1d9d8da5d28da85a0d27156b8"
+    },
+    {
+      "path": "versions/2010-en/analysis/hud-tooltip-abi-review.json",
+      "sha256": "2a10495116ffbf4e633a8f0201976997a7df4357430de8500408fe29a71049fc"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "sha256": "2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e"
+    },
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "sha256": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    },
+    {
+      "path": "versions/2010-en/tools/translate_drawing.py",
+      "sha256": "7513f2e4c742ca9cd938eed5fcab39c439e16c2c06cebe7dc0c341f33f2fb2c5"
+    },
+    {
+      "path": "versions/2010-en/tools/translate_drawing_closure.py",
+      "sha256": "0bd725fb58e1036cc95bc80d160970c4dadec9ab63527135eba3542f70a7fa40"
+    },
+    {
+      "path": "versions/2010-en/tools/capture_native.py",
+      "sha256": "34c2285784ff08abf598e907da1b32a97fac2df0862d5eedfa37cbfce3ecd776"
+    },
+    {
+      "path": "versions/2010-en/tools/native_reference.c",
+      "sha256": "37a90075c90884f14703fd9469dc52f115eff2a8a74cbd47d203b974666bd076"
+    },
+    {
+      "path": "versions/2010-en/tests/hud-tooltip.test.js",
+      "sha256": "994321035680977283aa830834bdfd6fa6f9b63fb2e3f72b3ab921186a71cc58"
+    },
+    {
+      "path": "versions/2010-en/tests/sail-graphic-native.test.js",
+      "sha256": "3bb84347d65dd6b6d52ddc7db40e28893bed6e9791649b0a5c68066dee0f6068"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "versions/2010-en/analysis/hud-tooltip-capture-inputs.json",
+      "sha256": "9927fb8128e4d49f7b0079afde0d69895139455d823a71fd13c1b720ead20571",
+      "archive": "versions/2010-en/evidence/archives/analysis/hud-tooltip-capture-inputs.json.gz",
+      "compressedSha256": "0a4bc32b6312a0fa4591b0d28fcf9116e86e0355028a057c2d3b6c0c257e15cf",
+      "bytes": 23021,
+      "compressedBytes": 1091
+    },
+    {
+      "path": "versions/2010-en/analysis/hud-tooltip-controls-capture-inputs.json",
+      "sha256": "e35f36af42d534cf9bac055dec0947b67d64068f0ad183032eeca46f88b9812f",
+      "archive": "versions/2010-en/evidence/archives/analysis/hud-tooltip-controls-capture-inputs.json.gz",
+      "compressedSha256": "54d87f0700f996b536e62238102accf1adbfaf5bcd8dd8273ba8e641f22218fc",
+      "bytes": 22959,
+      "compressedBytes": 1400
+    },
+    {
+      "path": "versions/2010-en/analysis/sail-graphic-points-capture-inputs.json",
+      "sha256": "81408eed6f6f6b5f4c193ccdc83d787d6628dba914a64dfdb2c28c302eb0e664",
+      "archive": "versions/2010-en/evidence/archives/analysis/sail-graphic-points-capture-inputs.json.gz",
+      "compressedSha256": "b83c912e341306f716a7483a4ce6fafb4135f646ab74cdbec9b8548782daa5d3",
+      "bytes": 6094,
+      "compressedBytes": 733
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-hud-tooltip.json",
+      "sha256": "152980e4e11f2c126b45d8fe91c13971352633f38de7b2c8068b72ad07072cc7",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-hud-tooltip.json.gz",
+      "compressedSha256": "833c50473c259a1cd9470e2f1b9ad065b633ea2d315ae59865d4e3bbdb135ba5",
+      "bytes": 1010094,
+      "compressedBytes": 47401
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-hud-tooltip-controls.json",
+      "sha256": "3c54536531806bdd5569ce11f80ec4eba299a4e6496bc7fb47ecec822ea86e19",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-hud-tooltip-controls.json.gz",
+      "compressedSha256": "2679f710c38b46fc51eeb5b1489df49618011c760c34add78a624c264626d053",
+      "bytes": 1614434,
+      "compressedBytes": 92288
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-sail-graphic-points.json",
+      "sha256": "438bb7780b2f32bead84ebf0c75d3014125de5509c195c64fdd6002420c4f587",
+      "archive": "versions/2010-en/evidence/archives/tests/fixtures/original-sail-graphic-points.json.gz",
+      "compressedSha256": "2aaa8137c6acfed2b5a0621349507e0e3d2ecbf481f8cd65fe699fc9a7d2e143",
+      "bytes": 910147,
+      "compressedBytes": 45233
+    }
+  ]
+}

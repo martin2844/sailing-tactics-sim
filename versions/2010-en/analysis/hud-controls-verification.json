@@ -1,56 +1,109 @@
 {
-  "target": "Posey2010-English-native-JavaScript",
-  "originalSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
-  "files": [
+  "format": 1,
+  "checkedAt": "2026-10-04T21:57:30.290Z",
+  "baseCommit": "57ecb9f0c01eb2709cea5c90df2f77dc3404240a",
+  "scope": "Repair 2010 HUD tooltip and view crashes; keep simulation and full-version settings unchanged.",
+  "originalSourceSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+  "findingsFixed": [
     {
-      "path": "assets/data/system-font.json",
-      "bytes": 2804,
-      "sha256": "3befeb127a5279f12e79f5a35edd8e8aa6c2e848400a9a01100c699251b7a553"
+      "address": "0x4640e0",
+      "cause": "Recovered source dropped one native cdecl parameter, leaving a fictitious undefined unaff_retaddr; all three recovered callers also omitted normal tooltip X.",
+      "fix": "Restore CDC, vertical offset, left, and normalX in the source signature and all three calls. Native stack loads and 16-byte caller cleanup prove the layout."
     },
     {
-      "path": "assets/font-source/system.sfd",
-      "bytes": 97201,
-      "sha256": "88596900ca3df8dcf6ef257793a3b52baf666cc7f72140598bd2aef4787e9a41"
+      "address": "0x482ae0",
+      "cause": "Five recovered CONCAT44 assignments attempted to interpret temporary integer POINT high words as floating values. Negative Y can give a nonfinite bit pattern.",
+      "fix": "Restore the five original DWORD-only writes. Original MOV32 evidence and all later low-word uses independently reviewed."
+    }
+  ],
+  "review": {
+    "verdict": "No remaining findings in this scoped correction.",
+    "independentChecks": [
+      "Original x86 argument loads, all three caller pushes and 16-byte cleanup; generated scalar and retained bindings.",
+      "Five original DWORD stores and later raw-word uses; native negative POINT comparisons.",
+      "Physical browser input waits and visible control state changes."
+    ],
+    "testFindingsFixed": [
+      "Retained fixture supplied as an array.",
+      "Paint waits begin after input dispatch.",
+      "Ahead tested from astern, requiring 180 to 0."
+    ]
+  },
+  "tests": [
+    {
+      "command": "node tools/test-2010.js",
+      "passed": 491,
+      "failed": 0,
+      "skipped": 0,
+      "log": "analysis/hud-controls-unit-tests.log",
+      "logSha256": "2c838e4e6d647ef30944dc788b5e52879d6ad1702f1b3a5f5e2c43158f158d0b"
     },
     {
-      "path": "assets/images/system-font-glyphs.png",
-      "bytes": 3243,
-      "sha256": "80450cefd907382ad0660f0084d6aeb3b49ee1d0b486bca4f483c5319afae4bf"
+      "command": "node --test versions/2010-en/tests/sail-graphic-word-stores.test.js",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "log": "analysis/hud-controls-word-store-tests.log",
+      "logSha256": "b7d93c2f475bfbde3a46d7823b5b43a4a6e3e0fd5e43aa8fe2cefc0f78841e94"
+    }
+  ],
+  "browser": {
+    "checkerSha256": "f52862a5442cb7d92b0f88e912d2907734359c657fb0668f8fe70723ea64beb6",
+    "baselineFailure": "analysis/hud-controls-before.json",
+    "source": {
+      "report": "analysis/hud-controls-source.json",
+      "scenarios": 3,
+      "checks": 54,
+      "passed": true
+    },
+    "standalone": {
+      "report": "analysis/hud-controls-standalone.json",
+      "scenarios": 3,
+      "checks": 54,
+      "passed": true
+    },
+    "menus": {
+      "report": "analysis/standalone-browser-verification.json",
+      "checks": 119,
+      "passed": true
+    },
+    "limitations": [
+      "Finite default-race interaction sequences; no complete race or exhaustive control combination claim.",
+      "Narrow viewport checks CSS-scaled mouse coordinates; native 699/700 width branches are checked by the independent native fixtures.",
+      "Down/up checks require continued painting; other controls assert state changes or consumed steering requests.",
+      "No new performance measurement: these are correctness repairs."
+    ]
+  },
+  "nativeEvidence": {
+    "review": "analysis/hud-native-review.json",
+    "cases": 62,
+    "comparisons": 204
+  },
+  "exports": [
+    {
+      "edition": "2002",
+      "archive": "posey-2002-browser.zip",
+      "entries": 138,
+      "bytes": 696630,
+      "sha256": "f9208b1eef20a95240233ecb13608959640162d4568c177d5b53834afd94a8f5",
+      "manifestSha256": "68c031d0848f76b2d8170f24761db8de859b2ac143def282f77b407faeed9e04",
+      "allExportFilesAndZipEntriesExact": true
     },
     {
-      "path": "index.html",
-      "bytes": 1303,
-      "sha256": "fa4a9e88511299becd043ff92a5d6479bcd211ad4f553ad5a66057903511b603"
-    },
-    {
-      "path": "LICENSES/Wine-LGPL-2.1.txt",
-      "bytes": 26434,
-      "sha256": "e237fa56668030e928551ddd60f05df5fe957f75eab874bbd017e085ed722e7c"
-    },
-    {
-      "path": "play.html",
-      "bytes": 1303,
-      "sha256": "fa4a9e88511299becd043ff92a5d6479bcd211ad4f553ad5a66057903511b603"
-    },
-    {
-      "path": "README.txt",
-      "bytes": 723,
-      "sha256": "41ec490ddf4e097ecc89ccc2f9be095a4d14bc13f665c332bafd42498d01cb44"
-    },
-    {
-      "path": "serve.mjs",
-      "bytes": 2478,
-      "sha256": "1f79225b8074eef83f9982779f0c8fd996001397c5663afcb0bf2b8a88bbe4ce"
-    },
+      "edition": "2010",
+      "archive": "posey-2010-browser.zip",
+      "entries": 139,
+      "bytes": 1618817,
+      "sha256": "9459deb7ce89a8d796d537e46572e64160425664911541ef389f66f00a1b07ec",
+      "manifestSha256": "59de30080bb7deda8c7d3ae2cc1f3286d4be34b9bf080f754bf425a007edfc91",
+      "allExportFilesAndZipEntriesExact": true
+    }
+  ],
+  "runtimeGraph": [
     {
       "path": "src/engine/integer-core.js",
       "bytes": 3073,
       "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633"
-    },
-    {
-      "path": "src/play.css",
-      "bytes": 3334,
-      "sha256": "8d4d49f1625db84aba2e40463935629d76ca71f75f43e04a7d0cf9ba36c0ca09"
     },
     {
       "path": "src/render/bitmap-font.js",
@@ -106,236 +159,6 @@
       "path": "src/runtime/transcendentals.js",
       "bytes": 14799,
       "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1"
-    },
-    {
-      "path": "THIRD-PARTY-NOTICES.md",
-      "bytes": 750,
-      "sha256": "378956d460b5e184030cb88441a966aa71dd1656e4fdf6c1d5e354d93fd666d5"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-134-1033.wav",
-      "bytes": 2788,
-      "sha256": "6bb87477ac5ab9742787de177e3368eeaf0402e8dc1f19b90c67443457b659e8"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-135-1033.wav",
-      "bytes": 18600,
-      "sha256": "cfc9849f08c5b42a7053799145c6991f1130dfb6cc95b1bf2c9e7d5f4407c018"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-136-1033.wav",
-      "bytes": 66854,
-      "sha256": "67655fa44a8fcaf1417564f6c2ff086e7beeb53a6619a70ed0d4cb9460656b29"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-137-1033.wav",
-      "bytes": 46746,
-      "sha256": "61ed840264a31496db94c22c095ade19cb36e8bc19ae50579e00ee1eb67c1168"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-138-1033.wav",
-      "bytes": 91064,
-      "sha256": "0ee8ecf9c090fd20b6e66b17160e9d214bad78e678b275c000e7e5b537a53141"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-139-1033.wav",
-      "bytes": 80144,
-      "sha256": "bb082d58061a47f616e1c46268f321a7856cbbb87ec9f5605215a4602e04bc07"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-140-1033.wav",
-      "bytes": 10974,
-      "sha256": "41c6118cd06c257933cc7fc543e8452a6765575be69c08e7d8ceb740b941ff91"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-141-1033.wav",
-      "bytes": 14508,
-      "sha256": "36d9dcaf5f77fb07a330da9597be2ee8d277b80b8f52675c911c0b09ab4e2f6c"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-142-1033.wav",
-      "bytes": 4280,
-      "sha256": "affbf2447b309f8454169d06dcfab675707bbe1610458a28b2de98d4ac1c292d"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-151-1033.wav",
-      "bytes": 31368,
-      "sha256": "6434339d3303a0ec4f3fa1f19d5a76980eac2b886f3b657bb4cf75dee582dda3"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-152-1033.wav",
-      "bytes": 33454,
-      "sha256": "2a335db495abbf4c06bb2a07befea35ad0875bb2521ba01fe838d64a9ad5bd0a"
-    },
-    {
-      "path": "versions/2010-en/assets/audio/wave-153-1033.wav",
-      "bytes": 5520,
-      "sha256": "25fafb4574b0aa42ba189c0929d7b5193b9cc321b7b386d664dbd89770820ecc"
-    },
-    {
-      "path": "versions/2010-en/assets/data/initial-shoreline-stack.json",
-      "bytes": 2162,
-      "sha256": "4834efd3d4f08f8535828888fd8e3515cd90662acacb6571a6ad0e4c087865fb"
-    },
-    {
-      "path": "versions/2010-en/assets/data/original-constants.bin",
-      "bytes": 72704,
-      "sha256": "b7bb7a445e8d1342cd99094fd4d914b964caeb424a84d3b651b29336b3c39d76"
-    },
-    {
-      "path": "versions/2010-en/assets/data/original-english-data.bin",
-      "bytes": 466432,
-      "sha256": "19df0a1a84d908cd1a78765a8380480be3487c4b3a987da02478c80e6a452216"
-    },
-    {
-      "path": "versions/2010-en/assets/data/original-initial-state.bin",
-      "bytes": 394632,
-      "sha256": "dddcfbf8acf3e2dcc09ef61ae6d760bab1f849673006617bcfd9082708312a8d"
-    },
-    {
-      "path": "versions/2010-en/assets/data/original-memory.json",
-      "bytes": 1286,
-      "sha256": "e03604b4b469035688d5ba5084868b6b824995cd3751a1b5dddfb941d05b2929"
-    },
-    {
-      "path": "versions/2010-en/assets/data/trig-tables.json",
-      "bytes": 7509,
-      "sha256": "286a3ac745338261c6724fd87ecad9977fe7c9e33b906dd69697b6678644b2a4"
-    },
-    {
-      "path": "versions/2010-en/assets/data/x87-stored-trig.json",
-      "bytes": 228556,
-      "sha256": "6746c78774b8f06ed4b328f97ada290ba543d67f9c1a7792d3657ec99fdd88a1"
-    },
-    {
-      "path": "versions/2010-en/assets/data/x87-trig.json",
-      "bytes": 228558,
-      "sha256": "9e4543a6da92c2e56a162e133f5dfbc41e8e1ce1936ace3fa7dbdda99761d361"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-26567-1033.bmp",
-      "bytes": 1522,
-      "sha256": "e91236f7d764158a97a6899c70fde0730c0d816c936caefbcb4186a78e5ad3e3"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-26567-1033.png",
-      "bytes": 628,
-      "sha256": "723f1f9c8d5bd49cfb68bb6d79def9bd75efbf0645dc529fc10571b5da5deb81"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-30994-1033.bmp",
-      "bytes": 198,
-      "sha256": "baf0520b920913155bcbede3d0ff5fae3a3506566de13a501f9aca07c15f9745"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-30994-1033.png",
-      "bytes": 106,
-      "sha256": "feee1fc2e52822a2ae432532ef96392c823c566f04246e7ac82bbacb6045da8a"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-30995-1033.bmp",
-      "bytes": 378,
-      "sha256": "e24c3c6553a0a05bc51cc9004398d38e41ac4e2603fdb385062335a24a350d71"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-30995-1033.png",
-      "bytes": 143,
-      "sha256": "951354fdf370f2b1f9c79a00a8448a782d2f040e28ac9a3d2af14645683d2f8a"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-30996-1033.bmp",
-      "bytes": 338,
-      "sha256": "d4f6f3f9bf38396dfe3e590650308c81395f9873ae257ae639cb3b63b150bb10"
-    },
-    {
-      "path": "versions/2010-en/assets/images/bitmap-30996-1033.png",
-      "bytes": 166,
-      "sha256": "08a4e2e33a79cbb658c555cdf11dc116eec730b225dc2c066c40c14836b8f7fe"
-    },
-    {
-      "path": "versions/2010-en/assets/images/cursor-5-1033.png",
-      "bytes": 205,
-      "sha256": "70f747d330a14cc76f89ffd5d8e19dd46a917830680da34f737db002c1b91b90"
-    },
-    {
-      "path": "versions/2010-en/assets/images/cursor-6-1033.png",
-      "bytes": 158,
-      "sha256": "68e0a74ec25f6e3483e92489a541fea9c971adb42cd5a51f344f4106b6bd3298"
-    },
-    {
-      "path": "versions/2010-en/assets/images/group_cursor-30977-1033.cur",
-      "bytes": 518,
-      "sha256": "f243815541b6b77a91bed8d2408c9d6e56eb99448bf5087411b70d7691da12ca"
-    },
-    {
-      "path": "versions/2010-en/assets/images/group_icon-128-1033.ico",
-      "bytes": 1078,
-      "sha256": "578674a049fc85773ec459eca8f373682dc5b885c804ed837a357706b210e2a8"
-    },
-    {
-      "path": "versions/2010-en/assets/images/group_icon-129-1033.ico",
-      "bytes": 1078,
-      "sha256": "af544d8b4227eac7129f21aad85cd4e58c5d4eddc15aa3858b0daa347a1464b7"
-    },
-    {
-      "path": "versions/2010-en/assets/images/icon-1-1033.png",
-      "bytes": 174,
-      "sha256": "49f2d9f6bd058db945133191467862834898631ac43da4a31e99cf4ec6366152"
-    },
-    {
-      "path": "versions/2010-en/assets/images/icon-2-1033.png",
-      "bytes": 135,
-      "sha256": "46ad5d5369c8922d47866e5968b8197cdd29a18061f96ed62a30f5081c6edee8"
-    },
-    {
-      "path": "versions/2010-en/assets/images/icon-3-1033.png",
-      "bytes": 218,
-      "sha256": "57e7da111f653fbec11376c7caf45de4bc5878f6bd84dc379016773791591c7e"
-    },
-    {
-      "path": "versions/2010-en/assets/images/icon-4-1033.png",
-      "bytes": 159,
-      "sha256": "ff19aefb039cb59f0fb947ea52528ab1bebf691331cb57e1477ec7654d23e68c"
-    },
-    {
-      "path": "versions/2010-en/assets/manifest.json",
-      "bytes": 51931,
-      "sha256": "33cf06c9e7fa1e0ee40f2fdbf71f32b7d44434779f222c3132d8326dcbfcbc88"
-    },
-    {
-      "path": "versions/2010-en/assets/ui/accelerators.json",
-      "bytes": 3022,
-      "sha256": "7933fab76067aa6de71cf897ae6373606f5e77d37a8ab62e974fa64b7992cc0f"
-    },
-    {
-      "path": "versions/2010-en/assets/ui/dialogs.json",
-      "bytes": 16265,
-      "sha256": "6199a5c23ea7c764920930b8567f11fbd61c4c4d884d9cc7d72e5e3adbd7a0ab"
-    },
-    {
-      "path": "versions/2010-en/assets/ui/menus.json",
-      "bytes": 68615,
-      "sha256": "8090e339cd1a732cbcae78a7eab26c8ee64291e454e68d56d507095757572fae"
-    },
-    {
-      "path": "versions/2010-en/assets/ui/string-tables.json",
-      "bytes": 22836,
-      "sha256": "c24bb3aa81842c893ccfebbf50464bba44eda5160d7856fa35012f9cf5019550"
-    },
-    {
-      "path": "versions/2010-en/assets/ui/strings.json",
-      "bytes": 17124,
-      "sha256": "4e8c9ff909f7c2010b1ac86b596902fa76970ff602f37ad0604bdf4f0c888115"
-    },
-    {
-      "path": "versions/2010-en/assets/ui/versions.json",
-      "bytes": 2997,
-      "sha256": "d55d4820de41a617ad2c90cfd526d9fe8c758c82ea3852f9267613b49b85d3e1"
-    },
-    {
-      "path": "versions/2010-en/play.html",
-      "bytes": 1258,
-      "sha256": "5d3c8b1a65e88a919ef1c65aa2c3ace2b7d66a9188219cd0cf2df62c708e1714"
     },
     {
       "path": "versions/2010-en/src/engine/ai-functions.js",
@@ -693,5 +516,77 @@
       "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
     }
   ],
-  "totalBytes": 12057008
+  "pins": [
+    {
+      "path": "tools/check-2010-hud-browser.js",
+      "sha256": "f52862a5442cb7d92b0f88e912d2907734359c657fb0668f8fe70723ea64beb6"
+    },
+    {
+      "path": "package.json",
+      "sha256": "e9ab3e0cc0e191c24f575130649ddc1cdf0d0b4e031feb14b9436f349a3d5ff4"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "sha256": "2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e"
+    },
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/0040f240.c",
+      "sha256": "ebb5fbaa31a4c159429638da18423293cde7e4a56ae9622baf6454e2556d659b"
+    },
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/004640e0.c",
+      "sha256": "155d76c35d21715adee72d054ed0a49d71ca7a044c5edcfa26bdcf676e7b2409"
+    },
+    {
+      "path": "versions/2010-en/analysis/drawing-corrections/00482ae0.c",
+      "sha256": "4cd1c04bcbd9085565efc6e5aa70caa72ee2e8a1d9d8da5d28da85a0d27156b8"
+    },
+    {
+      "path": "versions/2010-en/tests/hud-tooltip.test.js",
+      "sha256": "994321035680977283aa830834bdfd6fa6f9b63fb2e3f72b3ab921186a71cc58"
+    },
+    {
+      "path": "versions/2010-en/tests/sail-graphic-native.test.js",
+      "sha256": "3bb84347d65dd6b6d52ddc7db40e28893bed6e9791649b0a5c68066dee0f6068"
+    },
+    {
+      "path": "versions/2010-en/tests/sail-graphic-word-stores.test.js",
+      "sha256": "b06cbef0316df3aa6a72be4dc678c30fbf41186e3e76f4895315439d5373f200"
+    },
+    {
+      "path": "versions/2010-en/analysis/hud-native-review.json",
+      "sha256": "43d7ca4e75b2aa3ba861be2043c6082252a910a4efcbae3d2f66d3fdd952a034"
+    },
+    {
+      "path": "versions/2010-en/analysis/sail-graphic-word-store-review.json",
+      "sha256": "dd422337e3bf5f2e2c3b4618adc44ad1cfd4474a069ed67e7b2e3e3e6ea54dcb"
+    },
+    {
+      "path": "versions/2010-en/analysis/hud-controls-before.json",
+      "sha256": "dfa50259c0525b3407395e506b1c53116e08c4591f83001be3aea0fc8bdff3df"
+    },
+    {
+      "path": "versions/2010-en/analysis/hud-controls-source.json",
+      "sha256": "0fd2618e151e95acaa9314d7b86167546fc1e6e7b46dbb0aeff3808151a94aa3"
+    },
+    {
+      "path": "versions/2010-en/analysis/hud-controls-standalone.json",
+      "sha256": "0e721434432b5961e2f8c4adeea97f947e429b6605edd489ef21105bd0a716dd"
+    },
+    {
+      "path": "versions/2010-en/analysis/standalone-browser-verification.json",
+      "sha256": "3f3648c83333771f3bbbc016007a8963787043f061007570e00e5cd56bacf781"
+    },
+    {
+      "path": "versions/2010-en/evidence/manifest.json",
+      "sha256": "022d3f68b2b852af14e0dbd84c72ee592bcbf7713243ef0d6bae7c1815356934"
+    }
+  ],
+  "regeneration": {
+    "command": "tools/python-runtime/bin/python3 versions/2010-en/tools/translate_drawing_closure.py",
+    "functions": 198,
+    "unresolvedFunctions": 0,
+    "runtimeModuleUnchanged": true,
+    "sha256": "2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e"
+  }
 }
