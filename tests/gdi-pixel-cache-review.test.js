@@ -24,7 +24,7 @@ test('cached pixel reads normalize signed C coordinates before tile lookup',()=>
   const candidate=createCanvasGdi(cached,{recordEvents:false,cachePixelReads:true});
   const queries=[[1,1],[2**32+1,1],[1,2],[1,3],[-0,-0],[0,0],[-1,0],[0,-1],[96,0],[0,9]];
   for(const args of queries)assert.equal(candidate.getPixel(...args),baseline.getPixel(...args));
-  assert.deepEqual(cached.reads,[[1,0,1,4],[0,0,1,4]]);
+  assert.deepEqual(cached.reads,[[1,0,1,8],[0,0,1,8]]);
   assert.equal(plain.reads.length,6);
   for(const args of [[1.9,1],[-.9,0],[0,NaN],[Infinity,0],[2**53,0]]){
     assert.throws(()=>baseline.getPixel(...args),{name:'TypeError'});
@@ -45,5 +45,5 @@ test('bounded tile eviction and later GDI invalidation preserve colors',()=>{
   assert.equal(cached.reads.length,71,'old tiles are reread after eviction');
   candidate.setBkMode(1);
   assert.equal(candidate.getPixel(65,6),baseline.getPixel(65,6));
-  assert.equal(cached.reads.length,72);
+  assert.equal(cached.reads.length,71,'background state does not change pixels');
 });

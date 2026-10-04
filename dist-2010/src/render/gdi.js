@@ -138,7 +138,9 @@ export class GdiTrace {
 export function createCanvasGdi(context, options = {}) {
   // Opt-in only for a DC whose canvas is exclusively drawn through this sink
   // during its lifetime. The browser paint creates a fresh DC for each frame.
-  // Every intervening GDI event except a read invalidates these tiny tiles.
+  // Raster-changing events invalidate these tiny tiles. Drawing-state changes
+  // do not change getImageData pixels, so adjacent visibility probes can reuse
+  // a tile even when pen, text or clipping state changes between the reads.
   const pixelTiles=options.cachePixelReads===true&&options.recordEvents===false
     &&options.readPixel==null&&options.sink==null?new Map():null;
   const fillAndStroke = dc => {
@@ -152,10 +154,10 @@ export function createCanvasGdi(context, options = {}) {
   const readPixel = options.readPixel ?? ((x, y) => {
     if (x < 0 || y < 0 || x >= context.canvas.width || y >= context.canvas.height) return 0xffffffff;
     if(pixelTiles){
-      const top=y-y%4,key=`${x}:${top}`;
+      const top=y-y%8,key=`${x}:${top}`;
       let pixels=pixelTiles.get(key);
       if(!pixels){
-        pixels=context.getImageData(x,top,1,Math.min(4,context.canvas.height-top)).data;
+        pixels=context.getImageData(x,top,1,Math.min(8,context.canvas.height-top)).data;
         if(pixelTiles.size>=64)pixelTiles.clear();
         pixelTiles.set(key,pixels);
       }
@@ -166,7 +168,20 @@ export function createCanvasGdi(context, options = {}) {
     return (pixel[0] | pixel[1] << 8 | pixel[2] << 16) >>> 0;
   });
   return new GdiTrace({ ...options, readPixel, sink(event, dc) {
-    if(event.op!=='getPixel')pixelTiles?.clear();
+    if(pixelTiles){
+      switch(event.op){
+        case 'getPixel':
+        case 'moveTo':
+        case 'selectObject':
+        case 'selectStockObject':
+        case 'setTextColor':
+        case 'setBkColor':
+        case 'setBkMode':
+        case 'pushClipRect':
+        case 'popClipRect': break;
+        default: pixelTiles.clear();
+      }
+    }
     if (options.sink) options.sink(event, dc);
     switch (event.op) {
       case 'messageBeep': options.messageBeep?.(event.type); break;

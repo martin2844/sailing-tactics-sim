@@ -30,15 +30,15 @@ test('exclusive canvas read tiles preserve adjacent and interleaved visibility s
   assert.deepEqual(cached.reads.at(-1),[6,8,1,3]);
 });
 
-test('drawing and other intervening events invalidate read tiles; each DC starts empty',()=>{
+test('drawing invalidates read tiles, drawing-state changes preserve them, and each DC starts empty',()=>{
   const context=surface(),dc=createCanvasGdi(context,{recordEvents:false,cachePixelReads:true});
   dc.getPixel(2,4);dc.setPixel(2,5,0x332211);
   assert.equal(dc.getPixel(2,5),0x332211);
   assert.equal(context.reads.length,2);
   dc.moveTo(0,0);dc.getPixel(2,5);
-  assert.equal(context.reads.length,3);
+  assert.equal(context.reads.length,2);
   const next=createCanvasGdi(context,{recordEvents:false,cachePixelReads:true});
-  next.getPixel(2,5);assert.equal(context.reads.length,4);
+  next.getPixel(2,5);assert.equal(context.reads.length,3);
 });
 
 test('custom sinks, samplers and recorded traces retain the unbatched read contract',()=>{

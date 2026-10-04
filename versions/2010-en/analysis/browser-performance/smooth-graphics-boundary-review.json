@@ -1,0 +1,297 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T20:05:52.221Z",
+  "reviewer": "/root/speed_timing",
+  "skill": "big-review",
+  "findings": [],
+  "scope": "Independent review of the actual browser speed/physics frame boundary and Root smoothGraphics integration. This reviewer authored the new frame/player tests. Real-render persistent memory/RNG coupling is covered by separately attributed peer evidence, not inferred from pure drawing callbacks.",
+  "checks": [
+    "Player installs smoothGraphics only in createOriginalRenderer sharedOptions. state.options keeps exact captured trig, native engine callbacks and the original getTickCount provider. graphics=exact opts out; the normal query enables drawing only.",
+    "Each racing paint executes one advanceFrame prefix before composeRaceFrame. The original ordered wind/AI/steering/boat-dynamics callbacks and one unpaused integratePositions call are preserved. Native odd/even paint phases remain explicit and no additional physics steps are added for faster graphics.",
+    "Real integration derives dt from the original course/boat constants and speed divisor, not elapsed wall-clock drawing time. Speed10 retains divisor76 and dt0.20384122874775878 in the default course. Source tests compare all memory bytes and RNG after each frame across six real menu-selected speeds.",
+    "The actual scheduler yields through one pending immediate task, applies inter-frame input before the next physics prefix, and retains original30/60/80ms remainder delays. Hidden/modal/frozen/terminal behavior remains covered by the existing source scheduler tests. Different drawing duration does not create catch-up or retries.",
+    "Paused draws keep the original wind/AI/dynamics prefix while suppressing integration. A drawing failure occurs after exactly one completed numerical prefix and does not run finishFrame or retry physics.",
+    "The full edition mode word0x4da16c remains0. Both graphics queries pass original fleet/tutorial/start/persistence controls and two real paints beyond the explicitly prepared clock261.5 input; no demo flag or edition mode is patched by those checks.",
+    "The final standalone export passes119 browser menu/render/input checks and7 full-mode checks. Its default smooth query uses the same frozen84-file source graph; all138 generated manifest entries verify before/end and no graph drift occurs."
+  ],
+  "focusedTests": {
+    "command": "node --test versions/2010-en/tests/smooth-graphics-frame-boundary.test.js versions/2010-en/tests/smooth-graphics-player.test.js versions/2010-en/tests/browser-clock.test.js versions/2010-en/tests/paint-scheduler-review.test.js",
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "log": "versions/2010-en/analysis/browser-performance/smooth-graphics-boundary-review.log",
+    "addedTests": {
+      "frameTests": 2,
+      "playerTests": 2,
+      "realFrameInvocations": 82,
+      "scope": "Actual engine with intentionally pure exact/Math drawing callbacks; six speed menus, real keyboard/cursor events, unsigned host-clock wrap, pause and drawing failure. The actual player options binding and scheduler functions are extracted directly from current source. This proves prefix/host isolation, not arbitrary fast-render state safety."
+    }
+  },
+  "browserEvidence": {
+    "general": {
+      "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
+      "checkedAt": "2026-10-04T19:57:08.388Z",
+      "checks": 119,
+      "pass": true,
+      "exceptions": 0,
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-source-browser-final.json",
+      "sourceChangesDuringRun": [
+        {
+          "path": "versions/2010-en/src/render/dependencies.js",
+          "before": "bed86c921d0a3fadf4c8b24dec1e75429487d247b21a1bd7c9af0e134b0bb2cb",
+          "after": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74"
+        }
+      ]
+    },
+    "smoothFull": {
+      "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
+      "checkedAt": "2026-10-04T20:00:40.005Z",
+      "checks": 7,
+      "pass": true,
+      "path": "versions/2010-en/analysis/smooth-full-version-browser-check.json"
+    },
+    "exactFull": {
+      "url": "http://127.0.0.1:8765/versions/2010-en/play.html?graphics=exact",
+      "checkedAt": "2026-10-04T20:02:00.801Z",
+      "checks": 7,
+      "pass": true,
+      "path": "versions/2010-en/analysis/exact-full-version-browser-check.json"
+    },
+    "graph": "versions/2010-en/analysis/browser-performance/smooth-graphics-full-tested-source-graph.json",
+    "graphFiles": 84,
+    "standalone": {
+      "status": "Passed final frozen export",
+      "general": {
+        "url": "http://127.0.0.1:8766/index.html",
+        "checkedAt": "2026-10-04T20:08:50.116Z",
+        "checks": 119,
+        "pass": true,
+        "exceptions": 0,
+        "path": "versions/2010-en/analysis/standalone-browser-verification.json"
+      },
+      "full": {
+        "url": "http://127.0.0.1:8766/index.html",
+        "checkedAt": "2026-10-04T20:10:04.224Z",
+        "checks": 7,
+        "pass": true,
+        "path": "versions/2010-en/analysis/standalone-full-version-browser-check.json"
+      },
+      "sourceAndExportPins": "versions/2010-en/analysis/browser-performance/smooth-graphics-final-export-source-pins.json",
+      "sourceFiles": 84,
+      "exportFiles": 138,
+      "allManifestEntriesVerified": true,
+      "unchanged": true
+    }
+  },
+  "complementaryEvidence": [
+    {
+      "reviewer": "/root/ai_crash_fix",
+      "path": "versions/2010-en/analysis/browser-performance/render-simulation-smooth-review.json",
+      "scope": "21 real render frames/seven retained profiles compare ordered engine byte reads/writes, phase-labelled RNG, sounds and declared native pixel/tick inputs. Original receipt pins precede the two additional conservative exact camera guards; final targeted regressions/full suite cover them separately."
+    },
+    {
+      "reviewer": "/root",
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-canvas-coupling.json",
+      "scope": "Actual Canvas420 paint boundaries with417 numerical prefixes compare engine access hashes and per-frame time/dt/speed/fullmode/RNG after genuine input setup. Runs precede the two additional exact camera guards. Correctness instrumentation is not FPS evidence."
+    }
+  ],
+  "validationLimits": [
+    "Input parity is at the same simulation-frame boundary. Higher native paint throughput advances more simulation per wall second, so the same wall-time input can occur at a different race clock. No interpolation or wall-time physics loop is introduced.",
+    "Pure drawing callbacks cannot prove real-render persistent-store/RNG isolation; that is why the separate render-to-engine trace evidence and exact waypoint/camera boundaries are required.",
+    "Source general119 passed while one dependency guard was tightened, and source full-mode checks preceded the final before-unbox hook-order correction. The final standalone119/full-mode7 checks passed against all three guards and the corrected hooks; all84 source files and138 manifest entries stayed unchanged across that sequence.",
+    "The beyond260 full-mode test uses an explicitly declared finite clock input, rather than claiming an uninterrupted race naturally reached that time. Performance/display smoothness is measured separately by Root."
+  ],
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/tests/smooth-graphics-frame-boundary.test.js",
+      "bytes": 8660,
+      "sha256": "205eddb24e6d406a1ac141941461d0f0731303f8dab8aa9be7c077ce0e150e2c"
+    },
+    {
+      "path": "versions/2010-en/tests/smooth-graphics-player.test.js",
+      "bytes": 5072,
+      "sha256": "3422a3b13ee3b39df6dce12bc8576415bea2869d4a23a14102c4b5c8ba62d451"
+    },
+    {
+      "path": "versions/2010-en/tests/browser-clock.test.js",
+      "bytes": 1716,
+      "sha256": "accc27953cb108d7d1f199df85142a2b170ebf5407dee79107bde62b03d90d03"
+    },
+    {
+      "path": "versions/2010-en/tests/paint-scheduler-review.test.js",
+      "bytes": 6038,
+      "sha256": "23233e6a18b61380561468fb6fae948ec651e4b49eceb16f60d835ca200d0452"
+    },
+    {
+      "path": "versions/2010-en/src/engine/frame.js",
+      "bytes": 4404,
+      "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+    },
+    {
+      "path": "versions/2010-en/src/engine/integration.js",
+      "bytes": 10371,
+      "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f"
+    },
+    {
+      "path": "versions/2010-en/src/engine/boat-dynamics.js",
+      "bytes": 17087,
+      "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35"
+    },
+    {
+      "path": "versions/2010-en/src/engine/wind.js",
+      "bytes": 11101,
+      "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8"
+    },
+    {
+      "path": "versions/2010-en/src/engine/keyboard.js",
+      "bytes": 26566,
+      "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf"
+    },
+    {
+      "path": "versions/2010-en/src/engine/menu-controller.js",
+      "bytes": 294172,
+      "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+    },
+    {
+      "path": "versions/2010-en/src/render/paint-lifecycle.js",
+      "bytes": 9033,
+      "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "bytes": 16634,
+      "sha256": "7154efde470f5639e36ac136d0683c94ebb67887c0ea4cfbde12d93e4b934ea5"
+    },
+    {
+      "path": "versions/2010-en/src/render/index.js",
+      "bytes": 1575,
+      "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/browser-clock.js",
+      "bytes": 840,
+      "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+    },
+    {
+      "path": "tools/check-2010-browser.js",
+      "bytes": 13922,
+      "sha256": "a07bcaedc9968f7735d5be719f9a4fb2597ffbb115494128ee62aee0adf9d239"
+    },
+    {
+      "path": "tools/check-2010-full-version.js",
+      "bytes": 7403,
+      "sha256": "3dba980fb86c8ecdbec6e8d4fa9be90250d084e99b14752e972bd138d42f75fe"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-boundary-review.log",
+      "bytes": 1278,
+      "sha256": "714cff1e7bd2881418d71f3e8d0dbbba01ceeb6a93a7d82bbe57062ef605ee64"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-source-browser-final.json",
+      "bytes": 14436,
+      "sha256": "a1da9e4cdd3e40992198f3e009c2af295bfe53bf4dd81b7738bfed6dc52f1068"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-source-general-graph-check.json",
+      "bytes": 497,
+      "sha256": "28963daa1f8505fb7ed651cdf8eb1d7ff4175e99e5f1cfcd29436cba93053e57"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-tested-source-graph.json",
+      "bytes": 14992,
+      "sha256": "99892fc4d30fd9de6d6428386f60d59ff089d636fc309a60b74a777459d7c0d0"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-full-tested-source-graph.json",
+      "bytes": 15066,
+      "sha256": "d77789c2ad48098ee7f19d096137c90e198ef9a7f02214a98f1dc26e29b03758"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-source-browser-final.log",
+      "bytes": 32,
+      "sha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-source-full.log",
+      "bytes": 38,
+      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-source-exact-full.log",
+      "bytes": 38,
+      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9"
+    },
+    {
+      "path": "versions/2010-en/analysis/smooth-full-version-browser-check.json",
+      "bytes": 4437,
+      "sha256": "07f8e9bc7555058fc8277ff4574e30d6cadab4e43ea4ff43e7006d59cb830fa8"
+    },
+    {
+      "path": "versions/2010-en/analysis/exact-full-version-browser-check.json",
+      "bytes": 4424,
+      "sha256": "d3627044ad979e8e3a90ab701af73f13471e72cac47c61ef3d41aa38d164b093"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/render-simulation-smooth-review.json",
+      "bytes": 34991,
+      "sha256": "1f6a690511d41d62fa2b69fe932b785586394424dcb89eb02666e695f274326a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/render-simulation-coupling-ledger.json",
+      "bytes": 69121,
+      "sha256": "1121c61b43e96e622cf5201a80c2a8de3e38e61c1f832e3476fee7ef098e535a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-canvas-coupling.json",
+      "bytes": 560868,
+      "sha256": "52b0fe79595b0745a68f17557606fcdb2321043572b8c0b92a52a603a12dab57"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-final-export-source-pins.json",
+      "bytes": 15309,
+      "sha256": "cef0991f95c863c71cb95149bc248f8e230d0ebb8c1b3849ff0cf6e7d975b6fa"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "bytes": 6879,
+      "sha256": "491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5"
+    },
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "bytes": 9444,
+      "sha256": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74"
+    },
+    {
+      "path": "versions/2010-en/src/render/smooth-math.js",
+      "bytes": 1917,
+      "sha256": "1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c"
+    },
+    {
+      "path": "dist-2010/port-manifest.json",
+      "bytes": 24481,
+      "sha256": "dc5282cb219ab8083600bef5d6bf9ee40c27456f6ae6ce8ac45d87247ea9c379"
+    },
+    {
+      "path": "versions/2010-en/analysis/standalone-browser-verification.json",
+      "bytes": 14393,
+      "sha256": "b4b5caafad1f98df2d25f2af73e872b61728350ee6847bd290e0638ea92daad1"
+    },
+    {
+      "path": "versions/2010-en/analysis/standalone-full-version-browser-check.json",
+      "bytes": 4437,
+      "sha256": "3786c26870f2236b8ccf84d4cc373ceb0e9e1a900d280ef4d82034fd4674d357"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-standalone-browser.log",
+      "bytes": 32,
+      "sha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-standalone-full.log",
+      "bytes": 38,
+      "sha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9"
+    }
+  ],
+  "completedAt": "2026-10-04T20:11:52.136Z"
+}

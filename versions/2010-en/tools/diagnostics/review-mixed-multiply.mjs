@@ -18,6 +18,7 @@ baselineSource=baselineSource.slice(0,method)+'  multiplyNumber(value){return th
 const baseline=await importFloat(baselineSource);
 const observed=await importFloat(source+'\nexport {mixedBinary64Product};');
 const hex=value=>Buffer.from(value.toBytes()).toString('hex');
+const boxed=value=>typeof value==='number'?Float80.fromNumber(value):value;
 const sha=value=>createHash('sha256').update(value).digest('hex');
 let state=0x59ed18a6f7c043e1n;
 const random=()=>state=BigInt.asUintN(64,state*6364136223846793005n+1442695040888963407n);
@@ -41,7 +42,7 @@ withX87ControlWord(0x027f,()=>baseline.withX87ControlWord(0x027f,()=>{
   const current=new Float80(row.sign,row.mantissa,row.exponent),previous=new baseline.Float80(row.sign,row.mantissa,row.exponent);
   const factor=Float80.fromNumber(row.factor),oldFactor=baseline.Float80.fromNumber(row.factor);
   const expected=hex(previous.multiply(oldFactor));
-  for(const actual of [current.multiply(factor),factor.multiply(current),current.multiplyNumber(row.factor)]){
+  for(const actual of [current.multiply(factor),factor.multiply(current),current.multiplyNumber(row.factor),boxed(current.multiplyNumberUnboxed(row.factor))]){
    assert.equal(hex(actual),expected,`Mixed product ${index}`);images++;
   }
   const candidate=observed.mixedBinary64Product({mantissa:row.mantissa,exponent:row.exponent},row.factor);
@@ -53,6 +54,7 @@ for(const word of [0x007f,0x037f])withX87ControlWord(word,()=>baseline.withX87Co
  for(const row of vectors.slice(0,256)){
   const current=new Float80(row.sign,row.mantissa,row.exponent),previous=new baseline.Float80(row.sign,row.mantissa,row.exponent);
   assert.equal(hex(current.multiplyNumber(row.factor)),hex(previous.multiplyNumber(row.factor)));otherPrecisionImages++;
+  assert.equal(hex(boxed(current.multiplyNumberUnboxed(row.factor))),hex(previous.multiplyNumber(row.factor)));otherPrecisionImages++;
  }
 }));
 const native=JSON.parse(await readFile(new URL('tests/fixtures/native-precision.json',root),'utf8'));
@@ -63,6 +65,8 @@ for(const row of native.cases){
   const number=b.exactNumber();if(Number.isNaN(number))continue;
   const result=withX87ControlWord(row.controlWord,()=>a.multiplyNumber(number));
   assert.equal(hex(result),row.expected.extendedBits,'Captured native mixed product');nativeImages++;
+  const unboxed=withX87ControlWord(row.controlWord,()=>boxed(a.multiplyNumberUnboxed(number)));
+  assert.equal(hex(unboxed),row.expected.extendedBits,'Captured native unboxed mixed product');nativeImages++;
  }
 }
 const currentPairs=vectors.slice(9000,9256).map(row=>[new Float80(row.sign,row.mantissa,row.exponent),row.factor]);
@@ -84,7 +88,7 @@ const currentMedian=median(samples.map(row=>row.current)),baselineMedian=median(
 assert.equal(await readFile(new URL('src/runtime/float80.js',root),'utf8'),source,'Float source changed during proof');
 assert.equal(await readFile(new URL('src/runtime/certified-sqrt.js',root),'utf8'),sqrtSource,'Float dependency changed during proof');
 const report={format:1,status:'exact',findings:[],cases:20000,images,otherPrecisionImages,nativeImages,accepted,declined,
- scope:'All2048low-bit residues around four rounding/power-of-two boundaries, random bounded m80×binary64 pairs, both operand orders, primitive Number entry, alternate controls and existing native multiplication captures. Microtiming compares only the additive branch and operand carrier allocation against the same source with that optimization removed.',
+ scope:'All2048low-bit residues around four rounding/power-of-two boundaries, random bounded m80×binary64 pairs, both operand orders, boxed and unboxed primitive Number entries, alternate controls and existing native multiplication captures. The baseline removes the mixed certificate entirely, so the decomposition cache and unboxed return are checked against exact prior BigInt arithmetic. Microtiming compares the boxed method with that optimization removed.',
  sourcePins:[{path:'src/runtime/float80.js',sha256:sha(source)},{path:'src/runtime/certified-sqrt.js',sha256:sha(sqrtSource)},{path:'tools/diagnostics/review-mixed-multiply.mjs',sha256:sha(await readFile(new URL(import.meta.url)))}],
  benchmark:{callsPerSample:20000,samples,currentMedian,baselineMedian,speedup:baselineMedian/currentMedian,scope:'Isolated leaf method; no browser FPS inference.'}};
 await writeFile(new URL('analysis/browser-performance/mixed-multiply-review.json',edition),JSON.stringify(report,null,2)+'\n');

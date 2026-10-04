@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T20:01:22.998Z",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "baselineRevision": "a6b5a6d",
+  "baselineModuleSha256": "6f98471599de0e35fc97397fa8024168909f0eb4eb6833854508acd6bb434887",
+  "scope": "Private owned dense compiler argument literals with Number masks; public copied calls, array flags and stale registration fallback remain on the original scan.",
+  "checks": [
+    "A current numeric registration is selected only when the saved public registration object is still identical and PC53/ordinary drawing options permit it.",
+    "Removing a DC chooses original parameter-mask indices; keeping the supplied placeholder chooses compact binding-mask indices. Every marked floating actual maps to a floating formal before the integer-formal boxing scan can be skipped.",
+    "Bit31 is represented by signed I32 mask bits. Index32 cannot alias bit0 because registration masks omit it and caller flags use a full array once any index reaches32.",
+    "Public nonowned calls, array flags and any floating actual for an integer formal still execute the original full scan. The ordered formal F64 binding loop is unchanged, including subclass conversions, errors, zero signs and partial argument mutations."
+  ],
+  "resolvedFindings": [
+    {
+      "issue": "A valid registration array with a custom slice returning negative/fractional indices could shift those copied indices onto unrelated integer argument bits, skipping required boxing.",
+      "fix": "Build registration masks only from integer indices0..31; malformed copied entries retain the original full scan.",
+      "regression": "versions/2010-en/tests/number-dependencies.test.js",
+      "status": "fixed and verified"
+    }
+  ],
+  "validation": {
+    "focusedTests": 9,
+    "authorAddedComparisons": 960,
+    "independentBaselineComparisons": 1560,
+    "customMetadataCopyComparisons": 4,
+    "compared": "Return images, errors, ordered observed F64 conversions and partially mutated owned arguments against the unchanged baseline module.",
+    "allPassed": true
+  },
+  "performanceScope": "Parent isolated leaf measurement reported100000calls median10.87ms→9.27ms; no browser FPS inference.",
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/render/dependencies.js",
+      "sha256": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74"
+    },
+    {
+      "path": "versions/2010-en/tests/number-dependencies.test.js",
+      "sha256": "fb61ff3b4ca37982a2384a25b8c44d075a57c569c77c00b391595867266945be"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "sha256": "552db1225212d459288c042f377d56a659548e3b0ae5a317135459628c0effa5"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482"
+    },
+    {
+      "path": "versions/2010-en/tools/floating_drawing.py",
+      "sha256": "a0ed7ba447cdef9f52a67d45005a97a621e0384d9152b4c1b586582c9a549cda"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnostics/review-dependency-mask.mjs",
+      "sha256": "082b9bd64815c870d6a1dfd2c40b9f5289f5b440ae57eac074667ef13a0ea19c"
+    }
+  ]
+}

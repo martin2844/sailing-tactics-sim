@@ -8,5 +8,8 @@ and original data/assets. No Wine, Windows executable or instruction emulator
 is needed. Press Space to begin; use the original menus for controls and help.
 Sound can be enabled in the footer. Preferences are saved in this browser.
 
+Smoother drawing is enabled by default; simulation math remains original.
+For exact drawing math comparisons, open index.html?graphics=exact.
+
 The full preservation repository contains recovered source and native
 comparison evidence. This export contains only the browser player.

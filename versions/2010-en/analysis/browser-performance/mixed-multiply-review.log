@@ -1,45 +1,45 @@
 {
   "cases": 20000,
-  "images": 60000,
-  "otherPrecisionImages": 512,
-  "nativeImages": 93,
+  "images": 80000,
+  "otherPrecisionImages": 1024,
+  "nativeImages": 186,
   "accepted": 19996,
   "declined": 4,
   "benchmark": {
     "callsPerSample": 20000,
     "samples": [
       {
-        "current": 3.7092359999999758,
-        "baseline": 12.186680000000024
+        "current": 7.796349000000021,
+        "baseline": 14.116262000000006
       },
       {
-        "current": 3.758938999999998,
-        "baseline": 12.214231999999981
+        "current": 2.589065000000005,
+        "baseline": 13.011408000000017
       },
       {
-        "current": 3.2391399999999635,
-        "baseline": 12.799894999999992
+        "current": 3.232557999999983,
+        "baseline": 15.575224999999989
       },
       {
-        "current": 3.4822279999999637,
-        "baseline": 12.535908000000006
+        "current": 1.6912810000000036,
+        "baseline": 12.786423000000013
       },
       {
-        "current": 3.2876110000000267,
-        "baseline": 12.677364000000011
+        "current": 1.6268489999999929,
+        "baseline": 12.762468000000013
       },
       {
-        "current": 3.4698340000000485,
-        "baseline": 12.473921000000018
+        "current": 2.187327000000039,
+        "baseline": 14.365152000000023
       },
       {
-        "current": 3.3644160000000056,
-        "baseline": 12.211437000000046
+        "current": 1.7697790000000282,
+        "baseline": 13.801987999999994
       }
     ],
-    "currentMedian": 3.4698340000000485,
-    "baselineMedian": 12.473921000000018,
-    "speedup": 3.594961891548657,
+    "currentMedian": 2.187327000000039,
+    "baselineMedian": 13.801987999999994,
+    "speedup": 6.3099792577880445,
     "scope": "Isolated leaf method; no browser FPS inference."
   }
 }

@@ -110,3 +110,49 @@ test('floating masks preserve position31 and array fallback handles position32 w
   const untouched=callNumberDrawingDependencyOwned(undefined,undefined,address,[-0],0x80000000,undefined);
   assert.equal(typeof untouched[0],'number'); // Position31 never boxes position0.
 }));
+
+test('owned floating-mask shortcut matches the complete scan across DC positions and conversion failures',()=>withX87ControlWord(0x027f,()=>{
+  const dc={events:[]};let address=0x49b800,cases=0;
+  const masks=[0,1,3,5,0x40000000,0x80000000,0xffffffff,NaN];
+  const layouts=[[],[0],[1,2],[0,31,32],[31,32]];
+  for(const dcIndex of [null,0,1,32])for(const parameters of layouts){
+    const at=address--;
+    registerOriginalDrawing(at,()=>{throw new Error('Unexpected original call');},dcIndex!==null,dcIndex);
+    registerOriginalNumberDrawing(at,(_memory,_dc,_rng,_options,_images,...args)=>args,parameters);
+    for(const removed of [false,true])for(const mask of masks)for(const variant of [0,1,2]){
+      const run=owned=>{
+        const log=[];
+        class ObservedFloat extends Float80{
+          toNumber(){log.push('number');if(variant===2)throw new Error('F64 conversion failed');return super.toNumber();}
+        }
+        const observed=new ObservedFloat(1,(1n<<63n)+3n,-63);
+        const values=Array.from({length:34},(_,index)=>index%4===0?-0:index%4===1?observed:index%4===2?undefined:variant===1?{}:2n);
+        if(dcIndex!==null&&removed)values[dcIndex]=dc;
+        const result=outcome(()=>(owned?callNumberDrawingDependencyOwned:callNumberDrawingDependency)(undefined,dc,at,values,mask,undefined));
+        if(result.value)result.value=result.value.map(value=>value instanceof Float80?['m80',value.exactKey()]:value);
+        return {result,log};
+      };
+      assert.deepEqual(run(true),run(false),`dc=${dcIndex} floats=${parameters} removed=${removed} mask=${mask} variant=${variant}`);
+      cases++;
+    }
+  }
+  assert.equal(cases,960);
+}));
+
+test('accepted custom metadata copies cannot alias integer argument masks with invalid indices',()=>withX87ControlWord(0x027f,()=>{
+  const copies=[[-1,31],[.5,0],[31.5,31],[-31.5,1]];
+  for(const[index,[copiedIndex,argumentIndex]]of copies.entries()){
+    const address=0x49b7c0-index;
+    registerOriginalDrawing(address,()=>{throw new Error('Unexpected original call');},false,null);
+    const parameters=[0];
+    parameters.slice=()=>[copiedIndex];
+    registerOriginalNumberDrawing(address,(_memory,_dc,_rng,_options,_images,...args)=>args,parameters);
+    const values=Array(32).fill(0);values[argumentIndex]=-0;
+    const mask=1<<argumentIndex;
+    const publicResult=callNumberDrawingDependency(undefined,undefined,address,values,mask,undefined);
+    const ownedResult=callNumberDrawingDependencyOwned(undefined,undefined,address,values.slice(),mask,undefined);
+    assert.ok(ownedResult[argumentIndex] instanceof Float80);
+    assert.equal(ownedResult[argumentIndex].sign,-1);
+    assert.deepEqual(ownedResult,publicResult);
+  }
+}));

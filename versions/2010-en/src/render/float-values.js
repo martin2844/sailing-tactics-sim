@@ -3,6 +3,7 @@ import { cFloat,cF64,cI32,cI64,originalTrig,originalAtan } from './typed-c.js';
 import {sinCosX87Number} from '../../../../src/runtime/transcendentals.js';
 import {atan2ExtendedNumeric} from '../../../../src/runtime/atan.js';
 import {scalarRead,scalarReadArgument,scalarStoreF64} from './scalar-stack.js';
+import {trySmoothSinCosNumber,trySmoothAtanNumber} from './smooth-math.js';
 
 // These helpers are used only at C expressions statically proved floating by
 // the source translator. A Number here represents an exact binary64 x87 load;
@@ -37,10 +38,14 @@ export const fpStoreF64=value=>fpLoad(fpToNumber(value));
 export const fpFormalF64=(value,alreadyFloatingImage=false)=>value===undefined?undefined:alreadyFloatingImage?fpStoreF64(value):cF64(value).toNumber();
 export const fpTrig=(value,options={})=>{
   if('sinCos' in options)return originalTrig(value,options);
+  const smooth=trySmoothSinCosNumber(value,options);
+  if(smooth!==undefined)return smooth;
   value=unbox(value);
   return typeof value==='number'?sinCosX87Number(value):originalTrig(value,options);
 };
 export function fpAtan(y,x,options={}){
+  const smooth=trySmoothAtanNumber(y,x,options);
+  if(smooth!==undefined)return smooth;
   if(typeof y==='number'&&typeof x==='number'){
     const absY=Math.abs(y),absX=Math.abs(x);
     if(absY>=2**-100&&absY<=2**100&&absX>=2**-100&&absX<=2**100){
@@ -94,8 +99,8 @@ export function fpMul(a,b){
     const value=a*b;
     if(normal(value)||(value===0&&(a===0||b===0)))return value;
   }
-  if(a instanceof Float80&&typeof b==='number')return unbox(a.multiplyNumber(b));
-  if(b instanceof Float80&&typeof a==='number')return unbox(b.multiplyNumber(a));
+  if(a instanceof Float80&&typeof b==='number')return unbox(Object.getPrototypeOf(a)===Float80.prototype?a.multiplyNumberUnboxed(b):a.multiplyNumber(b));
+  if(b instanceof Float80&&typeof a==='number')return unbox(Object.getPrototypeOf(b)===Float80.prototype?b.multiplyNumberUnboxed(a):b.multiplyNumber(a));
   return unbox(operand(a).multiply(operand(b)));
 }
 export function fpDiv(a,b){

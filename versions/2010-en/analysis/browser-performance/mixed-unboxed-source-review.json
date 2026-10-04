@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:50:51.090968+00:00",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "Additive multiplyNumberUnboxed and factor-independent m80 split cache. Only the2010 floating evaluator consumes the new Number-or-Float80 return; existing public method bodies retain their previous API.",
+  "checks": [
+    "The new method uses the same PC53 normal/exact-zero tests and the same bounded mixed-product rounding-cell certificate as multiplyNumber. Every uncertified, extended, nonfinite or other-precision case uses the same original operand boxing and multiplication fallback.",
+    "The WeakMap key is private normalized parts owned by an immutable Float80 value. Cached high/tail/ah/al are exact factor-independent values produced by the unchanged expressions; every range guard runs before lookup.",
+    "The cache does not store factors/products/results or retain dead inputs. Per-factor Dekker correction, midpoint asymmetry, error margin and final sign operations are unchanged.",
+    "2010 fpMul retains operand unboxing order and consumes an exact Number directly. Extended fallback values are still unboxed only when exactNumber proves representability.",
+    "Exact Float80 prototypes select the new unboxed method. Extended subclass operands retain the previous dynamic multiplyNumber lookup, receiver, return and exception contract; both operand orders are covered."
+  ],
+  "validation": {
+    "boundaryErrorCases": 7584,
+    "retainedDirectLeftRightComparisons": 18432,
+    "independentVectors": 20000,
+    "bigIntBaselineImages": 80000,
+    "alternatePrecisionImages": 1024,
+    "capturedNativeImages": 186,
+    "allPassed": true,
+    "focusedTests": 3,
+    "log": "versions/2010-en/analysis/browser-performance/mixed-unboxed-focused.log"
+  },
+  "sourcePins": [
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "sha256": "47bbae43fd8883cc9e219f209de4626d2456b6d87d3b2cfb86a58861c4f8b494"
+    },
+    {
+      "path": "versions/2010-en/tests/mixed-multiply-unboxed.test.js",
+      "sha256": "0cb288e5ced52508debc496330211a38e37ac11e6e0ef9433090092f15894e0a"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnostics/review-mixed-multiply.mjs",
+      "sha256": "4fc1c7590d1950752d14d5ea18c628accf63f6ab416119c80f4f8b3771327ee0"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/mixed-multiply-review.json",
+      "sha256": "a0b0cdcbe0c73e66ed2a0ab92ee0f187ea5d9c00280c22faf24876121f3f968b"
+    }
+  ],
+  "performanceScope": "The source-only cached-split prototype measured2.57times the uncached unboxed leaf throughput on repeatedly reused immutable inputs. This is not a browser FPS result.",
+  "resolvedFindings": [
+    {
+      "issue": "Switching fpMul to the additive method could bypass a Float80 subclass override of multiplyNumber.",
+      "fix": "Use the unboxed method only for the exact standard prototype; preserve the old method on subclass operands.",
+      "regression": "versions/2010-en/tests/mixed-multiply-unboxed.test.js",
+      "status": "fixed and verified"
+    }
+  ]
+}

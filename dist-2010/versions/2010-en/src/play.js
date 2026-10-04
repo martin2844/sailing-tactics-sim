@@ -1,5 +1,6 @@
 import { fetchOriginalData } from './runtime/original-data.js';
 import { createPaintClock } from './runtime/browser-clock.js';
+import { resetBitmapSurface } from './runtime/canvas-surface.js';
 import { setX87ControlWord } from '../../../src/runtime/float80.js';
 import { PoseyRng } from '../../../src/engine/integer-core.js';
 import { createCapturedTrig } from './engine/native-trig.js';
@@ -14,13 +15,13 @@ import { createCanvasGdi } from './render/gdi.js';
 import { fetchGdiBitmapFont } from '../../../src/render/bitmap-font.js';
 
 const $=id=>document.getElementById(id);
-const canvas=$('race'),context=canvas.getContext('2d',{willReadFrequently:true});
+const canvas=$('race'),context=canvas.getContext('2d');
 // Reuse the backing surface. Selecting each original bitmap still resets its
 // dimensions and drawing state, so no pixels or clipping survive a paint.
 const bufferCanvas=document.createElement('canvas');
 const bufferContext=bufferCanvas.getContext('2d',{willReadFrequently:true});
 const state={memory:null,rng:null,objects:null,options:null,ready:false,closed:false,modal:false,pending:false,
-  nextPaint:false,delay:0,frames:0,error:null,cursor:{x:0,y:0},soundEnabled:false,activeSound:null,sounds:new Map(),menuHelp:null};
+  nextPaint:false,deferredPaintDue:null,delay:0,frames:0,error:null,cursor:{x:0,y:0},soundEnabled:false,activeSound:null,sounds:new Map(),menuHelp:null};
 const assetUrl=path=>new URL(`../${path}`,import.meta.url);
 const json=async path=>{const response=await fetch(assetUrl(path));if(!response.ok)throw new Error(`Could not load ${path}`);return response.json();};
 const menuButtons=[];
@@ -114,12 +115,22 @@ $('fullscreen').addEventListener('click',()=>{if(document.fullscreenElement)docu
 function requestPaint(delay=0){
   if(!state.ready||state.closed||state.error)return;
   state.nextPaint=true;if(state.modal||state.pending)return;
+  if(document.visibilityState==='hidden'){
+    state.deferredPaintDue??=performance.now()+Math.max(0,delay);
+    return;
+  }
+  if(state.deferredPaintDue!==null){
+    delay=Math.max(delay,state.deferredPaintDue-performance.now());
+    state.deferredPaintDue=null;
+  }
   state.pending=true;
   if(delay<=0&&paintQueue)paintQueue.port2.postMessage(0);
   else setTimeout(paint,Math.max(0,delay));
 }
 function paint(){
   state.pending=false;if(state.modal||state.closed||state.error)return;
+  if(document.visibilityState==='hidden'){state.nextPaint=true;return;}
+  state.deferredPaintDue=null;
   state.nextPaint=false;state.delay=0;paintClock.beginPaint();const start=performance.now();
   try{
     const front=createCanvasGdi(context,{objects:state.objects,bitmapFont:state.bitmapFont,messageBeep,recordEvents:false});front.canvas=canvas;
@@ -128,7 +139,7 @@ function paint(){
       getDeviceCaps(_dc,index){return index===12?dimensions.bitsPixel:index===8?dimensions.width:dimensions.height;},
       applicationInstance(){return 1;},createBitmap(descriptor){return descriptor;},attachBitmap(){},
       createCompatibleDC(){return 1;},attachCompatibleDC(){},
-      selectBitmap(dc,bitmap){if(bitmap){dc.canvas.width=bitmap.width;dc.canvas.height=bitmap.height;dc.context.font='13px Arial';}return 0;},
+      selectBitmap(dc,bitmap){if(bitmap)resetBitmapSurface(dc.canvas,dc.context,bitmap.width,bitmap.height);return 0;},
       bitBlt(_front,buffer,descriptor){
         if(canvas.width!==descriptor.width||canvas.height!==descriptor.height){canvas.width=descriptor.width;canvas.height=descriptor.height;context.font='13px Arial';}
         context.drawImage(buffer.canvas,0,0);
@@ -140,6 +151,9 @@ function paint(){
     if(state.nextPaint)requestPaint(Math.max(0,state.delay-(performance.now()-start)));
   }catch(error){fail(error);}
 }
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState!=='hidden'&&state.nextPaint)requestPaint();
+});
 
 const virtualKeys={Space:32,Enter:13,Escape:27,Backspace:8,PageUp:33,PageDown:34,Home:36,End:35,ArrowLeft:37,ArrowUp:38,ArrowRight:39,ArrowDown:40,
   Backslash:220,Semicolon:186,Slash:191,BracketLeft:219,BracketRight:221,Backquote:192,Comma:188,Period:190,Equal:187,Minus:189};
@@ -185,7 +199,10 @@ async function start(){
   const trig=createCapturedTrig(extended,stored);
   state.objects=initializeApplication(memory,state.rng,{preferences,timeSeed:Math.floor(Date.now()/1000),screenHeight:dimensions.height,integerTrig:tables});
   for(const row of manifest.resources.filter(row=>row.type==='WAVE')){const audio=new Audio(assetUrl(`assets/${row.wav_path}`));audio.preload='auto';state.sounds.set(row.id,audio);}
-  state.options={trig,...createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack}),rng:state.rng,
+  // Graphics may use browser math; engine bindings retain their original math.
+  // The exact renderer remains available for preservation comparisons.
+  const smoothGraphics=new URLSearchParams(location.search).get('graphics')!=='exact';
+  state.options={trig,...createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack,smoothGraphics}),rng:state.rng,
     playSound,messageBeep,beep:messageBeep,dialogHandler:originalDialog,getTickCount:paintClock.getTickCount,
     invalidateRect:()=>requestPaint(),enforceMinimumPaintDuration:duration=>state.delay=duration,
     closeWindow:()=>{state.closed=true;$('status').textContent='Simulator closed';},

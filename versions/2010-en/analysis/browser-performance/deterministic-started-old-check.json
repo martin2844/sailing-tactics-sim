@@ -1,0 +1,667 @@
+{
+  "label": "deterministic-started-old-check",
+  "failure": "Error: Original fast-forward changed speed to 1 at clock -137",
+  "failureState": {
+    "frames": 25,
+    "pending": true,
+    "nextPaint": true,
+    "modal": false,
+    "error": null,
+    "clock": -137,
+    "time": -137.76309866310967,
+    "speed": 1,
+    "racing": 2,
+    "overlays": [
+      {
+        "address": 5465156,
+        "value": 0
+      },
+      {
+        "address": 5465072,
+        "value": 0
+      },
+      {
+        "address": 5387176,
+        "value": 0
+      },
+      {
+        "address": 5465140,
+        "value": 0
+      },
+      {
+        "address": 5465144,
+        "value": 0
+      },
+      {
+        "address": 5465164,
+        "value": 0
+      }
+    ]
+  },
+  "deterministicFailure": {
+    "frame": 25,
+    "rngState": 3303663136,
+    "memoryBase": 4194304,
+    "memorySize": 2211840,
+    "memorySha256": "b4e34d0a6b606589ba23f099eb8a1fb87e33674537151215157310442417f8c8",
+    "time": -137.76309866310967,
+    "clock": -137,
+    "speed": 1,
+    "divisor": 2919,
+    "racing": 2,
+    "mode": 0,
+    "overlays": [
+      {
+        "address": 5465156,
+        "value": 0
+      },
+      {
+        "address": 5465072,
+        "value": 0
+      },
+      {
+        "address": 5387176,
+        "value": 0
+      },
+      {
+        "address": 5465140,
+        "value": 0
+      },
+      {
+        "address": 5465144,
+        "value": 0
+      },
+      {
+        "address": 5465164,
+        "value": 0
+      }
+    ],
+    "queued": 0,
+    "holding": true,
+    "error": null
+  },
+  "setupHistory": [
+    {
+      "kind": "paint",
+      "label": "initial start screen",
+      "frame": 1,
+      "clock": -170,
+      "time": -170.5,
+      "racing": 0,
+      "mode": 0,
+      "notice": 0,
+      "speed": 7,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "command",
+      "id": 32909,
+      "frame": 1,
+      "clock": -170,
+      "time": -170.5,
+      "racing": 0,
+      "mode": 0,
+      "notice": 0,
+      "speed": 10,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "menu32909",
+      "frame": 2,
+      "clock": -170,
+      "time": -170.5,
+      "racing": 0,
+      "mode": 0,
+      "notice": 0,
+      "speed": 10,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "key",
+      "code": "Space",
+      "label": "begin",
+      "frame": 2,
+      "clock": -170,
+      "time": -170.5,
+      "racing": 1,
+      "mode": 0,
+      "notice": 0,
+      "speed": 10,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "initialize race",
+      "frame": 3,
+      "clock": -170,
+      "time": -170.5,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 10,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "key",
+      "code": "Space",
+      "label": "dismiss original overlay",
+      "frame": 3,
+      "clock": -170,
+      "time": -170.5,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 10,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "first unobstructed race paint",
+      "frame": 4,
+      "clock": -170,
+      "time": -170.29615877125224,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 10,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "command",
+      "id": 32973,
+      "frame": 4,
+      "clock": -170,
+      "time": -170.29615877125224,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 5,
+      "clock": -168,
+      "time": -168.74696543276926,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 6,
+      "clock": -167,
+      "time": -167.19777209428628,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 7,
+      "clock": -165,
+      "time": -165.6485787558033,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 8,
+      "clock": -164,
+      "time": -164.09938541732032,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 9,
+      "clock": -162,
+      "time": -162.55019207883734,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 10,
+      "clock": -161,
+      "time": -161.00099874035436,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 11,
+      "clock": -159,
+      "time": -159.45180540187138,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 12,
+      "clock": -157,
+      "time": -157.9026120633884,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 13,
+      "clock": -156,
+      "time": -156.35341872490542,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 14,
+      "clock": -154,
+      "time": -154.80422538642244,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 15,
+      "clock": -153,
+      "time": -153.25503204793947,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 16,
+      "clock": -151,
+      "time": -151.7058387094565,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 17,
+      "clock": -150,
+      "time": -150.1566453709735,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 18,
+      "clock": -148,
+      "time": -148.60745203249053,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 19,
+      "clock": -147,
+      "time": -147.05825869400755,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 20,
+      "clock": -145,
+      "time": -145.50906535552457,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 21,
+      "clock": -143,
+      "time": -143.9598720170416,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 22,
+      "clock": -142,
+      "time": -142.4106786785586,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 23,
+      "clock": -140,
+      "time": -140.86148534007563,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 24,
+      "clock": -139,
+      "time": -139.31229200159265,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 15,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "paint",
+      "label": "original speed15 advance",
+      "frame": 25,
+      "clock": -137,
+      "time": -137.76309866310967,
+      "racing": 2,
+      "mode": 0,
+      "notice": 0,
+      "speed": 1,
+      "error": null,
+      "overlays": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

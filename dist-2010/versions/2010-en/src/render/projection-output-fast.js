@@ -2,6 +2,7 @@ import { intervalAdd as add,intervalSub as sub,intervalMul as mul,intervalDiv as
   atan2Interval,cosX87Interval } from '../../../../src/runtime/output-interval.js';
 import { signedDegrees } from '../engine/ai-geometry.js';
 import { projectionFastEnabled,tryProjectionGeometry } from './projection-fast.js';
+import {tryProjectScenePointSmooth} from './projection-smooth.js';
 
 const exact=value=>[value,value];
 const valid=value=>value&&Number.isFinite(value[0])&&Number.isFinite(value[1])&&value[0]<=value[1];
@@ -17,6 +18,7 @@ export function tryProjectScenePointOutputFast(memory,index,x,y,camera,selector,
   if(mode!==1&&mode!==2)return undefined;
   const geometry=tryProjectionGeometry(memory,x,y,camera);
   if(!geometry)return undefined;
+  if(tryProjectScenePointSmooth(memory,index,camera,selector,mode,geometry,options))return true;
   const {dx,dy,distance,origin,zeroThreshold,pi,twoPi,negativePi,negativeTwoPi,degreesPerRadian}=geometry;
   let angle=sub(atan2Interval(dx,dy),exact(origin.radians));
   if(!valid(angle))return undefined;

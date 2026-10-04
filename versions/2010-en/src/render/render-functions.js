@@ -15,6 +15,7 @@ import { tryProjectScenePointOutputFast } from './projection-output-fast.js';
 import { tryProjectChartPointFast } from './chart-projection-fast.js';
 import {tryProjectChartPointOutputFast} from './chart-output-fast.js';
 import {originalNumberDrawingIsCurrent} from './dependencies.js';
+import {tryWaterNumberSlab} from './water-number-slab.js';
 
 export const SCREEN_ROUTINES = Object.freeze({"originalDrawStartScreen": 4275136, "originalDrawResultsScreen": 4361072, "originalDrawForecastScreen": 4364528, "originalDrawAdvice": 4220304, "originalDrawPauseScreen": 4357904, "originalDrawDemoScreen": 4286736, "originalDrawJibeAdvice": 4220544, "originalDrawTackAdvice": 4222528});
 
@@ -345,7 +346,7 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 1: { return; }
     case 2: { undefined; pc = 1; continue; }
     case 3: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 2; continue; }
-    case 4: { pc = cTruth(cCompare(uVar7,80,"<")) ? 6 : 3; continue; }
+    case 4: { pc = (cCompare(uVar7,80,"<")) ? 6 : 3; continue; }
     case 5: { (uVar7 = cSub(DVar6,DVar4)); pc = 4; continue; }
     case 6: { (DVar6 = drawingTick(options)); pc = 5; continue; }
     case 7: { (uVar7 = cSub(DVar6,readLocal(framePointer(localFrame,260),4,"int"))); pc = 4; continue; }
@@ -355,7 +356,7 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 11: { w32(0x536458,0); pc = 10; continue; }
     case 12: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc600)),false), cSub(iVar8,fpI32(fpMul(r64(0x5230b0),r64(0x4cc5f8)),false)), 3, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 11; continue; }
     case 13: { w32(0x4fc2cc,8); pc = 12; continue; }
-    case 14: { pc = cTruth(cCompare(r32(0x53652c),1,"==")) ? 13 : 12; continue; }
+    case 14: { pc = (cCompare(r32(0x53652c),1,"==")) ? 13 : 12; continue; }
     case 15: { w32(0x53562c,4294966296); pc = 14; continue; }
     case 16: { w32(0x5350e4,0); pc = 15; continue; }
     case 17: { w32(0x4fecd4,45); pc = 16; continue; }
@@ -365,10 +366,10 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 21: { w32(0x4fe824,2); pc = 20; continue; }
     case 22: { w32(0x4fc2cc,15); pc = 21; continue; }
     case 23: { w32(0x522ffc,1); pc = 22; continue; }
-    case 24: { pc = cTruth(cCompare(2,r32(0x4da194),"<")) ? 23 : 11; continue; }
+    case 24: { pc = (cCompare(2,r32(0x4da194),"<")) ? 23 : 11; continue; }
     case 25: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc5f0)),false), cSub(iVar8,fpI32(fpMul(r64(0x5230b0),r64(0x4cc5e8)),false)), 2, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 24; continue; }
     case 26: { w32(0x4fc2c8,8); pc = 25; continue; }
-    case 27: { pc = cTruth(cCompare(r32(0x53652c),1,"==")) ? 26 : 25; continue; }
+    case 27: { pc = (cCompare(r32(0x53652c),1,"==")) ? 26 : 25; continue; }
     case 28: { w32(0x535628,4294966296); pc = 27; continue; }
     case 29: { w32(0x5350e0,0); pc = 28; continue; }
     case 30: { w32(0x4fecd0,45); pc = 29; continue; }
@@ -380,7 +381,7 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 36: { w32(0x522ff8,4294967295); pc = 35; continue; }
     case 37: { callNumberDrawingDependencyOwned(memory,dc,0x417aa0,[original_dc, fpI32(fpMul(r64(0x5230e8),r64(0x4cc4f8)),false), cSub(iVar8,fpI32(fpMul(r64(0x5230b0),r64(0x4cc5e8)),false)), 1, 1, r32(0x4fe2a8), 0],0,rng,options); pc = 36; continue; }
     case 38: { w32(0x4fc2c4,8); pc = 37; continue; }
-    case 39: { pc = cTruth(cCompare(r32(0x53652c),1,"==")) ? 38 : 37; continue; }
+    case 39: { pc = (cCompare(r32(0x53652c),1,"==")) ? 38 : 37; continue; }
     case 40: { w32(0x535624,4294966296); pc = 39; continue; }
     case 41: { w32(0x5350dc,0); pc = 40; continue; }
     case 42: { w32(0x4feccc,45); pc = 41; continue; }
@@ -401,43 +402,43 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 57: { dc.setBkMode(1); pc = 56; continue; }
     case 58: { dc.rectangle(0,cAdd(iVar8,cNeg(5)),r32(0x4fe624),r32(0x4fe2a8)); pc = 57; continue; }
     case 59: { selectGdiObject(dc,r32(0x4fc15c)); pc = 58; continue; }
-    case 60: { pc = cTruth(cCompare(r32(0x4fc15c),0,"!=")) ? 59 : 58; continue; }
+    case 60: { pc = (cCompare(r32(0x4fc15c),0,"!=")) ? 59 : 58; continue; }
     case 61: { invokeDrawingPointer(readLocal(framePointer(localFrame,256),4,"int"),dc,[original_dc,7]); pc = 60; continue; }
-    case 62: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 61 : 57; continue; }
-    case 63: { pc = cTruth(cCompare(r32(0x4da1f8),999,"==")) ? 62 : 54; continue; }
+    case 62: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 61 : 57; continue; }
+    case 63: { pc = (cCompare(r32(0x4da1f8),999,"==")) ? 62 : 54; continue; }
     case 64: { (iVar8 = cAdd(cDiv(cMul(r32(0x4fe2a8),4),5),cNeg(15))); pc = 63; continue; }
     case 65: { (iVar8 = cAdd(cDiv(cMul(r32(0x4fe2a8),4),5),10)); pc = 63; continue; }
-    case 66: { pc = cTruth(cCompare(r32(0x4fe624),1000,"<")) ? 64 : 65; continue; }
+    case 66: { pc = (cCompare(r32(0x4fe624),1000,"<")) ? 64 : 65; continue; }
     case 67: { dc.roundRect(cDiv(r32(0x4fe624),10),cSub(cDiv(r32(0x4fe2a8),5),cI32(piVar9,false)),cDiv(iVar10,10),cSub(cSub(cBits(cI32(cAdd(iVar8,cBits(cBits(iVar8,31,">>"),3,"&")),false),2,">>"),fpI32(dVar3,false)),cI32(piVar9,false)),80,80); pc = 66; continue; }
     case 68: { selectGdiObject(dc,h); pc = 67; continue; }
     case 69: { (h = r32(0x4fc15c)); pc = 68; continue; }
     case 70: { (hdc = dc); pc = 69; continue; }
     case 71: { pc = 67; continue; }
-    case 72: { pc = cTruth(cCompare(r32(0x4fc15c),0,"==")) ? 71 : 70; continue; }
+    case 72: { pc = (cCompare(r32(0x4fc15c),0,"==")) ? 71 : 70; continue; }
     case 73: { (h = r32(0x5230cc)); pc = 68; continue; }
     case 74: { (hdc = dc); pc = 73; continue; }
     case 75: { pc = 67; continue; }
-    case 76: { pc = cTruth(cCompare(r32(0x5230cc),0,"==")) ? 75 : 74; continue; }
-    case 77: { pc = cTruth((cTruth(cCompare(r32(0x5363e4),0,"==")) && cTruth(cCompare(r32(0x536454),0,"==")))) ? 72 : 76; continue; }
+    case 76: { pc = (cCompare(r32(0x5230cc),0,"==")) ? 75 : 74; continue; }
+    case 77: { pc = (((cCompare(r32(0x5363e4),0,"==")) && (cCompare(r32(0x536454),0,"==")))) ? 72 : 76; continue; }
     case 78: { (iVar10 = cMul(r32(0x4fe624),9)); pc = 77; continue; }
     case 79: { (iVar8 = cMul(r32(0x4fe2a8),3)); pc = 78; continue; }
     case 80: { (dVar3 = fpMul(r64(0x50f6e0),r64(0x4cc5d0))); pc = 79; continue; }
     case 81: { callNumberDrawingDependencyOwned(memory,dc,0x4148f0,[original_dc, cAdd(cSub(cDiv(cMul(r32(0x4fe2a8),4),5),cI32(piVar9,false)),cNeg(40))],0,rng,options); pc = 80; continue; }
     case 82: { w32(0x4da1fc,4); pc = 81; continue; }
-    case 83: { pc = cTruth((cTruth(cCompare(r32(0x4fb410),1,"==")) || cTruth(cCompare(r32(0x536528),1,"==")))) ? 82 : 81; continue; }
+    case 83: { pc = (((cCompare(r32(0x4fb410),1,"==")) || (cCompare(r32(0x536528),1,"==")))) ? 82 : 81; continue; }
     case 84: { w32(0x4da1fc,7); pc = 83; continue; }
-    case 85: { pc = cTruth(cCompare(r32(0x5363c0),3,"==")) ? 84 : 83; continue; }
+    case 85: { pc = (cCompare(r32(0x5363c0),3,"==")) ? 84 : 83; continue; }
     case 86: { w32(0x4da1fc,6); pc = 85; continue; }
-    case 87: { pc = cTruth(cCompare(r32(0x5363c0),2,"==")) ? 86 : 85; continue; }
+    case 87: { pc = (cCompare(r32(0x5363c0),2,"==")) ? 86 : 85; continue; }
     case 88: { w32(0x4da1fc,5); pc = 87; continue; }
-    case 89: { pc = cTruth(cCompare(r32(0x513478),1,"==")) ? 88 : 87; continue; }
+    case 89: { pc = (cCompare(r32(0x513478),1,"==")) ? 88 : 87; continue; }
     case 90: { w32(0x4da1fc,10); pc = 89; continue; }
-    case 91: { pc = cTruth(cCompare(r32(0x4da190),8,"==")) ? 90 : 89; continue; }
+    case 91: { pc = (cCompare(r32(0x4da190),8,"==")) ? 90 : 89; continue; }
     case 92: { w32(0x4da1fc,4); pc = 91; continue; }
-    case 93: { pc = cTruth((cTruth(cCompare(r32(0x4da190),6,"<")) || cTruth(cCompare(r32(0x5363b8),1,"==")))) ? 92 : 91; continue; }
+    case 93: { pc = (((cCompare(r32(0x4da190),6,"<")) || (cCompare(r32(0x5363b8),1,"==")))) ? 92 : 91; continue; }
     case 94: { w32(0x4da1fc,cAdd(cDiv(cAdd(r32(0x4faa48),cNeg(20)),10),6)); pc = 93; continue; }
     case 95: { w32(0x4da1fc,6); pc = 93; continue; }
-    case 96: { pc = cTruth((cTruth(cCompare(r32(0x4da190),7,"==")) && cTruth(cCompare(r32(0x5364c8),0,"==")))) ? 94 : 95; continue; }
+    case 96: { pc = (((cCompare(r32(0x4da190),7,"==")) && (cCompare(r32(0x5364c8),0,"==")))) ? 94 : 95; continue; }
     case 97: { undefined; pc = 96; continue; }
     case 98: { writeLocal(framePointer(localFrame,272),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,272),1),3)),cRawWord(1),3,1),4,"int"); pc = 97; continue; }
     case 99: { (pTVar5 = TStack_1c); pc = 98; continue; }
@@ -457,50 +458,50 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 113: { writePointer(memory,pointerAdd(framePointer(localFrame,272),0),10,1); pc = 112; continue; }
     case 114: { (piVar9 = readLocal(framePointer(localFrame,0),4,"int")); pc = 113; continue; }
     case 115: { (pTVar5 = (TStack_1c = cString(memory,0x4db6c8) + cString(memory,0x4fec34))); pc = 114; continue; }
-    case 116: { pc = cTruth(cCompare(r32(0x4da140),1,"==")) ? 103 : 115; continue; }
+    case 116: { pc = (cCompare(r32(0x4da140),1,"==")) ? 103 : 115; continue; }
     case 117: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar10]); pc = 116; continue; }
     case 118: { (iVar10 = 255); pc = 117; continue; }
     case 119: { (iVar10 = 0); pc = 117; continue; }
-    case 120: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 118 : 119; continue; }
+    case 120: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 118 : 119; continue; }
     case 121: { (iVar8 = cAdd(cBits(cI32(cAdd(cMul(r32(0x4fe2a8),3),cBits(cBits(cMul(r32(0x4fe2a8),3),31,">>"),3,"&")),false),2,">>"),cNeg(20))); pc = 120; continue; }
     case 122: { undefined; pc = 121; continue; }
     case 123: { writeLocal(framePointer(localFrame,272),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,272),1),3)),cRawWord(1),3,1),4,"int"); pc = 122; continue; }
     case 124: { invokeDrawingPointer(pcVar2,dc,[original_dc,5,cAdd(cBits(cI32(cAdd(iVar8,cBits(cBits(iVar8,31,">>"),3,"&")),false),2,">>"),cNeg(100)),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 123; continue; }
     case 125: { writePointer(memory,pointerAdd(framePointer(localFrame,272),0),8,1); pc = 124; continue; }
     case 126: { (TStack_1c = cString(memory,0x4db6f4)); pc = 125; continue; }
-    case 127: { pc = cTruth(cCompare(r32(0x536534),1,"==")) ? 126 : 121; continue; }
+    case 127: { pc = (cCompare(r32(0x536534),1,"==")) ? 126 : 121; continue; }
     case 128: { invokeDrawingPointer(pcVar1,dc,[original_dc,0]); pc = 127; continue; }
     case 129: { (iVar8 = cMul(r32(0x4fe2a8),3)); pc = 128; continue; }
     case 130: { writeCString(memory,0x4fec34,cString(memory,0x4db700)); pc = 129; continue; }
-    case 131: { pc = cTruth(cCompare(r32(0x4da1f0),13,"==")) ? 130 : 129; continue; }
+    case 131: { pc = (cCompare(r32(0x4da1f0),13,"==")) ? 130 : 129; continue; }
     case 132: { writeCString(memory,0x4fec34,cString(memory,0x4db70c)); pc = 131; continue; }
-    case 133: { pc = cTruth(cCompare(r32(0x4da1f0),15,"==")) ? 132 : 131; continue; }
+    case 133: { pc = (cCompare(r32(0x4da1f0),15,"==")) ? 132 : 131; continue; }
     case 134: { writeCString(memory,0x4fec34,cString(memory,0x4db714)); pc = 133; continue; }
-    case 135: { pc = cTruth(cCompare(r32(0x4da1f0),14,"==")) ? 134 : 133; continue; }
+    case 135: { pc = (cCompare(r32(0x4da1f0),14,"==")) ? 134 : 133; continue; }
     case 136: { writeCString(memory,0x4fec34,cString(memory,0x4db71c)); pc = 135; continue; }
-    case 137: { pc = cTruth(cCompare(r32(0x4da1f0),12,"==")) ? 136 : 135; continue; }
+    case 137: { pc = (cCompare(r32(0x4da1f0),12,"==")) ? 136 : 135; continue; }
     case 138: { writeCString(memory,0x4fec34,cString(memory,0x4db724)); pc = 137; continue; }
-    case 139: { pc = cTruth(cCompare(r32(0x4da1f0),11,"==")) ? 138 : 137; continue; }
+    case 139: { pc = (cCompare(r32(0x4da1f0),11,"==")) ? 138 : 137; continue; }
     case 140: { writeCString(memory,0x4fec34,cString(memory,0x4db72c)); pc = 139; continue; }
-    case 141: { pc = cTruth(cCompare(r32(0x4da1f0),10,"==")) ? 140 : 139; continue; }
+    case 141: { pc = (cCompare(r32(0x4da1f0),10,"==")) ? 140 : 139; continue; }
     case 142: { writeCString(memory,0x4fec34,cString(memory,0x4db734)); pc = 141; continue; }
-    case 143: { pc = cTruth(cCompare(r32(0x4da1f0),9,"==")) ? 142 : 141; continue; }
+    case 143: { pc = (cCompare(r32(0x4da1f0),9,"==")) ? 142 : 141; continue; }
     case 144: { writeCString(memory,0x4fec34,cString(memory,0x4db73c)); pc = 143; continue; }
-    case 145: { pc = cTruth(cCompare(r32(0x4da1f0),8,"==")) ? 144 : 143; continue; }
+    case 145: { pc = (cCompare(r32(0x4da1f0),8,"==")) ? 144 : 143; continue; }
     case 146: { writeCString(memory,0x4fec34,cString(memory,0x4db744)); pc = 145; continue; }
-    case 147: { pc = cTruth(cCompare(r32(0x4da1f0),7,"==")) ? 146 : 145; continue; }
+    case 147: { pc = (cCompare(r32(0x4da1f0),7,"==")) ? 146 : 145; continue; }
     case 148: { writeCString(memory,0x4fec34,cString(memory,0x4db750)); pc = 147; continue; }
-    case 149: { pc = cTruth(cCompare(r32(0x4da1f0),6,"==")) ? 148 : 147; continue; }
+    case 149: { pc = (cCompare(r32(0x4da1f0),6,"==")) ? 148 : 147; continue; }
     case 150: { writeCString(memory,0x4fec34,cString(memory,0x4db754)); pc = 149; continue; }
-    case 151: { pc = cTruth(cCompare(r32(0x4da1f0),5,"==")) ? 150 : 149; continue; }
+    case 151: { pc = (cCompare(r32(0x4da1f0),5,"==")) ? 150 : 149; continue; }
     case 152: { writeCString(memory,0x4fec34,cString(memory,0x4db75c)); pc = 151; continue; }
-    case 153: { pc = cTruth(cCompare(r32(0x4da1f0),4,"==")) ? 152 : 151; continue; }
+    case 153: { pc = (cCompare(r32(0x4da1f0),4,"==")) ? 152 : 151; continue; }
     case 154: { writeCString(memory,0x4fec34,cString(memory,0x4db764)); pc = 153; continue; }
-    case 155: { pc = cTruth(cCompare(r32(0x4da1f0),3,"==")) ? 154 : 153; continue; }
+    case 155: { pc = (cCompare(r32(0x4da1f0),3,"==")) ? 154 : 153; continue; }
     case 156: { writeCString(memory,0x4fec34,cString(memory,0x4db76c)); pc = 155; continue; }
-    case 157: { pc = cTruth(cCompare(r32(0x4da1f0),2,"==")) ? 156 : 155; continue; }
+    case 157: { pc = (cCompare(r32(0x4da1f0),2,"==")) ? 156 : 155; continue; }
     case 158: { writeCString(memory,0x4fec34,cString(memory,0x4db774)); pc = 157; continue; }
-    case 159: { pc = cTruth(cCompare(r32(0x4da1f0),1,"==")) ? 158 : 157; continue; }
+    case 159: { pc = (cCompare(r32(0x4da1f0),1,"==")) ? 158 : 157; continue; }
     case 160: { dc.setBkMode(2); pc = 159; continue; }
     case 161: { undefined; pc = 160; continue; }
     case 162: { writeLocal(framePointer(localFrame,272),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,272),1),3)),cRawWord(1),3,1),4,"int"); pc = 161; continue; }
@@ -510,16 +511,16 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 166: { invokeDrawingPointer(pcVar2,dc,[original_dc,cAdd(cSub(cDiv(cI32(piVar9,false),3),cDiv(cMul(cI32(piVar9,false),5),2)),r32(0x4fe624)),iVar8,cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 162; continue; }
     case 167: { writePointer(memory,pointerAdd(framePointer(localFrame,272),0),7,1); pc = 166; continue; }
     case 168: { (TStack_1c = cString(memory,0x4db77c)); pc = 167; continue; }
-    case 169: { pc = cTruth(cCompare(r32(0x4fe624),900,"<")) ? 165 : 168; continue; }
+    case 169: { pc = (cCompare(r32(0x4fe624),900,"<")) ? 165 : 168; continue; }
     case 170: { dc.setBkMode(1); pc = 169; continue; }
     case 171: { invokeDrawingPointer(pcVar1,dc,[original_dc,16776960]); pc = 170; continue; }
     case 172: { callNumberDrawingDependencyOwned(memory,dc,0x433a70,[original_dc, piVar9, cAdd(cSub(cDiv(cI32(piVar9,false),10),cDiv(cMul(cI32(piVar9,false),3),2)),r32(0x4fe624)), cAdd(cBits(cI32(cAdd(cI32(piVar9,false),cBits(cBits(cI32(piVar9,false),31,">>"),3,"&")),false),2,">>"),iVar8)],0,rng,options); pc = 171; continue; }
     case 173: { selectGdiObject(dc,r32(0x4fb994)); pc = 172; continue; }
-    case 174: { pc = cTruth(cCompare(r32(0x4fb994),0,"!=")) ? 173 : 172; continue; }
+    case 174: { pc = (cCompare(r32(0x4fb994),0,"!=")) ? 173 : 172; continue; }
     case 175: { selectGdiObject(dc,r32(0x4fc15c)); pc = 174; continue; }
-    case 176: { pc = cTruth(cCompare(r32(0x4fc15c),0,"!=")) ? 175 : 174; continue; }
+    case 176: { pc = (cCompare(r32(0x4fc15c),0,"!=")) ? 175 : 174; continue; }
     case 177: { (piVar9 = cDiv(r32(0x4fe2a8),13)); pc = 176; continue; }
-    case 178: { pc = cTruth(cCompare(r32(0x4fe624),900,"<")) ? 177 : 176; continue; }
+    case 178: { pc = (cCompare(r32(0x4fe624),900,"<")) ? 177 : 176; continue; }
     case 179: { (piVar9 = readLocal(framePointer(localFrame,0),4,"int")); pc = 178; continue; }
     case 180: { writeLocal(framePointer(localFrame,0),cDiv(r32(0x4fe2a8),14),4,"int"); pc = 179; continue; }
     case 181: { undefined; pc = 180; continue; }
@@ -528,7 +529,7 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 184: { writePointer(memory,pointerAdd(framePointer(localFrame,272),0),5,1); pc = 183; continue; }
     case 185: { writeLocal(framePointer(localFrame,0),cString(memory,0x4db78c),4); pc = 184; continue; }
     case 186: { invokeDrawingPointer(pcVar1,dc,[original_dc,16711680]); pc = 185; continue; }
-    case 187: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 186 : 185; continue; }
+    case 187: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 186 : 185; continue; }
     case 188: { undefined; pc = 187; continue; }
     case 189: { writeLocal(framePointer(localFrame,272),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,272),1),3)),cRawWord(1),3,1),4,"int"); pc = 188; continue; }
     case 190: { invokeDrawingPointer(pcVar2,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(uVar7,55),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 189; continue; }
@@ -537,33 +538,33 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 193: { invokeDrawingPointer(pcVar2,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),cAdd(uVar7,55),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 189; continue; }
     case 194: { writePointer(memory,pointerAdd(framePointer(localFrame,272),0),4,1); pc = 193; continue; }
     case 195: { (TStack_1c = cString(memory,0x4db7b8)); pc = 194; continue; }
-    case 196: { pc = cTruth(cCompare(r32(0x4da16c),0,"==")) ? 192 : 195; continue; }
+    case 196: { pc = (cCompare(r32(0x4da16c),0,"==")) ? 192 : 195; continue; }
     case 197: { invokeDrawingPointer(pcVar1,dc,[original_dc,8323072]); pc = 196; continue; }
-    case 198: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 197 : 196; continue; }
+    case 198: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 197 : 196; continue; }
     case 199: { undefined; pc = 198; continue; }
     case 200: { writeLocal(framePointer(localFrame,272),cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,272),1),3)),cRawWord(1),3,1),4,"int"); pc = 199; continue; }
     case 201: { invokeDrawingPointer(pcVar2,dc,[original_dc,cI32(cAdd(cStringData(memory,TStack_20),2),false),cSub(iVar8,cDiv(r32(0x4fe2a8),100)),cStringData(memory,TStack_1c),cStringHeaderLength(memory,cStringData(memory,TStack_1c))]); pc = 200; continue; }
     case 202: { writePointer(memory,pointerAdd(framePointer(localFrame,272),0),2,1); pc = 201; continue; }
     case 203: { (TStack_1c = cString(memory,0x4db808)); pc = 202; continue; }
     case 204: { (TStack_20 = cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),230)); pc = 203; continue; }
-    case 205: { pc = cTruth(cCompare(r32(0x4fe624),700,"<")) ? 204 : 203; continue; }
+    case 205: { pc = (cCompare(r32(0x4fe624),700,"<")) ? 204 : 203; continue; }
     case 206: { pc = 214; continue; }
-    case 207: { pc = cTruth(cCompare(900,r32(0x4fe624),"<")) ? 206 : 205; continue; }
+    case 207: { pc = (cCompare(900,r32(0x4fe624),"<")) ? 206 : 205; continue; }
     case 208: { (TStack_20 = cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),210)); pc = 207; continue; }
     case 209: { (TStack_20 = cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),270)); pc = 207; continue; }
-    case 210: { pc = cTruth(cCompare(iVar10,21,"<")) ? 208 : 209; continue; }
-    case 211: { pc = cTruth(cCompare(699,r32(0x4fe624),"<")) ? 210 : 207; continue; }
+    case 210: { pc = (cCompare(iVar10,21,"<")) ? 208 : 209; continue; }
+    case 211: { pc = (cCompare(699,r32(0x4fe624),"<")) ? 210 : 207; continue; }
     case 212: { (TStack_20 = cAdd(readLocal(framePointer(localFrame,0),4,"int"),cMul(50,4))); pc = 205; continue; }
     case 213: { (TStack_20 = cAdd(readLocal(framePointer(localFrame,0),4,"int"),cMul(65,4))); pc = 205; continue; }
-    case 214: { pc = cTruth(cCompare(iVar10,21,"<")) ? 212 : 213; continue; }
-    case 215: { pc = cTruth(cCompare(r32(0x4fe624),901,"<")) ? 211 : 214; continue; }
+    case 214: { pc = (cCompare(iVar10,21,"<")) ? 212 : 213; continue; }
+    case 215: { pc = (cCompare(r32(0x4fe624),901,"<")) ? 211 : 214; continue; }
     case 216: { invokeDrawingPointer(pcVar2,dc,[original_dc,cI32(readLocal(framePointer(localFrame,0),4,"int"),false),iVar8,cStringData(memory,TStack_18),cStringHeaderLength(memory,cStringData(memory,TStack_18))]); pc = 215; continue; }
     case 217: { writeLocal(framePointer(localFrame,272),1,4,"int"); pc = 216; continue; }
     case 218: { (TStack_18 = cString(memory,0x4db80c)); pc = 217; continue; }
     case 219: { w32(0x4f82fc,iVar10); pc = 218; continue; }
     case 220: { (iVar10 = drawingSystemMetric(15,options)); pc = 219; continue; }
     case 221: { invokeDrawingPointer(pcVar1,dc,[original_dc,8323072]); pc = 220; continue; }
-    case 222: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 221 : 220; continue; }
+    case 222: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 221 : 220; continue; }
     case 223: { (iVar8 = cAdd(uVar7,40)); pc = 222; continue; }
     case 224: { undefined; pc = 223; continue; }
     case 225: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 224; continue; }
@@ -574,11 +575,11 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 230: { invokeDrawingPointer(pcVar1,dc,[original_dc,iVar10]); pc = 229; continue; }
     case 231: { (iVar10 = 255); pc = 230; continue; }
     case 232: { (iVar10 = 0); pc = 230; continue; }
-    case 233: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 231 : 232; continue; }
+    case 233: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 231 : 232; continue; }
     case 234: { (pcVar1 = dcMethod(dc,56,memory)); pc = 233; continue; }
     case 235: { return; }
     case 236: { callNumberDrawingDependencyOwned(memory,dc,0x416910,[original_dc],0,rng,options); pc = 235; continue; }
-    case 237: { pc = cTruth((cTruth(cCompare(0,r32(0x4da16c),"<")) && cTruth(cCompare(r32(0x53648c),0,"==")))) ? 236 : 234; continue; }
+    case 237: { pc = (((cCompare(0,r32(0x4da16c),"<")) && (cCompare(r32(0x53648c),0,"==")))) ? 236 : 234; continue; }
     case 238: { dc.rectangle(0,0,r32(0x4fe624),r32(0x4fe2a8)); pc = 237; continue; }
     case 239: { invokeDrawingPointer(pcVar1,dc,[original_dc,0]); pc = 238; continue; }
     case 240: { invokeDrawingPointer(pcVar1,dc,[original_dc,7]); pc = 239; continue; }
@@ -590,7 +591,7 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 246: { w64(0x5230e8,fpLoad(fpToNumber(fpFromInteger(r32(0x4fe624))))); pc = 245; continue; }
     case 247: { callNumberDrawingDependencyOwned(memory,dc,0x41e000,[100],0,rng,options); pc = 246; continue; }
     case 248: { w32(0x4da188,3); pc = 247; continue; }
-    case 249: { pc = cTruth(cCompare(r32(0x4da1f8),5,"==")) ? 248 : 247; continue; }
+    case 249: { pc = (cCompare(r32(0x4da1f8),5,"==")) ? 248 : 247; continue; }
     case 250: { writeLocal(framePointer(localFrame,260),drawingTick(options),4,"int"); pc = 249; continue; }
     case 251: { invokeDrawingPointer(dcMethod(dc,52,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),16777215]); pc = 250; continue; }
     case 252: { (iVar8 = readPointer(memory,readLocal(framePointer(localFrame,0),4,"int"),4)); pc = 251; continue; }
@@ -602,7 +603,7 @@ function originalDrawStartScreenNumber(memory, dc, rng, options, numberArgumentI
     case 258: { w32(0x536414,0); pc = 257; continue; }
     case 259: { w32(0x536410,0); pc = 258; continue; }
     case 260: { w32(0x4da1f8,999); pc = 259; continue; }
-    case 261: { pc = cTruth(cCompare(r32(0x5364fc),1,"==")) ? 260 : 252; continue; }
+    case 261: { pc = (cCompare(r32(0x5364fc),1,"==")) ? 260 : 252; continue; }
     case 262: { w32(0x4da214,cSub(cBits(cNeg(cI32(cCompare(iVar8,1,"!="),true)),2,"&"),1)); pc = 261; continue; }
     case 263: { writeLocal(framePointer(localFrame,272),4294967295,4,"int"); pc = 262; continue; }
     case 264: { (iVar8 = r32(0x53646c)); pc = 263; continue; }
@@ -3273,13 +3274,13 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 4: { dc.setBkMode(1); pc = 3; continue; }
     case 5: { dc.rectangle(0,cAdd(iVar7,cNeg(5)),r32(0x4fe624),r32(0x4fe2a8)); pc = 4; continue; }
     case 6: { selectGdiObject(dc,r32(0x4fc15c)); pc = 5; continue; }
-    case 7: { pc = cTruth(cCompare(r32(0x4fc15c),0,"!=")) ? 6 : 5; continue; }
+    case 7: { pc = (cCompare(r32(0x4fc15c),0,"!=")) ? 6 : 5; continue; }
     case 8: { invokeDrawingPointer(readLocal(framePointer(localFrame,360),4,"int"),dc,[readLocal(framePointer(localFrame,0),4,"int"),7]); pc = 7; continue; }
-    case 9: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 8 : 4; continue; }
-    case 10: { pc = cTruth(cCompare(r32(0x4da1f8),999,"==")) ? 9 : 1; continue; }
+    case 9: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 8 : 4; continue; }
+    case 10: { pc = (cCompare(r32(0x4da1f8),999,"==")) ? 9 : 1; continue; }
     case 11: { (iVar7 = cAdd(cDiv(cBits(r32(0x4fe2a8),2,"<<"),5),cNeg(10))); pc = 10; continue; }
     case 12: { (iVar7 = cAdd(cDiv(cBits(r32(0x4fe2a8),2,"<<"),5),10)); pc = 10; continue; }
-    case 13: { pc = cTruth(cCompare(r32(0x4fe624),1000,"<")) ? 11 : 12; continue; }
+    case 13: { pc = (cCompare(r32(0x4fe624),1000,"<")) ? 11 : 12; continue; }
     case 14: { callNumberDrawingDependencyOwned(memory,dc,0x4148f0,[readLocalArgument(framePointer(localFrame,0),4,"int"), cSub(cDiv(cMul(r32(0x4fe2a8),4),5),cBits(cI32(cAdd(r32(0x4fe2a8),cBits(cBits(r32(0x4fe2a8),31,">>"),7,"&")),false),3,">>"))],0,rng,options); pc = 13; continue; }
     case 15: { undefined; pc = 14; continue; }
     case 16: { writeLocal(framePointer(localFrame,432),4294967295,4,"int"); pc = 15; continue; }
@@ -3306,7 +3307,7 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 37: { (pTVar4 = writeLocal(framePointer(localFrame,260),formatInteger(cI32(r32(0x4fb384))),4)); pc = 36; continue; }
     case 38: { writeLocal(framePointer(localFrame,432),8,4,"int"); pc = 37; continue; }
     case 39: { (pTVar3 = writeLocal(framePointer(localFrame,292),formatInteger(cI32(r32(0x522b94))),4)); pc = 38; continue; }
-    case 40: { pc = cTruth(cCompare(0,r32(0x4f8cd0),"<")) ? 39 : 14; continue; }
+    case 40: { pc = (cCompare(0,r32(0x4f8cd0),"<")) ? 39 : 14; continue; }
     case 41: { dc.setTextColor(32512); pc = 40; continue; }
     case 42: { w32(0x5231b0,cSub(r32(0x5357dc),r32(0x4f7f94))); pc = 41; continue; }
     case 43: { undefined; pc = 42; continue; }
@@ -3336,10 +3337,10 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 67: { writeLocal(framePointer(localFrame,432),2,4,"int"); pc = 66; continue; }
     case 68: { (pTVar3 = writeLocal(framePointer(localFrame,276),formatInteger(cI32(fpI32(fpMul(fpSub(fpLoad(fpToNumber(fpFromInteger(cI32(cStringData(memory,readLocal(framePointer(localFrame,268),4,"int")),false)))),r64(0x4cc5c8)),r64(0x4da160)),false))),4)); pc = 67; continue; }
     case 69: { writeLocalFloatNumber(framePointer(localFrame,364),fpLoad(fpToNumber(fpFromInteger(cI32(cStringData(memory,readLocal(framePointer(localFrame,268),4,"int")),false))))); pc = 68; continue; }
-    case 70: { pc = cTruth(cCompare(r32(0x4da19c),8,"!=")) ? 69 : 42; continue; }
+    case 70: { pc = (cCompare(r32(0x4da19c),8,"!=")) ? 69 : 42; continue; }
     case 71: { (TVar11 = cStringData(memory,readLocal(framePointer(localFrame,292),4,"int"))); pc = 70; continue; }
     case 72: { writeLocal(framePointer(localFrame,268),cAdd(cCompare(r32(0x51158c),1,"!="),1),4); pc = 71; continue; }
-    case 73: { pc = cTruth(cCompare(cI32(piVar17,false),5320093,"<")) ? 90 : 72; continue; }
+    case 73: { pc = (cCompare(cI32(piVar17,false),5320093,"<")) ? 90 : 72; continue; }
     case 74: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,292),4,"int")))); pc = 73; continue; }
     case 75: { writeLocal(framePointer(localFrame,260),cAdd(cStringData(memory,readLocal(framePointer(localFrame,260),4,"int")),5),4); pc = 74; continue; }
     case 76: { (iVar7 = cAdd(iVar7,1)); pc = 75; continue; }
@@ -3352,7 +3353,7 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 83: { writeLocal(framePointer(localFrame,256),cAdd(cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")),4),4); pc = 82; continue; }
     case 84: { (iVar10 = cSub(readPointer(memory,cAdd(cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")),5461980),4),cI32(cStringData(memory,readLocal(framePointer(localFrame,264),4,"int")),false))); pc = 83; continue; }
     case 85: { (pcVar12 = cAdd(r32(0x4fe08c),readPointer(memory,cAdd(cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")),5206492),4))); pc = 84; continue; }
-    case 86: { pc = cTruth(cCompare(cRem(iVar7,3),0,"==")) ? 85 : 82; continue; }
+    case 86: { pc = (cCompare(cRem(iVar7,3),0,"==")) ? 85 : 82; continue; }
     case 87: { (pcVar12 = r32(0x4fe08c)); pc = 86; continue; }
     case 88: { (iVar10 = cAdd(cSub(cSub(cDiv(cMul(r32(0x522ae8),readPointer(memory,piVar17,4)),400),cBits(cI32(cAdd(r32(0x522ae8),cBits(cBits(r32(0x522ae8),31,">>"),7,"&")),false),3,">>")),cI32(cStringData(memory,readLocal(framePointer(localFrame,264),4,"int")),false)),r32(0x4f7f94))); pc = 87; continue; }
     case 89: { writeLocal(framePointer(localFrame,268),r32(0x4fe08c),4); pc = 88; continue; }
@@ -3364,7 +3365,7 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 95: { (iVar7 = 2); pc = 94; continue; }
     case 96: { textOutCount(dc,memory,380,25,0x4dd2d8,35); pc = 95; continue; }
     case 97: { dc.setTextColor(16711680); pc = 96; continue; }
-    case 98: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 97 : 96; continue; }
+    case 98: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 97 : 96; continue; }
     case 99: { undefined; pc = 98; continue; }
     case 100: { writeLocal(framePointer(localFrame,432),4294967295,4,"int"); pc = 99; continue; }
     case 101: { invokeDrawingPointer(pcVar9,dc,[readLocal(framePointer(localFrame,0),4,"int"),20,cI32(pcVar8,false),cStringData(memory,readLocal(framePointer(localFrame,264),4,"int")),cStringHeaderLength(memory,cStringData(memory,readLocal(framePointer(localFrame,264),4,"int")))]); pc = 100; continue; }
@@ -3379,27 +3380,27 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 110: { writeLocal(framePointer(localFrame,432),0,4,"int"); pc = 109; continue; }
     case 111: { writeLocal(framePointer(localFrame,260),cString(memory,0x4dd318),4); pc = 110; continue; }
     case 112: { (TVar11 = cMul(cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")),3)); pc = 111; continue; }
-    case 113: { pc = cTruth(cCompare(899,r32(0x4fe624),"<")) ? 112 : 111; continue; }
+    case 113: { pc = (cCompare(899,r32(0x4fe624),"<")) ? 112 : 111; continue; }
     case 114: { (TVar11 = cStringData(memory,readLocal(framePointer(localFrame,256),4,"int"))); pc = 113; continue; }
     case 115: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),255]); pc = 114; continue; }
-    case 116: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 115 : 114; continue; }
+    case 116: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 115 : 114; continue; }
     case 117: { (hdc = readLocal(framePointer(localFrame,296),4,"int")); pc = 116; continue; }
     case 118: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 117; continue; }
-    case 119: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 124 : 118; continue; }
+    case 119: { pc = (cCompare(cVar1,0,"!=")) ? 124 : 118; continue; }
     case 120: { (pcVar12 = cAdd(pcVar12,1)); pc = 119; continue; }
     case 121: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 120; continue; }
     case 122: { (uVar5 = cSub(uVar5,1)); pc = 121; continue; }
     case 123: { pc = 118; continue; }
-    case 124: { pc = cTruth(cCompare(uVar5,0,"==")) ? 123 : 122; continue; }
+    case 124: { pc = (cCompare(uVar5,0,"==")) ? 123 : 122; continue; }
     case 125: { (pcVar12 = framePointer(localFrame,308)); pc = 124; continue; }
     case 126: { (uVar5 = 4294967295); pc = 125; continue; }
-    case 127: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 131 : 126; continue; }
+    case 127: { pc = (cCompare(uVar5,0,"!=")) ? 131 : 126; continue; }
     case 128: { (uVar5 = cSub(uVar5,1)); pc = 127; continue; }
     case 129: { (pcVar16 = cAdd(pcVar16,1)); pc = 128; continue; }
     case 130: { (pcVar12 = cAdd(pcVar12,1)); pc = 129; continue; }
     case 131: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 130; continue; }
     case 132: { (uVar5 = cBits(uVar5,3,"&")); pc = 127; continue; }
-    case 133: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 137 : 132; continue; }
+    case 133: { pc = (cCompare(uVar6,0,"!=")) ? 137 : 132; continue; }
     case 134: { (uVar6 = cSub(uVar6,1)); pc = 133; continue; }
     case 135: { (pcVar16 = cAdd(pcVar16,4)); pc = 134; continue; }
     case 136: { (pcVar12 = cAdd(pcVar12,4)); pc = 135; continue; }
@@ -3407,35 +3408,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 138: { (uVar6 = cBits(uVar5,2,">>")); pc = 133; continue; }
     case 139: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 138; continue; }
     case 140: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 139; continue; }
-    case 141: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 148 : 140; continue; }
+    case 141: { pc = (cCompare(cVar1,0,"!=")) ? 148 : 140; continue; }
     case 142: { (pcVar12 = pcVar15); pc = 141; continue; }
     case 143: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 142; continue; }
     case 144: { (pcVar15 = cAdd(pcVar12,1)); pc = 143; continue; }
     case 145: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 144; continue; }
     case 146: { pc = 140; continue; }
-    case 147: { pc = cTruth(cCompare(iVar7,0,"==")) ? 146 : 145; continue; }
+    case 147: { pc = (cCompare(iVar7,0,"==")) ? 146 : 145; continue; }
     case 148: { (pcVar15 = pcVar12); pc = 147; continue; }
     case 149: { (pcVar12 = framePointer(localFrame,308)); pc = 148; continue; }
     case 150: { (iVar7 = cNeg(1)); pc = 149; continue; }
     case 151: { (uVar5 = cBits(uVar5,0,"~")); pc = 150; continue; }
-    case 152: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 159 : 151; continue; }
+    case 152: { pc = (cCompare(cVar1,0,"!=")) ? 159 : 151; continue; }
     case 153: { (pcVar12 = pcVar16); pc = 152; continue; }
     case 154: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 153; continue; }
     case 155: { (pcVar16 = cAdd(pcVar12,1)); pc = 154; continue; }
     case 156: { (uVar5 = cSub(uVar5,1)); pc = 155; continue; }
     case 157: { pc = 151; continue; }
-    case 158: { pc = cTruth(cCompare(uVar5,0,"==")) ? 157 : 156; continue; }
+    case 158: { pc = (cCompare(uVar5,0,"==")) ? 157 : 156; continue; }
     case 159: { (pcVar16 = pcVar12); pc = 158; continue; }
     case 160: { (pcVar12 = framePointer(localFrame,372)); pc = 159; continue; }
     case 161: { (uVar5 = 4294967295); pc = 160; continue; }
     case 162: { drawingPrintf(memory,framePointer(localFrame,372),0x4dd360,cDiv(iVar7,10),cRem(iVar7,10)); pc = 161; continue; }
-    case 163: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 167 : 162; continue; }
+    case 163: { pc = (cCompare(uVar5,0,"!=")) ? 167 : 162; continue; }
     case 164: { (uVar5 = cSub(uVar5,1)); pc = 163; continue; }
     case 165: { (pcVar16 = cAdd(pcVar16,1)); pc = 164; continue; }
     case 166: { (pcVar12 = cAdd(pcVar12,1)); pc = 165; continue; }
     case 167: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 166; continue; }
     case 168: { (uVar5 = cBits(uVar5,3,"&")); pc = 163; continue; }
-    case 169: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 173 : 168; continue; }
+    case 169: { pc = (cCompare(uVar6,0,"!=")) ? 173 : 168; continue; }
     case 170: { (uVar6 = cSub(uVar6,1)); pc = 169; continue; }
     case 171: { (pcVar16 = cAdd(pcVar16,4)); pc = 170; continue; }
     case 172: { (pcVar12 = cAdd(pcVar12,4)); pc = 171; continue; }
@@ -3444,62 +3445,62 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 175: { (pcVar16 = framePointer(localFrame,308)); pc = 174; continue; }
     case 176: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 175; continue; }
     case 177: { (uVar5 = cBits(uVar5,0,"~")); pc = 176; continue; }
-    case 178: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 185 : 177; continue; }
+    case 178: { pc = (cCompare(cVar1,0,"!=")) ? 185 : 177; continue; }
     case 179: { (pcVar12 = pcVar16); pc = 178; continue; }
     case 180: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 179; continue; }
     case 181: { (pcVar16 = cAdd(pcVar12,1)); pc = 180; continue; }
     case 182: { (uVar5 = cSub(uVar5,1)); pc = 181; continue; }
     case 183: { pc = 177; continue; }
-    case 184: { pc = cTruth(cCompare(uVar5,0,"==")) ? 183 : 182; continue; }
+    case 184: { pc = (cCompare(uVar5,0,"==")) ? 183 : 182; continue; }
     case 185: { (pcVar16 = pcVar12); pc = 184; continue; }
     case 186: { (pcVar12 = 0x4dd370); pc = 185; continue; }
     case 187: { (uVar5 = 4294967295); pc = 186; continue; }
     case 188: { (iVar7 = cDiv(cMul(r32(0x5359d0),9),10)); pc = 187; continue; }
-    case 189: { pc = cTruth(cCompare(r32(0x4da1f8),101,"==")) ? 188 : 187; continue; }
+    case 189: { pc = (cCompare(r32(0x4da1f8),101,"==")) ? 188 : 187; continue; }
     case 190: { (iVar7 = cDiv(cMul(r32(0x5359d0),95),100)); pc = 189; continue; }
-    case 191: { pc = cTruth(cCompare(r32(0x4da1f8),100,"==")) ? 190 : 189; continue; }
+    case 191: { pc = (cCompare(r32(0x4da1f8),100,"==")) ? 190 : 189; continue; }
     case 192: { (iVar7 = cDiv(cMul(r32(0x5359d0),5),34)); pc = 191; continue; }
-    case 193: { pc = cTruth(cCompare(r32(0x4da1f8),106,"==")) ? 192 : 191; continue; }
+    case 193: { pc = (cCompare(r32(0x4da1f8),106,"==")) ? 192 : 191; continue; }
     case 194: { (iVar7 = cDiv(cMul(r32(0x5359d0),50),100)); pc = 193; continue; }
-    case 195: { pc = cTruth(cCompare(r32(0x4da1f8),105,"==")) ? 194 : 193; continue; }
+    case 195: { pc = (cCompare(r32(0x4da1f8),105,"==")) ? 194 : 193; continue; }
     case 196: { (iVar7 = cDiv(r32(0x5359d0),2)); pc = 195; continue; }
-    case 197: { pc = cTruth(cCompare(r32(0x4da1f8),104,"==")) ? 196 : 195; continue; }
+    case 197: { pc = (cCompare(r32(0x4da1f8),104,"==")) ? 196 : 195; continue; }
     case 198: { (iVar7 = cDiv(cMul(r32(0x5359d0),25),100)); pc = 197; continue; }
-    case 199: { pc = cTruth(cCompare(r32(0x4da1f8),11,"==")) ? 198 : 197; continue; }
+    case 199: { pc = (cCompare(r32(0x4da1f8),11,"==")) ? 198 : 197; continue; }
     case 200: { (iVar7 = cDiv(cMul(r32(0x5359d0),10),13)); pc = 199; continue; }
-    case 201: { pc = cTruth(cCompare(r32(0x4da1f8),9,"==")) ? 200 : 199; continue; }
+    case 201: { pc = (cCompare(r32(0x4da1f8),9,"==")) ? 200 : 199; continue; }
     case 202: { (iVar7 = cDiv(cMul(r32(0x5359d0),85),100)); pc = 201; continue; }
-    case 203: { pc = cTruth(cCompare(r32(0x4da1f8),7,"==")) ? 202 : 201; continue; }
+    case 203: { pc = (cCompare(r32(0x4da1f8),7,"==")) ? 202 : 201; continue; }
     case 204: { (iVar7 = cDiv(cMul(r32(0x5359d0),55),100)); pc = 203; continue; }
-    case 205: { pc = cTruth(cCompare(r32(0x4da1f8),6,"==")) ? 204 : 203; continue; }
+    case 205: { pc = (cCompare(r32(0x4da1f8),6,"==")) ? 204 : 203; continue; }
     case 206: { (iVar7 = cDiv(cMul(r32(0x5359d0),28),17)); pc = 205; continue; }
-    case 207: { pc = cTruth(cCompare(r32(0x4da1f8),5,"==")) ? 206 : 205; continue; }
+    case 207: { pc = (cCompare(r32(0x4da1f8),5,"==")) ? 206 : 205; continue; }
     case 208: { (iVar7 = cDiv(cMul(r32(0x5359d0),9),15)); pc = 207; continue; }
-    case 209: { pc = cTruth(cCompare(r32(0x4da1f8),4,"==")) ? 208 : 207; continue; }
+    case 209: { pc = (cCompare(r32(0x4da1f8),4,"==")) ? 208 : 207; continue; }
     case 210: { (iVar7 = cDiv(cMul(r32(0x5359d0),70),100)); pc = 209; continue; }
-    case 211: { pc = cTruth(cCompare(r32(0x4da1f8),3,"==")) ? 210 : 209; continue; }
+    case 211: { pc = (cCompare(r32(0x4da1f8),3,"==")) ? 210 : 209; continue; }
     case 212: { (iVar7 = cDiv(cMul(r32(0x5359d0),90),100)); pc = 211; continue; }
-    case 213: { pc = cTruth(cCompare(r32(0x4da1f8),2,"==")) ? 212 : 211; continue; }
+    case 213: { pc = (cCompare(r32(0x4da1f8),2,"==")) ? 212 : 211; continue; }
     case 214: { (iVar7 = cDiv(cMul(r32(0x5359d0),80),100)); pc = 213; continue; }
-    case 215: { pc = cTruth(cCompare(r32(0x4da1f8),1,"==")) ? 214 : 213; continue; }
+    case 215: { pc = (cCompare(r32(0x4da1f8),1,"==")) ? 214 : 213; continue; }
     case 216: { (iVar7 = r32(0x5359d0)); pc = 215; continue; }
     case 217: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")))); pc = 216; continue; }
     case 218: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 217; continue; }
-    case 219: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 224 : 218; continue; }
+    case 219: { pc = (cCompare(cVar1,0,"!=")) ? 224 : 218; continue; }
     case 220: { (pcVar12 = cAdd(pcVar12,1)); pc = 219; continue; }
     case 221: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 220; continue; }
     case 222: { (uVar5 = cSub(uVar5,1)); pc = 221; continue; }
     case 223: { pc = 218; continue; }
-    case 224: { pc = cTruth(cCompare(uVar5,0,"==")) ? 223 : 222; continue; }
+    case 224: { pc = (cCompare(uVar5,0,"==")) ? 223 : 222; continue; }
     case 225: { (pcVar12 = framePointer(localFrame,308)); pc = 224; continue; }
     case 226: { (uVar5 = 4294967295); pc = 225; continue; }
-    case 227: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 231 : 226; continue; }
+    case 227: { pc = (cCompare(uVar5,0,"!=")) ? 231 : 226; continue; }
     case 228: { (uVar5 = cSub(uVar5,1)); pc = 227; continue; }
     case 229: { (pcVar16 = cAdd(pcVar16,1)); pc = 228; continue; }
     case 230: { (pcVar12 = cAdd(pcVar12,1)); pc = 229; continue; }
     case 231: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 230; continue; }
     case 232: { (uVar5 = cBits(uVar5,3,"&")); pc = 227; continue; }
-    case 233: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 237 : 232; continue; }
+    case 233: { pc = (cCompare(uVar6,0,"!=")) ? 237 : 232; continue; }
     case 234: { (uVar6 = cSub(uVar6,1)); pc = 233; continue; }
     case 235: { (pcVar16 = cAdd(pcVar16,4)); pc = 234; continue; }
     case 236: { (pcVar12 = cAdd(pcVar12,4)); pc = 235; continue; }
@@ -3507,35 +3508,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 238: { (uVar6 = cBits(uVar5,2,">>")); pc = 233; continue; }
     case 239: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 238; continue; }
     case 240: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 239; continue; }
-    case 241: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 248 : 240; continue; }
+    case 241: { pc = (cCompare(cVar1,0,"!=")) ? 248 : 240; continue; }
     case 242: { (pcVar12 = pcVar15); pc = 241; continue; }
     case 243: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 242; continue; }
     case 244: { (pcVar15 = cAdd(pcVar12,1)); pc = 243; continue; }
     case 245: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 244; continue; }
     case 246: { pc = 240; continue; }
-    case 247: { pc = cTruth(cCompare(iVar7,0,"==")) ? 246 : 245; continue; }
+    case 247: { pc = (cCompare(iVar7,0,"==")) ? 246 : 245; continue; }
     case 248: { (pcVar15 = pcVar12); pc = 247; continue; }
     case 249: { (pcVar12 = framePointer(localFrame,308)); pc = 248; continue; }
     case 250: { (iVar7 = cNeg(1)); pc = 249; continue; }
     case 251: { (uVar5 = cBits(uVar5,0,"~")); pc = 250; continue; }
-    case 252: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 259 : 251; continue; }
+    case 252: { pc = (cCompare(cVar1,0,"!=")) ? 259 : 251; continue; }
     case 253: { (pcVar12 = pcVar16); pc = 252; continue; }
     case 254: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 253; continue; }
     case 255: { (pcVar16 = cAdd(pcVar12,1)); pc = 254; continue; }
     case 256: { (uVar5 = cSub(uVar5,1)); pc = 255; continue; }
     case 257: { pc = 251; continue; }
-    case 258: { pc = cTruth(cCompare(uVar5,0,"==")) ? 257 : 256; continue; }
+    case 258: { pc = (cCompare(uVar5,0,"==")) ? 257 : 256; continue; }
     case 259: { (pcVar16 = pcVar12); pc = 258; continue; }
     case 260: { (pcVar12 = 0x619eb8); pc = 259; continue; }
     case 261: { (uVar5 = 4294967295); pc = 260; continue; }
-    case 262: { pc = cTruth(cCompare(r32(0x4da1f8),105,"==")) ? 261 : 226; continue; }
-    case 263: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 267 : 262; continue; }
+    case 262: { pc = (cCompare(r32(0x4da1f8),105,"==")) ? 261 : 226; continue; }
+    case 263: { pc = (cCompare(uVar5,0,"!=")) ? 267 : 262; continue; }
     case 264: { (uVar5 = cSub(uVar5,1)); pc = 263; continue; }
     case 265: { (pcVar16 = cAdd(pcVar16,1)); pc = 264; continue; }
     case 266: { (pcVar12 = cAdd(pcVar12,1)); pc = 265; continue; }
     case 267: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 266; continue; }
     case 268: { (uVar5 = cBits(uVar5,3,"&")); pc = 263; continue; }
-    case 269: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 273 : 268; continue; }
+    case 269: { pc = (cCompare(uVar6,0,"!=")) ? 273 : 268; continue; }
     case 270: { (uVar6 = cSub(uVar6,1)); pc = 269; continue; }
     case 271: { (pcVar16 = cAdd(pcVar16,4)); pc = 270; continue; }
     case 272: { (pcVar12 = cAdd(pcVar12,4)); pc = 271; continue; }
@@ -3543,35 +3544,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 274: { (uVar6 = cBits(uVar5,2,">>")); pc = 269; continue; }
     case 275: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 274; continue; }
     case 276: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 275; continue; }
-    case 277: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 284 : 276; continue; }
+    case 277: { pc = (cCompare(cVar1,0,"!=")) ? 284 : 276; continue; }
     case 278: { (pcVar12 = pcVar15); pc = 277; continue; }
     case 279: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 278; continue; }
     case 280: { (pcVar15 = cAdd(pcVar12,1)); pc = 279; continue; }
     case 281: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 280; continue; }
     case 282: { pc = 276; continue; }
-    case 283: { pc = cTruth(cCompare(iVar7,0,"==")) ? 282 : 281; continue; }
+    case 283: { pc = (cCompare(iVar7,0,"==")) ? 282 : 281; continue; }
     case 284: { (pcVar15 = pcVar12); pc = 283; continue; }
     case 285: { (pcVar12 = framePointer(localFrame,308)); pc = 284; continue; }
     case 286: { (iVar7 = cNeg(1)); pc = 285; continue; }
     case 287: { (uVar5 = cBits(uVar5,0,"~")); pc = 286; continue; }
-    case 288: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 295 : 287; continue; }
+    case 288: { pc = (cCompare(cVar1,0,"!=")) ? 295 : 287; continue; }
     case 289: { (pcVar12 = pcVar16); pc = 288; continue; }
     case 290: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 289; continue; }
     case 291: { (pcVar16 = cAdd(pcVar12,1)); pc = 290; continue; }
     case 292: { (uVar5 = cSub(uVar5,1)); pc = 291; continue; }
     case 293: { pc = 287; continue; }
-    case 294: { pc = cTruth(cCompare(uVar5,0,"==")) ? 293 : 292; continue; }
+    case 294: { pc = (cCompare(uVar5,0,"==")) ? 293 : 292; continue; }
     case 295: { (pcVar16 = pcVar12); pc = 294; continue; }
     case 296: { (pcVar12 = 0x619ec0); pc = 295; continue; }
     case 297: { (uVar5 = 4294967295); pc = 296; continue; }
-    case 298: { pc = cTruth(cCompare(r32(0x4da1f8),11,"==")) ? 297 : 262; continue; }
-    case 299: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 303 : 298; continue; }
+    case 298: { pc = (cCompare(r32(0x4da1f8),11,"==")) ? 297 : 262; continue; }
+    case 299: { pc = (cCompare(uVar5,0,"!=")) ? 303 : 298; continue; }
     case 300: { (uVar5 = cSub(uVar5,1)); pc = 299; continue; }
     case 301: { (pcVar16 = cAdd(pcVar16,1)); pc = 300; continue; }
     case 302: { (pcVar12 = cAdd(pcVar12,1)); pc = 301; continue; }
     case 303: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 302; continue; }
     case 304: { (uVar5 = cBits(uVar5,3,"&")); pc = 299; continue; }
-    case 305: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 309 : 304; continue; }
+    case 305: { pc = (cCompare(uVar6,0,"!=")) ? 309 : 304; continue; }
     case 306: { (uVar6 = cSub(uVar6,1)); pc = 305; continue; }
     case 307: { (pcVar16 = cAdd(pcVar16,4)); pc = 306; continue; }
     case 308: { (pcVar12 = cAdd(pcVar12,4)); pc = 307; continue; }
@@ -3579,35 +3580,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 310: { (uVar6 = cBits(uVar5,2,">>")); pc = 305; continue; }
     case 311: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 310; continue; }
     case 312: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 311; continue; }
-    case 313: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 320 : 312; continue; }
+    case 313: { pc = (cCompare(cVar1,0,"!=")) ? 320 : 312; continue; }
     case 314: { (pcVar12 = pcVar15); pc = 313; continue; }
     case 315: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 314; continue; }
     case 316: { (pcVar15 = cAdd(pcVar12,1)); pc = 315; continue; }
     case 317: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 316; continue; }
     case 318: { pc = 312; continue; }
-    case 319: { pc = cTruth(cCompare(iVar7,0,"==")) ? 318 : 317; continue; }
+    case 319: { pc = (cCompare(iVar7,0,"==")) ? 318 : 317; continue; }
     case 320: { (pcVar15 = pcVar12); pc = 319; continue; }
     case 321: { (pcVar12 = framePointer(localFrame,308)); pc = 320; continue; }
     case 322: { (iVar7 = cNeg(1)); pc = 321; continue; }
     case 323: { (uVar5 = cBits(uVar5,0,"~")); pc = 322; continue; }
-    case 324: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 331 : 323; continue; }
+    case 324: { pc = (cCompare(cVar1,0,"!=")) ? 331 : 323; continue; }
     case 325: { (pcVar12 = pcVar16); pc = 324; continue; }
     case 326: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 325; continue; }
     case 327: { (pcVar16 = cAdd(pcVar12,1)); pc = 326; continue; }
     case 328: { (uVar5 = cSub(uVar5,1)); pc = 327; continue; }
     case 329: { pc = 323; continue; }
-    case 330: { pc = cTruth(cCompare(uVar5,0,"==")) ? 329 : 328; continue; }
+    case 330: { pc = (cCompare(uVar5,0,"==")) ? 329 : 328; continue; }
     case 331: { (pcVar16 = pcVar12); pc = 330; continue; }
     case 332: { (pcVar12 = 0x4dd3a0); pc = 331; continue; }
     case 333: { (uVar5 = 4294967295); pc = 332; continue; }
-    case 334: { pc = cTruth(cCompare(r32(0x4da1f8),9,"==")) ? 333 : 298; continue; }
-    case 335: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 339 : 334; continue; }
+    case 334: { pc = (cCompare(r32(0x4da1f8),9,"==")) ? 333 : 298; continue; }
+    case 335: { pc = (cCompare(uVar5,0,"!=")) ? 339 : 334; continue; }
     case 336: { (uVar5 = cSub(uVar5,1)); pc = 335; continue; }
     case 337: { (pcVar16 = cAdd(pcVar16,1)); pc = 336; continue; }
     case 338: { (pcVar12 = cAdd(pcVar12,1)); pc = 337; continue; }
     case 339: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 338; continue; }
     case 340: { (uVar5 = cBits(uVar5,3,"&")); pc = 335; continue; }
-    case 341: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 345 : 340; continue; }
+    case 341: { pc = (cCompare(uVar6,0,"!=")) ? 345 : 340; continue; }
     case 342: { (uVar6 = cSub(uVar6,1)); pc = 341; continue; }
     case 343: { (pcVar16 = cAdd(pcVar16,4)); pc = 342; continue; }
     case 344: { (pcVar12 = cAdd(pcVar12,4)); pc = 343; continue; }
@@ -3615,35 +3616,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 346: { (uVar6 = cBits(uVar5,2,">>")); pc = 341; continue; }
     case 347: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 346; continue; }
     case 348: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 347; continue; }
-    case 349: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 356 : 348; continue; }
+    case 349: { pc = (cCompare(cVar1,0,"!=")) ? 356 : 348; continue; }
     case 350: { (pcVar12 = pcVar15); pc = 349; continue; }
     case 351: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 350; continue; }
     case 352: { (pcVar15 = cAdd(pcVar12,1)); pc = 351; continue; }
     case 353: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 352; continue; }
     case 354: { pc = 348; continue; }
-    case 355: { pc = cTruth(cCompare(iVar7,0,"==")) ? 354 : 353; continue; }
+    case 355: { pc = (cCompare(iVar7,0,"==")) ? 354 : 353; continue; }
     case 356: { (pcVar15 = pcVar12); pc = 355; continue; }
     case 357: { (pcVar12 = framePointer(localFrame,308)); pc = 356; continue; }
     case 358: { (iVar7 = cNeg(1)); pc = 357; continue; }
     case 359: { (uVar5 = cBits(uVar5,0,"~")); pc = 358; continue; }
-    case 360: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 367 : 359; continue; }
+    case 360: { pc = (cCompare(cVar1,0,"!=")) ? 367 : 359; continue; }
     case 361: { (pcVar12 = pcVar16); pc = 360; continue; }
     case 362: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 361; continue; }
     case 363: { (pcVar16 = cAdd(pcVar12,1)); pc = 362; continue; }
     case 364: { (uVar5 = cSub(uVar5,1)); pc = 363; continue; }
     case 365: { pc = 359; continue; }
-    case 366: { pc = cTruth(cCompare(uVar5,0,"==")) ? 365 : 364; continue; }
+    case 366: { pc = (cCompare(uVar5,0,"==")) ? 365 : 364; continue; }
     case 367: { (pcVar16 = pcVar12); pc = 366; continue; }
     case 368: { (pcVar12 = 0x619eb8); pc = 367; continue; }
     case 369: { (uVar5 = 4294967295); pc = 368; continue; }
-    case 370: { pc = cTruth((cTruth(cCompare(r32(0x4da1f8),7,"==")) || cTruth(cCompare(r32(0x4da1f8),6,"==")))) ? 369 : 334; continue; }
-    case 371: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 375 : 370; continue; }
+    case 370: { pc = (((cCompare(r32(0x4da1f8),7,"==")) || (cCompare(r32(0x4da1f8),6,"==")))) ? 369 : 334; continue; }
+    case 371: { pc = (cCompare(uVar5,0,"!=")) ? 375 : 370; continue; }
     case 372: { (uVar5 = cSub(uVar5,1)); pc = 371; continue; }
     case 373: { (pcVar16 = cAdd(pcVar16,1)); pc = 372; continue; }
     case 374: { (pcVar12 = cAdd(pcVar12,1)); pc = 373; continue; }
     case 375: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 374; continue; }
     case 376: { (uVar5 = cBits(uVar5,3,"&")); pc = 371; continue; }
-    case 377: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 381 : 376; continue; }
+    case 377: { pc = (cCompare(uVar6,0,"!=")) ? 381 : 376; continue; }
     case 378: { (uVar6 = cSub(uVar6,1)); pc = 377; continue; }
     case 379: { (pcVar16 = cAdd(pcVar16,4)); pc = 378; continue; }
     case 380: { (pcVar12 = cAdd(pcVar12,4)); pc = 379; continue; }
@@ -3651,35 +3652,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 382: { (uVar6 = cBits(uVar5,2,">>")); pc = 377; continue; }
     case 383: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 382; continue; }
     case 384: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 383; continue; }
-    case 385: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 392 : 384; continue; }
+    case 385: { pc = (cCompare(cVar1,0,"!=")) ? 392 : 384; continue; }
     case 386: { (pcVar12 = pcVar15); pc = 385; continue; }
     case 387: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 386; continue; }
     case 388: { (pcVar15 = cAdd(pcVar12,1)); pc = 387; continue; }
     case 389: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 388; continue; }
     case 390: { pc = 384; continue; }
-    case 391: { pc = cTruth(cCompare(iVar7,0,"==")) ? 390 : 389; continue; }
+    case 391: { pc = (cCompare(iVar7,0,"==")) ? 390 : 389; continue; }
     case 392: { (pcVar15 = pcVar12); pc = 391; continue; }
     case 393: { (pcVar12 = framePointer(localFrame,308)); pc = 392; continue; }
     case 394: { (iVar7 = cNeg(1)); pc = 393; continue; }
     case 395: { (uVar5 = cBits(uVar5,0,"~")); pc = 394; continue; }
-    case 396: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 403 : 395; continue; }
+    case 396: { pc = (cCompare(cVar1,0,"!=")) ? 403 : 395; continue; }
     case 397: { (pcVar12 = pcVar16); pc = 396; continue; }
     case 398: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 397; continue; }
     case 399: { (pcVar16 = cAdd(pcVar12,1)); pc = 398; continue; }
     case 400: { (uVar5 = cSub(uVar5,1)); pc = 399; continue; }
     case 401: { pc = 395; continue; }
-    case 402: { pc = cTruth(cCompare(uVar5,0,"==")) ? 401 : 400; continue; }
+    case 402: { pc = (cCompare(uVar5,0,"==")) ? 401 : 400; continue; }
     case 403: { (pcVar16 = pcVar12); pc = 402; continue; }
     case 404: { (pcVar12 = 0x619fc8); pc = 403; continue; }
     case 405: { (uVar5 = 4294967295); pc = 404; continue; }
-    case 406: { pc = cTruth(cCompare(r32(0x4fb5d4),1,"==")) ? 405 : 370; continue; }
-    case 407: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 411 : 406; continue; }
+    case 406: { pc = (cCompare(r32(0x4fb5d4),1,"==")) ? 405 : 370; continue; }
+    case 407: { pc = (cCompare(uVar5,0,"!=")) ? 411 : 406; continue; }
     case 408: { (uVar5 = cSub(uVar5,1)); pc = 407; continue; }
     case 409: { (pcVar16 = cAdd(pcVar16,1)); pc = 408; continue; }
     case 410: { (pcVar12 = cAdd(pcVar12,1)); pc = 409; continue; }
     case 411: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 410; continue; }
     case 412: { (uVar5 = cBits(uVar5,3,"&")); pc = 407; continue; }
-    case 413: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 417 : 412; continue; }
+    case 413: { pc = (cCompare(uVar6,0,"!=")) ? 417 : 412; continue; }
     case 414: { (uVar6 = cSub(uVar6,1)); pc = 413; continue; }
     case 415: { (pcVar16 = cAdd(pcVar16,4)); pc = 414; continue; }
     case 416: { (pcVar12 = cAdd(pcVar12,4)); pc = 415; continue; }
@@ -3687,35 +3688,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 418: { (uVar6 = cBits(uVar5,2,">>")); pc = 413; continue; }
     case 419: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 418; continue; }
     case 420: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 419; continue; }
-    case 421: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 428 : 420; continue; }
+    case 421: { pc = (cCompare(cVar1,0,"!=")) ? 428 : 420; continue; }
     case 422: { (pcVar12 = pcVar15); pc = 421; continue; }
     case 423: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 422; continue; }
     case 424: { (pcVar15 = cAdd(pcVar12,1)); pc = 423; continue; }
     case 425: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 424; continue; }
     case 426: { pc = 420; continue; }
-    case 427: { pc = cTruth(cCompare(iVar7,0,"==")) ? 426 : 425; continue; }
+    case 427: { pc = (cCompare(iVar7,0,"==")) ? 426 : 425; continue; }
     case 428: { (pcVar15 = pcVar12); pc = 427; continue; }
     case 429: { (pcVar12 = framePointer(localFrame,308)); pc = 428; continue; }
     case 430: { (iVar7 = cNeg(1)); pc = 429; continue; }
     case 431: { (uVar5 = cBits(uVar5,0,"~")); pc = 430; continue; }
-    case 432: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 439 : 431; continue; }
+    case 432: { pc = (cCompare(cVar1,0,"!=")) ? 439 : 431; continue; }
     case 433: { (pcVar12 = pcVar16); pc = 432; continue; }
     case 434: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 433; continue; }
     case 435: { (pcVar16 = cAdd(pcVar12,1)); pc = 434; continue; }
     case 436: { (uVar5 = cSub(uVar5,1)); pc = 435; continue; }
     case 437: { pc = 431; continue; }
-    case 438: { pc = cTruth(cCompare(uVar5,0,"==")) ? 437 : 436; continue; }
+    case 438: { pc = (cCompare(uVar5,0,"==")) ? 437 : 436; continue; }
     case 439: { (pcVar16 = pcVar12); pc = 438; continue; }
     case 440: { (pcVar12 = 0x619eb8); pc = 439; continue; }
     case 441: { (uVar5 = 4294967295); pc = 440; continue; }
-    case 442: { pc = cTruth(cCompare(r32(0x4da1f8),3,"==")) ? 441 : 406; continue; }
-    case 443: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 447 : 442; continue; }
+    case 442: { pc = (cCompare(r32(0x4da1f8),3,"==")) ? 441 : 406; continue; }
+    case 443: { pc = (cCompare(uVar5,0,"!=")) ? 447 : 442; continue; }
     case 444: { (uVar5 = cSub(uVar5,1)); pc = 443; continue; }
     case 445: { (pcVar16 = cAdd(pcVar16,1)); pc = 444; continue; }
     case 446: { (pcVar12 = cAdd(pcVar12,1)); pc = 445; continue; }
     case 447: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 446; continue; }
     case 448: { (uVar5 = cBits(uVar5,3,"&")); pc = 443; continue; }
-    case 449: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 453 : 448; continue; }
+    case 449: { pc = (cCompare(uVar6,0,"!=")) ? 453 : 448; continue; }
     case 450: { (uVar6 = cSub(uVar6,1)); pc = 449; continue; }
     case 451: { (pcVar16 = cAdd(pcVar16,4)); pc = 450; continue; }
     case 452: { (pcVar12 = cAdd(pcVar12,4)); pc = 451; continue; }
@@ -3723,35 +3724,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 454: { (uVar6 = cBits(uVar5,2,">>")); pc = 449; continue; }
     case 455: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 454; continue; }
     case 456: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 455; continue; }
-    case 457: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 464 : 456; continue; }
+    case 457: { pc = (cCompare(cVar1,0,"!=")) ? 464 : 456; continue; }
     case 458: { (pcVar12 = pcVar15); pc = 457; continue; }
     case 459: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 458; continue; }
     case 460: { (pcVar15 = cAdd(pcVar12,1)); pc = 459; continue; }
     case 461: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 460; continue; }
     case 462: { pc = 456; continue; }
-    case 463: { pc = cTruth(cCompare(iVar7,0,"==")) ? 462 : 461; continue; }
+    case 463: { pc = (cCompare(iVar7,0,"==")) ? 462 : 461; continue; }
     case 464: { (pcVar15 = pcVar12); pc = 463; continue; }
     case 465: { (pcVar12 = framePointer(localFrame,308)); pc = 464; continue; }
     case 466: { (iVar7 = cNeg(1)); pc = 465; continue; }
     case 467: { (uVar5 = cBits(uVar5,0,"~")); pc = 466; continue; }
-    case 468: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 475 : 467; continue; }
+    case 468: { pc = (cCompare(cVar1,0,"!=")) ? 475 : 467; continue; }
     case 469: { (pcVar12 = pcVar16); pc = 468; continue; }
     case 470: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 469; continue; }
     case 471: { (pcVar16 = cAdd(pcVar12,1)); pc = 470; continue; }
     case 472: { (uVar5 = cSub(uVar5,1)); pc = 471; continue; }
     case 473: { pc = 467; continue; }
-    case 474: { pc = cTruth(cCompare(uVar5,0,"==")) ? 473 : 472; continue; }
+    case 474: { pc = (cCompare(uVar5,0,"==")) ? 473 : 472; continue; }
     case 475: { (pcVar16 = pcVar12); pc = 474; continue; }
     case 476: { (pcVar12 = 0x4dd390); pc = 475; continue; }
     case 477: { (uVar5 = 4294967295); pc = 476; continue; }
-    case 478: { pc = cTruth(cCompare(r32(0x4da1f8),2,"==")) ? 477 : 442; continue; }
-    case 479: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 483 : 478; continue; }
+    case 478: { pc = (cCompare(r32(0x4da1f8),2,"==")) ? 477 : 442; continue; }
+    case 479: { pc = (cCompare(uVar5,0,"!=")) ? 483 : 478; continue; }
     case 480: { (uVar5 = cSub(uVar5,1)); pc = 479; continue; }
     case 481: { (pcVar16 = cAdd(pcVar16,1)); pc = 480; continue; }
     case 482: { (pcVar12 = cAdd(pcVar12,1)); pc = 481; continue; }
     case 483: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 482; continue; }
     case 484: { (uVar5 = cBits(uVar5,3,"&")); pc = 479; continue; }
-    case 485: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 489 : 484; continue; }
+    case 485: { pc = (cCompare(uVar6,0,"!=")) ? 489 : 484; continue; }
     case 486: { (uVar6 = cSub(uVar6,1)); pc = 485; continue; }
     case 487: { (pcVar16 = cAdd(pcVar16,4)); pc = 486; continue; }
     case 488: { (pcVar12 = cAdd(pcVar12,4)); pc = 487; continue; }
@@ -3759,35 +3760,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 490: { (uVar6 = cBits(uVar5,2,">>")); pc = 485; continue; }
     case 491: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 490; continue; }
     case 492: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 491; continue; }
-    case 493: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 500 : 492; continue; }
+    case 493: { pc = (cCompare(cVar1,0,"!=")) ? 500 : 492; continue; }
     case 494: { (pcVar12 = pcVar15); pc = 493; continue; }
     case 495: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 494; continue; }
     case 496: { (pcVar15 = cAdd(pcVar12,1)); pc = 495; continue; }
     case 497: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 496; continue; }
     case 498: { pc = 492; continue; }
-    case 499: { pc = cTruth(cCompare(iVar7,0,"==")) ? 498 : 497; continue; }
+    case 499: { pc = (cCompare(iVar7,0,"==")) ? 498 : 497; continue; }
     case 500: { (pcVar15 = pcVar12); pc = 499; continue; }
     case 501: { (pcVar12 = framePointer(localFrame,308)); pc = 500; continue; }
     case 502: { (iVar7 = cNeg(1)); pc = 501; continue; }
     case 503: { (uVar5 = cBits(uVar5,0,"~")); pc = 502; continue; }
-    case 504: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 511 : 503; continue; }
+    case 504: { pc = (cCompare(cVar1,0,"!=")) ? 511 : 503; continue; }
     case 505: { (pcVar12 = pcVar16); pc = 504; continue; }
     case 506: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 505; continue; }
     case 507: { (pcVar16 = cAdd(pcVar12,1)); pc = 506; continue; }
     case 508: { (uVar5 = cSub(uVar5,1)); pc = 507; continue; }
     case 509: { pc = 503; continue; }
-    case 510: { pc = cTruth(cCompare(uVar5,0,"==")) ? 509 : 508; continue; }
+    case 510: { pc = (cCompare(uVar5,0,"==")) ? 509 : 508; continue; }
     case 511: { (pcVar16 = pcVar12); pc = 510; continue; }
     case 512: { (pcVar12 = 0x4dd3a0); pc = 511; continue; }
     case 513: { (uVar5 = 4294967295); pc = 512; continue; }
-    case 514: { pc = cTruth(cCompare(r32(0x4da1f8),1,"==")) ? 513 : 478; continue; }
-    case 515: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 519 : 514; continue; }
+    case 514: { pc = (cCompare(r32(0x4da1f8),1,"==")) ? 513 : 478; continue; }
+    case 515: { pc = (cCompare(uVar5,0,"!=")) ? 519 : 514; continue; }
     case 516: { (uVar5 = cSub(uVar5,1)); pc = 515; continue; }
     case 517: { (pcVar16 = cAdd(pcVar16,1)); pc = 516; continue; }
     case 518: { (pcVar12 = cAdd(pcVar12,1)); pc = 517; continue; }
     case 519: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 518; continue; }
     case 520: { (uVar5 = cBits(uVar5,3,"&")); pc = 515; continue; }
-    case 521: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 525 : 520; continue; }
+    case 521: { pc = (cCompare(uVar6,0,"!=")) ? 525 : 520; continue; }
     case 522: { (uVar6 = cSub(uVar6,1)); pc = 521; continue; }
     case 523: { (pcVar16 = cAdd(pcVar16,4)); pc = 522; continue; }
     case 524: { (pcVar12 = cAdd(pcVar12,4)); pc = 523; continue; }
@@ -3795,35 +3796,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 526: { (uVar6 = cBits(uVar5,2,">>")); pc = 521; continue; }
     case 527: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 526; continue; }
     case 528: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 527; continue; }
-    case 529: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 536 : 528; continue; }
+    case 529: { pc = (cCompare(cVar1,0,"!=")) ? 536 : 528; continue; }
     case 530: { (pcVar12 = pcVar15); pc = 529; continue; }
     case 531: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 530; continue; }
     case 532: { (pcVar15 = cAdd(pcVar12,1)); pc = 531; continue; }
     case 533: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 532; continue; }
     case 534: { pc = 528; continue; }
-    case 535: { pc = cTruth(cCompare(iVar7,0,"==")) ? 534 : 533; continue; }
+    case 535: { pc = (cCompare(iVar7,0,"==")) ? 534 : 533; continue; }
     case 536: { (pcVar15 = pcVar12); pc = 535; continue; }
     case 537: { (pcVar12 = framePointer(localFrame,308)); pc = 536; continue; }
     case 538: { (iVar7 = cNeg(1)); pc = 537; continue; }
     case 539: { (uVar5 = cBits(uVar5,0,"~")); pc = 538; continue; }
-    case 540: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 547 : 539; continue; }
+    case 540: { pc = (cCompare(cVar1,0,"!=")) ? 547 : 539; continue; }
     case 541: { (pcVar12 = pcVar16); pc = 540; continue; }
     case 542: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 541; continue; }
     case 543: { (pcVar16 = cAdd(pcVar12,1)); pc = 542; continue; }
     case 544: { (uVar5 = cSub(uVar5,1)); pc = 543; continue; }
     case 545: { pc = 539; continue; }
-    case 546: { pc = cTruth(cCompare(uVar5,0,"==")) ? 545 : 544; continue; }
+    case 546: { pc = (cCompare(uVar5,0,"==")) ? 545 : 544; continue; }
     case 547: { (pcVar16 = pcVar12); pc = 546; continue; }
     case 548: { (pcVar12 = 0x619eb0); pc = 547; continue; }
     case 549: { (uVar5 = 4294967295); pc = 548; continue; }
-    case 550: { pc = cTruth(cCompare(r32(0x5230dc),3,"==")) ? 549 : 514; continue; }
-    case 551: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 555 : 550; continue; }
+    case 550: { pc = (cCompare(r32(0x5230dc),3,"==")) ? 549 : 514; continue; }
+    case 551: { pc = (cCompare(uVar5,0,"!=")) ? 555 : 550; continue; }
     case 552: { (uVar5 = cSub(uVar5,1)); pc = 551; continue; }
     case 553: { (pcVar16 = cAdd(pcVar16,1)); pc = 552; continue; }
     case 554: { (pcVar12 = cAdd(pcVar12,1)); pc = 553; continue; }
     case 555: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 554; continue; }
     case 556: { (uVar5 = cBits(uVar5,3,"&")); pc = 551; continue; }
-    case 557: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 561 : 556; continue; }
+    case 557: { pc = (cCompare(uVar6,0,"!=")) ? 561 : 556; continue; }
     case 558: { (uVar6 = cSub(uVar6,1)); pc = 557; continue; }
     case 559: { (pcVar16 = cAdd(pcVar16,4)); pc = 558; continue; }
     case 560: { (pcVar12 = cAdd(pcVar12,4)); pc = 559; continue; }
@@ -3831,35 +3832,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 562: { (uVar6 = cBits(uVar5,2,">>")); pc = 557; continue; }
     case 563: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 562; continue; }
     case 564: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 563; continue; }
-    case 565: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 572 : 564; continue; }
+    case 565: { pc = (cCompare(cVar1,0,"!=")) ? 572 : 564; continue; }
     case 566: { (pcVar12 = pcVar15); pc = 565; continue; }
     case 567: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 566; continue; }
     case 568: { (pcVar15 = cAdd(pcVar12,1)); pc = 567; continue; }
     case 569: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 568; continue; }
     case 570: { pc = 564; continue; }
-    case 571: { pc = cTruth(cCompare(iVar7,0,"==")) ? 570 : 569; continue; }
+    case 571: { pc = (cCompare(iVar7,0,"==")) ? 570 : 569; continue; }
     case 572: { (pcVar15 = pcVar12); pc = 571; continue; }
     case 573: { (pcVar12 = framePointer(localFrame,308)); pc = 572; continue; }
     case 574: { (iVar7 = cNeg(1)); pc = 573; continue; }
     case 575: { (uVar5 = cBits(uVar5,0,"~")); pc = 574; continue; }
-    case 576: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 583 : 575; continue; }
+    case 576: { pc = (cCompare(cVar1,0,"!=")) ? 583 : 575; continue; }
     case 577: { (pcVar12 = pcVar16); pc = 576; continue; }
     case 578: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 577; continue; }
     case 579: { (pcVar16 = cAdd(pcVar12,1)); pc = 578; continue; }
     case 580: { (uVar5 = cSub(uVar5,1)); pc = 579; continue; }
     case 581: { pc = 575; continue; }
-    case 582: { pc = cTruth(cCompare(uVar5,0,"==")) ? 581 : 580; continue; }
+    case 582: { pc = (cCompare(uVar5,0,"==")) ? 581 : 580; continue; }
     case 583: { (pcVar16 = pcVar12); pc = 582; continue; }
     case 584: { (pcVar12 = 0x619eb8); pc = 583; continue; }
     case 585: { (uVar5 = 4294967295); pc = 584; continue; }
-    case 586: { pc = cTruth(cCompare(r32(0x5230dc),2,"==")) ? 585 : 550; continue; }
-    case 587: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 591 : 586; continue; }
+    case 586: { pc = (cCompare(r32(0x5230dc),2,"==")) ? 585 : 550; continue; }
+    case 587: { pc = (cCompare(uVar5,0,"!=")) ? 591 : 586; continue; }
     case 588: { (uVar5 = cSub(uVar5,1)); pc = 587; continue; }
     case 589: { (pcVar16 = cAdd(pcVar16,1)); pc = 588; continue; }
     case 590: { (pcVar12 = cAdd(pcVar12,1)); pc = 589; continue; }
     case 591: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 590; continue; }
     case 592: { (uVar5 = cBits(uVar5,3,"&")); pc = 587; continue; }
-    case 593: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 597 : 592; continue; }
+    case 593: { pc = (cCompare(uVar6,0,"!=")) ? 597 : 592; continue; }
     case 594: { (uVar6 = cSub(uVar6,1)); pc = 593; continue; }
     case 595: { (pcVar16 = cAdd(pcVar16,4)); pc = 594; continue; }
     case 596: { (pcVar12 = cAdd(pcVar12,4)); pc = 595; continue; }
@@ -3867,35 +3868,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 598: { (uVar6 = cBits(uVar5,2,">>")); pc = 593; continue; }
     case 599: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 598; continue; }
     case 600: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 599; continue; }
-    case 601: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 608 : 600; continue; }
+    case 601: { pc = (cCompare(cVar1,0,"!=")) ? 608 : 600; continue; }
     case 602: { (pcVar12 = pcVar15); pc = 601; continue; }
     case 603: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 602; continue; }
     case 604: { (pcVar15 = cAdd(pcVar12,1)); pc = 603; continue; }
     case 605: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 604; continue; }
     case 606: { pc = 600; continue; }
-    case 607: { pc = cTruth(cCompare(iVar7,0,"==")) ? 606 : 605; continue; }
+    case 607: { pc = (cCompare(iVar7,0,"==")) ? 606 : 605; continue; }
     case 608: { (pcVar15 = pcVar12); pc = 607; continue; }
     case 609: { (pcVar12 = framePointer(localFrame,308)); pc = 608; continue; }
     case 610: { (iVar7 = cNeg(1)); pc = 609; continue; }
     case 611: { (uVar5 = cBits(uVar5,0,"~")); pc = 610; continue; }
-    case 612: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 619 : 611; continue; }
+    case 612: { pc = (cCompare(cVar1,0,"!=")) ? 619 : 611; continue; }
     case 613: { (pcVar12 = pcVar16); pc = 612; continue; }
     case 614: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 613; continue; }
     case 615: { (pcVar16 = cAdd(pcVar12,1)); pc = 614; continue; }
     case 616: { (uVar5 = cSub(uVar5,1)); pc = 615; continue; }
     case 617: { pc = 611; continue; }
-    case 618: { pc = cTruth(cCompare(uVar5,0,"==")) ? 617 : 616; continue; }
+    case 618: { pc = (cCompare(uVar5,0,"==")) ? 617 : 616; continue; }
     case 619: { (pcVar16 = pcVar12); pc = 618; continue; }
     case 620: { (pcVar12 = 0x619ec0); pc = 619; continue; }
     case 621: { (uVar5 = 4294967295); pc = 620; continue; }
-    case 622: { pc = cTruth(cCompare(r32(0x5230dc),1,"==")) ? 621 : 586; continue; }
-    case 623: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 627 : 622; continue; }
+    case 622: { pc = (cCompare(r32(0x5230dc),1,"==")) ? 621 : 586; continue; }
+    case 623: { pc = (cCompare(uVar5,0,"!=")) ? 627 : 622; continue; }
     case 624: { (uVar5 = cSub(uVar5,1)); pc = 623; continue; }
     case 625: { (pcVar16 = cAdd(pcVar16,1)); pc = 624; continue; }
     case 626: { (pcVar12 = cAdd(pcVar12,1)); pc = 625; continue; }
     case 627: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 626; continue; }
     case 628: { (uVar5 = cBits(uVar5,3,"&")); pc = 623; continue; }
-    case 629: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 633 : 628; continue; }
+    case 629: { pc = (cCompare(uVar6,0,"!=")) ? 633 : 628; continue; }
     case 630: { (uVar6 = cSub(uVar6,1)); pc = 629; continue; }
     case 631: { (pcVar16 = cAdd(pcVar16,4)); pc = 630; continue; }
     case 632: { (pcVar12 = cAdd(pcVar12,4)); pc = 631; continue; }
@@ -3903,35 +3904,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 634: { (uVar6 = cBits(uVar5,2,">>")); pc = 629; continue; }
     case 635: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 634; continue; }
     case 636: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 635; continue; }
-    case 637: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 644 : 636; continue; }
+    case 637: { pc = (cCompare(cVar1,0,"!=")) ? 644 : 636; continue; }
     case 638: { (pcVar12 = pcVar15); pc = 637; continue; }
     case 639: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 638; continue; }
     case 640: { (pcVar15 = cAdd(pcVar12,1)); pc = 639; continue; }
     case 641: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 640; continue; }
     case 642: { pc = 636; continue; }
-    case 643: { pc = cTruth(cCompare(iVar7,0,"==")) ? 642 : 641; continue; }
+    case 643: { pc = (cCompare(iVar7,0,"==")) ? 642 : 641; continue; }
     case 644: { (pcVar15 = pcVar12); pc = 643; continue; }
     case 645: { (pcVar12 = framePointer(localFrame,308)); pc = 644; continue; }
     case 646: { (iVar7 = cNeg(1)); pc = 645; continue; }
     case 647: { (uVar5 = cBits(uVar5,0,"~")); pc = 646; continue; }
-    case 648: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 655 : 647; continue; }
+    case 648: { pc = (cCompare(cVar1,0,"!=")) ? 655 : 647; continue; }
     case 649: { (pcVar12 = pcVar16); pc = 648; continue; }
     case 650: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 649; continue; }
     case 651: { (pcVar16 = cAdd(pcVar12,1)); pc = 650; continue; }
     case 652: { (uVar5 = cSub(uVar5,1)); pc = 651; continue; }
     case 653: { pc = 647; continue; }
-    case 654: { pc = cTruth(cCompare(uVar5,0,"==")) ? 653 : 652; continue; }
+    case 654: { pc = (cCompare(uVar5,0,"==")) ? 653 : 652; continue; }
     case 655: { (pcVar16 = pcVar12); pc = 654; continue; }
     case 656: { (pcVar12 = 0x619ec8); pc = 655; continue; }
     case 657: { (uVar5 = 4294967295); pc = 656; continue; }
-    case 658: { pc = cTruth(cCompare(r32(0x5230dc),4,"==")) ? 657 : 622; continue; }
-    case 659: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 663 : 658; continue; }
+    case 658: { pc = (cCompare(r32(0x5230dc),4,"==")) ? 657 : 622; continue; }
+    case 659: { pc = (cCompare(uVar5,0,"!=")) ? 663 : 658; continue; }
     case 660: { (uVar5 = cSub(uVar5,1)); pc = 659; continue; }
     case 661: { (pcVar16 = cAdd(pcVar16,1)); pc = 660; continue; }
     case 662: { (pcVar12 = cAdd(pcVar12,1)); pc = 661; continue; }
     case 663: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 662; continue; }
     case 664: { (uVar5 = cBits(uVar5,3,"&")); pc = 659; continue; }
-    case 665: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 669 : 664; continue; }
+    case 665: { pc = (cCompare(uVar6,0,"!=")) ? 669 : 664; continue; }
     case 666: { (uVar6 = cSub(uVar6,1)); pc = 665; continue; }
     case 667: { (pcVar16 = cAdd(pcVar16,4)); pc = 666; continue; }
     case 668: { (pcVar12 = cAdd(pcVar12,4)); pc = 667; continue; }
@@ -3940,33 +3941,33 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 671: { (pcVar16 = framePointer(localFrame,308)); pc = 670; continue; }
     case 672: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 671; continue; }
     case 673: { (uVar5 = cBits(uVar5,0,"~")); pc = 672; continue; }
-    case 674: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 681 : 673; continue; }
+    case 674: { pc = (cCompare(cVar1,0,"!=")) ? 681 : 673; continue; }
     case 675: { (pcVar12 = pcVar16); pc = 674; continue; }
     case 676: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 675; continue; }
     case 677: { (pcVar16 = cAdd(pcVar12,1)); pc = 676; continue; }
     case 678: { (uVar5 = cSub(uVar5,1)); pc = 677; continue; }
     case 679: { pc = 673; continue; }
-    case 680: { pc = cTruth(cCompare(uVar5,0,"==")) ? 679 : 678; continue; }
+    case 680: { pc = (cCompare(uVar5,0,"==")) ? 679 : 678; continue; }
     case 681: { (pcVar16 = pcVar12); pc = 680; continue; }
     case 682: { (pcVar12 = 0x4dd3d0); pc = 681; continue; }
     case 683: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")))); pc = 682; continue; }
     case 684: { (uVar5 = 4294967295); pc = 683; continue; }
     case 685: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 684; continue; }
-    case 686: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 691 : 685; continue; }
+    case 686: { pc = (cCompare(cVar1,0,"!=")) ? 691 : 685; continue; }
     case 687: { (pcVar12 = cAdd(pcVar12,1)); pc = 686; continue; }
     case 688: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 687; continue; }
     case 689: { (uVar5 = cSub(uVar5,1)); pc = 688; continue; }
     case 690: { pc = 685; continue; }
-    case 691: { pc = cTruth(cCompare(uVar5,0,"==")) ? 690 : 689; continue; }
+    case 691: { pc = (cCompare(uVar5,0,"==")) ? 690 : 689; continue; }
     case 692: { (pcVar12 = framePointer(localFrame,308)); pc = 691; continue; }
     case 693: { (uVar5 = 4294967295); pc = 692; continue; }
-    case 694: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 698 : 693; continue; }
+    case 694: { pc = (cCompare(uVar5,0,"!=")) ? 698 : 693; continue; }
     case 695: { (uVar5 = cSub(uVar5,1)); pc = 694; continue; }
     case 696: { (pcVar16 = cAdd(pcVar16,1)); pc = 695; continue; }
     case 697: { (pcVar12 = cAdd(pcVar12,1)); pc = 696; continue; }
     case 698: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 697; continue; }
     case 699: { (uVar5 = cBits(uVar5,3,"&")); pc = 694; continue; }
-    case 700: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 704 : 699; continue; }
+    case 700: { pc = (cCompare(uVar6,0,"!=")) ? 704 : 699; continue; }
     case 701: { (uVar6 = cSub(uVar6,1)); pc = 700; continue; }
     case 702: { (pcVar16 = cAdd(pcVar16,4)); pc = 701; continue; }
     case 703: { (pcVar12 = cAdd(pcVar12,4)); pc = 702; continue; }
@@ -3974,38 +3975,38 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 705: { (uVar6 = cBits(uVar5,2,">>")); pc = 700; continue; }
     case 706: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 705; continue; }
     case 707: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 706; continue; }
-    case 708: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 715 : 707; continue; }
+    case 708: { pc = (cCompare(cVar1,0,"!=")) ? 715 : 707; continue; }
     case 709: { (pcVar12 = pcVar15); pc = 708; continue; }
     case 710: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 709; continue; }
     case 711: { (pcVar15 = cAdd(pcVar12,1)); pc = 710; continue; }
     case 712: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 711; continue; }
     case 713: { pc = 707; continue; }
-    case 714: { pc = cTruth(cCompare(iVar7,0,"==")) ? 713 : 712; continue; }
+    case 714: { pc = (cCompare(iVar7,0,"==")) ? 713 : 712; continue; }
     case 715: { (pcVar15 = pcVar12); pc = 714; continue; }
     case 716: { (pcVar12 = framePointer(localFrame,308)); pc = 715; continue; }
     case 717: { (iVar7 = cNeg(1)); pc = 716; continue; }
     case 718: { (uVar5 = cBits(uVar5,0,"~")); pc = 717; continue; }
-    case 719: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 726 : 718; continue; }
+    case 719: { pc = (cCompare(cVar1,0,"!=")) ? 726 : 718; continue; }
     case 720: { (pcVar12 = pcVar16); pc = 719; continue; }
     case 721: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 720; continue; }
     case 722: { (pcVar16 = cAdd(pcVar12,1)); pc = 721; continue; }
     case 723: { (uVar5 = cSub(uVar5,1)); pc = 722; continue; }
     case 724: { pc = 718; continue; }
-    case 725: { pc = cTruth(cCompare(uVar5,0,"==")) ? 724 : 723; continue; }
+    case 725: { pc = (cCompare(uVar5,0,"==")) ? 724 : 723; continue; }
     case 726: { (pcVar16 = pcVar12); pc = 725; continue; }
     case 727: { (pcVar12 = framePointer(localFrame,372)); pc = 726; continue; }
     case 728: { (uVar5 = 4294967295); pc = 727; continue; }
     case 729: { drawingPrintf(memory,framePointer(localFrame,372),0x4dd400,r32(0x4ffdd0),iVar7); pc = 728; continue; }
     case 730: { (iVar7 = cAdd(r32(0x4ffdd0),cNeg(12))); pc = 729; continue; }
-    case 731: { pc = cTruth(cCompare(23,iVar7,"<")) ? 730 : 729; continue; }
+    case 731: { pc = (cCompare(23,iVar7,"<")) ? 730 : 729; continue; }
     case 732: { (iVar7 = cAdd(r32(0x4ffdd0),12)); pc = 731; continue; }
-    case 733: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 737 : 732; continue; }
+    case 733: { pc = (cCompare(uVar5,0,"!=")) ? 737 : 732; continue; }
     case 734: { (uVar5 = cSub(uVar5,1)); pc = 733; continue; }
     case 735: { (pcVar16 = cAdd(pcVar16,1)); pc = 734; continue; }
     case 736: { (pcVar12 = cAdd(pcVar12,1)); pc = 735; continue; }
     case 737: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 736; continue; }
     case 738: { (uVar5 = cBits(uVar5,3,"&")); pc = 733; continue; }
-    case 739: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 743 : 738; continue; }
+    case 739: { pc = (cCompare(uVar6,0,"!=")) ? 743 : 738; continue; }
     case 740: { (uVar6 = cSub(uVar6,1)); pc = 739; continue; }
     case 741: { (pcVar16 = cAdd(pcVar16,4)); pc = 740; continue; }
     case 742: { (pcVar12 = cAdd(pcVar12,4)); pc = 741; continue; }
@@ -4014,33 +4015,33 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 745: { (pcVar16 = framePointer(localFrame,308)); pc = 744; continue; }
     case 746: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 745; continue; }
     case 747: { (uVar5 = cBits(uVar5,0,"~")); pc = 746; continue; }
-    case 748: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 755 : 747; continue; }
+    case 748: { pc = (cCompare(cVar1,0,"!=")) ? 755 : 747; continue; }
     case 749: { (pcVar12 = pcVar16); pc = 748; continue; }
     case 750: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 749; continue; }
     case 751: { (pcVar16 = cAdd(pcVar12,1)); pc = 750; continue; }
     case 752: { (uVar5 = cSub(uVar5,1)); pc = 751; continue; }
     case 753: { pc = 747; continue; }
-    case 754: { pc = cTruth(cCompare(uVar5,0,"==")) ? 753 : 752; continue; }
+    case 754: { pc = (cCompare(uVar5,0,"==")) ? 753 : 752; continue; }
     case 755: { (pcVar16 = pcVar12); pc = 754; continue; }
     case 756: { (pcVar12 = 0x619ed0); pc = 755; continue; }
     case 757: { (uVar5 = 4294967295); pc = 756; continue; }
     case 758: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")))); pc = 757; continue; }
     case 759: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 758; continue; }
-    case 760: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 765 : 759; continue; }
+    case 760: { pc = (cCompare(cVar1,0,"!=")) ? 765 : 759; continue; }
     case 761: { (pcVar12 = cAdd(pcVar12,1)); pc = 760; continue; }
     case 762: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 761; continue; }
     case 763: { (uVar5 = cSub(uVar5,1)); pc = 762; continue; }
     case 764: { pc = 759; continue; }
-    case 765: { pc = cTruth(cCompare(uVar5,0,"==")) ? 764 : 763; continue; }
+    case 765: { pc = (cCompare(uVar5,0,"==")) ? 764 : 763; continue; }
     case 766: { (pcVar12 = framePointer(localFrame,308)); pc = 765; continue; }
     case 767: { (uVar5 = 4294967295); pc = 766; continue; }
-    case 768: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 772 : 767; continue; }
+    case 768: { pc = (cCompare(uVar5,0,"!=")) ? 772 : 767; continue; }
     case 769: { (uVar5 = cSub(uVar5,1)); pc = 768; continue; }
     case 770: { (pcVar16 = cAdd(pcVar16,1)); pc = 769; continue; }
     case 771: { (pcVar12 = cAdd(pcVar12,1)); pc = 770; continue; }
     case 772: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 771; continue; }
     case 773: { (uVar5 = cBits(uVar5,3,"&")); pc = 768; continue; }
-    case 774: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 778 : 773; continue; }
+    case 774: { pc = (cCompare(uVar6,0,"!=")) ? 778 : 773; continue; }
     case 775: { (uVar6 = cSub(uVar6,1)); pc = 774; continue; }
     case 776: { (pcVar16 = cAdd(pcVar16,4)); pc = 775; continue; }
     case 777: { (pcVar12 = cAdd(pcVar12,4)); pc = 776; continue; }
@@ -4048,38 +4049,38 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 779: { (uVar6 = cBits(uVar5,2,">>")); pc = 774; continue; }
     case 780: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 779; continue; }
     case 781: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 780; continue; }
-    case 782: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 789 : 781; continue; }
+    case 782: { pc = (cCompare(cVar1,0,"!=")) ? 789 : 781; continue; }
     case 783: { (pcVar12 = pcVar15); pc = 782; continue; }
     case 784: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 783; continue; }
     case 785: { (pcVar15 = cAdd(pcVar12,1)); pc = 784; continue; }
     case 786: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 785; continue; }
     case 787: { pc = 781; continue; }
-    case 788: { pc = cTruth(cCompare(iVar7,0,"==")) ? 787 : 786; continue; }
+    case 788: { pc = (cCompare(iVar7,0,"==")) ? 787 : 786; continue; }
     case 789: { (pcVar15 = pcVar12); pc = 788; continue; }
     case 790: { (pcVar12 = framePointer(localFrame,308)); pc = 789; continue; }
     case 791: { (iVar7 = cNeg(1)); pc = 790; continue; }
     case 792: { (uVar5 = cBits(uVar5,0,"~")); pc = 791; continue; }
-    case 793: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 800 : 792; continue; }
+    case 793: { pc = (cCompare(cVar1,0,"!=")) ? 800 : 792; continue; }
     case 794: { (pcVar12 = pcVar16); pc = 793; continue; }
     case 795: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 794; continue; }
     case 796: { (pcVar16 = cAdd(pcVar12,1)); pc = 795; continue; }
     case 797: { (uVar5 = cSub(uVar5,1)); pc = 796; continue; }
     case 798: { pc = 792; continue; }
-    case 799: { pc = cTruth(cCompare(uVar5,0,"==")) ? 798 : 797; continue; }
+    case 799: { pc = (cCompare(uVar5,0,"==")) ? 798 : 797; continue; }
     case 800: { (pcVar16 = pcVar12); pc = 799; continue; }
     case 801: { (pcVar12 = framePointer(localFrame,372)); pc = 800; continue; }
     case 802: { (uVar5 = 4294967295); pc = 801; continue; }
     case 803: { drawingPrintf(memory,framePointer(localFrame,372),0x4dd400,r32(0x4fe9cc),iVar7); pc = 802; continue; }
     case 804: { (iVar7 = cAdd(r32(0x4fe9cc),cNeg(12))); pc = 803; continue; }
-    case 805: { pc = cTruth(cCompare(23,iVar7,"<")) ? 804 : 803; continue; }
+    case 805: { pc = (cCompare(23,iVar7,"<")) ? 804 : 803; continue; }
     case 806: { (iVar7 = cAdd(r32(0x4fe9cc),12)); pc = 805; continue; }
-    case 807: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 811 : 806; continue; }
+    case 807: { pc = (cCompare(uVar5,0,"!=")) ? 811 : 806; continue; }
     case 808: { (uVar5 = cSub(uVar5,1)); pc = 807; continue; }
     case 809: { (pcVar16 = cAdd(pcVar16,1)); pc = 808; continue; }
     case 810: { (pcVar12 = cAdd(pcVar12,1)); pc = 809; continue; }
     case 811: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 810; continue; }
     case 812: { (uVar5 = cBits(uVar5,3,"&")); pc = 807; continue; }
-    case 813: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 817 : 812; continue; }
+    case 813: { pc = (cCompare(uVar6,0,"!=")) ? 817 : 812; continue; }
     case 814: { (uVar6 = cSub(uVar6,1)); pc = 813; continue; }
     case 815: { (pcVar16 = cAdd(pcVar16,4)); pc = 814; continue; }
     case 816: { (pcVar12 = cAdd(pcVar12,4)); pc = 815; continue; }
@@ -4088,51 +4089,51 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 819: { (pcVar16 = framePointer(localFrame,308)); pc = 818; continue; }
     case 820: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 819; continue; }
     case 821: { (uVar5 = cBits(uVar5,0,"~")); pc = 820; continue; }
-    case 822: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 829 : 821; continue; }
+    case 822: { pc = (cCompare(cVar1,0,"!=")) ? 829 : 821; continue; }
     case 823: { (pcVar12 = pcVar16); pc = 822; continue; }
     case 824: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 823; continue; }
     case 825: { (pcVar16 = cAdd(pcVar12,1)); pc = 824; continue; }
     case 826: { (uVar5 = cSub(uVar5,1)); pc = 825; continue; }
     case 827: { pc = 821; continue; }
-    case 828: { pc = cTruth(cCompare(uVar5,0,"==")) ? 827 : 826; continue; }
+    case 828: { pc = (cCompare(uVar5,0,"==")) ? 827 : 826; continue; }
     case 829: { (pcVar16 = pcVar12); pc = 828; continue; }
     case 830: { (pcVar12 = 0x619ee0); pc = 829; continue; }
     case 831: { (uVar5 = 4294967295); pc = 830; continue; }
     case 832: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,260),4,"int")))); pc = 831; continue; }
-    case 833: { pc = cTruth((cTruth(cCompare(0,r32(0x5359d0),"<")) && cTruth(cCompare(r32(0x536510),0,"==")))) ? 832 : 116; continue; }
+    case 833: { pc = (((cCompare(0,r32(0x5359d0),"<")) && (cCompare(r32(0x536510),0,"==")))) ? 832 : 116; continue; }
     case 834: { dc.setTextColor(8323072); pc = 833; continue; }
-    case 835: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 834 : 833; continue; }
+    case 835: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 834 : 833; continue; }
     case 836: { textOutCount(dc,memory,20,cI32(pcVar8,false),pcVar12,iVar7); pc = 835; continue; }
     case 837: { (pcVar12 = 0x4dd444); pc = 836; continue; }
     case 838: { (iVar7 = 25); pc = 837; continue; }
     case 839: { (pcVar12 = 0x4dd434); pc = 836; continue; }
     case 840: { (iVar7 = 15); pc = 839; continue; }
-    case 841: { pc = cTruth(cCompare(r32(0x4da1f8),12,"==")) ? 838 : 840; continue; }
+    case 841: { pc = (cCompare(r32(0x4da1f8),12,"==")) ? 838 : 840; continue; }
     case 842: { dc.setTextColor(8355711); pc = 841; continue; }
-    case 843: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 842 : 841; continue; }
+    case 843: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 842 : 841; continue; }
     case 844: { (pcVar12 = 0x4dd424); pc = 836; continue; }
     case 845: { (iVar7 = 14); pc = 844; continue; }
     case 846: { dc.setTextColor(32639); pc = 845; continue; }
-    case 847: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 846 : 845; continue; }
-    case 848: { pc = cTruth(cCompare(r32(0x5359d8),1,"==")) ? 843 : 847; continue; }
-    case 849: { pc = cTruth(cCompare(r32(0x4da1f8),999,"<")) ? 848 : 835; continue; }
+    case 847: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 846 : 845; continue; }
+    case 848: { pc = (cCompare(r32(0x5359d8),1,"==")) ? 843 : 847; continue; }
+    case 849: { pc = (cCompare(r32(0x4da1f8),999,"<")) ? 848 : 835; continue; }
     case 850: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,260),4,"int")))); pc = 849; continue; }
     case 851: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 850; continue; }
-    case 852: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 857 : 851; continue; }
+    case 852: { pc = (cCompare(cVar1,0,"!=")) ? 857 : 851; continue; }
     case 853: { (pcVar12 = cAdd(pcVar12,1)); pc = 852; continue; }
     case 854: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 853; continue; }
     case 855: { (uVar5 = cSub(uVar5,1)); pc = 854; continue; }
     case 856: { pc = 851; continue; }
-    case 857: { pc = cTruth(cCompare(uVar5,0,"==")) ? 856 : 855; continue; }
+    case 857: { pc = (cCompare(uVar5,0,"==")) ? 856 : 855; continue; }
     case 858: { (pcVar12 = framePointer(localFrame,308)); pc = 857; continue; }
     case 859: { (uVar5 = 4294967295); pc = 858; continue; }
-    case 860: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 864 : 859; continue; }
+    case 860: { pc = (cCompare(uVar5,0,"!=")) ? 864 : 859; continue; }
     case 861: { (uVar5 = cSub(uVar5,1)); pc = 860; continue; }
     case 862: { (pcVar16 = cAdd(pcVar16,1)); pc = 861; continue; }
     case 863: { (pcVar12 = cAdd(pcVar12,1)); pc = 862; continue; }
     case 864: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 863; continue; }
     case 865: { (uVar5 = cBits(uVar5,3,"&")); pc = 860; continue; }
-    case 866: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 870 : 865; continue; }
+    case 866: { pc = (cCompare(uVar6,0,"!=")) ? 870 : 865; continue; }
     case 867: { (uVar6 = cSub(uVar6,1)); pc = 866; continue; }
     case 868: { (pcVar16 = cAdd(pcVar16,4)); pc = 867; continue; }
     case 869: { (pcVar12 = cAdd(pcVar12,4)); pc = 868; continue; }
@@ -4140,35 +4141,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 871: { (uVar6 = cBits(uVar5,2,">>")); pc = 866; continue; }
     case 872: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 871; continue; }
     case 873: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 872; continue; }
-    case 874: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 881 : 873; continue; }
+    case 874: { pc = (cCompare(cVar1,0,"!=")) ? 881 : 873; continue; }
     case 875: { (pcVar12 = pcVar15); pc = 874; continue; }
     case 876: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 875; continue; }
     case 877: { (pcVar15 = cAdd(pcVar12,1)); pc = 876; continue; }
     case 878: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 877; continue; }
     case 879: { pc = 873; continue; }
-    case 880: { pc = cTruth(cCompare(iVar7,0,"==")) ? 879 : 878; continue; }
+    case 880: { pc = (cCompare(iVar7,0,"==")) ? 879 : 878; continue; }
     case 881: { (pcVar15 = pcVar12); pc = 880; continue; }
     case 882: { (pcVar12 = framePointer(localFrame,308)); pc = 881; continue; }
     case 883: { (iVar7 = cNeg(1)); pc = 882; continue; }
     case 884: { (uVar5 = cBits(uVar5,0,"~")); pc = 883; continue; }
-    case 885: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 892 : 884; continue; }
+    case 885: { pc = (cCompare(cVar1,0,"!=")) ? 892 : 884; continue; }
     case 886: { (pcVar12 = pcVar16); pc = 885; continue; }
     case 887: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 886; continue; }
     case 888: { (pcVar16 = cAdd(pcVar12,1)); pc = 887; continue; }
     case 889: { (uVar5 = cSub(uVar5,1)); pc = 888; continue; }
     case 890: { pc = 884; continue; }
-    case 891: { pc = cTruth(cCompare(uVar5,0,"==")) ? 890 : 889; continue; }
+    case 891: { pc = (cCompare(uVar5,0,"==")) ? 890 : 889; continue; }
     case 892: { (pcVar16 = pcVar12); pc = 891; continue; }
     case 893: { (pcVar12 = framePointer(localFrame,372)); pc = 892; continue; }
     case 894: { (uVar5 = 4294967295); pc = 893; continue; }
     case 895: { drawingPrintf(memory,framePointer(localFrame,372),0x4dd460,r32(0x522ad0)); pc = 894; continue; }
-    case 896: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 900 : 895; continue; }
+    case 896: { pc = (cCompare(uVar5,0,"!=")) ? 900 : 895; continue; }
     case 897: { (uVar5 = cSub(uVar5,1)); pc = 896; continue; }
     case 898: { (pcVar16 = cAdd(pcVar16,1)); pc = 897; continue; }
     case 899: { (pcVar12 = cAdd(pcVar12,1)); pc = 898; continue; }
     case 900: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 899; continue; }
     case 901: { (uVar5 = cBits(uVar5,3,"&")); pc = 896; continue; }
-    case 902: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 906 : 901; continue; }
+    case 902: { pc = (cCompare(uVar6,0,"!=")) ? 906 : 901; continue; }
     case 903: { (uVar6 = cSub(uVar6,1)); pc = 902; continue; }
     case 904: { (pcVar16 = cAdd(pcVar16,4)); pc = 903; continue; }
     case 905: { (pcVar12 = cAdd(pcVar12,4)); pc = 904; continue; }
@@ -4177,35 +4178,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 908: { (pcVar16 = framePointer(localFrame,308)); pc = 907; continue; }
     case 909: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 908; continue; }
     case 910: { (uVar5 = cBits(uVar5,0,"~")); pc = 909; continue; }
-    case 911: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 918 : 910; continue; }
+    case 911: { pc = (cCompare(cVar1,0,"!=")) ? 918 : 910; continue; }
     case 912: { (pcVar12 = pcVar16); pc = 911; continue; }
     case 913: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 912; continue; }
     case 914: { (pcVar16 = cAdd(pcVar12,1)); pc = 913; continue; }
     case 915: { (uVar5 = cSub(uVar5,1)); pc = 914; continue; }
     case 916: { pc = 910; continue; }
-    case 917: { pc = cTruth(cCompare(uVar5,0,"==")) ? 916 : 915; continue; }
+    case 917: { pc = (cCompare(uVar5,0,"==")) ? 916 : 915; continue; }
     case 918: { (pcVar16 = pcVar12); pc = 917; continue; }
     case 919: { (pcVar12 = 0x4dd46c); pc = 918; continue; }
     case 920: { (uVar5 = 4294967295); pc = 919; continue; }
     case 921: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")))); pc = 920; continue; }
     case 922: { dc.setTextColor(32512); pc = 921; continue; }
-    case 923: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 922 : 921; continue; }
+    case 923: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 922 : 921; continue; }
     case 924: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 923; continue; }
-    case 925: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 930 : 924; continue; }
+    case 925: { pc = (cCompare(cVar1,0,"!=")) ? 930 : 924; continue; }
     case 926: { (pcVar12 = cAdd(pcVar12,1)); pc = 925; continue; }
     case 927: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 926; continue; }
     case 928: { (uVar5 = cSub(uVar5,1)); pc = 927; continue; }
     case 929: { pc = 924; continue; }
-    case 930: { pc = cTruth(cCompare(uVar5,0,"==")) ? 929 : 928; continue; }
+    case 930: { pc = (cCompare(uVar5,0,"==")) ? 929 : 928; continue; }
     case 931: { (pcVar12 = framePointer(localFrame,308)); pc = 930; continue; }
     case 932: { (uVar5 = 4294967295); pc = 931; continue; }
-    case 933: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 937 : 932; continue; }
+    case 933: { pc = (cCompare(uVar5,0,"!=")) ? 937 : 932; continue; }
     case 934: { (uVar5 = cSub(uVar5,1)); pc = 933; continue; }
     case 935: { (pcVar16 = cAdd(pcVar16,1)); pc = 934; continue; }
     case 936: { (pcVar12 = cAdd(pcVar12,1)); pc = 935; continue; }
     case 937: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 936; continue; }
     case 938: { (uVar5 = cBits(uVar5,3,"&")); pc = 933; continue; }
-    case 939: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 943 : 938; continue; }
+    case 939: { pc = (cCompare(uVar6,0,"!=")) ? 943 : 938; continue; }
     case 940: { (uVar6 = cSub(uVar6,1)); pc = 939; continue; }
     case 941: { (pcVar16 = cAdd(pcVar16,4)); pc = 940; continue; }
     case 942: { (pcVar12 = cAdd(pcVar12,4)); pc = 941; continue; }
@@ -4213,35 +4214,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 944: { (uVar6 = cBits(uVar5,2,">>")); pc = 939; continue; }
     case 945: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 944; continue; }
     case 946: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 945; continue; }
-    case 947: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 954 : 946; continue; }
+    case 947: { pc = (cCompare(cVar1,0,"!=")) ? 954 : 946; continue; }
     case 948: { (pcVar12 = pcVar15); pc = 947; continue; }
     case 949: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 948; continue; }
     case 950: { (pcVar15 = cAdd(pcVar12,1)); pc = 949; continue; }
     case 951: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 950; continue; }
     case 952: { pc = 946; continue; }
-    case 953: { pc = cTruth(cCompare(iVar7,0,"==")) ? 952 : 951; continue; }
+    case 953: { pc = (cCompare(iVar7,0,"==")) ? 952 : 951; continue; }
     case 954: { (pcVar15 = pcVar12); pc = 953; continue; }
     case 955: { (pcVar12 = framePointer(localFrame,308)); pc = 954; continue; }
     case 956: { (iVar7 = cNeg(1)); pc = 955; continue; }
     case 957: { (uVar5 = cBits(uVar5,0,"~")); pc = 956; continue; }
-    case 958: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 965 : 957; continue; }
+    case 958: { pc = (cCompare(cVar1,0,"!=")) ? 965 : 957; continue; }
     case 959: { (pcVar12 = pcVar16); pc = 958; continue; }
     case 960: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 959; continue; }
     case 961: { (pcVar16 = cAdd(pcVar12,1)); pc = 960; continue; }
     case 962: { (uVar5 = cSub(uVar5,1)); pc = 961; continue; }
     case 963: { pc = 957; continue; }
-    case 964: { pc = cTruth(cCompare(uVar5,0,"==")) ? 963 : 962; continue; }
+    case 964: { pc = (cCompare(uVar5,0,"==")) ? 963 : 962; continue; }
     case 965: { (pcVar16 = pcVar12); pc = 964; continue; }
     case 966: { (pcVar12 = framePointer(localFrame,372)); pc = 965; continue; }
     case 967: { (uVar5 = 4294967295); pc = 966; continue; }
     case 968: { drawingPrintf(memory,framePointer(localFrame,372),0x4dd490,r32(0x4f6d60),r32(0x4fad34)); pc = 967; continue; }
-    case 969: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 973 : 968; continue; }
+    case 969: { pc = (cCompare(uVar5,0,"!=")) ? 973 : 968; continue; }
     case 970: { (uVar5 = cSub(uVar5,1)); pc = 969; continue; }
     case 971: { (pcVar16 = cAdd(pcVar16,1)); pc = 970; continue; }
     case 972: { (pcVar12 = cAdd(pcVar12,1)); pc = 971; continue; }
     case 973: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 972; continue; }
     case 974: { (uVar5 = cBits(uVar5,3,"&")); pc = 969; continue; }
-    case 975: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 979 : 974; continue; }
+    case 975: { pc = (cCompare(uVar6,0,"!=")) ? 979 : 974; continue; }
     case 976: { (uVar6 = cSub(uVar6,1)); pc = 975; continue; }
     case 977: { (pcVar16 = cAdd(pcVar16,4)); pc = 976; continue; }
     case 978: { (pcVar12 = cAdd(pcVar12,4)); pc = 977; continue; }
@@ -4250,19 +4251,19 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 981: { (pcVar16 = framePointer(localFrame,308)); pc = 980; continue; }
     case 982: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 981; continue; }
     case 983: { (uVar5 = cBits(uVar5,0,"~")); pc = 982; continue; }
-    case 984: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 991 : 983; continue; }
+    case 984: { pc = (cCompare(cVar1,0,"!=")) ? 991 : 983; continue; }
     case 985: { (pcVar12 = pcVar16); pc = 984; continue; }
     case 986: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 985; continue; }
     case 987: { (pcVar16 = cAdd(pcVar12,1)); pc = 986; continue; }
     case 988: { (uVar5 = cSub(uVar5,1)); pc = 987; continue; }
     case 989: { pc = 983; continue; }
-    case 990: { pc = cTruth(cCompare(uVar5,0,"==")) ? 989 : 988; continue; }
+    case 990: { pc = (cCompare(uVar5,0,"==")) ? 989 : 988; continue; }
     case 991: { (pcVar16 = pcVar12); pc = 990; continue; }
     case 992: { (pcVar12 = 0x4dd4a4); pc = 991; continue; }
     case 993: { (uVar5 = 4294967295); pc = 992; continue; }
     case 994: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,260),4,"int")))); pc = 993; continue; }
     case 995: { dc.setTextColor(127); pc = 994; continue; }
-    case 996: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 995 : 994; continue; }
+    case 996: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 995 : 994; continue; }
     case 997: { invokeDrawingPointer(pcVar9,dc,[hdc,20,cI32(pcVar8,false),pcVar12,iVar7]); pc = 996; continue; }
     case 998: { (pcVar12 = 0x4dd4b4); pc = 997; continue; }
     case 999: { (iVar7 = 18); pc = 998; continue; }
@@ -4270,32 +4271,32 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1001: { (iVar7 = 27); pc = 1000; continue; }
     case 1002: { (pcVar12 = 0x4dd4c8); pc = 997; continue; }
     case 1003: { (iVar7 = 17); pc = 1002; continue; }
-    case 1004: { pc = cTruth(cCompare(r32(0x4da19c),6,"==")) ? 1001 : 1003; continue; }
-    case 1005: { pc = cTruth((cTruth(cCompare(r32(0x4da1f8),10,"==")) || cTruth(cCompare(r32(0x4da1f8),12,"==")))) ? 999 : 1004; continue; }
-    case 1006: { pc = cTruth(cCompare(4,r32(0x4fea5c),"<")) ? 1005 : 996; continue; }
+    case 1004: { pc = (cCompare(r32(0x4da19c),6,"==")) ? 1001 : 1003; continue; }
+    case 1005: { pc = (((cCompare(r32(0x4da1f8),10,"==")) || (cCompare(r32(0x4da1f8),12,"==")))) ? 999 : 1004; continue; }
+    case 1006: { pc = (cCompare(4,r32(0x4fea5c),"<")) ? 1005 : 996; continue; }
     case 1007: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")))); pc = 1006; continue; }
     case 1008: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),iVar7); pc = 1007; continue; }
     case 1009: { (pcVar9 = importDrawingMethod(dc,memory,"TextOutA")); pc = 1008; continue; }
     case 1010: { (iVar7 = drawingPrintf(memory,framePointer(localFrame,308),0x619ef0,r32(0x4faf8c))); pc = 1009; continue; }
-    case 1011: { pc = cTruth(cCompare(r32(0x4da1f8),0,"==")) ? 1010 : 1006; continue; }
+    case 1011: { pc = (cCompare(r32(0x4da1f8),0,"==")) ? 1010 : 1006; continue; }
     case 1012: { (pcVar9 = importDrawingMethod(dc,memory,"TextOutA")); pc = 1011; continue; }
     case 1013: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,260),4,"int")))); pc = 1012; continue; }
     case 1014: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 1013; continue; }
-    case 1015: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1020 : 1014; continue; }
+    case 1015: { pc = (cCompare(cVar1,0,"!=")) ? 1020 : 1014; continue; }
     case 1016: { (pcVar12 = cAdd(pcVar12,1)); pc = 1015; continue; }
     case 1017: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1016; continue; }
     case 1018: { (uVar5 = cSub(uVar5,1)); pc = 1017; continue; }
     case 1019: { pc = 1014; continue; }
-    case 1020: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1019 : 1018; continue; }
+    case 1020: { pc = (cCompare(uVar5,0,"==")) ? 1019 : 1018; continue; }
     case 1021: { (pcVar12 = framePointer(localFrame,308)); pc = 1020; continue; }
     case 1022: { (uVar5 = 4294967295); pc = 1021; continue; }
-    case 1023: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1027 : 1022; continue; }
+    case 1023: { pc = (cCompare(uVar5,0,"!=")) ? 1027 : 1022; continue; }
     case 1024: { (uVar5 = cSub(uVar5,1)); pc = 1023; continue; }
     case 1025: { (pcVar16 = cAdd(pcVar16,1)); pc = 1024; continue; }
     case 1026: { (pcVar12 = cAdd(pcVar12,1)); pc = 1025; continue; }
     case 1027: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1026; continue; }
     case 1028: { (uVar5 = cBits(uVar5,3,"&")); pc = 1023; continue; }
-    case 1029: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1033 : 1028; continue; }
+    case 1029: { pc = (cCompare(uVar6,0,"!=")) ? 1033 : 1028; continue; }
     case 1030: { (uVar6 = cSub(uVar6,1)); pc = 1029; continue; }
     case 1031: { (pcVar16 = cAdd(pcVar16,4)); pc = 1030; continue; }
     case 1032: { (pcVar12 = cAdd(pcVar12,4)); pc = 1031; continue; }
@@ -4303,35 +4304,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1034: { (uVar6 = cBits(uVar5,2,">>")); pc = 1029; continue; }
     case 1035: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 1034; continue; }
     case 1036: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 1035; continue; }
-    case 1037: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1044 : 1036; continue; }
+    case 1037: { pc = (cCompare(cVar1,0,"!=")) ? 1044 : 1036; continue; }
     case 1038: { (pcVar12 = pcVar15); pc = 1037; continue; }
     case 1039: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1038; continue; }
     case 1040: { (pcVar15 = cAdd(pcVar12,1)); pc = 1039; continue; }
     case 1041: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1040; continue; }
     case 1042: { pc = 1036; continue; }
-    case 1043: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1042 : 1041; continue; }
+    case 1043: { pc = (cCompare(iVar7,0,"==")) ? 1042 : 1041; continue; }
     case 1044: { (pcVar15 = pcVar12); pc = 1043; continue; }
     case 1045: { (pcVar12 = framePointer(localFrame,308)); pc = 1044; continue; }
     case 1046: { (iVar7 = cNeg(1)); pc = 1045; continue; }
     case 1047: { (uVar5 = cBits(uVar5,0,"~")); pc = 1046; continue; }
-    case 1048: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1055 : 1047; continue; }
+    case 1048: { pc = (cCompare(cVar1,0,"!=")) ? 1055 : 1047; continue; }
     case 1049: { (pcVar12 = pcVar16); pc = 1048; continue; }
     case 1050: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1049; continue; }
     case 1051: { (pcVar16 = cAdd(pcVar12,1)); pc = 1050; continue; }
     case 1052: { (uVar5 = cSub(uVar5,1)); pc = 1051; continue; }
     case 1053: { pc = 1047; continue; }
-    case 1054: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1053 : 1052; continue; }
+    case 1054: { pc = (cCompare(uVar5,0,"==")) ? 1053 : 1052; continue; }
     case 1055: { (pcVar16 = pcVar12); pc = 1054; continue; }
     case 1056: { (pcVar12 = framePointer(localFrame,372)); pc = 1055; continue; }
     case 1057: { (uVar5 = 4294967295); pc = 1056; continue; }
     case 1058: { drawingPrintf(memory,framePointer(localFrame,372),0x4dd514,cAdd(r32(0x4fe074),cNeg(2)),cAdd(r32(0x4fe074),3)); pc = 1057; continue; }
-    case 1059: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1063 : 1058; continue; }
+    case 1059: { pc = (cCompare(uVar5,0,"!=")) ? 1063 : 1058; continue; }
     case 1060: { (uVar5 = cSub(uVar5,1)); pc = 1059; continue; }
     case 1061: { (pcVar16 = cAdd(pcVar16,1)); pc = 1060; continue; }
     case 1062: { (pcVar12 = cAdd(pcVar12,1)); pc = 1061; continue; }
     case 1063: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1062; continue; }
     case 1064: { (uVar5 = cBits(uVar5,3,"&")); pc = 1059; continue; }
-    case 1065: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1069 : 1064; continue; }
+    case 1065: { pc = (cCompare(uVar6,0,"!=")) ? 1069 : 1064; continue; }
     case 1066: { (uVar6 = cSub(uVar6,1)); pc = 1065; continue; }
     case 1067: { (pcVar16 = cAdd(pcVar16,4)); pc = 1066; continue; }
     case 1068: { (pcVar12 = cAdd(pcVar12,4)); pc = 1067; continue; }
@@ -4339,34 +4340,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1070: { (uVar6 = cBits(uVar5,2,">>")); pc = 1065; continue; }
     case 1071: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1070; continue; }
     case 1072: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1071; continue; }
-    case 1073: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1080 : 1072; continue; }
+    case 1073: { pc = (cCompare(cVar1,0,"!=")) ? 1080 : 1072; continue; }
     case 1074: { (pcVar12 = pcVar16); pc = 1073; continue; }
     case 1075: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1074; continue; }
     case 1076: { (pcVar16 = cAdd(pcVar12,1)); pc = 1075; continue; }
     case 1077: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1076; continue; }
     case 1078: { pc = 1072; continue; }
-    case 1079: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1078 : 1077; continue; }
+    case 1079: { pc = (cCompare(iVar7,0,"==")) ? 1078 : 1077; continue; }
     case 1080: { (pcVar16 = pcVar12); pc = 1079; continue; }
     case 1081: { (pcVar12 = framePointer(localFrame,308)); pc = 1080; continue; }
     case 1082: { (iVar7 = cNeg(1)); pc = 1081; continue; }
     case 1083: { (uVar5 = cBits(uVar5,0,"~")); pc = 1082; continue; }
-    case 1084: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1091 : 1083; continue; }
+    case 1084: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1091 : 1083; continue; }
     case 1085: { (pTVar3 = pTVar4); pc = 1084; continue; }
     case 1086: { (ppcVar2 = pTVar3); pc = 1085; continue; }
     case 1087: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1086; continue; }
     case 1088: { (uVar5 = cSub(uVar5,1)); pc = 1087; continue; }
     case 1089: { pc = 1083; continue; }
-    case 1090: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1089 : 1088; continue; }
+    case 1090: { pc = (cCompare(uVar5,0,"==")) ? 1089 : 1088; continue; }
     case 1091: { (pTVar4 = pTVar3); pc = 1090; continue; }
     case 1092: { (pTVar3 = framePointer(localFrame,284)); pc = 1091; continue; }
     case 1093: { (uVar5 = 4294967295); pc = 1092; continue; }
-    case 1094: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1098 : 1093; continue; }
+    case 1094: { pc = (cCompare(uVar5,0,"!=")) ? 1098 : 1093; continue; }
     case 1095: { (uVar5 = cSub(uVar5,1)); pc = 1094; continue; }
     case 1096: { (pcVar16 = cAdd(pcVar16,1)); pc = 1095; continue; }
     case 1097: { (pcVar12 = cAdd(pcVar12,1)); pc = 1096; continue; }
     case 1098: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1097; continue; }
     case 1099: { (uVar5 = cBits(uVar5,3,"&")); pc = 1094; continue; }
-    case 1100: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1104 : 1099; continue; }
+    case 1100: { pc = (cCompare(uVar6,0,"!=")) ? 1104 : 1099; continue; }
     case 1101: { (uVar6 = cSub(uVar6,1)); pc = 1100; continue; }
     case 1102: { (pcVar16 = cAdd(pcVar16,4)); pc = 1101; continue; }
     case 1103: { (pcVar12 = cAdd(pcVar12,4)); pc = 1102; continue; }
@@ -4374,35 +4375,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1105: { (uVar6 = cBits(uVar5,2,">>")); pc = 1100; continue; }
     case 1106: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1105; continue; }
     case 1107: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1106; continue; }
-    case 1108: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1115 : 1107; continue; }
+    case 1108: { pc = (cCompare(cVar1,0,"!=")) ? 1115 : 1107; continue; }
     case 1109: { (pcVar12 = pcVar16); pc = 1108; continue; }
     case 1110: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1109; continue; }
     case 1111: { (pcVar16 = cAdd(pcVar12,1)); pc = 1110; continue; }
     case 1112: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1111; continue; }
     case 1113: { pc = 1107; continue; }
-    case 1114: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1113 : 1112; continue; }
+    case 1114: { pc = (cCompare(iVar7,0,"==")) ? 1113 : 1112; continue; }
     case 1115: { (pcVar16 = pcVar12); pc = 1114; continue; }
     case 1116: { (pcVar12 = framePointer(localFrame,308)); pc = 1115; continue; }
     case 1117: { (iVar7 = cNeg(1)); pc = 1116; continue; }
     case 1118: { (uVar5 = cBits(uVar5,0,"~")); pc = 1117; continue; }
-    case 1119: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1126 : 1118; continue; }
+    case 1119: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1126 : 1118; continue; }
     case 1120: { (pTVar3 = pTVar4); pc = 1119; continue; }
     case 1121: { (ppcVar2 = pTVar3); pc = 1120; continue; }
     case 1122: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1121; continue; }
     case 1123: { (uVar5 = cSub(uVar5,1)); pc = 1122; continue; }
     case 1124: { pc = 1118; continue; }
-    case 1125: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1124 : 1123; continue; }
+    case 1125: { pc = (cCompare(uVar5,0,"==")) ? 1124 : 1123; continue; }
     case 1126: { (pTVar4 = pTVar3); pc = 1125; continue; }
     case 1127: { (pTVar3 = framePointer(localFrame,268)); pc = 1126; continue; }
     case 1128: { (uVar5 = 4294967295); pc = 1127; continue; }
-    case 1129: { pc = cTruth(cCompare(r32(0x4fad38),8,"==")) ? 1128 : 1058; continue; }
-    case 1130: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1134 : 1129; continue; }
+    case 1129: { pc = (cCompare(r32(0x4fad38),8,"==")) ? 1128 : 1058; continue; }
+    case 1130: { pc = (cCompare(uVar5,0,"!=")) ? 1134 : 1129; continue; }
     case 1131: { (uVar5 = cSub(uVar5,1)); pc = 1130; continue; }
     case 1132: { (pcVar16 = cAdd(pcVar16,1)); pc = 1131; continue; }
     case 1133: { (pcVar12 = cAdd(pcVar12,1)); pc = 1132; continue; }
     case 1134: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1133; continue; }
     case 1135: { (uVar5 = cBits(uVar5,3,"&")); pc = 1130; continue; }
-    case 1136: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1140 : 1135; continue; }
+    case 1136: { pc = (cCompare(uVar6,0,"!=")) ? 1140 : 1135; continue; }
     case 1137: { (uVar6 = cSub(uVar6,1)); pc = 1136; continue; }
     case 1138: { (pcVar16 = cAdd(pcVar16,4)); pc = 1137; continue; }
     case 1139: { (pcVar12 = cAdd(pcVar12,4)); pc = 1138; continue; }
@@ -4410,35 +4411,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1141: { (uVar6 = cBits(uVar5,2,">>")); pc = 1136; continue; }
     case 1142: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1141; continue; }
     case 1143: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1142; continue; }
-    case 1144: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1151 : 1143; continue; }
+    case 1144: { pc = (cCompare(cVar1,0,"!=")) ? 1151 : 1143; continue; }
     case 1145: { (pcVar12 = pcVar16); pc = 1144; continue; }
     case 1146: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1145; continue; }
     case 1147: { (pcVar16 = cAdd(pcVar12,1)); pc = 1146; continue; }
     case 1148: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1147; continue; }
     case 1149: { pc = 1143; continue; }
-    case 1150: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1149 : 1148; continue; }
+    case 1150: { pc = (cCompare(iVar7,0,"==")) ? 1149 : 1148; continue; }
     case 1151: { (pcVar16 = pcVar12); pc = 1150; continue; }
     case 1152: { (pcVar12 = framePointer(localFrame,308)); pc = 1151; continue; }
     case 1153: { (iVar7 = cNeg(1)); pc = 1152; continue; }
     case 1154: { (uVar5 = cBits(uVar5,0,"~")); pc = 1153; continue; }
-    case 1155: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1162 : 1154; continue; }
+    case 1155: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1162 : 1154; continue; }
     case 1156: { (pTVar3 = pTVar4); pc = 1155; continue; }
     case 1157: { (ppcVar2 = pTVar3); pc = 1156; continue; }
     case 1158: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1157; continue; }
     case 1159: { (uVar5 = cSub(uVar5,1)); pc = 1158; continue; }
     case 1160: { pc = 1154; continue; }
-    case 1161: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1160 : 1159; continue; }
+    case 1161: { pc = (cCompare(uVar5,0,"==")) ? 1160 : 1159; continue; }
     case 1162: { (pTVar4 = pTVar3); pc = 1161; continue; }
     case 1163: { (pTVar3 = framePointer(localFrame,284)); pc = 1162; continue; }
     case 1164: { (uVar5 = 4294967295); pc = 1163; continue; }
-    case 1165: { pc = cTruth(cCompare(r32(0x4fad38),7,"==")) ? 1164 : 1129; continue; }
-    case 1166: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1170 : 1165; continue; }
+    case 1165: { pc = (cCompare(r32(0x4fad38),7,"==")) ? 1164 : 1129; continue; }
+    case 1166: { pc = (cCompare(uVar5,0,"!=")) ? 1170 : 1165; continue; }
     case 1167: { (uVar5 = cSub(uVar5,1)); pc = 1166; continue; }
     case 1168: { (pcVar16 = cAdd(pcVar16,1)); pc = 1167; continue; }
     case 1169: { (pcVar12 = cAdd(pcVar12,1)); pc = 1168; continue; }
     case 1170: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1169; continue; }
     case 1171: { (uVar5 = cBits(uVar5,3,"&")); pc = 1166; continue; }
-    case 1172: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1176 : 1171; continue; }
+    case 1172: { pc = (cCompare(uVar6,0,"!=")) ? 1176 : 1171; continue; }
     case 1173: { (uVar6 = cSub(uVar6,1)); pc = 1172; continue; }
     case 1174: { (pcVar16 = cAdd(pcVar16,4)); pc = 1173; continue; }
     case 1175: { (pcVar12 = cAdd(pcVar12,4)); pc = 1174; continue; }
@@ -4446,34 +4447,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1177: { (uVar6 = cBits(uVar5,2,">>")); pc = 1172; continue; }
     case 1178: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1177; continue; }
     case 1179: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1178; continue; }
-    case 1180: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1187 : 1179; continue; }
+    case 1180: { pc = (cCompare(cVar1,0,"!=")) ? 1187 : 1179; continue; }
     case 1181: { (pcVar12 = pcVar16); pc = 1180; continue; }
     case 1182: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1181; continue; }
     case 1183: { (pcVar16 = cAdd(pcVar12,1)); pc = 1182; continue; }
     case 1184: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1183; continue; }
     case 1185: { pc = 1179; continue; }
-    case 1186: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1185 : 1184; continue; }
+    case 1186: { pc = (cCompare(iVar7,0,"==")) ? 1185 : 1184; continue; }
     case 1187: { (pcVar16 = pcVar12); pc = 1186; continue; }
     case 1188: { (pcVar12 = framePointer(localFrame,308)); pc = 1187; continue; }
     case 1189: { (iVar7 = cNeg(1)); pc = 1188; continue; }
     case 1190: { (uVar5 = cBits(uVar5,0,"~")); pc = 1189; continue; }
-    case 1191: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1198 : 1190; continue; }
+    case 1191: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1198 : 1190; continue; }
     case 1192: { (pTVar3 = pTVar4); pc = 1191; continue; }
     case 1193: { (ppcVar2 = pTVar3); pc = 1192; continue; }
     case 1194: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1193; continue; }
     case 1195: { (uVar5 = cSub(uVar5,1)); pc = 1194; continue; }
     case 1196: { pc = 1190; continue; }
-    case 1197: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1196 : 1195; continue; }
+    case 1197: { pc = (cCompare(uVar5,0,"==")) ? 1196 : 1195; continue; }
     case 1198: { (pTVar4 = pTVar3); pc = 1197; continue; }
     case 1199: { (pTVar3 = framePointer(localFrame,284)); pc = 1198; continue; }
     case 1200: { (uVar5 = 4294967295); pc = 1199; continue; }
-    case 1201: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1205 : 1200; continue; }
+    case 1201: { pc = (cCompare(uVar5,0,"!=")) ? 1205 : 1200; continue; }
     case 1202: { (uVar5 = cSub(uVar5,1)); pc = 1201; continue; }
     case 1203: { (pcVar16 = cAdd(pcVar16,1)); pc = 1202; continue; }
     case 1204: { (pcVar12 = cAdd(pcVar12,1)); pc = 1203; continue; }
     case 1205: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1204; continue; }
     case 1206: { (uVar5 = cBits(uVar5,3,"&")); pc = 1201; continue; }
-    case 1207: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1211 : 1206; continue; }
+    case 1207: { pc = (cCompare(uVar6,0,"!=")) ? 1211 : 1206; continue; }
     case 1208: { (uVar6 = cSub(uVar6,1)); pc = 1207; continue; }
     case 1209: { (pcVar16 = cAdd(pcVar16,4)); pc = 1208; continue; }
     case 1210: { (pcVar12 = cAdd(pcVar12,4)); pc = 1209; continue; }
@@ -4481,35 +4482,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1212: { (uVar6 = cBits(uVar5,2,">>")); pc = 1207; continue; }
     case 1213: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1212; continue; }
     case 1214: { (pcVar12 = cSub(cI32(ppcVar14,false),uVar5)); pc = 1213; continue; }
-    case 1215: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1222 : 1214; continue; }
+    case 1215: { pc = (cCompare(cVar1,0,"!=")) ? 1222 : 1214; continue; }
     case 1216: { (pcVar12 = pcVar16); pc = 1215; continue; }
     case 1217: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1216; continue; }
     case 1218: { (pcVar16 = cAdd(pcVar12,1)); pc = 1217; continue; }
     case 1219: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1218; continue; }
     case 1220: { pc = 1214; continue; }
-    case 1221: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1220 : 1219; continue; }
+    case 1221: { pc = (cCompare(iVar7,0,"==")) ? 1220 : 1219; continue; }
     case 1222: { (pcVar16 = pcVar12); pc = 1221; continue; }
     case 1223: { (pcVar12 = framePointer(localFrame,308)); pc = 1222; continue; }
     case 1224: { (iVar7 = cNeg(1)); pc = 1223; continue; }
     case 1225: { (uVar5 = cBits(uVar5,0,"~")); pc = 1224; continue; }
-    case 1226: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1233 : 1225; continue; }
+    case 1226: { pc = (cCompare(cVar1,0,"!=")) ? 1233 : 1225; continue; }
     case 1227: { (ppcVar13 = ppcVar14); pc = 1226; continue; }
     case 1228: { (cVar1 = readPointer(memory,ppcVar13,1)); pc = 1227; continue; }
     case 1229: { (ppcVar14 = cAdd(cI32(ppcVar13,false),1)); pc = 1228; continue; }
     case 1230: { (uVar5 = cSub(uVar5,1)); pc = 1229; continue; }
     case 1231: { pc = 1225; continue; }
-    case 1232: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1231 : 1230; continue; }
+    case 1232: { pc = (cCompare(uVar5,0,"==")) ? 1231 : 1230; continue; }
     case 1233: { (ppcVar14 = ppcVar13); pc = 1232; continue; }
     case 1234: { (ppcVar13 = framePointer(localFrame,300)); pc = 1233; continue; }
     case 1235: { (uVar5 = 4294967295); pc = 1234; continue; }
-    case 1236: { pc = cTruth(cCompare(r32(0x4fad38),6,"==")) ? 1235 : 1165; continue; }
-    case 1237: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1241 : 1236; continue; }
+    case 1236: { pc = (cCompare(r32(0x4fad38),6,"==")) ? 1235 : 1165; continue; }
+    case 1237: { pc = (cCompare(uVar5,0,"!=")) ? 1241 : 1236; continue; }
     case 1238: { (uVar5 = cSub(uVar5,1)); pc = 1237; continue; }
     case 1239: { (pcVar16 = cAdd(pcVar16,1)); pc = 1238; continue; }
     case 1240: { (pcVar12 = cAdd(pcVar12,1)); pc = 1239; continue; }
     case 1241: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1240; continue; }
     case 1242: { (uVar5 = cBits(uVar5,3,"&")); pc = 1237; continue; }
-    case 1243: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1247 : 1242; continue; }
+    case 1243: { pc = (cCompare(uVar6,0,"!=")) ? 1247 : 1242; continue; }
     case 1244: { (uVar6 = cSub(uVar6,1)); pc = 1243; continue; }
     case 1245: { (pcVar16 = cAdd(pcVar16,4)); pc = 1244; continue; }
     case 1246: { (pcVar12 = cAdd(pcVar12,4)); pc = 1245; continue; }
@@ -4517,35 +4518,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1248: { (uVar6 = cBits(uVar5,2,">>")); pc = 1243; continue; }
     case 1249: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1248; continue; }
     case 1250: { (pcVar12 = cSub(cI32(ppcVar14,false),uVar5)); pc = 1249; continue; }
-    case 1251: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1258 : 1250; continue; }
+    case 1251: { pc = (cCompare(cVar1,0,"!=")) ? 1258 : 1250; continue; }
     case 1252: { (pcVar12 = pcVar16); pc = 1251; continue; }
     case 1253: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1252; continue; }
     case 1254: { (pcVar16 = cAdd(pcVar12,1)); pc = 1253; continue; }
     case 1255: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1254; continue; }
     case 1256: { pc = 1250; continue; }
-    case 1257: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1256 : 1255; continue; }
+    case 1257: { pc = (cCompare(iVar7,0,"==")) ? 1256 : 1255; continue; }
     case 1258: { (pcVar16 = pcVar12); pc = 1257; continue; }
     case 1259: { (pcVar12 = framePointer(localFrame,308)); pc = 1258; continue; }
     case 1260: { (iVar7 = cNeg(1)); pc = 1259; continue; }
     case 1261: { (uVar5 = cBits(uVar5,0,"~")); pc = 1260; continue; }
-    case 1262: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1269 : 1261; continue; }
+    case 1262: { pc = (cCompare(cVar1,0,"!=")) ? 1269 : 1261; continue; }
     case 1263: { (ppcVar13 = ppcVar14); pc = 1262; continue; }
     case 1264: { (cVar1 = readPointer(memory,ppcVar13,1)); pc = 1263; continue; }
     case 1265: { (ppcVar14 = cAdd(cI32(ppcVar13,false),1)); pc = 1264; continue; }
     case 1266: { (uVar5 = cSub(uVar5,1)); pc = 1265; continue; }
     case 1267: { pc = 1261; continue; }
-    case 1268: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1267 : 1266; continue; }
+    case 1268: { pc = (cCompare(uVar5,0,"==")) ? 1267 : 1266; continue; }
     case 1269: { (ppcVar14 = ppcVar13); pc = 1268; continue; }
     case 1270: { (ppcVar13 = framePointer(localFrame,300)); pc = 1269; continue; }
     case 1271: { (uVar5 = 4294967295); pc = 1270; continue; }
-    case 1272: { pc = cTruth(cCompare(r32(0x4fad38),5,"==")) ? 1271 : 1236; continue; }
-    case 1273: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1277 : 1272; continue; }
+    case 1272: { pc = (cCompare(r32(0x4fad38),5,"==")) ? 1271 : 1236; continue; }
+    case 1273: { pc = (cCompare(uVar5,0,"!=")) ? 1277 : 1272; continue; }
     case 1274: { (uVar5 = cSub(uVar5,1)); pc = 1273; continue; }
     case 1275: { (pcVar16 = cAdd(pcVar16,1)); pc = 1274; continue; }
     case 1276: { (pcVar12 = cAdd(pcVar12,1)); pc = 1275; continue; }
     case 1277: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1276; continue; }
     case 1278: { (uVar5 = cBits(uVar5,3,"&")); pc = 1273; continue; }
-    case 1279: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1283 : 1278; continue; }
+    case 1279: { pc = (cCompare(uVar6,0,"!=")) ? 1283 : 1278; continue; }
     case 1280: { (uVar6 = cSub(uVar6,1)); pc = 1279; continue; }
     case 1281: { (pcVar16 = cAdd(pcVar16,4)); pc = 1280; continue; }
     case 1282: { (pcVar12 = cAdd(pcVar12,4)); pc = 1281; continue; }
@@ -4553,34 +4554,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1284: { (uVar6 = cBits(uVar5,2,">>")); pc = 1279; continue; }
     case 1285: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1284; continue; }
     case 1286: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1285; continue; }
-    case 1287: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1294 : 1286; continue; }
+    case 1287: { pc = (cCompare(cVar1,0,"!=")) ? 1294 : 1286; continue; }
     case 1288: { (pcVar12 = pcVar16); pc = 1287; continue; }
     case 1289: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1288; continue; }
     case 1290: { (pcVar16 = cAdd(pcVar12,1)); pc = 1289; continue; }
     case 1291: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1290; continue; }
     case 1292: { pc = 1286; continue; }
-    case 1293: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1292 : 1291; continue; }
+    case 1293: { pc = (cCompare(iVar7,0,"==")) ? 1292 : 1291; continue; }
     case 1294: { (pcVar16 = pcVar12); pc = 1293; continue; }
     case 1295: { (pcVar12 = framePointer(localFrame,308)); pc = 1294; continue; }
     case 1296: { (iVar7 = cNeg(1)); pc = 1295; continue; }
     case 1297: { (uVar5 = cBits(uVar5,0,"~")); pc = 1296; continue; }
-    case 1298: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1305 : 1297; continue; }
+    case 1298: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1305 : 1297; continue; }
     case 1299: { (pTVar3 = pTVar4); pc = 1298; continue; }
     case 1300: { (ppcVar2 = pTVar3); pc = 1299; continue; }
     case 1301: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1300; continue; }
     case 1302: { (uVar5 = cSub(uVar5,1)); pc = 1301; continue; }
     case 1303: { pc = 1297; continue; }
-    case 1304: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1303 : 1302; continue; }
+    case 1304: { pc = (cCompare(uVar5,0,"==")) ? 1303 : 1302; continue; }
     case 1305: { (pTVar4 = pTVar3); pc = 1304; continue; }
     case 1306: { (pTVar3 = framePointer(localFrame,276)); pc = 1305; continue; }
     case 1307: { (uVar5 = 4294967295); pc = 1306; continue; }
-    case 1308: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1312 : 1307; continue; }
+    case 1308: { pc = (cCompare(uVar5,0,"!=")) ? 1312 : 1307; continue; }
     case 1309: { (uVar5 = cSub(uVar5,1)); pc = 1308; continue; }
     case 1310: { (pcVar16 = cAdd(pcVar16,1)); pc = 1309; continue; }
     case 1311: { (pcVar12 = cAdd(pcVar12,1)); pc = 1310; continue; }
     case 1312: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1311; continue; }
     case 1313: { (uVar5 = cBits(uVar5,3,"&")); pc = 1308; continue; }
-    case 1314: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1318 : 1313; continue; }
+    case 1314: { pc = (cCompare(uVar6,0,"!=")) ? 1318 : 1313; continue; }
     case 1315: { (uVar6 = cSub(uVar6,1)); pc = 1314; continue; }
     case 1316: { (pcVar16 = cAdd(pcVar16,4)); pc = 1315; continue; }
     case 1317: { (pcVar12 = cAdd(pcVar12,4)); pc = 1316; continue; }
@@ -4588,35 +4589,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1319: { (uVar6 = cBits(uVar5,2,">>")); pc = 1314; continue; }
     case 1320: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1319; continue; }
     case 1321: { (pcVar12 = cSub(cI32(ppcVar14,false),uVar5)); pc = 1320; continue; }
-    case 1322: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1329 : 1321; continue; }
+    case 1322: { pc = (cCompare(cVar1,0,"!=")) ? 1329 : 1321; continue; }
     case 1323: { (pcVar12 = pcVar16); pc = 1322; continue; }
     case 1324: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1323; continue; }
     case 1325: { (pcVar16 = cAdd(pcVar12,1)); pc = 1324; continue; }
     case 1326: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1325; continue; }
     case 1327: { pc = 1321; continue; }
-    case 1328: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1327 : 1326; continue; }
+    case 1328: { pc = (cCompare(iVar7,0,"==")) ? 1327 : 1326; continue; }
     case 1329: { (pcVar16 = pcVar12); pc = 1328; continue; }
     case 1330: { (pcVar12 = framePointer(localFrame,308)); pc = 1329; continue; }
     case 1331: { (iVar7 = cNeg(1)); pc = 1330; continue; }
     case 1332: { (uVar5 = cBits(uVar5,0,"~")); pc = 1331; continue; }
-    case 1333: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1340 : 1332; continue; }
+    case 1333: { pc = (cCompare(cVar1,0,"!=")) ? 1340 : 1332; continue; }
     case 1334: { (ppcVar13 = ppcVar14); pc = 1333; continue; }
     case 1335: { (cVar1 = readPointer(memory,ppcVar13,1)); pc = 1334; continue; }
     case 1336: { (ppcVar14 = cAdd(cI32(ppcVar13,false),1)); pc = 1335; continue; }
     case 1337: { (uVar5 = cSub(uVar5,1)); pc = 1336; continue; }
     case 1338: { pc = 1332; continue; }
-    case 1339: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1338 : 1337; continue; }
+    case 1339: { pc = (cCompare(uVar5,0,"==")) ? 1338 : 1337; continue; }
     case 1340: { (ppcVar14 = ppcVar13); pc = 1339; continue; }
     case 1341: { (ppcVar13 = framePointer(localFrame,300)); pc = 1340; continue; }
     case 1342: { (uVar5 = 4294967295); pc = 1341; continue; }
-    case 1343: { pc = cTruth(cCompare(r32(0x4fad38),4,"==")) ? 1342 : 1272; continue; }
-    case 1344: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1348 : 1343; continue; }
+    case 1343: { pc = (cCompare(r32(0x4fad38),4,"==")) ? 1342 : 1272; continue; }
+    case 1344: { pc = (cCompare(uVar5,0,"!=")) ? 1348 : 1343; continue; }
     case 1345: { (uVar5 = cSub(uVar5,1)); pc = 1344; continue; }
     case 1346: { (pcVar16 = cAdd(pcVar16,1)); pc = 1345; continue; }
     case 1347: { (pcVar12 = cAdd(pcVar12,1)); pc = 1346; continue; }
     case 1348: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1347; continue; }
     case 1349: { (uVar5 = cBits(uVar5,3,"&")); pc = 1344; continue; }
-    case 1350: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1354 : 1349; continue; }
+    case 1350: { pc = (cCompare(uVar6,0,"!=")) ? 1354 : 1349; continue; }
     case 1351: { (uVar6 = cSub(uVar6,1)); pc = 1350; continue; }
     case 1352: { (pcVar16 = cAdd(pcVar16,4)); pc = 1351; continue; }
     case 1353: { (pcVar12 = cAdd(pcVar12,4)); pc = 1352; continue; }
@@ -4624,35 +4625,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1355: { (uVar6 = cBits(uVar5,2,">>")); pc = 1350; continue; }
     case 1356: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1355; continue; }
     case 1357: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1356; continue; }
-    case 1358: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1365 : 1357; continue; }
+    case 1358: { pc = (cCompare(cVar1,0,"!=")) ? 1365 : 1357; continue; }
     case 1359: { (pcVar12 = pcVar16); pc = 1358; continue; }
     case 1360: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1359; continue; }
     case 1361: { (pcVar16 = cAdd(pcVar12,1)); pc = 1360; continue; }
     case 1362: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1361; continue; }
     case 1363: { pc = 1357; continue; }
-    case 1364: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1363 : 1362; continue; }
+    case 1364: { pc = (cCompare(iVar7,0,"==")) ? 1363 : 1362; continue; }
     case 1365: { (pcVar16 = pcVar12); pc = 1364; continue; }
     case 1366: { (pcVar12 = framePointer(localFrame,308)); pc = 1365; continue; }
     case 1367: { (iVar7 = cNeg(1)); pc = 1366; continue; }
     case 1368: { (uVar5 = cBits(uVar5,0,"~")); pc = 1367; continue; }
-    case 1369: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1376 : 1368; continue; }
+    case 1369: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1376 : 1368; continue; }
     case 1370: { (pTVar3 = pTVar4); pc = 1369; continue; }
     case 1371: { (ppcVar2 = pTVar3); pc = 1370; continue; }
     case 1372: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1371; continue; }
     case 1373: { (uVar5 = cSub(uVar5,1)); pc = 1372; continue; }
     case 1374: { pc = 1368; continue; }
-    case 1375: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1374 : 1373; continue; }
+    case 1375: { pc = (cCompare(uVar5,0,"==")) ? 1374 : 1373; continue; }
     case 1376: { (pTVar4 = pTVar3); pc = 1375; continue; }
     case 1377: { (pTVar3 = framePointer(localFrame,276)); pc = 1376; continue; }
     case 1378: { (uVar5 = 4294967295); pc = 1377; continue; }
-    case 1379: { pc = cTruth(cCompare(r32(0x4fad38),3,"==")) ? 1378 : 1343; continue; }
-    case 1380: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1384 : 1379; continue; }
+    case 1379: { pc = (cCompare(r32(0x4fad38),3,"==")) ? 1378 : 1343; continue; }
+    case 1380: { pc = (cCompare(uVar5,0,"!=")) ? 1384 : 1379; continue; }
     case 1381: { (uVar5 = cSub(uVar5,1)); pc = 1380; continue; }
     case 1382: { (pcVar16 = cAdd(pcVar16,1)); pc = 1381; continue; }
     case 1383: { (pcVar12 = cAdd(pcVar12,1)); pc = 1382; continue; }
     case 1384: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1383; continue; }
     case 1385: { (uVar5 = cBits(uVar5,3,"&")); pc = 1380; continue; }
-    case 1386: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1390 : 1385; continue; }
+    case 1386: { pc = (cCompare(uVar6,0,"!=")) ? 1390 : 1385; continue; }
     case 1387: { (uVar6 = cSub(uVar6,1)); pc = 1386; continue; }
     case 1388: { (pcVar16 = cAdd(pcVar16,4)); pc = 1387; continue; }
     case 1389: { (pcVar12 = cAdd(pcVar12,4)); pc = 1388; continue; }
@@ -4660,34 +4661,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1391: { (uVar6 = cBits(uVar5,2,">>")); pc = 1386; continue; }
     case 1392: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1391; continue; }
     case 1393: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1392; continue; }
-    case 1394: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1401 : 1393; continue; }
+    case 1394: { pc = (cCompare(cVar1,0,"!=")) ? 1401 : 1393; continue; }
     case 1395: { (pcVar12 = pcVar16); pc = 1394; continue; }
     case 1396: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1395; continue; }
     case 1397: { (pcVar16 = cAdd(pcVar12,1)); pc = 1396; continue; }
     case 1398: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1397; continue; }
     case 1399: { pc = 1393; continue; }
-    case 1400: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1399 : 1398; continue; }
+    case 1400: { pc = (cCompare(iVar7,0,"==")) ? 1399 : 1398; continue; }
     case 1401: { (pcVar16 = pcVar12); pc = 1400; continue; }
     case 1402: { (pcVar12 = framePointer(localFrame,308)); pc = 1401; continue; }
     case 1403: { (iVar7 = cNeg(1)); pc = 1402; continue; }
     case 1404: { (uVar5 = cBits(uVar5,0,"~")); pc = 1403; continue; }
-    case 1405: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1412 : 1404; continue; }
+    case 1405: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1412 : 1404; continue; }
     case 1406: { (pTVar3 = pTVar4); pc = 1405; continue; }
     case 1407: { (ppcVar2 = pTVar3); pc = 1406; continue; }
     case 1408: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1407; continue; }
     case 1409: { (uVar5 = cSub(uVar5,1)); pc = 1408; continue; }
     case 1410: { pc = 1404; continue; }
-    case 1411: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1410 : 1409; continue; }
+    case 1411: { pc = (cCompare(uVar5,0,"==")) ? 1410 : 1409; continue; }
     case 1412: { (pTVar4 = pTVar3); pc = 1411; continue; }
     case 1413: { (pTVar3 = framePointer(localFrame,276)); pc = 1412; continue; }
     case 1414: { (uVar5 = 4294967295); pc = 1413; continue; }
-    case 1415: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1419 : 1414; continue; }
+    case 1415: { pc = (cCompare(uVar5,0,"!=")) ? 1419 : 1414; continue; }
     case 1416: { (uVar5 = cSub(uVar5,1)); pc = 1415; continue; }
     case 1417: { (pcVar16 = cAdd(pcVar16,1)); pc = 1416; continue; }
     case 1418: { (pcVar12 = cAdd(pcVar12,1)); pc = 1417; continue; }
     case 1419: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1418; continue; }
     case 1420: { (uVar5 = cBits(uVar5,3,"&")); pc = 1415; continue; }
-    case 1421: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1425 : 1420; continue; }
+    case 1421: { pc = (cCompare(uVar6,0,"!=")) ? 1425 : 1420; continue; }
     case 1422: { (uVar6 = cSub(uVar6,1)); pc = 1421; continue; }
     case 1423: { (pcVar16 = cAdd(pcVar16,4)); pc = 1422; continue; }
     case 1424: { (pcVar12 = cAdd(pcVar12,4)); pc = 1423; continue; }
@@ -4695,35 +4696,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1426: { (uVar6 = cBits(uVar5,2,">>")); pc = 1421; continue; }
     case 1427: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1426; continue; }
     case 1428: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1427; continue; }
-    case 1429: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1436 : 1428; continue; }
+    case 1429: { pc = (cCompare(cVar1,0,"!=")) ? 1436 : 1428; continue; }
     case 1430: { (pcVar12 = pcVar16); pc = 1429; continue; }
     case 1431: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1430; continue; }
     case 1432: { (pcVar16 = cAdd(pcVar12,1)); pc = 1431; continue; }
     case 1433: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1432; continue; }
     case 1434: { pc = 1428; continue; }
-    case 1435: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1434 : 1433; continue; }
+    case 1435: { pc = (cCompare(iVar7,0,"==")) ? 1434 : 1433; continue; }
     case 1436: { (pcVar16 = pcVar12); pc = 1435; continue; }
     case 1437: { (pcVar12 = framePointer(localFrame,308)); pc = 1436; continue; }
     case 1438: { (iVar7 = cNeg(1)); pc = 1437; continue; }
     case 1439: { (uVar5 = cBits(uVar5,0,"~")); pc = 1438; continue; }
-    case 1440: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1447 : 1439; continue; }
+    case 1440: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1447 : 1439; continue; }
     case 1441: { (pTVar3 = pTVar4); pc = 1440; continue; }
     case 1442: { (ppcVar2 = pTVar3); pc = 1441; continue; }
     case 1443: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1442; continue; }
     case 1444: { (uVar5 = cSub(uVar5,1)); pc = 1443; continue; }
     case 1445: { pc = 1439; continue; }
-    case 1446: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1445 : 1444; continue; }
+    case 1446: { pc = (cCompare(uVar5,0,"==")) ? 1445 : 1444; continue; }
     case 1447: { (pTVar4 = pTVar3); pc = 1446; continue; }
     case 1448: { (pTVar3 = framePointer(localFrame,268)); pc = 1447; continue; }
     case 1449: { (uVar5 = 4294967295); pc = 1448; continue; }
-    case 1450: { pc = cTruth(cCompare(r32(0x4fad38),2,"==")) ? 1449 : 1379; continue; }
-    case 1451: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1455 : 1450; continue; }
+    case 1450: { pc = (cCompare(r32(0x4fad38),2,"==")) ? 1449 : 1379; continue; }
+    case 1451: { pc = (cCompare(uVar5,0,"!=")) ? 1455 : 1450; continue; }
     case 1452: { (uVar5 = cSub(uVar5,1)); pc = 1451; continue; }
     case 1453: { (pcVar16 = cAdd(pcVar16,1)); pc = 1452; continue; }
     case 1454: { (pcVar12 = cAdd(pcVar12,1)); pc = 1453; continue; }
     case 1455: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1454; continue; }
     case 1456: { (uVar5 = cBits(uVar5,3,"&")); pc = 1451; continue; }
-    case 1457: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1461 : 1456; continue; }
+    case 1457: { pc = (cCompare(uVar6,0,"!=")) ? 1461 : 1456; continue; }
     case 1458: { (uVar6 = cSub(uVar6,1)); pc = 1457; continue; }
     case 1459: { (pcVar16 = cAdd(pcVar16,4)); pc = 1458; continue; }
     case 1460: { (pcVar12 = cAdd(pcVar12,4)); pc = 1459; continue; }
@@ -4731,35 +4732,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1462: { (uVar6 = cBits(uVar5,2,">>")); pc = 1457; continue; }
     case 1463: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1462; continue; }
     case 1464: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1463; continue; }
-    case 1465: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1472 : 1464; continue; }
+    case 1465: { pc = (cCompare(cVar1,0,"!=")) ? 1472 : 1464; continue; }
     case 1466: { (pcVar12 = pcVar16); pc = 1465; continue; }
     case 1467: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1466; continue; }
     case 1468: { (pcVar16 = cAdd(pcVar12,1)); pc = 1467; continue; }
     case 1469: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1468; continue; }
     case 1470: { pc = 1464; continue; }
-    case 1471: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1470 : 1469; continue; }
+    case 1471: { pc = (cCompare(iVar7,0,"==")) ? 1470 : 1469; continue; }
     case 1472: { (pcVar16 = pcVar12); pc = 1471; continue; }
     case 1473: { (pcVar12 = framePointer(localFrame,308)); pc = 1472; continue; }
     case 1474: { (iVar7 = cNeg(1)); pc = 1473; continue; }
     case 1475: { (uVar5 = cBits(uVar5,0,"~")); pc = 1474; continue; }
-    case 1476: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1483 : 1475; continue; }
+    case 1476: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1483 : 1475; continue; }
     case 1477: { (pTVar3 = pTVar4); pc = 1476; continue; }
     case 1478: { (ppcVar2 = pTVar3); pc = 1477; continue; }
     case 1479: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1478; continue; }
     case 1480: { (uVar5 = cSub(uVar5,1)); pc = 1479; continue; }
     case 1481: { pc = 1475; continue; }
-    case 1482: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1481 : 1480; continue; }
+    case 1482: { pc = (cCompare(uVar5,0,"==")) ? 1481 : 1480; continue; }
     case 1483: { (pTVar4 = pTVar3); pc = 1482; continue; }
     case 1484: { (pTVar3 = framePointer(localFrame,268)); pc = 1483; continue; }
     case 1485: { (uVar5 = 4294967295); pc = 1484; continue; }
-    case 1486: { pc = cTruth(cCompare(r32(0x4fad38),1,"==")) ? 1485 : 1450; continue; }
-    case 1487: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1491 : 1486; continue; }
+    case 1486: { pc = (cCompare(r32(0x4fad38),1,"==")) ? 1485 : 1450; continue; }
+    case 1487: { pc = (cCompare(uVar5,0,"!=")) ? 1491 : 1486; continue; }
     case 1488: { (uVar5 = cSub(uVar5,1)); pc = 1487; continue; }
     case 1489: { (pcVar16 = cAdd(pcVar16,1)); pc = 1488; continue; }
     case 1490: { (pcVar12 = cAdd(pcVar12,1)); pc = 1489; continue; }
     case 1491: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1490; continue; }
     case 1492: { (uVar5 = cBits(uVar5,3,"&")); pc = 1487; continue; }
-    case 1493: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1497 : 1492; continue; }
+    case 1493: { pc = (cCompare(uVar6,0,"!=")) ? 1497 : 1492; continue; }
     case 1494: { (uVar6 = cSub(uVar6,1)); pc = 1493; continue; }
     case 1495: { (pcVar16 = cAdd(pcVar16,4)); pc = 1494; continue; }
     case 1496: { (pcVar12 = cAdd(pcVar12,4)); pc = 1495; continue; }
@@ -4768,34 +4769,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1499: { (pcVar16 = framePointer(localFrame,308)); pc = 1498; continue; }
     case 1500: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 1499; continue; }
     case 1501: { (uVar5 = cBits(uVar5,0,"~")); pc = 1500; continue; }
-    case 1502: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1509 : 1501; continue; }
+    case 1502: { pc = (cCompare(cVar1,0,"!=")) ? 1509 : 1501; continue; }
     case 1503: { (pcVar12 = pcVar16); pc = 1502; continue; }
     case 1504: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1503; continue; }
     case 1505: { (pcVar16 = cAdd(pcVar12,1)); pc = 1504; continue; }
     case 1506: { (uVar5 = cSub(uVar5,1)); pc = 1505; continue; }
     case 1507: { pc = 1501; continue; }
-    case 1508: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1507 : 1506; continue; }
+    case 1508: { pc = (cCompare(uVar5,0,"==")) ? 1507 : 1506; continue; }
     case 1509: { (pcVar16 = pcVar12); pc = 1508; continue; }
     case 1510: { (pcVar12 = 0x619f0c); pc = 1509; continue; }
     case 1511: { (uVar5 = 4294967295); pc = 1510; continue; }
     case 1512: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")))); pc = 1511; continue; }
     case 1513: { textOutCount(dc,memory,20,cI32(pcVar8,false),framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 1512; continue; }
-    case 1514: { pc = cTruth(cCompare(r32(0x53645c),0,"==")) ? 1513 : 1512; continue; }
-    case 1515: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1520 : 1514; continue; }
+    case 1514: { pc = (cCompare(r32(0x53645c),0,"==")) ? 1513 : 1512; continue; }
+    case 1515: { pc = (cCompare(cVar1,0,"!=")) ? 1520 : 1514; continue; }
     case 1516: { (pcVar12 = cAdd(pcVar12,1)); pc = 1515; continue; }
     case 1517: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1516; continue; }
     case 1518: { (uVar5 = cSub(uVar5,1)); pc = 1517; continue; }
     case 1519: { pc = 1514; continue; }
-    case 1520: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1519 : 1518; continue; }
+    case 1520: { pc = (cCompare(uVar5,0,"==")) ? 1519 : 1518; continue; }
     case 1521: { (pcVar12 = framePointer(localFrame,308)); pc = 1520; continue; }
     case 1522: { (uVar5 = 4294967295); pc = 1521; continue; }
-    case 1523: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1527 : 1522; continue; }
+    case 1523: { pc = (cCompare(uVar5,0,"!=")) ? 1527 : 1522; continue; }
     case 1524: { (uVar5 = cSub(uVar5,1)); pc = 1523; continue; }
     case 1525: { (pcVar16 = cAdd(pcVar16,1)); pc = 1524; continue; }
     case 1526: { (pcVar12 = cAdd(pcVar12,1)); pc = 1525; continue; }
     case 1527: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1526; continue; }
     case 1528: { (uVar5 = cBits(uVar5,3,"&")); pc = 1523; continue; }
-    case 1529: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1533 : 1528; continue; }
+    case 1529: { pc = (cCompare(uVar6,0,"!=")) ? 1533 : 1528; continue; }
     case 1530: { (uVar6 = cSub(uVar6,1)); pc = 1529; continue; }
     case 1531: { (pcVar16 = cAdd(pcVar16,4)); pc = 1530; continue; }
     case 1532: { (pcVar12 = cAdd(pcVar12,4)); pc = 1531; continue; }
@@ -4803,34 +4804,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1534: { (uVar6 = cBits(uVar5,2,">>")); pc = 1529; continue; }
     case 1535: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 1534; continue; }
     case 1536: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 1535; continue; }
-    case 1537: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1544 : 1536; continue; }
+    case 1537: { pc = (cCompare(cVar1,0,"!=")) ? 1544 : 1536; continue; }
     case 1538: { (pcVar12 = pcVar15); pc = 1537; continue; }
     case 1539: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1538; continue; }
     case 1540: { (pcVar15 = cAdd(pcVar12,1)); pc = 1539; continue; }
     case 1541: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1540; continue; }
     case 1542: { pc = 1536; continue; }
-    case 1543: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1542 : 1541; continue; }
+    case 1543: { pc = (cCompare(iVar7,0,"==")) ? 1542 : 1541; continue; }
     case 1544: { (pcVar15 = pcVar12); pc = 1543; continue; }
     case 1545: { (pcVar12 = framePointer(localFrame,308)); pc = 1544; continue; }
     case 1546: { (iVar7 = cNeg(1)); pc = 1545; continue; }
     case 1547: { (uVar5 = cBits(uVar5,0,"~")); pc = 1546; continue; }
-    case 1548: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1555 : 1547; continue; }
+    case 1548: { pc = (cCompare(cVar1,0,"!=")) ? 1555 : 1547; continue; }
     case 1549: { (pcVar12 = pcVar16); pc = 1548; continue; }
     case 1550: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1549; continue; }
     case 1551: { (pcVar16 = cAdd(pcVar12,1)); pc = 1550; continue; }
     case 1552: { (uVar5 = cSub(uVar5,1)); pc = 1551; continue; }
     case 1553: { pc = 1547; continue; }
-    case 1554: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1553 : 1552; continue; }
+    case 1554: { pc = (cCompare(uVar5,0,"==")) ? 1553 : 1552; continue; }
     case 1555: { (pcVar16 = pcVar12); pc = 1554; continue; }
     case 1556: { (pcVar12 = 0x4dd054); pc = 1555; continue; }
     case 1557: { (uVar5 = 4294967295); pc = 1556; continue; }
-    case 1558: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1562 : 1557; continue; }
+    case 1558: { pc = (cCompare(uVar5,0,"!=")) ? 1562 : 1557; continue; }
     case 1559: { (uVar5 = cSub(uVar5,1)); pc = 1558; continue; }
     case 1560: { (pcVar16 = cAdd(pcVar16,1)); pc = 1559; continue; }
     case 1561: { (pcVar12 = cAdd(pcVar12,1)); pc = 1560; continue; }
     case 1562: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1561; continue; }
     case 1563: { (uVar5 = cBits(uVar5,3,"&")); pc = 1558; continue; }
-    case 1564: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1568 : 1563; continue; }
+    case 1564: { pc = (cCompare(uVar6,0,"!=")) ? 1568 : 1563; continue; }
     case 1565: { (uVar6 = cSub(uVar6,1)); pc = 1564; continue; }
     case 1566: { (pcVar16 = cAdd(pcVar16,4)); pc = 1565; continue; }
     case 1567: { (pcVar12 = cAdd(pcVar12,4)); pc = 1566; continue; }
@@ -4838,34 +4839,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1569: { (uVar6 = cBits(uVar5,2,">>")); pc = 1564; continue; }
     case 1570: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1569; continue; }
     case 1571: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1570; continue; }
-    case 1572: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1579 : 1571; continue; }
+    case 1572: { pc = (cCompare(cVar1,0,"!=")) ? 1579 : 1571; continue; }
     case 1573: { (pcVar12 = pcVar16); pc = 1572; continue; }
     case 1574: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1573; continue; }
     case 1575: { (pcVar16 = cAdd(pcVar12,1)); pc = 1574; continue; }
     case 1576: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1575; continue; }
     case 1577: { pc = 1571; continue; }
-    case 1578: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1577 : 1576; continue; }
+    case 1578: { pc = (cCompare(iVar7,0,"==")) ? 1577 : 1576; continue; }
     case 1579: { (pcVar16 = pcVar12); pc = 1578; continue; }
     case 1580: { (pcVar12 = framePointer(localFrame,308)); pc = 1579; continue; }
     case 1581: { (iVar7 = cNeg(1)); pc = 1580; continue; }
     case 1582: { (uVar5 = cBits(uVar5,0,"~")); pc = 1581; continue; }
-    case 1583: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1590 : 1582; continue; }
+    case 1583: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1590 : 1582; continue; }
     case 1584: { (pTVar3 = pTVar4); pc = 1583; continue; }
     case 1585: { (ppcVar2 = pTVar3); pc = 1584; continue; }
     case 1586: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1585; continue; }
     case 1587: { (uVar5 = cSub(uVar5,1)); pc = 1586; continue; }
     case 1588: { pc = 1582; continue; }
-    case 1589: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1588 : 1587; continue; }
+    case 1589: { pc = (cCompare(uVar5,0,"==")) ? 1588 : 1587; continue; }
     case 1590: { (pTVar4 = pTVar3); pc = 1589; continue; }
     case 1591: { (pTVar3 = framePointer(localFrame,284)); pc = 1590; continue; }
     case 1592: { (uVar5 = 4294967295); pc = 1591; continue; }
-    case 1593: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1597 : 1592; continue; }
+    case 1593: { pc = (cCompare(uVar5,0,"!=")) ? 1597 : 1592; continue; }
     case 1594: { (uVar5 = cSub(uVar5,1)); pc = 1593; continue; }
     case 1595: { (pcVar16 = cAdd(pcVar16,1)); pc = 1594; continue; }
     case 1596: { (pcVar12 = cAdd(pcVar12,1)); pc = 1595; continue; }
     case 1597: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1596; continue; }
     case 1598: { (uVar5 = cBits(uVar5,3,"&")); pc = 1593; continue; }
-    case 1599: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1603 : 1598; continue; }
+    case 1599: { pc = (cCompare(uVar6,0,"!=")) ? 1603 : 1598; continue; }
     case 1600: { (uVar6 = cSub(uVar6,1)); pc = 1599; continue; }
     case 1601: { (pcVar16 = cAdd(pcVar16,4)); pc = 1600; continue; }
     case 1602: { (pcVar12 = cAdd(pcVar12,4)); pc = 1601; continue; }
@@ -4873,35 +4874,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1604: { (uVar6 = cBits(uVar5,2,">>")); pc = 1599; continue; }
     case 1605: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1604; continue; }
     case 1606: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1605; continue; }
-    case 1607: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1614 : 1606; continue; }
+    case 1607: { pc = (cCompare(cVar1,0,"!=")) ? 1614 : 1606; continue; }
     case 1608: { (pcVar12 = pcVar16); pc = 1607; continue; }
     case 1609: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1608; continue; }
     case 1610: { (pcVar16 = cAdd(pcVar12,1)); pc = 1609; continue; }
     case 1611: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1610; continue; }
     case 1612: { pc = 1606; continue; }
-    case 1613: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1612 : 1611; continue; }
+    case 1613: { pc = (cCompare(iVar7,0,"==")) ? 1612 : 1611; continue; }
     case 1614: { (pcVar16 = pcVar12); pc = 1613; continue; }
     case 1615: { (pcVar12 = framePointer(localFrame,308)); pc = 1614; continue; }
     case 1616: { (iVar7 = cNeg(1)); pc = 1615; continue; }
     case 1617: { (uVar5 = cBits(uVar5,0,"~")); pc = 1616; continue; }
-    case 1618: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1625 : 1617; continue; }
+    case 1618: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1625 : 1617; continue; }
     case 1619: { (pTVar3 = pTVar4); pc = 1618; continue; }
     case 1620: { (ppcVar2 = pTVar3); pc = 1619; continue; }
     case 1621: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1620; continue; }
     case 1622: { (uVar5 = cSub(uVar5,1)); pc = 1621; continue; }
     case 1623: { pc = 1617; continue; }
-    case 1624: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1623 : 1622; continue; }
+    case 1624: { pc = (cCompare(uVar5,0,"==")) ? 1623 : 1622; continue; }
     case 1625: { (pTVar4 = pTVar3); pc = 1624; continue; }
     case 1626: { (pTVar3 = framePointer(localFrame,268)); pc = 1625; continue; }
     case 1627: { (uVar5 = 4294967295); pc = 1626; continue; }
-    case 1628: { pc = cTruth(cCompare(r32(0x5116b0),8,"==")) ? 1627 : 1557; continue; }
-    case 1629: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1633 : 1628; continue; }
+    case 1628: { pc = (cCompare(r32(0x5116b0),8,"==")) ? 1627 : 1557; continue; }
+    case 1629: { pc = (cCompare(uVar5,0,"!=")) ? 1633 : 1628; continue; }
     case 1630: { (uVar5 = cSub(uVar5,1)); pc = 1629; continue; }
     case 1631: { (pcVar16 = cAdd(pcVar16,1)); pc = 1630; continue; }
     case 1632: { (pcVar12 = cAdd(pcVar12,1)); pc = 1631; continue; }
     case 1633: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1632; continue; }
     case 1634: { (uVar5 = cBits(uVar5,3,"&")); pc = 1629; continue; }
-    case 1635: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1639 : 1634; continue; }
+    case 1635: { pc = (cCompare(uVar6,0,"!=")) ? 1639 : 1634; continue; }
     case 1636: { (uVar6 = cSub(uVar6,1)); pc = 1635; continue; }
     case 1637: { (pcVar16 = cAdd(pcVar16,4)); pc = 1636; continue; }
     case 1638: { (pcVar12 = cAdd(pcVar12,4)); pc = 1637; continue; }
@@ -4909,35 +4910,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1640: { (uVar6 = cBits(uVar5,2,">>")); pc = 1635; continue; }
     case 1641: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1640; continue; }
     case 1642: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1641; continue; }
-    case 1643: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1650 : 1642; continue; }
+    case 1643: { pc = (cCompare(cVar1,0,"!=")) ? 1650 : 1642; continue; }
     case 1644: { (pcVar12 = pcVar16); pc = 1643; continue; }
     case 1645: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1644; continue; }
     case 1646: { (pcVar16 = cAdd(pcVar12,1)); pc = 1645; continue; }
     case 1647: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1646; continue; }
     case 1648: { pc = 1642; continue; }
-    case 1649: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1648 : 1647; continue; }
+    case 1649: { pc = (cCompare(iVar7,0,"==")) ? 1648 : 1647; continue; }
     case 1650: { (pcVar16 = pcVar12); pc = 1649; continue; }
     case 1651: { (pcVar12 = framePointer(localFrame,308)); pc = 1650; continue; }
     case 1652: { (iVar7 = cNeg(1)); pc = 1651; continue; }
     case 1653: { (uVar5 = cBits(uVar5,0,"~")); pc = 1652; continue; }
-    case 1654: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1661 : 1653; continue; }
+    case 1654: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1661 : 1653; continue; }
     case 1655: { (pTVar3 = pTVar4); pc = 1654; continue; }
     case 1656: { (ppcVar2 = pTVar3); pc = 1655; continue; }
     case 1657: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1656; continue; }
     case 1658: { (uVar5 = cSub(uVar5,1)); pc = 1657; continue; }
     case 1659: { pc = 1653; continue; }
-    case 1660: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1659 : 1658; continue; }
+    case 1660: { pc = (cCompare(uVar5,0,"==")) ? 1659 : 1658; continue; }
     case 1661: { (pTVar4 = pTVar3); pc = 1660; continue; }
     case 1662: { (pTVar3 = framePointer(localFrame,284)); pc = 1661; continue; }
     case 1663: { (uVar5 = 4294967295); pc = 1662; continue; }
-    case 1664: { pc = cTruth(cCompare(r32(0x5116b0),7,"==")) ? 1663 : 1628; continue; }
-    case 1665: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1669 : 1664; continue; }
+    case 1664: { pc = (cCompare(r32(0x5116b0),7,"==")) ? 1663 : 1628; continue; }
+    case 1665: { pc = (cCompare(uVar5,0,"!=")) ? 1669 : 1664; continue; }
     case 1666: { (uVar5 = cSub(uVar5,1)); pc = 1665; continue; }
     case 1667: { (pcVar16 = cAdd(pcVar16,1)); pc = 1666; continue; }
     case 1668: { (pcVar12 = cAdd(pcVar12,1)); pc = 1667; continue; }
     case 1669: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1668; continue; }
     case 1670: { (uVar5 = cBits(uVar5,3,"&")); pc = 1665; continue; }
-    case 1671: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1675 : 1670; continue; }
+    case 1671: { pc = (cCompare(uVar6,0,"!=")) ? 1675 : 1670; continue; }
     case 1672: { (uVar6 = cSub(uVar6,1)); pc = 1671; continue; }
     case 1673: { (pcVar16 = cAdd(pcVar16,4)); pc = 1672; continue; }
     case 1674: { (pcVar12 = cAdd(pcVar12,4)); pc = 1673; continue; }
@@ -4945,34 +4946,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1676: { (uVar6 = cBits(uVar5,2,">>")); pc = 1671; continue; }
     case 1677: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1676; continue; }
     case 1678: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1677; continue; }
-    case 1679: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1686 : 1678; continue; }
+    case 1679: { pc = (cCompare(cVar1,0,"!=")) ? 1686 : 1678; continue; }
     case 1680: { (pcVar12 = pcVar16); pc = 1679; continue; }
     case 1681: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1680; continue; }
     case 1682: { (pcVar16 = cAdd(pcVar12,1)); pc = 1681; continue; }
     case 1683: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1682; continue; }
     case 1684: { pc = 1678; continue; }
-    case 1685: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1684 : 1683; continue; }
+    case 1685: { pc = (cCompare(iVar7,0,"==")) ? 1684 : 1683; continue; }
     case 1686: { (pcVar16 = pcVar12); pc = 1685; continue; }
     case 1687: { (pcVar12 = framePointer(localFrame,308)); pc = 1686; continue; }
     case 1688: { (iVar7 = cNeg(1)); pc = 1687; continue; }
     case 1689: { (uVar5 = cBits(uVar5,0,"~")); pc = 1688; continue; }
-    case 1690: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1697 : 1689; continue; }
+    case 1690: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1697 : 1689; continue; }
     case 1691: { (pTVar3 = pTVar4); pc = 1690; continue; }
     case 1692: { (ppcVar2 = pTVar3); pc = 1691; continue; }
     case 1693: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1692; continue; }
     case 1694: { (uVar5 = cSub(uVar5,1)); pc = 1693; continue; }
     case 1695: { pc = 1689; continue; }
-    case 1696: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1695 : 1694; continue; }
+    case 1696: { pc = (cCompare(uVar5,0,"==")) ? 1695 : 1694; continue; }
     case 1697: { (pTVar4 = pTVar3); pc = 1696; continue; }
     case 1698: { (pTVar3 = framePointer(localFrame,284)); pc = 1697; continue; }
     case 1699: { (uVar5 = 4294967295); pc = 1698; continue; }
-    case 1700: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1704 : 1699; continue; }
+    case 1700: { pc = (cCompare(uVar5,0,"!=")) ? 1704 : 1699; continue; }
     case 1701: { (uVar5 = cSub(uVar5,1)); pc = 1700; continue; }
     case 1702: { (pcVar16 = cAdd(pcVar16,1)); pc = 1701; continue; }
     case 1703: { (pcVar12 = cAdd(pcVar12,1)); pc = 1702; continue; }
     case 1704: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1703; continue; }
     case 1705: { (uVar5 = cBits(uVar5,3,"&")); pc = 1700; continue; }
-    case 1706: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1710 : 1705; continue; }
+    case 1706: { pc = (cCompare(uVar6,0,"!=")) ? 1710 : 1705; continue; }
     case 1707: { (uVar6 = cSub(uVar6,1)); pc = 1706; continue; }
     case 1708: { (pcVar16 = cAdd(pcVar16,4)); pc = 1707; continue; }
     case 1709: { (pcVar12 = cAdd(pcVar12,4)); pc = 1708; continue; }
@@ -4980,35 +4981,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1711: { (uVar6 = cBits(uVar5,2,">>")); pc = 1706; continue; }
     case 1712: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1711; continue; }
     case 1713: { (pcVar12 = cSub(cI32(ppcVar14,false),uVar5)); pc = 1712; continue; }
-    case 1714: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1721 : 1713; continue; }
+    case 1714: { pc = (cCompare(cVar1,0,"!=")) ? 1721 : 1713; continue; }
     case 1715: { (pcVar12 = pcVar16); pc = 1714; continue; }
     case 1716: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1715; continue; }
     case 1717: { (pcVar16 = cAdd(pcVar12,1)); pc = 1716; continue; }
     case 1718: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1717; continue; }
     case 1719: { pc = 1713; continue; }
-    case 1720: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1719 : 1718; continue; }
+    case 1720: { pc = (cCompare(iVar7,0,"==")) ? 1719 : 1718; continue; }
     case 1721: { (pcVar16 = pcVar12); pc = 1720; continue; }
     case 1722: { (pcVar12 = framePointer(localFrame,308)); pc = 1721; continue; }
     case 1723: { (iVar7 = cNeg(1)); pc = 1722; continue; }
     case 1724: { (uVar5 = cBits(uVar5,0,"~")); pc = 1723; continue; }
-    case 1725: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1732 : 1724; continue; }
+    case 1725: { pc = (cCompare(cVar1,0,"!=")) ? 1732 : 1724; continue; }
     case 1726: { (ppcVar13 = ppcVar14); pc = 1725; continue; }
     case 1727: { (cVar1 = readPointer(memory,ppcVar13,1)); pc = 1726; continue; }
     case 1728: { (ppcVar14 = cAdd(cI32(ppcVar13,false),1)); pc = 1727; continue; }
     case 1729: { (uVar5 = cSub(uVar5,1)); pc = 1728; continue; }
     case 1730: { pc = 1724; continue; }
-    case 1731: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1730 : 1729; continue; }
+    case 1731: { pc = (cCompare(uVar5,0,"==")) ? 1730 : 1729; continue; }
     case 1732: { (ppcVar14 = ppcVar13); pc = 1731; continue; }
     case 1733: { (ppcVar13 = framePointer(localFrame,300)); pc = 1732; continue; }
     case 1734: { (uVar5 = 4294967295); pc = 1733; continue; }
-    case 1735: { pc = cTruth(cCompare(r32(0x5116b0),6,"==")) ? 1734 : 1664; continue; }
-    case 1736: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1740 : 1735; continue; }
+    case 1735: { pc = (cCompare(r32(0x5116b0),6,"==")) ? 1734 : 1664; continue; }
+    case 1736: { pc = (cCompare(uVar5,0,"!=")) ? 1740 : 1735; continue; }
     case 1737: { (uVar5 = cSub(uVar5,1)); pc = 1736; continue; }
     case 1738: { (pcVar16 = cAdd(pcVar16,1)); pc = 1737; continue; }
     case 1739: { (pcVar12 = cAdd(pcVar12,1)); pc = 1738; continue; }
     case 1740: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1739; continue; }
     case 1741: { (uVar5 = cBits(uVar5,3,"&")); pc = 1736; continue; }
-    case 1742: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1746 : 1741; continue; }
+    case 1742: { pc = (cCompare(uVar6,0,"!=")) ? 1746 : 1741; continue; }
     case 1743: { (uVar6 = cSub(uVar6,1)); pc = 1742; continue; }
     case 1744: { (pcVar16 = cAdd(pcVar16,4)); pc = 1743; continue; }
     case 1745: { (pcVar12 = cAdd(pcVar12,4)); pc = 1744; continue; }
@@ -5016,35 +5017,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1747: { (uVar6 = cBits(uVar5,2,">>")); pc = 1742; continue; }
     case 1748: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1747; continue; }
     case 1749: { (pcVar12 = cSub(cI32(ppcVar14,false),uVar5)); pc = 1748; continue; }
-    case 1750: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1757 : 1749; continue; }
+    case 1750: { pc = (cCompare(cVar1,0,"!=")) ? 1757 : 1749; continue; }
     case 1751: { (pcVar12 = pcVar16); pc = 1750; continue; }
     case 1752: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1751; continue; }
     case 1753: { (pcVar16 = cAdd(pcVar12,1)); pc = 1752; continue; }
     case 1754: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1753; continue; }
     case 1755: { pc = 1749; continue; }
-    case 1756: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1755 : 1754; continue; }
+    case 1756: { pc = (cCompare(iVar7,0,"==")) ? 1755 : 1754; continue; }
     case 1757: { (pcVar16 = pcVar12); pc = 1756; continue; }
     case 1758: { (pcVar12 = framePointer(localFrame,308)); pc = 1757; continue; }
     case 1759: { (iVar7 = cNeg(1)); pc = 1758; continue; }
     case 1760: { (uVar5 = cBits(uVar5,0,"~")); pc = 1759; continue; }
-    case 1761: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1768 : 1760; continue; }
+    case 1761: { pc = (cCompare(cVar1,0,"!=")) ? 1768 : 1760; continue; }
     case 1762: { (ppcVar13 = ppcVar14); pc = 1761; continue; }
     case 1763: { (cVar1 = readPointer(memory,ppcVar13,1)); pc = 1762; continue; }
     case 1764: { (ppcVar14 = cAdd(cI32(ppcVar13,false),1)); pc = 1763; continue; }
     case 1765: { (uVar5 = cSub(uVar5,1)); pc = 1764; continue; }
     case 1766: { pc = 1760; continue; }
-    case 1767: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1766 : 1765; continue; }
+    case 1767: { pc = (cCompare(uVar5,0,"==")) ? 1766 : 1765; continue; }
     case 1768: { (ppcVar14 = ppcVar13); pc = 1767; continue; }
     case 1769: { (ppcVar13 = framePointer(localFrame,300)); pc = 1768; continue; }
     case 1770: { (uVar5 = 4294967295); pc = 1769; continue; }
-    case 1771: { pc = cTruth(cCompare(r32(0x5116b0),5,"==")) ? 1770 : 1735; continue; }
-    case 1772: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1776 : 1771; continue; }
+    case 1771: { pc = (cCompare(r32(0x5116b0),5,"==")) ? 1770 : 1735; continue; }
+    case 1772: { pc = (cCompare(uVar5,0,"!=")) ? 1776 : 1771; continue; }
     case 1773: { (uVar5 = cSub(uVar5,1)); pc = 1772; continue; }
     case 1774: { (pcVar16 = cAdd(pcVar16,1)); pc = 1773; continue; }
     case 1775: { (pcVar12 = cAdd(pcVar12,1)); pc = 1774; continue; }
     case 1776: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1775; continue; }
     case 1777: { (uVar5 = cBits(uVar5,3,"&")); pc = 1772; continue; }
-    case 1778: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1782 : 1777; continue; }
+    case 1778: { pc = (cCompare(uVar6,0,"!=")) ? 1782 : 1777; continue; }
     case 1779: { (uVar6 = cSub(uVar6,1)); pc = 1778; continue; }
     case 1780: { (pcVar16 = cAdd(pcVar16,4)); pc = 1779; continue; }
     case 1781: { (pcVar12 = cAdd(pcVar12,4)); pc = 1780; continue; }
@@ -5052,34 +5053,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1783: { (uVar6 = cBits(uVar5,2,">>")); pc = 1778; continue; }
     case 1784: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1783; continue; }
     case 1785: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1784; continue; }
-    case 1786: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1793 : 1785; continue; }
+    case 1786: { pc = (cCompare(cVar1,0,"!=")) ? 1793 : 1785; continue; }
     case 1787: { (pcVar12 = pcVar16); pc = 1786; continue; }
     case 1788: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1787; continue; }
     case 1789: { (pcVar16 = cAdd(pcVar12,1)); pc = 1788; continue; }
     case 1790: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1789; continue; }
     case 1791: { pc = 1785; continue; }
-    case 1792: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1791 : 1790; continue; }
+    case 1792: { pc = (cCompare(iVar7,0,"==")) ? 1791 : 1790; continue; }
     case 1793: { (pcVar16 = pcVar12); pc = 1792; continue; }
     case 1794: { (pcVar12 = framePointer(localFrame,308)); pc = 1793; continue; }
     case 1795: { (iVar7 = cNeg(1)); pc = 1794; continue; }
     case 1796: { (uVar5 = cBits(uVar5,0,"~")); pc = 1795; continue; }
-    case 1797: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1804 : 1796; continue; }
+    case 1797: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1804 : 1796; continue; }
     case 1798: { (pTVar3 = pTVar4); pc = 1797; continue; }
     case 1799: { (ppcVar2 = pTVar3); pc = 1798; continue; }
     case 1800: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1799; continue; }
     case 1801: { (uVar5 = cSub(uVar5,1)); pc = 1800; continue; }
     case 1802: { pc = 1796; continue; }
-    case 1803: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1802 : 1801; continue; }
+    case 1803: { pc = (cCompare(uVar5,0,"==")) ? 1802 : 1801; continue; }
     case 1804: { (pTVar4 = pTVar3); pc = 1803; continue; }
     case 1805: { (pTVar3 = framePointer(localFrame,276)); pc = 1804; continue; }
     case 1806: { (uVar5 = 4294967295); pc = 1805; continue; }
-    case 1807: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1811 : 1806; continue; }
+    case 1807: { pc = (cCompare(uVar5,0,"!=")) ? 1811 : 1806; continue; }
     case 1808: { (uVar5 = cSub(uVar5,1)); pc = 1807; continue; }
     case 1809: { (pcVar16 = cAdd(pcVar16,1)); pc = 1808; continue; }
     case 1810: { (pcVar12 = cAdd(pcVar12,1)); pc = 1809; continue; }
     case 1811: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1810; continue; }
     case 1812: { (uVar5 = cBits(uVar5,3,"&")); pc = 1807; continue; }
-    case 1813: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1817 : 1812; continue; }
+    case 1813: { pc = (cCompare(uVar6,0,"!=")) ? 1817 : 1812; continue; }
     case 1814: { (uVar6 = cSub(uVar6,1)); pc = 1813; continue; }
     case 1815: { (pcVar16 = cAdd(pcVar16,4)); pc = 1814; continue; }
     case 1816: { (pcVar12 = cAdd(pcVar12,4)); pc = 1815; continue; }
@@ -5087,35 +5088,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1818: { (uVar6 = cBits(uVar5,2,">>")); pc = 1813; continue; }
     case 1819: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1818; continue; }
     case 1820: { (pcVar12 = cSub(cI32(ppcVar14,false),uVar5)); pc = 1819; continue; }
-    case 1821: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1828 : 1820; continue; }
+    case 1821: { pc = (cCompare(cVar1,0,"!=")) ? 1828 : 1820; continue; }
     case 1822: { (pcVar12 = pcVar16); pc = 1821; continue; }
     case 1823: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1822; continue; }
     case 1824: { (pcVar16 = cAdd(pcVar12,1)); pc = 1823; continue; }
     case 1825: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1824; continue; }
     case 1826: { pc = 1820; continue; }
-    case 1827: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1826 : 1825; continue; }
+    case 1827: { pc = (cCompare(iVar7,0,"==")) ? 1826 : 1825; continue; }
     case 1828: { (pcVar16 = pcVar12); pc = 1827; continue; }
     case 1829: { (pcVar12 = framePointer(localFrame,308)); pc = 1828; continue; }
     case 1830: { (iVar7 = cNeg(1)); pc = 1829; continue; }
     case 1831: { (uVar5 = cBits(uVar5,0,"~")); pc = 1830; continue; }
-    case 1832: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1839 : 1831; continue; }
+    case 1832: { pc = (cCompare(cVar1,0,"!=")) ? 1839 : 1831; continue; }
     case 1833: { (ppcVar13 = ppcVar14); pc = 1832; continue; }
     case 1834: { (cVar1 = readPointer(memory,ppcVar13,1)); pc = 1833; continue; }
     case 1835: { (ppcVar14 = cAdd(cI32(ppcVar13,false),1)); pc = 1834; continue; }
     case 1836: { (uVar5 = cSub(uVar5,1)); pc = 1835; continue; }
     case 1837: { pc = 1831; continue; }
-    case 1838: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1837 : 1836; continue; }
+    case 1838: { pc = (cCompare(uVar5,0,"==")) ? 1837 : 1836; continue; }
     case 1839: { (ppcVar14 = ppcVar13); pc = 1838; continue; }
     case 1840: { (ppcVar13 = framePointer(localFrame,300)); pc = 1839; continue; }
     case 1841: { (uVar5 = 4294967295); pc = 1840; continue; }
-    case 1842: { pc = cTruth(cCompare(r32(0x5116b0),4,"==")) ? 1841 : 1771; continue; }
-    case 1843: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1847 : 1842; continue; }
+    case 1842: { pc = (cCompare(r32(0x5116b0),4,"==")) ? 1841 : 1771; continue; }
+    case 1843: { pc = (cCompare(uVar5,0,"!=")) ? 1847 : 1842; continue; }
     case 1844: { (uVar5 = cSub(uVar5,1)); pc = 1843; continue; }
     case 1845: { (pcVar16 = cAdd(pcVar16,1)); pc = 1844; continue; }
     case 1846: { (pcVar12 = cAdd(pcVar12,1)); pc = 1845; continue; }
     case 1847: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1846; continue; }
     case 1848: { (uVar5 = cBits(uVar5,3,"&")); pc = 1843; continue; }
-    case 1849: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1853 : 1848; continue; }
+    case 1849: { pc = (cCompare(uVar6,0,"!=")) ? 1853 : 1848; continue; }
     case 1850: { (uVar6 = cSub(uVar6,1)); pc = 1849; continue; }
     case 1851: { (pcVar16 = cAdd(pcVar16,4)); pc = 1850; continue; }
     case 1852: { (pcVar12 = cAdd(pcVar12,4)); pc = 1851; continue; }
@@ -5123,35 +5124,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1854: { (uVar6 = cBits(uVar5,2,">>")); pc = 1849; continue; }
     case 1855: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1854; continue; }
     case 1856: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1855; continue; }
-    case 1857: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1864 : 1856; continue; }
+    case 1857: { pc = (cCompare(cVar1,0,"!=")) ? 1864 : 1856; continue; }
     case 1858: { (pcVar12 = pcVar16); pc = 1857; continue; }
     case 1859: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1858; continue; }
     case 1860: { (pcVar16 = cAdd(pcVar12,1)); pc = 1859; continue; }
     case 1861: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1860; continue; }
     case 1862: { pc = 1856; continue; }
-    case 1863: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1862 : 1861; continue; }
+    case 1863: { pc = (cCompare(iVar7,0,"==")) ? 1862 : 1861; continue; }
     case 1864: { (pcVar16 = pcVar12); pc = 1863; continue; }
     case 1865: { (pcVar12 = framePointer(localFrame,308)); pc = 1864; continue; }
     case 1866: { (iVar7 = cNeg(1)); pc = 1865; continue; }
     case 1867: { (uVar5 = cBits(uVar5,0,"~")); pc = 1866; continue; }
-    case 1868: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1875 : 1867; continue; }
+    case 1868: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1875 : 1867; continue; }
     case 1869: { (pTVar3 = pTVar4); pc = 1868; continue; }
     case 1870: { (ppcVar2 = pTVar3); pc = 1869; continue; }
     case 1871: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1870; continue; }
     case 1872: { (uVar5 = cSub(uVar5,1)); pc = 1871; continue; }
     case 1873: { pc = 1867; continue; }
-    case 1874: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1873 : 1872; continue; }
+    case 1874: { pc = (cCompare(uVar5,0,"==")) ? 1873 : 1872; continue; }
     case 1875: { (pTVar4 = pTVar3); pc = 1874; continue; }
     case 1876: { (pTVar3 = framePointer(localFrame,276)); pc = 1875; continue; }
     case 1877: { (uVar5 = 4294967295); pc = 1876; continue; }
-    case 1878: { pc = cTruth(cCompare(r32(0x5116b0),3,"==")) ? 1877 : 1842; continue; }
-    case 1879: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1883 : 1878; continue; }
+    case 1878: { pc = (cCompare(r32(0x5116b0),3,"==")) ? 1877 : 1842; continue; }
+    case 1879: { pc = (cCompare(uVar5,0,"!=")) ? 1883 : 1878; continue; }
     case 1880: { (uVar5 = cSub(uVar5,1)); pc = 1879; continue; }
     case 1881: { (pcVar16 = cAdd(pcVar16,1)); pc = 1880; continue; }
     case 1882: { (pcVar12 = cAdd(pcVar12,1)); pc = 1881; continue; }
     case 1883: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1882; continue; }
     case 1884: { (uVar5 = cBits(uVar5,3,"&")); pc = 1879; continue; }
-    case 1885: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1889 : 1884; continue; }
+    case 1885: { pc = (cCompare(uVar6,0,"!=")) ? 1889 : 1884; continue; }
     case 1886: { (uVar6 = cSub(uVar6,1)); pc = 1885; continue; }
     case 1887: { (pcVar16 = cAdd(pcVar16,4)); pc = 1886; continue; }
     case 1888: { (pcVar12 = cAdd(pcVar12,4)); pc = 1887; continue; }
@@ -5159,34 +5160,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1890: { (uVar6 = cBits(uVar5,2,">>")); pc = 1885; continue; }
     case 1891: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1890; continue; }
     case 1892: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1891; continue; }
-    case 1893: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1900 : 1892; continue; }
+    case 1893: { pc = (cCompare(cVar1,0,"!=")) ? 1900 : 1892; continue; }
     case 1894: { (pcVar12 = pcVar16); pc = 1893; continue; }
     case 1895: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1894; continue; }
     case 1896: { (pcVar16 = cAdd(pcVar12,1)); pc = 1895; continue; }
     case 1897: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1896; continue; }
     case 1898: { pc = 1892; continue; }
-    case 1899: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1898 : 1897; continue; }
+    case 1899: { pc = (cCompare(iVar7,0,"==")) ? 1898 : 1897; continue; }
     case 1900: { (pcVar16 = pcVar12); pc = 1899; continue; }
     case 1901: { (pcVar12 = framePointer(localFrame,308)); pc = 1900; continue; }
     case 1902: { (iVar7 = cNeg(1)); pc = 1901; continue; }
     case 1903: { (uVar5 = cBits(uVar5,0,"~")); pc = 1902; continue; }
-    case 1904: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1911 : 1903; continue; }
+    case 1904: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1911 : 1903; continue; }
     case 1905: { (pTVar3 = pTVar4); pc = 1904; continue; }
     case 1906: { (ppcVar2 = pTVar3); pc = 1905; continue; }
     case 1907: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1906; continue; }
     case 1908: { (uVar5 = cSub(uVar5,1)); pc = 1907; continue; }
     case 1909: { pc = 1903; continue; }
-    case 1910: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1909 : 1908; continue; }
+    case 1910: { pc = (cCompare(uVar5,0,"==")) ? 1909 : 1908; continue; }
     case 1911: { (pTVar4 = pTVar3); pc = 1910; continue; }
     case 1912: { (pTVar3 = framePointer(localFrame,276)); pc = 1911; continue; }
     case 1913: { (uVar5 = 4294967295); pc = 1912; continue; }
-    case 1914: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1918 : 1913; continue; }
+    case 1914: { pc = (cCompare(uVar5,0,"!=")) ? 1918 : 1913; continue; }
     case 1915: { (uVar5 = cSub(uVar5,1)); pc = 1914; continue; }
     case 1916: { (pcVar16 = cAdd(pcVar16,1)); pc = 1915; continue; }
     case 1917: { (pcVar12 = cAdd(pcVar12,1)); pc = 1916; continue; }
     case 1918: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1917; continue; }
     case 1919: { (uVar5 = cBits(uVar5,3,"&")); pc = 1914; continue; }
-    case 1920: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1924 : 1919; continue; }
+    case 1920: { pc = (cCompare(uVar6,0,"!=")) ? 1924 : 1919; continue; }
     case 1921: { (uVar6 = cSub(uVar6,1)); pc = 1920; continue; }
     case 1922: { (pcVar16 = cAdd(pcVar16,4)); pc = 1921; continue; }
     case 1923: { (pcVar12 = cAdd(pcVar12,4)); pc = 1922; continue; }
@@ -5194,35 +5195,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1925: { (uVar6 = cBits(uVar5,2,">>")); pc = 1920; continue; }
     case 1926: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1925; continue; }
     case 1927: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1926; continue; }
-    case 1928: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1935 : 1927; continue; }
+    case 1928: { pc = (cCompare(cVar1,0,"!=")) ? 1935 : 1927; continue; }
     case 1929: { (pcVar12 = pcVar16); pc = 1928; continue; }
     case 1930: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1929; continue; }
     case 1931: { (pcVar16 = cAdd(pcVar12,1)); pc = 1930; continue; }
     case 1932: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1931; continue; }
     case 1933: { pc = 1927; continue; }
-    case 1934: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1933 : 1932; continue; }
+    case 1934: { pc = (cCompare(iVar7,0,"==")) ? 1933 : 1932; continue; }
     case 1935: { (pcVar16 = pcVar12); pc = 1934; continue; }
     case 1936: { (pcVar12 = framePointer(localFrame,308)); pc = 1935; continue; }
     case 1937: { (iVar7 = cNeg(1)); pc = 1936; continue; }
     case 1938: { (uVar5 = cBits(uVar5,0,"~")); pc = 1937; continue; }
-    case 1939: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1946 : 1938; continue; }
+    case 1939: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1946 : 1938; continue; }
     case 1940: { (pTVar3 = pTVar4); pc = 1939; continue; }
     case 1941: { (ppcVar2 = pTVar3); pc = 1940; continue; }
     case 1942: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1941; continue; }
     case 1943: { (uVar5 = cSub(uVar5,1)); pc = 1942; continue; }
     case 1944: { pc = 1938; continue; }
-    case 1945: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1944 : 1943; continue; }
+    case 1945: { pc = (cCompare(uVar5,0,"==")) ? 1944 : 1943; continue; }
     case 1946: { (pTVar4 = pTVar3); pc = 1945; continue; }
     case 1947: { (pTVar3 = framePointer(localFrame,268)); pc = 1946; continue; }
     case 1948: { (uVar5 = 4294967295); pc = 1947; continue; }
-    case 1949: { pc = cTruth(cCompare(r32(0x5116b0),2,"==")) ? 1948 : 1878; continue; }
-    case 1950: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1954 : 1949; continue; }
+    case 1949: { pc = (cCompare(r32(0x5116b0),2,"==")) ? 1948 : 1878; continue; }
+    case 1950: { pc = (cCompare(uVar5,0,"!=")) ? 1954 : 1949; continue; }
     case 1951: { (uVar5 = cSub(uVar5,1)); pc = 1950; continue; }
     case 1952: { (pcVar16 = cAdd(pcVar16,1)); pc = 1951; continue; }
     case 1953: { (pcVar12 = cAdd(pcVar12,1)); pc = 1952; continue; }
     case 1954: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1953; continue; }
     case 1955: { (uVar5 = cBits(uVar5,3,"&")); pc = 1950; continue; }
-    case 1956: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1960 : 1955; continue; }
+    case 1956: { pc = (cCompare(uVar6,0,"!=")) ? 1960 : 1955; continue; }
     case 1957: { (uVar6 = cSub(uVar6,1)); pc = 1956; continue; }
     case 1958: { (pcVar16 = cAdd(pcVar16,4)); pc = 1957; continue; }
     case 1959: { (pcVar12 = cAdd(pcVar12,4)); pc = 1958; continue; }
@@ -5230,35 +5231,35 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1961: { (uVar6 = cBits(uVar5,2,">>")); pc = 1956; continue; }
     case 1962: { (pcVar16 = cAdd(pcVar16,cNeg(1))); pc = 1961; continue; }
     case 1963: { (pcVar12 = cSub(cI32(pTVar4,false),uVar5)); pc = 1962; continue; }
-    case 1964: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 1971 : 1963; continue; }
+    case 1964: { pc = (cCompare(cVar1,0,"!=")) ? 1971 : 1963; continue; }
     case 1965: { (pcVar12 = pcVar16); pc = 1964; continue; }
     case 1966: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 1965; continue; }
     case 1967: { (pcVar16 = cAdd(pcVar12,1)); pc = 1966; continue; }
     case 1968: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 1967; continue; }
     case 1969: { pc = 1963; continue; }
-    case 1970: { pc = cTruth(cCompare(iVar7,0,"==")) ? 1969 : 1968; continue; }
+    case 1970: { pc = (cCompare(iVar7,0,"==")) ? 1969 : 1968; continue; }
     case 1971: { (pcVar16 = pcVar12); pc = 1970; continue; }
     case 1972: { (pcVar12 = framePointer(localFrame,308)); pc = 1971; continue; }
     case 1973: { (iVar7 = cNeg(1)); pc = 1972; continue; }
     case 1974: { (uVar5 = cBits(uVar5,0,"~")); pc = 1973; continue; }
-    case 1975: { pc = cTruth(cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1982 : 1974; continue; }
+    case 1975: { pc = (cCompare(readPointer(memory,ppcVar2,1),0,"!=")) ? 1982 : 1974; continue; }
     case 1976: { (pTVar3 = pTVar4); pc = 1975; continue; }
     case 1977: { (ppcVar2 = pTVar3); pc = 1976; continue; }
     case 1978: { (pTVar4 = cAdd(cI32(pTVar3,false),1)); pc = 1977; continue; }
     case 1979: { (uVar5 = cSub(uVar5,1)); pc = 1978; continue; }
     case 1980: { pc = 1974; continue; }
-    case 1981: { pc = cTruth(cCompare(uVar5,0,"==")) ? 1980 : 1979; continue; }
+    case 1981: { pc = (cCompare(uVar5,0,"==")) ? 1980 : 1979; continue; }
     case 1982: { (pTVar4 = pTVar3); pc = 1981; continue; }
     case 1983: { (pTVar3 = framePointer(localFrame,268)); pc = 1982; continue; }
     case 1984: { (uVar5 = 4294967295); pc = 1983; continue; }
-    case 1985: { pc = cTruth(cCompare(r32(0x5116b0),1,"==")) ? 1984 : 1949; continue; }
-    case 1986: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 1990 : 1985; continue; }
+    case 1985: { pc = (cCompare(r32(0x5116b0),1,"==")) ? 1984 : 1949; continue; }
+    case 1986: { pc = (cCompare(uVar5,0,"!=")) ? 1990 : 1985; continue; }
     case 1987: { (uVar5 = cSub(uVar5,1)); pc = 1986; continue; }
     case 1988: { (pcVar16 = cAdd(pcVar16,1)); pc = 1987; continue; }
     case 1989: { (pcVar12 = cAdd(pcVar12,1)); pc = 1988; continue; }
     case 1990: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 1989; continue; }
     case 1991: { (uVar5 = cBits(uVar5,3,"&")); pc = 1986; continue; }
-    case 1992: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 1996 : 1991; continue; }
+    case 1992: { pc = (cCompare(uVar6,0,"!=")) ? 1996 : 1991; continue; }
     case 1993: { (uVar6 = cSub(uVar6,1)); pc = 1992; continue; }
     case 1994: { (pcVar16 = cAdd(pcVar16,4)); pc = 1993; continue; }
     case 1995: { (pcVar12 = cAdd(pcVar12,4)); pc = 1994; continue; }
@@ -5266,34 +5267,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 1997: { (uVar6 = cBits(uVar5,2,">>")); pc = 1992; continue; }
     case 1998: { (pcVar16 = cAdd(pcVar15,cNeg(1))); pc = 1997; continue; }
     case 1999: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 1998; continue; }
-    case 2000: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2007 : 1999; continue; }
+    case 2000: { pc = (cCompare(cVar1,0,"!=")) ? 2007 : 1999; continue; }
     case 2001: { (pcVar12 = pcVar15); pc = 2000; continue; }
     case 2002: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 2001; continue; }
     case 2003: { (pcVar15 = cAdd(pcVar12,1)); pc = 2002; continue; }
     case 2004: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 2003; continue; }
     case 2005: { pc = 1999; continue; }
-    case 2006: { pc = cTruth(cCompare(iVar7,0,"==")) ? 2005 : 2004; continue; }
+    case 2006: { pc = (cCompare(iVar7,0,"==")) ? 2005 : 2004; continue; }
     case 2007: { (pcVar15 = pcVar12); pc = 2006; continue; }
     case 2008: { (pcVar12 = framePointer(localFrame,308)); pc = 2007; continue; }
     case 2009: { (iVar7 = cNeg(1)); pc = 2008; continue; }
     case 2010: { (uVar5 = cBits(uVar5,0,"~")); pc = 2009; continue; }
-    case 2011: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2018 : 2010; continue; }
+    case 2011: { pc = (cCompare(cVar1,0,"!=")) ? 2018 : 2010; continue; }
     case 2012: { (pcVar12 = pcVar16); pc = 2011; continue; }
     case 2013: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 2012; continue; }
     case 2014: { (pcVar16 = cAdd(pcVar12,1)); pc = 2013; continue; }
     case 2015: { (uVar5 = cSub(uVar5,1)); pc = 2014; continue; }
     case 2016: { pc = 2010; continue; }
-    case 2017: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2016 : 2015; continue; }
+    case 2017: { pc = (cCompare(uVar5,0,"==")) ? 2016 : 2015; continue; }
     case 2018: { (pcVar16 = pcVar12); pc = 2017; continue; }
     case 2019: { (pcVar12 = 0x619f1c); pc = 2018; continue; }
     case 2020: { (uVar5 = 4294967295); pc = 2019; continue; }
-    case 2021: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2025 : 2020; continue; }
+    case 2021: { pc = (cCompare(uVar5,0,"!=")) ? 2025 : 2020; continue; }
     case 2022: { (uVar5 = cSub(uVar5,1)); pc = 2021; continue; }
     case 2023: { (pcVar16 = cAdd(pcVar16,1)); pc = 2022; continue; }
     case 2024: { (pcVar12 = cAdd(pcVar12,1)); pc = 2023; continue; }
     case 2025: { writePointer(memory,pcVar16,readPointer(memory,pcVar12,1),1); pc = 2024; continue; }
     case 2026: { (uVar5 = cBits(uVar5,3,"&")); pc = 2021; continue; }
-    case 2027: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2031 : 2026; continue; }
+    case 2027: { pc = (cCompare(uVar6,0,"!=")) ? 2031 : 2026; continue; }
     case 2028: { (uVar6 = cSub(uVar6,1)); pc = 2027; continue; }
     case 2029: { (pcVar16 = cAdd(pcVar16,4)); pc = 2028; continue; }
     case 2030: { (pcVar12 = cAdd(pcVar12,4)); pc = 2029; continue; }
@@ -5302,17 +5303,17 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2033: { (pcVar16 = framePointer(localFrame,308)); pc = 2032; continue; }
     case 2034: { (pcVar12 = cAdd(pcVar16,cNeg(uVar5))); pc = 2033; continue; }
     case 2035: { (uVar5 = cBits(uVar5,0,"~")); pc = 2034; continue; }
-    case 2036: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2043 : 2035; continue; }
+    case 2036: { pc = (cCompare(cVar1,0,"!=")) ? 2043 : 2035; continue; }
     case 2037: { (pcVar12 = pcVar16); pc = 2036; continue; }
     case 2038: { (cVar1 = readPointer(memory,pcVar12,1)); pc = 2037; continue; }
     case 2039: { (pcVar16 = cAdd(pcVar12,1)); pc = 2038; continue; }
     case 2040: { (uVar5 = cSub(uVar5,1)); pc = 2039; continue; }
     case 2041: { pc = 2035; continue; }
-    case 2042: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2041 : 2040; continue; }
+    case 2042: { pc = (cCompare(uVar5,0,"==")) ? 2041 : 2040; continue; }
     case 2043: { (pcVar16 = pcVar12); pc = 2042; continue; }
     case 2044: { (uVar5 = 4294967295); pc = 2043; continue; }
     case 2045: { (pcVar12 = 0x619f30); pc = 2044; continue; }
-    case 2046: { pc = cTruth(cCompare(r32(0x523244),1,"!=")) ? 2045 : 2044; continue; }
+    case 2046: { pc = (cCompare(r32(0x523244),1,"!=")) ? 2045 : 2044; continue; }
     case 2047: { (pcVar8 = cAdd(pcVar8,cStringData(memory,readLocal(framePointer(localFrame,260),4,"int")))); pc = 2046; continue; }
     case 2048: { writeLocal(framePointer(localFrame,260),cMul(cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")),2),4); pc = 2047; continue; }
     case 2049: { (pcVar12 = 0x619f38); pc = 2048; continue; }
@@ -5320,21 +5321,21 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2051: { (iVar7 = drawingPrintf(memory,framePointer(localFrame,308),0x619f40,r32(0x4fe76c))); pc = 2050; continue; }
     case 2052: { (pcVar8 = cAdd(cStringData(memory,readLocal(framePointer(localFrame,256),4,"int")),60)); pc = 2051; continue; }
     case 2053: { textOutCount(dc,memory,20,60,framePointer(localFrame,308),cSub(cBits(uVar5,0,"~"),1)); pc = 2052; continue; }
-    case 2054: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2059 : 2053; continue; }
+    case 2054: { pc = (cCompare(cVar1,0,"!=")) ? 2059 : 2053; continue; }
     case 2055: { (pcVar8 = cAdd(pcVar8,1)); pc = 2054; continue; }
     case 2056: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2055; continue; }
     case 2057: { (uVar5 = cSub(uVar5,1)); pc = 2056; continue; }
     case 2058: { pc = 2053; continue; }
-    case 2059: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2058 : 2057; continue; }
+    case 2059: { pc = (cCompare(uVar5,0,"==")) ? 2058 : 2057; continue; }
     case 2060: { (pcVar8 = framePointer(localFrame,308)); pc = 2059; continue; }
     case 2061: { (uVar5 = 4294967295); pc = 2060; continue; }
-    case 2062: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2066 : 2061; continue; }
+    case 2062: { pc = (cCompare(uVar5,0,"!=")) ? 2066 : 2061; continue; }
     case 2063: { (uVar5 = cSub(uVar5,1)); pc = 2062; continue; }
     case 2064: { (pcVar12 = cAdd(pcVar12,1)); pc = 2063; continue; }
     case 2065: { (pcVar8 = cAdd(pcVar8,1)); pc = 2064; continue; }
     case 2066: { writePointer(memory,pcVar12,readPointer(memory,pcVar8,1),1); pc = 2065; continue; }
     case 2067: { (uVar5 = cBits(uVar5,3,"&")); pc = 2062; continue; }
-    case 2068: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2072 : 2067; continue; }
+    case 2068: { pc = (cCompare(uVar6,0,"!=")) ? 2072 : 2067; continue; }
     case 2069: { (uVar6 = cSub(uVar6,1)); pc = 2068; continue; }
     case 2070: { (pcVar12 = cAdd(pcVar12,4)); pc = 2069; continue; }
     case 2071: { (pcVar8 = cAdd(pcVar8,4)); pc = 2070; continue; }
@@ -5342,34 +5343,34 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2073: { (uVar6 = cBits(uVar5,2,">>")); pc = 2068; continue; }
     case 2074: { (pcVar12 = cAdd(pcVar16,cNeg(1))); pc = 2073; continue; }
     case 2075: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2074; continue; }
-    case 2076: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2083 : 2075; continue; }
+    case 2076: { pc = (cCompare(cVar1,0,"!=")) ? 2083 : 2075; continue; }
     case 2077: { (pcVar8 = pcVar16); pc = 2076; continue; }
     case 2078: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2077; continue; }
     case 2079: { (pcVar16 = cAdd(pcVar8,1)); pc = 2078; continue; }
     case 2080: { (iVar7 = cAdd(iVar7,cNeg(1))); pc = 2079; continue; }
     case 2081: { pc = 2075; continue; }
-    case 2082: { pc = cTruth(cCompare(iVar7,0,"==")) ? 2081 : 2080; continue; }
+    case 2082: { pc = (cCompare(iVar7,0,"==")) ? 2081 : 2080; continue; }
     case 2083: { (pcVar16 = pcVar8); pc = 2082; continue; }
     case 2084: { (pcVar8 = framePointer(localFrame,308)); pc = 2083; continue; }
     case 2085: { (iVar7 = cNeg(1)); pc = 2084; continue; }
     case 2086: { (uVar5 = cBits(uVar5,0,"~")); pc = 2085; continue; }
-    case 2087: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2094 : 2086; continue; }
+    case 2087: { pc = (cCompare(cVar1,0,"!=")) ? 2094 : 2086; continue; }
     case 2088: { (pcVar8 = pcVar12); pc = 2087; continue; }
     case 2089: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2088; continue; }
     case 2090: { (pcVar12 = cAdd(pcVar8,1)); pc = 2089; continue; }
     case 2091: { (uVar5 = cSub(uVar5,1)); pc = 2090; continue; }
     case 2092: { pc = 2086; continue; }
-    case 2093: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2092 : 2091; continue; }
+    case 2093: { pc = (cCompare(uVar5,0,"==")) ? 2092 : 2091; continue; }
     case 2094: { (pcVar12 = pcVar8); pc = 2093; continue; }
     case 2095: { (pcVar8 = framePointer(localFrame,372)); pc = 2094; continue; }
     case 2096: { (uVar5 = 4294967295); pc = 2095; continue; }
-    case 2097: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2101 : 2096; continue; }
+    case 2097: { pc = (cCompare(uVar5,0,"!=")) ? 2101 : 2096; continue; }
     case 2098: { (uVar5 = cSub(uVar5,1)); pc = 2097; continue; }
     case 2099: { (pcVar12 = cAdd(pcVar12,1)); pc = 2098; continue; }
     case 2100: { (pcVar8 = cAdd(pcVar8,1)); pc = 2099; continue; }
     case 2101: { writePointer(memory,pcVar12,readPointer(memory,pcVar8,1),1); pc = 2100; continue; }
     case 2102: { (uVar5 = cBits(uVar5,3,"&")); pc = 2097; continue; }
-    case 2103: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2107 : 2102; continue; }
+    case 2103: { pc = (cCompare(uVar6,0,"!=")) ? 2107 : 2102; continue; }
     case 2104: { (uVar6 = cSub(uVar6,1)); pc = 2103; continue; }
     case 2105: { (pcVar12 = cAdd(pcVar12,4)); pc = 2104; continue; }
     case 2106: { (pcVar8 = cAdd(pcVar8,4)); pc = 2105; continue; }
@@ -5378,18 +5379,18 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2109: { (pcVar12 = framePointer(localFrame,372)); pc = 2108; continue; }
     case 2110: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2109; continue; }
     case 2111: { (uVar5 = cBits(uVar5,0,"~")); pc = 2110; continue; }
-    case 2112: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2119 : 2111; continue; }
+    case 2112: { pc = (cCompare(cVar1,0,"!=")) ? 2119 : 2111; continue; }
     case 2113: { (pcVar8 = pcVar12); pc = 2112; continue; }
     case 2114: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2113; continue; }
     case 2115: { (pcVar12 = cAdd(pcVar8,1)); pc = 2114; continue; }
     case 2116: { (uVar5 = cSub(uVar5,1)); pc = 2115; continue; }
     case 2117: { pc = 2111; continue; }
-    case 2118: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2117 : 2116; continue; }
+    case 2118: { pc = (cCompare(uVar5,0,"==")) ? 2117 : 2116; continue; }
     case 2119: { (pcVar12 = pcVar8); pc = 2118; continue; }
     case 2120: { (pcVar8 = 0x619f5c); pc = 2119; continue; }
     case 2121: { (uVar5 = 4294967295); pc = 2120; continue; }
-    case 2122: { pc = cTruth((cTruth((!cTruth(bVar18))) && cTruth(cCompare(bVar19,cCompare(cAdd(r32(0x511cf8),cNeg(2)),0,"<"),"==")))) ? 2121 : 2096; continue; }
-    case 2123: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2127 : 2122; continue; }
+    case 2122: { pc = ((((!cTruth(bVar18))) && (cCompare(bVar19,cCompare(cAdd(r32(0x511cf8),cNeg(2)),0,"<"),"==")))) ? 2121 : 2096; continue; }
+    case 2123: { pc = (cCompare(uVar5,0,"!=")) ? 2127 : 2122; continue; }
     case 2124: { (uVar5 = cSub(uVar5,1)); pc = 2123; continue; }
     case 2125: { (pcVar12 = cAdd(pcVar12,1)); pc = 2124; continue; }
     case 2126: { (pcVar8 = cAdd(pcVar8,1)); pc = 2125; continue; }
@@ -5397,7 +5398,7 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2128: { (uVar5 = cBits(uVar5,3,"&")); pc = 2123; continue; }
     case 2129: { (bVar18 = true); pc = 2128; continue; }
     case 2130: { (bVar19 = false); pc = 2129; continue; }
-    case 2131: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2135 : 2130; continue; }
+    case 2131: { pc = (cCompare(uVar6,0,"!=")) ? 2135 : 2130; continue; }
     case 2132: { (uVar6 = cSub(uVar6,1)); pc = 2131; continue; }
     case 2133: { (pcVar12 = cAdd(pcVar12,4)); pc = 2132; continue; }
     case 2134: { (pcVar8 = cAdd(pcVar8,4)); pc = 2133; continue; }
@@ -5406,26 +5407,26 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2137: { (pcVar12 = framePointer(localFrame,372)); pc = 2136; continue; }
     case 2138: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2137; continue; }
     case 2139: { (uVar5 = cBits(uVar5,0,"~")); pc = 2138; continue; }
-    case 2140: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2147 : 2139; continue; }
+    case 2140: { pc = (cCompare(cVar1,0,"!=")) ? 2147 : 2139; continue; }
     case 2141: { (pcVar8 = pcVar12); pc = 2140; continue; }
     case 2142: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2141; continue; }
     case 2143: { (pcVar12 = cAdd(pcVar8,1)); pc = 2142; continue; }
     case 2144: { (uVar5 = cSub(uVar5,1)); pc = 2143; continue; }
     case 2145: { pc = 2139; continue; }
-    case 2146: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2145 : 2144; continue; }
+    case 2146: { pc = (cCompare(uVar5,0,"==")) ? 2145 : 2144; continue; }
     case 2147: { (pcVar12 = pcVar8); pc = 2146; continue; }
     case 2148: { (pcVar8 = 0x619f6c); pc = 2147; continue; }
     case 2149: { (uVar5 = 4294967295); pc = 2148; continue; }
-    case 2150: { pc = cTruth(cCompare(r32(0x511cf8),2,"==")) ? 2149 : 2122; continue; }
+    case 2150: { pc = (cCompare(r32(0x511cf8),2,"==")) ? 2149 : 2122; continue; }
     case 2151: { (bVar18 = false); pc = 2150; continue; }
     case 2152: { (bVar19 = signedBorrow32(r32(0x511cf8),2)); pc = 2151; continue; }
-    case 2153: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2157 : 2152; continue; }
+    case 2153: { pc = (cCompare(uVar5,0,"!=")) ? 2157 : 2152; continue; }
     case 2154: { (uVar5 = cSub(uVar5,1)); pc = 2153; continue; }
     case 2155: { (pcVar12 = cAdd(pcVar12,1)); pc = 2154; continue; }
     case 2156: { (pcVar8 = cAdd(pcVar8,1)); pc = 2155; continue; }
     case 2157: { writePointer(memory,pcVar12,readPointer(memory,pcVar8,1),1); pc = 2156; continue; }
     case 2158: { (uVar5 = cBits(uVar5,3,"&")); pc = 2153; continue; }
-    case 2159: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2163 : 2158; continue; }
+    case 2159: { pc = (cCompare(uVar6,0,"!=")) ? 2163 : 2158; continue; }
     case 2160: { (uVar6 = cSub(uVar6,1)); pc = 2159; continue; }
     case 2161: { (pcVar12 = cAdd(pcVar12,4)); pc = 2160; continue; }
     case 2162: { (pcVar8 = cAdd(pcVar8,4)); pc = 2161; continue; }
@@ -5434,24 +5435,24 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2165: { (pcVar12 = framePointer(localFrame,372)); pc = 2164; continue; }
     case 2166: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2165; continue; }
     case 2167: { (uVar5 = cBits(uVar5,0,"~")); pc = 2166; continue; }
-    case 2168: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2175 : 2167; continue; }
+    case 2168: { pc = (cCompare(cVar1,0,"!=")) ? 2175 : 2167; continue; }
     case 2169: { (pcVar8 = pcVar12); pc = 2168; continue; }
     case 2170: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2169; continue; }
     case 2171: { (pcVar12 = cAdd(pcVar8,1)); pc = 2170; continue; }
     case 2172: { (uVar5 = cSub(uVar5,1)); pc = 2171; continue; }
     case 2173: { pc = 2167; continue; }
-    case 2174: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2173 : 2172; continue; }
+    case 2174: { pc = (cCompare(uVar5,0,"==")) ? 2173 : 2172; continue; }
     case 2175: { (pcVar12 = pcVar8); pc = 2174; continue; }
     case 2176: { (pcVar8 = 0x619f80); pc = 2175; continue; }
     case 2177: { (uVar5 = 4294967295); pc = 2176; continue; }
-    case 2178: { pc = cTruth(cCompare(r32(0x511cf8),1,"==")) ? 2177 : 2152; continue; }
-    case 2179: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2183 : 2178; continue; }
+    case 2178: { pc = (cCompare(r32(0x511cf8),1,"==")) ? 2177 : 2152; continue; }
+    case 2179: { pc = (cCompare(uVar5,0,"!=")) ? 2183 : 2178; continue; }
     case 2180: { (uVar5 = cSub(uVar5,1)); pc = 2179; continue; }
     case 2181: { (pcVar12 = cAdd(pcVar12,1)); pc = 2180; continue; }
     case 2182: { (pcVar8 = cAdd(pcVar8,1)); pc = 2181; continue; }
     case 2183: { writePointer(memory,pcVar12,readPointer(memory,pcVar8,1),1); pc = 2182; continue; }
     case 2184: { (uVar5 = cBits(uVar5,3,"&")); pc = 2179; continue; }
-    case 2185: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2189 : 2184; continue; }
+    case 2185: { pc = (cCompare(uVar6,0,"!=")) ? 2189 : 2184; continue; }
     case 2186: { (uVar6 = cSub(uVar6,1)); pc = 2185; continue; }
     case 2187: { (pcVar12 = cAdd(pcVar12,4)); pc = 2186; continue; }
     case 2188: { (pcVar8 = cAdd(pcVar8,4)); pc = 2187; continue; }
@@ -5460,18 +5461,18 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2191: { (pcVar12 = framePointer(localFrame,308)); pc = 2190; continue; }
     case 2192: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2191; continue; }
     case 2193: { (uVar5 = cBits(uVar5,0,"~")); pc = 2192; continue; }
-    case 2194: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2201 : 2193; continue; }
+    case 2194: { pc = (cCompare(cVar1,0,"!=")) ? 2201 : 2193; continue; }
     case 2195: { (pcVar8 = pcVar12); pc = 2194; continue; }
     case 2196: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2195; continue; }
     case 2197: { (pcVar12 = cAdd(pcVar8,1)); pc = 2196; continue; }
     case 2198: { (uVar5 = cSub(uVar5,1)); pc = 2197; continue; }
     case 2199: { pc = 2193; continue; }
-    case 2200: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2199 : 2198; continue; }
+    case 2200: { pc = (cCompare(uVar5,0,"==")) ? 2199 : 2198; continue; }
     case 2201: { (pcVar12 = pcVar8); pc = 2200; continue; }
     case 2202: { (pcVar8 = 0x619f90); pc = 2201; continue; }
     case 2203: { (uVar5 = 4294967295); pc = 2202; continue; }
-    case 2204: { pc = cTruth((cTruth((!cTruth(bVar18))) && cTruth(cCompare(bVar19,cCompare(cAdd(r32(0x4f8d78),cNeg(2)),0,"<"),"==")))) ? 2203 : 2178; continue; }
-    case 2205: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2209 : 2204; continue; }
+    case 2204: { pc = ((((!cTruth(bVar18))) && (cCompare(bVar19,cCompare(cAdd(r32(0x4f8d78),cNeg(2)),0,"<"),"==")))) ? 2203 : 2178; continue; }
+    case 2205: { pc = (cCompare(uVar5,0,"!=")) ? 2209 : 2204; continue; }
     case 2206: { (uVar5 = cSub(uVar5,1)); pc = 2205; continue; }
     case 2207: { (pcVar12 = cAdd(pcVar12,1)); pc = 2206; continue; }
     case 2208: { (pcVar8 = cAdd(pcVar8,1)); pc = 2207; continue; }
@@ -5479,7 +5480,7 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2210: { (uVar5 = cBits(uVar5,3,"&")); pc = 2205; continue; }
     case 2211: { (bVar18 = true); pc = 2210; continue; }
     case 2212: { (bVar19 = false); pc = 2211; continue; }
-    case 2213: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2217 : 2212; continue; }
+    case 2213: { pc = (cCompare(uVar6,0,"!=")) ? 2217 : 2212; continue; }
     case 2214: { (uVar6 = cSub(uVar6,1)); pc = 2213; continue; }
     case 2215: { (pcVar12 = cAdd(pcVar12,4)); pc = 2214; continue; }
     case 2216: { (pcVar8 = cAdd(pcVar8,4)); pc = 2215; continue; }
@@ -5488,26 +5489,26 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2219: { (pcVar12 = framePointer(localFrame,308)); pc = 2218; continue; }
     case 2220: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2219; continue; }
     case 2221: { (uVar5 = cBits(uVar5,0,"~")); pc = 2220; continue; }
-    case 2222: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2229 : 2221; continue; }
+    case 2222: { pc = (cCompare(cVar1,0,"!=")) ? 2229 : 2221; continue; }
     case 2223: { (pcVar8 = pcVar12); pc = 2222; continue; }
     case 2224: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2223; continue; }
     case 2225: { (pcVar12 = cAdd(pcVar8,1)); pc = 2224; continue; }
     case 2226: { (uVar5 = cSub(uVar5,1)); pc = 2225; continue; }
     case 2227: { pc = 2221; continue; }
-    case 2228: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2227 : 2226; continue; }
+    case 2228: { pc = (cCompare(uVar5,0,"==")) ? 2227 : 2226; continue; }
     case 2229: { (pcVar12 = pcVar8); pc = 2228; continue; }
     case 2230: { (pcVar8 = 0x619f9c); pc = 2229; continue; }
     case 2231: { (uVar5 = 4294967295); pc = 2230; continue; }
-    case 2232: { pc = cTruth(cCompare(r32(0x4f8d78),2,"==")) ? 2231 : 2204; continue; }
+    case 2232: { pc = (cCompare(r32(0x4f8d78),2,"==")) ? 2231 : 2204; continue; }
     case 2233: { (bVar18 = false); pc = 2232; continue; }
     case 2234: { (bVar19 = signedBorrow32(r32(0x4f8d78),2)); pc = 2233; continue; }
-    case 2235: { pc = cTruth(cCompare(uVar5,0,"!=")) ? 2239 : 2234; continue; }
+    case 2235: { pc = (cCompare(uVar5,0,"!=")) ? 2239 : 2234; continue; }
     case 2236: { (uVar5 = cSub(uVar5,1)); pc = 2235; continue; }
     case 2237: { (pcVar12 = cAdd(pcVar12,1)); pc = 2236; continue; }
     case 2238: { (pcVar8 = cAdd(pcVar8,1)); pc = 2237; continue; }
     case 2239: { writePointer(memory,pcVar12,readPointer(memory,pcVar8,1),1); pc = 2238; continue; }
     case 2240: { (uVar5 = cBits(uVar5,3,"&")); pc = 2235; continue; }
-    case 2241: { pc = cTruth(cCompare(uVar6,0,"!=")) ? 2245 : 2240; continue; }
+    case 2241: { pc = (cCompare(uVar6,0,"!=")) ? 2245 : 2240; continue; }
     case 2242: { (uVar6 = cSub(uVar6,1)); pc = 2241; continue; }
     case 2243: { (pcVar12 = cAdd(pcVar12,4)); pc = 2242; continue; }
     case 2244: { (pcVar8 = cAdd(pcVar8,4)); pc = 2243; continue; }
@@ -5516,26 +5517,26 @@ function originalDrawForecastScreenNumber(memory, dc, rng, options, numberArgume
     case 2247: { (pcVar12 = framePointer(localFrame,308)); pc = 2246; continue; }
     case 2248: { (pcVar8 = cAdd(pcVar12,cNeg(uVar5))); pc = 2247; continue; }
     case 2249: { (uVar5 = cBits(uVar5,0,"~")); pc = 2248; continue; }
-    case 2250: { pc = cTruth(cCompare(cVar1,0,"!=")) ? 2257 : 2249; continue; }
+    case 2250: { pc = (cCompare(cVar1,0,"!=")) ? 2257 : 2249; continue; }
     case 2251: { (pcVar8 = pcVar12); pc = 2250; continue; }
     case 2252: { (cVar1 = readPointer(memory,pcVar8,1)); pc = 2251; continue; }
     case 2253: { (pcVar12 = cAdd(pcVar8,1)); pc = 2252; continue; }
     case 2254: { (uVar5 = cSub(uVar5,1)); pc = 2253; continue; }
     case 2255: { pc = 2249; continue; }
-    case 2256: { pc = cTruth(cCompare(uVar5,0,"==")) ? 2255 : 2254; continue; }
+    case 2256: { pc = (cCompare(uVar5,0,"==")) ? 2255 : 2254; continue; }
     case 2257: { (pcVar12 = pcVar8); pc = 2256; continue; }
     case 2258: { (pcVar8 = 0x619fac); pc = 2257; continue; }
     case 2259: { (uVar5 = 4294967295); pc = 2258; continue; }
-    case 2260: { pc = cTruth(cCompare(r32(0x4f8d78),1,"==")) ? 2259 : 2234; continue; }
+    case 2260: { pc = (cCompare(r32(0x4f8d78),1,"==")) ? 2259 : 2234; continue; }
     case 2261: { textOutCount(dc,memory,20,25,0x4dd5d8,18); pc = 2260; continue; }
     case 2262: { dc.setTextColor(8323072); pc = 2261; continue; }
-    case 2263: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 2262 : 2261; continue; }
+    case 2263: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 2262 : 2261; continue; }
     case 2264: { writeLocal(framePointer(localFrame,256),20,4); pc = 2263; continue; }
     case 2265: { writeLocal(framePointer(localFrame,292),22,4); pc = 2264; continue; }
-    case 2266: { pc = cTruth(cCompare(900,r32(0x4fe624),"<")) ? 2265 : 2263; continue; }
+    case 2266: { pc = (cCompare(900,r32(0x4fe624),"<")) ? 2265 : 2263; continue; }
     case 2267: { writeLocal(framePointer(localFrame,256),17,4); pc = 2266; continue; }
     case 2268: { writeLocal(framePointer(localFrame,292),19,4); pc = 2267; continue; }
-    case 2269: { pc = cTruth(cCompare(700,r32(0x4fe624),"<")) ? 2268 : 2266; continue; }
+    case 2269: { pc = (cCompare(700,r32(0x4fe624),"<")) ? 2268 : 2266; continue; }
     case 2270: { dc.rectangle(0,0,r32(0x4fe624),r32(0x4fe2a8)); pc = 2269; continue; }
     case 2271: { invokeDrawingPointer(pcVar9,dc,[readLocal(framePointer(localFrame,0),4,"int"),0]); pc = 2270; continue; }
     case 2272: { invokeDrawingPointer(pcVar9,dc,[readLocal(framePointer(localFrame,0),4,"int"),6]); pc = 2271; continue; }
@@ -6339,23 +6340,23 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 5: { invokeDrawingPointer(dcMethod(dc,100,memory),dc,[original_dc,iVar4,fpI32(fpMul(fpLoad(fpToNumber(fpFromInteger(r32(0x4fe2a8)))),r64(0x4cc608)),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 4; continue; }
     case 6: { writeLocal(framePointer(localFrame,280),60,4,"int"); pc = 5; continue; }
     case 7: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dc128),4); pc = 6; continue; }
-    case 8: { pc = cTruth(cCompare(r32(0x5363f4),10,"==")) ? 7 : 2; continue; }
+    case 8: { pc = (cCompare(r32(0x5363f4),10,"==")) ? 7 : 2; continue; }
     case 9: { undefined; pc = 8; continue; }
     case 10: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 9; continue; }
     case 11: { invokeDrawingPointer(dcMethod(dc,100,memory),dc,[original_dc,iVar4,fpI32(fpMul(fpLoad(fpToNumber(fpFromInteger(r32(0x4fe2a8)))),r64(0x4cc608)),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 10; continue; }
     case 12: { writeLocal(framePointer(localFrame,280),59,4,"int"); pc = 11; continue; }
     case 13: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dc150),4); pc = 12; continue; }
-    case 14: { pc = cTruth((cTruth(cCompare(0,r32(0x5363f4),"<")) && cTruth(cCompare(r32(0x5363f4),10,"<")))) ? 13 : 8; continue; }
+    case 14: { pc = (((cCompare(0,r32(0x5363f4),"<")) && (cCompare(r32(0x5363f4),10,"<")))) ? 13 : 8; continue; }
     case 15: { undefined; pc = 14; continue; }
     case 16: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 15; continue; }
     case 17: { invokeDrawingPointer(dcMethod(dc,100,memory),dc,[original_dc,iVar4,fpI32(fpMul(fpLoad(fpToNumber(fpFromInteger(r32(0x4fe2a8)))),r64(0x4cc608)),false),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 16; continue; }
     case 18: { writeLocal(framePointer(localFrame,280),58,4,"int"); pc = 17; continue; }
     case 19: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dc194),4); pc = 18; continue; }
-    case 20: { pc = cTruth(cCompare(r32(0x5363f4),0,"==")) ? 19 : 14; continue; }
+    case 20: { pc = (cCompare(r32(0x5363f4),0,"==")) ? 19 : 14; continue; }
     case 21: { invokeDrawingPointer(dcMethod(dc,52,memory),dc,[original_dc,0]); pc = 20; continue; }
     case 22: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,255]); pc = 21; continue; }
     case 23: { (iVar5 = readPointer(memory,original_dc,4)); pc = 22; continue; }
-    case 24: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 23 : 20; continue; }
+    case 24: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 23 : 20; continue; }
     case 25: { undefined; pc = 24; continue; }
     case 26: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 25; continue; }
     case 27: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,cAdd(iVar5,uVar3),cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 26; continue; }
@@ -6368,7 +6369,7 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 34: { writeLocal(framePointer(localFrame,280),56,4,"int"); pc = 33; continue; }
     case 35: { (TStack_14 = cString(memory,0x4dc3a4)); pc = 34; continue; }
     case 36: { (iVar5 = cAdd(iVar5,cDiv(uVar3,2))); pc = 35; continue; }
-    case 37: { pc = cTruth(cCompare(r32(0x4da16c),3,"==")) ? 36 : 24; continue; }
+    case 37: { pc = (cCompare(r32(0x4da16c),3,"==")) ? 36 : 24; continue; }
     case 38: { undefined; pc = 37; continue; }
     case 39: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 38; continue; }
     case 40: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 39; continue; }
@@ -6387,7 +6388,7 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 53: { writeLocal(framePointer(localFrame,280),53,4,"int"); pc = 52; continue; }
     case 54: { (TStack_14 = cString(memory,0x4dc240)); pc = 53; continue; }
     case 55: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 54; continue; }
-    case 56: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 55 : 54; continue; }
+    case 56: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 55 : 54; continue; }
     case 57: { undefined; pc = 56; continue; }
     case 58: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 57; continue; }
     case 59: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 58; continue; }
@@ -6406,8 +6407,8 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 72: { writeLocal(framePointer(localFrame,280),50,4,"int"); pc = 71; continue; }
     case 73: { (TStack_14 = cString(memory,0x4dc2d8)); pc = 72; continue; }
     case 74: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8355584]); pc = 73; continue; }
-    case 75: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 74 : 73; continue; }
-    case 76: { pc = cTruth(cCompare(r32(0x4da16c),4,"==")) ? 75 : 56; continue; }
+    case 75: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 74 : 73; continue; }
+    case 76: { pc = (cCompare(r32(0x4da16c),4,"==")) ? 75 : 56; continue; }
     case 77: { undefined; pc = 76; continue; }
     case 78: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 77; continue; }
     case 79: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 78; continue; }
@@ -6427,7 +6428,7 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 93: { writeLocal(framePointer(localFrame,280),47,4,"int"); pc = 92; continue; }
     case 94: { (TStack_14 = cString(memory,0x4dc3a4)); pc = 93; continue; }
     case 95: { (iVar5 = cAdd(iVar5,cDiv(uVar3,2))); pc = 94; continue; }
-    case 96: { pc = cTruth((cTruth(cCompare(r32(0x4da16c),2,"==")) || cTruth(cCompare(r32(0x4da16c),4,"==")))) ? 95 : 37; continue; }
+    case 96: { pc = (((cCompare(r32(0x4da16c),2,"==")) || (cCompare(r32(0x4da16c),4,"==")))) ? 95 : 37; continue; }
     case 97: { undefined; pc = 96; continue; }
     case 98: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 97; continue; }
     case 99: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 98; continue; }
@@ -6446,21 +6447,21 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 112: { writeLocal(framePointer(localFrame,280),44,4,"int"); pc = 111; continue; }
     case 113: { (TStack_14 = cString(memory,0x4dc448)); pc = 112; continue; }
     case 114: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8355584]); pc = 113; continue; }
-    case 115: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 114 : 113; continue; }
+    case 115: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 114 : 113; continue; }
     case 116: { undefined; pc = 115; continue; }
     case 117: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 116; continue; }
     case 118: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,cAdd(cBits(cI32(cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),3,"&")),false),2,">>"),40),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 117; continue; }
     case 119: { writeLocal(framePointer(localFrame,280),43,4,"int"); pc = 118; continue; }
     case 120: { (TStack_14 = cString(memory,0x4dc4b8)); pc = 119; continue; }
     case 121: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 120; continue; }
-    case 122: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 121 : 120; continue; }
+    case 122: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 121 : 120; continue; }
     case 123: { undefined; pc = 122; continue; }
     case 124: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 123; continue; }
     case 125: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 124; continue; }
     case 126: { writeLocal(framePointer(localFrame,280),42,4,"int"); pc = 125; continue; }
     case 127: { (TStack_14 = cString(memory,0x4dc4d4)); pc = 126; continue; }
     case 128: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 127; continue; }
-    case 129: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 128 : 127; continue; }
+    case 129: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 128 : 127; continue; }
     case 130: { (iVar5 = cAdd(iVar5,uVar3)); pc = 129; continue; }
     case 131: { undefined; pc = 130; continue; }
     case 132: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 131; continue; }
@@ -6468,21 +6469,21 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 134: { writeLocal(framePointer(localFrame,280),41,4,"int"); pc = 133; continue; }
     case 135: { (TStack_14 = cString(memory,0x4dc4f0)); pc = 134; continue; }
     case 136: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323199]); pc = 135; continue; }
-    case 137: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 136 : 135; continue; }
+    case 137: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 136 : 135; continue; }
     case 138: { undefined; pc = 137; continue; }
     case 139: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 138; continue; }
     case 140: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,cAdd(cBits(cI32(cAdd(r32(0x4fe624),cBits(cBits(r32(0x4fe624),31,">>"),3,"&")),false),2,">>"),20),iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 139; continue; }
     case 141: { writeLocal(framePointer(localFrame,280),40,4,"int"); pc = 140; continue; }
     case 142: { (TStack_14 = cString(memory,0x4dc510)); pc = 141; continue; }
     case 143: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 142; continue; }
-    case 144: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 143 : 142; continue; }
+    case 144: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 143 : 142; continue; }
     case 145: { undefined; pc = 144; continue; }
     case 146: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 145; continue; }
     case 147: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,TStack_14),cStringHeaderLength(memory,cStringData(memory,TStack_14))]); pc = 146; continue; }
     case 148: { writeLocal(framePointer(localFrame,280),39,4,"int"); pc = 147; continue; }
     case 149: { (TStack_14 = cString(memory,0x4dc52c)); pc = 148; continue; }
     case 150: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 149; continue; }
-    case 151: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 150 : 149; continue; }
+    case 151: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 150 : 149; continue; }
     case 152: { (iVar5 = cAdd(iVar5,uVar3)); pc = 151; continue; }
     case 153: { undefined; pc = 152; continue; }
     case 154: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 153; continue; }
@@ -6496,7 +6497,7 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 162: { writeLocal(framePointer(localFrame,280),37,4,"int"); pc = 161; continue; }
     case 163: { (TStack_14 = cString(memory,0x4dc5a4)); pc = 162; continue; }
     case 164: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 163; continue; }
-    case 165: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 164 : 163; continue; }
+    case 165: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 164 : 163; continue; }
     case 166: { (iVar5 = cAdd(cAdd(iVar5,uVar3),readLocal(framePointer(localFrame,256),4,"int"))); pc = 165; continue; }
     case 167: { undefined; pc = 166; continue; }
     case 168: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 167; continue; }
@@ -6521,17 +6522,17 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 187: { writeLocal(framePointer(localFrame,280),33,4,"int"); pc = 186; continue; }
     case 188: { (TStack_14 = cString(memory,0x4dc67c)); pc = 187; continue; }
     case 189: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 188; continue; }
-    case 190: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 189 : 188; continue; }
-    case 191: { pc = cTruth(cCompare(r32(0x4da16c),1,"==")) ? 190 : 96; continue; }
+    case 190: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 189 : 188; continue; }
+    case 191: { pc = (cCompare(r32(0x4da16c),1,"==")) ? 190 : 96; continue; }
     case 192: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 191; continue; }
-    case 193: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 192 : 191; continue; }
+    case 193: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 192 : 191; continue; }
     case 194: { (iVar5 = cAdd(cAdd(cMul(readLocal(framePointer(localFrame,256),4,"int"),9),iVar5),readLocal(framePointer(localFrame,256),4,"int"))); pc = 193; continue; }
     case 195: { undefined; pc = 194; continue; }
     case 196: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 195; continue; }
     case 197: { invokeDrawingPointer(dcMethod(dc,100,memory),dc,[original_dc,iVar4,cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int")),readLocal(framePointer(localFrame,0),4,"int"),cStringHeaderLength(memory,readLocal(framePointer(localFrame,0),4,"int"))]); pc = 196; continue; }
     case 198: { writeLocal(framePointer(localFrame,280),32,4,"int"); pc = 197; continue; }
     case 199: { writeLocal(framePointer(localFrame,0),cString(memory,0x4dc6d0),4); pc = 198; continue; }
-    case 200: { pc = cTruth((cTruth(cCompare(r32(0x5363f4),10,"==")) && cTruth(cCompare(r32(0x4da16c),1,"==")))) ? 199 : 193; continue; }
+    case 200: { pc = (((cCompare(r32(0x5363f4),10,"==")) && (cCompare(r32(0x4da16c),1,"==")))) ? 199 : 193; continue; }
     case 201: { (iVar5 = cAdd(iVar5,cMul(readLocal(framePointer(localFrame,256),4,"int"),6))); pc = 200; continue; }
     case 202: { undefined; pc = 201; continue; }
     case 203: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 202; continue; }
@@ -6559,8 +6560,8 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 225: { (pTVar2 = (TStack_14 = cString(memory,0x4dc738) + cString(memory,pTVar2))); pc = 224; continue; }
     case 226: { writeLocal(framePointer(localFrame,280),26,4,"int"); pc = 225; continue; }
     case 227: { (pTVar2 = (local_18 = formatInteger(cI32(r32(0x536420))))); pc = 226; continue; }
-    case 228: { pc = cTruth((cTruth(cCompare(r32(0x536420),2,"<")) && cTruth(cCompare(r32(0x536420),0,"!=")))) ? 215 : 227; continue; }
-    case 229: { pc = cTruth(cCompare(r32(0x4da16c),1,"==")) ? 228 : 201; continue; }
+    case 228: { pc = (((cCompare(r32(0x536420),2,"<")) && (cCompare(r32(0x536420),0,"!=")))) ? 215 : 227; continue; }
+    case 229: { pc = (cCompare(r32(0x4da16c),1,"==")) ? 228 : 201; continue; }
     case 230: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 229; continue; }
     case 231: { undefined; pc = 230; continue; }
     case 232: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 231; continue; }
@@ -6575,8 +6576,8 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 241: { writeLocal(framePointer(localFrame,280),24,4,"int"); pc = 240; continue; }
     case 242: { (TStack_14 = cString(memory,0x4dc7b0)); pc = 241; continue; }
     case 243: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,8323072]); pc = 242; continue; }
-    case 244: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 243 : 242; continue; }
-    case 245: { pc = cTruth(cCompare(r32(0x5363f4),1,"==")) ? 244 : 200; continue; }
+    case 244: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 243 : 242; continue; }
+    case 245: { pc = (cCompare(r32(0x5363f4),1,"==")) ? 244 : 200; continue; }
     case 246: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 245; continue; }
     case 247: { undefined; pc = 246; continue; }
     case 248: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 247; continue; }
@@ -6590,7 +6591,7 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 256: { writeLocal(framePointer(localFrame,280),22,4,"int"); pc = 255; continue; }
     case 257: { (TStack_14 = cString(memory,"Move the mouse pointer to a menu item or button to see its explanation at the bottom of the screen.")); pc = 256; continue; }
     case 258: { invokeDrawingPointer(cStringData(memory,local_18),dc,[original_dc,127]); pc = 257; continue; }
-    case 259: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 258 : 257; continue; }
+    case 259: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 258 : 257; continue; }
     case 260: { (iVar5 = cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int"))); pc = 259; continue; }
     case 261: { undefined; pc = 260; continue; }
     case 262: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 261; continue; }
@@ -6647,7 +6648,7 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 313: { writeLocal(framePointer(localFrame,280),13,4,"int"); pc = 312; continue; }
     case 314: { (TStack_14 = cString(memory,0x4dcbb4)); pc = 313; continue; }
     case 315: { invokeDrawingPointer(cStringData(memory,local_18),dc,[original_dc,16711680]); pc = 314; continue; }
-    case 316: { pc = cTruth(cCompare(1000,r32(0x4fe624),"<")) ? 315 : 297; continue; }
+    case 316: { pc = (cCompare(1000,r32(0x4fe624),"<")) ? 315 : 297; continue; }
     case 317: { (iVar5 = cAdd(iVar5,uVar3)); pc = 316; continue; }
     case 318: { undefined; pc = 317; continue; }
     case 319: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 318; continue; }
@@ -6663,21 +6664,21 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 329: { invokeDrawingPointer(cStringData(memory,local_18),dc,[original_dc,8323072]); pc = 328; continue; }
     case 330: { (local_18 = dcMethod(dc,56,memory)); pc = 329; continue; }
     case 331: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 330; continue; }
-    case 332: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 331 : 330; continue; }
+    case 332: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 331 : 330; continue; }
     case 333: { undefined; pc = 332; continue; }
     case 334: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 333; continue; }
     case 335: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 334; continue; }
     case 336: { writeLocal(framePointer(localFrame,280),10,4,"int"); pc = 335; continue; }
     case 337: { (local_18 = cString(memory,0x4dcd08)); pc = 336; continue; }
     case 338: { (iVar5 = cAdd(iVar5,uVar3)); pc = 337; continue; }
-    case 339: { pc = cTruth(cCompare(r32(0x4da16c),2,"==")) ? 338 : 332; continue; }
+    case 339: { pc = (cCompare(r32(0x4da16c),2,"==")) ? 338 : 332; continue; }
     case 340: { undefined; pc = 339; continue; }
     case 341: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 340; continue; }
     case 342: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 341; continue; }
     case 343: { writeLocal(framePointer(localFrame,280),9,4,"int"); pc = 342; continue; }
     case 344: { (local_18 = cString(memory,0x4dcd2c)); pc = 343; continue; }
     case 345: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,127]); pc = 344; continue; }
-    case 346: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 345 : 344; continue; }
+    case 346: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 345 : 344; continue; }
     case 347: { (iVar5 = cAdd(iVar5,uVar3)); pc = 346; continue; }
     case 348: { undefined; pc = 347; continue; }
     case 349: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 348; continue; }
@@ -6692,20 +6693,20 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 358: { (local_18 = cString(memory,0x4dcddc)); pc = 357; continue; }
     case 359: { (iVar5 = cAdd(cAdd(iVar5,uVar3),uVar3)); pc = 358; continue; }
     case 360: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,16711680]); pc = 359; continue; }
-    case 361: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 360 : 359; continue; }
+    case 361: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 360 : 359; continue; }
     case 362: { undefined; pc = 361; continue; }
     case 363: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 362; continue; }
     case 364: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,cAdd(iVar5,uVar3),cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 363; continue; }
     case 365: { writeLocal(framePointer(localFrame,280),6,4,"int"); pc = 364; continue; }
     case 366: { (local_18 = cString(memory,0x4dce2c)); pc = 365; continue; }
-    case 367: { pc = cTruth((cTruth(cCompare(r32(0x4da16c),1,"==")) || cTruth(cCompare(r32(0x4da16c),4,"==")))) ? 366 : 339; continue; }
+    case 367: { pc = (((cCompare(r32(0x4da16c),1,"==")) || (cCompare(r32(0x4da16c),4,"==")))) ? 366 : 339; continue; }
     case 368: { undefined; pc = 367; continue; }
     case 369: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 368; continue; }
     case 370: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 369; continue; }
     case 371: { writeLocal(framePointer(localFrame,280),5,4,"int"); pc = 370; continue; }
     case 372: { (local_18 = cString(memory,0x4dce80)); pc = 371; continue; }
     case 373: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 372; continue; }
-    case 374: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 373 : 372; continue; }
+    case 374: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 373 : 372; continue; }
     case 375: { (iVar5 = cAdd(cAdd(iVar5,readLocal(framePointer(localFrame,256),4,"int")),uVar3)); pc = 374; continue; }
     case 376: { undefined; pc = 375; continue; }
     case 377: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 376; continue; }
@@ -6713,19 +6714,19 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 379: { writeLocal(framePointer(localFrame,280),4,4,"int"); pc = 378; continue; }
     case 380: { (local_18 = cString(memory,0x4dced8)); pc = 379; continue; }
     case 381: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[original_dc,32512]); pc = 380; continue; }
-    case 382: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 381 : 380; continue; }
+    case 382: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 381 : 380; continue; }
     case 383: { undefined; pc = 382; continue; }
     case 384: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 383; continue; }
     case 385: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 384; continue; }
     case 386: { writeLocal(framePointer(localFrame,280),3,4,"int"); pc = 385; continue; }
     case 387: { (local_18 = cString(memory,0x4dcf2c)); pc = 386; continue; }
-    case 388: { pc = cTruth(cCompare(r32(0x4da16c),2,"==")) ? 387 : 382; continue; }
+    case 388: { pc = (cCompare(r32(0x4da16c),2,"==")) ? 387 : 382; continue; }
     case 389: { undefined; pc = 388; continue; }
     case 390: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 389; continue; }
     case 391: { invokeDrawingPointer(readLocal(framePointer(localFrame,0),4,"int"),dc,[original_dc,iVar4,iVar5,cStringData(memory,local_18),cStringHeaderLength(memory,cStringData(memory,local_18))]); pc = 390; continue; }
     case 392: { writeLocal(framePointer(localFrame,280),2,4,"int"); pc = 391; continue; }
     case 393: { (local_18 = cString(memory,0x4dcf44)); pc = 392; continue; }
-    case 394: { pc = cTruth(cCompare(r32(0x4da16c),1,"==")) ? 393 : 388; continue; }
+    case 394: { pc = (cCompare(r32(0x4da16c),1,"==")) ? 393 : 388; continue; }
     case 395: { (iVar5 = cAdd(cAdd(uVar3,2),uVar3)); pc = 394; continue; }
     case 396: { undefined; pc = 395; continue; }
     case 397: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 396; continue; }
@@ -6738,20 +6739,20 @@ function originalDrawDemoScreenNumber(memory, dc, rng, options, numberArgumentIm
     case 404: { writeLocal(framePointer(localFrame,0),dcMethod(dc,100,memory),4,"int"); pc = 403; continue; }
     case 405: { writeLocal(framePointer(localFrame,280),0,4,"int"); pc = 404; continue; }
     case 406: { (local_18 = cString(memory,0x4dd000)); pc = 405; continue; }
-    case 407: { pc = cTruth(cCompare(r32(0x5363f4),0,"==")) ? 406 : 245; continue; }
+    case 407: { pc = (cCompare(r32(0x5363f4),0,"==")) ? 406 : 245; continue; }
     case 408: { invokeDrawingPointer(dcMethod(dc,56,memory),dc,[readLocal(framePointer(localFrame,0),4,"int"),8323072]); pc = 407; continue; }
-    case 409: { pc = cTruth(cCompare(r32(0x5363e4),0,"==")) ? 408 : 407; continue; }
+    case 409: { pc = (cCompare(r32(0x5363e4),0,"==")) ? 408 : 407; continue; }
     case 410: { writeLocal(framePointer(localFrame,256),20,4,"int"); pc = 409; continue; }
     case 411: { (iVar4 = 3); pc = 410; continue; }
     case 412: { (uVar3 = 13); pc = 411; continue; }
     case 413: { writeLocal(framePointer(localFrame,256),21,4,"int"); pc = 409; continue; }
     case 414: { (iVar4 = 20); pc = 413; continue; }
     case 415: { (uVar3 = 14); pc = 414; continue; }
-    case 416: { pc = cTruth(cCompare(iVar1,900,"<")) ? 415 : 409; continue; }
+    case 416: { pc = (cCompare(iVar1,900,"<")) ? 415 : 409; continue; }
     case 417: { writeLocal(framePointer(localFrame,256),26,4,"int"); pc = 416; continue; }
     case 418: { (iVar4 = 20); pc = 417; continue; }
     case 419: { (uVar3 = 16); pc = 418; continue; }
-    case 420: { pc = cTruth(cCompare(iVar1,700,"<")) ? 412 : 419; continue; }
+    case 420: { pc = (cCompare(iVar1,700,"<")) ? 412 : 419; continue; }
     case 421: { (iVar5 = 2); pc = 420; continue; }
     case 422: { writeLocal(framePointer(localFrame,280),4294967295,4,"int"); pc = 421; continue; }
     case 423: { (iVar1 = r32(0x4fe624)); pc = 422; continue; }

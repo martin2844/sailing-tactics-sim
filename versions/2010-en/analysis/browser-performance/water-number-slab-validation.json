@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-04T19:19:30.416Z",
+  "scope": "Exact water cache/kernel and Boolean generation validation. Native corpus acceptance and leaf throughput are recorded separately in water-number-slab-review.json; browser timing is recorded by the main agent.",
+  "focused": {
+    "tests": 18,
+    "pass": 18,
+    "fail": 0,
+    "log": "versions/2010-en/analysis/browser-performance/water-number-slab-focused.log"
+  },
+  "integratedNativeReplay": {
+    "tests": 5,
+    "failures": 0,
+    "fixtureExecutions": 190,
+    "log": "versions/2010-en/analysis/browser-performance/water-number-slab-integrated-native190.log"
+  },
+  "generation": {
+    "reproducible": true,
+    "sha256": {
+      "versions/2010-en/src/render/drawing-functions.js": "8df4e5abfe9fef346dcf4db8ea88fcf2bc825a472ff9d581bce85508b009da6a",
+      "versions/2010-en/src/render/render-functions.js": "f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26",
+      "versions/2010-en/src/render/screen-helper-functions.js": "601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64",
+      "versions/2010-en/src/render/tutorial-pages.js": "fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932",
+      "versions/2010-en/src/render/water-number-slab.js": "b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3",
+      "versions/2010-en/analysis/floating-drawing-generation.json": "d7eeab116884d0d6bdbb9c0ba0d73881f8ae0beef985d82bee8feb632ebaf6d1",
+      "versions/2010-en/analysis/scalar-stack-generation.json": "57091d1f458eb713d41623ff35623138ffca0486843d766f6e85a51a6e3cba4d"
+    }
+  },
+  "originalByteBodies": {
+    "reference": "fb856db76104e87ce63294aa9f7f71f2f5658b18",
+    "exactByteBodies": 251,
+    "unchanged": true
+  },
+  "reviewedFindings": [
+    {
+      "finding": "Prefix-only cache pin allowed an outside-window frame escape to enter the reviewed slab.",
+      "resolution": "Pin the complete private body; regressions reject both outside escapes and inside unreviewed callbacks."
+    },
+    {
+      "finding": "Constructor snapshot added subclass getters; subclass bytes accessors could produce a constructor-original shared view.",
+      "resolution": "Capture validated arguments/local allocations while preserving the original this.bytes.buffer access. Native ArrayBuffer branding explicitly excludes shared views. Both reproductions are covered."
+    }
+  ]
+}

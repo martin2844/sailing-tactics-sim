@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T20:09:08.924Z",
+  "scope": "Root-authored bounded tests compare real smooth dispatch with unchanged original byte-frame drawing; independent source review covered the common projection formula/store order and helper fallback.",
+  "tests": {
+    "passed": 10,
+    "failed": 0,
+    "receipt": {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-focused-final.log",
+      "bytes": 1177,
+      "sha256": "acbe1338527f158272376f54e9d9687da8ad6e816b91156f88a104dcc78b16c0"
+    }
+  },
+  "projection": {
+    "ordinaryPoints": 600,
+    "boundaryPoints": 108,
+    "selectors": [
+      0,
+      5
+    ],
+    "viewModes": [
+      1,
+      2
+    ],
+    "degreeBoundaries": [
+      -130,
+      -90,
+      -80,
+      -70,
+      0,
+      70,
+      80,
+      90,
+      130
+    ],
+    "offsets": [
+      -1e-12,
+      0,
+      1e-12
+    ],
+    "maximumAllowedPixelDifference": 1,
+    "distanceBytesEqual": true,
+    "unsupportedInputsAndNonfiniteCoefficientsDeclineWithoutStores": true
+  },
+  "fixedFinding": "fpTrig now checks the original operand before unboxing so Float80 subclasses retain the exact fallback.",
+  "limits": "Finite sampled geometry; neither every possible projection nor every Canvas raster pixel is proven.",
+  "sources": [
+    {
+      "path": "versions/2010-en/src/render/projection-smooth.js",
+      "bytes": 2821,
+      "sha256": "33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-output-fast.js",
+      "bytes": 4820,
+      "sha256": "b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845"
+    },
+    {
+      "path": "versions/2010-en/src/render/smooth-math.js",
+      "bytes": 1917,
+      "sha256": "1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "bytes": 6879,
+      "sha256": "491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5"
+    },
+    {
+      "path": "versions/2010-en/tests/smooth-projection.test.js",
+      "bytes": 3313,
+      "sha256": "c130e3a17f37a760567ff431cdab86b7037bd3742eef4282563a7d16ecd9d270"
+    },
+    {
+      "path": "versions/2010-en/tests/smooth-drawing-math.test.js",
+      "bytes": 7722,
+      "sha256": "2d1ade024421f514d7e9db8c27a97a63a3a0d37b091c87bfab57f72c188a363a"
+    }
+  ]
+}

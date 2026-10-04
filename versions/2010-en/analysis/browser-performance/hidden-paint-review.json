@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-10-04T17:24:49.388Z",
+  "scope": "Real Chrome tabs: original speed10 race, another tab brought to the foreground for750ms, then visible resume. No synthetic visibility property, lifecycle freeze or simulation-clock patch. This is hidden-work/resume evidence, not a throughput comparison.",
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "581433adb813f028d9973d0d1564e6cf4cba4a3fb72745125036f175818201eb"
+    },
+    {
+      "path": "versions/2010-en/tests/paint-scheduler-review.test.js",
+      "sha256": "23233e6a18b61380561468fb6fae948ec651e4b49eceb16f60d835ca200d0452"
+    }
+  ],
+  "baseline": {
+    "url": "http://127.0.0.1:8766/index.html",
+    "playSourceSha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7",
+    "hiddenStart": {
+      "visibility": "hidden",
+      "frames": 12,
+      "time": -169.07311139876566,
+      "pending": true,
+      "nextPaint": true,
+      "dt": 0.20384122874775878,
+      "error": null
+    },
+    "hiddenEnd": {
+      "visibility": "hidden",
+      "frames": 20,
+      "time": -167.44238156878356,
+      "pending": true,
+      "nextPaint": true,
+      "dt": 0.20384122874775878,
+      "error": null
+    },
+    "resumed": {
+      "visibility": "visible",
+      "frames": 26,
+      "time": -166.21933419629698,
+      "pending": true,
+      "nextPaint": true,
+      "dt": 0.20384122874775878,
+      "error": null
+    },
+    "hiddenPaints": 8,
+    "hiddenSimulationDelta": 1.6307298299821014,
+    "resumePaints": 6,
+    "resumeSimulationDelta": 1.223047372486576
+  },
+  "candidate": {
+    "url": "http://127.0.0.1:8765/versions/2010-en/play.html",
+    "playSourceSha256": "581433adb813f028d9973d0d1564e6cf4cba4a3fb72745125036f175818201eb",
+    "hiddenStart": {
+      "visibility": "hidden",
+      "frames": 11,
+      "time": -169.27695262751342,
+      "pending": false,
+      "nextPaint": true,
+      "dt": 0.20384122874775878,
+      "error": null
+    },
+    "hiddenEnd": {
+      "visibility": "hidden",
+      "frames": 11,
+      "time": -169.27695262751342,
+      "pending": false,
+      "nextPaint": true,
+      "dt": 0.20384122874775878,
+      "error": null
+    },
+    "resumed": {
+      "visibility": "visible",
+      "frames": 17,
+      "time": -168.05390525502685,
+      "pending": true,
+      "nextPaint": true,
+      "dt": 0.20384122874775878,
+      "error": null
+    },
+    "hiddenPaints": 0,
+    "hiddenSimulationDelta": 0,
+    "resumePaints": 6,
+    "resumeSimulationDelta": 1.223047372486576
+  },
+  "focusedTests": "Five scheduling tests pass on the pinned test source; the independent reset/instrumentation set contains four additional passing tests."
+}

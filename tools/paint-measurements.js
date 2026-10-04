@@ -1,12 +1,14 @@
 /** Browser diagnostic injection; supports both immediate tasks and timers. */
-export function paintMeasurementInstrumentation(record){
+export function paintMeasurementInstrumentation(record,{setupGate=false}={}){
   return `
     Date.now=()=>1546300800000;
     globalThis.paintMeasurements=[];
     const wrapPaint=(callback,args=[])=>
       typeof callback==='function'&&callback.name==='paint'?()=>{
-        const start=performance.now();callback(...args);
-        ${record}
+        ${setupGate?'const runPaint=()=>{':''}
+          const start=performance.now();callback(...args);
+          ${record}
+        ${setupGate?'};globalThis.paintSetupGate.accept(runPaint);':''}
       }:callback;
     const schedule=globalThis.setTimeout;
     globalThis.setTimeout=(callback,delay,...args)=>schedule(wrapPaint(callback,args),delay,...args);

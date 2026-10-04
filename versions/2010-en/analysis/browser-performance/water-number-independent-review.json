@@ -1,0 +1,239 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T19:27:20.785Z",
+  "reviewer": "/root/speed_timing",
+  "skill": "big-review",
+  "findings": [],
+  "scope": "Independent source review of the certified water kernel, ordinary-memory guard, generator cache/window integration and root chart-window test-input correction. The added integrated-window differential tests were written and executed by this reviewer. No production code, Chrome measurement or native replay was changed or run in this review.",
+  "checks": [
+    "The generated129-operation kernel retains the original expression tree, operand order and explicit binary64 spill results. Eligibility requires the original nearest53 control word; each intermediate is finite and strictly normal or a proved exact zero/cancellation, so accepted operations preserve the original PC53 arithmetic and signed zero. Unsupported arithmetic returns before all37 scratch stores.",
+    "The memory guard consults its constructor-owned WeakMap brand before prototype/descriptor inspection. Only the unchanged recorded ordinary memory, intrinsic binary64 reader and nonshared nondetached view are accepted. Proxy, subclass getter, overridden reader, altered descriptor and shared/detached cases keep the original fallback observations.",
+    "Whole-private-body source pins, unchanged cache-pipeline verification and closed case-table entry/exit checks reject future source changes. Raw21 caller values are not eagerly converted. The current source preserves the complete original208-through172 fallback and its partial stores/errors.",
+    "The helper owns one37-cell scratch array; rejected calls leave earlier contents unchanged and detached scratch declines. Successful integration immediately copies36 array cells and scalar264 before resetting the original induction locals and advancing to171. No external callback occurs between certificate and copies in the pinned body.",
+    "Translation is pure: the Number translator attaches kernel text and only the top-level closure generator emits the companion helper atomically. The current generated module and all unchanged byte fallback bodies are covered by the separately attributed producer generation audit.",
+    "The chart-window test captures the actual pre-Boolean compiler input exactly once and restores its temporary callback in finally. It therefore tests the current integration boundary while preserving all production compiler behavior. Its five complete-window/error-path tests pass."
+  ],
+  "focusedTests": {
+    "command": "node --test versions/2010-en/tests/water-number-slab-review.test.js versions/2010-en/tests/water-number-slab.test.js versions/2010-en/tests/water-number-domain.test.js versions/2010-en/tests/chart-window-generator.test.js",
+    "tests": 19,
+    "pass": 19,
+    "fail": 0,
+    "log": "versions/2010-en/analysis/browser-performance/water-number-independent-review.log",
+    "independentlyAddedDifferential": {
+      "file": "versions/2010-en/tests/water-number-slab-review.test.js",
+      "tests": 3,
+      "acceptedCases": 96,
+      "unsupportedOperandAndLateConstantCases": 184,
+      "alternativeControlWords": [
+        "0x037f",
+        "0x007f",
+        "0x027e"
+      ],
+      "overflowCases": 1,
+      "customMemoryCases": 10,
+      "scope": "Extracts the actual integrated generated case208-through172 window and compares against that same unchanged fallback with only its fast prefix removed. Compares both arrays, scalar264, induction locals, errors, memory bytes and custom reader/getter/Proxy observation order. Accepted cases include signed zero. Unknown/nonfinite/extended/subnormal/overflow and late invalid constants include failures after partial array stores."
+    }
+  },
+  "separatelyAttributedProducerEvidence": {
+    "reviewer": "/root/trig_full",
+    "sourceHashesVerifiedCurrent": true,
+    "corpus": {
+      "receipt": "versions/2010-en/analysis/browser-performance/water-number-slab-review.json",
+      "nativeTests": 5,
+      "nativeFailures": 0,
+      "calls": 23745,
+      "accepted": 23745,
+      "compared": 23745,
+      "outputsPerAcceptedCall": 37
+    },
+    "integratedReplay": {
+      "receipt": "versions/2010-en/analysis/browser-performance/water-number-slab-validation.json",
+      "tests": 5,
+      "fixtureExecutions": 190,
+      "failures": 0
+    },
+    "generation": {
+      "receipt": "versions/2010-en/analysis/browser-performance/water-number-slab-validation.json",
+      "exactRegeneratedOutputs": 7,
+      "originalByteBodies": 251,
+      "unchanged": true
+    },
+    "leafTiming": {
+      "receipt": "versions/2010-en/analysis/browser-performance/water-number-slab-review.json",
+      "speedup": 3.953678198641934,
+      "scope": "Node leaf CPU only; includes domain guards,21 caller inputs and37 owned-array copies. No browser FPS claim. This reviewer verified source pins, not rerun the producer timing."
+    }
+  },
+  "limitations": [
+    "The independent window test reuses the complete preserved fallback operations as its reference; separate original-native fixture evidence is attributed to its producer.",
+    "Successful kernel leaf throughput does not establish browser FPS, physical display cadence or achievement of the requested original/2002 smoothness. Root records actual browser pairs separately.",
+    "This receipt covers its exact source hashes. Later numerical, memory, compiler or generated-source changes need matching refreshed evidence."
+  ],
+  "sourcePins": [
+    {
+      "path": "src/runtime/memory.js",
+      "bytes": 7730,
+      "sha256": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "bytes": 26230,
+      "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482"
+    },
+    {
+      "path": "versions/2010-en/src/render/drawing-functions.js",
+      "bytes": 5912961,
+      "sha256": "8df4e5abfe9fef346dcf4db8ea88fcf2bc825a472ff9d581bce85508b009da6a"
+    },
+    {
+      "path": "versions/2010-en/src/render/water-number-slab.js",
+      "bytes": 29035,
+      "sha256": "b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3"
+    },
+    {
+      "path": "versions/2010-en/src/render/water-number-domain.js",
+      "bytes": 2443,
+      "sha256": "1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "bytes": 6623,
+      "sha256": "47bbae43fd8883cc9e219f209de4626d2456b6d87d3b2cfb86a58861c4f8b494"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "bytes": 25909,
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    },
+    {
+      "path": "versions/2010-en/src/render/scalar-stack.js",
+      "bytes": 1532,
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "path": "versions/2010-en/tools/water_number_slab.py",
+      "bytes": 7934,
+      "sha256": "d5e37b4ec78421d1c28eb935c0570184f1ec48675e5339e01d26fa94712bd4a7"
+    },
+    {
+      "path": "versions/2010-en/tools/cache_water_float_loads.py",
+      "bytes": 5181,
+      "sha256": "0935059b463b295e49f5d0a660822022d8c1911b56b7a15d59f5a4045ba33f20"
+    },
+    {
+      "path": "versions/2010-en/tools/floating_drawing.py",
+      "bytes": 35828,
+      "sha256": "a0ed7ba447cdef9f52a67d45005a97a621e0384d9152b4c1b586582c9a549cda"
+    },
+    {
+      "path": "versions/2010-en/tools/translate_drawing_closure.py",
+      "bytes": 6382,
+      "sha256": "0bd725fb58e1036cc95bc80d160970c4dadec9ab63527135eba3542f70a7fa40"
+    },
+    {
+      "path": "versions/2010-en/tools/diagnostics/review-water-number-slab.mjs",
+      "bytes": 9459,
+      "sha256": "274ec8167df18b810fefcfec05f9f663a28920b000d4f1bf455e9d840430de23"
+    },
+    {
+      "path": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+      "bytes": 1899520,
+      "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-speed-ten-frames.json",
+      "bytes": 28097450,
+      "sha256": "dd83cba9d13b2e0f4b7945ab9e314667af5cd12a43de61ba2d79f4d310fb5269"
+    },
+    {
+      "path": "versions/2010-en/tests/fixtures/original-retained-speed-ten-long-frames.json",
+      "bytes": 76747710,
+      "sha256": "b23b2e343a84e76b9b7fcab7209cabb0580eb710335ed51e0745a3beba3263d1"
+    },
+    {
+      "path": "versions/2010-en/src/render/render-functions.js",
+      "bytes": 620049,
+      "sha256": "f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26"
+    },
+    {
+      "path": "versions/2010-en/src/render/screen-helper-functions.js",
+      "bytes": 148949,
+      "sha256": "601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64"
+    },
+    {
+      "path": "versions/2010-en/src/render/tutorial-pages.js",
+      "bytes": 1990689,
+      "sha256": "fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932"
+    },
+    {
+      "path": "versions/2010-en/analysis/floating-drawing-generation.json",
+      "bytes": 124235,
+      "sha256": "d7eeab116884d0d6bdbb9c0ba0d73881f8ae0beef985d82bee8feb632ebaf6d1"
+    },
+    {
+      "path": "versions/2010-en/analysis/scalar-stack-generation.json",
+      "bytes": 108971,
+      "sha256": "57091d1f458eb713d41623ff35623138ffca0486843d766f6e85a51a6e3cba4d"
+    },
+    {
+      "path": "versions/2010-en/tests/water-number-domain.test.js",
+      "bytes": 4961,
+      "sha256": "0637ab8af14272be38d029a4549a3318ab7b68eea3c5ae55406f0562c23cb479"
+    },
+    {
+      "path": "versions/2010-en/tests/water-number-slab.test.js",
+      "bytes": 7574,
+      "sha256": "4f537424994913b76a88cd343331c510603a2ddbcb91c5054082b3cf2840d5e3"
+    },
+    {
+      "path": "versions/2010-en/tests/water-number-slab-review.test.js",
+      "bytes": 6545,
+      "sha256": "4a83e57c64d135d4c45f71507567deef6ae1f154197f6098245054b122c69ce9"
+    },
+    {
+      "path": "versions/2010-en/tests/water-float-loads.test.js",
+      "bytes": 5690,
+      "sha256": "945c68d924a80d85fa3425a21cbada0f2bf79e53923198c55b5c2d0adfb99a43"
+    },
+    {
+      "path": "versions/2010-en/tests/chart-window-generator.py",
+      "bytes": 4476,
+      "sha256": "7010b42b406591f0810cfd55abfb58a7dad87e4457dc8b89ac4b94e827e36b29"
+    },
+    {
+      "path": "versions/2010-en/tests/chart-window-generator.test.js",
+      "bytes": 6387,
+      "sha256": "3cc9e01350b33fc5577319939c0c7420b72e754efc4c3d801e2b1f786635941a"
+    },
+    {
+      "path": "versions/2010-en/tools/fuse_chart_windows.py",
+      "bytes": 6283,
+      "sha256": "9de8dec9916ce1fa16e8cd480fb974b75079ee87128f220ef3845b244280321a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/water-number-independent-review.log",
+      "bytes": 1998,
+      "sha256": "583ffd4466fa99c888f4b52ad79174bc2bf880ea4654140ad9bec702d36d5a76"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/water-number-slab-review.json",
+      "bytes": 3578,
+      "sha256": "2b075de135e633f81307db41d18568b5df84454343b12fd79bee8cbe49493768"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/water-number-slab-review.log",
+      "bytes": 1891,
+      "sha256": "9bb378100ecd8b03056849561a2875969abad60792bad2ad299132157704e4d2"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/water-number-slab-validation.json",
+      "bytes": 2387,
+      "sha256": "748218838671a4cb08adcb99705df7c25a63582e66216e6d6f415a8b6564001d"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/water-number-slab-integrated-native190.log",
+      "bytes": 1892,
+      "sha256": "483262d5de8dcf8761418e4c19a88410a645973914829c520d0eff34405e49a0"
+    }
+  ]
+}

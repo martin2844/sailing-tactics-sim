@@ -73,6 +73,8 @@ await writeFile(resolve(destination,'README.txt'),
   'and original data/assets. No Wine, Windows executable or instruction emulator\n'+
   'is needed. Press Space to begin; use the original menus for controls and help.\n'+
   'Sound can be enabled in the footer. Preferences are saved in this browser.\n\n'+
+  'Smoother drawing is enabled by default; simulation math remains original.\n'+
+  'For exact drawing math comparisons, open index.html?graphics=exact.\n\n'+
   'The full preservation repository contains recovered source and native\n'+
   'comparison evidence. This export contains only the browser player.\n');
 const files=[];

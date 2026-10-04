@@ -310,8 +310,12 @@ def promote_static_locals(source, name, address, frame_size, numeric_floats=Fals
     record = {'address': address, 'function': name, 'frameBytes': frame_size,
               'eligible': False}
 
+    original_source = source
+    from expand_local_points import expand_local_points
+    source, point_stores = expand_local_points(source, frame_size)
+
     def reject(reason):
-        return source, {**record, 'reason': reason}
+        return original_source, {**record, 'reason': reason}
 
     declaration = f'  const localFrame=createLocalFrame({frame_size},options.retainedDrawingStack?.[{address}]??[]);'
     if source.count(declaration) != 1:
@@ -390,12 +394,14 @@ def promote_static_locals(source, name, address, frame_size, numeric_floats=Fals
     signature = f'export function {name}(memory, dc, rng, options = {{}}, ...originalArgs)'
     if source.count(signature) != 1:
         return reject('No single recognized function signature')
-    byte_frame = source.replace(signature,
+    byte_frame = original_source.replace(signature,
         f'function {name}ByteFrame(memory, dc, rng, options, originalArgs, retainedLocalBytes)', 1)
     byte_frame = byte_frame.replace(declaration,
         f'  const localFrame=createLocalFrame({frame_size},retainedLocalBytes);')
     record.update(eligible=True, slots=[{'offset': offset, 'size': slots[offset][0],
                   'kind': json.loads(slots[offset][1])} for offset in offsets])
+    if point_stores:
+        record['expandedPointStores'] = point_stores
     return promoted + '\n\n' + byte_frame, record
 
 

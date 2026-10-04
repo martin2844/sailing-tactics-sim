@@ -31,7 +31,7 @@ import { cI32,cI64,cFloat,cAdd,cSub,cMul,cDiv,cRem,cNeg,cBits,cCompare,cTruth,cS
 '''
 
 def main():
- pending=set(ROOTS);seen=set();sources=[];translated=[];failures=[];optimizations=[];number_optimizations=[]
+ pending=set(ROOTS);seen=set();sources=[];translated=[];failures=[];optimizations=[];number_optimizations=[];water_kernels=[]
  # Pages call into the same original geometry graph.
  for source in json.loads((ROOT/'analysis/drawing-translation-sources.json').read_text())['sources']:
   pending.update(source['dependencies'])
@@ -61,11 +61,14 @@ def main():
   dc=translator.has_dc
   optimizations.append(translator.scalar_stack_optimization)
   number_optimizations.append(getattr(translator,'number_optimization',{'address':address,'function':name,'eligible':False,'floatingOperations':0,'reasons':['Separate reviewed camera projection implementation']}))
+  if hasattr(translator,'water_number_slab_kernel'):water_kernels.append(translator.water_number_slab_kernel)
   translated.append((address,name,code,dc,translator.dc_index))
   sources.append({'address':address,'name':name,'hasDc':dc,'dcIndex':translator.dc_index,'source':str(path.relative_to(ROOT)),
    'sourceSha256':hashlib.sha256(source.encode()).hexdigest(),'dependencies':sorted(translator.dependencies)})
   pending.update(translator.dependencies)
  numeric_registration=''.join(f'registerOriginalNumberDrawing({hex(row["address"])},{row["function"]}Number,{json.dumps(row["floatingParameters"])});\n' for row in number_optimizations if row['eligible'])
+ if len(water_kernels)>1:raise ValueError('Multiple reviewed water kernels')
+ if water_kernels:write_generated_module(ROOT/'src/render/water-number-slab.js',water_kernels[0])
  write_generated_module(ROOT/'src/render/drawing-functions.js',IMPORTS+FLOAT_IMPORT+'\n\n'.join(row[2] for row in translated)+'\n'+''.join(f'registerOriginalDrawing({hex(a)},{name},{str(dc).lower()},{json.dumps(dc_index)});\n' for a,name,_,dc,dc_index in translated)+numeric_registration)
  write_optimization_report(ROOT,'drawing-functions.js',optimizations)
  write_number_report(ROOT,'drawing-functions.js',number_optimizations)

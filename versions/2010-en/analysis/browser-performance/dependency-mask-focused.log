@@ -1,0 +1,17 @@
+✔ fused window identity guard declines missing or replaced public registration metadata (1.175206ms)
+✔ private numeric calls preserve each stored F64 image and the original DC argument mapping (2.828484ms)
+✔ custom callbacks, original-only callees and non-PC53 calls retain boxed external floating arguments (0.780782ms)
+✔ floating actual arguments to integer formals retain the original truncation and raw-word representation (0.335733ms)
+✔ changed public DC registration metadata declines the private numeric ABI (0.326105ms)
+✔ owned compiler arguments remove DC in place while public arrays and fallback callbacks retain their contract (0.554867ms)
+✔ floating masks preserve position31 and array fallback handles position32 without shift-count aliasing (0.329201ms)
+✔ owned floating-mask shortcut matches the complete scan across DC positions and conversion failures (57.902682ms)
+✔ accepted custom metadata copies cannot alias integer argument masks with invalid indices (0.625379ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 183.282199

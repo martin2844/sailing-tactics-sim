@@ -10,6 +10,9 @@ import json
 from pycparser import c_ast
 from optimize_static_locals import promote_static_locals, _code_mask, _calls
 from fuse_chart_windows import fuse_chart_windows
+from cache_water_float_loads import cache_water_float_loads
+from eliminate_boolean_truth import eliminate_number_boolean_truth
+from water_number_slab import install_water_number_slab
 
 
 FLOAT_TYPES = frozenset(('double', 'float10', 'unkbyte10', 'undefined8'))
@@ -17,6 +20,7 @@ FLOAT_CONSTANTS = frozenset(('float', 'double', 'long double'))
 FLOAT_BUILTINS = frozenset(('SQRT', 'sqrt', 'sin', 'cos', 'fsin', 'fcos', 'fpatan', 'ABS'))
 FLOAT_IMPORT = "import { fpDrawingEnabled,fpLoad,fpBox,fpArgument,fpFromInteger,fpStoreF64,fpFormalF64,fpTrig,fpAtan,fpScalarStoreF64,fpScalarRead,fpScalarReadArgument,fpToNumber,fpAdd,fpSub,fpMul,fpDiv,fpNeg,fpAbs,fpCompare,fpTruth,fpI32,fpI64 } from './float-values.js';\nimport { readLocalFloatNumber,wordsAsF64Number,writeLocalFloatNumber,readPointerFloatNumber,readLocalFloatWordsNumber } from './typed-c.js';\nimport { callNumberDrawingDependencyOwned,registerOriginalNumberDrawing } from './dependencies.js';\nimport { tryProjectScenePointOutputFast } from './projection-output-fast.js';\nimport { tryProjectChartPointFast } from './chart-projection-fast.js';\n"
 FLOAT_IMPORT += "import {tryProjectChartPointOutputFast} from './chart-output-fast.js';\nimport {originalNumberDrawingIsCurrent} from './dependencies.js';\n"
+FLOAT_IMPORT += "import {tryWaterNumberSlab} from './water-number-slab.js';\n"
 
 
 def ast_identity(node):
@@ -41,6 +45,8 @@ def write_number_report(root, filename, records):
     report['modules'] = dict(sorted(report['modules'].items()))
     report['eligibleFunctions'] = sum(row['eligible'] for rows in report['modules'].values() for row in rows)
     report['functions'] = sum(len(rows) for rows in report['modules'].values())
+    report['removedBooleanTruthConversions'] = sum(row.get('booleanTruth', {}).get('removedConversions', 0)
+        for rows in report['modules'].values() for row in rows)
     path.write_text(json.dumps(report, indent=2) + '\n')
 
 
@@ -500,6 +506,12 @@ def add_number_variant(original, baseline, name, base_type, symbol_address, f64,
             '  const chartProjection=tryProjectChartPointFast(memory,scalarStack0,scalarStack8,scalarStack16,scalarStack20,options);\n'
             '  if(chartProjection!==undefined)return chartProjection;\n', 1)
     variant, chart_windows = fuse_chart_windows(variant, variant_name, numeric.routine_address)
+    original_water_variant = variant
+    variant, water_loads = cache_water_float_loads(variant, variant_name, numeric.routine_address)
+    variant, water_slab, water_kernel = install_water_number_slab(original_water_variant, variant, variant_name, numeric.routine_address)
+    if water_kernel is not None:
+        original.water_number_slab_kernel = water_kernel
+    variant, boolean_truth = eliminate_number_boolean_truth(variant, variant_name, numeric.routine_address)
     if numeric.dependencies != original.dependencies:
         raise ValueError('Numeric floating compiler changed the original dependency graph')
     original.number_optimization['scalarLocals'] = numeric.scalar_stack_optimization['eligible']
@@ -518,6 +530,11 @@ def add_number_variant(original, baseline, name, base_type, symbol_address, f64,
     original.number_optimization['exactChartProjection'] = numeric.routine_address == 0x43ec20
     if chart_windows['eligible']:
         original.number_optimization['certifiedChartWindows'] = chart_windows
+    if water_loads['eligible']:
+        original.number_optimization['waterFloatLoads'] = water_loads
+    if water_slab['eligible']:
+        original.number_optimization['waterNumberSlab'] = water_slab
+    original.number_optimization['booleanTruth'] = boolean_truth
     signature = f'export function {name}(memory, dc, rng, options = {{}}, ...originalArgs)'
     if baseline.count(signature) != 1:
         raise ValueError('Numeric variant requires a single public original signature')

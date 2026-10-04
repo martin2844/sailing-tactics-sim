@@ -13,12 +13,23 @@ from fuse_chart_windows import fuse_chart_windows
 def contract():
     path = ROOT / 'versions/2010-en/analysis/drawing-corrections/00468440.c'
     original_pass = floating_drawing.fuse_chart_windows
-    floating_drawing.fuse_chart_windows = lambda source, *_: (source, {'eligible': False})
+    inputs = []
+
+    def capture_input(source, name, address):
+        if name == 'originalDrawing00468440Number' and address == 0x468440:
+            inputs.append(source)
+        return source, {'eligible': False}
+
+    # Replay this pass on its actual pipeline input. Later Boolean cleanup
+    # legitimately changes the final case table, which is not this pass's input.
+    floating_drawing.fuse_chart_windows = capture_input
     try:
         producer = Translator('chart-window-test', 0x468440, path.read_text(), has_dc=True)
-        generated = producer.generate('originalDrawing00468440')
+        producer.generate('originalDrawing00468440')
     finally:
         floating_drawing.fuse_chart_windows = original_pass
+    assert len(inputs) == 1, 'Expected exactly one chart-window compiler input'
+    generated = inputs[0]
     start = generated.index('function originalDrawing00468440Number(')
     end = generated.find('\n}\n', start)
     baseline = generated[start:] if end < 0 else generated[start:end + 3]

@@ -1,96 +1,121 @@
-# 2010 crash and performance update
+# 2010 rendering smoothness and native verification
 
-The reported default-fleet crash is fixed. The translated AI used to read an
-undefined private stack cell before checking whether the fleet had two boats.
-For every other fleet that value cannot affect the native result. The generator
-now checks the fleet first and retains the original comparison for two boats.
-[The native comparison](../upwind-stack-native-comparison.json) covers 279 calls:
-the previous implementation failed 168 of them; the corrected implementation
-matches every mutable byte and the random state in all 279.
+The player now defaults to smoother graphics. Browser sine, cosine and atan2
+avoid extended-precision drawing objects, and the common perspective projection
+uses ordinary arithmetic for screen coordinates. Small drawing-rounding
+differences are intentional. Add `?graphics=exact` to use the exact rendering
+path; the native comparison suites still use that path.
 
-The default 20-boat speed-10 startup sample improved from **5.00 to 22.01 FPS**,
-with mean paint time reduced from **195.87 to 44.47 ms** (about **4.4× faster**).
-After advancing through the original menus to simulation clock 100, the final
-build measured **28.50 FPS**; a later sample past clock 320 measured **29.60 FPS**.
-The rebuilt standalone download measured **28.96 FPS** after clock 100.
-Each sample contains 120 actual continuous frames in headless Chrome, with the
-original boat, venue, fleet, drawing and physics. Host load, compilation and
-scene phase affect these results; they are not a universal frame-rate promise.
+The final same-build comparison measured **37.58 FPS** with
+smooth graphics and **32.43 FPS** with exact graphics, a
+**15.9%** improvement. Mean paint time fell from
+**29.75 to 25.59 ms**. Host CPU busy fractions were
+17.4% and 19.0%; this remains below60FPS and is
+not a universal speed guarantee. [Exact run](smooth-graphics-final-exact.json),
+[smooth run](smooth-graphics-final-smooth.json).
 
-The supplied 2010 data retains its original **full-mode value 0**. The actual
-later run reached clock 354 without an error or demo interruption. No demo flag,
-executable bytes, simulation time step, AI frequency, fleet size or scene detail
-was patched to obtain these results.
+The rendering-only option is supplied to the renderer separately from the
+engine bindings. Shared waypoint and camera-bearing calculations retain exact
+math because the next physics frame reads their results. The browser coupling
+check compares every ordered engine memory access over 417 physics updates and
+the end-of-frame RNG, time, speed and full-mode state over 420 paints. A separate
+native-fixture comparison covers seven race setups, including offshore sailing
+and two players. These are finite comparisons, not exhaustive proof of every
+possible program state.
 
-[verification.json](verification.json) pins the final source modules, test and
-browser receipts, timing samples, and both rebuilt browser ZIPs. Individual
-review reports retain the hashes of the snapshot they examined. Earlier
-profiles and the previous publication reports remain historical evidence.
+The preceding exact-result rendering checkpoint measured **27.23 FPS**, compared with
+**23.51 FPS** for commit `a6b5a6d`, across 240 consecutive frames from the same
+race state. Mean paint time fell from **41.04 to 35.24 ms**; the 95th percentile
+fell from **56.2 to 44.9 ms**. The initial, measurement-entry and final complete
+memory images and random states match. Both runs use the original speed-10
+step and finish at the same frame and simulation time.
+
+These are sequential headless Chrome samples, not a universal speed guarantee.
+Host CPU busy time was 52.9% for the baseline and 50.0% for the candidate.
+This remains below 60 FPS. The current 2002 fresh-default sample measured
+53.19 FPS and 14.28 ms mean paint, but uses 15 boats, a 1000-unit course and a
+pregun phase; the 2010 sample uses 20 boats, a 2000-unit course and a running
+race. They are different workloads. Older single-run timings should not be
+compared directly with these paired samples.
+
+[verification.json](verification.json) records the release validation. The
+[exact-rendering checkpoint](exact-rendering-checkpoint.json) preserves its
+earlier source and export hashes, tests and review receipts. Raw checkpoint measurements
+are in [the baseline report](smoothness-water-slab-old.json) and
+[the candidate report](smoothness-water-slab-new.json).
 
 ## What changed
 
-The 2010 translation incurred much more floating-point and local-stack overhead
-than the 2002 port. Typed drawing calls now keep exact binary64 values where
-PC53 arithmetic allows it. Bounded double-double calculations and square-root
-rounding certificates avoid expensive extended arithmetic for common inputs.
-Perspective and chart windows can certify their final integer coordinates;
-uncertain cases still execute the complete original path.
+The water renderer has a generated 129-operation numeric calculation that
+retains the original expression trees and floating-point stores. Each operation
+must certify the same PC53 result before any output is committed. Unsupported
+values, precision modes and custom memory implementations use the complete
+original path. All **23,745 calls** observed during the native frame replay
+qualified, and all 37 outputs matched. The isolated calculation, including its
+guards and output copies, measured 3.95 times faster; that is a leaf measurement,
+not a whole-game speedup. See [the reproducible diagnostic](water-number-slab-review.json).
 
-The generator promotes only proved private scalar cells and four bounded
-18-cell water arrays. Aliased point buffers remain bytes. All **251 original
-byte-frame bodies** remain unchanged. The shoreline pass preserves its
-observable point/array overlap and verifies the complete lifetime of its index
-counters before promoting private cells.
+Other changes remove repeated private water loads, promote proved private POINT
+stores, remove redundant Boolean conversions, avoid unnecessary argument
+boxing, and keep exact venue calculations unboxed. Shared extended arithmetic
+caches immutable operand splits and avoids temporary result objects when a
+binary64 result has already been certified.
 
-The browser batches tiny adjacent pixel reads on the private frame surface,
-invalidating the cache on every intervening drawing event. Frames requested
-immediately use message tasks, avoiding the browser's nested-timer delay.
-Positive simulation delays, controls, modal pauses and freezing retain their
-original behavior.
+The browser resets and reuses its private canvas, retains small pixel-read
+tiles across drawing-state changes, and pauses hidden tabs. Returning to a tab
+uses ordinary simulation steps without catching up missed frames. Old open
+tabs must be reloaded to use this behavior. The 2002 scheduler is unchanged.
 
-## Verification and review
+The 2010 scheduling gap measured about 1.6 ms between paints; drawing itself
+was the main cost. RequestAnimationFrame samples record completed logical
+canvas frames and rendering opportunities. They do not establish physical
+monitor presentation.
 
-The shared/2002 suite passed **397 tests**. The complete 2010 suite passed
-**423 tests**, followed by **four additional shoreline tests** added during the
-review. Source and standalone 2010 players each passed **119 browser checks**
-and **seven full-version checks**. Both the source and rebuilt 2002 player
-passed their **ten browser checks**.
+## Preserved behavior and review
 
-The native regression includes **150 additional distinct complete frames**
-(**190 executions** including original-backend comparisons), bringing the
-preserved complete-frame collection to **588**. It checks mutable state,
-random state, text, sounds and ordered GDI requests. The shared arithmetic
-verification also includes **82,095 differential operations** and **9,059 native
-PC53 cases**. These comparisons do not claim identical Canvas/Windows GDI
-rasterization or universal behavior outside the documented finite domains.
+The supplied executable and original full-mode value **0** are unchanged. The
+source and standalone browser checks verify full-version behavior separately
+from rendering performance. The default-fleet AI correction from the previous
+release remains covered by [279 native comparisons](../upwind-stack-native-comparison.json).
 
-No unresolved review findings remain. The final review found and fixed a chart
-reference coordinate being narrowed before a later I64 division, a generator
-guard accepting extra preheader counter writes, and machine-local Python paths
-in new regression tests. The chart fallback, counter-store ledger and portable
-interpreter selection now have focused verification.
+All **251 original byte-frame drawing bodies** remain unchanged. The integrated
+water path passes **190 native frame executions**, including exact mutable
+state, random state, text, sound requests and ordered GDI operations. Generation
+is reproducible. [The generation receipt](water-number-slab-validation.json)
+and [the independent review](water-number-independent-review.json) cover the
+optimized window and its fallback, including partial outputs and failures.
+Canvas and Windows GDI rasterization can still differ; the documented native
+comparisons cover finite recorded inputs rather than every possible program
+state or historical machine speed.
 
-See the [projection bounds](projection-output-bounds.md),
-[projection/CFG review](projection-output-source-review.json),
-[shoreline review](shore-scalar-source-review.md),
-[pixel-cache review](gdi-pixel-cache-source-review.json), and
-[scheduler review](paint-scheduler-source-review.json).
+Review fixes include rejecting shared or modified memory views, preserving the
+original constructor getter order, pinning the complete water body against
+future frame escapes, preventing malformed copied parameter metadata from
+aliasing mask bits, and capturing a generator test's actual pipeline input.
+The detailed source pins and validation results are linked from the final
+verification receipt.
 
-## Reproduce timings
+## Reproduce the controlled race measurement
 
-With the source server running on port 8765:
+With the source player served on port 8765:
 
 ```sh
-TACT_PACE_DEFAULT=1 node tools/diagnostics/measure-2010-pace.mjs local-startup
-TACT_PACE_DEFAULT=1 TACT_PACE_STARTED=1 node tools/diagnostics/measure-2010-pace.mjs local-racing
-TACT_PACE_DEFAULT=1 TACT_PACE_STARTED=1 TACT_PACE_CLOCK=320 node tools/diagnostics/measure-2010-pace.mjs local-later-race
+TACT_PACE_DEFAULT=1 TACT_PACE_STARTED=1 TACT_PACE_FRAMES=240 \
+TACT_PACE_PRESENTATION=1 TACT_PACE_NO_AUTO_SLOW=1 \
+node tools/diagnostics/measure-2010-pace.mjs local-racing
 ```
 
-`TACT_PACE_STARTED` uses the original speed-15 menu to advance actual game
-frames, then selects speed 10 for measurement. It does not inject the clock.
-Each report records the loaded module hashes, setup, host CPU load, frame
-durations, game clock and browser exceptions. Run one timing browser at a time.
-The 2002 comparison measured **71.01 FPS**, so it remains faster. It uses its
-own original 600-unit course and time-step
-constants; the default 2010 course is 2000 units, so their speeds are not an
-identical-scenario benchmark.
+The diagnostic uses actual original menu commands and paint callbacks. It
+advances to clock 100 using speed 15, then selects speed 10. For this comparison
+it turns off the original **Slow Simulator if Foul Likely** option through menu
+32984; normal player defaults remain unchanged. That option can otherwise lower
+the selected speed near another boat. Backslash toggles it in the player.
+
+Serve a preserved baseline separately and set `TACT_2010_URL` for its run.
+For exact-math comparisons, pass its report path through
+`TACT_PACE_SETUP_REFERENCE` to require identical setup, control history and
+final game memory. Smooth drawing intentionally changes rendering scratch
+memory, so use `check-smooth-graphics-browser.mjs` to compare engine accesses
+and per-frame simulation state across graphics modes. Reports
+include the actual loaded module hashes, per-frame durations and host load.
+Run one timing browser at a time, without concurrent test suites or profilers.

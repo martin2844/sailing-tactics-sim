@@ -3,16 +3,16 @@
   "status": "exact",
   "findings": [],
   "cases": 20000,
-  "images": 60000,
-  "otherPrecisionImages": 512,
-  "nativeImages": 93,
+  "images": 80000,
+  "otherPrecisionImages": 1024,
+  "nativeImages": 186,
   "accepted": 19996,
   "declined": 4,
-  "scope": "All2048low-bit residues around four rounding/power-of-two boundaries, random bounded m80×binary64 pairs, both operand orders, primitive Number entry, alternate controls and existing native multiplication captures. Microtiming compares only the additive branch and operand carrier allocation against the same source with that optimization removed.",
+  "scope": "All2048low-bit residues around four rounding/power-of-two boundaries, random bounded m80×binary64 pairs, both operand orders, boxed and unboxed primitive Number entries, alternate controls and existing native multiplication captures. The baseline removes the mixed certificate entirely, so the decomposition cache and unboxed return are checked against exact prior BigInt arithmetic. Microtiming compares the boxed method with that optimization removed.",
   "sourcePins": [
     {
       "path": "src/runtime/float80.js",
-      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
+      "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482"
     },
     {
       "path": "src/runtime/certified-sqrt.js",
@@ -20,44 +20,44 @@
     },
     {
       "path": "tools/diagnostics/review-mixed-multiply.mjs",
-      "sha256": "9fdf39c5a365cac895e9006ddb7924a2d676e53121982c02a551eca184b77364"
+      "sha256": "4fc1c7590d1950752d14d5ea18c628accf63f6ab416119c80f4f8b3771327ee0"
     }
   ],
   "benchmark": {
     "callsPerSample": 20000,
     "samples": [
       {
-        "current": 3.7092359999999758,
-        "baseline": 12.186680000000024
+        "current": 7.796349000000021,
+        "baseline": 14.116262000000006
       },
       {
-        "current": 3.758938999999998,
-        "baseline": 12.214231999999981
+        "current": 2.589065000000005,
+        "baseline": 13.011408000000017
       },
       {
-        "current": 3.2391399999999635,
-        "baseline": 12.799894999999992
+        "current": 3.232557999999983,
+        "baseline": 15.575224999999989
       },
       {
-        "current": 3.4822279999999637,
-        "baseline": 12.535908000000006
+        "current": 1.6912810000000036,
+        "baseline": 12.786423000000013
       },
       {
-        "current": 3.2876110000000267,
-        "baseline": 12.677364000000011
+        "current": 1.6268489999999929,
+        "baseline": 12.762468000000013
       },
       {
-        "current": 3.4698340000000485,
-        "baseline": 12.473921000000018
+        "current": 2.187327000000039,
+        "baseline": 14.365152000000023
       },
       {
-        "current": 3.3644160000000056,
-        "baseline": 12.211437000000046
+        "current": 1.7697790000000282,
+        "baseline": 13.801987999999994
       }
     ],
-    "currentMedian": 3.4698340000000485,
-    "baselineMedian": 12.473921000000018,
-    "speedup": 3.594961891548657,
+    "currentMedian": 2.187327000000039,
+    "baselineMedian": 13.801987999999994,
+    "speedup": 6.3099792577880445,
     "scope": "Isolated leaf method; no browser FPS inference."
   }
 }

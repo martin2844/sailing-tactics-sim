@@ -1,0 +1,471 @@
+{
+  "checkedAt": "2026-10-04T17:17:10.169Z",
+  "scope": "Six actual-browser raster/state reset comparisons including compatibility fallback and size changes; production race startup and exact visible-blit comparison. This is correctness evidence, not a throughput benchmark.",
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "b41f16e3a435104f288bc7958d94446bdd1ebee4f777d926b1dc5090abd80b96"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/canvas-surface.js",
+      "sha256": "7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019"
+    }
+  ],
+  "cases": [
+    {
+      "fallback": false,
+      "width": 128,
+      "height": 96,
+      "expectedProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "actualProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "cleared": [
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606",
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606"
+      ],
+      "painted": [
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115",
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115"
+      ]
+    },
+    {
+      "fallback": false,
+      "width": 71,
+      "height": 53,
+      "expectedProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "actualProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "cleared": [
+        "00a32e4dc7ecef1e6d60160c86de77f9a8a2a36cfb33132da53d67c1d60e5df7",
+        "00a32e4dc7ecef1e6d60160c86de77f9a8a2a36cfb33132da53d67c1d60e5df7"
+      ],
+      "painted": [
+        "b42f0719dbb8fe70b9c0da80d4424435d4c162e30d5793811d5b093a826f0116",
+        "b42f0719dbb8fe70b9c0da80d4424435d4c162e30d5793811d5b093a826f0116"
+      ]
+    },
+    {
+      "fallback": false,
+      "width": 128,
+      "height": 96,
+      "expectedProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "actualProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "cleared": [
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606",
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606"
+      ],
+      "painted": [
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115",
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115"
+      ]
+    },
+    {
+      "fallback": true,
+      "width": 128,
+      "height": 96,
+      "expectedProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "actualProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "cleared": [
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606",
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606"
+      ],
+      "painted": [
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115",
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115"
+      ]
+    },
+    {
+      "fallback": true,
+      "width": 71,
+      "height": 53,
+      "expectedProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "actualProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "cleared": [
+        "00a32e4dc7ecef1e6d60160c86de77f9a8a2a36cfb33132da53d67c1d60e5df7",
+        "00a32e4dc7ecef1e6d60160c86de77f9a8a2a36cfb33132da53d67c1d60e5df7"
+      ],
+      "painted": [
+        "b42f0719dbb8fe70b9c0da80d4424435d4c162e30d5793811d5b093a826f0116",
+        "b42f0719dbb8fe70b9c0da80d4424435d4c162e30d5793811d5b093a826f0116"
+      ]
+    },
+    {
+      "fallback": true,
+      "width": 128,
+      "height": 96,
+      "expectedProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "actualProperties": {
+        "transform": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "alpha": 1,
+        "composite": "source-over",
+        "dash": [],
+        "lineWidth": 1,
+        "shadowBlur": 0,
+        "shadowColor": "rgba(0, 0, 0, 0)",
+        "filter": "none",
+        "font": "13px Arial",
+        "textAlign": "start",
+        "textBaseline": "alphabetic"
+      },
+      "cleared": [
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606",
+        "2aae7dc846aaf25f1cadf55f1666862046c6db9d65d84bdc07fa039dac405606"
+      ],
+      "painted": [
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115",
+        "0dadc3d4875beef1a58974205233933a61f8dd3fb6e21f8f5af5001b3918c115"
+      ]
+    }
+  ],
+  "displayHashes": [
+    "2c67ea5af5af55d74abd463ac7504be95da2ea6a2bde16bb65e82963e130327f",
+    "2c67ea5af5af55d74abd463ac7504be95da2ea6a2bde16bb65e82963e130327f"
+  ],
+  "visibleContextAttributes": {
+    "alpha": true,
+    "colorSpace": "srgb",
+    "colorType": "unorm8",
+    "desynchronized": false,
+    "toneMapping": {
+      "mode": "standard"
+    },
+    "willReadFrequently": false
+  },
+  "frameCount": 11,
+  "simulationClock": 4.305661872405894e-307,
+  "error": null
+}

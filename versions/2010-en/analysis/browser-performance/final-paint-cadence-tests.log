@@ -1,0 +1,24 @@
+✔ the opt-in setup gate retains and releases each original callback exactly once (4.821013ms)
+✔ the diagnostic turns an enabled native automatic-slowdown setting off with one menu command and one paint (1.657867ms)
+✔ the optional native2010 setting rejects2002 before launching a browser (51.216134ms)
+✔ deterministic setup validation requires the whole image, RNG, frame and ordered command history (0.947266ms)
+✔ the measured final image and RNG are copied at the target paint before asynchronous hashing (1.529165ms)
+✔ presentation sampling observes completed frame ids without advancing or scheduling a paint (3.415622ms)
+✔ presentation summary distinguishes repeated opportunities and unobserved completed updates (0.63613ms)
+✔ one shared paint clock crosses unsigned wrap and retains its epoch between paints (1.297717ms)
+✔ original 30/60/80ms tick thresholds become scheduler duration with bounded work (3.933528ms)
+✔ an unchanged surface uses one complete context reset and restores the original font (2.092887ms)
+✔ older contexts receive one complete width reset and resized surfaces keep both dimensions (0.319803ms)
+✔ actual requestPaint uses asynchronous immediate tasks with pending deduplication (2.54503ms)
+✔ hidden pages retain one invalidation without executing a queued paint or advancing the game (1.443483ms)
+✔ visibility resumes only the remaining positive delay and respects modal and terminal states (1.488948ms)
+✔ missing channel and inactive/modal states preserve the existing timer/request behavior (1.187099ms)
+✔ measurement instrumentation observes both actual paint scheduling routes (2.21089ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 162.077099

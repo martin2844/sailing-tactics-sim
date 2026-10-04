@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T19:02:46.629Z",
+  "scope": "One current-host fresh2002 default-experience check. Original15-boat fleet, default native boat/venue/course, automatic-slowdown preference, speed10 and original time constants remain preserved. The existing original speed10 menu is the only selected menu;240 genuine pregun continuous paints. No2010 deterministic/automatic-slowdown flags or started fast-forward were used. Actual loaded JS bodies are pinned inside the raw report.",
+  "findings": [],
+  "checkedPaintRows": 240,
+  "originalState": {
+    "fleet": 15,
+    "courseLength": 1000,
+    "speed": 10,
+    "divisor": 76,
+    "dt": 0.25480153593469845,
+    "mode": 1,
+    "firstPreciseClock": -170.2451984640653,
+    "lastPreciseClock": -109.34763137567356
+  },
+  "timing": {
+    "framesPerSecond": 53.19148936166684,
+    "paintDuration": {
+      "meanMs": 14.278333333010474,
+      "medianMs": 13.900000005960464,
+      "maxMs": 41.599999994039536
+    },
+    "betweenPaints": {
+      "meanMs": 4.5012552304247935,
+      "medianMs": 4.0999999940395355,
+      "p95Ms": 4.700000002980232,
+      "maxMs": 54.70000000298023
+    },
+    "host": {
+      "logicalProcessors": 16,
+      "loadAverageBefore": [
+        8.26,
+        8.95,
+        8.29
+      ],
+      "loadAverageAfter": [
+        8.32,
+        8.95,
+        8.29
+      ],
+      "cpuBusyFraction": 0.5985781168718571
+    }
+  },
+  "presentation": {
+    "scope": "Completed-frame ids sampled by requestAnimationFrame at browser rendering opportunities. This observes canvas availability and main-thread cadence; it does not prove physical monitor/compositor presentation.",
+    "observedCompletedFrames": 232,
+    "unobservedCompletedFrames": 8,
+    "repeatedFrameOpportunities": 34,
+    "largestFrameJump": 2
+  },
+  "comparisonLimitations": [
+    "The current2010 exact paired run uses20 boats, course2000 and clock101..149; this2002 run uses15 boats, course1000 and a pregun phase. They are not the same scenario.",
+    "Host contention is59.86% in this run; older configured2002 runs reported about71FPS under lighter contention. Preserve that historical scope rather than treating it as a current matched baseline.",
+    "rAF reads completed logical frame counters and does not prove compositor/physical monitor display. Faster2002 paint turnover can produce more than one completed logical frame between some rAF callbacks;8 unsampled updates do not establish missing physical presentations."
+  ],
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smoothness-default-2002-current.json",
+      "sha256": "39f00da78773fff03340d964cbb2714a366fd53d1550692b9c27594205978416"
+    },
+    {
+      "path": "tools/diagnostics/measure-2010-pace.mjs",
+      "sha256": "7e86c928c0e587940a89048dea6dc585d70870b0c0c964c1060497b14b5bb30c"
+    },
+    {
+      "path": "tools/paint-measurements.js",
+      "sha256": "bf6fcdef9595a499a8d1088a2f1944dcacc26951e8daae747fb230faabff26c3"
+    },
+    {
+      "path": "tools/presentation-measurements.js",
+      "sha256": "e794329321588454603b57d008cb1e06400eeabe1a0a8513b6f9b5d6557cd0fb"
+    },
+    {
+      "path": "src/play.js",
+      "sha256": "a9d5fd4fd5fa1e2a7f812aa629d3301a152129cd46b785817ddb74c91340a1ce"
+    },
+    {
+      "path": "src/engine/application.js",
+      "sha256": "7bbef48167f8d7586453754c15fca2e4f89892bf0f10270d68238d314c215d00"
+    },
+    {
+      "path": "src/engine/frame.js",
+      "sha256": "76914cf894b82a8d98d68c8e5fe3bd57a690bd6ff4a657c19d1ad0d9185ab472"
+    }
+  ]
+}

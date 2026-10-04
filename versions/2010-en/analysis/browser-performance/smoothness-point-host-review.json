@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T18:21:19.699791+00:00",
+  "reviewer": "/root/speed_timing",
+  "skill": "big-review",
+  "baseline": "a6b5a6d",
+  "findings": [],
+  "scope": "Source, test and actual storage-contract review of fixed POINT expansion and generic scalar lowering. Current host scheduling/canvas reset source review with separately scoped existing actual-browser correctness evidence. No Chrome session, timing benchmark or repeated native replay was run during this review.",
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/tools/expand_local_points.py",
+      "sha256": "365e3ed72ff94dda10be3a1a7bf45023563233245e9a0edb0fbcfefb9e97c168"
+    },
+    {
+      "path": "versions/2010-en/tools/optimize_static_locals.py",
+      "sha256": "451907dd452c9ac7328256753d2bb05109c12adc98263f11b8d4035c9a7d74e3"
+    },
+    {
+      "path": "versions/2010-en/tests/point-scalar-generator.test.js",
+      "sha256": "1ce7ab2725489b6758acd864c68216454dc402a12bf1fc161f3341f18a0d90dc"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    },
+    {
+      "path": "versions/2010-en/src/render/scalar-stack.js",
+      "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90"
+    },
+    {
+      "path": "versions/2010-en/src/play.js",
+      "sha256": "581433adb813f028d9973d0d1564e6cf4cba4a3fb72745125036f175818201eb"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/canvas-surface.js",
+      "sha256": "7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019"
+    },
+    {
+      "path": "versions/2010-en/tests/canvas-surface.test.js",
+      "sha256": "49ac5a9c7a62ac4f93a05a9b31f9ee09470d85d15ba47fc06dd46c0321e903c9"
+    },
+    {
+      "path": "versions/2010-en/tests/paint-scheduler-review.test.js",
+      "sha256": "23233e6a18b61380561468fb6fae948ec651e4b49eceb16f60d835ca200d0452"
+    },
+    {
+      "path": "tools/presentation-measurements.js",
+      "sha256": "e794329321588454603b57d008cb1e06400eeabe1a0a8513b6f9b5d6557cd0fb"
+    },
+    {
+      "path": "tests/presentation-measurements.test.js",
+      "sha256": "8b576a1f1cfd502bcf56ba094db45650af095ede18c9bba22eacca6ad3ec8698"
+    },
+    {
+      "path": "tools/diagnostics/measure-2010-pace.mjs",
+      "sha256": "fbddc49b55f65cf44205138e8dc97d9977f5bdd60ae1d66c8ff0f8601686c966"
+    }
+  ],
+  "pointChecks": [
+    "Only a complete discarded-result writeLocalPoint statement to a fixed in-bounds private frame offset expands. Dynamic pointers, escaped frames, overlapping views, name collisions and observed returns keep the complete original source.",
+    "The point expression executes once. The x getter and its integer/semantic conversion complete before the y getter, preserving the original writeLocalPoint effect and exception order. Both widths and offsets match the original adjacent DWORD stores.",
+    "The existing generic scalar proof still validates every frame use, width, overlap and discarded write result after expansion. Every rejection returns the original unexpanded source.",
+    "Explicit retained bytes select a byte-frame function built from the original unexpanded source. Specialized water/shore partial scalar passes occur before this generic expansion and remain unchanged."
+  ],
+  "pointTestsReviewed": {
+    "tests": 3,
+    "orderedValueCases": 864,
+    "rejectionCases": 7,
+    "scope": "Read end to end; producing agent/root runs and native replay are separate evidence, not claimed executed by this reviewer."
+  },
+  "hostChecks": [
+    "An unchanged canvas receives a complete context reset; older contexts receive one width reset. Dimension changes retain both assignments and the original font. Buffer pixel-read context remains unchanged; the visible blit context uses its default backend.",
+    "Hidden callbacks exit before simulation and preserve one nextPaint request. Visibility resume preserves the remaining positive delay, deduplicates pending callbacks and respects modal, closed, error and frozen states. No missed-frame simulation catchup is added.",
+    "Optional requestAnimationFrame instrumentation observes completed canvas frame ids only. The report labels this rendering-opportunity sampling and does not equate it with physical monitor presentation.",
+    "Console output replaces raw presentation samples with their count only after the complete raw report is written."
+  ],
+  "browserEvidence": [
+    {
+      "path": "versions/2010-en/analysis/browser-performance/canvas-reset-review.json",
+      "scope": "Six actual browser state/raster comparisons and visible-blit equality. The unchanged reset helper matches the current hash. This earlier report pins the host before the subsequent visibility-only edit; it is not claimed to cover the entire current host source."
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/hidden-paint-review.json",
+      "scope": "Current host hash matches. A real hidden Chrome tab executes zero candidate paints and zero simulation-time change versus eight old paints; visible resume uses six ordinary timestep updates without catchup."
+    }
+  ],
+  "focusedHostValidation": "Current canvas, scheduler and optional presentation sources retain the earlier nine passing focused tests. The console-only truncation passed node --check; there is no new runtime edit in this review.",
+  "additionalDiagnosticEvidence": {
+    "path": "versions/2010-en/analysis/browser-performance/deterministic-setup-review.json",
+    "scope": "Optional setup-gate code was added afterward to the measurement tool. Its own current source/test/browser receipt proves complete baseline/current image, RNG, frame and command-history equality. Default sampling protocol remains unchanged."
+  }
+}

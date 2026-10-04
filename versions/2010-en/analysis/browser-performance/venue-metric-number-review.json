@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:50:28.161Z",
+  "findings": [],
+  "cases": 192,
+  "orderedReadComparisons": 20583,
+  "baseline": {
+    "commit": "a6b5a6d",
+    "path": "versions/2010-en/src/engine/spatial-metrics.js",
+    "sha256": "a3f67ff26558b0a1b2e8b3567a168f611674b31fc5dc20096cb75ce9bf77bee7"
+  },
+  "scope": "Independent exact-image/exception/read-order comparisons against the untouched prior JavaScript routine at PC24/53/64. Stateful mutable coefficients, thrown integer/F64 reads, zero divisors, nonfinite factors, subnormal angles and provider accessors supplement the native fixture suite.",
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/engine/venue-metric-number.js",
+      "sha256": "fa40423031c18cb179b2c88e228d01694f0a340a6ccfb45a39be64a4396a3ff7"
+    },
+    {
+      "path": "versions/2010-en/src/engine/spatial-metrics.js",
+      "sha256": "d545319edd3d190c49caf55c13614ecc805b165da125392cbd497ebc376b93de"
+    },
+    {
+      "path": "versions/2010-en/src/render/float-values.js",
+      "sha256": "47bbae43fd8883cc9e219f209de4626d2456b6d87d3b2cfb86a58861c4f8b494"
+    },
+    {
+      "path": "src/runtime/float80.js",
+      "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482"
+    }
+  ]
+}

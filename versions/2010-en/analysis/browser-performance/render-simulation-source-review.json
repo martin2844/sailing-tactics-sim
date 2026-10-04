@@ -1,0 +1,123 @@
+{
+  "format": 1,
+  "reviewedAt": "2026-10-04T20:09:35.758Z",
+  "verdict": "No open verified findings in the reviewed drawing/engine boundaries. Finite coverage and code-path restrictions below apply.",
+  "scope": "Independent source review of renderer-only smooth math, shared waypoint/camera boundaries, real retained-frame engine/RNG comparison, and parent actual-Canvas trace instrumentation. Physics/providers/clock remain exact; tiny rendering math differences are explicitly authorized.",
+  "fixedFindings": [
+    {
+      "routine": "0x465ff0",
+      "problem": "Broad smooth fpTrig changed persistent waypoint F64 Y coordinates by one ULP, causing four ordered next-frame engine trace mismatches in two started profiles while RNG remained equal.",
+      "fix": "Both dependency routes disable smoothGraphics throughout waypoint respawn without mutating caller options or invoking unrelated/provider getters.",
+      "evidence": "21-frame comparison now passes with real rendering differences still present."
+    },
+    {
+      "routines": [
+        "0x41e0a0",
+        "0x41e220"
+      ],
+      "problem": "These children write camera headings4fbb94/98 consumed by waypoint respawn; unsupported43ec20 geometry can use the general fpAtan fallback.",
+      "fix": "The same exact-math boundary protects both camera-heading children and their dependencies.",
+      "evidence": "16 final-source route/geometry cases cover ordinary and >1e9 fallback geometry."
+    },
+    {
+      "routine": "fpTrig",
+      "problem": "Unboxing a Float80 subclass before smooth eligibility incorrectly allowed it to use Math.sin/cos, despite the helper explicitly declining subclass operands.",
+      "fix": "Try smooth eligibility on the original operand before unboxing; unsupported operands use the unchanged exact fallback.",
+      "evidence": "Independent source delta review plus parent10focused helper/projection tests including class/provider fallback."
+    }
+  ],
+  "coupling": {
+    "liveRenderFields": [
+      "waypoint count4da1f4",
+      "waypoint F64 arrays4f7220/4ff038",
+      "camera headings4fbb94/98",
+      "steering geometry4fba18/4fbf14/5230b8/52318c/5233a4",
+      "offshore wave4f8ccc",
+      "finishFrame reset4f7124/28"
+    ],
+    "projection": "Common perspective helper keeps camera geometry and distance exact. Its4fbb88 distance is overwritten before observed engine use;535ff4/523660/4fed58 are absent from the observed engine read-before-overwrite ledger.",
+    "providers": "smoothGraphics lives only in renderer sharedOptions. Engine options.sinCos/trig/atan2Extended remain original. Shared engine dependencies called from rendering ignore the flag and retain exact math."
+  },
+  "validation": {
+    "nativeLedger": {
+      "profiles": 7,
+      "frames": 21,
+      "nativeFullMutableImageAndGdi": true
+    },
+    "realRenderDifferential": {
+      "profiles": 7,
+      "frames": 21,
+      "pass": true,
+      "scope": "Real exact and smooth renderers; exact ordered engine byte read/write traces, phase-labelled RNG calls, sounds and host consumption. Declared native GetPixel answers, not Canvas raster feedback.",
+      "versionNote": "Captured after waypoint guard and before the two additional conservative camera-heading guards; final-source targeted tests cover those guards."
+    },
+    "finalSourceFocused": {
+      "tests": 3,
+      "waypointCases": 24,
+      "cameraCases": 16,
+      "providerAndRetainedErrorCases": 4,
+      "pass": true,
+      "log": "render-simulation-focused.log",
+      "parentAdditional": {
+        "tests": 10,
+        "ordinaryProjectionCases": 600,
+        "originalConstantDegreeBoundaryCases": 108,
+        "pass": true,
+        "scope": "Parent focused drawing/projection tests after fpTrig fix; reviewed source delta keeps ordinary Number/baseFloat80 behavior unchanged."
+      }
+    },
+    "actualCanvas": {
+      "equal": true,
+      "enginePrefixes": 417,
+      "paints": 420,
+      "finalFrame": 420,
+      "sourceReview": "Ordered engine read/store bytes and memmove source are captured; exact methods are restored before rendering. Real Canvas/GetPixel feedback is active. End-paint RNG/time/dt/speed/fullmode is compared. The417 prefixes are frames4..420; initialization paints have no advanceFrame.",
+      "versionNote": "Parent reran on the final frozen graph after all three shared-state guards and fpTrig subclass correction. Every417engineprefix/420paintcomparison passes; the report pins the actual loaded browser modules.",
+      "checkedAt": "2026-10-04T20:08:24.386Z"
+    }
+  },
+  "limits": [
+    "This is finite scenario coverage; it does not prove arbitrary custom venues, provider objects, mouse positions and control combinations.",
+    "The native-fixture differential uses declared native GetPixel answers; the separate default420paint Canvas comparison supplies real raster feedback.",
+    "Low-level exported recovered functions are not an advertised smooth API; exact shared-state gating occurs at the real scene dependency boundaries.",
+    "No approximate sqrt, skipped drawing/RNG calls, physics provider changes, simulation time changes or2002 smooth mode is introduced."
+  ],
+  "sourceSha256": {
+    "src/runtime/memory.js": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117",
+    "src/runtime/float80.js": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482",
+    "src/engine/integer-core.js": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633",
+    "versions/2010-en/src/render/dependencies.js": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74",
+    "versions/2010-en/src/render/float-values.js": "491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5",
+    "versions/2010-en/src/render/smooth-math.js": "1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c",
+    "versions/2010-en/src/render/projection-smooth.js": "33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4",
+    "versions/2010-en/src/render/projection-output-fast.js": "b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845",
+    "versions/2010-en/src/render/chart-projection-fast.js": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf",
+    "versions/2010-en/src/render/drawing-functions.js": "8df4e5abfe9fef346dcf4db8ea88fcf2bc825a472ff9d581bce85508b009da6a",
+    "versions/2010-en/src/render/paint-lifecycle.js": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b",
+    "versions/2010-en/src/render/index.js": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b",
+    "versions/2010-en/src/play.js": "7154efde470f5639e36ac136d0683c94ebb67887c0ea4cfbde12d93e4b934ea5",
+    "versions/2010-en/src/engine/frame.js": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb",
+    "versions/2010-en/src/engine/waypoints.js": "1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa",
+    "versions/2010-en/src/engine/steering.js": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f",
+    "versions/2010-en/src/engine/wave-motion.js": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a",
+    "versions/2010-en/src/engine/integration.js": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f",
+    "versions/2010-en/tools/diagnostics/review-render-simulation-coupling.mjs": "7a16f40523148256aa56393e73ba27d7a0b3f9ba0749b12d63e71952f5e8637c",
+    "versions/2010-en/tools/diagnostics/check-smooth-graphics-browser.mjs": "289067f4ea173a783d0051243ad0c94f2c7b687bf36182a00299bd244c558e9b",
+    "versions/2010-en/tests/smooth-graphics-coupling.test.js": "2bb2384bbb48b9b251e22f3abf982044b7e510b4d7050b22521a0505ec03bab4"
+  },
+  "artifactSha256": {
+    "render-simulation-coupling-ledger.json": "1121c61b43e96e622cf5201a80c2a8de3e38e61c1f832e3476fee7ef098e535a",
+    "render-simulation-smooth-review.json": "1f6a690511d41d62fa2b69fe932b785586394424dcb89eb02666e695f274326a",
+    "render-simulation-smooth-review.log": "b8cfde8d687e3c51be0cd8a11c1bf45da79a2e15219edd112af2e43a153646db",
+    "render-simulation-focused.log": "684cf452e3bd72c1f65cebbeaf796713d620e236b84a9e3e13376c4ee9235c39",
+    "smooth-graphics-canvas-coupling.json": "52b0fe79595b0745a68f17557606fcdb2321043572b8c0b92a52a603a12dab57",
+    "dependency-mask-source-review.json": "13200db3c6c9c78a0cf9be631d3ee0ddc59184b2781b691be81f8f7c03873644"
+  },
+  "lastReviewedDelta": {
+    "files": [
+      "versions/2010-en/src/render/float-values.js",
+      "versions/2010-en/src/render/smooth-math.js"
+    ],
+    "description": "fpTrig eligibility moves before unbox; smooth-math comments now describe opt-in runtime. No operation or branch change for ordinary accepted operands."
+  }
+}

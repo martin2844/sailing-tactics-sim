@@ -1,0 +1,19 @@
+✔ one shared paint clock crosses unsigned wrap and retains its epoch between paints (1.300762ms)
+✔ original 30/60/80ms tick thresholds become scheduler duration with bounded work (4.051277ms)
+✔ actual requestPaint uses asynchronous immediate tasks with pending deduplication (3.053005ms)
+✔ hidden pages retain one invalidation without executing a queued paint or advancing the game (1.14052ms)
+✔ visibility resumes only the remaining positive delay and respects modal and terminal states (1.215071ms)
+✔ missing channel and inactive/modal states preserve the existing timer/request behavior (1.09788ms)
+✔ measurement instrumentation observes both actual paint scheduling routes (2.444588ms)
+✔ smooth drawing flag and different host clock epochs preserve real dt, AI cadence, inputs and full mode (835.388202ms)
+✔ pause and a failing drawing suffix keep the original single physics prefix and finish ordering (151.625222ms)
+✔ the actual graphics query installs only renderer shared options and preserves engine providers (4.446041ms)
+✔ faster drawing keeps one simulation callback per original paint and yields to queued input (10.671256ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1378.58711

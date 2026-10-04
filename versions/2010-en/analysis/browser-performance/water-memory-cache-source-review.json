@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T19:05:21.427Z",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "Constructor identity branding and unwired Number-water memory domain; complete-body-pinned frame272 load cache in the existing private Number water function.",
+  "checks": [
+    "Constructor snapshots use validated arguments and local assignment values. The original this.bytes.buffer evaluation remains in the same position, with no extra subclass getter reads.",
+    "The private frozen WeakMap record rejects proxy/duck hosts before introspection. Exact own data field identity, class/view prototypes and captured original method identity are checked without invoking replacements.",
+    "Native DataView byteLength/buffer getters and the native ArrayBuffer byteLength getter reject detached, proxy and SharedArrayBuffer views, including a subclass-created original shared view that restores the ordinary prototype.",
+    "The frame272 cache gates on the complete pinned private body52473853aedeb9a49cf2c0de9d3ffb232447888f95274301f392cb0f1759f52f. The private dense arrays/frame never escape in that reviewed body. Any added callback or escape outside the arithmetic chain declines unchanged.",
+    "The only external entry into the closed212→172 chain is213→212. The first exact frame272 F64 read stays inside its original case212 expression. The other21 identical reads use the retained Number; no operation, store, exception position or fallback body is moved."
+  ],
+  "resolvedFindings": [
+    {
+      "issue": "Snapshotting public instance fields added constructor property reads and could invoke or throw from subclass getters.",
+      "fix": "Capture constructor arguments and local allocation/assignment values while preserving the original this.bytes.buffer read.",
+      "regression": "constructor snapshots introduce no extra subclass field getters",
+      "status": "fixed and verified"
+    },
+    {
+      "issue": "Constructor-record identity did not establish an unshared backing buffer when a subclass supplied its original DataView through a bytes accessor.",
+      "fix": "Brand the DataView backing buffer with native getters and reject SharedArrayBuffer irrespective of recorded identities/prototypes.",
+      "regression": "a constructor-original shared view declines even when all recorded identities match",
+      "status": "fixed and verified"
+    },
+    {
+      "issue": "A prefix-only cache pin could accept a later frame escape or callback outside the cached arithmetic chain.",
+      "fix": "Pin the complete private body and decline every changed statement before transforming its22 load sites.",
+      "regression": "outside frame escapes, unreviewed callbacks, changed control flow and views decline unchanged",
+      "status": "fixed and verified; originally found by parent reviewer"
+    }
+  ],
+  "validation": {
+    "focusedTests": 9,
+    "testsPassed": true,
+    "log": "versions/2010-en/analysis/browser-performance/water-memory-cache-focused.log",
+    "nativeFrameExecutionsReportedByAuthor": 190,
+    "originalByteBodiesUnchangedReportedByAuthor": 251
+  },
+  "sourcePins": [
+    {
+      "path": "src/runtime/memory.js",
+      "sha256": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117"
+    },
+    {
+      "path": "versions/2010-en/src/render/water-number-domain.js",
+      "sha256": "1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9"
+    },
+    {
+      "path": "versions/2010-en/tests/water-number-domain.test.js",
+      "sha256": "0637ab8af14272be38d029a4549a3318ab7b68eea3c5ae55406f0562c23cb479"
+    },
+    {
+      "path": "versions/2010-en/tools/cache_water_float_loads.py",
+      "sha256": "0935059b463b295e49f5d0a660822022d8c1911b56b7a15d59f5a4045ba33f20"
+    },
+    {
+      "path": "versions/2010-en/tests/water-float-loads.test.js",
+      "sha256": "ac645d03210eb23462bb78d1fcbacdd01f51728f57c91a0dc8e48e7c247a6424"
+    },
+    {
+      "path": "versions/2010-en/src/render/typed-c.js",
+      "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
+    }
+  ]
+}

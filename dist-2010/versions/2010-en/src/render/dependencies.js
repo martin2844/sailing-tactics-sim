@@ -16,6 +16,22 @@ import {fpDrawingEnabled,fpArgument,fpFormalF64} from './float-values.js';
 // bytes and never substitutes drawing from another edition.
 const drawing = new Map();
 const numberDrawing = new Map();
+
+// These scene children write camera headings and respawn waypoint coordinates
+// that are read by the next physics frame. Browser drawing math must therefore
+// stay disabled throughout each child, including its projection fallback.
+// Inherit all other options without invoking their getters or copying values.
+function exactSharedDrawingOptions(address,options){
+  if((address!==0x465ff0&&address!==0x41e0a0&&address!==0x41e220)
+    ||options===null||(typeof options!=='object'&&typeof options!=='function'))return options;
+  const mode=Object.getOwnPropertyDescriptor(options,'smoothGraphics');
+  if(!mode||!('value' in mode)||mode.value!==true
+    ||'sinCos' in options||'atan2' in options||'retainedDrawingStack' in options||'drawingDependencies' in options)return options;
+  const descriptors={smoothGraphics:{value:false,configurable:true,enumerable:true,writable:true}};
+  const numeric=Object.getOwnPropertyDescriptor(options,'numberRendering');
+  if(numeric)descriptors.numberRendering=numeric;
+  return Object.create(options,descriptors);
+}
 export function registerOriginalDrawing(address, routine, hasDc = true, dcIndex = hasDc ? 0 : null) {
   if (!Number.isInteger(address) || address < 0x401000 || address >= 0x49b930 || typeof routine !== 'function') {
     throw new TypeError('Invalid preserved 2010 JavaScript drawing routine');
@@ -32,7 +48,9 @@ export function registerOriginalNumberDrawing(address,routine,floatingParameters
   if(numberDrawing.has(address))throw new Error('Duplicate numeric drawing routine');
   const entry=drawing.get(address),parameters=floatingParameters.slice();
   const bindings=parameters.map(parameter=>parameter-Number(entry.hasDc&&parameter>entry.dcIndex));
-  numberDrawing.set(address,{routine,floatingParameters:parameters,entry,bindings,floatingSlots:new Set(bindings)});
+  const mask=indices=>indices.reduce((bits,index)=>Number.isInteger(index)&&index>=0&&index<32?bits|(1<<index):bits,0);
+  numberDrawing.set(address,{routine,floatingParameters:parameters,entry,bindings,floatingSlots:new Set(bindings),
+    parameterMask:mask(parameters),bindingMask:mask(bindings)});
 }
 
 /** A fused private window may bypass only its unchanged registered callee. */
@@ -53,6 +71,7 @@ export function callNumberDrawingDependencyOwned(memory,dc,address,args,floating
 const hasFloatingArgument=(indices,index)=>typeof indices==='number'
   ?index>=0&&index<32&&((indices>>>index)&1)!==0:indices.includes(index);
 function callNumberDrawingDependencyImpl(memory,dc,address,args,floatingArguments,rng,options,owned){
+  options=exactSharedDrawingOptions(address,options);
   const numeric=numberDrawing.get(address),entry=drawing.get(address);
   if(numeric&&numeric.entry===entry&&fpDrawingEnabled(options)){
     const removed=entry.hasDc&&args[entry.dcIndex]===dc;
@@ -62,9 +81,15 @@ function callNumberDrawingDependencyImpl(memory,dc,address,args,floatingArgument
       values.length--;
     }
     const bindings=numeric.bindings,floatingSlots=numeric.floatingSlots;
-    for(let index=0;index<values.length;index++){
-      const callerIndex=removed&&index>=entry.dcIndex?index+1:index;
-      if(!floatingSlots.has(index)&&hasFloatingArgument(floatingArguments,callerIndex))values[index]=fpArgument(values[index]);
+    // Fresh compiler literals need no integer-formal boxing when every marked
+    // actual argument maps to a floating formal. The binding loop below still
+    // performs every original F64 spill, in its original order.
+    const floatMask=removed?numeric.parameterMask:numeric.bindingMask;
+    if(!owned||typeof floatingArguments!=='number'||(floatingArguments&~floatMask)!==0){
+      for(let index=0;index<values.length;index++){
+        const callerIndex=removed&&index>=entry.dcIndex?index+1:index;
+        if(!floatingSlots.has(index)&&hasFloatingArgument(floatingArguments,callerIndex))values[index]=fpArgument(values[index]);
+      }
     }
     for(const index of bindings){
       // Reproduce the original generated binder even when a recovered caller
@@ -80,6 +105,7 @@ function callNumberDrawingDependencyImpl(memory,dc,address,args,floatingArgument
 }
 
 export function callDrawingDependency(memory, dc, address, args, rng, options = {}) {
+  options=exactSharedDrawingOptions(address,options);
   if (address === 0x49b970) return (args[0] instanceof Float80 ? args[0] : Float80.fromNumber(args[0])).truncI64();
   if (address === 0x420c00) return initializeBoatOptions(memory);
   if (address === 0x41bc20) return wrapDegreesOnce(args[0]);

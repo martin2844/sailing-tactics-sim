@@ -1,0 +1,48 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:36:01.042568+00:00",
+  "reviewer": "/root/ai_crash_fix",
+  "findings": [],
+  "scope": "Eight-row visibility read tiles and non-raster state retention on the existing explicitly opted-in exclusive 2010 buffered DC. Drawing order, recorded traces, custom callbacks/samplers/sinks and all unopted DCs retain their previous behavior.",
+  "checks": [
+    "Signed-I32 coordinate normalization and bounds checks precede cache lookup. Eight-row tiles are clipped to the canvas bottom; getImageData ignores canvas clipping state.",
+    "Every supported raster primitive invalidates before dispatch, including bitmap/native text and setPixel. Message-beep callbacks and unknown events also conservatively invalidate.",
+    "Movement, selection, text/background state, clipping save/restore and read events do not mutate canvas pixels and may reuse cached data in the exclusive-sink lifetime.",
+    "The tile cache stays bounded to64 entries and is disabled for custom samplers/sinks or recorded events. The 2002 browser does not opt into caching.",
+    "No path, fill, stroke, antialiasing or physics batching was introduced; Canvas primitive calls stay in their previous order."
+  ],
+  "validation": {
+    "testsPassed": 44,
+    "cacheSpecificTests": 8,
+    "independentOpStateCases": 8,
+    "rasterOrUnknownInvalidationCases": 11,
+    "allPassed": true
+  },
+  "sourcePins": [
+    {
+      "path": "src/render/gdi.js",
+      "sha256": "e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5"
+    },
+    {
+      "path": "tests/gdi-pixel-cache.test.js",
+      "sha256": "8de52cd9ef5090b1f7834968ec1f9a0e4bc94bcf1936e9b9d17d811445423076"
+    },
+    {
+      "path": "tests/gdi-pixel-cache-review.test.js",
+      "sha256": "3be8509291242457ace9dc600265a8711236a5cee9d2d53736a5d21faf502bbe"
+    },
+    {
+      "path": "tests/gdi-pixel-cache-operations.test.js",
+      "sha256": "2ebcfb2f4ab49d74e29fb1f1acf6a4085ea1699a4142b6e3ab70e65d1018b9d3"
+    },
+    {
+      "path": "tests/gdi-recording.test.js",
+      "sha256": "cfb0d99f59a091fda8a8b64dac9cab98138417362e723d9a1dd9c6a9b579b831"
+    },
+    {
+      "path": "tests/gdi-primitives.test.js",
+      "sha256": "ed36607157636834c82edbee67facf851ad7bb484de95fe33addf5d3c9cff317"
+    }
+  ],
+  "performanceScope": "Reduced eligible readback count is covered by Node tests. Browser latency measurements are owned by the parent; no FPS inference is made here."
+}

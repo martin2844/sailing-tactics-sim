@@ -1,0 +1,119 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T17:50:27.423Z",
+  "scope": "Isolated Node retained-m80 multiplication loop; timings are not browser FPS measurements.",
+  "sourceSha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482",
+  "differentialImages": 16384,
+  "observations": [
+    {
+      "name": "old-boxed",
+      "round": 0,
+      "iterations": 100000,
+      "milliseconds": 32.01718699999999,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed",
+      "round": 0,
+      "iterations": 100000,
+      "milliseconds": 18.451422000000008,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed-cached-split-prototype",
+      "round": 0,
+      "iterations": 100000,
+      "milliseconds": 7.416376000000014,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed",
+      "round": 1,
+      "iterations": 100000,
+      "milliseconds": 16.700541999999984,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed-cached-split-prototype",
+      "round": 1,
+      "iterations": 100000,
+      "milliseconds": 6.306655000000006,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "old-boxed",
+      "round": 1,
+      "iterations": 100000,
+      "milliseconds": 21.620314000000008,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed-cached-split-prototype",
+      "round": 2,
+      "iterations": 100000,
+      "milliseconds": 6.552548000000002,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "old-boxed",
+      "round": 2,
+      "iterations": 100000,
+      "milliseconds": 27.754903999999982,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed",
+      "round": 2,
+      "iterations": 100000,
+      "milliseconds": 16.215778,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "old-boxed",
+      "round": 3,
+      "iterations": 100000,
+      "milliseconds": 22.932586999999984,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed",
+      "round": 3,
+      "iterations": 100000,
+      "milliseconds": 15.559121000000005,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed-cached-split-prototype",
+      "round": 3,
+      "iterations": 100000,
+      "milliseconds": 5.268338999999969,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed",
+      "round": 4,
+      "iterations": 100000,
+      "milliseconds": 14.492271000000017,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "unboxed-cached-split-prototype",
+      "round": 4,
+      "iterations": 100000,
+      "milliseconds": 4.941080999999997,
+      "sum": 1894060.2254644227
+    },
+    {
+      "name": "old-boxed",
+      "round": 4,
+      "iterations": 100000,
+      "milliseconds": 23.454641000000038,
+      "sum": 1894060.2254644227
+    }
+  ],
+  "medians": {
+    "old-boxed": 23.454641000000038,
+    "unboxed": 16.215778,
+    "unboxed-cached-split-prototype": 6.306655000000006
+  }
+}

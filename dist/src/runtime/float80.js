@@ -122,12 +122,21 @@ function normalBinary64(value) {
 // TwoProd retains the complete high product. Tail/correction roundings have
 // error <256u^2*product; certify strictly inside the candidate's IEEE cell.
 // Bounds keep every split/product normal. Uncertain midpoints use BigInt.
+// These private normalized parts belong to immutable Float80 values. Cache
+// their factor-independent dyadic split; unlike product memoization this adds
+// only one small record per retained input and does not keep dead inputs alive.
+const mixedSplitCache=new WeakMap();
 function mixedBinary64Product(parts,value){
   if(parts.exponent<-163||parts.exponent>36||Math.abs(value)<2**-100||Math.abs(value)>2**100)return NaN;
-  const high=Number(parts.mantissa>>11n)*2**(parts.exponent+11);
-  const tail=Number(parts.mantissa&2047n)*2**parts.exponent;
+  let split=mixedSplitCache.get(parts);
+  if(!split){
+    const high=Number(parts.mantissa>>11n)*2**(parts.exponent+11);
+    const tail=Number(parts.mantissa&2047n)*2**parts.exponent;
+    const splitHigh=134217729*high,ah=splitHigh-(splitHigh-high),al=high-ah;
+    split={high,tail,ah,al};mixedSplitCache.set(parts,split);
+  }
+  const {high,tail,ah,al}=split;
   const factor=Math.abs(value),product=high*factor;
-  const splitHigh=134217729*high,ah=splitHigh-(splitHigh-high),al=high-ah;
   const splitFactor=134217729*factor,bh=splitFactor-(splitFactor-factor),bl=factor-bh;
   const error=((ah*bh-product)+ah*bl+al*bh)+al*bl;
   const correction=error+tail*factor,candidate=product+correction;
@@ -408,6 +417,24 @@ export class Float80 {
       }else{
         const product=mixedBinary64Product(this.#parts,value);
         if(!Number.isNaN(product))return binary64Value(this.sign*(value<0?-product:product));
+      }
+    }
+    return this.multiply(Float80.fromNumber(value));
+  }
+
+  /** Internal floating evaluator result: exact binary64 Number or Float80.
+   * Reuse the public mixed-product certificate without allocating a carrier
+   * that the evaluator would immediately unbox. Extended fallback is unchanged.
+   */
+  multiplyNumberUnboxed(value){
+    if(typeof value!=='number'||!Number.isFinite(value))return this.multiply(Float80.fromNumber(value));
+    if(arithmeticPrecision===53){
+      if(!Number.isNaN(this.#number)){
+        const product=this.#number*value;
+        if(normalBinary64(product)||this.#number===0||value===0)return product;
+      }else{
+        const product=mixedBinary64Product(this.#parts,value);
+        if(!Number.isNaN(product))return this.sign*(value<0?-product:product);
       }
     }
     return this.multiply(Float80.fromNumber(value));

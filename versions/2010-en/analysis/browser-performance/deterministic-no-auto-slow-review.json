@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T18:35:36.214Z",
+  "scope": "Diagnostic-only native2010 menu32984 option. Complete initial, held clock101 entry and fixed final frame420 memory images/RNG match the a6b5a6d standalone and current source graph. The186 actual setup control/paint events and240 measured per-paint state rows are identical. This does not assert equality of every intermediate memory byte or physical monitor presentation. Loaded source bodies are pinned separately in each browser report. Default production game settings and the default measurement protocol are unchanged.",
+  "findings": [],
+  "nativeSetting": {
+    "address": "0x4da1dc",
+    "menu": 32984,
+    "label": "Slow Simulator if Foul Likely",
+    "before": 1,
+    "after": 0,
+    "commandCount": 1,
+    "setupPaintCount": 1,
+    "requestedThrough": "TACT_PACE_NO_AUTO_SLOW=1",
+    "editionGuard": "2002 rejected before browser launch"
+  },
+  "evidence": {
+    "commands": "Actual native commands/key handlers only; no direct game memory/RNG/timestep writes.",
+    "unitTests": 12,
+    "entry": {
+      "frame": 180,
+      "rngState": 3288228344,
+      "memoryBase": 4194304,
+      "memorySize": 2211840,
+      "memorySha256": "26902caf81b210f283a2f0c215ff19e388fe4e5c09034c629ea2949be1db0450",
+      "time": 101.01651669201483,
+      "clock": 101,
+      "speed": 10,
+      "divisor": 76,
+      "autoSlow": 0,
+      "racing": 2,
+      "mode": 0,
+      "overlays": [
+        {
+          "address": 5465156,
+          "value": 0
+        },
+        {
+          "address": 5465072,
+          "value": 0
+        },
+        {
+          "address": 5387176,
+          "value": 0
+        },
+        {
+          "address": 5465140,
+          "value": 0
+        },
+        {
+          "address": 5465144,
+          "value": 0
+        },
+        {
+          "address": 5465164,
+          "value": 0
+        }
+      ],
+      "queued": 1,
+      "holding": true,
+      "error": null
+    },
+    "final": {
+      "frame": 420,
+      "rngState": 3000910490,
+      "memoryBase": 4194304,
+      "memorySize": 2211840,
+      "time": 149.93841159147786,
+      "clock": 149,
+      "speed": 10,
+      "divisor": 76,
+      "autoSlow": 0,
+      "racing": 2,
+      "mode": 0,
+      "error": null,
+      "memorySha256": "2530c918a027065a07924b3a1e43754082142947ce20769e0fa7f4ed5ebca780"
+    },
+    "identicalControlAndPaintEvents": 186,
+    "identicalPerPaintRows": 240,
+    "speed": 10,
+    "divisor": 76,
+    "dt": 0.20384122874775878,
+    "autoSlow": 0,
+    "exceptions": 0,
+    "initialImage": "446cdf7c90c9eb976530fa2c56fa270c33e533b2b09fecc7ee8f80d52c26f1ab"
+  },
+  "timingLimitation": "Sequential correctness runs had different external host load. They do not establish60FPS or an isolated optimization speedup.",
+  "timings": [
+    {
+      "label": "deterministic-no-auto-slow-old-check",
+      "framesPerSecond": 21.505763364622936,
+      "paintDuration": {
+        "meanMs": 44.79791666679084,
+        "medianMs": 43.400000005960464,
+        "maxMs": 73.29999999701977
+      },
+      "cpuBusyFraction": 0.5740243212669683,
+      "renderedUpdatesWithoutSample": 0,
+      "repeatedFrameOpportunities": 0
+    },
+    {
+      "label": "deterministic-no-auto-slow-new-check",
+      "framesPerSecond": 25.69588543292225,
+      "paintDuration": {
+        "meanMs": 37.50708333266278,
+        "medianMs": 37,
+        "maxMs": 64.5
+      },
+      "cpuBusyFraction": 0.5067409671040806,
+      "renderedUpdatesWithoutSample": 0,
+      "repeatedFrameOpportunities": 1
+    }
+  ],
+  "sourcePins": [
+    {
+      "path": "tools/deterministic-paint-setup.js",
+      "bytes": 8077,
+      "sha256": "d6eaedceff02e6ab347c7c9ecb55e74830c95c489485dc669f1310ff75da99eb"
+    },
+    {
+      "path": "tools/diagnostics/measure-2010-pace.mjs",
+      "bytes": 13359,
+      "sha256": "7e86c928c0e587940a89048dea6dc585d70870b0c0c964c1060497b14b5bb30c"
+    },
+    {
+      "path": "tools/paint-measurements.js",
+      "bytes": 1320,
+      "sha256": "bf6fcdef9595a499a8d1088a2f1944dcacc26951e8daae747fb230faabff26c3"
+    },
+    {
+      "path": "tools/presentation-measurements.js",
+      "bytes": 2509,
+      "sha256": "e794329321588454603b57d008cb1e06400eeabe1a0a8513b6f9b5d6557cd0fb"
+    },
+    {
+      "path": "tests/deterministic-paint-setup.test.js",
+      "bytes": 6039,
+      "sha256": "517d11ba5d2dbab09e192bcb48e74d67facf39dafffff49c2f4574b1a430c696"
+    },
+    {
+      "path": "versions/2010-en/src/engine/menu-controller.js",
+      "bytes": 294172,
+      "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-no-auto-slow-old-check.json",
+      "bytes": 188962,
+      "sha256": "c41db61d2e488ef42eb8aea566e90dc3bd32d309b5b4b582772fbeaf652569a3"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-no-auto-slow-new-check.json",
+      "bytes": 189414,
+      "sha256": "70189c4b81600b90a3b6b30deca06c0b4596f887bb5dd904b5c354b20256bfe7"
+    }
+  ]
+}

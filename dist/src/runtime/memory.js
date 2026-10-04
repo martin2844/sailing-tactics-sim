@@ -1,6 +1,8 @@
 import { i8, u8, i16, u16, i32, u32 } from './c-types.js';
 
 export const POSEY_IMAGE_BASE = 0x00400000;
+const addressSpaceMemoryInstances=new WeakMap();
+export const originalAddressSpaceMemoryState=value=>addressSpaceMemoryInstances.get(value);
 
 function integerRange(value, minimum, maximum, description) {
   if (!Number.isSafeInteger(value) || value < minimum || value > maximum) {
@@ -22,8 +24,13 @@ export class AddressSpaceMemory {
     integerRange(size, 1, 0x100000000 - base, 'memory size');
     this.base = base;
     this.size = size;
-    this.bytes = new Uint8Array(size);
-    this.view = new DataView(this.bytes.buffer);
+    const bytes = new Uint8Array(size);
+    this.bytes = bytes;
+    const view = new DataView(this.bytes.buffer);
+    this.view = view;
+    addressSpaceMemoryInstances.set(this,Object.freeze({
+      base,size,bytes,view,
+    }));
   }
 
   offset(address, width = 1) {
@@ -71,6 +78,14 @@ export class AddressSpaceMemory {
     this.bytes.copyWithin(to, from, from + length);
   }
 }
+
+// References captured when the original class is defined let guarded pure
+// kernels reject later method overrides without invoking their getters.
+export const addressSpaceMemoryIntrinsics=Object.freeze({
+  prototype:AddressSpaceMemory.prototype,
+  readF64:AddressSpaceMemory.prototype.readF64,
+  offset:AddressSpaceMemory.prototype.offset,
+});
 
 /** Read the PE32 preferred image layout without invoking Windows or Node APIs. */
 export function parsePE32(source) {

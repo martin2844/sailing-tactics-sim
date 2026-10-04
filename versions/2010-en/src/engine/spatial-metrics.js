@@ -3,6 +3,7 @@ import { Float80 } from '../../../../src/runtime/float80.js';
 import { sinCosX87 } from '../../../../src/runtime/transcendentals.js';
 import { wrapDegreesOnce } from '../../../../src/engine/integer-core.js';
 import { bearingFromVector } from './wind.js';
+import { numberVenueMetricEnabled,sampleVenuePointsNumber } from './venue-metric-number.js';
 
 export const SPATIAL_METRIC_ROUTINES=Object.freeze({projectPoint:0x42f220,
   sampleShorelineMetric:0x42f270,sampleSpatialMetric:0x42f330,sampleRadialMetric:0x42f480,
@@ -86,7 +87,9 @@ export function sampleVenueMetric(memory,boat,x,y,mode,includeBackground,options
   const pointCount=r(0x522f08),extras=r(0x511374),marks=r(0x535498);
   let count=includeBackground===0?(extras!==0?add32(pointCount,extras):marks):add32(add32(extras,r(0x535e3c)),pointCount);
   if(mode===2)count=marks;
-  for(let point=1;point<=count;point++){
+  if(numberVenueMetricEnabled(options)){
+    nearest=sampleVenuePointsNumber(memory,x,y,venue,includeBackground,initial,pointCount,extras,marks,count);
+  }else for(let point=1;point<=count;point++){
     if(point>marks&&count-extras>point&&includeBackground===0)continue;
     const orientation=f(0x4fafa8+point*8).negate();
     const rotation=(options.sinCosX87??sinCosX87)(orientation);

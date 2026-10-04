@@ -1,6 +1,6 @@
 {
   "url": "http://127.0.0.1:8766/index.html",
-  "checkedAt": "2026-10-04T16:48:46.214Z",
+  "checkedAt": "2026-10-04T20:08:50.116Z",
   "passed": true,
   "checks": [
     {
@@ -27,7 +27,7 @@
       "name": "Space dismisses the active original startup overlay",
       "before": {
         "ready": true,
-        "frames": 4,
+        "frames": 7,
         "error": null,
         "app": 2,
         "view": 2,
@@ -46,7 +46,7 @@
       },
       "after": {
         "ready": true,
-        "frames": 9,
+        "frames": 8,
         "error": null,
         "app": 2,
         "view": 2,
@@ -58,7 +58,7 @@
         "current": 0,
         "tide": 0,
         "otherOverlay": 0,
-        "time": -170.31845390564652,
+        "time": -170.5,
         "clock": -170,
         "selector": 12,
         "humans": 1
@@ -67,7 +67,7 @@
     {
       "name": "original Space starts a continuously advancing race",
       "ready": true,
-      "frames": 17,
+      "frames": 20,
       "error": null,
       "app": 2,
       "view": 2,
@@ -79,7 +79,7 @@
       "current": 0,
       "tide": 0,
       "otherOverlay": 0,
-      "time": -169.83433098737058,
+      "time": -169.77381562258608,
       "clock": -169,
       "selector": 12,
       "humans": 1
@@ -87,7 +87,7 @@
     {
       "name": "keyboard controls tutorial",
       "ready": true,
-      "frames": 25,
+      "frames": 28,
       "error": null,
       "app": 2,
       "view": 2,
@@ -99,7 +99,7 @@
       "current": 0,
       "tide": 0,
       "otherOverlay": 0,
-      "time": -169.41072343387913,
+      "time": -169.35020806909463,
       "clock": -169,
       "selector": 12,
       "humans": 1
@@ -663,7 +663,7 @@
     },
     {
       "name": "production uses browser JavaScript and data with no EXE or proof fixture requests",
-      "requests": 215,
+      "requests": 227,
       "passed": true
     }
   ],

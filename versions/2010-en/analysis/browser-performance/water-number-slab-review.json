@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-04T19:18:07.886Z",
+  "scope": "Speculative water arithmetic acceptance and exact binary64-output equivalence against the preserved original Number case chain during native190 replay.",
+  "command": "node versions/2010-en/tools/diagnostics/review-water-number-slab.mjs --measure",
+  "native": {
+    "tests": 5,
+    "failures": 0
+  },
+  "corpus": {
+    "calls": 23745,
+    "accepted": 23745,
+    "rejected": 0,
+    "compared": 23745,
+    "outputsPerAcceptedCall": 37
+  },
+  "sourceSha256": {
+    "src/runtime/memory.js": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117",
+    "src/runtime/float80.js": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482",
+    "versions/2010-en/src/render/drawing-functions.js": "8df4e5abfe9fef346dcf4db8ea88fcf2bc825a472ff9d581bce85508b009da6a",
+    "versions/2010-en/src/render/water-number-slab.js": "b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3",
+    "versions/2010-en/src/render/water-number-domain.js": "1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9",
+    "versions/2010-en/src/render/float-values.js": "47bbae43fd8883cc9e219f209de4626d2456b6d87d3b2cfb86a58861c4f8b494",
+    "versions/2010-en/src/render/typed-c.js": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c",
+    "versions/2010-en/src/render/scalar-stack.js": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90",
+    "versions/2010-en/tools/water_number_slab.py": "d5e37b4ec78421d1c28eb935c0570184f1ec48675e5339e01d26fa94712bd4a7",
+    "versions/2010-en/tools/cache_water_float_loads.py": "0935059b463b295e49f5d0a660822022d8c1911b56b7a15d59f5a4045ba33f20",
+    "versions/2010-en/tools/floating_drawing.py": "a0ed7ba447cdef9f52a67d45005a97a621e0384d9152b4c1b586582c9a549cda",
+    "versions/2010-en/tools/translate_drawing_closure.py": "0bd725fb58e1036cc95bc80d160970c4dadec9ab63527135eba3542f70a7fa40",
+    "versions/2010-en/tools/diagnostics/review-water-number-slab.mjs": "274ec8167df18b810fefcfec05f9f663a28920b000d4f1bf455e9d840430de23",
+    "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
+    "versions/2010-en/tests/fixtures/original-retained-speed-ten-frames.json": "dd83cba9d13b2e0f4b7945ab9e314667af5cd12a43de61ba2d79f4d310fb5269",
+    "versions/2010-en/tests/fixtures/original-retained-speed-ten-long-frames.json": "b23b2e343a84e76b9b7fcab7209cabb0580eb710335ed51e0745a3beba3263d1"
+  },
+  "temporaryNativeInputs": "/tmp/tact-water-slab-c8383Y/native-inputs.json",
+  "leafTiming": {
+    "scope": "Node leaf CPU only; includes domain guards,21 caller inputs and37 owned-array copies. No browser FPS claim.",
+    "callsPerRound": 71235,
+    "rounds": [
+      {
+        "originalMs": 161.38925400000153,
+        "candidateMs": 43.504956000000675
+      },
+      {
+        "originalMs": 158.49961799999983,
+        "candidateMs": 39.66782500000045
+      },
+      {
+        "originalMs": 156.8971189999993,
+        "candidateMs": 39.73895999999877
+      },
+      {
+        "originalMs": 159.59450099999958,
+        "candidateMs": 39.904811999998856
+      },
+      {
+        "originalMs": 158.21902000000046,
+        "candidateMs": 41.152562999999645
+      },
+      {
+        "originalMs": 159.009951,
+        "candidateMs": 40.2182329999996
+      },
+      {
+        "originalMs": 159.235415000001,
+        "candidateMs": 40.27765499999987
+      }
+    ],
+    "originalMedianMs": 159.009951,
+    "candidateMedianMs": 40.2182329999996,
+    "speedup": 3.953678198641934
+  }
+}

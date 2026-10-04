@@ -1,0 +1,233 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T18:54:30.536Z",
+  "reviewer": "/root/speed_timing",
+  "skill": "big-review",
+  "findings": [],
+  "scope": "Current2010 browser host/canvas/clock, test and optional presentation-counter source review. The host changes were implemented by this reviewer and reviewed against2002 sibling/native frame timing; this is not claimed to be an independent author review. No new Chrome or performance run was performed in this receipt. The timing analysis uses previously recorded exact paired runs and their actual loaded source pins.",
+  "checks": [
+    "Each successful2010 paint lifecycle submits one unconditional front drawImage, then increments state.frames. The optional rAF observer reads that counter and simulation time; it does not draw, step physics or mutate original memory.",
+    "A sampled frame ID establishes that its logical Canvas blit call completed before the rAF callback. It does not establish GPU raster completion, compositor presentation or physical monitor display. Report scope already states this limitation.",
+    "Current immediate requests use one pending MessageChannel task with deduplication. Positive delays and the unavailable-channel fallback use timers.2002 uses timers for all requests. Both subtract actual paint execution time from the original requested minimum delay.",
+    "Both original frame routines request zero minimum duration at speed7 or greater, including speed10.2010 racing calls its shared unit clock once at frame start and has no drawing tick-loop on the unobstructed race path; therefore its clock minimum remains zero at speed10. At slow levels native30/60/80ms thresholds remain preserved.",
+    "Hidden2010 tabs retain one invalidation and skip simulation. Visible resume respects remaining positive delay and pending/modal/terminal/frozen states, without missed-paint simulation catchup.",
+    "An unchanged buffer resets every pixel/drawing state using context.reset or a full width reset; dimension changes retain both assignments and the original font. Visible context backend selection does not alter bitmap dimensions, logical draw order or original simulation state."
+  ],
+  "cadenceAnalysis": {
+    "scope": "Headless Chrome rendering opportunities only. Approximate60Hz counts derive from rAF timestamps and are not physical refresh counts.",
+    "pairs": [
+      {
+        "label": "smoothness-water-boolean-old",
+        "framesPerSecond": 23.412550694532847,
+        "paintDuration": {
+          "meanMs": 41.1325000004222,
+          "medianMs": 39.20000000298023,
+          "maxMs": 62.099999994039536
+        },
+        "hostCpuBusyFraction": 0.4983785493949221,
+        "betweenPaints": {
+          "meanMs": 1.5887029284463268,
+          "medianMs": 1.4000000059604645,
+          "p95Ms": 2.2999999970197678,
+          "maxMs": 7.200000002980232
+        },
+        "rafTimestampSteps": {
+          "meanMs": 42.498333333333335,
+          "medianMs": 49.89999999999782,
+          "p95Ms": 66.69999999999891,
+          "maxMs": 66.79999999999927
+        },
+        "rafCallbackLag": {
+          "meanMs": 49.9107883819159,
+          "medianMs": 49.3000000059601,
+          "p95Ms": 66.10000000000036,
+          "maxMs": 75.00000000596083
+        },
+        "approximate60HzOpportunityStepCounts": {
+          "1": 4,
+          "2": 115,
+          "3": 106,
+          "4": 15
+        },
+        "observedCompletedFrames": 240,
+        "unobservedCompletedFrames": 0,
+        "repeatedFrameOpportunities": 0
+      },
+      {
+        "label": "smoothness-water-boolean-new",
+        "framesPerSecond": 25.28083945081082,
+        "paintDuration": {
+          "meanMs": 37.94541666644315,
+          "medianMs": 37.099999994039536,
+          "maxMs": 65.70000000298023
+        },
+        "hostCpuBusyFraction": 0.5101726790904428,
+        "betweenPaints": {
+          "meanMs": 1.5903765692621095,
+          "medianMs": 1.5,
+          "p95Ms": 2.2999999970197678,
+          "maxMs": 4.4000000059604645
+        },
+        "rafTimestampSteps": {
+          "meanMs": 39.538075313807525,
+          "medianMs": 33.399999999999636,
+          "p95Ms": 50.100000000000364,
+          "maxMs": 66.60000000000036
+        },
+        "rafCallbackLag": {
+          "meanMs": 46.88499999389049,
+          "medianMs": 46.59999999701904,
+          "p95Ms": 59.3999999910593,
+          "maxMs": 79.1999999940399
+        },
+        "approximate60HzOpportunityStepCounts": {
+          "1": 1,
+          "2": 151,
+          "3": 84,
+          "4": 3
+        },
+        "observedCompletedFrames": 240,
+        "unobservedCompletedFrames": 0,
+        "repeatedFrameOpportunities": 0
+      }
+    ],
+    "conclusions": [
+      "The latest current run spends37.95ms mean inside paint and1.59ms mean between paints. The corresponding old run has the same1.59ms mean between-paint overhead, so the measured scheduler is not imposing a hidden80ms interval or dropping completed canvas updates.",
+      "All240 completed current frame IDs are sampled. Raw rAF timestamps commonly advance by33.4 or50.1ms, so observing each logical update does not mean producing a new update at every nominal16.7ms rendering opportunity.",
+      "Replacing the immediate task with rAF while complete rendering costs about38ms can add refresh waiting and lower hardware-limited simulation progress. No scheduler-only production change is supported by this evidence.",
+      "The paired host busy fractions are49.84% old and51.02% current. This pair is stronger than earlier unequal-load runs, but it still does not establish a60FPS result or account for GPU/compositor/monitor behavior."
+    ]
+  },
+  "focusedTests": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "log": "versions/2010-en/analysis/browser-performance/final-paint-cadence-tests.log"
+  },
+  "separatelyScopedBrowserEvidence": [
+    {
+      "path": "versions/2010-en/analysis/browser-performance/hidden-paint-review.json",
+      "scope": "Actual hidden/visible Chrome transition matches the unchanged current host hash."
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/canvas-reset-review.json",
+      "scope": "Six actual reset/raster cases match the unchanged reset helper; its earlier full-host pin predates visibility changes."
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-no-auto-slow-review.json",
+      "scope": "Actual native menu32984 comparison: entry/final complete images/RNG and all240 per-paint states match old/current; default game option remains unchanged."
+    }
+  ],
+  "sourcePins": [
+    {
+      "path": "versions/2010-en/src/play.js",
+      "bytes": 16380,
+      "sha256": "581433adb813f028d9973d0d1564e6cf4cba4a3fb72745125036f175818201eb"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/canvas-surface.js",
+      "bytes": 380,
+      "sha256": "7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/browser-clock.js",
+      "bytes": 840,
+      "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+    },
+    {
+      "path": "versions/2010-en/src/render/paint-lifecycle.js",
+      "bytes": 9033,
+      "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b"
+    },
+    {
+      "path": "versions/2010-en/src/engine/frame.js",
+      "bytes": 4404,
+      "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb"
+    },
+    {
+      "path": "src/play.js",
+      "bytes": 14632,
+      "sha256": "a9d5fd4fd5fa1e2a7f812aa629d3301a152129cd46b785817ddb74c91340a1ce"
+    },
+    {
+      "path": "src/engine/frame.js",
+      "bytes": 3005,
+      "sha256": "76914cf894b82a8d98d68c8e5fe3bd57a690bd6ff4a657c19d1ad0d9185ab472"
+    },
+    {
+      "path": "versions/2010-en/tests/canvas-surface.test.js",
+      "bytes": 1366,
+      "sha256": "49ac5a9c7a62ac4f93a05a9b31f9ee09470d85d15ba47fc06dd46c0321e903c9"
+    },
+    {
+      "path": "versions/2010-en/tests/browser-clock.test.js",
+      "bytes": 1716,
+      "sha256": "accc27953cb108d7d1f199df85142a2b170ebf5407dee79107bde62b03d90d03"
+    },
+    {
+      "path": "versions/2010-en/tests/paint-scheduler-review.test.js",
+      "bytes": 6038,
+      "sha256": "23233e6a18b61380561468fb6fae948ec651e4b49eceb16f60d835ca200d0452"
+    },
+    {
+      "path": "tools/presentation-measurements.js",
+      "bytes": 2509,
+      "sha256": "e794329321588454603b57d008cb1e06400eeabe1a0a8513b6f9b5d6557cd0fb"
+    },
+    {
+      "path": "tests/presentation-measurements.test.js",
+      "bytes": 1814,
+      "sha256": "8b576a1f1cfd502bcf56ba094db45650af095ede18c9bba22eacca6ad3ec8698"
+    },
+    {
+      "path": "tools/paint-measurements.js",
+      "bytes": 1320,
+      "sha256": "bf6fcdef9595a499a8d1088a2f1944dcacc26951e8daae747fb230faabff26c3"
+    },
+    {
+      "path": "tools/deterministic-paint-setup.js",
+      "bytes": 8077,
+      "sha256": "d6eaedceff02e6ab347c7c9ecb55e74830c95c489485dc669f1310ff75da99eb"
+    },
+    {
+      "path": "tests/deterministic-paint-setup.test.js",
+      "bytes": 6039,
+      "sha256": "517d11ba5d2dbab09e192bcb48e74d67facf39dafffff49c2f4574b1a430c696"
+    },
+    {
+      "path": "tools/diagnostics/measure-2010-pace.mjs",
+      "bytes": 13359,
+      "sha256": "7e86c928c0e587940a89048dea6dc585d70870b0c0c964c1060497b14b5bb30c"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smoothness-water-boolean-old.json",
+      "bytes": 189387,
+      "sha256": "caf0a45d747fdcd66f828fea4278bad17cf33ef8322b67f382012a74be0a32fa"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smoothness-water-boolean-new.json",
+      "bytes": 189496,
+      "sha256": "6be210047c21c1b9f24a8fa873531b310cbf326d91bc21f1c200d9d81f335f20"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/hidden-paint-review.json",
+      "bytes": 2682,
+      "sha256": "7a90907f5ec23b30f215002614de26e9b14c90e2cacc8254d66b90b1e9f02908"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/canvas-reset-review.json",
+      "bytes": 10538,
+      "sha256": "adc641fe713b23d3d0173d898920679dac552ad734166886e683441d8832b5cc"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-no-auto-slow-review.json",
+      "bytes": 5036,
+      "sha256": "e377a432c8d1592d7f15dc47b62116cba7a51fd57bd6f3c19f5f5aff2dbd221f"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/final-paint-cadence-tests.log",
+      "bytes": 1774,
+      "sha256": "8bdac68ceb587b4cb9c751c3ea87db335bca6a1ae6212e2d8d8f96ea4f0cf27c"
+    }
+  ]
+}

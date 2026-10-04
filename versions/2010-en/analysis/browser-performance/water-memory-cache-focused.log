@@ -1,0 +1,17 @@
+✔ the reviewed water chain retains its first F64 load and complete original/byte fallbacks (1999.703186ms)
+✔ outside frame escapes, unreviewed callbacks, changed control flow and views decline unchanged (0.340312ms)
+✔ actual water expressions preserve signed zeros, extended inputs and first-read failures (20.718087ms)
+✔ only unchanged ordinary memory in the reviewed nearest53 context is accepted (1.699856ms)
+✔ Proxy and duck-memory rejection precede all host traps and getters (0.607586ms)
+✔ replacement fields and SharedArrayBuffer-backed views conservatively decline (0.587378ms)
+✔ method/prototype changes and detached views decline without invoking replacements (0.700051ms)
+✔ constructor snapshots introduce no extra subclass field getters (1.149849ms)
+✔ a constructor-original shared view declines even when all recorded identities match (1.249126ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2100.166361

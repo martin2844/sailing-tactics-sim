@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: speed-ten-full-fleet-prestart (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+ok 1 - speed-ten-full-fleet-prestart (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+  ---
+  duration_ms: 1055.117246
+  type: 'test'
+  ...
+# Subtest: speed-ten-full-fleet-prestart (original arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+ok 2 - speed-ten-full-fleet-prestart (original arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+  ---
+  duration_ms: 1740.673454
+  type: 'test'
+  ...
+# Subtest: speed-ten-full-fleet-started (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+ok 3 - speed-ten-full-fleet-started (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+  ---
+  duration_ms: 841.511139
+  type: 'test'
+  ...
+# Subtest: speed-ten-full-fleet-started (original arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+ok 4 - speed-ten-full-fleet-started (original arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+  ---
+  duration_ms: 1841.271546
+  type: 'test'
+  ...
+# Subtest: speed-ten-started-after-original-fast-forward (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+ok 5 - speed-ten-started-after-original-fast-forward (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact
+  ---
+  duration_ms: 3409.94164
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10000.573821

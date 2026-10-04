@@ -1,452 +1,229 @@
 {
-  "format": 2,
-  "checkedAt": "2026-10-04T17:01:27.248009+00:00",
-  "baselineCommit": "15fd6accd0eb2f191d18bd1d9f8a310c68660839",
-  "originalSha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787",
-  "scope": "Crash correction and native-result-preserving rendering/runtime optimizations. Timings are120 genuine continuous headless Chrome paints on this host, using original menus and unchanged default2010 setup. Physics, AI, RNG, fleet and scene detail are preserved. Browser timings depend on host load and phase;2002 uses its different course and time-step constants. Native replay and asynchronous browser scheduling are separate checks.",
-  "performance": {
-    "baseline": {
+  "format": 4,
+  "checkedAt": "2026-10-04T20:13:35.100177+00:00",
+  "baselineCommit": "a6b5a6dd4573b4c7733b821f226f10c930f6153e",
+  "scope": "Default smoother rendering with user-authorized visual rounding differences. Physics/AI providers, timestep, original speed controls and full-mode selection are preserved. Exact drawing remains available with graphics=exact. No60FPS guarantee; finite native and actualCanvas comparisons define the validation scope.",
+  "original": {
+    "path": "versions/2010-en/runtime/Tactics2010EnglishPreserved.exe",
+    "bytes": 1899520,
+    "sha256": "d707a1e1b5894adf880470dd3af3104bc2e256aafaa8932090b8a11d137ac787"
+  },
+  "exactRenderingCheckpoint": {
+    "path": "versions/2010-en/analysis/browser-performance/exact-rendering-checkpoint.json",
+    "bytes": 27080,
+    "sha256": "e400f6342b221e5be031949de5be1c036d8e6321fe321742e7f5d32065a4eb31"
+  },
+  "tests": {
+    "shared2002": {
+      "tests": 407,
+      "passed": 407,
+      "failed": 0,
       "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/speed-ten-default-before.json",
-        "bytes": 44383,
-        "sha256": "88c83b7d01d919ce5afb4c54344ce4ad4505dd67ccdc8354a0bdcc49247c0477"
-      },
-      "framesPerSecond": 5.001092675711286,
-      "meanPaintMs": 195.86583333325882,
-      "medianPaintMs": 188.80000000447035,
-      "simulationSecondsPerWallSecond": 1.0194288760984247,
-      "live": {
-        "frames": 129,
-        "mode": 0,
-        "fleet": 20,
-        "speed": 10,
-        "divisor": 76,
-        "difficulty": 7,
-        "selector": 12,
-        "length": 25,
-        "timeFactor": 0.7745966692414834,
-        "courseLength": 2000,
-        "dtScaleNormal": 20,
-        "dtScaleShort": 17,
-        "dtScalePractice": 25,
-        "dt": 0.20384122874775878,
-        "simulationTime": -145.83521132152072,
-        "clock": -145,
-        "error": null,
-        "errorStack": ""
-      },
-      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Actual physics and drawing; no profiler overhead.",
-      "host": null
-    },
-    "startup": {
-      "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-default-startup.json",
-        "bytes": 46008,
-        "sha256": "8176d3f60846c07288a3e5be0529e4d75c007d27d75ebd0fcb9627870d26226e"
-      },
-      "framesPerSecond": 22.010135760021306,
-      "meanPaintMs": 44.46666666604578,
-      "medianPaintMs": 40.400000005960464,
-      "simulationSecondsPerWallSecond": 4.486573118227814,
-      "live": {
-        "frames": 133,
-        "mode": 0,
-        "fleet": 20,
-        "speed": 10,
-        "divisor": 76,
-        "difficulty": 7,
-        "selector": 12,
-        "length": 25,
-        "timeFactor": 0.7745966692414834,
-        "courseLength": 2000,
-        "dtScaleNormal": 20,
-        "dtScaleShort": 17,
-        "dtScalePractice": 25,
-        "dt": 0.20384122874775878,
-        "simulationTime": -145.01984640652967,
-        "clock": -145,
-        "error": null,
-        "errorStack": ""
-      },
-      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Actual physics and drawing; no profiler overhead.",
-      "host": {
-        "logicalProcessors": 16,
-        "loadAverageBefore": [
-          0.73,
-          2.24,
-          2.45
-        ],
-        "loadAverageAfter": [
-          1.22,
-          2.3,
-          2.47
-        ],
-        "cpuBusyFraction": 0.34598468805994465
+        "path": "versions/2010-en/analysis/browser-performance/smoothness-2002-tests.log",
+        "bytes": 43583,
+        "sha256": "0331914a5500a59c10e2d5ba130824c51aa0133c8e7c5789e4054791de9c27c3"
       }
     },
-    "racing": {
+    "edition2010": {
+      "tests": 477,
+      "passed": 477,
+      "failed": 0,
       "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-default-racing.json",
-        "bytes": 46163,
-        "sha256": "90ab1c039815224e9fd4b2b5e4d9b98b621e89efb8d6afdc06f51e9f832854bf"
-      },
-      "framesPerSecond": 28.501628664474772,
-      "meanPaintMs": 34.31083333318432,
-      "medianPaintMs": 32.30000001192093,
-      "simulationSecondsPerWallSecond": 5.809807008278987,
-      "live": {
-        "frames": 311,
-        "mode": 0,
-        "fleet": 20,
-        "speed": 10,
-        "divisor": 76,
-        "difficulty": 7,
-        "selector": 12,
-        "length": 25,
-        "timeFactor": 0.7745966692414834,
-        "courseLength": 2000,
-        "dtScaleNormal": 20,
-        "dtScaleShort": 17,
-        "dtScalePractice": 25,
-        "dt": 0.20384122874775878,
-        "simulationTime": 129.39121573370332,
-        "clock": 129,
-        "error": null,
-        "errorStack": ""
-      },
-      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Original speed15 menu first advances the actual simulation past 100 seconds, then the original speed10 handler selects the measured pace. Actual physics and drawing; no profiler overhead.",
-      "host": {
-        "logicalProcessors": 16,
-        "loadAverageBefore": [
-          1.34,
-          2.15,
-          2.41
-        ],
-        "loadAverageAfter": [
-          1.31,
-          2.13,
-          2.4
-        ],
-        "cpuBusyFraction": 0.20400359874044083
+        "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-2010-tests.log",
+        "bytes": 49352,
+        "sha256": "3228b32453eeec862d6267f3af5e788d3fb25c1ed64305580caf400738cd5b9c"
       }
     },
-    "laterRace": {
+    "finalHookAndProjection": {
+      "tests": 10,
+      "passed": 10,
+      "failed": 0,
       "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-default-long.json",
-        "bytes": 46131,
-        "sha256": "cc3f37fd46774d901c87cae141b53d8f3958bde5e908184639d3a595a2a713b7"
-      },
-      "framesPerSecond": 29.603462858870643,
-      "meanPaintMs": 32.997500000024836,
-      "medianPaintMs": 31.299999997019768,
-      "simulationSecondsPerWallSecond": 6.034406244340947,
-      "live": {
-        "frames": 457,
-        "mode": 0,
-        "fleet": 20,
-        "speed": 10,
-        "divisor": 76,
-        "difficulty": 7,
-        "selector": 12,
-        "length": 25,
-        "timeFactor": 0.7745966692414834,
-        "courseLength": 2000,
-        "dtScaleNormal": 20,
-        "dtScaleShort": 17,
-        "dtScalePractice": 25,
-        "dt": 0.20384122874775878,
-        "simulationTime": 354.22809104248154,
-        "clock": 354,
-        "error": null,
-        "errorStack": ""
-      },
-      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Original speed15 menu first advances the actual simulation past 320 seconds, then the original speed10 handler selects the measured pace. Actual physics and drawing; no profiler overhead.",
-      "host": {
-        "logicalProcessors": 16,
-        "loadAverageBefore": [
-          1.36,
-          2.01,
-          2.35
-        ],
-        "loadAverageAfter": [
-          1.33,
-          1.99,
-          2.34
-        ],
-        "cpuBusyFraction": 0.18076062639821033
+        "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-focused-final.log",
+        "bytes": 1177,
+        "sha256": "acbe1338527f158272376f54e9d9687da8ad6e816b91156f88a104dcc78b16c0"
       }
     },
-    "standalone": {
+    "finalSharedStateGuards": {
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
       "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-standalone.json",
-        "bytes": 46209,
-        "sha256": "2335321a3bd9c299113c4e6e9665a5e7f3ba4e7e7168bf1b49cdef0f1b6037c4"
-      },
-      "framesPerSecond": 28.960817717206133,
-      "meanPaintMs": 33.681666666766006,
-      "medianPaintMs": 31.5,
-      "simulationSecondsPerWallSecond": 5.903408669015273,
-      "live": {
-        "frames": 312,
-        "mode": 0,
-        "fleet": 20,
-        "speed": 10,
-        "divisor": 76,
-        "difficulty": 7,
-        "selector": 12,
-        "length": 25,
-        "timeFactor": 0.7745966692414834,
-        "courseLength": 2000,
-        "dtScaleNormal": 20,
-        "dtScaleShort": 17,
-        "dtScalePractice": 25,
-        "dt": 0.20384122874775878,
-        "simulationTime": 130.9404090721863,
-        "clock": 130,
-        "error": null,
-        "errorStack": ""
-      },
-      "scope": "Headless Chrome, unchanged original default boat/venue/fleet and original speed10 menu; 120 requested genuine continuous paints. Original speed15 menu first advances the actual simulation past 100 seconds, then the original speed10 handler selects the measured pace. Actual physics and drawing; no profiler overhead.",
-      "host": {
-        "logicalProcessors": 16,
-        "loadAverageBefore": [
-          1.81,
-          2.04,
-          2.35
-        ],
-        "loadAverageAfter": [
-          1.83,
-          2.04,
-          2.34
-        ],
-        "cpuBusyFraction": 0.20392416225749554
-      }
-    },
-    "comparison2002": {
-      "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/speed-ten-release-2002.json",
-        "bytes": 45879,
-        "sha256": "adb874752fedeeb8bdb5f200e2ba71fa7b7e914113244fa3d52bb0b3f4f2a7de"
-      },
-      "framesPerSecond": 71.01086048467099,
-      "meanPaintMs": 9.669166667138537,
-      "medianPaintMs": 9.400000005960464,
-      "simulationSecondsPerWallSecond": 18.09367631953809,
-      "live": {
-        "frames": 153,
-        "mode": 1,
-        "fleet": 20,
-        "speed": 10,
-        "divisor": 76,
-        "difficulty": 7,
-        "selector": 12,
-        "length": 25,
-        "timeFactor": 0.7745966692414834,
-        "courseLength": 600,
-        "dtScaleNormal": 25,
-        "dtScaleShort": 25,
-        "dtScalePractice": 25,
-        "dt": 0.25480153593469845,
-        "simulationTime": -137.8854034003598,
-        "clock": -137,
-        "error": null,
-        "errorStack": ""
-      },
-      "scope": "Headless Chrome, original Round Lake/Keelboat/Windward/20-boat/speed10 menus; 120 requested genuine continuous paints. Actual physics and drawing; no profiler overhead.",
-      "host": {
-        "logicalProcessors": 16,
-        "loadAverageBefore": [
-          1.03,
-          1.79,
-          2.24
-        ],
-        "loadAverageAfter": [
-          1.03,
-          1.79,
-          2.24
-        ],
-        "cpuBusyFraction": 0.2311224489795919
+        "path": "versions/2010-en/analysis/browser-performance/render-simulation-focused.log",
+        "bytes": 451,
+        "sha256": "684cf452e3bd72c1f65cebbeaf796713d620e236b84a9e3e13376c4ee9235c39"
       }
     }
   },
-  "validation": {
-    "final2002": {
-      "tests": 397,
-      "pass": 397,
-      "fail": 0,
-      "cancelled": 0,
-      "skipped": 0,
+  "performance": {
+    "scope": "Sequential headlessChrome runs from identical original menu/key/paint setup;240measured speed10frames. The diagnostic turns off native automatic slowdown using its actual menu. Rendering scratch memory may differ; actualCanvas engine trace comparison below checks simulation reads/writes independently.",
+    "exact": {
       "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/release-2002-tests.log",
-        "bytes": 42456,
-        "sha256": "b7f34563a6301748b287dcf764d13aadbf13f43d77605d13efcacfff3783c617"
-      }
-    },
-    "final2010": {
-      "tests": 423,
-      "pass": 423,
-      "fail": 0,
-      "cancelled": 0,
-      "skipped": 0,
-      "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/release-2010-tests.log",
-        "bytes": 43726,
-        "sha256": "f4aacb41a41a182081bcaab755d51d9bd49bb6af33e62fc599b8f8bbacb1fda9"
+        "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-final-exact.json",
+        "bytes": 190180,
+        "sha256": "1d08b835ea4d46d38e05d4b319f826c01fcb786fdd23b3a20dec238f8f7b698a"
       },
-      "totalWithLaterTests": 427
-    },
-    "additionalShoreline": {
-      "tests": 4,
-      "pass": 4,
-      "fail": 0,
-      "cancelled": 0,
-      "skipped": 0,
-      "receipt": {
-        "path": "versions/2010-en/analysis/browser-performance/release-shoreline-tests.log",
-        "bytes": 513,
-        "sha256": "01f745c092a150ce8c1e66b7360d00d9cab72be548cd12f75fe8420c0225b2c5"
+      "framesPerSecond": 32.4278852677521,
+      "paintDuration": {
+        "meanMs": 29.754166667411724,
+        "medianMs": 28.799999997019768,
+        "maxMs": 106.09999999403954
+      },
+      "p95Ms": 36.5,
+      "p99Ms": 39.5,
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          0.78,
+          0.91,
+          1.96
+        ],
+        "loadAverageAfter": [
+          0.89,
+          0.93,
+          1.96
+        ],
+        "cpuBusyFraction": 0.174146014735432
       }
     },
-    "browserSource": {
-      "checks": 119,
-      "passed": true,
+    "smooth": {
+      "receipt": {
+        "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-final-smooth.json",
+        "bytes": 189958,
+        "sha256": "18f327bb7469ae636b287634c9c9c79626e8f2d832e48b8577dfedf0b28a186d"
+      },
+      "framesPerSecond": 37.583934833580855,
+      "paintDuration": {
+        "meanMs": 25.5887500004222,
+        "medianMs": 25.299999997019768,
+        "maxMs": 36.20000000298023
+      },
+      "p95Ms": 33,
+      "p99Ms": 35.400000005960464,
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          0.83,
+          0.91,
+          1.94
+        ],
+        "loadAverageAfter": [
+          0.93,
+          0.93,
+          1.94
+        ],
+        "cpuBusyFraction": 0.18958742632612968
+      }
+    },
+    "speedup": 1.1590004874895798,
+    "samePerFrameSimulationState": true
+  },
+  "actualCanvasCoupling": {
+    "receipt": {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-canvas-coupling.json",
+      "bytes": 560868,
+      "sha256": "52b0fe79595b0745a68f17557606fcdb2321043572b8c0b92a52a603a12dab57"
+    },
+    "engineFrames": 417,
+    "completedPaints": 420,
+    "sameOrderedEngineMemoryAccesses": true,
+    "samePerPaintRngTimeDtSpeedFullMode": true
+  },
+  "reviews": [
+    {
+      "path": "versions/2010-en/analysis/browser-performance/render-simulation-coupling-ledger.json",
+      "bytes": 69121,
+      "sha256": "1121c61b43e96e622cf5201a80c2a8de3e38e61c1f832e3476fee7ef098e535a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/render-simulation-smooth-review.json",
+      "bytes": 34991,
+      "sha256": "1f6a690511d41d62fa2b69fe932b785586394424dcb89eb02666e695f274326a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/render-simulation-source-review.json",
+      "bytes": 8707,
+      "sha256": "af2456832636f4794c85ec64504e2cab3bc334a5c6bf9e41d373db15f424c337"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-boundary-review.json",
+      "bytes": 14835,
+      "sha256": "a621a90dd58e2576f685e844c3f97c918747fb34cbd1457fc728c3ac7326ab7a"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/smooth-graphics-projection-review.json",
+      "bytes": 2398,
+      "sha256": "72d57a4407a13e12cf76b6058ef788ea69348dd7eca9308d7358f20f5cc02a1c"
+    }
+  ],
+  "browserChecks": [
+    {
       "receipt": {
         "path": "versions/2010-en/analysis/browser-verification.json",
-        "bytes": 14422,
-        "sha256": "aa68a6e745b671417d7d5ce5af8f273167ec233b0e58d7f6d141a81813a3d61e"
-      }
-    },
-    "browserStandalone": {
+        "bytes": 14436,
+        "sha256": "a1da9e4cdd3e40992198f3e009c2af295bfe53bf4dd81b7738bfed6dc52f1068"
+      },
       "checks": 119,
-      "passed": true,
-      "receipt": {
-        "path": "versions/2010-en/analysis/standalone-browser-verification.json",
-        "bytes": 14406,
-        "sha256": "f2aeb9e451ff0f37adaa7ccfc68a718fd875e45233546e65afec90f27bfc93c1"
-      }
+      "passed": true
     },
-    "fullVersionSource": {
-      "checks": 7,
-      "passed": true,
+    {
       "receipt": {
         "path": "versions/2010-en/analysis/full-version-browser-check.json",
-        "bytes": 4454,
-        "sha256": "b097c558bb52da31b3d1d89d1d1daaaefd74aa6cf0ecc094fa673ac063a2b950"
-      }
-    },
-    "fullVersionStandalone": {
+        "bytes": 4424,
+        "sha256": "ce125e96204941b74de042bd71e9d43a60252ca80cfc0903cc5c9b5d00e58489"
+      },
       "checks": 7,
-      "passed": true,
+      "passed": true
+    },
+    {
+      "receipt": {
+        "path": "versions/2010-en/analysis/standalone-browser-verification.json",
+        "bytes": 14393,
+        "sha256": "b4b5caafad1f98df2d25f2af73e872b61728350ee6847bd290e0638ea92daad1"
+      },
+      "checks": 119,
+      "passed": true
+    },
+    {
       "receipt": {
         "path": "versions/2010-en/analysis/standalone-full-version-browser-check.json",
-        "bytes": 4427,
-        "sha256": "b01af61ecc589289d9d84df8d97e20af17524eb11a27767207e09f8187dc7f21"
-      }
+        "bytes": 4437,
+        "sha256": "3786c26870f2236b8ccf84d4cc373ceb0e9e1a900d280ef4d82034fd4674d357"
+      },
+      "checks": 7,
+      "passed": true
     },
-    "browser2002Standalone": {
-      "checks": 10,
-      "passed": true,
+    {
       "receipt": {
         "path": "analysis/play-browser-check/report.json",
-        "bytes": 1844,
-        "sha256": "3820b42aac8d96ad0c5241363b22e228ff335eaec14edb67a56fa616cafcdc26"
-      }
+        "bytes": 1843,
+        "sha256": "9767b49f04449da93bc38e50d998a5150add02b76e7782accac3edd29f9836db"
+      },
+      "checks": 10,
+      "passed": true
     }
-  },
-  "nativeReplay": {
-    "path": "versions/2010-en/analysis/browser-performance/speed-ten-native-final-validation.json",
-    "bytes": 34375,
-    "sha256": "3e5a0fd65d0db0e6746a5396cf31e2eeaa98bf192a3152cd09835cdfd086ec2e"
-  },
-  "nativeArithmetic": {
-    "path": "versions/2010-en/analysis/float80-performance-verification.json",
-    "bytes": 1893,
-    "sha256": "2cc16fcb943d9f5a7a6cf6988d08f9c6b3a4de7861f39d5785ad3c30f79102d1"
-  },
-  "crashCorrection": {
-    "path": "versions/2010-en/analysis/upwind-stack-native-comparison.json",
-    "bytes": 5192,
-    "sha256": "255f3d647a9053c8bd0e7ea9e0d49719aad7cf903f90fc2610899222533c8d2e"
-  },
-  "evidenceArchives": {
-    "unchangedPreviousArchives": 216,
-    "verifiedAddedArchives": [
-      "analysis/upwind-stack-capture-inputs.json",
-      "tests/fixtures/original-upwind-stack.json",
-      "analysis/retained-speed-ten-frames-capture-inputs.json",
-      "analysis/retained-speed-ten-long-frames-capture-inputs.json",
-      "tests/fixtures/original-retained-speed-ten-frames.json",
-      "tests/fixtures/original-retained-speed-ten-long-frames.json"
-    ],
-    "totalArchives": 222
-  },
-  "review": {
-    "verdict": "No unresolved findings.",
-    "reports": [
-      {
-        "path": "versions/2010-en/analysis/browser-performance/final-independent-source-review.json",
-        "bytes": 4500,
-        "sha256": "262f7dca8be515beade9e981f3ad8b8549642d663af5016277f444aba1b7d4ec"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/double-double-review.json",
-        "bytes": 2859,
-        "sha256": "61882ae265266ef116eff0e0a8744946001ac658990ebd89344904a223dd6891"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/mixed-multiply-review.json",
-        "bytes": 1923,
-        "sha256": "df5eb9a2c3698a3a8a9388d243909b68bbbc42cf7037664a95bebd6c46c38a30"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/number-reduction-review.json",
-        "bytes": 1054,
-        "sha256": "1697fda8c4db7c136b3c5a8fe86f2296564fe8fa1bd792de5c0036abf32937f8"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/number-drawing-source-review.json",
-        "bytes": 9197,
-        "sha256": "a7263ccafe61875fbf603a743c0946527e2ee6435c272cefbdc3efd2446c8a57"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/partial-scalar-source-review.json",
-        "bytes": 4697,
-        "sha256": "6edd6e19bdede2dd9a4bfb11d1563c3393fa5d13d41633b8d5f43fd1ccac6f18"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/projection-output-source-review.json",
-        "bytes": 9044,
-        "sha256": "6d203a778b9f37a3f748ec0b61f3c4f6f4ea2f6ff9f09c84aa2494da3aed6fb0"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/projection-output-interval-review.json",
-        "bytes": 3145,
-        "sha256": "653844f81690f7e41aa0b1a610acd0483d10afaabd7af4531b5d3b9d0408225b"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/gdi-pixel-cache-source-review.json",
-        "bytes": 1966,
-        "sha256": "738abd29e1c32f9694823d8c648c36b3155c50d16565b628f106529b53c9f4c8"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/paint-scheduler-source-review.json",
-        "bytes": 2111,
-        "sha256": "de1355a696fbd521887d0ad360a0b2c89cd1844ddfcb69ab049b6d3dcece9bd3"
-      },
-      {
-        "path": "versions/2010-en/analysis/browser-performance/shore-scalar-source-review.json",
-        "bytes": 5800,
-        "sha256": "11352a4279bf9a0a63afbd55e0abe80278c33892672d0b2dc71540677ccec1dc"
-      }
-    ],
-    "fixedDuringFinalReview": [
-      "Reference chart coordinates must retain full I64 width before later division; wide cases now decline the optimization.",
-      "Shoreline index proofs now reject extra counter writes in preheaders and throughout their lifetime.",
-      "Generator regression tests select a portable Python interpreter rather than requiring an ignored local path."
-    ],
-    "scopeNote": "Individual review reports retain their tested source hashes; this release receipt pins the final production graph and final complete test runs."
-  },
-  "finalProductionModules": [
+  ],
+  "exports": [
+    {
+      "edition": "2002",
+      "archive": "posey-2002-browser.zip",
+      "entries": 138,
+      "bytes": 696630,
+      "sha256": "f9208b1eef20a95240233ecb13608959640162d4568c177d5b53834afd94a8f5",
+      "manifestSha256": "68c031d0848f76b2d8170f24761db8de859b2ac143def282f77b407faeed9e04",
+      "allExportFilesAndZipEntriesExact": true
+    },
+    {
+      "edition": "2010",
+      "archive": "posey-2010-browser.zip",
+      "entries": 139,
+      "bytes": 1618952,
+      "sha256": "658c2c57b89550db2619dedec5be31d89c94bc0d98791689e827fedfa069a6d0",
+      "manifestSha256": "dc5282cb219ab8083600bef5d6bf9ee40c27456f6ae6ce8ac45d87247ea9c379",
+      "allExportFilesAndZipEntriesExact": true
+    }
+  ],
+  "playerModules": [
     {
       "path": "src/engine/integer-core.js",
       "bytes": 3073,
@@ -459,8 +236,8 @@
     },
     {
       "path": "src/render/gdi.js",
-      "bytes": 11258,
-      "sha256": "45d1ac32ed6ef1f33fa45c5a230355ddec48d50d7e4dc299722300d7a7ba0c3a"
+      "bytes": 11719,
+      "sha256": "e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5"
     },
     {
       "path": "src/runtime/atan.js",
@@ -484,8 +261,8 @@
     },
     {
       "path": "src/runtime/float80.js",
-      "bytes": 24999,
-      "sha256": "abc3049bb8de32b610ad54217ba6758820aa3e06e671612fd764ea646c2d81ba"
+      "bytes": 26230,
+      "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482"
     },
     {
       "path": "src/runtime/index.js",
@@ -494,8 +271,8 @@
     },
     {
       "path": "src/runtime/memory.js",
-      "bytes": 7100,
-      "sha256": "04ca9a7d02fa3b50d240fecc6ee487d2d4ad8149d451647cebbad1151f2e6f8e"
+      "bytes": 7730,
+      "sha256": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117"
     },
     {
       "path": "src/runtime/output-interval.js",
@@ -644,8 +421,8 @@
     },
     {
       "path": "versions/2010-en/src/engine/spatial-metrics.js",
-      "bytes": 10173,
-      "sha256": "a3f67ff26558b0a1b2e8b3567a168f611674b31fc5dc20096cb75ce9bf77bee7"
+      "bytes": 10424,
+      "sha256": "d545319edd3d190c49caf55c13614ecc805b165da125392cbd497ebc376b93de"
     },
     {
       "path": "versions/2010-en/src/engine/starting-positions.js",
@@ -673,6 +450,11 @@
       "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314"
     },
     {
+      "path": "versions/2010-en/src/engine/venue-metric-number.js",
+      "bytes": 2805,
+      "sha256": "fa40423031c18cb179b2c88e228d01694f0a340a6ccfb45a39be64a4396a3ff7"
+    },
+    {
       "path": "versions/2010-en/src/engine/wave-motion.js",
       "bytes": 2697,
       "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a"
@@ -694,8 +476,8 @@
     },
     {
       "path": "versions/2010-en/src/play.js",
-      "bytes": 15842,
-      "sha256": "3a9dad034df8a2576b76726801a95a6e51243ffe6510e61e4d84b22fa9542fa7"
+      "bytes": 16634,
+      "sha256": "7154efde470f5639e36ac136d0683c94ebb67887c0ea4cfbde12d93e4b934ea5"
     },
     {
       "path": "versions/2010-en/src/render/chart-output-fast.js",
@@ -714,18 +496,18 @@
     },
     {
       "path": "versions/2010-en/src/render/dependencies.js",
-      "bytes": 7702,
-      "sha256": "6f98471599de0e35fc97397fa8024168909f0eb4eb6833854508acd6bb434887"
+      "bytes": 9444,
+      "sha256": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74"
     },
     {
       "path": "versions/2010-en/src/render/drawing-functions.js",
-      "bytes": 5603616,
-      "sha256": "5fc92298ee28f86d20f82ff0e769d725ff962a093c98a5c18d1c971dd3de6b38"
+      "bytes": 5912961,
+      "sha256": "8df4e5abfe9fef346dcf4db8ea88fcf2bc825a472ff9d581bce85508b009da6a"
     },
     {
       "path": "versions/2010-en/src/render/float-values.js",
-      "bytes": 6479,
-      "sha256": "cbd062ae73b765ad4c96a4ccdd12b91368a7d38864c0556025940109193f5963"
+      "bytes": 6879,
+      "sha256": "491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5"
     },
     {
       "path": "versions/2010-en/src/render/gdi.js",
@@ -759,13 +541,18 @@
     },
     {
       "path": "versions/2010-en/src/render/projection-output-fast.js",
-      "bytes": 4656,
-      "sha256": "10bb48f75cbb7d56d627afdb2edda673d2868c617d9a201bf03a3818b26d764c"
+      "bytes": 4820,
+      "sha256": "b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845"
+    },
+    {
+      "path": "versions/2010-en/src/render/projection-smooth.js",
+      "bytes": 2821,
+      "sha256": "33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4"
     },
     {
       "path": "versions/2010-en/src/render/render-functions.js",
-      "bytes": 623272,
-      "sha256": "e09a0c535739b3bceb60aca75d8d7edaab9e3c1cfff215d55ec830cd9a7ab31c"
+      "bytes": 620049,
+      "sha256": "f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26"
     },
     {
       "path": "versions/2010-en/src/render/sail-geometry.js",
@@ -789,8 +576,8 @@
     },
     {
       "path": "versions/2010-en/src/render/screen-helper-functions.js",
-      "bytes": 148890,
-      "sha256": "54d2b3ef7929729736cd7a7c2de80d457bae9ad39681f1c58a5f7c598cbb1380"
+      "bytes": 148949,
+      "sha256": "601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64"
     },
     {
       "path": "versions/2010-en/src/render/screens.js",
@@ -801,6 +588,11 @@
       "path": "versions/2010-en/src/render/shore-stack.js",
       "bytes": 3210,
       "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1"
+    },
+    {
+      "path": "versions/2010-en/src/render/smooth-math.js",
+      "bytes": 1917,
+      "sha256": "1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c"
     },
     {
       "path": "versions/2010-en/src/render/text.js",
@@ -814,8 +606,8 @@
     },
     {
       "path": "versions/2010-en/src/render/tutorial-pages.js",
-      "bytes": 1994998,
-      "sha256": "1e80d2c6bb1c137fd2c57885858c60eb35721d28675434b108d5ca1535856128"
+      "bytes": 1990689,
+      "sha256": "fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932"
     },
     {
       "path": "versions/2010-en/src/render/typed-c.js",
@@ -823,9 +615,24 @@
       "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c"
     },
     {
+      "path": "versions/2010-en/src/render/water-number-domain.js",
+      "bytes": 2443,
+      "sha256": "1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9"
+    },
+    {
+      "path": "versions/2010-en/src/render/water-number-slab.js",
+      "bytes": 29035,
+      "sha256": "b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3"
+    },
+    {
       "path": "versions/2010-en/src/runtime/browser-clock.js",
       "bytes": 840,
       "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23"
+    },
+    {
+      "path": "versions/2010-en/src/runtime/canvas-surface.js",
+      "bytes": 380,
+      "sha256": "7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019"
     },
     {
       "path": "versions/2010-en/src/runtime/original-data.js",
@@ -833,25 +640,5 @@
       "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2"
     }
   ],
-  "exports": [
-    {
-      "edition": "2002",
-      "archive": "posey-2002-browser.zip",
-      "entries": 138,
-      "bytes": 696008,
-      "sha256": "9ede5b5de587902f9f2d879136cf195a053c7d8bf5ed10545d968457557a26fc",
-      "manifestSha256": "397cbda05512695a7bf822f4e32539ae8384206141904fb77d160fb3cd4f596d",
-      "allExportFilesAndZipEntriesExact": true
-    },
-    {
-      "edition": "2010",
-      "archive": "posey-2010-browser.zip",
-      "entries": 133,
-      "bytes": 1582687,
-      "sha256": "1f6df0c6de0942352ae15b9101df3797e52734b36ecf1d40669c2260ff2545d9",
-      "manifestSha256": "f71a5e4c3c5f0f3aaf207746c0790c0802e30226eedc59df069ad0812c135147",
-      "allExportFilesAndZipEntriesExact": true
-    }
-  ],
-  "historicalEvidence": "Older intermediate profiles and prior publication receipts are historical snapshots. This format2receipt identifies the rebuilt crash/performance release."
+  "testSequence": "The407 shared/2002 and477 edition2010 suite checks passed. Subsequent narrow camera-heading guards and subclass fallback fixes passed their final targeted tests, followed by the final420-paint actualCanvas comparison and119+7 standalone browser checks. Targeted counts overlap the full-suite count."
 }

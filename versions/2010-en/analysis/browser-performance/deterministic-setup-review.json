@@ -1,0 +1,144 @@
+{
+  "format": 1,
+  "checkedAt": "2026-10-04T18:20:33.198Z",
+  "reviewer": "/root/speed_timing",
+  "findings": [],
+  "scope": "Optional deterministic benchmark setup correctness. Actual scheduler callbacks/menu commands/key handlers, complete image/RNG/frame equality before release, no game-state writes or timestep changes. These short checks are not throughput evidence.",
+  "sourcePins": [
+    {
+      "path": "tools/deterministic-paint-setup.js",
+      "sha256": "3b30cbcfd00e1a99334f7402af94c97c7e116f757ef8a0151f38014c4394f710"
+    },
+    {
+      "path": "tools/paint-measurements.js",
+      "sha256": "bf6fcdef9595a499a8d1088a2f1944dcacc26951e8daae747fb230faabff26c3"
+    },
+    {
+      "path": "tools/diagnostics/measure-2010-pace.mjs",
+      "sha256": "fbddc49b55f65cf44205138e8dc97d9977f5bdd60ae1d66c8ff0f8601686c966"
+    },
+    {
+      "path": "tests/deterministic-paint-setup.test.js",
+      "sha256": "62ebb517ab515ba21cc4b10f5b86ffefda2cbfb3cc30cc4460329097ace77533"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-setup-old-check.json",
+      "sha256": "15a1fa9f50312a5c1df223deac6afa263ce44a62b256168c86628a445daae5c1"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-setup-new-check.json",
+      "sha256": "26977e235b287b4848365e52ce4aab7b80b7ac187e6817aeb3cdc75781704a54"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-started-old-check.json",
+      "sha256": "0729a9369ed74c6468911ef1dfab2b3b12d3b332f3a8c7450a1e44d0d9e02ba4"
+    },
+    {
+      "path": "versions/2010-en/analysis/browser-performance/deterministic-started-new-check.json",
+      "sha256": "3542e33af271395c8b8fff3065c25b54967c9b7b70b1c08b8accdb945a0d3d3e"
+    }
+  ],
+  "pregun": {
+    "entry": {
+      "frame": 4,
+      "rngState": 1451695276,
+      "memoryBase": 4194304,
+      "memorySize": 2211840,
+      "memorySha256": "1320e7aae242123569199fc4fb7e86c3fc44ecff4fd0c1ede62786f4276fc191",
+      "time": -170.29615877125224,
+      "clock": -170,
+      "speed": 10,
+      "divisor": 76,
+      "racing": 2,
+      "mode": 0,
+      "overlays": [
+        {
+          "address": 5465156,
+          "value": 0
+        },
+        {
+          "address": 5465072,
+          "value": 0
+        },
+        {
+          "address": 5387176,
+          "value": 0
+        },
+        {
+          "address": 5465140,
+          "value": 0
+        },
+        {
+          "address": 5465144,
+          "value": 0
+        },
+        {
+          "address": 5465164,
+          "value": 0
+        }
+      ],
+      "queued": 1,
+      "holding": true,
+      "error": null
+    },
+    "matchingSetupEvents": 7,
+    "matchingMeasuredFrameStates": 20,
+    "oldReport": "versions/2010-en/analysis/browser-performance/deterministic-setup-old-check.json",
+    "candidateReport": "versions/2010-en/analysis/browser-performance/deterministic-setup-new-check.json",
+    "exceptions": 0
+  },
+  "fastForward": {
+    "scope": "Both unchanged baseline and current graph preserve the original automatic slowdown. The optional protocol stops cleanly instead of applying extra recovery controls.",
+    "identicalStop": {
+      "frame": 25,
+      "rngState": 3303663136,
+      "memoryBase": 4194304,
+      "memorySize": 2211840,
+      "memorySha256": "b4e34d0a6b606589ba23f099eb8a1fb87e33674537151215157310442417f8c8",
+      "time": -137.76309866310967,
+      "clock": -137,
+      "speed": 1,
+      "divisor": 2919,
+      "racing": 2,
+      "mode": 0,
+      "overlays": [
+        {
+          "address": 5465156,
+          "value": 0
+        },
+        {
+          "address": 5465072,
+          "value": 0
+        },
+        {
+          "address": 5387176,
+          "value": 0
+        },
+        {
+          "address": 5465140,
+          "value": 0
+        },
+        {
+          "address": 5465144,
+          "value": 0
+        },
+        {
+          "address": 5465164,
+          "value": 0
+        }
+      ],
+      "queued": 0,
+      "holding": true,
+      "error": null
+    },
+    "matchingSetupEvents": 29,
+    "oldReport": "versions/2010-en/analysis/browser-performance/deterministic-started-old-check.json",
+    "candidateReport": "versions/2010-en/analysis/browser-performance/deterministic-started-new-check.json"
+  },
+  "focusedValidation": {
+    "tests": 9,
+    "passed": 9,
+    "scope": "Two gate/reference tests, five actual-source scheduler tests and two presentation tests pass. New protocol does not alter the default measurement path."
+  },
+  "command": "TACT_PACE_DEFAULT=1 TACT_PACE_FRAMES=240 TACT_PACE_DETERMINISTIC=1 TACT_PACE_PRESENTATION=1 TACT_PACE_SETUP_REFERENCE=<baseline-report.json> node tools/diagnostics/measure-2010-pace.mjs <label>"
+}

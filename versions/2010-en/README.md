@@ -20,6 +20,17 @@ sound and full screen. Original preferences are stored in this browser as a
 HTTPS for its data hash checks. No Wine, Windows executable, x86 emulator or
 runtime C interpreter is used by the browser.
 
+Smoother graphics are enabled by default. Drawing uses browser trigonometry
+and permits small pixel-rounding differences; the simulation keeps its original
+arithmetic. Add `?graphics=exact` to the player URL for the exact drawing math
+used by the native comparison tests.
+
+Hidden tabs pause painting and resume with the normal simulation step, without
+catching up missed frames. Reload older open tabs after updating so they also
+use this behavior. The original **Slow Simulator if Foul Likely** option can
+lower the selected speed near another boat; **\\** toggles it. That automatic
+speed change is separate from the browser's rendering frame rate.
+
 For a standalone static site:
 
 ```sh

@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: Boolean proof accepts only fixed helper/group/logical results and rejects unknown values
+ok 1 - Boolean proof accepts only fixed helper/group/logical results and rejects unknown values
+  ---
+  duration_ms: 33.696969
+  type: 'test'
+  ...
+# Subtest: the private Number body drops identity conversions without altering original or byte bodies
+ok 2 - the private Number body drops identity conversions without altering original or byte bodies
+  ---
+  duration_ms: 58.572574
+  type: 'test'
+  ...
+# Subtest: comparison errors, comma effects, getters and short-circuit prefixes remain exact
+ok 3 - comparison errors, comma effects, getters and short-circuit prefixes remain exact
+  ---
+  duration_ms: 40.430157
+  type: 'test'
+  ...
+# Subtest: shadowed helpers, dynamic scopes and unknown private shapes decline unchanged
+ok 4 - shadowed helpers, dynamic scopes and unknown private shapes decline unchanged
+  ---
+  duration_ms: 32.605573
+  type: 'test'
+  ...
+# Subtest: the reviewed water chain retains its first F64 load and complete original/byte fallbacks
+ok 5 - the reviewed water chain retains its first F64 load and complete original/byte fallbacks
+  ---
+  duration_ms: 1877.487451
+  type: 'test'
+  ...
+# Subtest: outside frame escapes, unreviewed callbacks, changed control flow and views decline unchanged
+ok 6 - outside frame escapes, unreviewed callbacks, changed control flow and views decline unchanged
+  ---
+  duration_ms: 0.26005
+  type: 'test'
+  ...
+# Subtest: actual water expressions preserve signed zeros, extended inputs and first-read failures
+ok 7 - actual water expressions preserve signed zeros, extended inputs and first-read failures
+  ---
+  duration_ms: 13.479591
+  type: 'test'
+  ...
+# Subtest: only unchanged ordinary memory in the reviewed nearest53 context is accepted
+ok 8 - only unchanged ordinary memory in the reviewed nearest53 context is accepted
+  ---
+  duration_ms: 1.523761
+  type: 'test'
+  ...
+# Subtest: Proxy and duck-memory rejection precede all host traps and getters
+ok 9 - Proxy and duck-memory rejection precede all host traps and getters
+  ---
+  duration_ms: 0.397359
+  type: 'test'
+  ...
+# Subtest: replacement fields and SharedArrayBuffer-backed views conservatively decline
+ok 10 - replacement fields and SharedArrayBuffer-backed views conservatively decline
+  ---
+  duration_ms: 0.809385
+  type: 'test'
+  ...
+# Subtest: method/prototype changes and detached views decline without invoking replacements
+ok 11 - method/prototype changes and detached views decline without invoking replacements
+  ---
+  duration_ms: 0.755023
+  type: 'test'
+  ...
+# Subtest: constructor snapshots introduce no extra subclass field getters
+ok 12 - constructor snapshots introduce no extra subclass field getters
+  ---
+  duration_ms: 4.16582
+  type: 'test'
+  ...
+# Subtest: a constructor-original shared view declines even when all recorded identities match
+ok 13 - a constructor-original shared view declines even when all recorded identities match
+  ---
+  duration_ms: 1.747904
+  type: 'test'
+  ...
+# Subtest: the certified water kernel reproduces the pinned expression tree and declines future source changes
+ok 14 - the certified water kernel reproduces the pinned expression tree and declines future source changes
+  ---
+  duration_ms: 1909.954171
+  type: 'test'
+  ...
+# Subtest: all accepted random and signed-zero cases match the actual129-operation source exactly
+ok 15 - all accepted random and signed-zero cases match the actual129-operation source exactly
+  ---
+  duration_ms: 23.597407
+  type: 'test'
+  ...
+# Subtest: underflow, overflow, unknown inputs and precision changes reject without changing prior outputs
+ok 16 - underflow, overflow, unknown inputs and precision changes reject without changing prior outputs
+  ---
+  duration_ms: 1.236009
+  type: 'test'
+  ...
+# Subtest: custom-memory fallback is selected before any speculative read or Proxy observation
+ok 17 - custom-memory fallback is selected before any speculative read or Proxy observation
+  ---
+  duration_ms: 0.274207
+  type: 'test'
+  ...
+# Subtest: an externally detached scratch causes a safe decline
+ok 18 - an externally detached scratch causes a safe decline
+  ---
+  duration_ms: 0.230695
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2072.404263

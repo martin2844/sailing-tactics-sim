@@ -7,6 +7,8 @@ import {paintMeasurementInstrumentation} from '../../../tools/paint-measurements
 const source=await readFile(new URL('../src/play.js',import.meta.url),'utf8');
 const binding=source.match(/^const paintQueue=typeof MessageChannel[^\n]*\nif\(paintQueue\)[^\n]*$/m)?.[0];
 const request=source.slice(source.indexOf('function requestPaint(delay=0){'),source.indexOf('\nfunction paint(){'));
+const paintPreamble=source.slice(source.indexOf('function paint(){'),source.indexOf('  state.nextPaint=false;',source.indexOf('function paint(){')));
+const visibility=source.match(/^document.addEventListener\('visibilitychange',[\s\S]*?^\}\);/m)?.[0];
 assert.ok(binding&&request.startsWith('function requestPaint(delay=0){'));
 
 function environment(channel=true,instrument=false){
@@ -18,15 +20,18 @@ function environment(channel=true,instrument=false){
   class Channel{
     constructor(){this.port1=new Port();this.port2={postMessage:value=>messages.push(()=>this.port1.onmessage({data:value}))};}
   }
-  const state={ready:true,closed:false,error:null,modal:false,pending:false,nextPaint:false};
-  const context=vm.createContext({state,Math,Date:class extends Date{},performance:{now:()=>10},
+  const state={ready:true,closed:false,error:null,modal:false,pending:false,nextPaint:false,deferredPaintDue:null};
+  let now=10;const listeners=new Map();
+  const document={visibilityState:'visible',addEventListener(name,callback){listeners.set(name,callback);}};
+  const context=vm.createContext({state,document,Math,Date:class extends Date{},performance:{now:()=>now},
     MessageChannel:channel?Channel:undefined,MessagePort:Port,
     setTimeout(callback,delay){timers.push({callback,delay});},
-    paint:function paint(){assert.equal(state.pending,true);state.pending=false;paints.push('paint');},
+    recordPaint(){assert.equal(state.pending,false);paints.push('paint');},
   });
+  vm.runInContext(paintPreamble+'state.nextPaint=false;recordPaint();}\n',context);
   if(instrument)vm.runInContext(paintMeasurementInstrumentation('paintMeasurements.push("measured");'),context);
-  vm.runInContext(binding+'\n'+request+'\nglobalThis.schedule=requestPaint;',context);
-  return {context,state,messages,timers,paints};
+  vm.runInContext(binding+'\n'+request+'\n'+visibility+'\nglobalThis.schedule=requestPaint;',context);
+  return {context,state,messages,timers,paints,document,listeners,advance:duration=>now+=duration};
 }
 
 test('actual requestPaint uses asynchronous immediate tasks with pending deduplication',()=>{
@@ -37,6 +42,31 @@ test('actual requestPaint uses asynchronous immediate tasks with pending dedupli
   messages.shift()();assert.equal(paints.length,1);assert.equal(state.pending,false);
   context.schedule(5);assert.equal(timers.length,1);assert.equal(timers[0].delay,5);
   assert.equal(messages.length,0);timers.shift().callback();assert.equal(paints.length,2);
+});
+
+test('hidden pages retain one invalidation without executing a queued paint or advancing the game',()=>{
+  const {context,state,messages,paints,document,listeners}=environment();
+  context.schedule();document.visibilityState='hidden';
+  messages.shift()();assert.equal(paints.length,0);assert.equal(state.pending,false);assert.equal(state.nextPaint,true);
+  context.schedule();context.schedule();assert.equal(messages.length,0);
+  document.visibilityState='visible';listeners.get('visibilitychange')();
+  assert.equal(messages.length,1);messages.shift()();assert.equal(paints.length,1);
+  listeners.get('visibilitychange')();assert.equal(messages.length,0,'an uninvalidated frozen page stays frozen');
+});
+
+test('visibility resumes only the remaining positive delay and respects modal and terminal states',()=>{
+  const {context,state,messages,timers,paints,document,listeners,advance}=environment();
+  document.visibilityState='hidden';context.schedule(20);context.schedule();
+  assert.equal(timers.length,0);assert.equal(messages.length,0);advance(8);
+  document.visibilityState='visible';listeners.get('visibilitychange')();
+  assert.equal(timers[0].delay,12);assert.equal(state.deferredPaintDue,null);
+  advance(12);document.visibilityState='hidden';timers.shift().callback();assert.equal(paints.length,0);
+  state.modal=true;document.visibilityState='visible';listeners.get('visibilitychange')();
+  assert.equal(messages.length,0);state.modal=false;context.schedule();messages.shift()();assert.equal(paints.length,1);
+  for(const field of ['closed','error']){
+    state.nextPaint=true;state[field]=true;listeners.get('visibilitychange')();
+    assert.equal(messages.length,0);assert.equal(timers.length,0);state[field]=false;
+  }
 });
 
 test('missing channel and inactive/modal states preserve the existing timer/request behavior',()=>{

@@ -15,6 +15,7 @@ import { tryProjectScenePointOutputFast } from './projection-output-fast.js';
 import { tryProjectChartPointFast } from './chart-projection-fast.js';
 import {tryProjectChartPointOutputFast} from './chart-output-fast.js';
 import {originalNumberDrawingIsCurrent} from './dependencies.js';
+import {tryWaterNumberSlab} from './water-number-slab.js';
 
 export const SCREEN_HELPER_ROUTINES = Object.freeze({"originalDrawMajorOptions": 4278512, "originalDrawVenueOptions": 4771664, "originalDrawCircle": 4405872});
 
