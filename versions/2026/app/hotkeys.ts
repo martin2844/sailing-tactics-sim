@@ -15,13 +15,13 @@ export function nativeVirtualKey(event:Pick<KeyboardEvent,'code'|'key'>):number|
  return undefined;
 }
 export const nativeCameraKeys=new Set([37,38,39,40,36,12,53,55,57,48,49,50,51,86]);
-export const commonKeys=[['Tack','T',84],['Jibe','J',74],['Spinnaker','P',80],['Close hauled','C',67],['Run','D',68],['Sheet in','I',73],['Sheet out','O',79],['Laylines','L',76],['Freeze','F',70],['All keys','?',191]] as const;
+export const commonKeys=[['Tack','T',84],['Jibe','J',74],['Spinnaker','P',80],['Close hauled','C',67],['Run','D',68],['Sheet in','I',73],['Sheet out','O',79],['Heading reference','L',76],['Freeze','F',70],['All keys','?',191]] as const;
 export const shortcutGroups=[
  ['Steer','Comma / Quote: port · Period / Enter: starboard · C: close hauled · T: tack · H: reach · J: jibe · D: run · − / +: pinch / foot'],
  ['Sheet','A: automatic · S: maximum luff · I / O: in / out 20% · Esc / Backquote: in / out 5%'],
  ['Sails','F1 / F2 / F3: flat / medium / baggy · E: cycle shape · P: spinnaker · G: cycle headsail · U: hide sails'],
  ['Look','Arrows: ahead / left / right / astern · 1 / 2 / 3, V: viewpoint · 5: windward · 7 / Home: leeward · 9: other boat · 0: automatic view'],
  ['Pace','Page Up / Down: faster / slower · Space: original slow/resume or dismiss a panel · F: freeze · Backslash: automatic foul slowdown · Pause: suspend/resume this app'],
- ['Views','Z / X: tactical zoom · F4 / F5: bow / wind orientation · W: forecast · R: course · [ / ]: wind / current chart · + / −: chart time · ;: tracks · L: laylines'],
+ ['Views','Z / X: tactical zoom · F4 / F5: bow / wind orientation · W: forecast · R: course · [ / ]: wind / current chart · + / −: chart time · ;: tracks · L: heading reference'],
  ['Session','N: race setup, then Space to start · Backspace: original leg replay · ?: original key summary · Y: coach · B, P, L, M, S and digits: original context-sensitive setup controls'],
 ] as const;

@@ -10,8 +10,9 @@ try{
  const initial=await b.evaluate('tact2026.latest.course.showMarkLines');await b.evaluate('tact2026.engine.send("command",32918)');await b.waitFor(`tact2026.latest.course.showMarkLines!==${initial}`,10000);
  if(initial){await b.evaluate('tact2026.engine.send("command",32918)');await b.waitFor('tact2026.latest.course.showMarkLines',10000);}
  await b.evaluate('tact2026.camera("overview");new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
- const lines=await b.evaluate(`(()=>{const c=tact2026.scene.course,v=tact2026.latest;return {course:v.course,wind:v.boats[0].windFrom,lines:c.markLines.map(pair=>pair.map(l=>({visible:l.visible,positions:Array.from(l.geometry.attributes.position.array)})))}})()`);
- for(let m=0;m<3;m++)for(let side=0;side<2;side++){const l=lines.lines[m][side],p=lines.course.marks[m],spread=m===0?lines.course.closeAngle:180-lines.course.downwindAngle,a=(lines.wind+(side===0?-spread:spread))*Math.PI/180;if(Math.abs(l.positions[0]-p.x)>.001||Math.abs(l.positions[2]-p.y)>.001)throw Error('Mark line origin');const angle=Math.atan2(-(l.positions[3]-p.x),l.positions[5]-p.y);if(Math.abs(Math.sin(angle-a))>1e-4)throw Error('Mark line bearing');}
+ const lines=await b.evaluate(`(()=>{const c=tact2026.scene.course,v=tact2026.latest;return {course:v.course,wind:v.boats[0].windFrom,lines:c.guides.filter(l=>l.visible).map(l=>({visible:l.visible,positions:Array.from(l.geometry.attributes.position.array)}))}})()`);
+ if(lines.lines.length!==lines.course.guides.length)throw Error('Visible native guide count');
+ for(let i=0;i<lines.lines.length;i++){const l=lines.lines[i],g=lines.course.guides[i];if(Math.abs(l.positions[0]-g.x)>.01||Math.abs(l.positions[2]-g.y)>.01)throw Error('Native guide anchor');}
  await writeFile(resolve(out,'overview.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
  await b.evaluate('tact2026.camera("chase");tact2026.engine.send("command",32846);tact2026.engine.request("step",8)');
  await b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');const tack=await b.evaluate('({heading:tact2026.latest.boats[0].heading,camera:tact2026.scene.camera.position.toArray()})');

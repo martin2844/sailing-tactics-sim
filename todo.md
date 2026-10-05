@@ -946,3 +946,17 @@ Expansion evidence: [catalog](versions/2026/analysis/app/CATALOG.md),
 EXT-05 commit `73806fa`; EXT-06 commit `8fe664b`; EXT-07 see file history.
 The requested expansion is complete within these recorded checks; the broader
 MVP, physical Pixel 11 and replay/export tasks above retain their existing status.
+
+## Guide and indicator refinement (2026-10-05)
+
+- [x] **VIS-01 — Restore native guide decisions and heading reference.** Validate
+  anchors/bearings and suppression against the full original chart; preserve
+  simulation state, gate/finish cases and free-camera ownership.
+- [ ] **VIS-02 — Replace buoy and fleet sprites with one compact label system.**
+  Bound screen size, anchor outside boats/sails, avoid label/HUD collisions,
+  prioritise the active target and nearby/selected boats, and support show-all.
+- [ ] **VIS-03 — Refine guide contrast and navigation indicators; evaluate Chrome.**
+  Check crowded fleets, close/follow/overview cameras, native conditions,
+  lifecycle/restart and repeated smoothness. Record limits and fix findings.
+
+Evidence: [guide and label refinement](versions/2026/analysis/app/GUIDE-LABEL-REFINEMENT.md).

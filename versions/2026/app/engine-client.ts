@@ -7,6 +7,7 @@ import type {NativeBoatFrame} from './native-visuals';
 import {defaultRaceSettings,type RaceSettings} from './race-settings';
 import {fleetChoices} from './native-catalog';
 interface DiagnosticReplies {
+  guidecase:{before:Boundary;after:Boundary;cases:unknown[]};
   image:Uint8Array;
   'next-race':Boundary;
   environmentcase:{before:Boundary;after:Boundary;cases:unknown[];terrain:NativeTerrain;scope:string};

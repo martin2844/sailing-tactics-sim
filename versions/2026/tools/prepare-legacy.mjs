@@ -104,6 +104,39 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
       options.nativeModelProjection.metadata={scale,angle:a,points};
     }`);
     observed+='\n'+model+'\n';
+    // Private course presentation executes the original chart's guide decisions.
+    // Drop unrelated chart artwork/tracks/gusts; preserve every guide branch and
+    // its original angle calculation. These entries are never registered as
+    // authoritative drawing replacements and operate only on a copied image.
+    const section=(name,next)=>{
+      const a=observed.indexOf('function '+name+'('),b=observed.indexOf(next,a);
+      if(a<0||b<0)throw Error('Native guide source boundary changed: '+name);
+      return observed.slice(a,b).trim();
+    };
+    let selector=section('originalDrawing00431ab0Number','\n/** Complete recovered original 0x0041f130');
+    selector=selector.replace('function originalDrawing00431ab0Number(', 'export function nativeCourseGuideSelector(')
+      .replaceAll('callNumberDrawingDependencyOwned(', 'guideDependency(')
+      .replace('  const r32 =',`  const guideDependency=(m,d,address,args,floats,r,o)=>{
+        if(address===0x444890)return nativeCourseGuideRay(m,d,r,o,false,...args.slice(1));
+        if(address===0x41bc20||address===0x43ec20)return callNumberDrawingDependencyOwned(m,d,address,args,floats,r,o);
+        return 0;
+      };\n  const r32 =`)
+      .replace('case 215: {','case 215: { pc=200; continue;')
+      .replace('case 199: {','case 199: { pc=132; continue;');
+    let ray=section('originalDrawing00444890Number','\n/** Complete recovered original 0x00444890; static C control-flow translation. */');
+    ray=ray.replace('function originalDrawing00444890Number(', 'function nativeCourseGuideRay(');
+    for(const [node,bearing]of [[40,'iVar4'],[31,'iVar5'],[17,'fpScalarRead(scalarStack20)'],[2,'fpScalarRead(scalarStack20)']]){
+      const anchor='case '+node+': {';
+      if(ray.split(anchor).length!==2)throw Error('Native guide emission node changed');
+      ray=ray.replace(anchor,anchor+` {
+        const owner=numberArg3,orientation=memory.readI32(0x525a78+owner*4);
+        const basis=memory.readI32((orientation===2?0x522b90:orientation===1?0x535740:0x4fbb90)+owner*4);
+        options.nativeCourseGuideRay?.({point:numberArg5,type:numberArg2,
+          x:memory.readF64(0x4f8398+numberArg5*8),y:memory.readF64(0x4fb068+numberArg5*8),
+          bearing:(Number(${bearing})+basis+720)%360});
+      }`);
+    }
+    observed+='\n'+selector+'\n'+ray+'\n';
     // Record the actual projection calibration before the painter consumes it.
     for(const name of ['originalDrawBoatOriginal','originalDrawBoatNumber']){
       const from=observed.indexOf('function '+name+'('),to=observed.indexOf('\n}',from)+2;

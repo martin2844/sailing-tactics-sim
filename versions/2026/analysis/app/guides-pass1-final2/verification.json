@@ -1,0 +1,2762 @@
+{
+  "passed": true,
+  "scope": "Original full-chart GDI oracle against isolated guide extraction; 15 private conditions per fleet (5/30), real L input and prestart state. Entire authoritative memory/RNG/frame/clock/shore unchanged by extraction.",
+  "rows": [
+    {
+      "fleet": 5,
+      "initial": {
+        "course": {
+          "marks": [
+            {
+              "x": 771,
+              "y": -641
+            },
+            {
+              "x": -719,
+              "y": 694
+            },
+            {
+              "x": -719,
+              "y": 694
+            }
+          ],
+          "gate": [],
+          "start": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 104,
+              "y": 107
+            }
+          },
+          "finish": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 104,
+              "y": 107
+            }
+          },
+          "committee": {
+            "x": 0,
+            "y": 0,
+            "heading": 46
+          },
+          "target": {
+            "x": 52,
+            "y": 53
+          },
+          "closeAngle": 44,
+          "downwindAngle": 30,
+          "showLaylines": false,
+          "showMarkLines": true,
+          "length": 1000,
+          "guides": [],
+          "headingReference": 90
+        },
+        "heading": 90,
+        "mode": 0
+      },
+      "L": {
+        "course": {
+          "marks": [
+            {
+              "x": 771,
+              "y": -641
+            },
+            {
+              "x": -719,
+              "y": 694
+            },
+            {
+              "x": -719,
+              "y": 694
+            }
+          ],
+          "gate": [],
+          "start": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 104,
+              "y": 107
+            }
+          },
+          "finish": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 104,
+              "y": 107
+            }
+          },
+          "committee": {
+            "x": 0,
+            "y": 0,
+            "heading": 46
+          },
+          "target": {
+            "x": 52,
+            "y": 53
+          },
+          "closeAngle": 44,
+          "downwindAngle": 30,
+          "showLaylines": true,
+          "showMarkLines": true,
+          "length": 1000,
+          "guides": [],
+          "headingReference": 135
+        },
+        "reference": "135°"
+      },
+      "originalCases": {
+        "before": {
+          "frame": 9,
+          "time": -170.1534699111288,
+          "clock": -170,
+          "rngState": 713814625,
+          "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 2
+          }
+        },
+        "cases": [
+          {
+            "fixture": {
+              "name": "prestart",
+              "clock": -1,
+              "angle": 40,
+              "target": 0
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "upwind",
+              "clock": 20,
+              "angle": 40,
+              "target": 0
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 270
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 104,
+                "y": 107,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 270
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 508,
+                  "y": 381
+                },
+                "to": {
+                  "x": -2965,
+                  "y": 3977
+                },
+                "bearing": 270.0031588917051
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 3989,
+                  "y": 3977
+                },
+                "bearing": 181.99684110829492
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 331
+                },
+                "to": {
+                  "x": 3985,
+                  "y": 3927
+                },
+                "bearing": 181.99684110829492
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 331
+                },
+                "to": {
+                  "x": -2961,
+                  "y": 3927
+                },
+                "bearing": 270.0031588917051
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "reach",
+              "clock": 20,
+              "angle": 80,
+              "target": 1
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "triangle-third-mark",
+              "clock": 20,
+              "angle": 40,
+              "target": 2
+            },
+            "candidate": [
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 270
+              },
+              {
+                "point": 4,
+                "type": 1,
+                "x": -719,
+                "y": 694,
+                "bearing": 182
+              },
+              {
+                "point": 4,
+                "type": 1,
+                "x": -719,
+                "y": 694,
+                "bearing": 270
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 512,
+                  "y": 331
+                },
+                "to": {
+                  "x": 3985,
+                  "y": 3927
+                },
+                "bearing": 181.99684110829492
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 331
+                },
+                "to": {
+                  "x": -2961,
+                  "y": 3927
+                },
+                "bearing": 270.0031588917051
+              },
+              {
+                "from": {
+                  "x": 508,
+                  "y": 431
+                },
+                "to": {
+                  "x": 3981,
+                  "y": 4027
+                },
+                "bearing": 181.99684110829492
+              },
+              {
+                "from": {
+                  "x": 508,
+                  "y": 431
+                },
+                "to": {
+                  "x": -2965,
+                  "y": 4027
+                },
+                "bearing": 270.0031588917051
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "downwind",
+              "clock": 20,
+              "angle": 150,
+              "target": 3
+            },
+            "candidate": [
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "finish-port",
+              "clock": 20,
+              "angle": 150,
+              "target": 3,
+              "finish": true,
+              "side": 0
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 24,
+                "x": 0,
+                "y": 0,
+                "bearing": 16
+              },
+              {
+                "point": 2,
+                "type": 25,
+                "x": 104,
+                "y": 107,
+                "bearing": 76
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 508,
+                  "y": 381
+                },
+                "to": {
+                  "x": -1991,
+                  "y": -3949
+                },
+                "bearing": 16.009197277293424
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 3016,
+                  "y": -3949
+                },
+                "bearing": 76.00072778082733
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "finish-starboard",
+              "clock": 20,
+              "angle": 150,
+              "target": 3,
+              "finish": true,
+              "side": 1
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 25,
+                "x": 0,
+                "y": 0,
+                "bearing": 76
+              },
+              {
+                "point": 2,
+                "type": 24,
+                "x": 104,
+                "y": 107,
+                "bearing": 16
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 508,
+                  "y": 381
+                },
+                "to": {
+                  "x": 3008,
+                  "y": -3949
+                },
+                "bearing": 76.00072778082733
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": -1983,
+                  "y": -3949
+                },
+                "bearing": 16.009197277293424
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "gate",
+              "clock": 20,
+              "angle": 150,
+              "target": 3,
+              "gate": true
+            },
+            "candidate": [
+              {
+                "point": 11,
+                "type": 24,
+                "x": -90,
+                "y": 1000,
+                "bearing": 16
+              },
+              {
+                "point": 12,
+                "type": 25,
+                "x": 90,
+                "y": 1000,
+                "bearing": 76
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 541,
+                  "y": 419
+                },
+                "to": {
+                  "x": -1958,
+                  "y": -3911
+                },
+                "bearing": 16.009197277293424
+              },
+              {
+                "from": {
+                  "x": 548,
+                  "y": 412
+                },
+                "to": {
+                  "x": 3048,
+                  "y": -3918
+                },
+                "bearing": 76.00072778082733
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "recall",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "recall": true
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 270
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 104,
+                "y": 107,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 270
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 508,
+                  "y": 381
+                },
+                "to": {
+                  "x": -2965,
+                  "y": 3977
+                },
+                "bearing": 270.0031588917051
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 3989,
+                  "y": 3977
+                },
+                "bearing": 181.99684110829492
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 331
+                },
+                "to": {
+                  "x": 3985,
+                  "y": 3927
+                },
+                "bearing": 181.99684110829492
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 331
+                },
+                "to": {
+                  "x": -2961,
+                  "y": 3927
+                },
+                "bearing": 270.0031588917051
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 316
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "results",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "results": true
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "mark-lines-off",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "off": true
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "north-wrap-359",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "wind": 359
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 223
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 104,
+                "y": 107,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 223
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 89
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 269
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 512,
+                  "y": 379
+                },
+                "to": {
+                  "x": -2961,
+                  "y": 3975
+                },
+                "bearing": 223.00315889170508
+              },
+              {
+                "from": {
+                  "x": 517,
+                  "y": 385
+                },
+                "to": {
+                  "x": 3990,
+                  "y": 3981
+                },
+                "bearing": 134.99684110829503
+              },
+              {
+                "from": {
+                  "x": 551,
+                  "y": 348
+                },
+                "to": {
+                  "x": 4024,
+                  "y": 3944
+                },
+                "bearing": 134.99684110829503
+              },
+              {
+                "from": {
+                  "x": 551,
+                  "y": 348
+                },
+                "to": {
+                  "x": -2922,
+                  "y": 3944
+                },
+                "bearing": 223.00315889170508
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 89
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 269
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "north-wrap-1",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "wind": 1
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 225
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 104,
+                "y": 107,
+                "bearing": 137
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 137
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 225
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 91
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 271
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 511,
+                  "y": 379
+                },
+                "to": {
+                  "x": -2962,
+                  "y": 3975
+                },
+                "bearing": 225.00315889170508
+              },
+              {
+                "from": {
+                  "x": 517,
+                  "y": 385
+                },
+                "to": {
+                  "x": 3990,
+                  "y": 3981
+                },
+                "bearing": 136.99684110829492
+              },
+              {
+                "from": {
+                  "x": 549,
+                  "y": 347
+                },
+                "to": {
+                  "x": 4022,
+                  "y": 3943
+                },
+                "bearing": 136.99684110829492
+              },
+              {
+                "from": {
+                  "x": 549,
+                  "y": 347
+                },
+                "to": {
+                  "x": -2924,
+                  "y": 3943
+                },
+                "bearing": 225.00315889170508
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 91
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 271
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "bow-oriented-chart",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "orientation": 1
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 270
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 104,
+                "y": 107,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 270
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 507,
+                  "y": 384
+                },
+                "to": {
+                  "x": 507,
+                  "y": 5383
+                },
+                "bearing": 270
+              },
+              {
+                "from": {
+                  "x": 513,
+                  "y": 378
+                },
+                "to": {
+                  "x": 5509,
+                  "y": 552
+                },
+                "bearing": 181.994683275743
+              },
+              {
+                "from": {
+                  "x": 475,
+                  "y": 345
+                },
+                "to": {
+                  "x": 5471,
+                  "y": 519
+                },
+                "bearing": 181.994683275743
+              },
+              {
+                "from": {
+                  "x": 475,
+                  "y": 345
+                },
+                "to": {
+                  "x": 475,
+                  "y": 5344
+                },
+                "bearing": 270
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 4108,
+                  "y": -3089
+                },
+                "bearing": 135.99684110829492
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -3084,
+                  "y": 3857
+                },
+                "bearing": 315.9968411082949
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "camera-oriented-chart",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "orientation": 0
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 270
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 104,
+                "y": 107,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 182
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 771,
+                "y": -641,
+                "bearing": 270
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 136
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 0.4403819878399041,
+                "y": 84.00000941144067,
+                "bearing": 316
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 507,
+                  "y": 384
+                },
+                "to": {
+                  "x": 942,
+                  "y": 5364
+                },
+                "bearing": 270.00791883390843
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 378
+                },
+                "to": {
+                  "x": 5505,
+                  "y": 117
+                },
+                "bearing": 182.00769076110646
+              },
+              {
+                "from": {
+                  "x": 472,
+                  "y": 348
+                },
+                "to": {
+                  "x": 5465,
+                  "y": 87
+                },
+                "bearing": 182.00769076110646
+              },
+              {
+                "from": {
+                  "x": 472,
+                  "y": 348
+                },
+                "to": {
+                  "x": 907,
+                  "y": 5328
+                },
+                "bearing": 270.00791883390843
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 3792,
+                  "y": -3389
+                },
+                "bearing": 136.0015667342002
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -2768,
+                  "y": 4157
+                },
+                "bearing": 316.0015667342002
+              }
+            ],
+            "matched": true
+          }
+        ],
+        "after": {
+          "frame": 9,
+          "time": -170.1534699111288,
+          "clock": -170,
+          "rngState": 713814625,
+          "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 2
+          }
+        }
+      }
+    },
+    {
+      "fleet": 30,
+      "initial": {
+        "course": {
+          "marks": [
+            {
+              "x": 199,
+              "y": -1000
+            },
+            {
+              "x": -87,
+              "y": -996
+            },
+            {
+              "x": 0,
+              "y": 999
+            }
+          ],
+          "gate": [
+            {
+              "x": -89,
+              "y": 992
+            },
+            {
+              "x": 89,
+              "y": 992
+            }
+          ],
+          "start": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 399,
+              "y": 0
+            }
+          },
+          "finish": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 399,
+              "y": 0
+            }
+          },
+          "committee": {
+            "x": 0,
+            "y": 0,
+            "heading": 0
+          },
+          "target": {
+            "x": 199,
+            "y": 0
+          },
+          "closeAngle": 45,
+          "downwindAngle": 30,
+          "showLaylines": false,
+          "showMarkLines": true,
+          "length": 1000,
+          "guides": [],
+          "headingReference": 45
+        },
+        "heading": 45,
+        "mode": 0
+      },
+      "L": {
+        "course": {
+          "marks": [
+            {
+              "x": 199,
+              "y": -1000
+            },
+            {
+              "x": -87,
+              "y": -996
+            },
+            {
+              "x": 0,
+              "y": 999
+            }
+          ],
+          "gate": [
+            {
+              "x": -89,
+              "y": 992
+            },
+            {
+              "x": 89,
+              "y": 992
+            }
+          ],
+          "start": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 399,
+              "y": 0
+            }
+          },
+          "finish": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 399,
+              "y": 0
+            }
+          },
+          "committee": {
+            "x": 0,
+            "y": 0,
+            "heading": 0
+          },
+          "target": {
+            "x": 199,
+            "y": 0
+          },
+          "closeAngle": 45,
+          "downwindAngle": 30,
+          "showLaylines": true,
+          "showMarkLines": true,
+          "length": 1000,
+          "guides": [],
+          "headingReference": 90
+        },
+        "reference": "90°"
+      },
+      "originalCases": {
+        "before": {
+          "frame": 9,
+          "time": -170.1534699111288,
+          "clock": -170,
+          "rngState": 959055250,
+          "memorySha256": "d731229d82528229d3795c589644912cef48b4790cedb2226debb2a44caedc75",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 2
+          }
+        },
+        "cases": [
+          {
+            "fixture": {
+              "name": "prestart",
+              "clock": -1,
+              "angle": 40,
+              "target": 0
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "upwind",
+              "clock": 20,
+              "angle": 40,
+              "target": 0
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 225
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 399,
+                "y": 0,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 225
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 381
+                },
+                "to": {
+                  "x": -3039,
+                  "y": 3916
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 4051,
+                  "y": 3916
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 506,
+                  "y": 331
+                },
+                "to": {
+                  "x": 4041,
+                  "y": 3866
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 506,
+                  "y": 331
+                },
+                "to": {
+                  "x": -3029,
+                  "y": 3866
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "reach",
+              "clock": 20,
+              "angle": 80,
+              "target": 1
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "triangle-third-mark",
+              "clock": 20,
+              "angle": 40,
+              "target": 2
+            },
+            "candidate": [
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 225
+              },
+              {
+                "point": 4,
+                "type": 1,
+                "x": -87,
+                "y": -996,
+                "bearing": 135
+              },
+              {
+                "point": 4,
+                "type": 1,
+                "x": -87,
+                "y": -996,
+                "bearing": 225
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 506,
+                  "y": 331
+                },
+                "to": {
+                  "x": 4041,
+                  "y": 3866
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 506,
+                  "y": 331
+                },
+                "to": {
+                  "x": -3029,
+                  "y": 3866
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 492,
+                  "y": 331
+                },
+                "to": {
+                  "x": 4027,
+                  "y": 3866
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 492,
+                  "y": 331
+                },
+                "to": {
+                  "x": -3043,
+                  "y": 3866
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "downwind",
+              "clock": 20,
+              "angle": 150,
+              "target": 3
+            },
+            "candidate": [
+              {
+                "point": 5,
+                "type": 2,
+                "x": 0,
+                "y": 999,
+                "bearing": 30
+              },
+              {
+                "point": 5,
+                "type": 2,
+                "x": 0,
+                "y": 999,
+                "bearing": 330
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 431
+                },
+                "to": {
+                  "x": 2996,
+                  "y": -3899
+                },
+                "bearing": 30.000727780827333
+              },
+              {
+                "from": {
+                  "x": 496,
+                  "y": 431
+                },
+                "to": {
+                  "x": -2003,
+                  "y": -3899
+                },
+                "bearing": 330.0091972772934
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "finish-port",
+              "clock": 20,
+              "angle": 150,
+              "target": 3,
+              "finish": true,
+              "side": 0
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 24,
+                "x": 0,
+                "y": 0,
+                "bearing": 330
+              },
+              {
+                "point": 2,
+                "type": 25,
+                "x": 399,
+                "y": 0,
+                "bearing": 30
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 381
+                },
+                "to": {
+                  "x": -2003,
+                  "y": -3949
+                },
+                "bearing": 330.0091972772934
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 3016,
+                  "y": -3949
+                },
+                "bearing": 30.000727780827333
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "finish-starboard",
+              "clock": 20,
+              "angle": 150,
+              "target": 3,
+              "finish": true,
+              "side": 1
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 25,
+                "x": 0,
+                "y": 0,
+                "bearing": 30
+              },
+              {
+                "point": 2,
+                "type": 24,
+                "x": 399,
+                "y": 0,
+                "bearing": 330
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 381
+                },
+                "to": {
+                  "x": 2996,
+                  "y": -3949
+                },
+                "bearing": 30.000727780827333
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": -1983,
+                  "y": -3949
+                },
+                "bearing": 330.0091972772934
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "gate",
+              "clock": 20,
+              "angle": 150,
+              "target": 3,
+              "gate": true
+            },
+            "candidate": [
+              {
+                "point": 36,
+                "type": 24,
+                "x": -90,
+                "y": 1000,
+                "bearing": 330
+              },
+              {
+                "point": 37,
+                "type": 25,
+                "x": 90,
+                "y": 1000,
+                "bearing": 30
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 492,
+                  "y": 431
+                },
+                "to": {
+                  "x": -2007,
+                  "y": -3899
+                },
+                "bearing": 330.0091972772934
+              },
+              {
+                "from": {
+                  "x": 501,
+                  "y": 431
+                },
+                "to": {
+                  "x": 3001,
+                  "y": -3899
+                },
+                "bearing": 30.000727780827333
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "recall",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "recall": true
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 225
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 399,
+                "y": 0,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 225
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 381
+                },
+                "to": {
+                  "x": -3039,
+                  "y": 3916
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 4051,
+                  "y": 3916
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 506,
+                  "y": 331
+                },
+                "to": {
+                  "x": 4041,
+                  "y": 3866
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 506,
+                  "y": 331
+                },
+                "to": {
+                  "x": -3029,
+                  "y": 3866
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "results",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "results": true
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "mark-lines-off",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "off": true
+            },
+            "candidate": [],
+            "original": [],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "north-wrap-359",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "wind": 359
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 224
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 399,
+                "y": 0,
+                "bearing": 134
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 134
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 224
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 89
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 269
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 380
+                },
+                "to": {
+                  "x": -3039,
+                  "y": 3915
+                },
+                "bearing": 224
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 4051,
+                  "y": 3916
+                },
+                "bearing": 134
+              },
+              {
+                "from": {
+                  "x": 507,
+                  "y": 331
+                },
+                "to": {
+                  "x": 4042,
+                  "y": 3866
+                },
+                "bearing": 134
+              },
+              {
+                "from": {
+                  "x": 507,
+                  "y": 331
+                },
+                "to": {
+                  "x": -3028,
+                  "y": 3866
+                },
+                "bearing": 224
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 89
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 269
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "north-wrap-1",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "wind": 1
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 226
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 399,
+                "y": 0,
+                "bearing": 136
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 136
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 226
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 91
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 271
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 496,
+                  "y": 381
+                },
+                "to": {
+                  "x": -3039,
+                  "y": 3916
+                },
+                "bearing": 226
+              },
+              {
+                "from": {
+                  "x": 516,
+                  "y": 381
+                },
+                "to": {
+                  "x": 4051,
+                  "y": 3916
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 505,
+                  "y": 331
+                },
+                "to": {
+                  "x": 4040,
+                  "y": 3866
+                },
+                "bearing": 136
+              },
+              {
+                "from": {
+                  "x": 505,
+                  "y": 331
+                },
+                "to": {
+                  "x": -3030,
+                  "y": 3866
+                },
+                "bearing": 226
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 5511,
+                  "y": 384
+                },
+                "bearing": 91
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -4487,
+                  "y": 384
+                },
+                "bearing": 271
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "bow-oriented-chart",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "orientation": 1
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 225
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 399,
+                "y": 0,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 225
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 499,
+                  "y": 392
+                },
+                "to": {
+                  "x": 499,
+                  "y": 5391
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 513,
+                  "y": 378
+                },
+                "to": {
+                  "x": 5512,
+                  "y": 378
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 470,
+                  "y": 350
+                },
+                "to": {
+                  "x": 5469,
+                  "y": 350
+                },
+                "bearing": 135
+              },
+              {
+                "from": {
+                  "x": 470,
+                  "y": 350
+                },
+                "to": {
+                  "x": 470,
+                  "y": 5349
+                },
+                "bearing": 225
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 4047,
+                  "y": -3151
+                },
+                "bearing": 90
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -3023,
+                  "y": 3919
+                },
+                "bearing": 270
+              }
+            ],
+            "matched": true
+          },
+          {
+            "fixture": {
+              "name": "camera-oriented-chart",
+              "clock": 20,
+              "angle": 40,
+              "target": 0,
+              "orientation": 0
+            },
+            "candidate": [
+              {
+                "point": 1,
+                "type": 5,
+                "x": 0,
+                "y": 0,
+                "bearing": 225
+              },
+              {
+                "point": 2,
+                "type": 4,
+                "x": 399,
+                "y": 0,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 135
+              },
+              {
+                "point": 3,
+                "type": 1,
+                "x": 199,
+                "y": -1000,
+                "bearing": 225
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 90
+              },
+              {
+                "point": 6,
+                "type": 3,
+                "x": 305.3114004174141,
+                "y": 57.68860623747942,
+                "bearing": 270
+              }
+            ],
+            "original": [
+              {
+                "from": {
+                  "x": 499,
+                  "y": 393
+                },
+                "to": {
+                  "x": 934,
+                  "y": 5373
+                },
+                "bearing": 225.00791883390843
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 378
+                },
+                "to": {
+                  "x": 5492,
+                  "y": -57
+                },
+                "bearing": 135.00791883390843
+              },
+              {
+                "from": {
+                  "x": 468,
+                  "y": 354
+                },
+                "to": {
+                  "x": 5448,
+                  "y": -81
+                },
+                "bearing": 135.00791883390843
+              },
+              {
+                "from": {
+                  "x": 468,
+                  "y": 354
+                },
+                "to": {
+                  "x": 903,
+                  "y": 5334
+                },
+                "bearing": 225.00791883390843
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": 3725,
+                  "y": -3446
+                },
+                "bearing": 89.99340137797151
+              },
+              {
+                "from": {
+                  "x": 512,
+                  "y": 384
+                },
+                "to": {
+                  "x": -2702,
+                  "y": 4214
+                },
+                "bearing": 270.00218067791934
+              }
+            ],
+            "matched": true
+          }
+        ],
+        "after": {
+          "frame": 9,
+          "time": -170.1534699111288,
+          "clock": -170,
+          "rngState": 959055250,
+          "memorySha256": "d731229d82528229d3795c589644912cef48b4790cedb2226debb2a44caedc75",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 2
+          }
+        }
+      }
+    }
+  ]
+}
