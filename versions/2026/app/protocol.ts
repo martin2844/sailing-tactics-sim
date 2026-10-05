@@ -1,5 +1,5 @@
 import type {NativeVisualPacket} from './native-visuals';
-export interface BoatView {id:number;x:number;y:number;heading:number;speed:number;leg:number;finished:number;windFrom:number;windAngle:number;luff:number;boomAngle:number;tack:number}
+export interface BoatView {id:number;name:string;x:number;y:number;heading:number;speed:number;leg:number;finished:number;windFrom:number;windAngle:number;luff:number;boomAngle:number;tack:number}
 export interface NativeView {lookDegrees:number;lookMode:number;viewpoint:number;automatic:boolean;otherBoat:number;tacticalZoom:number;tacticalOrientation:number}
 export interface CoursePoint {x:number;y:number}
 export interface CourseLine {a:CoursePoint;b:CoursePoint}

@@ -4,6 +4,7 @@ import {NativeBoatLayer} from './native-boat-layer';
 import type {SceneSnapshot} from './protocol';
 import {NativeBoatMesh} from './native-boat-mesh';
 import {CourseScene} from './course-scene';
+import {FleetLabels} from './fleet-names';
 import type {NativeModelPacket} from './native-models';
 export type Backend='webgl2'|'webgpu';
 type Renderer=THREE.WebGLRenderer|import('three/webgpu').WebGPURenderer;
@@ -16,7 +17,7 @@ export class SailingScene {
   private queryExtension:any;private pendingQueries:WebGLQuery[]=[];readonly gpuMs:number[]=[];private gl?:WebGL2RenderingContext;
   actualBackend='initializing';adapterInfo:unknown;readonly samples:RenderSample[]=[];private lastWaterPhase=-1;private cameraDirty=true;private origin=new THREE.Vector3();private nativeBoats:NativeBoatLayer;
   private models=new Map<number,NativeBoatMesh>();private modelMaterial:THREE.Material;private modelReceived=0;private modelSpan=40;modelSequence=0;hasModels=false;modelPacket?:NativeModelPacket;readonly modelCosts:number[]=[];readonly modelBytes:number[]=[];readonly modelBuildCosts:number[]=[];
-  private course=new CourseScene();
+  private course=new CourseScene();private fleetLabels=new FleetLabels();
   constructor(private canvas:HTMLCanvasElement,boatCanvas:HTMLCanvasElement,private onSample:(sample:RenderSample)=>void,private onFailure:(message:string)=>void){
     this.nativeBoats=new NativeBoatLayer(boatCanvas);
     boatCanvas.hidden=true;
@@ -35,6 +36,7 @@ export class SailingScene {
     this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=-1.5;this.scene.add(this.water);
     this.buildShore();
     this.scene.add(this.course.group);
+    this.scene.add(this.fleetLabels.group);
     this.observer=new ResizeObserver(()=>this.resize());this.observer.observe(canvas);
     canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();this.onFailure('Graphics stopped. Restart to restore the scene.');});
   }
@@ -81,13 +83,14 @@ export class SailingScene {
     for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2]);}
     this.hasModels=true;if(this.modelCosts.length<4000){this.modelCosts.push(p.workMs);this.modelBytes.push(p.positions.byteLength+p.records.byteLength+p.colors.byteLength+p.boats.byteLength);this.modelBuildCosts.push(performance.now()-now);}this.cameraDirty=true;
   }
-  reset(){for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
+  reset(){this.fleetLabels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
   render(now:number){
     if(this.disposed||!this.renderer||!this.latest)return;
     if(this.lastDraw&&now-this.lastDraw<1000/60-.6)return;
     const current=this.latest,old=this.previous??current,alpha=this.paused?1:Math.min(1,Math.max(0,(now-this.received)/this.span));
     const poses=current.boats.map((boat,i)=>{const before=old.boats[i]??boat;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
     const player=poses[0];this.origin.set(player.x,0,player.y);
+    this.fleetLabels.update(current.boats,poses,player);
     this.course.group.visible=true;this.course.update(current.course,current.boats[0],{x:player.x,y:player.y},current.clock);
     if(this.mode==='chase'){
       const bearing=player.heading*Math.PI/180;
@@ -119,5 +122,5 @@ export class SailingScene {
   }
   private pollQueries(){if(!this.gl||!this.queryExtension)return;const gl=this.gl;const disjoint=gl.getParameter(this.queryExtension.GPU_DISJOINT_EXT);for(let i=this.pendingQueries.length-1;i>=0;i--){const query=this.pendingQueries[i];if(gl.getQueryParameter(query,gl.QUERY_RESULT_AVAILABLE)){if(!disjoint&&this.gpuMs.length<4000)this.gpuMs.push(gl.getQueryParameter(query,gl.QUERY_RESULT)/1e6);gl.deleteQuery(query);this.pendingQueries.splice(i,1);}else if(disjoint){gl.deleteQuery(query);this.pendingQueries.splice(i,1);}}}
   resetMetrics(){this.samples.length=0;this.gpuMs.length=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.lastDraw=0;}
-  dispose(){this.disposed=true;for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
+  dispose(){this.disposed=true;this.fleetLabels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
 }

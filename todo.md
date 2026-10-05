@@ -912,7 +912,7 @@ extensions must be identified and must not silently replace original behavior.
   original mark-line toggle separately from L; show buoy laylines/equal-position
   guides and follow interpolated headings through tacks/jibes. Evaluate geometry,
   trusted toggles, wrapped-heading motion and read-only camera isolation.
-- [ ] **EXT-02 — Name the fleet and allow editing the player's boat name.**
+- [x] **EXT-02 — Name the fleet and allow editing the player's boat name.**
   Recover native fleet names; safely support a custom display name and retain
   identities across results and championship races.
 - [ ] **EXT-03 — Build proper race start, finish and results screens.** Show
