@@ -156,8 +156,11 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     if(!paused||!resultsReady||memory.readI32(0x5363f4)===0)throw new Error('Next race requires completed native results');
     clearTimeout(timer);scheduleToken++;pending=false;startingLine=undefined;resultsReady=false;
     key(memory,78,options);paint();key(memory,32,options);paint();
-    if(memory.readI32(0x536444)!==0){key(memory,32,options);paint();}
-    if(memory.readI32(0x5363b0)!==2||memory.readI32(0x5363f4)!==0)throw new Error('Native next race initialization failed');
+    for(let attempt=0;attempt<4&&[0x536444,0x5363f0,0x5233a8,0x536434,0x536438,0x53644c].some(a=>memory.readI32(a)!==0);attempt++){key(memory,32,options);paint();}
+    // Results draw freezes the native simulator. N retains that flag; dismissing
+    // its series notice consumes Space before the ordinary thaw branch runs.
+    if(memory.readI32(0x53642c)!==0)key(memory,70,options);
+    if(memory.readI32(0x5363b0)!==2||memory.readI32(0x5363f4)!==0||memory.readI32(0x53642c)!==0)throw new Error('Native next race initialization failed');
     modelDirty=true;send('snapshot',snapshot(0));send('paused',true);requestModels();send('reply',{id,value:await boundary()});
   }
   else if(type==='finishcase'){

@@ -8,6 +8,7 @@ try{
   let tackSide=1,lastLeg=-1,done=false;
   for(let batch=0;batch<1600;batch++){
    const s=await b.evaluate('tact2026.latest');if(s.resultsReady){done=true;log.push({race,completed:s.completedRaces,boats:s.boats,event:await b.evaluate('({races:tact2026.event.races,standings:tact2026.event.standings,complete:tact2026.event.complete})')});break;}
+   if(s.frozen)throw Error('Race transition left the native simulator frozen');
    const p=s.boats[0],w=p.windFrom*Math.PI/180,target=s.clock< -8?{x:(s.course.start.a.x+s.course.start.b.x)/2-Math.sin(w)*90,y:(s.course.start.a.y+s.course.start.b.y)/2+Math.cos(w)*90}:s.course.target,dx=target.x-p.x,dy=target.y-p.y,bearing=(Math.atan2(dx,-dy)*180/Math.PI+360)%360,relative=wrap(bearing-p.windFrom),close=Math.max(42,s.course.closeAngle+3);let desired=bearing;
    if(Math.abs(relative)<close){if(batch===0)tackSide=Math.sign(wrap(p.heading-p.windFrom))||1;if(Math.abs(relative)>close-5&&Math.sign(relative)!==tackSide){tackSide=Math.sign(relative);}desired=p.windFrom+tackSide*close;}
    const delta=wrap(desired-p.heading),id=delta>0?32841:32842,n=Math.min(100,Math.round(Math.abs(delta)/10));

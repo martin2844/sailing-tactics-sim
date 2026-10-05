@@ -1,0 +1,590 @@
+{
+  "error": "Error: Page DevTools connection failed\n    at WebSocket.<anonymous> (file:///home/martin/tact/tools/browser-session.js:123:53)\n    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:856:20)\n    at WebSocket.dispatchEvent (node:internal/event_target:789:26)\n    at fireEvent (node:internal/deps/undici/undici:14403:14)\n    at #onSocketClose (node:internal/deps/undici/undici:15750:11)\n    at Socket.onSocketClose (node:internal/deps/undici/undici:15448:72)\n    at Socket.emit (node:events:521:24)\n    at TCP.<anonymous> (node:net:355:12)",
+  "log": [
+    {
+      "race": 1,
+      "batch": 0,
+      "clock": -169,
+      "leg": 0,
+      "position": [
+        0.4476013646897386,
+        84.00000956572659
+      ],
+      "speed": 0.1,
+      "heading": 90,
+      "bearing": 202.38593184342656,
+      "desired": 202.38593184342656,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 25,
+      "clock": 3,
+      "leg": 1,
+      "position": [
+        3.7711577797398417,
+        109.82665120569386
+      ],
+      "speed": 4.4,
+      "heading": 100,
+      "bearing": 49.57533798098035,
+      "desired": 103,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 100,
+      "clock": 523,
+      "leg": 1,
+      "position": [
+        643.8463379992304,
+        -251.9071071809679
+      ],
+      "speed": 5.4,
+      "heading": 30,
+      "bearing": 28.05975978382611,
+      "desired": 25,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 106,
+      "clock": 564,
+      "leg": 2,
+      "position": [
+        675.8472286239435,
+        -339.8275324015588
+      ],
+      "speed": 5.4,
+      "heading": 20,
+      "bearing": 19.29635364278937,
+      "desired": 19.29635364278937,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 110,
+      "clock": 592,
+      "leg": 4,
+      "position": [
+        697.1811557070855,
+        -398.4411492152861
+      ],
+      "speed": 5.4,
+      "heading": 20,
+      "bearing": 233.6653425115181,
+      "desired": 233.6653425115181,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 200,
+      "clock": 1216,
+      "leg": 4,
+      "position": [
+        -402.3664605094935,
+        423.9817901665083
+      ],
+      "speed": 5.6,
+      "heading": 230,
+      "bearing": 235.09558452762383,
+      "desired": 235.09558452762383,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 210,
+      "clock": 1285,
+      "leg": 7,
+      "position": [
+        -534.3359083147653,
+        516.3768179705003
+      ],
+      "speed": 5.6,
+      "heading": 230,
+      "bearing": 219.17489866472621,
+      "desired": 219.17489866472621,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 211,
+      "clock": 1292,
+      "leg": 8,
+      "position": [
+        -544.6849255239694,
+        528.7089879995208
+      ],
+      "speed": 5.5,
+      "heading": 220,
+      "bearing": 47.878710851800975,
+      "desired": -4,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 1,
+      "batch": 280,
+      "clock": 1770,
+      "leg": 9,
+      "position": [
+        162,
+        -87
+      ],
+      "speed": 0,
+      "heading": 350,
+      "bearing": 52.83996464370426,
+      "desired": 82,
+      "status": 11,
+      "finished": 1,
+      "otherFinished": 1
+    },
+    {
+      "race": 1,
+      "batch": 300,
+      "clock": 2186,
+      "leg": 9,
+      "position": [
+        162,
+        -87
+      ],
+      "speed": 0,
+      "heading": 343,
+      "bearing": 52.83996464370426,
+      "desired": 82,
+      "status": 0,
+      "finished": 1,
+      "otherFinished": 1
+    },
+    {
+      "race": 1,
+      "completed": 1,
+      "boats": [
+        {
+          "id": 1,
+          "name": "Fire",
+          "x": 162,
+          "y": -87,
+          "heading": 345,
+          "speed": 0,
+          "leg": 9,
+          "finished": 1,
+          "status": 0,
+          "finishTime": 1764,
+          "points": [
+            100,
+            0,
+            0
+          ],
+          "windFrom": 35,
+          "windAngle": 50,
+          "luff": 70,
+          "boomAngle": 4,
+          "tack": 1
+        },
+        {
+          "id": 2,
+          "name": "Bear",
+          "x": 190,
+          "y": -178,
+          "heading": 345,
+          "speed": 5.2,
+          "leg": 9,
+          "finished": 6,
+          "status": 0,
+          "finishTime": 2206,
+          "points": [
+            606,
+            0,
+            0
+          ],
+          "windFrom": 26,
+          "windAngle": 44,
+          "luff": 70,
+          "boomAngle": 0,
+          "tack": 1
+        },
+        {
+          "id": 3,
+          "name": "Betty",
+          "x": 344,
+          "y": -158,
+          "heading": 345,
+          "speed": 5.2,
+          "leg": 9,
+          "finished": 6,
+          "status": 0,
+          "finishTime": 2206,
+          "points": [
+            606,
+            0,
+            0
+          ],
+          "windFrom": 26,
+          "windAngle": 44,
+          "luff": 70,
+          "boomAngle": 0,
+          "tack": 1
+        },
+        {
+          "id": 4,
+          "name": "Fuzzy",
+          "x": 331,
+          "y": -102,
+          "heading": 345,
+          "speed": 5.2,
+          "leg": 9,
+          "finished": 6,
+          "status": 0,
+          "finishTime": 2206,
+          "points": [
+            606,
+            0,
+            0
+          ],
+          "windFrom": 26,
+          "windAngle": 44,
+          "luff": 70,
+          "boomAngle": 0,
+          "tack": 1
+        },
+        {
+          "id": 5,
+          "name": "Hoot",
+          "x": 235,
+          "y": -122,
+          "heading": 345,
+          "speed": 5,
+          "leg": 9,
+          "finished": 6,
+          "status": 0,
+          "finishTime": 2206,
+          "points": [
+            606,
+            0,
+            0
+          ],
+          "windFrom": 26,
+          "windAngle": 44,
+          "luff": 70,
+          "boomAngle": 0,
+          "tack": 1
+        }
+      ],
+      "event": {
+        "races": [
+          {
+            "race": 1,
+            "boats": [
+              {
+                "id": 1,
+                "name": "Fire",
+                "finished": 1,
+                "points": 100
+              },
+              {
+                "id": 2,
+                "name": "Bear",
+                "finished": 6,
+                "points": 606
+              },
+              {
+                "id": 3,
+                "name": "Betty",
+                "finished": 6,
+                "points": 606
+              },
+              {
+                "id": 4,
+                "name": "Fuzzy",
+                "finished": 6,
+                "points": 606
+              },
+              {
+                "id": 5,
+                "name": "Hoot",
+                "finished": 6,
+                "points": 606
+              }
+            ]
+          }
+        ],
+        "standings": [
+          {
+            "id": 1,
+            "name": "Fire",
+            "points": 100,
+            "finishes": [
+              1
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Bear",
+            "points": 606,
+            "finishes": [
+              6
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Betty",
+            "points": 606,
+            "finishes": [
+              6
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Fuzzy",
+            "points": 606,
+            "finishes": [
+              6
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Hoot",
+            "points": 606,
+            "finishes": [
+              6
+            ]
+          }
+        ],
+        "complete": false
+      }
+    },
+    {
+      "race": 1,
+      "nextTransition": {
+        "before": {
+          "frame": 13730,
+          "time": 2206.176614522507,
+          "clock": 2206,
+          "rngState": 3761190359,
+          "memorySha256": "5af3e12bdd213cade1b9f491c46e896c7d8a9cb82be9e4e09469739760a84ead",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 13717
+          }
+        },
+        "after": {
+          "frame": 13733,
+          "time": -170.5,
+          "clock": -170,
+          "rngState": 1378439727,
+          "memorySha256": "958127085a16eace1ca1a0c9299dab596a7c96c7b6639710ed6f91475cf29b57",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 13717
+          }
+        }
+      }
+    },
+    {
+      "race": 2,
+      "batch": 0,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 100,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 200,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 300,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 400,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 500,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 600,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 700,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 800,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 900,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    },
+    {
+      "race": 2,
+      "batch": 1000,
+      "clock": -170,
+      "leg": 0,
+      "position": [
+        40,
+        43
+      ],
+      "speed": 6,
+      "heading": 1,
+      "bearing": 298.6437778452233,
+      "desired": 298.6437778452233,
+      "status": 0,
+      "finished": 0,
+      "otherFinished": 0
+    }
+  ],
+  "state": "Error: Page DevTools connection closed"
+}

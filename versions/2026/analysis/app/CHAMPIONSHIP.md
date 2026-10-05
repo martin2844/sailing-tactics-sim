@@ -38,3 +38,9 @@ Evidence:
 
 No mobile acceptance or completed full championship claim yet. Final Chrome
 smoothness evaluation belongs to EXT-07 after the complete feature expansion.
+
+## Complete natural series evaluation
+
+`event-sailing4/verification.json` now proves three naturally sailed native races, both N/Space transitions, race clocks advancing after each start, retained RNG across transitions, native completed-race counters 1/2/3 and final championship standings. The automated helm uses original port/starboard commands and real paints, with no authoritative game-memory fixtures. Each player finish was first; the original engine subsequently retired the other four boats (native position 6 and native raw score 606), which is shown as retired rather than invented finishing places. This verifies the event flow, not a claim about human sailing or AI competitiveness.
+
+The earlier `event-sailing3` failure exposed that original result drawing freezes the simulator. N retains the freeze flag, and dismissing the series notice consumes Space before the ordinary thaw branch. Next race now dismisses active overlays and uses the original F handler only if still frozen. The successful three-race run checks that flag every sailing batch. Four ledger unit checks also pass.

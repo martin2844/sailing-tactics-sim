@@ -919,7 +919,7 @@ extensions must be identified and must not silently replace original behavior.
   native finishing position immediately on finish, complete fleet results when
   available, penalties and clear next-race/new-event actions; prove results are
   triggered by engine events, not elapsed-time or visual-position guesses.
-- [ ] **EXT-04 — Add standard race / championship selection and event flow.**
+- [x] **EXT-04 — Add standard race / championship selection and event flow.**
   Preserve original three-race series transitions/scoring, with modern longer
   events if needed. Show race number, individual finishes, standings, final
   championship results and a way to continue without accidentally reseeding or
