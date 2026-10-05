@@ -29,6 +29,8 @@ Completed task evaluations:
 
 - [BASE-01: preservation reference](analysis/baseline/BASE-01.md).
 - [BASE-02: reproduced correctness baseline](analysis/baseline/BASE-02.md).
+- [BASE-03: natural complete races](analysis/baseline/BASE-03.md).
+- [BASE-07: Chrome desktop targets and budgets](analysis/baseline/BASE-07.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.

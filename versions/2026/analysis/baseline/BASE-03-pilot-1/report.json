@@ -1,0 +1,635 @@
+{
+  "format": 1,
+  "fleet": 5,
+  "limit": 1500,
+  "startedAt": "2026-10-05T10:30:45.880Z",
+  "scope": "Real original menu/input handlers and held original scheduled paints. Fixed host Date.now seed; no game-memory, RNG, timestep, result or position writes. Diagnostic gate is not a performance measurement.",
+  "samples": [],
+  "transitions": [],
+  "commands": [],
+  "browser": {
+    "requested": {
+      "url": "http://127.0.0.1:44799/versions/2010-en/play.html",
+      "headless": false,
+      "gpu": true,
+      "ensureWindowSize": true,
+      "width": 1280,
+      "height": 1050,
+      "requestTimeoutMs": 60000,
+      "startupTimeoutMs": 20000,
+      "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+      "args": [
+        "--no-sandbox",
+        "--remote-debugging-port=0",
+        "--no-first-run",
+        "--user-data-dir=/tmp/tact-browser-PA8ERO",
+        "--window-size=1280,1050",
+        "about:blank"
+      ],
+      "profile": "/tmp/tact-browser-PA8ERO"
+    },
+    "processId": 1805371,
+    "errors": {},
+    "version": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/152.0.7977.82",
+      "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+      "jsVersion": "15.2.124.21"
+    },
+    "systemInfo": {
+      "gpu": {
+        "devices": [
+          {
+            "vendorId": 4098,
+            "deviceId": 29822,
+            "vendorString": "Google Inc. (AMD)",
+            "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+            "driverVendor": "Mesa",
+            "driverVersion": "26.1.8"
+          }
+        ],
+        "auxAttributes": {
+          "amdSwitchable": false,
+          "canSupportThreadedTextureMailbox": false,
+          "directRenderingVersion": "",
+          "displayType": "ANGLE_OPENGL",
+          "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_read_depth GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_draw_buffers_indexed GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object ",
+          "glImplementationParts": "(gl=egl-angle,angle=opengl)",
+          "glRenderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+          "glResetNotificationStrategy": 33362,
+          "glVendor": "Google Inc. (AMD)",
+          "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+          "glWsExtensions": "EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report EGL_ANGLE_create_context_passthrough_shaders ",
+          "glWsVendor": "Google Inc. (AMD)",
+          "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+          "hardwareSupportsVulkan": false,
+          "inProcessGpu": false,
+          "initializationTime": 0.098951,
+          "isAsan": false,
+          "isClangCoverage": false,
+          "jpegDecodeAcceleratorSupported": false,
+          "maxMsaaSamples": "8",
+          "optimus": false,
+          "passthroughCmdDecoder": true,
+          "pixelShaderVersion": "3.00",
+          "processCrashCount": 0,
+          "sandboxed": false,
+          "skiaBackendType": "GaneshGL",
+          "subpixelFontRendering": true,
+          "targetCpuBits": 64,
+          "vertexShaderVersion": "3.00",
+          "visibilityCallbackCallCount": 0
+        },
+        "featureStatus": {
+          "2d_canvas": "enabled",
+          "direct_rendering_display_compositor": "disabled_off_ok",
+          "gpu_compositing": "enabled",
+          "multiple_raster_threads": "enabled_on",
+          "opengl": "enabled_on",
+          "rasterization": "enabled",
+          "raw_draw": "disabled_off_ok",
+          "skia_graphite": "disabled_off",
+          "trees_in_viz": "disabled_off",
+          "video_decode": "enabled",
+          "video_encode": "disabled_software",
+          "vulkan": "disabled_off",
+          "webgl": "enabled",
+          "webgpu": "enabled",
+          "webgpu_on_vk_via_gl_interop": "disabled_off",
+          "webnn": "disabled_off"
+        },
+        "driverBugWorkarounds": [
+          "disable_software_to_accelerated_canvas_upgrade",
+          "enable_webgl_timer_query_extensions",
+          "exit_on_context_lost",
+          "force_cube_map_positive_x_allocation",
+          "force_int_or_srgb_cube_texture_complete",
+          "disabled_extension_GL_KHR_blend_equation_advanced",
+          "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+        ],
+        "videoDecoding": [],
+        "videoEncoding": []
+      },
+      "modelName": "",
+      "modelVersion": "",
+      "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-PA8ERO --window-size=1280,1050 --ozone-platform=wayland --flag-switches-begin --flag-switches-end --render-node-override=/dev/dri/renderD128 about:blank"
+    },
+    "window": {
+      "windowId": 1911846030,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1280,
+        "height": 1050,
+        "windowState": "maximized"
+      }
+    },
+    "windowSizing": {
+      "requested": {
+        "width": 1280,
+        "height": 1050
+      },
+      "before": {
+        "left": 0,
+        "top": 0,
+        "width": 596,
+        "height": 720,
+        "windowState": "normal"
+      },
+      "actions": [
+        {
+          "method": "hyprctl",
+          "command": "setfloating",
+          "args": "address:0x5ace33606a80",
+          "expression": "hl.dsp.window.float({action=\"on\",window=\"address:0x5ace33606a80\"})",
+          "address": "0x5ace33606a80",
+          "processId": 1805371
+        },
+        {
+          "method": "hyprctl",
+          "command": "fullscreenstate",
+          "args": "0 0,address:0x5ace33606a80",
+          "expression": "hl.dsp.window.fullscreen_state({action=\"set\",internal=0,client=0,window=\"address:0x5ace33606a80\"})",
+          "address": "0x5ace33606a80",
+          "processId": 1805371
+        },
+        {
+          "method": "hyprctl",
+          "command": "resizewindowpixel",
+          "args": "exact 1280 1050,address:0x5ace33606a80",
+          "expression": "hl.dsp.window.resize({x=1280,y=1050,window=\"address:0x5ace33606a80\"})",
+          "address": "0x5ace33606a80",
+          "processId": 1805371
+        }
+      ],
+      "status": "matched",
+      "compositor": "Hyprland",
+      "syntax": "lua",
+      "after": {
+        "left": 0,
+        "top": 0,
+        "width": 1280,
+        "height": 1050,
+        "windowState": "maximized"
+      }
+    },
+    "browserProcessId": 1805371,
+    "viewport": {
+      "width": 1280,
+      "height": 907,
+      "outerWidth": 1280,
+      "outerHeight": 1050,
+      "devicePixelRatio": 1,
+      "visibilityState": "visible",
+      "focused": true
+    }
+  },
+  "setup": {
+    "format": 1,
+    "scope": "Actual original callbacks, menu commands and key handlers; setup retains one scheduled paint between controls. No game memory, RNG or timestep writes. The measurement releases the normal continuous scheduler.",
+    "initial": {
+      "frame": 0,
+      "rngState": 2074519299,
+      "memoryBase": 4194304,
+      "memorySize": 2211840,
+      "memorySha256": "446cdf7c90c9eb976530fa2c56fa270c33e533b2b09fecc7ee8f80d52c26f1ab",
+      "time": 0,
+      "clock": 0,
+      "speed": 7,
+      "divisor": 256,
+      "autoSlow": 1,
+      "racing": 0,
+      "mode": 0,
+      "overlays": [
+        {
+          "address": 5465156,
+          "value": 0
+        },
+        {
+          "address": 5465072,
+          "value": 0
+        },
+        {
+          "address": 5387176,
+          "value": 0
+        },
+        {
+          "address": 5465140,
+          "value": 0
+        },
+        {
+          "address": 5465144,
+          "value": 0
+        },
+        {
+          "address": 5465164,
+          "value": 0
+        }
+      ],
+      "queued": 1,
+      "holding": true,
+      "error": null
+    },
+    "entry": {
+      "frame": 9,
+      "rngState": 713814625,
+      "memoryBase": 4194304,
+      "memorySize": 2211840,
+      "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+      "time": -170.1534699111288,
+      "clock": -170,
+      "speed": 10,
+      "divisor": 76,
+      "autoSlow": 0,
+      "racing": 2,
+      "mode": 0,
+      "overlays": [
+        {
+          "address": 5465156,
+          "value": 0
+        },
+        {
+          "address": 5465072,
+          "value": 0
+        },
+        {
+          "address": 5387176,
+          "value": 0
+        },
+        {
+          "address": 5465140,
+          "value": 0
+        },
+        {
+          "address": 5465144,
+          "value": 0
+        },
+        {
+          "address": 5465164,
+          "value": 0
+        }
+      ],
+      "queued": 1,
+      "holding": true,
+      "error": null
+    },
+    "history": [
+      {
+        "kind": "paint",
+        "label": "initial start screen",
+        "frame": 1,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "command",
+        "id": 32799,
+        "frame": 1,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "menu32799",
+        "frame": 2,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "command",
+        "id": 32816,
+        "frame": 2,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "menu32816",
+        "frame": 3,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "command",
+        "id": 32789,
+        "frame": 3,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "menu32789",
+        "frame": 4,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "command",
+        "id": 32806,
+        "frame": 4,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "menu32806",
+        "frame": 5,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 7,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "command",
+        "id": 32909,
+        "frame": 5,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "menu32909",
+        "frame": 6,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 0,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "key",
+        "code": "Space",
+        "label": "begin",
+        "frame": 6,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 1,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "initialize race",
+        "frame": 7,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 2,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "key",
+        "code": "Space",
+        "label": "dismiss original overlay",
+        "frame": 7,
+        "clock": -170,
+        "time": -170.5,
+        "racing": 2,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "first unobstructed race paint",
+        "frame": 8,
+        "clock": -170,
+        "time": -170.3267349555644,
+        "racing": 2,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "command",
+        "id": 32984,
+        "frame": 8,
+        "clock": -170,
+        "time": -170.3267349555644,
+        "racing": 2,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "paint",
+        "label": "menu32984 disable automatic slowdown",
+        "frame": 9,
+        "clock": -170,
+        "time": -170.1534699111288,
+        "racing": 2,
+        "mode": 0,
+        "notice": 0,
+        "speed": 10,
+        "error": null,
+        "overlays": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "nativeAutomaticSlowdown": {
+      "before": 1,
+      "after": 0,
+      "intervention": {
+        "command": 32984,
+        "label": "Slow Simulator if Foul Likely",
+        "paintCount": 1
+      },
+      "requestedOff": true
+    }
+  },
+  "failure": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":35,\"columnNumber\":7,\"scriptId\":\"120\",\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"SyntaxError\",\"description\":\"SyntaxError: await is only valid in async functions and the top level bodies of modules\",\"objectId\":\"855794005064750436.3.2\"}}\n    at Object.evaluate (file:///home/martin/tact/tools/browser-session.js:183:234)\n    at async file:///home/martin/tact/versions/2026/tools/race-baseline.mjs:31:3",
+  "finishedAt": "2026-10-05T10:30:47.525Z",
+  "collectorSha256": "61b28ce211ecc5a8f87699ce151c6e178de3d1124322ed7fbef30045d149272d"
+}

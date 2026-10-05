@@ -1,0 +1,116 @@
+// Diagnostic pilot: reads native telemetry and sends original menu commands.
+// Every step executes the original scheduled paint, including drawing effects.
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {resolve} from 'node:path';
+import {gzipSync} from 'node:zlib';
+import {openBrowser} from '../../../tools/browser-session.js';
+import {paintMeasurementInstrumentation} from '../../../tools/paint-measurements.js';
+import {deterministicPaintSetupInstrumentation,runDeterministicPaintSetup,deterministicSetupSnapshotExpression} from '../../../tools/deterministic-paint-setup.js';
+
+const output=resolve(process.argv[2]??'');
+const fleet=Number(process.argv[3]??5),limit=Number(process.argv[4]??5000);
+if(!process.argv[2]||![5,15].includes(fleet)||!Number.isSafeInteger(limit)||limit<1||limit>100000)throw new Error('Usage: node race-baseline.mjs NEW_OUTPUT_DIRECTORY [5|15] [maximum paints <=100000]');
+await mkdir(output,{recursive:false});
+const addresses={time:0x5359f0,clock:0x4f8cd0,speed:0x4da174,divisor:0x4da178,racing:0x5363b0,mode:0x4da16c,notice:0x53648c,autoSlow:0x4da1dc,overlays:[0x536444,0x5363f0,0x5233a8,0x536434,0x536438,0x53644c]};
+const report={format:1,fleet,limit,startedAt:new Date().toISOString(),scope:'Real original menu/input handlers and held original scheduled paints. Fixed host Date.now seed; no game-memory, RNG, timestep, result or position writes. Diagnostic gate is not a performance measurement.',samples:[],transitions:[],commands:[]};
+report.seedTimeSeconds=1546300800;
+const reference=JSON.parse(await readFile(new URL('../analysis/baseline/reference.json',import.meta.url)));
+report.referenceCommit=reference.reference.commit;
+const collectorSource=await readFile(new URL(import.meta.url));
+report.collectorSha256=createHash('sha256').update(collectorSource).digest('hex');
+await writeFile(resolve(output,'collector.mjs.txt'),collectorSource,{flag:'wx'});
+process.env.TACT_PORT='0';process.env.TACT_HOST='127.0.0.1';
+const {server}=await import('../../../tools/serve.js');
+if(!server.listening)await new Promise((accept,reject)=>{server.once('listening',accept);server.once('error',reject);});
+let browser;
+try{
+  browser=await openBrowser(`http://127.0.0.1:${server.address().port}/versions/2010-en/play.html`,{headless:false,gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
+  await browser.call('Emulation.setDeviceMetricsOverride',{width:1280,height:1050,deviceScaleFactor:1,mobile:false});
+  report.viewport=await browser.evaluate('({width:innerWidth,height:innerHeight,dpr:devicePixelRatio,visibility:document.visibilityState})');
+  report.browser=browser.metadata;
+  await browser.call('Page.addScriptToEvaluateOnNewDocument',{source:deterministicPaintSetupInstrumentation()+paintMeasurementInstrumentation('',{setupGate:true})});
+  await browser.call('Page.reload');
+  await browser.waitFor('globalThis.tact?.state.ready||globalThis.tact?.state.error',60000);
+  const key=async(code,key,keyCode)=>{
+    await browser.evaluate('document.getElementById("race").focus()');
+    for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code,key,windowsVirtualKeyCode:keyCode});
+  };
+  report.setup=await runDeterministicPaintSetup(browser,{addresses,commands:[32799,32816,32789,fleet===5?32806:32808,32909],key,noAutoSlow:true});
+  await browser.evaluate(`(async()=>{globalThis.raceCollector=(()=>{
+    const samples=[],transitions=[],commands=[],norm=v=>(v%360+360)%360;
+    let previous=null,steps=0;
+    const read=()=>{
+      const s=tact.state,m=s.memory,i=a=>m.readI32(a),d=a=>m.readF64(a);
+      return {frame:s.frames,time:d(0x5359f0),clock:i(0x4f8cd0),dt:d(0x523378),speed:i(0x4da174),mode:i(0x4da16c),results:i(0x5363f4),finalLeg:i(0x4da1e4),finishers:i(0x4f6d64),error:s.error,
+        boats:Array.from({length:i(0x4da194)},(_,b)=>{const n=b+1;return {id:n,leg:i(0x4f8538+n*4),finish:i(0x4fe638+n*4),x:d(0x4f6af8+n*8),y:d(0x4f6c10+n*8),targetX:i(0x4f4d78+n*4),targetY:i(0x4fc350+n*4),heading:i(0x535740+n*4),wind:i(0x522b90+n*4),speed:i(0x4fdfe8+n*4)};}),
+        helm:d(0x4fe938),line:{x1:i(0x536410),y1:i(0x536414),x2:i(0x4fe094),y2:i(0x4fe2a0)}};
+    };
+    const command=async(id,reason)=>{commands.push({frame:tact.state.frames,id,reason});await tact.command(id);};
+    const pilot=async(s)=>{
+      const b=s.boats[0];if(b.finish||s.results)return;
+      let tx=b.targetX,ty=b.targetY;
+      if(b.leg===0){tx=(s.line.x1+s.line.x2)/2;ty=(s.line.y1+s.line.y2)/2;}
+      const desired=norm(Math.atan2(tx-b.x,-(ty-b.y))*180/Math.PI);
+      const angle=((desired-b.wind+540)%360)-180;
+      const heading=norm(b.wind+(Math.abs(angle)<50?(angle<0?-50:50):angle));
+      const delta=((heading-s.helm+540)%360)-180;
+      if(Math.abs(delta)>6)await command(delta>0?32841:32842,'target bearing '+heading.toFixed(2));
+    };
+    return {read,samples,transitions,commands,get steps(){return steps;},
+      async initialize(){await command(32850,'original automatic sheeting');await command(32973,'original speed15 diagnostic');},
+      async batch(count){
+        for(let n=0;n<count;n++){
+          const deadline=performance.now()+10000;
+          while(paintSetupGate.queued!==1&&!tact.state.error){if(performance.now()>deadline)throw new Error('Original scheduled paint missing');await new Promise(r=>setTimeout(r,1));}
+          let s=read();if(s.error||s.results)break;
+          await pilot(s);paintSetupGate.step('race '+steps);steps++;s=read();
+          const changes=s.boats.filter((b,j)=>!previous||b.leg!==previous.boats[j].leg||b.finish!==previous.boats[j].finish);
+          if(changes.length)transitions.push({frame:s.frame,clock:s.clock,time:s.time,changes});
+          if(steps%100===0||changes.length||s.error||s.results)samples.push(s);
+          previous=s;if(s.error||s.results)break;
+        }
+        return {steps,state:read(),samples:samples.splice(0),transitions:transitions.splice(0),commands:commands.splice(0)};
+      }};
+  })();await raceCollector.initialize();})()`);
+  for(let done=0;done<limit;){
+    const batch=await browser.evaluate(`raceCollector.batch(${Math.min(100,limit-done)})`);
+    done=batch.steps;
+    for(const field of ['samples','transitions','commands'])report[field].push(...batch[field]);
+    report.final=batch.state;report.steps=done;
+    console.log(JSON.stringify({steps:done,clock:batch.state.clock,human:batch.state.boats[0],finishers:batch.state.finishers,results:batch.state.results,error:batch.state.error}));
+    await writeFile(resolve(output,'progress.json'),JSON.stringify(report,null,2)+'\n');
+    if(batch.state.error||batch.state.results)break;
+  }
+  report.finishSnapshot=await browser.evaluate(deterministicSetupSnapshotExpression(addresses));
+  const finishBytes=await browser.evaluate(`(()=>{const a=tact.state.memory.bytes;let s='';for(let i=0;i<a.length;i+=8192)s+=String.fromCharCode(...a.subarray(i,i+8192));return btoa(s);})()`);
+  await writeFile(resolve(output,'finish-memory.bin.gz'),gzipSync(Buffer.from(finishBytes,'base64')));
+  if(report.final?.results===1&&!report.final.error){
+    await browser.waitFor('paintSetupGate.queued===1||tact.state.error',60000);
+    report.resultsPaint=await browser.evaluate(`(()=>{const before=tact.state.frames;paintSetupGate.step('natural results presentation');return {before,after:tact.state.frames,results:tact.state.memory.readI32(0x5363f4),error:tact.state.error};})()`);
+  }
+  report.finalSnapshot=await browser.evaluate(deterministicSetupSnapshotExpression(addresses));
+  const {data}=await browser.call('Page.captureScreenshot',{format:'png'});
+  await writeFile(resolve(output,'final.png'),Buffer.from(data,'base64'));
+  const sources=new Map(browser.events.filter(e=>e.method==='Network.responseReceived'&&/\.js(?:\?|$)/.test(e.params.response.url)).map(e=>[e.params.response.url,e.params.requestId]));
+  report.moduleSources=[];
+  for(const [url,requestId]of sources){const {body,base64Encoded}=await browser.call('Network.getResponseBody',{requestId});const bytes=Buffer.from(body,base64Encoded?'base64':'utf8');const path=new URL(url).pathname.slice(1),pin=reference.files.find(f=>f.path===path),sha256=createHash('sha256').update(bytes).digest('hex');report.moduleSources.push({url,path,bytes:bytes.length,sha256,frozenMatch:pin?.sha256===sha256&&pin?.bytes===bytes.length});}
+  report.exceptions=browser.events.filter(e=>e.method==='Runtime.exceptionThrown').map(e=>e.params.exceptionDetails);
+  const humanLegs=[...new Set(report.transitions.flatMap(t=>t.changes.filter(b=>b.id===1).map(b=>b.leg)))];
+  report.acceptance={fullMode:report.setup.entry.mode===0&&report.samples.every(s=>s.mode===0),
+    originalRaceStarted:report.setup.entry.racing===2&&report.setup.entry.clock<0,
+    passedDemoClock:report.final.clock>260,
+    humanLegs,allHumanLegsObserved:Array.from({length:report.final.finalLeg+2},(_,i)=>i).every(leg=>humanLegs.includes(leg)),
+    allBoatsFinished:report.final.boats.length===fleet&&report.final.boats.every(b=>b.finish>0&&b.leg>report.final.finalLeg),
+    naturalResults:report.final.results===1,
+    resultsPresented:report.resultsPaint?.after===report.resultsPaint?.before+1&&!report.resultsPaint?.error,
+    noErrors:!report.final.error&&report.exceptions.length===0,
+    frozenModules:report.moduleSources.length>0&&report.moduleSources.every(s=>s.frozenMatch)};
+  report.complete=Object.values(report.acceptance).every(v=>Array.isArray(v)||v===true);
+  if(!report.complete)process.exitCode=1;
+}catch(error){report.failure=String(error.stack??error);process.exitCode=1;console.error(report.failure);}
+finally{
+  report.finishedAt=new Date().toISOString();
+  await writeFile(resolve(output,'report.json'),JSON.stringify(report,null,2)+'\n');
+  await browser?.close();await new Promise(r=>server.close(r));
+}

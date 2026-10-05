@@ -1,0 +1,14 @@
+{
+  "format": 1,
+  "first": "versions/2026/analysis/baseline/BASE-03-race-5-a",
+  "second": "versions/2026/analysis/baseline/BASE-03-race-5-b",
+  "scope": "Unmasked whole-image hashes are compared separately from sampled telemetry, RNG, controls and transitions. A matching sampled trace is not a whole-state determinism certificate.",
+  "bothComplete": true,
+  "entryImageEqual": true,
+  "finishImageEqual": false,
+  "finishRngEqual": true,
+  "controlsEqual": true,
+  "transitionsEqual": true,
+  "samplesEqual": true,
+  "byteDifferenceUnavailable": "An earlier collector saved hashes without raw finish images."
+}

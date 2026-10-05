@@ -1,0 +1,19 @@
+{
+  "format": 1,
+  "first": "versions/2026/analysis/baseline/BASE-03-race-5-c",
+  "second": "versions/2026/analysis/baseline/BASE-03-race-5-d",
+  "scope": "Unmasked whole-image hashes are compared separately from sampled telemetry, RNG, controls and transitions. A matching sampled trace is not a whole-state determinism certificate.",
+  "bothComplete": true,
+  "entryImageEqual": true,
+  "finishImageEqual": true,
+  "finishRngEqual": true,
+  "controlsEqual": true,
+  "transitionsEqual": true,
+  "samplesEqual": true,
+  "byteDifference": {
+    "differentBytes": 0,
+    "words": []
+  },
+  "literalReferences": {},
+  "referenceScope": "Literal source mentions are candidate readers/writers, not exhaustive alias analysis; computed addresses may reference the same bytes."
+}

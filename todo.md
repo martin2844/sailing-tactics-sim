@@ -75,11 +75,16 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   Accepted: finite native/runtime/browser/export gates pass after dependency
   remediation; full mode retained; real complete-race evidence remains `BASE-03`.
 
-- [ ] **BASE-03 — Establish real complete-race evidence** · P0 · L · Depends: BASE-02.
+- [x] **BASE-03 — Establish real complete-race evidence** · P0 · L · Depends: BASE-02.
 
   Done when: supported candidate setups progress through real starts, marks and
   finishes with original controls; record scenarios, inputs, finish/events and
   any baseline bugs without forcing result flags or substituting native outputs.
+
+  Completed 2026-10-05; atomic commit: `BASE-03: establish natural complete-race
+  evidence`; [evaluation](versions/2026/analysis/baseline/BASE-03.md). Both
+  5/15-boat candidates finish naturally; one repeated raw finish-image pair
+  matches exactly. Earlier hash-only mismatch B03-01 remains recorded.
 
 - [ ] **BASE-04 — Inventory paint and drawing side effects** · P0 · L · Depends: BASE-02.
 
@@ -803,20 +808,22 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 
 ## Blockers and scope decisions
 
-No implementation blockers have been resolved or declared yet. Known research
-risks are documented in the plan and assigned to BASE/ENG/RPL tasks.
+Known research risks are documented in the plan and assigned to BASE/ENG/RPL
+tasks. Findings below remain open until their follow-up evidence resolves them.
 
 | Task | Blocker / evidence | Next concrete action | Decision link |
 | --- | --- | --- | --- |
-| — | — | — | — |
+| B03-01 / BASE-04, ENG/QA | Earlier full-image hashes differ despite matching race telemetry; later raw pair matches | Classify drawing/host dependencies; retain raw snapshots on any recurrence | [BASE-03](versions/2026/analysis/baseline/BASE-03.md) |
 
 ## Completion evidence log
 
-Implementation tasks are intentionally unchecked. Add evidence as work completes.
+Check tasks off only after evaluating their acceptance criteria, and link the
+retained evidence here.
 
 | Task / milestone | Completed | Commit / PR | Test / report / artifact | Remaining limitation |
 | --- | --- | --- | --- | --- |
 | BASE-01 | 2026-10-05 | `cb60695` | [Evaluation](versions/2026/analysis/baseline/BASE-01.md) | Integrity baseline only |
 | BASE-02 | 2026-10-05 | Atomic `BASE-02` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-02.md) | Finite checks; real races and modern performance remain open |
 | BASE-07 | 2026-10-05 | Atomic `BASE-07` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-07.md) | Performance unmeasured; Pixel 11 physical validation later |
+| BASE-03 | 2026-10-05 | Atomic `BASE-03` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-03.md) | B03-01 recorded; controlled races do not certify smoothness or all replay state |
 | — | — | — | — | — |
