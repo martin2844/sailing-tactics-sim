@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {MODEL_QUANTUM,type NativeModelPacket} from './native-models';
+import {drawOpenDeck,type MeshPrimitive} from './boat-deck';
 const primitiveSphere=new THREE.SphereGeometry(1,8,6).toNonIndexed();
 const spherePoints=primitiveSphere.getAttribute('position');
 const colors=new Map<number,THREE.Color>();
@@ -16,16 +17,21 @@ export class NativeBoatMesh {
    const axis=b.clone().sub(a);if(axis.lengthSq()<.000001)return;axis.normalize();const u=new THREE.Vector3().crossVectors(axis,Math.abs(axis.y)>.9?new THREE.Vector3(1,0,0):new THREE.Vector3(0,1,0)).normalize().multiplyScalar(radius),v=new THREE.Vector3().crossVectors(axis,u);
    for(let i=0;i<5;i++){const t=i/5*Math.PI*2,next=(i+1)/5*Math.PI*2;const e=u.clone().multiplyScalar(Math.cos(t)).addScaledVector(v,Math.sin(t)),f=u.clone().multiplyScalar(Math.cos(next)).addScaledVector(v,Math.sin(next));triangle(a.clone().add(e),b.clone().add(e),b.clone().add(f),color);triangle(a.clone().add(e),b.clone().add(f),a.clone().add(f),color);}
   };
+  const primitives:MeshPrimitive[]=[];
+  for(let at=start;at<end;){const op=packet.records[at++],part=packet.records[at++],fill=nativeColor(packet.colors[packet.records[at++]]),stroke=nativeColor(packet.colors[packet.records[at++]]),flags=packet.records[at++],radius=packet.records[at++]/MODEL_QUANTUM,count=packet.records[at++];const points=Array.from(packet.records.slice(at,at+count),point);at+=count;const p:MeshPrimitive={op,part,fill,stroke,flags,radius,points};if(op===3){p.rx=packet.records[at++]/MODEL_QUANTUM;p.ry=packet.records[at++]/MODEL_QUANTUM;}primitives.push(p);}
+  const deck=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===11),cockpit=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===4);
   const topology:number[]=[];
-  for(let at=start;at<end;){const op=packet.records[at++],part=packet.records[at++],fill=nativeColor(packet.colors[packet.records[at++]]),stroke=nativeColor(packet.colors[packet.records[at++]]),flags=packet.records[at++],radius=packet.records[at++]/MODEL_QUANTUM,count=packet.records[at++];const points=Array.from(packet.records.slice(at,at+count),point);at+=count;topology.push(op,part,count);
+  for(const p of primitives){const {op,part,fill,stroke,flags,radius,points}=p;topology.push(op,part,points.length);
+   if(deck&&cockpit){if(p===cockpit)continue;if(p===deck){topology.push(...drawOpenDeck(deck,cockpit,triangle,rod));continue;}}
    if(op===1){
     // The same recovered polygon contour determines its triangulation. Curved
     // sails keep all native edge vertices rather than becoming one triangle.
     const plane=points.map(p=>new THREE.Vector2(p.x*Math.cos(-.6108735491753208)+p.z*Math.sin(-.6108735491753208),p.y-.3*(-p.x*Math.sin(-.6108735491753208)+p.z*Math.cos(-.6108735491753208))));
-    if(!(flags&2))for(const face of THREE.ShapeUtils.triangulateShape(plane,[]))triangle(points[face[0]],points[face[1]],points[face[2]],fill);
+    const faces=THREE.ShapeUtils.triangulateShape(plane,[]);topology.push(...faces.flat());
+    if(!(flags&2))for(const face of faces)triangle(points[face[0]],points[face[1]],points[face[2]],fill);
     if(!(flags&1))for(let i=0;i<points.length;i++)rod(points[i],points[(i+1)%points.length],stroke,radius);
    }else if(op===2){if(!(flags&1)){rod(points[0],points[1],stroke,radius);}}
-   else if(op===3){const rx=packet.records[at++]/MODEL_QUANTUM,ry=packet.records[at++]/MODEL_QUANTUM;const center=points[0];
+   else if(op===3){const rx=p.rx!,ry=p.ry!;const center=points[0];
     if(!(flags&2))for(let i=0;i<spherePoints.count;i++){const p=new THREE.Vector3(spherePoints.getX(i)*rx,spherePoints.getY(i)*ry,spherePoints.getZ(i)*rx).add(center);put(p,fill);}
    }else throw new Error('Unreviewed native mesh operation '+op);
   }

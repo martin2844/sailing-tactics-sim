@@ -300,6 +300,9 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   and tested on one reference model.
 
 - [ ] **GFX-03 — Create the polished low-poly keelboat** · P1 · L · Depends: GFX-02.
+  - [x] **GFX-03a — Remove deck/cockpit overlap** (2026-10-05): native cockpit
+    footprint cut from the deck, recessed floor/coaming and safe triangulation
+    changes during interpolation; [evaluated](versions/2026/analysis/app/COCKPIT.md).
 
   Done when: hull/deck/mast/boom/sails/simple crew have a readable silhouette,
   original 2010 proportions, sail contours and usable articulation, fit the asset budget, and ship
