@@ -929,7 +929,7 @@ extensions must be identified and must not silently replace original behavior.
   all rig/hull/crew families, spinnaker differences, gate/fleet restrictions,
   native area/course compatibility and proper setup labels. Evaluate native
   boundaries and visual fidelity for every supported choice.
-- [ ] **EXT-06 — Expose native wind/gusts, waves, depth, current and grounding.**
+- [x] **EXT-06 — Expose native wind/gusts, waves, depth, current and grounding.**
   Render native shoreline/navigation geometry, readable local gust/current/depth
   instruments and grounded status, with restrained wave/gust visuals. Port
   environmental physics already present; any illustrative additions remain
