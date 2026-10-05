@@ -5,10 +5,10 @@ import {paintMeasurementInstrumentation} from '../../../tools/paint-measurements
 import {deterministicPaintSetupInstrumentation,runDeterministicPaintSetup,deterministicSetupSnapshotExpression} from '../../../tools/deterministic-paint-setup.js';
 export const addresses={time:0x5359f0,clock:0x4f8cd0,speed:0x4da174,divisor:0x4da178,racing:0x5363b0,mode:0x4da16c,notice:0x53648c,autoSlow:0x4da1dc,overlays:[0x536444,0x5363f0,0x5233a8,0x536434,0x536438,0x53644c]};
 let server;
-export async function referenceSession({fleet=5,record='',before='',setup=true}={}){
+export async function referenceSession({fleet=5,record='',before='',setup=true,headless=false}={}){
   if(![5,15].includes(fleet))throw new Error('Unsupported candidate fleet');
   if(!server){process.env.TACT_PORT='0';process.env.TACT_HOST='127.0.0.1';({server}=await import('../../../tools/serve.js'));if(!server.listening)await new Promise((r,j)=>{server.once('listening',r);server.once('error',j);});}
-  const browser=await openBrowser(`http://127.0.0.1:${server.address().port}/versions/2010-en/play.html`,{headless:false,gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
+  const browser=await openBrowser(`http://127.0.0.1:${server.address().port}/versions/2010-en/play.html`,{headless,gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
   try{
     await browser.call('Emulation.setDeviceMetricsOverride',{width:1280,height:1050,deviceScaleFactor:1,mobile:false});
     const instrumentation=paintMeasurementInstrumentation(record,{setupGate:true});

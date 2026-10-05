@@ -6,10 +6,10 @@ const out=resolve(process.argv[2]??'');if(process.argv.length!==3)throw new Erro
 const runs=[];
 try{
  for(const fleet of [5,15]){
-  const ref=await referenceSession({fleet});let candidate;
+  const ref=await referenceSession({fleet,headless:process.env.TACT_HEADLESS==='1'});let candidate;
   try{
    await ref.command(32850);
-   candidate=await openBrowser(`http://127.0.0.1:8770/spike/?manual&fleet=${fleet}`,{headless:false,gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
+   candidate=await openBrowser(`http://127.0.0.1:8770/spike/?manual&fleet=${fleet}`,{headless:process.env.TACT_HEADLESS==='1',gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
    await candidate.call('Emulation.setDeviceMetricsOverride',{width:1280,height:1050,deviceScaleFactor:1,mobile:false});
    await candidate.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);
    const error=await candidate.evaluate('tact2026.error');if(error)throw new Error(error);
@@ -21,7 +21,7 @@ try{
     if(command){await ref.command(command);await candidate.evaluate(`tact2026.engine.send('command',${command})`);}
     await ref.step('worker pairing '+n);
     await candidate.evaluate('tact2026.engine.request("step",1)');
-    const snapshot=await candidate.evaluate('tact2026.latest');costs.push({workMs:snapshot.workMs,bytes:Buffer.byteLength(JSON.stringify(snapshot))});
+    const snapshot=await candidate.evaluate('(()=>{const {nativeVisuals,...state}=tact2026.latest;return {workMs:state.workMs,bytes:new TextEncoder().encode(JSON.stringify(state)).byteLength+nativeVisuals.geometry.byteLength+nativeVisuals.styles.byteLength+nativeVisuals.boats.byteLength};})()');costs.push(snapshot);
     if((n+1)%8===0)await compare('step '+(n+1));
    }
    runs.push({fleet,browser:candidate.metadata,boundaries,costs,referenceModules:await ref.modules()});

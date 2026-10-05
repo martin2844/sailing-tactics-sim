@@ -2,8 +2,10 @@
 
 This directory contains the modern edition's implementation and verification
 work. Product scope is defined in [PLAN-2026.md](../../PLAN-2026.md); execution
-is tracked in [todo.md](../../todo.md). The isolated development scaffold is available; worker and renderer
-are being evaluated as bounded prototypes. Preservation players remain under their original routes.
+is tracked in [todo.md](../../todo.md). The isolated app runs the preserved
+simulation in a worker with faithful native-derived 3D boats and free cameras.
+Worker and renderer are evaluated bounded prototypes. Preservation players remain
+under their original routes.
 
 The 2010 reference is commit `64d5cdf`. Its exact source, assets, native runtime,
 shared numerical/drawing support, comparison archives and existing evaluation
@@ -31,6 +33,8 @@ Completed task evaluations:
 - [BASE-02: reproduced correctness baseline](analysis/baseline/BASE-02.md).
 - [BASE-03: natural complete races](analysis/baseline/BASE-03.md).
 - [BASE-07: Chrome desktop targets and budgets](analysis/baseline/BASE-07.md).
+- [ENG-02: compatible original paint worker](analysis/app/ENG-02.md).
+- [GFX-01: faithful 3D renderer and backend evaluation](analysis/app/GFX-01.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.
@@ -47,6 +51,20 @@ npm run preview
 ```
 
 Dependencies are exact versions in this directory only. prepare:legacy checks
-pinned source/asset hashes and generates byte-exact public runtime copies,
-without bundling original code. Generated copies and dist are ignored.
+pinned source/asset hashes for all 167 inputs. It copies 166 byte for byte and
+generates one explicit boat observation/private-model adapter in drawing-functions.js,
+without bundling original code. The generated manifest records source and output
+hashes separately. Generated copies and dist are ignored.
 Original root commands and preservation routes are unchanged.
+
+Use `/` for the WebGL 2 development player, `/spike/?fleet=15&backend=webgpu`
+to inspect the requested alternative, and `?manual` for paused diagnostics.
+Drag the canvas to orbit and scroll to zoom; Follow boat resets the camera.
+Port/Starboard, Tack, Close hauled and Run invoke original controls. Arrow keys
+steer, T tacks and Space pauses. Native pace names retain the audited original
+levels rather than promising fixed wall-time multipliers.
+
+The geometry foundation and remaining fidelity work are described in
+[native-boat-models.md](docs/native-boat-models.md). The lake scenery and model
+world scale are provisional; the app does not yet render course marks or supply
+the complete tactical interface, replay, coaching or production assets.

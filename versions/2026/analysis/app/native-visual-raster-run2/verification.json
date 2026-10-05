@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "scope": "Original observed boat vector primitives vs original GDI sink, exact RGBA at alpha 1; original painter projection, not rebuilt 3D geometry",
+  "runs": [
+    {
+      "fleet": 5,
+      "comparisons": [
+        {
+          "sequence": 9,
+          "width": 1024,
+          "height": 361,
+          "boats": [
+            5,
+            0,
+            3,
+            2,
+            1
+          ],
+          "counts": {
+            "polygon": 36,
+            "lineTo": 125,
+            "ellipse": 9
+          },
+          "differentBytes": 0,
+          "visiblePixels": 15506,
+          "actualSha256": "56d911f4860256cca568290304fe2f2a79f74a12cb9ce73b6de7da1ebd257a4a",
+          "referenceSha256": "56d911f4860256cca568290304fe2f2a79f74a12cb9ce73b6de7da1ebd257a4a",
+          "packetBytes": 6564,
+          "snapshotBytes": 7290
+        },
+        {
+          "sequence": 17,
+          "width": 1024,
+          "height": 361,
+          "boats": [
+            5,
+            0,
+            3,
+            2,
+            1
+          ],
+          "counts": {
+            "polygon": 39,
+            "lineTo": 125,
+            "ellipse": 9
+          },
+          "differentBytes": 0,
+          "visiblePixels": 15969,
+          "actualSha256": "79f70c35e93fb3f7db1a3cac9b9703249b76099e8665b12c508461cad3881f34",
+          "referenceSha256": "79f70c35e93fb3f7db1a3cac9b9703249b76099e8665b12c508461cad3881f34",
+          "packetBytes": 6768,
+          "snapshotBytes": 7518
+        },
+        {
+          "sequence": 25,
+          "width": 1024,
+          "height": 361,
+          "boats": [
+            5,
+            0,
+            3,
+            2,
+            1
+          ],
+          "counts": {
+            "polygon": 39,
+            "lineTo": 125,
+            "setPixel": 18,
+            "ellipse": 9
+          },
+          "differentBytes": 0,
+          "visiblePixels": 13730,
+          "actualSha256": "9957a505f92eb545d80dfdc8f96dacbea16b652aaeda8890c7273efdfdd9a987",
+          "referenceSha256": "9957a505f92eb545d80dfdc8f96dacbea16b652aaeda8890c7273efdfdd9a987",
+          "packetBytes": 7232,
+          "snapshotBytes": 8013
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "comparisons": [
+        {
+          "sequence": 9,
+          "width": 1024,
+          "height": 361,
+          "boats": [
+            14,
+            0,
+            11,
+            10,
+            9,
+            4,
+            7,
+            1
+          ],
+          "counts": {
+            "polygon": 57,
+            "lineTo": 257,
+            "ellipse": 18
+          },
+          "differentBytes": 0,
+          "visiblePixels": 29409,
+          "actualSha256": "85fa7cc6bce754014c1a289a872e07b56c8a314e1a019a0bf3f55d6dca5364b9",
+          "referenceSha256": "85fa7cc6bce754014c1a289a872e07b56c8a314e1a019a0bf3f55d6dca5364b9",
+          "packetBytes": 11976,
+          "snapshotBytes": 13608
+        },
+        {
+          "sequence": 17,
+          "width": 1024,
+          "height": 361,
+          "boats": [
+            14,
+            0,
+            11,
+            10,
+            9,
+            4,
+            7,
+            1
+          ],
+          "counts": {
+            "polygon": 59,
+            "lineTo": 257,
+            "ellipse": 18
+          },
+          "differentBytes": 0,
+          "visiblePixels": 32530,
+          "actualSha256": "acae679acf87b6a35c1ce09f517ca7297f5449b33be0ac3130958bf2bb13d8f7",
+          "referenceSha256": "acae679acf87b6a35c1ce09f517ca7297f5449b33be0ac3130958bf2bb13d8f7",
+          "packetBytes": 12064,
+          "snapshotBytes": 13714
+        },
+        {
+          "sequence": 25,
+          "width": 1024,
+          "height": 361,
+          "boats": [
+            14,
+            0,
+            11,
+            10,
+            9,
+            4,
+            7,
+            1
+          ],
+          "counts": {
+            "polygon": 59,
+            "lineTo": 257,
+            "ellipse": 18
+          },
+          "differentBytes": 0,
+          "visiblePixels": 28899,
+          "actualSha256": "281f5a5194c1ee3b737ea9f8a14e1b8b397aba987f04e54b3f22b5384156ca2c",
+          "referenceSha256": "281f5a5194c1ee3b737ea9f8a14e1b8b397aba987f04e54b3f22b5384156ca2c",
+          "packetBytes": 12064,
+          "snapshotBytes": 13721
+        }
+      ]
+    }
+  ]
+}

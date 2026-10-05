@@ -278,11 +278,20 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 
 ## GFX: low-poly scene and smooth rendering
 
-- [ ] **GFX-01 — Compare and pin the renderer backend** · P0 · M · Depends: APP-01, BASE-07.
+- [x] **GFX-01 — Compare and pin the renderer backend** · P0 · M · Depends: APP-01, BASE-07.
 
   Done when: a bounded Three.js WebGL 2/WebGPU spike checks startup, materials,
   worker coexistence, target devices and timings; the proposed WebGL 2 MVP choice
   or an evidence-backed alternative is recorded with an exact dependency version.
+
+  Completed 2026-10-05; [evaluation](versions/2026/analysis/app/GFX-01.md).
+  Three.js 0.186.1 / WebGL 2 selected after five headed Chrome repetitions;
+  the requested WebGPU route uses an explicitly reported WebGL fallback here.
+  Faithful native-derived 3D boats replace the rejected generic boat, with free
+  orbit, curved sails, moving boom, original crew and black penalty main.
+  Whole native state checks and graphics recovery pass. This accepts the bounded
+  renderer spike; polished/exported assets, verified world scale, production
+  transport, full-session QA and physical Pixel 11 testing remain open.
 
 - [ ] **GFX-02 — Establish model, material and export conventions** · P1 · M · Depends: BASE-08, ENG-08, GFX-01.
 
@@ -293,8 +302,12 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 - [ ] **GFX-03 — Create the polished low-poly keelboat** · P1 · L · Depends: GFX-02.
 
   Done when: hull/deck/mast/boom/sails/simple crew have a readable silhouette,
-  correct proportions and usable articulation, fit the asset budget, and ship
+  original 2010 proportions, sail contours and usable articulation, fit the asset budget, and ship
   with editable source, provenance and verified exports.
+
+  User direction 2026-10-05: retain recognizable original boat geometry and
+  people aboard. Refine the native-derived spike rather than substituting a
+  generic hull or triangular sail. See [model foundation](versions/2026/docs/native-boat-models.md).
 
 - [ ] **GFX-04 — Implement fleet LOD and shared geometry/materials** · P1 · M · Depends: GFX-03.
 
@@ -311,7 +324,9 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 - [ ] **GFX-06 — Animate sails, boom, heel and simple crew** · P1 · L · Depends: GFX-03, GFX-05.
 
   Done when: verified tack/trim/luff/heel data visibly drives the rig with bounded
-  geometry updates; illustrative animation is distinguished from authoritative
+  geometry updates, including the original boom response and black penalty sail;
+  original crew remains visible from suitable free-camera angles;
+  illustrative animation is distinguished from authoritative
   values and uses no simulation RNG or physical feedback.
 
 - [ ] **GFX-07 — Build the low-poly Round Lake environment** · P1 · L · Depends: GFX-02, BASE-06, ENG-08.
@@ -843,4 +858,5 @@ retained evidence here.
 | BASE-06 | 2026-10-05 | Atomic `BASE-06` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-06.md) | Initial presets, not replay checkpoints or control-independent weather |
 | APP-01 | 2026-10-05 | Atomic `APP-01` commit; see file history | [Evaluation](versions/2026/analysis/app/APP-01.md) | Scaffold; live worker and renderer are next bounded spikes |
 | ENG-02 | 2026-10-05 | Atomic `ENG-02` commit; see file history | [Evaluation](versions/2026/analysis/app/ENG-02.md) | Full original Canvas retained; finite paired traces, production transport later |
+| GFX-01 | 2026-10-05 | Atomic `GFX-01` commit; see file history | [Evaluation](versions/2026/analysis/app/GFX-01.md) | Faithful native-derived 3D spike; native WebGPU unmeasured; production assets/world scale and Pixel 11 later |
 | — | — | — | — | — |

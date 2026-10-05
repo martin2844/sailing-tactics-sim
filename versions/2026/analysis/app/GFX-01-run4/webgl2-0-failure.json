@@ -1,0 +1,237 @@
+{
+  "message": "Error: Owned evaluation window focus failed: error: [string \"return hl.dispatch(hl.dsp.window.focus({windo...\"]:1: attempt to call a nil value (field 'focus')\n\n    at focus (file:///home/martin/tact/versions/2026/tools/renderer-eval.mjs:6:275)\n    at async file:///home/martin/tact/versions/2026/tools/renderer-eval.mjs:20:4",
+  "state": {
+    "ready": true,
+    "paused": false,
+    "latest": {
+      "generation": 1,
+      "sequence": 11,
+      "time": -169.80693982225762,
+      "clock": -169,
+      "pace": 10,
+      "windDirection": 316,
+      "windStrength": 11,
+      "boats": [
+        {
+          "id": 1,
+          "x": 135.00806382163603,
+          "y": -49.461969745632146,
+          "heading": 1,
+          "speed": 0.2,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 2,
+          "x": 36.574801321980665,
+          "y": 87.9173203056607,
+          "heading": 271,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 3,
+          "x": -32.43309615095453,
+          "y": 121.99241239999733,
+          "heading": 286,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 4,
+          "x": 139,
+          "y": -73,
+          "heading": 271,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 5,
+          "x": 265.9855634616348,
+          "y": -6.000252920000088,
+          "heading": 271,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 6,
+          "x": 273.97112692326965,
+          "y": -64.00050584000019,
+          "heading": 271,
+          "speed": 0.2,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 7,
+          "x": 179.9711269232697,
+          "y": -65.00050584000019,
+          "heading": 271,
+          "speed": 0.2,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 8,
+          "x": 221.9711269232697,
+          "y": -82.00050584000019,
+          "heading": 271,
+          "speed": 0.2,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 9,
+          "x": 173.9711269232697,
+          "y": -78.00050584000019,
+          "heading": 271,
+          "speed": 0.2,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 10,
+          "x": 182.9711269232697,
+          "y": -90.00050584000019,
+          "heading": 271,
+          "speed": 0.2,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 11,
+          "x": 208,
+          "y": -117,
+          "heading": 271,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 12,
+          "x": 58,
+          "y": 43,
+          "heading": 286,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 13,
+          "x": 74,
+          "y": 20,
+          "heading": 286,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 14,
+          "x": 225,
+          "y": -180,
+          "heading": 286,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        },
+        {
+          "id": 15,
+          "x": 398,
+          "y": -178,
+          "heading": 286,
+          "speed": 0,
+          "leg": 0,
+          "finished": 0
+        }
+      ],
+      "marks": [
+        {
+          "x": -605,
+          "y": -805
+        },
+        {
+          "x": -754,
+          "y": -656
+        },
+        {
+          "x": 694,
+          "y": 719
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 179,
+          "y": -173
+        }
+      ],
+      "results": false,
+      "workMs": 63.400000005960464,
+      "minimumDelayMs": 0,
+      "sentAt": 1791201282663
+    },
+    "metrics": {
+      "samples": [
+        {
+          "intervalMs": 0,
+          "cpuMs": 163,
+          "changed": true,
+          "poseChanged": true,
+          "sequence": 9,
+          "alpha": 0.01500000014901275,
+          "calls": 60,
+          "triangles": 19875
+        },
+        {
+          "intervalMs": 170.79999999999995,
+          "cpuMs": 2.7000000178813934,
+          "changed": true,
+          "poseChanged": true,
+          "sequence": 11,
+          "alpha": 0,
+          "calls": 60,
+          "triangles": 19875
+        },
+        {
+          "intervalMs": 17.200000000000045,
+          "cpuMs": 2,
+          "changed": true,
+          "poseChanged": true,
+          "sequence": 11,
+          "alpha": 1,
+          "calls": 60,
+          "triangles": 19875
+        }
+      ],
+      "gpuMs": [
+        0.0992,
+        0.32124
+      ],
+      "backend": "WebGL 2",
+      "adapterInfo": {
+        "vendor": "Google Inc. (AMD)",
+        "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+      },
+      "workerCosts": [
+        0,
+        61.79999998211861,
+        63.400000005960464
+      ],
+      "snapshotBytes": [
+        1632,
+        1642,
+        1644
+      ],
+      "responses": [],
+      "readyMs": 974.9000000059605
+    },
+    "visible": "visible",
+    "focused": true,
+    "visibility": []
+  }
+}
