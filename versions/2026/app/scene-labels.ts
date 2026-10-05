@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {boatName} from './fleet-names';
+import {navigationTarget} from './navigation';
 import type {SceneSnapshot} from './protocol';
 import type {NativeBoatMesh} from './native-boat-mesh';
 import type {CourseScene} from './course-scene';
@@ -16,6 +17,7 @@ export class SceneLabels {
  readonly boatBounds=new Map<number,Rect&{depth:number}>();readonly reserved:Rect[]=[];
  showAll=false;selected?:number;private hovered?:number;private down?:{x:number;y:number};
  private ctx:CanvasRenderingContext2D;private width=0;private height=0;private dpr=0;
+ private slots=new Map<string,number>();
  private metrics=new Map<string,{text:string;width:number}>();private scratch=new THREE.Vector3();
  private pointer=(event:PointerEvent)=>{
   const r=this.sceneCanvas.getBoundingClientRect(),x=event.clientX-r.left,y=event.clientY-r.top;
@@ -78,10 +80,11 @@ export class SceneLabels {
    if(!selected&&!this.showAll&&w<15)continue;
    candidates.push({key:'boat-'+boat.id,text:boatName(boat),anchor:{x:x+w/2,y,depth},priority:selected?1:6+depth/10000,badge:false,active:selected,boat:boat.id,bounds});
   }
+  const targetKind=navigationTarget(state.course,state.boats[0],state.clock).kind;
   for(const anchor of course.labelAnchors(state.course)){
    this.scratch.set(0,anchor.height,0).applyMatrix4(anchor.object.matrixWorld);const point=this.project(this.scratch,camera);
    if(!point||point.x<0||point.x>this.width||point.y<0||point.y>this.height)continue;
-   const active=state.clock>=0&&Math.hypot(anchor.point.x-state.course.target.x,anchor.point.y-state.course.target.y)<2;
+   const active=anchor.key===targetKind||targetKind==='gate'&&anchor.key.startsWith('gate-')||['start','finish'].includes(targetKind)&&['pin','committee'].includes(anchor.key);
    candidates.push({key:anchor.key,text:anchor.text,anchor:point,priority:active?0:state.clock<0&&['pin','committee'].includes(anchor.key)?2:3,badge:anchor.badge,active});
   }
   candidates.sort((a,b)=>a.priority-b.priority||a.anchor.depth-b.anchor.depth||a.key.localeCompare(b.key));
@@ -92,9 +95,10 @@ export class SceneLabels {
    const {x,y}=candidate.anchor;
    const slots=[{x:x-w/2,y:y-h-8},{x:x+10,y:y-h/2},{x:x-w-10,y:y-h/2},
     {x:x-w/2,y:y-h-30},{x:x+20,y:y-h-12},{x:x-w-20,y:y-h-12}];
-   const slot=slots.find(s=>s.x>=8&&s.y>=8&&s.x+w<=this.width-8&&s.y+h<=this.height-8
+   const previous=this.slots.get(candidate.key);const ordered=previous===undefined?slots:[slots[previous],...slots.filter((_,i)=>i!==previous)];
+   const slot=ordered.find(s=>s.x>=8&&s.y>=8&&s.x+w<=this.width-8&&s.y+h<=this.height-8
     &&!occupied.some(r=>overlaps({...s,w,h},r))&&!boats.some(r=>overlaps({...s,w,h},r,2)));
-   if(!slot)continue;
+   if(!slot)continue;this.slots.set(candidate.key,slots.indexOf(slot));
    const label={...slot,w,h,key:candidate.key,text:measured.text,anchor:candidate.anchor,active:candidate.active,boat:candidate.boat,badge:candidate.badge};
    this.placed.push(label);occupied.push(label);if(candidate.boat&&candidate.priority>=6)nearby++;
    const endX=Math.max(slot.x,Math.min(slot.x+w,x)),endY=Math.max(slot.y,Math.min(slot.y+h,y));
@@ -106,6 +110,6 @@ export class SceneLabels {
    ctx.fillText(measured.text,slot.x+w/2,slot.y+h/2);
   }
  }
- reset(){this.selected=undefined;this.hovered=undefined;this.down=undefined;this.placed.length=0;this.boatBounds.clear();this.names.clear();this.ctx.clearRect(0,0,this.width*this.dpr,this.height*this.dpr);}
+ reset(){this.slots.clear();this.selected=undefined;this.hovered=undefined;this.down=undefined;this.placed.length=0;this.boatBounds.clear();this.names.clear();this.ctx.clearRect(0,0,this.width*this.dpr,this.height*this.dpr);}
  dispose(){for(const type of ['pointermove','pointerdown','pointerup','pointerleave'] as const)this.sceneCanvas.removeEventListener(type,this.pointer);this.canvas.remove();this.metrics.clear();}
 }

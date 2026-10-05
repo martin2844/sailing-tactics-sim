@@ -71,7 +71,7 @@ function snapshot(workMs:number):SceneSnapshot {
     view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
-    course:{marks:marks.slice(0,3),gate:i(0x4da1e8)?[{x:i(0x4f4a68),y:i(0x4f6d34)},{x:i(0x523248),y:i(0x52359c)}]:[],start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c),guides:extractGuides(),headingReference:(i(0x535740+owner*4)-(i(0x536490)?i(0x522ff0+owner*4)*45:0)+720)%360},
+    course:{marks:marks.slice(0,3),gate:i(0x4da1e8)?[{x:i(0x4f4a68),y:i(0x4f6d34)},{x:i(0x523248),y:i(0x52359c)}]:[],start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c),guides:extractGuides(),navigationTarget:extractGuides.navigation,headingReference:(i(0x535740+owner*4)-(i(0x536490)?i(0x522ff0+owner*4)*45:0)+720)%360},
     results:i(0x5363f4)!==0,resultsReady,completedRaces:i(0x5363fc),seriesScoring:i(0x536424)===0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
 }
 function panelTitle():string|null{
@@ -130,7 +130,7 @@ async function initialize(data:any){
   // replaces the fictitious upper-word read. Modern 3D remains independent.
   if([33017,33018,33029,33031,33032].includes(settings.area??0)){options.numberRendering=false;options.smoothGraphics=false;}
   modelExtractor=createModelExtractor({memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,modelDraw});
-  guideContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,guideDraw:modelModule.nativeCourseGuideSelector,originalGuideChart:modelModule.originalDrawing00431ab0};
+  guideContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,guideDraw:modelModule.nativeCourseGuideSelector,originalGuideChart:modelModule.originalDrawing00431ab0,originalTargetDraw:modelModule.originalDrawing00440350};
   extractGuides=createGuideExtractor(guideContext);
   modelWorker=new Worker(new URL('./models.worker.ts',import.meta.url),{type:'module'});
   modelWorker.onerror=event=>fail(event.message);

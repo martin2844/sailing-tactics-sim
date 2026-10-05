@@ -37,7 +37,7 @@ export class SailingScene {
     const geo=this.geometry(new THREE.PlaneGeometry(12000,12000,96,96).toNonIndexed());geo.rotateX(-Math.PI/2);
     // Presentation-only facets, independent of original wind/wave randomness.
     const position=geo.attributes.position;const colors=[];
-    for(let i=0;i<position.count;i++){const x=position.getX(i),z=position.getZ(i);position.setY(i,0);const color=new THREE.Color('#177f9c');const face=Math.floor(i/3);color.multiplyScalar(.78+.24*(Math.sin(face*12.9898)+1)/2);colors.push(color.r,color.g,color.b);}
+    for(let i=0;i<position.count;i++){const x=position.getX(i),z=position.getZ(i);position.setY(i,0);const color=new THREE.Color('#177f9c');const face=Math.floor(i/3);color.multiplyScalar(.88+.12*(Math.sin(face*12.9898)+1)/2);colors.push(color.r,color.g,color.b);}
     geo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geo.computeVertexNormals();
     this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=-1.5;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
     this.scene.add(this.environment.group);
@@ -66,7 +66,7 @@ export class SailingScene {
   }
   resize(){if(!this.renderer||this.disposed)return;const rect=this.canvas.getBoundingClientRect();const w=Math.max(1,Math.round(rect.width)),h=Math.max(1,Math.round(rect.height));if(w===this.width&&h===this.height)return;this.width=w;this.height=h;this.camera.aspect=w/h;this.camera.updateProjectionMatrix();this.renderer.setSize(w,h,false);this.cameraDirty=true;}
   setCamera(mode:'chase'|'overview'){this.mode=mode;this.cameraDirty=true;this.controls.target.set(0,8,0);if(mode==='chase')this.camera.position.set(90,70,145);else{
-    const state=this.latest,points=state?[...state.course.marks,state.course.start.a,state.course.start.b,...state.boats]:[{x:0,y:0}],xs=points.map(p=>p.x),ys=points.map(p=>p.y),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),height=Math.max(580,Math.max((maxX-minX)/Math.max(.5,this.camera.aspect-.4),maxY-minY)*1.5);
+    const state=this.latest,points=state?[...state.course.marks,...(state.course.gate??[]),state.course.start.a,state.course.start.b,state.course.finish.a,state.course.finish.b,state.course.target,...state.boats]:[{x:0,y:0}],xs=points.map(p=>p.x),ys=points.map(p=>p.y),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),height=Math.max(580,Math.max((maxX-minX)/Math.max(.5,this.camera.aspect-.4),maxY-minY)*1.5);
     this.controls.target.set((minX+maxX)/2-(state?.boats[0].x??0),0,(minY+maxY)/2-(state?.boats[0].y??0));this.camera.position.copy(this.controls.target).add(new THREE.Vector3(0,height,height*.2));
    }this.controls.update();}
   useNativeCamera(){this.mode='native';this.cameraDirty=true;}
@@ -113,6 +113,7 @@ export class SailingScene {
     this.pollQueries();let query:WebGLQuery|null=null;
     if(this.gl&&this.queryExtension&&this.pendingQueries.length<8){query=this.gl.createQuery();if(query)this.gl.beginQuery(this.queryExtension.TIME_ELAPSED_EXT,query);}
     this.renderer.info.autoReset=false;this.renderer.info.reset();
+    this.camera.updateMatrixWorld();this.course.project(this.camera,{x:player.x,y:player.y},this.width,this.height);
     this.renderer.render(this.scene,this.camera);
     this.labels.render(current,this.camera,this.models,this.course,now);
     if(query&&this.gl){this.gl.endQuery(this.queryExtension.TIME_ELAPSED_EXT);this.pendingQueries.push(query);}

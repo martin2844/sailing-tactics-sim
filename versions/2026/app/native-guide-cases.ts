@@ -2,6 +2,13 @@ import {createGuideExtractor} from './native-guides';
 /** Finite private fixtures checked against the full, unchanged original chart
  * and its real GDI guide emissions, including all otherwise unrelated artwork. */
 export function evaluateGuideCases(context:any){
+ // Full original chart children also invoke the generated boat observer.
+ // Diagnostics must not append private boats/calibration to the real sink.
+ const host=globalThis as typeof globalThis&{tactNativeVisuals?:unknown};
+ const observer=host.tactNativeVisuals;host.tactNativeVisuals=undefined;
+ try{return evaluateIsolatedGuideCases(context);}finally{host.tactNativeVisuals=observer;}
+}
+function evaluateIsolatedGuideCases(context:any){
  const {memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,originalGuideChart}=context;
  const cases=[
   {name:'prestart',clock:-1,angle:40,target:0},
@@ -47,7 +54,10 @@ export function evaluateGuideCases(context:any){
    const bearing=(Math.atan2(dx,-dy)*180/Math.PI+basis+720)%360;
    original.push({from,to:{x:event.x,y:event.y},bearing});
   }});
-  originalGuideChart(m,dc,random,{...options,numberRendering:true,smoothGraphics:true,rng:random},512,384,.05,0,0,1,owner,-1e8,-1e8,1e8,1e8);
+  const privateOptions={...options,numberRendering:true,smoothGraphics:true,rng:random,
+   getTickCount:()=>0,enforceMinimumPaintDuration:()=>{},invalidateRect:()=>{},
+   playSound:()=>1,messageBeep:()=>{},closeWindow:()=>{}};
+  originalGuideChart(m,dc,random,privateOptions,512,384,.05,0,0,1,owner,-1e8,-1e8,1e8,1e8);
   // Native may emit the same guide twice through two eligible call sites.
   const unique=original.filter((g,i)=>!original.slice(0,i).some(h=>h.from.x===g.from.x&&h.from.y===g.from.y&&Math.abs(h.bearing-g.bearing)<.02));
   const orientation=m.readI32(0x525a78+owner*4),basis=m.readI32((orientation===2?0x522b90:orientation===1?0x535740:0x4fbb90)+owner*4);

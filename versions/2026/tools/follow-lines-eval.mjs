@@ -10,7 +10,7 @@ try{
  const initial=await b.evaluate('tact2026.latest.course.showMarkLines');await b.evaluate('tact2026.engine.send("command",32918)');await b.waitFor(`tact2026.latest.course.showMarkLines!==${initial}`,10000);
  if(initial){await b.evaluate('tact2026.engine.send("command",32918)');await b.waitFor('tact2026.latest.course.showMarkLines',10000);}
  await b.evaluate('tact2026.camera("overview");new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
- const lines=await b.evaluate(`(()=>{const c=tact2026.scene.course,v=tact2026.latest;return {course:v.course,wind:v.boats[0].windFrom,lines:c.guides.filter(l=>l.visible).map(l=>({visible:l.visible,positions:Array.from(l.geometry.attributes.position.array)}))}})()`);
+ const lines=await b.evaluate(`(()=>{const c=tact2026.scene.course,v=tact2026.latest;return {course:v.course,wind:v.boats[0].windFrom,lines:c.guides.filter(l=>l.group.visible).map(l=>({visible:l.group.visible,positions:[l.value.a.x,0,l.value.a.y,l.value.b.x,0,l.value.b.y]}))}})()`);
  if(lines.lines.length!==lines.course.guides.length)throw Error('Visible native guide count');
  for(let i=0;i<lines.lines.length;i++){const l=lines.lines[i],g=lines.course.guides[i];if(Math.abs(l.positions[0]-g.x)>.01||Math.abs(l.positions[2]-g.y)>.01)throw Error('Native guide anchor');}
  await writeFile(resolve(out,'overview.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));

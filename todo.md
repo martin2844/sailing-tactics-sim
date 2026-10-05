@@ -955,7 +955,7 @@ MVP, physical Pixel 11 and replay/export tasks above retain their existing statu
 - [x] **VIS-02 — Replace buoy and fleet sprites with one compact label system.**
   Bound screen size, anchor outside boats/sails, avoid label/HUD collisions,
   prioritise the active target and nearby/selected boats, and support show-all.
-- [ ] **VIS-03 — Refine guide contrast and navigation indicators; evaluate Chrome.**
+- [x] **VIS-03 — Refine guide contrast and navigation indicators; evaluate Chrome.**
   Check crowded fleets, close/follow/overview cameras, native conditions,
   lifecycle/restart and repeated smoothness. Record limits and fix findings.
 

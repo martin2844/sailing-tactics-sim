@@ -1,0 +1,1686 @@
+{
+  "passed": true,
+  "scope": "Independent projected-width/near/far/viewport geometry checks; nine source-checked guide presentation fixtures; native target HUD bearing and hidden-arrow styling; whole native boundary unchanged. Fixtures are not completed races.",
+  "hud": {
+    "label": "Start line",
+    "bearing": "59°",
+    "arrow": "rotate(-31.0162deg)"
+  },
+  "hiddenArrows": [
+    {
+      "id": "target-arrow",
+      "display": "none"
+    },
+    {
+      "id": "current-arrow",
+      "display": "none"
+    }
+  ],
+  "rows": [
+    {
+      "name": "upwind",
+      "labels": [
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": true,
+          "badge": true
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 738.5356029659707,
+          "y": 365.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": false,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": false,
+          "badge": false
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": -5000,
+              "y": 9.18485099360515e-13
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 104,
+              "y": 107
+            },
+            "b": {
+              "x": -70.49748351250449,
+              "y": 5103.954135095479
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": 596.5025164874955,
+              "y": 4355.954135095479
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": -4229,
+              "y": -640.9999999999991
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 3473.7322342828256,
+              "y": 3680.6990111046966
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -3472.8514703071482,
+              "y": -3512.6989922818134
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 37
+    },
+    {
+      "name": "reach",
+      "labels": [
+        {
+          "x": 738.5356029659707,
+          "y": 365.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": false,
+          "badge": true
+        }
+      ],
+      "lines": [],
+      "calls": 25
+    },
+    {
+      "name": "triangle-third-mark",
+      "labels": [
+        {
+          "x": 738.5356029659707,
+          "y": 365.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": false,
+          "badge": true
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": 596.5025164874955,
+              "y": 4355.954135095479
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": -4229,
+              "y": -640.9999999999991
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": -719,
+              "y": 694
+            },
+            "b": {
+              "x": -893.4974835125045,
+              "y": 5690.954135095479
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": -719,
+              "y": 694
+            },
+            "b": {
+              "x": -5719,
+              "y": 694.0000000000009
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 3473.7322342828256,
+              "y": 3680.6990111046966
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -3472.8514703071482,
+              "y": -3512.6989922818134
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 37
+    },
+    {
+      "name": "downwind",
+      "labels": [
+        {
+          "x": 738.5356029659707,
+          "y": 365.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": false,
+          "badge": true
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 3473.7322342828256,
+              "y": 3680.6990111046966
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -3472.8514703071482,
+              "y": -3512.6989922818134
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 29
+    },
+    {
+      "name": "finish-port",
+      "labels": [
+        {
+          "x": 738.5356029659707,
+          "y": 365.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": false,
+          "badge": true
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": 1378.1867790849958,
+              "y": -4806.308479691595
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 104,
+              "y": 107
+            },
+            "b": {
+              "x": 4955.478631379982,
+              "y": -1102.6094779983396
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 3473.7322342828256,
+              "y": 3680.6990111046966
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -3472.8514703071482,
+              "y": -3512.6989922818134
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 33
+    },
+    {
+      "name": "gate",
+      "labels": [
+        {
+          "x": 653.4970054779965,
+          "y": 629.9017111714235,
+          "w": 47,
+          "h": 20,
+          "key": "gate-0",
+          "text": "Gate L",
+          "anchor": {
+            "x": 676.9970054779965,
+            "y": 657.9017111714235,
+            "depth": 2344.431114282394
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 719.2257900811054,
+          "y": 629.9017111714235,
+          "w": 49,
+          "h": 20,
+          "key": "gate-1",
+          "text": "Gate R",
+          "anchor": {
+            "x": 743.7257900811054,
+            "y": 657.9017111714235,
+            "depth": 2344.431114282394
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 440.710118210446,
+          "y": 514.006769467423,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 450.710118210446,
+            "y": 542.006769467423,
+            "depth": 2404.442651634678
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 756.9059045536216,
+          "y": 325.13870974430705,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 746.9059045536216,
+            "y": 335.13870974430705,
+            "depth": 2519.562822960792
+          },
+          "active": false,
+          "badge": false
+        },
+        {
+          "x": 675.0882458815315,
+          "y": 270.9971946797356,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 711.0882458815315,
+            "y": 298.9971946797356,
+            "depth": 2535.6443460421233
+          },
+          "active": false,
+          "badge": false
+        },
+        {
+          "x": 952.8467733484711,
+          "y": 69.41678413267086,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 962.8467733484711,
+            "y": 97.41678413267086,
+            "depth": 2666.257692044154
+          },
+          "active": false,
+          "badge": true
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": -90,
+              "y": 1000
+            },
+            "b": {
+              "x": 1288.1867790849958,
+              "y": -3806.3084796915946
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 90,
+              "y": 1000
+            },
+            "b": {
+              "x": 4941.478631379982,
+              "y": -209.60947799833957
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 3473.7322342828256,
+              "y": 3680.6990111046966
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -3472.8514703071482,
+              "y": -3512.6989922818134
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 38
+    },
+    {
+      "name": "recall",
+      "labels": [
+        {
+          "x": 763.5356029659707,
+          "y": 383.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": true,
+          "badge": false
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": false,
+          "badge": true
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": -5000,
+              "y": 9.18485099360515e-13
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 104,
+              "y": 107
+            },
+            "b": {
+              "x": -70.49748351250449,
+              "y": 5103.954135095479
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": 596.5025164874955,
+              "y": 4355.954135095479
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": -4229,
+              "y": -640.9999999999991
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 3473.7322342828256,
+              "y": 3680.6990111046966
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -3472.8514703071482,
+              "y": -3512.6989922818134
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 37
+    },
+    {
+      "name": "north-wrap-359",
+      "labels": [
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": true,
+          "badge": true
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 763.5356029659707,
+          "y": 383.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": false,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": false,
+          "badge": false
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": -3409.9918003124917,
+              "y": 3656.7685080958527
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 104,
+              "y": 107
+            },
+            "b": {
+              "x": 3639.533905932738,
+              "y": 3642.5339059327375
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": 4306.533905932738,
+              "y": 2894.5339059327375
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": -2638.9918003124917,
+              "y": 3015.7685080958527
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 4999.678857769796,
+              "y": -3.2620227749762165
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -4998.7980937941165,
+              "y": 171.26204159785817
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 37
+    },
+    {
+      "name": "north-wrap-1",
+      "labels": [
+        {
+          "x": 1008.6364015833267,
+          "y": 69.23276381859318,
+          "w": 20,
+          "h": 20,
+          "key": "mark-0",
+          "text": "1",
+          "anchor": {
+            "x": 1018.6364015833267,
+            "y": 97.23276381859318,
+            "depth": 2168.161932020194
+          },
+          "active": true,
+          "badge": true
+        },
+        {
+          "x": 370.3492888529943,
+          "y": 629.961217095726,
+          "w": 20,
+          "h": 20,
+          "key": "mark-1",
+          "text": "2",
+          "anchor": {
+            "x": 380.3492888529943,
+            "y": 657.961217095726,
+            "depth": 1906.3468916107176
+          },
+          "active": false,
+          "badge": true
+        },
+        {
+          "x": 763.5356029659707,
+          "y": 383.5167558356141,
+          "w": 30,
+          "h": 20,
+          "key": "pin",
+          "text": "Pin",
+          "anchor": {
+            "x": 753.5356029659707,
+            "y": 393.5167558356141,
+            "depth": 2021.467062936832
+          },
+          "active": false,
+          "badge": false
+        },
+        {
+          "x": 672.9096931975635,
+          "y": 320.07939210262884,
+          "w": 72,
+          "h": 20,
+          "key": "committee",
+          "text": "Committee",
+          "anchor": {
+            "x": 708.9096931975635,
+            "y": 348.07939210262884,
+            "depth": 2037.5485860181632
+          },
+          "active": false,
+          "badge": false
+        }
+      ],
+      "lines": [
+        {
+          "value": {
+            "a": {
+              "x": 0,
+              "y": 0
+            },
+            "b": {
+              "x": -3535.5339059327375,
+              "y": 3535.5339059327384
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 104,
+              "y": 107
+            },
+            "b": {
+              "x": 3513.991800312493,
+              "y": 3763.768508095852
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": 4180.991800312493,
+              "y": 3015.768508095852
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 771,
+              "y": -641
+            },
+            "b": {
+              "x": -2764.5339059327375,
+              "y": 2894.5339059327384
+            }
+          },
+          "pixelWidth": 1.8,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": 4999.678857769796,
+              "y": 171.26204159785806
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        },
+        {
+          "value": {
+            "a": {
+              "x": 0.4403819878399041,
+              "y": 84.00000941144067
+            },
+            "b": {
+              "x": -4998.7980937941165,
+              "y": -3.26202277497498
+            }
+          },
+          "pixelWidth": 1.1,
+          "layers": [
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            },
+            {
+              "depthTest": true,
+              "count": 6,
+              "finite": true
+            }
+          ]
+        }
+      ],
+      "calls": 37
+    }
+  ],
+  "before": {
+    "frame": 9,
+    "time": -170.1534699111288,
+    "clock": -170,
+    "rngState": 713814625,
+    "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 2
+    }
+  },
+  "after": {
+    "frame": 9,
+    "time": -170.1534699111288,
+    "clock": -170,
+    "rngState": 713814625,
+    "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 2
+    }
+  }
+}

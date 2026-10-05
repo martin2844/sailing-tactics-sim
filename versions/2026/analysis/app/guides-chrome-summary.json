@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "sourceDatasets": [
+    "analysis/app/guides-chrome-standard-positioned/verification.json",
+    "analysis/app/guides-chrome-stress-positioned/verification.json"
+  ],
+  "standard": {
+    "runs": 10,
+    "backends": [
+      "WebGL 2",
+      "WebGL 2 (WebGPU fallback)"
+    ],
+    "median": [
+      16.699999999999818,
+      16.699999999999818
+    ],
+    "worstP95": 16.800000000000182,
+    "worstP99": 20.800000000000182,
+    "worstFrame": 37.399999999999636,
+    "worstCameraP95": 19.5,
+    "maxBytes": 27569,
+    "maxCalls": 36,
+    "maxTriangles": 38249,
+    "simSecondsPerWallSecond": [
+      6.2036284309440966,
+      6.57530838963832
+    ]
+  },
+  "guideFixture": {
+    "runs": 10,
+    "backends": [
+      "WebGL 2",
+      "WebGL 2 (WebGPU fallback)"
+    ],
+    "median": [
+      16.699999999999818,
+      16.699999999999818
+    ],
+    "worstP95": 16.800000000000182,
+    "worstP99": 25,
+    "worstFrame": 33.40000000000009,
+    "worstCameraP95": 20.400000005960464,
+    "maxBytes": 27570,
+    "maxCalls": 48,
+    "maxTriangles": 38269,
+    "simSecondsPerWallSecond": [
+      6.111290857944984,
+      6.344111341459863
+    ]
+  },
+  "scope": "Twenty final headed hardware Chrome runs, 15 native boats, integer-positioned and exactly sized owned 1280x1051 window and 1280x1050 DPR1 logical viewport; actual scene 1280x640. Source-checked guide presentation stress included; native WebGPU and physical Pixel 11 not certified."
+}
