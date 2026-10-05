@@ -342,6 +342,11 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   values and uses no simulation RNG or physical feedback.
 
 - [ ] **GFX-07 — Build the low-poly Round Lake environment** · P1 · L · Depends: GFX-02, BASE-06, ENG-08.
+  - [x] **GFX-07a — Display native course objects** (2026-10-05): marks,
+    committee boat, pin, retained start/current finish lines and L heading
+    guides, with course-framed Overview. Coordinates and engine isolation,
+    restart/recovery and four headed performance runs pass.
+    [Evaluation](versions/2026/analysis/app/COURSE.md). Shoreline/scale remain open.
 
   Done when: shoreline, land, marks and restrained scenery fit the art brief and
   authoritative navigable geometry; landmark and shore-crossing checks expose
@@ -884,4 +889,7 @@ retained evidence here.
 | UI-03a | 2026-10-05 | `d5fc4af` | [Keyboard evaluation](versions/2026/analysis/app/HOTKEYS.md) | Native compatibility panels; modern overlays and production replay still open |
 | GFX-03a | 2026-10-05 | `46f40bf` | [Cockpit evaluation](versions/2026/analysis/app/COCKPIT.md) | Reviewed Keelboat surfaces; scale/export work still open |
 | GFX-03b | 2026-10-05 | Atomic crew refinement commit; see file history | [Crew evaluation](versions/2026/analysis/app/CREW.md) | Desktop Chrome and current Keelboat; other boats, Pixel 11 and production assets later |
+| UI-03b | 2026-10-05 | `9971ecd` | [Common keys](versions/2026/analysis/app/keys-guide1/verification.json) | Desktop guide; complete modern UI remains open |
+| GFX-06a | 2026-10-05 | `b378c4f` | [Sail response](versions/2026/analysis/app/SAIL-WIND.md) | Deterministic visual headwind animation, not physical cloth |
+| GFX-07a | 2026-10-05 | Atomic native course commit; see file history | [Course evaluation](versions/2026/analysis/app/COURSE.md) | Directional laylines; shoreline/scale and polished assets later |
 | — | — | — | — | — |

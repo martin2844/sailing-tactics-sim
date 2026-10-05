@@ -38,6 +38,8 @@ Completed task evaluations:
 - [Native keyboard compatibility](analysis/app/HOTKEYS.md).
 - [Cockpit overlap correction](analysis/app/COCKPIT.md).
 - [Solid crew and repeated smoothness checks](analysis/app/CREW.md).
+- [Headwind sail response](analysis/app/SAIL-WIND.md).
+- [Native marks, lines, committee boat and heading guides](analysis/app/COURSE.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.
@@ -74,5 +76,5 @@ levels rather than promising fixed wall-time multipliers.
 
 The geometry foundation and remaining fidelity work are described in
 [native-boat-models.md](docs/native-boat-models.md). The lake scenery and model
-world scale are provisional; the app does not yet render course marks or supply
+world scale are provisional; the app displays native course objects but does not yet supply
 the complete tactical interface, replay, coaching or production assets.

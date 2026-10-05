@@ -1,7 +1,7 @@
 // Bounded compatibility bridge. Frozen source is verified before preparation;
 // one generated drawing adapter observes boats and supports private 3D extraction.
 // No authoritative image, RNG, ticks or retained locals are owned by the UI.
-import type {SceneSnapshot,Boundary} from './protocol';
+import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
 import {commands} from './protocol';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
@@ -12,6 +12,7 @@ let modelExtractor:ReturnType<typeof createModelExtractor>;
 let modelWorker:Worker,modelReady=false,modelBusy=false,modelSequence=-1,modelWidth=0;
 let modelMutableBase=0,modelMutableSize=0;
 let modelDirty=false,panelBusy=false;
+let startingLine:CourseLine|undefined;
 let generation=0,frame=0,paused=true,failed=false,ready=false,delay=0,timer:ReturnType<typeof setTimeout>|undefined;
 let front:OffscreenCanvas,back:OffscreenCanvas,frontContext:OffscreenCanvasRenderingContext2D,backContext:OffscreenCanvasRenderingContext2D;
 const queue=new MessageChannel();let pending=false,scheduleToken=0;
@@ -36,23 +37,29 @@ function schedule(wait:number){
 }
 function paint(){
   delay=0;visuals.clear();paintClock.beginPaint();const start=performance.now();
+  const phase=memory.readI32(0x5363b0);
   const dc=observeDc(gdi(frontContext,{objects,bitmapFont:font,messageBeep:()=>{},recordEvents:false}));dc.canvas=front;
   const host={constructBufferedDC(){const buffered=observeDc(gdi(backContext,{objects,bitmapFont:font,messageBeep:()=>{},recordEvents:false,cachePixelReads:true}));buffered.canvas=back;buffered.context=backContext;return buffered;},
     getDeviceCaps(_dc:any,index:number){return index===12?24:index===8?1024:768;},applicationInstance(){return 1;},createBitmap(descriptor:any){return descriptor;},attachBitmap(){},createCompatibleDC(){return 1;},attachCompatibleDC(){},
     selectBitmap(buffered:any,bitmap:any){if(bitmap)resetSurface(buffered.canvas,buffered.context,bitmap.width,bitmap.height);return 0;},
     bitBlt(_front:any,buffered:any,descriptor:any){if(front.width!==descriptor.width||front.height!==descriptor.height){front.width=descriptor.width;front.height=descriptor.height;frontContext.font='13px Arial';}frontContext.drawImage(buffered.canvas,0,0);},deleteBitmap(){},invalidateRect(){},destroyBufferedDC(){}};
   lifecycle(memory,dc,rng,{...options,host,cursor:{x:0,y:0}});frame++;
+  if(phase!==2&&memory.readI32(0x5363b0)===2)startingLine=courseLine();
   delay=Math.max(delay,paintClock.minimumDuration());
   return performance.now()-start;
 }
+function courseLine():CourseLine{return {a:{x:memory.readI32(0x536410),y:memory.readI32(0x536414)},b:{x:memory.readI32(0x4fe094),y:memory.readI32(0x4fe2a0)}};}
 function snapshot(workMs:number):SceneSnapshot {
   const i=(a:number)=>memory.readI32(a),d=(a:number)=>memory.readF64(a);
   const boats=Array.from({length:i(0x4da194)},(_,index)=>{const id=index+1;return{id,x:d(0x4f6af8+id*8),y:d(0x4f6c10+id*8),heading:i(0x535740+id*4),speed:i(0x4fdfe8+id*4)/10,leg:i(0x4f8538+id*4),finished:i(0x4fe638+id*4),windFrom:i(0x522b90+id*4),windAngle:i(0x4fecc8+id*4),luff:i(0x512278+id*4),boomAngle:i(0x4fe818+id*4),tack:i(0x522ff0+id*4)};});
   const owner=i(0x4da140),panel=panelTitle();
+  const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
   return {generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
     view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
-    nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks:[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),results:i(0x5363f4)!==0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
+    nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
+    course:{marks:marks.slice(0,3),start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),showLaylines:i(0x536490)!==0,length:i(0x525a9c)},
+    results:i(0x5363f4)!==0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
 }
 function panelTitle():string|null{
   const i=(a:number)=>memory.readI32(a);
