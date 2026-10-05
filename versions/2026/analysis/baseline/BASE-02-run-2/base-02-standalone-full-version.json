@@ -1,0 +1,198 @@
+{
+  "url": "http://127.0.0.1:34843/dist-2010/versions/2010-en/play.html",
+  "checkedAt": "2026-10-05T10:08:49.322Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Unmodified supplied full-mode data survives the real constructor",
+      "state": {
+        "mode": 0,
+        "app": 0,
+        "frames": 1,
+        "error": null,
+        "fleet": 20,
+        "selector": 12,
+        "time": -170.5,
+        "clock": -170,
+        "demoScreen": 0,
+        "sessionCount": 0,
+        "notice": 0,
+        "paused": 0,
+        "chart": 1,
+        "forecast": 0,
+        "current": 0,
+        "tide": 0,
+        "otherOverlay": 0
+      }
+    },
+    {
+      "name": "All original fleet choices through 30 boats are available",
+      "fleets": [
+        {
+          "id": 32805,
+          "expected": 2,
+          "actual": 2,
+          "mode": 0
+        },
+        {
+          "id": 32806,
+          "expected": 5,
+          "actual": 5,
+          "mode": 0
+        },
+        {
+          "id": 32807,
+          "expected": 10,
+          "actual": 10,
+          "mode": 0
+        },
+        {
+          "id": 32808,
+          "expected": 15,
+          "actual": 15,
+          "mode": 0
+        },
+        {
+          "id": 32809,
+          "expected": 20,
+          "actual": 20,
+          "mode": 0
+        },
+        {
+          "id": 32810,
+          "expected": 25,
+          "actual": 25,
+          "mode": 0
+        },
+        {
+          "id": 32811,
+          "expected": 30,
+          "actual": 30,
+          "mode": 0
+        }
+      ]
+    },
+    {
+      "name": "Original full-mode Same Tack tutorial remains available"
+    },
+    {
+      "name": "Original Space starts without the demo notice",
+      "state": {
+        "mode": 0,
+        "app": 2,
+        "frames": 13,
+        "error": null,
+        "fleet": 2,
+        "selector": 12,
+        "time": -170.31845390564652,
+        "clock": -170,
+        "demoScreen": 0,
+        "sessionCount": 0,
+        "notice": 0,
+        "paused": 0,
+        "chart": 0,
+        "forecast": 0,
+        "current": 0,
+        "tide": 0,
+        "otherOverlay": 0
+      }
+    },
+    {
+      "name": "Full mode remains active across two real paints beyond the original 260 clock gate",
+      "state": {
+        "mode": 0,
+        "app": 2,
+        "frames": 33,
+        "error": null,
+        "fleet": 2,
+        "selector": 12,
+        "time": 262.46824583655143,
+        "clock": 262,
+        "demoScreen": 0,
+        "sessionCount": 0,
+        "notice": 0,
+        "paused": 0,
+        "chart": 0,
+        "forecast": 0,
+        "current": 0,
+        "tide": 0,
+        "otherOverlay": 0
+      }
+    },
+    {
+      "name": "Saving and reloading 636 preference bytes preserves full mode without incrementing demo sessions",
+      "state": {
+        "mode": 0,
+        "app": 0,
+        "frames": 1,
+        "error": null,
+        "fleet": 2,
+        "selector": 12,
+        "time": -170.5,
+        "clock": -170,
+        "demoScreen": 0,
+        "sessionCount": 0,
+        "notice": 0,
+        "paused": 0,
+        "chart": 1,
+        "forecast": 0,
+        "current": 0,
+        "tide": 0,
+        "otherOverlay": 0
+      }
+    },
+    {
+      "name": "Browser runs native JavaScript and data with no EXE/proof requests",
+      "requests": 226
+    }
+  ],
+  "performance": [
+    {
+      "before": {
+        "frames": 18,
+        "time": 261.56051536478446,
+        "clock": 261
+      },
+      "elapsedMs": 42.5,
+      "counts": {
+        "events": 1083,
+        "eventMs": 3.5000000298023224,
+        "getPixel": 4,
+        "getPixelMs": 0.800000011920929,
+        "textCalls": 36,
+        "glyphs": 278
+      },
+      "after": {
+        "frames": 19,
+        "time": 261.62103072956893,
+        "clock": 261
+      }
+    },
+    {
+      "before": {
+        "frames": 24,
+        "time": 261.92360755349125,
+        "clock": 261
+      },
+      "elapsedMs": 32.099999994039536,
+      "counts": {
+        "events": 1104,
+        "eventMs": 1.4000000208616257,
+        "getPixel": 4,
+        "getPixelMs": 1.1000000089406967,
+        "textCalls": 36,
+        "glyphs": 278
+      },
+      "after": {
+        "frames": 25,
+        "time": 261.9841229182757,
+        "clock": 261
+      }
+    }
+  ],
+  "preparedInput": {
+    "preciseTime": 261.5,
+    "clock": 261,
+    "scope": "Declared finite input beyond the original 260 integer clock gate after actual original initialization; mode is never written."
+  }
+}

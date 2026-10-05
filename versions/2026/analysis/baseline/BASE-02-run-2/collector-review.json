@@ -1,0 +1,17 @@
+{
+  "task": "BASE-02",
+  "checkedAt": "2026-10-05T10:10:54.876Z",
+  "passed": true,
+  "scope": "Post-run collector review: refuse reuse of already generated browser reports before creating output or launching processes",
+  "collectorSha256": "c12638ba0dfd4bc1687ec820941336eeb3f6310d8f50b0a3cd5ad2ce222dcc7f",
+  "checks": [
+    {
+      "name": "Completed/browser-stage run cannot be resumed",
+      "passed": true
+    },
+    {
+      "name": "Refusal leaves no output directory",
+      "passed": true
+    }
+  ]
+}

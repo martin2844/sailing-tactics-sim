@@ -1,0 +1,97 @@
+{
+  "task": "BASE-02",
+  "checkedAt": "2026-10-05T10:12:22.125Z",
+  "passed": true,
+  "scope": "Supplemental review found two omitted existing evaluation test files. Rerun the complete six-file evaluation gate and the existing deterministic setup tests, with each additional input matched to the frozen Git blob. No new unit tests.",
+  "inputPins": [
+    {
+      "path": "tests/evaluation-baseline.test.js",
+      "bytes": 4669,
+      "sha256": "1d9d56092b1472670687d7e7af16cd74c5815ed7e68c83ccf48a99ab73083ab1",
+      "gitBlob": "ce417e69f2e2838fffa5db47db477891145f8f81"
+    },
+    {
+      "path": "tests/evaluation-metrics.test.js",
+      "bytes": 12881,
+      "sha256": "b6563d62327b7d7bd9a53d0727c4b6ed3b4f8860a78def9e721ced806e981042",
+      "gitBlob": "126385b448275fe01551c8ca4a0b50a575d6de19"
+    },
+    {
+      "path": "tests/evaluation-reanalysis.test.js",
+      "bytes": 11086,
+      "sha256": "1d5066837c098a03682c50b1b4b778516aace08eb64ff5de5ce24d096e609c7d",
+      "gitBlob": "0e4e8f1254481c257a292c8c8695f3d6b44ffcdc"
+    },
+    {
+      "path": "tests/presentation-measurements.test.js",
+      "bytes": 1814,
+      "sha256": "8b576a1f1cfd502bcf56ba094db45650af095ede18c9bba22eacca6ad3ec8698",
+      "gitBlob": "f607616537504790e5726679a7f68d60fb35c463"
+    },
+    {
+      "path": "tests/browser-session.test.js",
+      "bytes": 5938,
+      "sha256": "9fa94838b2029fcf89eead866a6e2e27559cd87cccf4b7e3efffdb720b9c1644",
+      "gitBlob": "56dec3cf1653f1c08c8695760d4858458fb4fc1e"
+    },
+    {
+      "path": "tests/evaluation-window-visibility.test.js",
+      "bytes": 2554,
+      "sha256": "93f06206c1d787d6ef096bce42450f0bbd40b3202d6a63fe89408a4c4fff3907",
+      "gitBlob": "b9365ea3e53d137f32c49889284af3435508244f"
+    },
+    {
+      "path": "tests/deterministic-paint-setup.test.js",
+      "bytes": 6039,
+      "sha256": "517d11ba5d2dbab09e192bcb48e74d67facf39dafffff49c2f4574b1a430c696",
+      "gitBlob": "ca6b3a0db1d304f27e0baa5fcfed864c236c8952"
+    }
+  ],
+  "steps": [
+    {
+      "id": "evaluation-complete",
+      "command": [
+        "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+        "--test",
+        "tests/evaluation-baseline.test.js",
+        "tests/evaluation-metrics.test.js",
+        "tests/evaluation-reanalysis.test.js",
+        "tests/presentation-measurements.test.js",
+        "tests/browser-session.test.js",
+        "tests/evaluation-window-visibility.test.js"
+      ],
+      "startedAt": "2026-10-05T10:12:20.344Z",
+      "finishedAt": "2026-10-05T10:12:21.929Z",
+      "passed": true,
+      "exitCode": 0,
+      "log": "evaluation-complete.log",
+      "logSha256": "0e811a5330a5f6bc8ccac85b52d7238f829dde2be6066b1ac57ddb8e0fd9171d",
+      "testSummary": [
+        "ℹ tests 57",
+        "ℹ pass 57",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "id": "deterministic-setup",
+      "command": [
+        "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+        "--test",
+        "tests/deterministic-paint-setup.test.js"
+      ],
+      "startedAt": "2026-10-05T10:12:21.929Z",
+      "finishedAt": "2026-10-05T10:12:22.125Z",
+      "passed": true,
+      "exitCode": 0,
+      "log": "deterministic-setup.log",
+      "logSha256": "63bce1eb413ba7b31909dc9d5c4e4e46451befc548ef27c90830a8d2aad3978c",
+      "testSummary": [
+        "ℹ tests 5",
+        "ℹ pass 5",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "task": "BASE-02",
+  "startedAt": "2026-10-05T10:06:39.358Z",
+  "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+  "referenceCheckout": "/home/martin/.cache/tact/2026-reference/64d5cdf",
+  "node": "v24.19.0",
+  "steps": [
+    {
+      "id": "python-dependencies",
+      "executable": "/home/martin/tact/tools/python-runtime/bin/python3",
+      "arguments": [
+        "-c",
+        "import hashlib,json,pycparser,pefile; from pathlib import Path; assert pycparser.__version__==\"2.23\"; print(json.dumps({\"pycparser\":pycparser.__version__,\"pycparserModule\":pycparser.__file__,\"pycparserSha256\":hashlib.sha256(Path(pycparser.__file__).read_bytes()).hexdigest(),\"pefile\":pefile.__version__,\"pefileModule\":pefile.__file__}))"
+      ],
+      "startedAt": "2026-10-05T10:06:40.194Z",
+      "log": "python-dependencies.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:06:40.263Z",
+      "passed": true,
+      "logSha256": "56b26f93730e6255f6d0cb4571d27a9b674ed3844d1b34f7179ea55e3185e635"
+    },
+    {
+      "id": "restore-shared-evidence",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/restore-evidence.js"
+      ],
+      "startedAt": "2026-10-05T09:59:04.114Z",
+      "log": "restore-shared-evidence.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T09:59:14.514Z",
+      "passed": true,
+      "logSha256": "10379eef31582b7de305ce0a4baec946a93b4f37b200365e5f356c66c72fe8fa",
+      "reusedFrom": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1"
+    },
+    {
+      "id": "restore-2010-evidence",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/restore-2010-evidence.js"
+      ],
+      "startedAt": "2026-10-05T09:59:14.514Z",
+      "log": "restore-2010-evidence.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T09:59:31.938Z",
+      "passed": true,
+      "logSha256": "e571d6bc491a1be62dd1aa0faf971ebe3cbf8539596a1993679f7e234889d1b2",
+      "reusedFrom": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1"
+    },
+    {
+      "id": "2010-tests-remediation",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "--test",
+        "--test-concurrency=1",
+        "versions/2010-en/tests/chart-window-generator.test.js",
+        "versions/2010-en/tests/partial-scalar-generator.test.js",
+        "versions/2010-en/tests/shore-scalar-generator.test.js",
+        "versions/2010-en/tests/water-float-loads.test.js",
+        "versions/2010-en/tests/water-number-slab.test.js"
+      ],
+      "startedAt": "2026-10-05T10:06:40.265Z",
+      "log": "2010-tests-remediation.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:06:52.438Z",
+      "passed": true,
+      "logSha256": "b257de5b9f93ed35154c148b8b8307a85d1d881a0627bf770ab7ebe1440db023",
+      "testSummary": [
+        "ℹ tests 22",
+        "ℹ pass 22",
+        "ℹ fail 0",
+        "ℹ skipped 0"
+      ]
+    },
+    {
+      "id": "evaluation-tests",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "--test",
+        "tests/evaluation-baseline.test.js",
+        "tests/evaluation-metrics.test.js",
+        "tests/evaluation-reanalysis.test.js",
+        "tests/evaluation-window-visibility.test.js"
+      ],
+      "startedAt": "2026-10-05T10:03:06.218Z",
+      "log": "evaluation-tests.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:03:07.620Z",
+      "passed": true,
+      "logSha256": "0c8999c4d1b54dfb6f1fe31c539458742ba4d14bf55ef1f7231cddda92cbcf6b",
+      "reusedFrom": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1"
+    },
+    {
+      "id": "assets",
+      "executable": "/home/martin/tact/tools/python-runtime/bin/python3",
+      "arguments": [
+        "versions/2010-en/tools/test_assets.py"
+      ],
+      "startedAt": "2026-10-05T10:03:07.621Z",
+      "log": "assets.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:03:07.917Z",
+      "passed": true,
+      "logSha256": "631cf1311f45c1eaa4d6d4763117aa481ec9eaef6cd2ce0fdb21297501176802",
+      "reusedFrom": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1"
+    },
+    {
+      "id": "decompilation",
+      "executable": "/home/martin/tact/tools/python-runtime/bin/python3",
+      "arguments": [
+        "versions/2010-en/tools/verify_decompilation.py"
+      ],
+      "startedAt": "2026-10-05T10:03:07.917Z",
+      "log": "decompilation.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:03:09.685Z",
+      "passed": true,
+      "logSha256": "71c7c1fc9e7f1df3ce43cc29d6becd9e0e5762b1c6fcb00f18e3d5a7d54f0cbb",
+      "reusedFrom": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1"
+    },
+    {
+      "id": "source-browser",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/check-2010-browser.js"
+      ],
+      "startedAt": "2026-10-05T10:06:52.574Z",
+      "log": "source-browser.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:07:00.511Z",
+      "passed": true,
+      "logSha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442"
+    },
+    {
+      "id": "source-hud",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/check-2010-hud-browser.js"
+      ],
+      "startedAt": "2026-10-05T10:07:00.512Z",
+      "log": "source-hud.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:07:54.627Z",
+      "passed": true,
+      "logSha256": "68e632745ac394333be001a4f58c11c8b304bc7de6b168d50beebd872338a86e"
+    },
+    {
+      "id": "source-full-version",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/check-2010-full-version.js"
+      ],
+      "startedAt": "2026-10-05T10:07:54.627Z",
+      "log": "source-full-version.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:07:57.389Z",
+      "passed": true,
+      "logSha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9"
+    },
+    {
+      "id": "canvas-parity",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "versions/2010-en/tools/diagnostics/check-smooth-graphics-browser.mjs"
+      ],
+      "startedAt": "2026-10-05T10:07:57.389Z",
+      "log": "canvas-parity.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:08:40.435Z",
+      "passed": true,
+      "logSha256": "32d8320f9365b6c26e4d85548698cad9af00011eb58b8a67c5dc32741c44e693"
+    },
+    {
+      "id": "font-atlas",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/evaluation/check-font-atlas.js"
+      ],
+      "startedAt": "2026-10-05T10:08:40.436Z",
+      "log": "font-atlas.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:08:41.812Z",
+      "passed": true,
+      "logSha256": "aeb966970d8c4f4006cf1f62f1b91e4976c78d01156318570f466485ede34e6a"
+    },
+    {
+      "id": "build",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/build-2010-browser.js"
+      ],
+      "startedAt": "2026-10-05T10:08:41.813Z",
+      "log": "build.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:08:41.989Z",
+      "passed": true,
+      "logSha256": "f61836c3a7344047d458a2981798930249e90cfecff467dc603441020ee3a64f"
+    },
+    {
+      "id": "standalone-browser",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/check-2010-browser.js"
+      ],
+      "startedAt": "2026-10-05T10:08:41.990Z",
+      "log": "standalone-browser.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:08:49.286Z",
+      "passed": true,
+      "logSha256": "bf5e8bccae9ebe61c9765c58ea2409bcd5afd8c000f71e6aad02af3f849b5442"
+    },
+    {
+      "id": "standalone-full-version",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/check-2010-full-version.js"
+      ],
+      "startedAt": "2026-10-05T10:08:49.287Z",
+      "log": "standalone-full-version.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:08:51.550Z",
+      "passed": true,
+      "logSha256": "b73bed0b77b0b5502b8672697b262f4787246d46cb799a86025e67325d74c0b9"
+    },
+    {
+      "id": "export-and-zip",
+      "executable": "/home/martin/tact/tools/python-runtime/bin/python3",
+      "arguments": [
+        "-c",
+        "import hashlib,json,pathlib,zipfile\nr=pathlib.Path('.')\nm=json.loads((r/'dist-2010/port-manifest.json').read_text())\nfor f in m['files']:\n b=(r/'dist-2010'/f['path']).read_bytes()\n assert len(b)==f['bytes'] and hashlib.sha256(b).hexdigest()==f['sha256'],f['path']\nexpected={str(p.relative_to(r/'dist-2010')):p for p in (r/'dist-2010').rglob('*') if p.is_file()}\nwith zipfile.ZipFile(r/'posey-2010-browser.zip') as z:\n assert len(z.namelist())==len(set(z.namelist()))\n assert set(z.namelist())==set(expected)\n for name,p in expected.items(): assert z.read(name)==p.read_bytes(),name\nprint(json.dumps({'manifestFiles':len(m['files']),'zipEntries':len(expected),'allBytesEqual':True}))"
+      ],
+      "startedAt": "2026-10-05T10:08:51.551Z",
+      "log": "export-and-zip.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:08:51.641Z",
+      "passed": true,
+      "logSha256": "74a5852f93263d9ac7e6ffe2a12adb46a8f11c170796828f6f210bc5dc5b6f39"
+    }
+  ],
+  "passed": true,
+  "previousRun": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1",
+  "collectorSha256": "cee2ec4b87a8b8b26627496ec141ac6eade40f46e994ae563973cf1f5bceb6a8",
+  "referenceToolSha256": "26eddde08f32a67c82bb399b52df02cad7b62db628409c1d6ef42e2e0bcc16f6",
+  "referenceManifestSha256": "9c13c7aacc9decf9288868b9ff2e6bf39e8e18387953c37f025bd075a9fac510",
+  "scope": "Reproduction of finite existing source/native-fixture/browser/export checks; no complete-race or performance certificate.",
+  "before": {
+    "passed": true,
+    "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+    "files": 6471,
+    "groups": {
+      "shared-assets": 120,
+      "reference-metadata": 14,
+      "standalone-export": 139,
+      "shared-source": 88,
+      "shared-verification": 141,
+      "latest-confirmation": 34,
+      "2010-assets": 123,
+      "recovered-source": 5287,
+      "native-evidence": 230,
+      "native-runtime-provenance": 3,
+      "2010-source": 71,
+      "2010-verification": 221
+    }
+  },
+  "testRemediation": {
+    "originalRun": "/home/martin/tact/versions/2026/analysis/baseline/BASE-02-run-1",
+    "originalLog": "2010-tests.log",
+    "files": [
+      "versions/2010-en/tests/chart-window-generator.test.js",
+      "versions/2010-en/tests/partial-scalar-generator.test.js",
+      "versions/2010-en/tests/shore-scalar-generator.test.js",
+      "versions/2010-en/tests/water-float-loads.test.js",
+      "versions/2010-en/tests/water-number-slab.test.js"
+    ],
+    "scope": "Original passing cases remain evidence in the first run; rerun all five affected test files after restoring the documented Python dependency. This is not a new all-suite run."
+  },
+  "server": {
+    "processId": 1778770,
+    "baseUrl": "http://127.0.0.1:34843",
+    "portAssignment": "owned ephemeral listener"
+  },
+  "after": {
+    "passed": true,
+    "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+    "files": 6470,
+    "groups": {
+      "shared-assets": 120,
+      "reference-metadata": 13,
+      "standalone-export": 139,
+      "shared-source": 88,
+      "shared-verification": 141,
+      "latest-confirmation": 34,
+      "2010-assets": 123,
+      "recovered-source": 5287,
+      "native-evidence": 230,
+      "native-runtime-provenance": 3,
+      "2010-source": 71,
+      "2010-verification": 221
+    },
+    "excludedGeneratedReports": [
+      "versions/2010-en/analysis/browser-verification.json"
+    ]
+  },
+  "preservationWorkspace": {
+    "passed": true,
+    "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+    "files": 6471,
+    "groups": {
+      "shared-assets": 120,
+      "reference-metadata": 14,
+      "standalone-export": 139,
+      "shared-source": 88,
+      "shared-verification": 141,
+      "latest-confirmation": 34,
+      "2010-assets": 123,
+      "recovered-source": 5287,
+      "native-evidence": 230,
+      "native-runtime-provenance": 3,
+      "2010-source": 71,
+      "2010-verification": 221
+    }
+  },
+  "finishedAt": "2026-10-05T10:08:53.095Z"
+}

@@ -1,0 +1,121 @@
+{
+  "task": "BASE-02",
+  "startedAt": "2026-10-05T09:59:03.307Z",
+  "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+  "referenceCheckout": "/home/martin/.cache/tact/2026-reference/64d5cdf",
+  "node": "v24.19.0",
+  "steps": [
+    {
+      "id": "restore-shared-evidence",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/restore-evidence.js"
+      ],
+      "startedAt": "2026-10-05T09:59:04.114Z",
+      "log": "restore-shared-evidence.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T09:59:14.514Z",
+      "passed": true,
+      "logSha256": "10379eef31582b7de305ce0a4baec946a93b4f37b200365e5f356c66c72fe8fa"
+    },
+    {
+      "id": "restore-2010-evidence",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "tools/restore-2010-evidence.js"
+      ],
+      "startedAt": "2026-10-05T09:59:14.514Z",
+      "log": "restore-2010-evidence.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T09:59:31.938Z",
+      "passed": true,
+      "logSha256": "e571d6bc491a1be62dd1aa0faf971ebe3cbf8539596a1993679f7e234889d1b2"
+    },
+    {
+      "id": "2010-tests",
+      "executable": "npm",
+      "arguments": [
+        "run",
+        "test:2010"
+      ],
+      "startedAt": "2026-10-05T09:59:31.938Z",
+      "log": "2010-tests.log",
+      "signal": null,
+      "exitCode": 1,
+      "finishedAt": "2026-10-05T10:03:06.217Z",
+      "passed": false,
+      "logSha256": "ec66be1cf5461210919a2d009009f9dbc624beb3577a35f13ead66337b5a1c88"
+    },
+    {
+      "id": "evaluation-tests",
+      "executable": "/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node",
+      "arguments": [
+        "--test",
+        "tests/evaluation-baseline.test.js",
+        "tests/evaluation-metrics.test.js",
+        "tests/evaluation-reanalysis.test.js",
+        "tests/evaluation-window-visibility.test.js"
+      ],
+      "startedAt": "2026-10-05T10:03:06.218Z",
+      "log": "evaluation-tests.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:03:07.620Z",
+      "passed": true,
+      "logSha256": "0c8999c4d1b54dfb6f1fe31c539458742ba4d14bf55ef1f7231cddda92cbcf6b"
+    },
+    {
+      "id": "assets",
+      "executable": "/home/martin/tact/tools/python-runtime/bin/python3",
+      "arguments": [
+        "versions/2010-en/tools/test_assets.py"
+      ],
+      "startedAt": "2026-10-05T10:03:07.621Z",
+      "log": "assets.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:03:07.917Z",
+      "passed": true,
+      "logSha256": "631cf1311f45c1eaa4d6d4763117aa481ec9eaef6cd2ce0fdb21297501176802"
+    },
+    {
+      "id": "decompilation",
+      "executable": "/home/martin/tact/tools/python-runtime/bin/python3",
+      "arguments": [
+        "versions/2010-en/tools/verify_decompilation.py"
+      ],
+      "startedAt": "2026-10-05T10:03:07.917Z",
+      "log": "decompilation.log",
+      "signal": null,
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T10:03:09.685Z",
+      "passed": true,
+      "logSha256": "71c7c1fc9e7f1df3ce43cc29d6becd9e0e5762b1c6fcb00f18e3d5a7d54f0cbb"
+    }
+  ],
+  "passed": false,
+  "scope": "Reproduction of finite existing source/native-fixture/browser/export checks; no complete-race or performance certificate.",
+  "before": {
+    "passed": true,
+    "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+    "files": 6471,
+    "groups": {
+      "shared-assets": 120,
+      "reference-metadata": 14,
+      "standalone-export": 139,
+      "shared-source": 88,
+      "shared-verification": 141,
+      "latest-confirmation": 34,
+      "2010-assets": 123,
+      "recovered-source": 5287,
+      "native-evidence": 230,
+      "native-runtime-provenance": 3,
+      "2010-source": 71,
+      "2010-verification": 221
+    }
+  },
+  "failure": "Error: Baseline port already serves another process\n    at startServer (file:///home/martin/tact/versions/2026/tools/baseline-checks.mjs:69:79)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///home/martin/tact/versions/2026/tools/baseline-checks.mjs:91:3",
+  "finishedAt": "2026-10-05T10:03:09.760Z"
+}

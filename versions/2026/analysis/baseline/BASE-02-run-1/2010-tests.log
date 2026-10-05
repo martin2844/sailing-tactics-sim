@@ -1,0 +1,884 @@
+
+> tact-preservation@0.0.1 pretest:2010
+> node tools/restore-2010-evidence.js
+
+2010 evidence: 0 restored, 228 verified (6994272878 bytes).
+
+> tact-preservation@0.0.1 test:2010
+> node tools/test-2010.js
+
+✔ signedDegrees: preserved English routine, packed ABI and startup precision authority (3.468072ms)
+✔ signedDegrees: exact whole mutable state, extended returns, integer registers and RNG (607.603456ms)
+✔ updateTack: preserved English routine, packed ABI and startup precision authority (3.153319ms)
+✔ updateTack: exact whole mutable state, extended returns, integer registers and RNG (785.530624ms)
+✔ setClosehauledHeading: preserved English routine, packed ABI and startup precision authority (2.871139ms)
+✔ setClosehauledHeading: exact whole mutable state, extended returns, integer registers and RNG (905.382863ms)
+✔ signedStartDistance: preserved English routine, packed ABI and startup precision authority (2.812407ms)
+✔ signedStartDistance: exact whole mutable state, extended returns, integer registers and RNG (313.323967ms)
+✔ relativeProjection: preserved English routine, packed ABI and startup precision authority (2.974482ms)
+✔ relativeProjection: exact whole mutable state, extended returns, integer registers and RNG (705.569698ms)
+✔ targetRelativeBearing: preserved English routine, packed ABI and startup precision authority (2.767653ms)
+✔ targetRelativeBearing: exact whole mutable state, extended returns, integer registers and RNG (1040.909874ms)
+✔ aheadAstern: preserved English routine, packed ABI and startup precision authority (2.650322ms)
+✔ aheadAstern: exact whole mutable state, extended returns, integer registers and RNG (453.308436ms)
+✔ complete static AI is generated from the exact corrected English C bodies (11.155632ms)
+✔ updateBoatWindAndAI: unchanged original instructions, explicit initialized inputs and startup precision (3.320374ms)
+✔ updateBoatWindAndAI: whole mutable bytes, actual return, retained RNG and ordered original sounds (1055.524408ms)
+✔ chooseDownwindHeading: unchanged original instructions, explicit initialized inputs and startup precision (3.312369ms)
+✔ chooseDownwindHeading: whole mutable bytes, actual return, retained RNG and ordered original sounds (1302.885303ms)
+✔ scoreDownwindTurn: unchanged original instructions, explicit initialized inputs and startup precision (3.649514ms)
+✔ scoreDownwindTurn: whole mutable bytes, actual return, retained RNG and ordered original sounds (1355.513006ms)
+✔ sampleSpatialWind: unchanged original instructions, explicit initialized inputs and startup precision (3.398732ms)
+✔ sampleSpatialWind: whole mutable bytes, actual return, retained RNG and ordered original sounds (1163.797105ms)
+✔ updateUpwindTactics: unchanged original instructions, explicit initialized inputs and startup precision (3.582157ms)
+✔ updateUpwindTactics: whole mutable bytes, actual return, retained RNG and ordered original sounds (1236.210645ms)
+✔ updateCollisionAvoidance: unchanged original instructions, explicit initialized inputs and startup precision (2.93055ms)
+✔ updateCollisionAvoidance: whole mutable bytes, actual return, retained RNG and ordered original sounds (389.760583ms)
+✔ avoidAiCollision: unchanged original instructions, explicit initialized inputs and startup precision (3.237688ms)
+✔ avoidAiCollision: whole mutable bytes, actual return, retained RNG and ordered original sounds (369.761934ms)
+✔ warnHumanRightOfWay: unchanged original instructions, explicit initialized inputs and startup precision (2.838858ms)
+✔ warnHumanRightOfWay: whole mutable bytes, actual return, retained RNG and ordered original sounds (360.162904ms)
+✔ requestRightOfWaySound: unchanged original instructions, explicit initialized inputs and startup precision (3.004008ms)
+✔ requestRightOfWaySound: whole mutable bytes, actual return, retained RNG and ordered original sounds (449.599542ms)
+✔ sampleVenueWind: unchanged original instructions, explicit initialized inputs and startup precision (2.748247ms)
+✔ sampleVenueWind: whole mutable bytes, actual return, retained RNG and ordered original sounds (717.272996ms)
+✔ apparent wind:unchanged original native code and PC53 evidence (3.691203ms)
+✔ apparent wind:exact stored force/F80 return, vector fields and complete state (5483.686813ms)
+✔ constructor/archive references execute both complete original bodies with explicit host normalization (23.077087ms)
+✔ 58 complete constructors match all native mutable bytes, RNG and90 ordered GDI requests each (75.753495ms)
+✔ 58 original archive saves match exact636bytes and demo session-store ordering (35.562693ms)
+✔ normalization retains complete native raw allocator, TLS and GDI-handle evidence (66.861396ms)
+✔ board turn matrix covers original speed stride and the exact completion gates (4.197075ms)
+✔ complete board AI matches every native mutable byte, retained RNG and ordered sound (743.499715ms)
+✔ complete boat dynamics:original unchanged native code and PC53 evidence (3.452873ms)
+✔ complete boat dynamics:every mutable byte, RNG and ordered sounds match original code (8217.422413ms)
+✔ 2010 boat evidence executes unchanged original code in the observed precision (3.245623ms)
+✔ all 1677 full boat-option states, floating bits and residual EAX match native original code (1705.204066ms)
+✔ Boolean proof accepts only fixed helper/group/logical results and rejects unknown values (37.572648ms)
+✔ the private Number body drops identity conversions without altering original or byte bodies (62.470694ms)
+✔ comparison errors, comma effects, getters and short-circuit prefixes remain exact (39.907567ms)
+✔ shadowed helpers, dynamic scopes and unknown private shapes decline unchanged (26.528297ms)
+✔ one shared paint clock crosses unsigned wrap and retains its epoch between paints (0.829272ms)
+✔ original 30/60/80ms tick thresholds become scheduler duration with bounded work (2.116726ms)
+✔ an unchanged surface uses one complete context reset and restores the original font (1.212584ms)
+✔ older contexts receive one complete width reset and resized surfaces keep both dimensions (0.195167ms)
+✔ chart integer and clamp boundary certificates retain complete output images or untouched fallback (1794.950298ms)
+ℹ {"cases":1440,"accepted":832,"declined":608}
+✔ reference windows preserve the full FTOL64 coordinate needed before a later division (3.278926ms)
+✔ certified chart coordinates match original bearing, clamps, and m80 trigonometry (93.538461ms)
+✔ axis constants, mutated ordered clamps, signed zeros and literal distance clamp retain original store order (3.322959ms)
+✔ unsupported chart output windows decline without stores or provider getter calls (1.296101ms)
+✔ exact chart leaf matches original camera, global-origin and heading modes over 1200 points (65.98331ms)
+✔ exact chart leaf preserves literal axis constants, signed zero and two-store order (5.080589ms)
+✔ unsupported chart controls and arguments decline before outputs or provider getters (6.333849ms)
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/chart-window-generator.py --emit-window-contract
+Traceback (most recent call last):
+  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/chart-window-generator.py", line 8, in <module>
+    from translate_drawing import Translator
+  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+    from pycparser import c_parser, c_ast
+ModuleNotFoundError: No module named 'pycparser'
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:942:11)
+    at execFileSync (node:child_process:978:15)
+    at file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/chart-window-generator.test.js:23:27 {
+  status: 1,
+  signal: null,
+  output: [
+    null,
+    '',
+    'Traceback (most recent call last):\n' +
+      '  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/chart-window-generator.py", line 8, in <module>\n' +
+      '    from translate_drawing import Translator\n' +
+      '  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n' +
+      '    from pycparser import c_parser, c_ast\n' +
+      "ModuleNotFoundError: No module named 'pycparser'\n"
+  ],
+  pid: 1772768,
+  stdout: '',
+  stderr: 'Traceback (most recent call last):\n' +
+    '  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/chart-window-generator.py", line 8, in <module>\n' +
+    '    from translate_drawing import Translator\n' +
+    '  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n' +
+    '    from pycparser import c_parser, c_ast\n' +
+    "ModuleNotFoundError: No module named 'pycparser'\n"
+}
+
+Node.js v24.19.0
+✖ versions/2010-en/tests/chart-window-generator.test.js (259.671864ms)
+✔ 2010 demo: exact original requests/state/text/RNG (55.898896ms)
+✔ 2010 results: exact original requests/state/text/RNG (46.398853ms)
+✔ 2010 advice: exact original requests/state/text/RNG (38.127373ms)
+✔ 2010 jibe: exact original requests/state/text/RNG (21.938521ms)
+✔ 2010 tack: exact original requests/state/text/RNG (23.741798ms)
+✔ 2010 text-color: exact original requests/state/text/RNG (32.074833ms)
+✔ 2010 advance-button: exact original requests/state/text/RNG (20.139143ms)
+✔ 2010 advance-hint: exact original requests/state/text/RNG (28.732317ms)
+✔ 2010 depth-sort: exact original requests/state/text/RNG (19.178974ms)
+✔ 2010 depth-select: exact original requests/state/text/RNG (20.195118ms)
+✔ configuration:original preserved-code and precision evidence (3.398441ms)
+✔ configuration:all complete course, venue, floating, preserved bytes and RNG match native code (3529.635669ms)
+✔ the original controller source and retained MFC host binding evidence are explicit (7.368268ms)
+✔ 2010 keyboard: 2192 strict native whole-state/RNG/ordered callback cases (883.112041ms)
+✔ 2010 menu commands: 2481 strict native whole-state/RNG/ordered callback cases (957.666312ms)
+✔ 2010 CCmdUI updates: 2488 strict native whole-state/RNG/ordered callback cases (994.946287ms)
+✔ 2010 left button: 88 strict native whole-state/RNG/ordered callback cases (34.583698ms)
+✔ 2010 right button: 88 strict native whole-state/RNG/ordered callback cases (35.124437ms)
+✔ 2010 mouse move: 88 strict native whole-state/RNG/ordered callback cases (36.451196ms)
+✔ 2010 wheel: 144 strict native whole-state/RNG/ordered callback cases (55.729155ms)
+✔ 2010 dialog radios: 88 strict native whole-state/RNG/ordered callback cases (34.500341ms)
+✔ modal command tails run after an asynchronous dialog resolves, including Cancel (1.346476ms)
+✔ initializeCourse:original preserved-code and PC53 evidence (3.638764ms)
+✔ initializeCourse:complete mark/target writes, RNG and all mutable bytes match native code (1156.68037ms)
+✔ sampleAttenuationDistance:original preserved-code and PC53 evidence (3.390697ms)
+✔ sampleAttenuationDistance:complete state, return, feedback and RNG match native code (841.79275ms)
+✔ shorelineDirections:original preserved-code and PC53 evidence (2.946139ms)
+✔ shorelineDirections:complete state, return, feedback and RNG match native code (702.780971ms)
+✔ sampleCurrent:original preserved-code and PC53 evidence (3.144513ms)
+✔ sampleCurrent:complete state, return, feedback and RNG match native code (1486.974129ms)
+✔ sampleVenueCurrent:original preserved-code and PC53 evidence (3.00529ms)
+✔ sampleVenueCurrent:complete state, return, feedback and RNG match native code (4764.956305ms)
+✔ custom venue:original preserved-code and precision evidence (3.493139ms)
+✔ custom venue:all preset writes, generated vertices, target bytes and RNG match native code (2383.394579ms)
+✔ drawing F64 spill preserves m80 bits, signed zero and failures under CW7f (4.952689ms)
+✔ drawing F64 spill preserves m80 bits, signed zero and failures under CW27f (2.552989ms)
+✔ drawing F64 spill preserves m80 bits, signed zero and failures under CW37f (2.106237ms)
+✔ drawing F64 spills preserve every captured native extended sine/cosine (26.325013ms)
+✔ drawing F64 spills preserve every captured native stored sine/cosine (22.354554ms)
+✔ exact binary64 drawing operands reuse their immutable Float80 value (0.222098ms)
+✔ unknown register spills retain undefined bytes until original stores define them (1.626354ms)
+✔ an unused argument propagates unknown bytes and still fails if the callee reads them (0.23361ms)
+✔ CString object inputs retain semantic boat names independently of allocator identities (0.219544ms)
+✔ raw DWORD extraction reconstructs floating bits independently of numeric truncation (0.371921ms)
+✔ original scene DWORD constructions preserve binary64 values rather than numeric integer casts (0.176393ms)
+✔ packed double argument slots preserve the untouched word after an original DWORD write (0.172495ms)
+✔ partial three-byte state reads preserve the remaining byte and avoid a four-byte access (0.182695ms)
+✔ cached local views enforce declared scalar widths and exact frame bounds (0.462291ms)
+✔ local byte validity preserves original index coercion for unusual host pointers (0.188685ms)
+✔ compact frame materialization retains double words, undefined bytes and escaped pointers (1.232441ms)
+✔ public local byte and validity mutations remain visible to retained pointers (0.200598ms)
+✔ replacement local byte arrays and slices become the storage seen by retained pointers (0.26546ms)
+✔ malformed replacement byte storage fails on access and can be replaced again (0.314883ms)
+✔ compact nonsemantic I32 stores retain DataView coercion and failure behavior (0.41419ms)
+✔ compact frames preserve semantic overlap and caller mutations of the public Map (0.130846ms)
+✔ prepared retained local byte rows keep their original validity and bounds (0.235313ms)
+✔ CDC virtual pointers and semantic CString data preserve their separate meanings (0.346994ms)
+✔ typed floating Number arithmetic keeps exact m80 under every supported precision (142.405718ms)
+✔ typed loads, integer conversions, binary64 spills and forwarding retain signed zero and failures (1.132032ms)
+✔ Number drawing dispatch preserves retained/custom host paths without reading callback getters (0.261773ms)
+✔ Number scalar storage preserves deferred nonfinite errors, unknown arguments and semantic values (0.305385ms)
+✔ numeric F64 formals distinguish exact floating images from original integer arguments (0.533145ms)
+✔ 2010 supplied executable and browser initial data both retain original full mode (4.979158ms)
+✔ saved preference session counters cannot replace the full edition mode on reload (5.632689ms)
+✔ full edition exposes all legitimate fleet sizes and its mode-gated tutorials (1.874341ms)
+✔ HUD branch reference retains the original target and exercises every declared text branch (6.293914ms)
+✔ all HUD text branches match unchanged native state, strings, RNG, sound and ordered requests (96.972505ms)
+✔ HUD tooltip public: four original stack words match native text, pixels, colors and state (93.879731ms)
+✔ HUD tooltip dependency: four original stack words match native text, pixels, colors and state (56.138355ms)
+✔ HUD tooltip owned-number: four original stack words match native text, pixels, colors and state (61.282424ms)
+✔ HUD tooltip retained: four original stack words match native text, pixels, colors and state (54.952862ms)
+✔ HUD tooltip keeps undefined-argument checks instead of assigning arbitrary retained bytes (3.50444ms)
+✔ full HUD original: native tooltip arguments and speed controls at clock -71 (63.334018ms)
+✔ full HUD number: native tooltip arguments and speed controls at clock -71 (41.552803ms)
+✔ 2010 hud: complete original state/text/request authority (71.464852ms)
+✔ 2010 compact-hud: complete original state/text/request authority (39.31007ms)
+✔ 2010 hud-nearest: complete original state/text/request authority (31.110064ms)
+✔ placeStartingBoats:original unchanged native code and legitimate boat-count evidence (3.413769ms)
+✔ placeStartingBoats:complete state, names, RNG and ordered sounds match original native code (313.215293ms)
+✔ initializeBoats:original unchanged native code and legitimate boat-count evidence (2.886537ms)
+✔ initializeBoats:complete state, names, RNG and ordered sounds match original native code (411.11853ms)
+✔ initializeRace:original unchanged native code and legitimate boat-count evidence (2.636096ms)
+✔ initializeRace:complete state, names, RNG and ordered sounds match original native code (634.035296ms)
+✔ island chart authority is fresh unchanged original initialization with both original panels (3.145445ms)
+✔ both retained island charts match all native bytes, names, RNG, sounds and GDI (81.272705ms)
+✔ explicit clock-zero inputs exercise the original chart body with exact native state and GDI (53.37528ms)
+✔ initialized screens retain original code, caller state, names and constructor GDI evidence (4.605093ms)
+✔ selector1-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (71.025164ms)
+✔ selector7-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (32.938278ms)
+✔ selector12-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (35.679401ms)
+✔ selector17-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (26.412377ms)
+✔ selector26-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (20.126057ms)
+✔ selector27-initialized-screens: public screens match retained native state, names, RNG, sound and drawing order (31.826454ms)
+✔ initialized venue evidence preserves original startup inputs and exercised CDC aliases (6.607524ms)
+✔ venue2: retained native options/race/scene/chart state and ordered GDI (167.334429ms)
+✔ venue6: retained native options/race/scene/chart state and ordered GDI (82.033017ms)
+✔ venue9: retained native options/race/scene/chart state and ordered GDI (124.179899ms)
+✔ venue106: retained native options/race/scene/chart state and ordered GDI (46.780489ms)
+✔ clamped-point-distance: strict full mutable bytes, RNG, F80 and ordered sounds (107.784609ms)
+✔ nearest-waypoint: strict full mutable bytes, RNG, F80 and ordered sounds (355.314533ms)
+✔ respawn-waypoint: strict full mutable bytes, RNG, F80 and ordered sounds (136.683629ms)
+✔ integration: strict full mutable bytes, RNG, F80 and ordered sounds (400.819118ms)
+✔ shore model seeds only the observed caller slots and retains the real POINT alias (2.586101ms)
+✔ production initial reference is pinned to two actual normal UI caller observations (4.146049ms)
+✔ original-island-shore-context: ten retained original calls match all bytes, names, RNG, sounds and GDI (236.214261ms)
+✔ original-island-shore-context-repeat: ten retained original calls match all bytes, names, RNG, sounds and GDI (112.652026ms)
+✔ large retained frames preserve byte images and validity across every 32-byte boundary (3.572469ms)
+✔ large frame semantics, partial overwrites and public storage changes stay visible to escaped pointers (0.321546ms)
+✔ high aligned writes retain exact bounds, undefined inputs and failing host coercions (0.375377ms)
+✔ direct Number loads preserve the exact binary64 images, signed zeros and extended-load failures (10.07175ms)
+✔ direct Number loads preserve semantic slots, array replacements and strict unknown/bounds errors (0.655244ms)
+✔ unboxed mixed products preserve boundary images and fallback errors at every precision (32.825686ms)
+✔ unboxed mixed products and fpMul match the previous method on retained random m80 values (31.608133ms)
+✔ fpMul preserves the existing dynamic multiplyNumber contract for Float80 subclasses (0.736017ms)
+✔ modal references come from genuine intact original Windows dialogs with unchanged instructions (4.790081ms)
+✔ 2010 actual dialog132 control1008 OK: exact observed fields and ordered host calls (2.831513ms)
+✔ 2010 actual dialog132 control1013 Cancel: exact observed fields and ordered host calls (1.328492ms)
+✔ 2010 actual dialog132 control1024 OK: exact observed fields and ordered host calls (1.245216ms)
+✔ 2010 actual dialog132 control1025 Cancel: exact observed fields and ordered host calls (1.220148ms)
+✔ 2010 actual dialog131 control1006 OK: exact observed fields and ordered host calls (1.383115ms)
+✔ 2010 actual dialog131 control1000 Cancel: exact observed fields and ordered host calls (1.195722ms)
+✔ 2010 actual dialog131 control1004 OK: exact observed fields and ordered host calls (1.121032ms)
+✔ 2010 actual dialog131 control1003 Cancel: exact observed fields and ordered host calls (1.193538ms)
+✔ distance: strict full original mutable state, RNG and floating return (753.44187ms)
+✔ reset-boat: strict full original mutable state, RNG and floating return (959.122169ms)
+✔ trails: strict full original mutable state, RNG and floating return (99.192454ms)
+✔ waypoint-history: strict full original mutable state, RNG and floating return (24.116402ms)
+✔ fused window identity guard declines missing or replaced public registration metadata (0.878144ms)
+✔ private numeric calls preserve each stored F64 image and the original DC argument mapping (2.086951ms)
+✔ custom callbacks, original-only callees and non-PC53 calls retain boxed external floating arguments (0.372632ms)
+✔ floating actual arguments to integer formals retain the original truncation and raw-word representation (0.203543ms)
+✔ changed public DC registration metadata declines the private numeric ABI (0.184938ms)
+✔ owned compiler arguments remove DC in place while public arrays and fallback callbacks retain their contract (0.335451ms)
+✔ floating masks preserve position31 and array fallback handles position32 without shift-count aliasing (0.200407ms)
+✔ owned floating-mask shortcut matches the complete scan across DC positions and conversion failures (46.621279ms)
+✔ accepted custom metadata copies cannot alias integer argument masks with invalid indices (0.492308ms)
+✔ actual requestPaint uses asynchronous immediate tasks with pending deduplication (1.828413ms)
+✔ hidden pages retain one invalidation without executing a queued paint or advancing the game (0.6534ms)
+✔ visibility resumes only the remaining positive delay and respects modal and terminal states (0.652218ms)
+✔ missing channel and inactive/modal states preserve the existing timer/request behavior (0.609397ms)
+✔ measurement instrumentation observes both actual paint scheduling routes (1.370942ms)
+✖ partial scalar generation proves array bounds, alias disjointness and unchanged retained fallback (56.148494ms)
+✖ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW7f (55.36094ms)
+✖ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW27f (54.528372ms)
+✖ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW37f (54.987898ms)
+✖ promoted I32 array stores retain signed wrapping and strict invalidation (55.054783ms)
+✖ array overflow spills fail only when loaded and can be overwritten (53.951195ms)
+✖ emitted CONCAT44 helper retains the zero-byte image of semantic F64 cells (53.970181ms)
+✔ respawnNearStart:preserved original native instructions and PC53 evidence (3.416525ms)
+✔ respawnNearStart:complete connected state, RNG, returns and ordered sounds match native code (153.156303ms)
+✔ shiftPenaltyPosition:preserved original native instructions and PC53 evidence (2.943604ms)
+✔ shiftPenaltyPosition:complete connected state, RNG, returns and ordered sounds match native code (613.981127ms)
+✔ checkNearRaceMarks:preserved original native instructions and PC53 evidence (2.86195ms)
+✔ checkNearRaceMarks:complete connected state, RNG, returns and ordered sounds match native code (530.12615ms)
+✔ collisionPenalty:preserved original native instructions and PC53 evidence (2.905222ms)
+✔ collisionPenalty:complete connected state, RNG, returns and ordered sounds match native code (389.65581ms)
+✔ updateMarkStartPenalties:preserved original native instructions and PC53 evidence (2.763545ms)
+✔ updateMarkStartPenalties:complete connected state, RNG, returns and ordered sounds match native code (116.385306ms)
+✔ updateInterference:preserved original native instructions and PC53 evidence (2.572966ms)
+✔ updateInterference:complete connected state, RNG, returns and ordered sounds match native code (355.42632ms)
+✔ updateSpinnakerDrag:preserved original native instructions and PC53 evidence (2.800024ms)
+✔ updateSpinnakerDrag:complete connected state, RNG, returns and ordered sounds match native code (137.057501ms)
+✔ prestartSpeedPercent:preserved original native instructions and PC53 evidence (2.467337ms)
+✔ prestartSpeedPercent:complete connected state, RNG, returns and ordered sounds match native code (149.853924ms)
+✔ fixed private POINT stores become scalars while the complete byte fallback stays unchanged (29.076024ms)
+✔ POINT expression, x/y getters, coercions and strict failures keep their original order (45.232754ms)
+✔ POINT promotion declines escaping, overlapping, out-of-bounds and observed-return cases (24.249212ms)
+✔ bounded camera projection matches the unchanged byte translation across camera changes and exact Float80 arguments (70.496457ms)
+✔ projection preserves signed zero, coincident points and mutated camera constants (3.499952ms)
+✔ custom trig/atan callbacks and explicitly retained local frames keep the original invocation semantics (2.780026ms)
+✔ non-PC53 control words, extended/subnormal arithmetic and malformed arguments decline without target writes (10.110473ms)
+✔ output certificates preserve whole-memory images around angular, clamp and perspective boundaries (3674.109384ms)
+ℹ {"cases":2376,"accepted":2084,"declined":292}
+✔ certified point outputs match complete original stores across camera changes and perspective modes (98.860999ms)
+✔ certified projection preserves original distance, bearing, row, column store order (3.02095ms)
+✔ unsupported controls, semantic arguments and provider/retained paths decline before stores or getters (6.576186ms)
+✔ public Number routing retains original formal conversion and byte fallback semantics (4.477082ms)
+✔ Full target advancement: entire original state, RNG and ordered sounds across dynamic course/finish branches (1383.368971ms)
+✔ native Board preset/start prefix retains all actual state before its declared finite turn boundary (4.265324ms)
+✔ three retained full board frames are exact for image, RNG, strings, ordered GDI/sounds/UI (293.699697ms)
+✔ standard-course1-constructor-graphics-normal-start: original start prefix, real controller calls and explicit paint-caller stores (5.784515ms)
+✔ standard-course1-constructor-graphics-normal-start: retained state, CString/RNG, sound, GDI and ordered UI callbacks are native exact (1319.36092ms)
+✔ course1-to-round-island-constructor-graphics-normal-start: original start prefix, real controller calls and explicit paint-caller stores (18.64138ms)
+✔ course1-to-round-island-constructor-graphics-normal-start: retained state, CString/RNG, sound, GDI and ordered UI callbacks are native exact (425.233221ms)
+✔ retained full frames (3 profiles): original initialization and all actual children, declared caller cadence only (8.084927ms)
+✔ standard-course1-prestart: 100 continuous full frames match native state, text, RNG, sounds and drawing order (3014.960344ms)
+✔ offshore-course8-started: 100 continuous full frames match native state, text, RNG, sounds and drawing order (2210.321851ms)
+✔ coastal-venue5-two-human-started: 100 continuous full frames match native state, text, RNG, sounds and drawing order (2826.922165ms)
+✔ retained full frames (1 profiles): original initialization and all actual children, declared caller cadence only (3.568792ms)
+✔ standard-course1-constructor-graphics: 100 continuous full frames match native state, text, RNG, sounds and drawing order (2956.601764ms)
+✔ original-retained-dynamics-integration.json:unchanged original code, retained chains and live CString/RNG evidence (19.244004ms)
+✔ original-retained-dynamics-integration.json:every live mutable byte, original name, RNG and ordered sound matches (7695.550606ms)
+✔ original-retained-integration-expanded-0.json:unchanged original code, retained chains and live CString/RNG evidence (3.061806ms)
+✔ original-retained-integration-expanded-0.json:every live mutable byte, original name, RNG and ordered sound matches (1530.834996ms)
+✔ original-retained-integration-expanded-1.json:unchanged original code, retained chains and live CString/RNG evidence (3.351963ms)
+✔ original-retained-integration-expanded-1.json:every live mutable byte, original name, RNG and ordered sound matches (1694.618092ms)
+✔ original-retained-integration-expanded-2.json:unchanged original code, retained chains and live CString/RNG evidence (3.434128ms)
+✔ original-retained-integration-expanded-2.json:every live mutable byte, original name, RNG and ordered sound matches (2421.685928ms)
+✔ original-retained-integration-expanded-3.json:unchanged original code, retained chains and live CString/RNG evidence (3.466849ms)
+✔ original-retained-integration-expanded-3.json:every live mutable byte, original name, RNG and ordered sound matches (2779.190611ms)
+✔ original-retained-integration-expanded-4.json:unchanged original code, retained chains and live CString/RNG evidence (3.021871ms)
+✔ original-retained-integration-expanded-4.json:every live mutable byte, original name, RNG and ordered sound matches (2815.068701ms)
+✔ original-retained-integration-expanded-5.json:unchanged original code, retained chains and live CString/RNG evidence (3.284526ms)
+✔ original-retained-integration-expanded-5.json:every live mutable byte, original name, RNG and ordered sound matches (2715.686613ms)
+✔ original-retained-integration-expanded-6.json:unchanged original code, retained chains and live CString/RNG evidence (3.169569ms)
+✔ original-retained-integration-expanded-6.json:every live mutable byte, original name, RNG and ordered sound matches (2021.178147ms)
+✔ original-retained-integration-modes.json:unchanged original code, retained chains and live CString/RNG evidence (3.924121ms)
+✔ original-retained-integration-modes.json:every live mutable byte, original name, RNG and ordered sound matches (3347.772408ms)
+✔ original-retained-integration.json:unchanged original code, retained chains and live CString/RNG evidence (3.981819ms)
+✔ original-retained-integration.json:every live mutable byte, original name, RNG and ordered sound matches (4120.353939ms)
+✔ speed-ten-full-fleet-prestart (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact (854.272491ms)
+✔ speed-ten-full-fleet-prestart (original arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact (1674.286647ms)
+✔ speed-ten-full-fleet-started (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact (758.230025ms)
+✔ speed-ten-full-fleet-started (original arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact (1825.489031ms)
+✔ speed-ten-started-after-original-fast-forward (numeric arithmetic): complete native state, RNG, text, GDI, sounds and actual speed selection remain exact (3178.361692ms)
+✔ 2010 sail geometry uses fresh original native output and only declared older finite inputs (20.665761ms)
+✔ mapped2002-finite-input-domain: 960 complete sail geometry calls match original native bits (1292.085308ms)
+✔ all27-original-selector-subtypes: 216 complete sail geometry calls match original native bits (243.375232ms)
+✔ trim-jib-and-human-versus-ai: 180 complete sail geometry calls match original native bits (202.931823ms)
+✔ jib-angle-spinnaker-and-override-boundaries: 540 complete sail geometry calls match original native bits (644.417688ms)
+✔ heel-and-depower-cutoffs: 270 complete sail geometry calls match original native bits (294.565912ms)
+✔ curvature-and-heading-thresholds: 441 complete sail geometry calls match original native bits (479.333706ms)
+✔ board-drift-truncation-and-signed-zero: 48 complete sail geometry calls match original native bits (80.299413ms)
+✔ finite-height-width-binary64-boundaries: 150 complete sail geometry calls match original native bits (177.601036ms)
+✔ new-classes-full-index-strides: 36 complete sail geometry calls match original native bits (44.358482ms)
+✔ raw-subtype-exact-one-and-positive-tests: 130 complete sail geometry calls match original native bits (147.380078ms)
+✔ sail graphic original: negative POINTs and reused DWORDs match original x86 (53.580831ms)
+✔ sail graphic number: negative POINTs and reused DWORDs match original x86 (25.574607ms)
+✔ sail graphic byte-frame: negative POINTs and reused DWORDs match original x86 (21.59979ms)
+✔ all five sail graphic partial assignments retain the original DWORD storage operation (9.181291ms)
+✔ sail graphic correction retains strict invalid floating argument failures (14.199362ms)
+✔ original-tutorial-2.json: scalar and explicitly retained byte paths each match the unchanged native captures (216.294249ms)
+✔ original-drawing-advice.json: scalar and explicitly retained byte paths each match the unchanged native captures (155.290787ms)
+✔ explicit retained inputs use the byte frame once and preserve initialization/bounds failures (1.435053ms)
+✔ scalar int slots match stored bytes, semantic identities and failures under CW7f (4.1628ms)
+✔ scalar float slots match stored bytes, semantic identities and failures under CW7f (2.135593ms)
+✔ scalar int slots match stored bytes, semantic identities and failures under CW27f (1.456804ms)
+✔ scalar float slots match stored bytes, semantic identities and failures under CW27f (2.033089ms)
+✔ scalar int slots match stored bytes, semantic identities and failures under CW37f (1.535341ms)
+✔ scalar float slots match stored bytes, semantic identities and failures under CW37f (1.632645ms)
+✔ undefined scalar arguments propagate until a strict local read observes them (0.335993ms)
+✔ finite extended overflow is allowed at a binary64 store and rejected only at a later load (0.612223ms)
+✔ signed random helper reference covers its original guard and divisor boundaries (4.026804ms)
+✔ 45 original signed-range calls match exact returns, RNG, all mutable bytes and immutable scope (102.601234ms)
+✖ shore private scalar generation proves array induction and actual callee alias contracts (59.879995ms)
+✔ the actual POINT output callee writes exactly eight bytes and preserves its aliased cells (0.97695ms)
+✔ shoreline venue2: promoted and byte functions agree on native scene input images (51.76935ms)
+✔ shoreline venue6: promoted and byte functions agree on native scene input images (99.033515ms)
+✔ shoreline venue9: promoted and byte functions agree on native scene input images (58.992754ms)
+✔ shoreline venue106: promoted and byte functions agree on native scene input images (30.88097ms)
+✔ opted-in finite drawing trig returns Number results with signed zeros and a fresh pair (1.267938ms)
+✔ opted-in atan handles every signed axis and extreme finite ratio without m80 carriers (0.489792ms)
+✔ absent, false, inherited or accessor flags and unsupported precision retain the exact path (3.909763ms)
+✔ retained/provider paths keep existing getter, argument and callback behavior (0.576316ms)
+✔ unknown/nonfinite/extended operands and large angles keep original failures and values (1.652963ms)
+✔ ordinary m80 drawing values may round to Number while underflowed directions decline (0.245282ms)
+✔ ordinary display-angle differences from x87 remain small while the exact helper stays unchanged (4.997361ms)
+✔ renderer waypoint respawn keeps exact coordinates and random state on both dependency routes (63.234142ms)
+✔ exact provider and retained-override paths retain their original options identity and errors (18.995214ms)
+✔ both camera-heading writers keep exact shared-state projection on ordinary and fallback geometry (29.547007ms)
+✔ seven real retained render profiles keep all ordered next-frame physics reads/writes and RNG exact (26882.65004ms)
+✔ smooth drawing flag and different host clock epochs preserve real dt, AI cadence, inputs and full mode (760.41605ms)
+✔ pause and a failing drawing suffix keep the original single physics prefix and finish ordering (138.911123ms)
+✔ the actual graphics query installs only renderer shared options and preserves engine providers (2.672373ms)
+✔ faster drawing keeps one simulation callback per original paint and yields to queued input (5.450766ms)
+✔ smooth perspective pixels stay within one pixel of original byte-frame drawing in ordinary views (68.578705ms)
+✔ view cutoff and selector5 degree boundaries do not turn rounding into large pixel jumps (5.694494ms)
+✔ smooth projection retains no-store declines for unsupported controls and malformed coefficients (9.801049ms)
+✔ complete 2010 snapshots match every native mutable byte, including retained save/restore chains (96.055082ms)
+✔ snapshot fixture contains original signed-count boundaries, all30 boats and native continuation (0.539936ms)
+✔ projectPoint:original preserved-code and precision evidence (3.57332ms)
+✔ projectPoint:whole state, exactextended return, stored bits and RNG match native code (177.133777ms)
+✔ sampleShorelineMetric:original preserved-code and precision evidence (3.002495ms)
+✔ sampleShorelineMetric:whole state, exactextended return, stored bits and RNG match native code (378.408862ms)
+✔ sampleSpatialMetric:original preserved-code and precision evidence (3.014487ms)
+✔ sampleSpatialMetric:whole state, exactextended return, stored bits and RNG match native code (1267.167109ms)
+✔ sampleRadialMetric:original preserved-code and precision evidence (2.923907ms)
+✔ sampleRadialMetric:whole state, exactextended return, stored bits and RNG match native code (323.167875ms)
+✔ sampleVenueMetric:original preserved-code and precision evidence (3.055605ms)
+✔ sampleVenueMetric:whole state, exactextended return, stored bits and RNG match native code (1432.428233ms)
+✔ pointInXStrip:original preserved-code and precision evidence (2.874103ms)
+✔ pointInXStrip:whole state, exactextended return, stored bits and RNG match native code (80.430866ms)
+✔ pointInYStrip:original preserved-code and precision evidence (2.819119ms)
+✔ pointInYStrip:whole state, exactextended return, stored bits and RNG match native code (69.758567ms)
+✔ updatePlayer1Rudder: entire original state, RNG, return and ordered sounds (2567.324736ms)
+✔ updatePlayer1Steering: entire original state, RNG, return and ordered sounds (2367.208419ms)
+✔ updatePlayer2Steering: entire original state, RNG, return and ordered sounds (1820.938782ms)
+✔ updatePlayer1Rudder: entire original state, RNG, return and ordered sounds (44.80451ms)
+✔ initializeShoreline:original preserved-code and precision evidence (3.725135ms)
+✔ initializeShoreline:every geometry byte, exact floating field and RNG match native code (970.444836ms)
+✔ initializeEllipse:original preserved-code and precision evidence (3.22851ms)
+✔ initializeEllipse:every geometry byte, exact floating field and RNG match native code (1039.271756ms)
+✔ initializeAdvancedTerrain:original preserved-code and precision evidence (2.995612ms)
+✔ initializeAdvancedTerrain:every geometry byte, exact floating field and RNG match native code (862.713544ms)
+✔ 2010 tutorial 1: all ordered original requests and complete state (66.678405ms)
+✔ 2010 tutorial 2: all ordered original requests and complete state (37.391369ms)
+✔ 2010 tutorial 3: all ordered original requests and complete state (28.651709ms)
+✔ 2010 tutorial 4: all ordered original requests and complete state (31.635469ms)
+✔ 2010 tutorial 5: all ordered original requests and complete state (34.791212ms)
+✔ 2010 tutorial 6: all ordered original requests and complete state (33.61149ms)
+✔ 2010 tutorial 7: all ordered original requests and complete state (31.226058ms)
+✔ 2010 tutorial 8: all ordered original requests and complete state (34.5988ms)
+✔ drawTutorial10: complete unchanged original state, names, sound and drawing order (122.262576ms)
+✔ drawTutorial11: complete unchanged original state, names, sound and drawing order (104.960452ms)
+✔ drawTutorial12: complete unchanged original state, names, sound and drawing order (94.13822ms)
+✔ drawTutorial101: complete unchanged original state, names, sound and drawing order (208.202346ms)
+✔ drawTutorial102: complete unchanged original state, names, sound and drawing order (141.015232ms)
+✔ drawTutorial103: complete unchanged original state, names, sound and drawing order (175.356608ms)
+✔ drawTutorial104: complete unchanged original state, names, sound and drawing order (137.538846ms)
+✔ drawTutorial105: complete unchanged original state, names, sound and drawing order (168.080314ms)
+✔ drawTutorial106: complete unchanged original state, names, sound and drawing order (159.398514ms)
+✔ drawTutorial107: complete unchanged original state, names, sound and drawing order (128.677106ms)
+✔ drawTutorial108: complete unchanged original state, names, sound and drawing order (185.311005ms)
+✔ drawTutorial109: complete unchanged original state, names, sound and drawing order (126.298086ms)
+✔ drawTutorial110: complete unchanged original state, names, sound and drawing order (107.690903ms)
+✔ drawTutorial300: complete unchanged original state, names, sound and drawing order (61.07422ms)
+✔ drawTutorial501: complete unchanged original state, names, sound and drawing order (135.116223ms)
+✔ drawTutorial502: complete unchanged original state, names, sound and drawing order (144.858661ms)
+✔ drawTutorial503: complete unchanged original state, names, sound and drawing order (120.005986ms)
+✔ drawTutorial504: complete unchanged original state, names, sound and drawing order (119.329832ms)
+✔ drawTutorial505: complete unchanged original state, names, sound and drawing order (120.832693ms)
+✔ drawTutorial506: complete unchanged original state, names, sound and drawing order (112.596692ms)
+✔ drawTutorial507: complete unchanged original state, names, sound and drawing order (128.148982ms)
+✔ drawTutorial508: complete unchanged original state, names, sound and drawing order (169.346678ms)
+✔ drawTutorial509: complete unchanged original state, names, sound and drawing order (68.35402ms)
+✔ drawTutorial510: complete unchanged original state, names, sound and drawing order (67.007204ms)
+✔ drawTutorial511: complete unchanged original state, names, sound and drawing order (91.997769ms)
+✔ drawTutorial512: complete unchanged original state, names, sound and drawing order (229.204999ms)
+✔ drawTutorial513: complete unchanged original state, names, sound and drawing order (208.561121ms)
+✔ drawTutorial514: complete unchanged original state, names, sound and drawing order (175.975283ms)
+✔ drawTutorial601: complete unchanged original state, names, sound and drawing order (70.829492ms)
+✔ drawTutorial602: complete unchanged original state, names, sound and drawing order (67.20679ms)
+✔ drawTutorial603: complete unchanged original state, names, sound and drawing order (67.895236ms)
+✔ drawTutorial604: complete unchanged original state, names, sound and drawing order (68.776416ms)
+✔ drawTutorial701: complete unchanged original state, names, sound and drawing order (69.359785ms)
+✔ drawTutorial400: complete unchanged original state, names, sound and drawing order (89.472673ms)
+✔ raw floating pointer loads preserve binary64 images and all other pointer dispatch (10.892764ms)
+✔ fused local DWORD floating loads retain every finite/nonfinite image in packed and public byte frames (15.817028ms)
+✔ fused local floating loads preserve high-word-first failures, semantic words and wraparound (1.819136ms)
+✔ raw floating pointer loads keep inherited numeric events and their getter order (0.330122ms)
+✔ floating Number stores preserve binary64 images and alias validity across packed and public frames (23.389028ms)
+✔ floating stores keep conversion failures, deferred infinity reads and signed-zero origins (1.526775ms)
+✔ primitive integer arithmetic keeps DWORD wrapping and strict conversions (1.283627ms)
+✔ integer dispatch preserves semantic events on Number prototypes (0.716309ms)
+✔ direct DWORD-to-binary64 loads match complete original CONCAT44 decoding, including signed zero and nonfinite failures (14.563818ms)
+✔ unusual DWORD arguments retain the complete original coercion and failure path (1.131922ms)
+✔ fused floating FTOL64 and low-DWORD casts preserve the existing signed and unsigned results and overflow checks (0.752858ms)
+✔ the elided dead stack read is pinned to unchanged original instructions and its precise guard (6.166664ms)
+✔ engaged upwind tactics preserve every native mutable byte, RNG and sound across all fleet sizes (522.674455ms)
+✔ venue1:original preserved-code and precision evidence (3.260991ms)
+✔ venue1:every vertex, state byte and RNG matches native code (195.754371ms)
+✔ venue2:original preserved-code and precision evidence (2.807127ms)
+✔ venue2:every vertex, state byte and RNG matches native code (157.381084ms)
+✔ venue3:original preserved-code and precision evidence (2.827776ms)
+✔ venue3:every vertex, state byte and RNG matches native code (104.723915ms)
+✔ venue4:original preserved-code and precision evidence (2.905001ms)
+✔ venue4:every vertex, state byte and RNG matches native code (105.962498ms)
+✔ venue6:original preserved-code and precision evidence (2.701197ms)
+✔ venue6:every vertex, state byte and RNG matches native code (156.916559ms)
+✔ venue7:original preserved-code and precision evidence (2.690988ms)
+✔ venue7:every vertex, state byte and RNG matches native code (129.531494ms)
+✔ venue9:original preserved-code and precision evidence (2.772491ms)
+✔ venue9:every vertex, state byte and RNG matches native code (128.915514ms)
+✔ venue10:original preserved-code and precision evidence (2.583776ms)
+✔ venue10:every vertex, state byte and RNG matches native code (92.400467ms)
+✔ venue11:original preserved-code and precision evidence (2.76614ms)
+✔ venue11:every vertex, state byte and RNG matches native code (143.612564ms)
+✔ venue12:original preserved-code and precision evidence (2.736223ms)
+✔ venue12:every vertex, state byte and RNG matches native code (88.907919ms)
+✔ venue100:original preserved-code and precision evidence (2.812196ms)
+✔ venue100:every vertex, state byte and RNG matches native code (122.523436ms)
+✔ venue101:original preserved-code and precision evidence (2.724902ms)
+✔ venue101:every vertex, state byte and RNG matches native code (151.220351ms)
+✔ venue102:original preserved-code and precision evidence (3.009828ms)
+✔ venue102:every vertex, state byte and RNG matches native code (134.282802ms)
+✔ venue103:original preserved-code and precision evidence (2.658757ms)
+✔ venue103:every vertex, state byte and RNG matches native code (127.167893ms)
+✔ venue104:original preserved-code and precision evidence (2.598234ms)
+✔ venue104:every vertex, state byte and RNG matches native code (90.063455ms)
+✔ venue105:original preserved-code and precision evidence (2.613943ms)
+✔ venue105:every vertex, state byte and RNG matches native code (106.476717ms)
+✔ venue106:original preserved-code and precision evidence (2.60721ms)
+✔ venue106:every vertex, state byte and RNG matches native code (104.654574ms)
+✔ venue numeric loop requires PC53 and leaves custom trig providers on the original path (0.835694ms)
+✔ venue point loop preserves exact returns, failures and ordered reads at floating boundaries (1005.753859ms)
+✔ custom venue trig callback retains Float80 arguments and its original call order (1.572181ms)
+✖ the reviewed water chain retains its first F64 load and complete original/byte fallbacks (42.630205ms)
+✖ outside frame escapes, unreviewed callbacks, changed control flow and views decline unchanged (40.671155ms)
+✖ actual water expressions preserve signed zeros, extended inputs and first-read failures (39.133259ms)
+✔ only unchanged ordinary memory in the reviewed nearest53 context is accepted (1.314165ms)
+✔ Proxy and duck-memory rejection precede all host traps and getters (0.35099ms)
+✔ replacement fields and SharedArrayBuffer-backed views conservatively decline (0.513668ms)
+✔ method/prototype changes and detached views decline without invoking replacements (0.583379ms)
+✔ constructor snapshots introduce no extra subclass field getters (0.843498ms)
+✔ a constructor-original shared view declines even when all recorded identities match (1.224906ms)
+✔ the actual integrated case208 copies all certified outputs before advancing to171 (11.459511ms)
+✔ unsupported operands and late invalid constants preserve original partial stores and failures (21.079018ms)
+✔ custom methods, Proxy access and throwing getters preserve memory-read and error ordering (1.344883ms)
+✖ the certified water kernel reproduces the pinned expression tree and declines future source changes (41.337852ms)
+✔ all accepted random and signed-zero cases match the actual129-operation source exactly (17.598592ms)
+✔ underflow, overflow, unknown inputs and precision changes reject without changing prior outputs (1.464738ms)
+✔ custom-memory fallback is selected before any speculative read or Proxy observation (0.32399ms)
+✔ an externally detached scratch causes a safe decline (0.338848ms)
+✔ wave motion executes the entire unchanged original no-argument body at startup precision (4.175092ms)
+✔ wave motion matches every native byte, retained RNG, raw F64 spill and ordered sound request (3307.853983ms)
+✔ distance guards preserve extended results and failures under CW27f (21.347784ms)
+✔ distance guards preserve extended results and failures under CW37f (44.209369ms)
+✔ nearest scan preserves extended minimum spills and failures under CW7f (53.170314ms)
+✔ nearest scan preserves extended minimum spills and failures under CW27f (12.773706ms)
+✔ nearest scan preserves extended minimum spills and failures under CW37f (46.740244ms)
+✔ distance and nearest guards preserve altered clamp constants and unsupported loads (2.441699ms)
+✔ nearest scan preserves failed original memory reads and count bounds (0.319712ms)
+✔ initializeWind:original preserved-code and precision evidence (3.561257ms)
+✔ initializeWind:every complete mutable state, exact floating bits and RNG match native code (1274.539429ms)
+✔ initializeTide:original preserved-code and precision evidence (3.057759ms)
+✔ initializeTide:every complete mutable state, exact floating bits and RNG match native code (2102.199928ms)
+✔ initializeWindSources:original preserved-code and precision evidence (2.857221ms)
+✔ initializeWindSources:every complete mutable state, exact floating bits and RNG match native code (179.045853ms)
+✔ respawnWindPatch:original preserved-code and precision evidence (2.913306ms)
+✔ respawnWindPatch:every complete mutable state, exact floating bits and RNG match native code (685.872063ms)
+✔ updateGlobalWind:native source, precision and complete typed address map (3.537452ms)
+✔ updateGlobalWind:every native case matches full state, exact floating bits, RNG and return (2839.75337ms)
+✔ scheduleWindShift:native source, precision and complete typed address map (3.154671ms)
+✔ scheduleWindShift:every native case matches full state, exact floating bits, RNG and return (345.258615ms)
+✔ bearingFromVector:native source, precision and complete typed address map (3.177875ms)
+✔ bearingFromVector:every native case matches full state, exact floating bits, RNG and return (1176.028836ms)
+ℹ tests 489
+ℹ suites 0
+ℹ pass 476
+ℹ fail 13
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 209857.411331
+
+✖ failing tests:
+
+test at versions/2010-en/tests/chart-window-generator.test.js:1:1
+✖ versions/2010-en/tests/chart-window-generator.test.js (259.671864ms)
+  'test failed'
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:26:1
+✖ partial scalar generation proves array bounds, alias disjointness and unchanged retained fallback (56.148494ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:27:22)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773375,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:37:40
+✖ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW7f (55.36094ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:39:40
+      at withX87ControlWord (file:///home/martin/.cache/tact/2026-reference/64d5cdf/src/runtime/float80.js:39:20)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:38:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773387,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:37:40
+✖ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW27f (54.528372ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:39:40
+      at withX87ControlWord (file:///home/martin/.cache/tact/2026-reference/64d5cdf/src/runtime/float80.js:39:20)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:38:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773396,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:37:40
+✖ promoted F64 cells and CONCAT44 loads retain binary64 images and failures under CW37f (54.987898ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:39:40
+      at withX87ControlWord (file:///home/martin/.cache/tact/2026-reference/64d5cdf/src/runtime/float80.js:39:20)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:38:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773397,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:57:1
+✖ promoted I32 array stores retain signed wrapping and strict invalidation (55.054783ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:64:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773398,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:71:1
+✖ array overflow spills fail only when loaded and can be overwritten (53.951195ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:72:38)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773399,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/partial-scalar-generator.test.js:83:1
+✖ emitted CONCAT44 helper retains the zero-byte image of semantic F64 cells (53.970181ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py --emit-cell-contract
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at cells (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:15:24)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.test.js:84:29)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1773400,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/partial-scalar-generator.py", line 10, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/shore-scalar-generator.test.js:8:1
+✖ shore private scalar generation proves array induction and actual callee alias contracts (59.879995ms)
+  Error: Command failed: /home/martin/tact/tools/python-runtime/bin/python3 /home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/shore-scalar-generator.py
+  Traceback (most recent call last):
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/shore-scalar-generator.py", line 9, in <module>
+      import translate_drawing as drawing
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/shore-scalar-generator.test.js:10:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/shore-scalar-generator.py", line 9, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n` ],
+    pid: 1774592,
+    stdout: '',
+    stderr: `Traceback (most recent call last):\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/shore-scalar-generator.py", line 9, in <module>\n    import translate_drawing as drawing\n  File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>\n    from pycparser import c_parser, c_ast\nModuleNotFoundError: No module named 'pycparser'\n`
+  }
+
+test at versions/2010-en/tests/water-float-loads.test.js:43:1
+✖ the reviewed water chain retains its first F64 load and complete original/byte fallbacks (42.630205ms)
+  AssertionError [ERR_ASSERTION]: Traceback (most recent call last):
+    File "<string>", line 3, in <module>
+      from translate_drawing import ROOT,Translator
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+  
+  1 !== 0
+  
+      at generated (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-float-loads.test.js:38:10)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-float-loads.test.js:44:37)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at versions/2010-en/tests/water-float-loads.test.js:54:1
+✖ outside frame escapes, unreviewed callbacks, changed control flow and views decline unchanged (40.671155ms)
+  AssertionError [ERR_ASSERTION]: Traceback (most recent call last):
+    File "<string>", line 3, in <module>
+      from translate_drawing import ROOT,Translator
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+  
+  1 !== 0
+  
+      at generated (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-float-loads.test.js:38:10)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-float-loads.test.js:55:29)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at versions/2010-en/tests/water-float-loads.test.js:84:1
+✖ actual water expressions preserve signed zeros, extended inputs and first-read failures (39.133259ms)
+  AssertionError [ERR_ASSERTION]: Traceback (most recent call last):
+    File "<string>", line 3, in <module>
+      from translate_drawing import ROOT,Translator
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+  
+  1 !== 0
+  
+      at generated (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-float-loads.test.js:38:10)
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-float-loads.test.js:85:30)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at versions/2010-en/tests/water-number-slab.test.js:43:1
+✖ the certified water kernel reproduces the pinned expression tree and declines future source changes (41.337852ms)
+  AssertionError [ERR_ASSERTION]: Traceback (most recent call last):
+    File "<string>", line 3, in <module>
+      from translate_drawing import ROOT,Translator
+    File "/home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tools/translate_drawing.py", line 16, in <module>
+      from pycparser import c_parser, c_ast
+  ModuleNotFoundError: No module named 'pycparser'
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///home/martin/.cache/tact/2026-reference/64d5cdf/versions/2010-en/tests/water-number-slab.test.js:64:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

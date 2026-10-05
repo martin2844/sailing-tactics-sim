@@ -24,3 +24,11 @@ Run baseline checks in a detached reference checkout. Generated reports and
 expanded captures belong there; retain new result summaries under this
 directory's `analysis/`, leaving historical evidence intact. Test outputs are
 not production inputs.
+
+Completed task evaluations:
+
+- [BASE-01: preservation reference](analysis/baseline/BASE-01.md).
+- [BASE-02: reproduced correctness baseline](analysis/baseline/BASE-02.md).
+
+The baseline collector and reproduction instructions are documented in BASE-02.
+Its failed first setup attempt is retained alongside the corrected evidence.

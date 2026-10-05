@@ -63,11 +63,17 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   [verification](versions/2026/analysis/baseline/BASE-01-verification.json).
   Accepted: 6,471 frozen inputs verified; isolated mutation probes passed.
 
-- [ ] **BASE-02 — Reproduce the existing correctness baseline** · P0 · M · Depends: BASE-01.
+- [x] **BASE-02 — Reproduce the existing correctness baseline** · P0 · M · Depends: BASE-01.
 
   Done when: required existing 2010/native/browser checks pass on the frozen
   inputs, or each pre-existing failure has a reproducible report and an explicit
   disposition; current full-version mode and source/export behavior are recorded.
+
+  Completed 2026-10-05; atomic commit: `BASE-02: reproduce and evaluate the
+  frozen 2010 baseline`; [evaluation and failure disposition](versions/2026/analysis/baseline/BASE-02.md),
+  [run evidence](versions/2026/analysis/baseline/BASE-02-run-2/report.json).
+  Accepted: finite native/runtime/browser/export gates pass after dependency
+  remediation; full mode retained; real complete-race evidence remains `BASE-03`.
 
 - [ ] **BASE-03 — Establish real complete-race evidence** · P0 · L · Depends: BASE-02.
 
@@ -804,4 +810,6 @@ Implementation tasks are intentionally unchecked. Add evidence as work completes
 
 | Task / milestone | Completed | Commit / PR | Test / report / artifact | Remaining limitation |
 | --- | --- | --- | --- | --- |
+| BASE-01 | 2026-10-05 | `cb60695` | [Evaluation](versions/2026/analysis/baseline/BASE-01.md) | Integrity baseline only |
+| BASE-02 | 2026-10-05 | Atomic `BASE-02` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-02.md) | Finite checks; real races and modern performance remain open |
 | — | — | — | — | — |
