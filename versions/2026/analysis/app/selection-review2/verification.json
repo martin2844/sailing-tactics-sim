@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Around Block fixed native route and disabled incompatible options",
+      "value": {
+        "configuration": {
+          "course": 3,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 14,
+          "area": 0,
+          "venue": 5,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "course": "3",
+        "boat": "14",
+        "gate": false,
+        "short": false
+      }
+    },
+    {
+      "name": "Header fleet clears unsupported gate and starts requested five boat fleet",
+      "value": {
+        "course": 1,
+        "wind": 2,
+        "fleet": 5,
+        "selector": 14,
+        "area": 5,
+        "venue": 0,
+        "mode": 0,
+        "gate": false,
+        "short": false
+      }
+    },
+    {
+      "name": "Explicit false gate with native fifteen series does not assert the incompatible default hash",
+      "initial": {
+        "frame": 10,
+        "time": -170.1534699111288,
+        "clock": -170,
+        "rngState": 446414115,
+        "memorySha256": "869fc8c08715387cd083c5560401287303429e908fe569fa75a8ce1e681fe3d0",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 2
+        }
+      }
+    }
+  ],
+  "scope": "Actual native startup and modern setup corrections; isolated extra client disposed; no game-state fixtures"
+}

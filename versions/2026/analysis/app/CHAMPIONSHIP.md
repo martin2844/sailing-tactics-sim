@@ -1,4 +1,4 @@
-# Events and native series (EXT-04, journey evaluation in progress)
+# Events and native series (EXT-04, complete three-race journey evaluated)
 
 The starter selects Standard race or Championship (3, 5 or 10 races). Standard
 race uses native No Series Scoring, ending on the player's finish. Championship
@@ -33,11 +33,10 @@ Evidence:
   calibration problem. The second [retained run](event-sailing2/failure.json)
   sailed a real first-place finish and initialized race two, then a Node-side
   evaluator typo (`tact2026` used outside its page) stopped the test. This is a
-  test-harness failure, not an application error. The full three-race run is
-  being repeated; EXT-04 stays unchecked until that journey is evaluated.
+  test-harness failure, not an application error. The successful full three-race repeat is documented below.
 
-No mobile acceptance or completed full championship claim yet. Final Chrome
-smoothness evaluation belongs to EXT-07 after the complete feature expansion.
+Physical Pixel 11 acceptance remains deferred. The completed Chrome checks are
+recorded in `EXPANSION-REVIEW.md`.
 
 ## Complete natural series evaluation
 

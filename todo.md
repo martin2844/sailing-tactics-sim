@@ -934,8 +934,15 @@ extensions must be identified and must not silently replace original behavior.
   instruments and grounded status, with restrained wave/gust visuals. Port
   environmental physics already present; any illustrative additions remain
   presentation-only. Evaluate shallow-water and current cases against the OG.
-- [ ] **EXT-07 — Review and evaluate the complete expanded player journey.**
+- [x] **EXT-07 — Review and evaluate the complete expanded player journey.**
   Fix findings; check starter/race/finish/championship/restart/error ownership,
   selected boats/courses, no demo mode, frozen-reference integrity and repeated
   Chrome smoothness. Keep incomplete items explicit instead of declaring the
   whole expansion complete early.
+
+Expansion evidence: [catalog](versions/2026/analysis/app/CATALOG.md),
+[environment](versions/2026/analysis/app/ENVIRONMENT.md), and
+[review / journey / performance](versions/2026/analysis/app/EXPANSION-REVIEW.md).
+EXT-05 commit `73806fa`; EXT-06 commit `8fe664b`; EXT-07 see file history.
+The requested expansion is complete within these recorded checks; the broader
+MVP, physical Pixel 11 and replay/export tasks above retain their existing status.

@@ -43,6 +43,7 @@ Completed task evaluations:
 - [Starter screen and native race settings](analysis/app/STARTER.md).
 - [All native boats, courses, venues and fleets](analysis/app/CATALOG.md).
 - [Native environment, shore, depth, currents and grounding](analysis/app/ENVIRONMENT.md).
+- [Race/championship journey and expansion review](analysis/app/EXPANSION-REVIEW.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.

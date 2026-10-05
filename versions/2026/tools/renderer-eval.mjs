@@ -1,6 +1,8 @@
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
-async function focus(b){await b.call("Page.bringToFront");}
+import{execFile}from'node:child_process';import{promisify}from'node:util';const executeFile=promisify(execFile);
+async function focus(b){await b.call('Page.bringToFront');if(process.env.HYPRLAND_INSTANCE_SIGNATURE){const clients=JSON.parse((await executeFile('hyprctl',['-j','clients'])).stdout),pids=new Set([b.metadata.processId,b.metadata.browserProcessId]),owned=clients.filter(c=>pids.has(c.pid)&&c.mapped!==false);if(owned.length!==1||!/^0x[0-9a-f]+$/i.test(owned[0].address))throw Error('Owned renderer window not uniquely identified');const address=owned[0].address,expression='hl.dsp.focus({window="address:'+address+'"})';const result=await executeFile('hyprctl',['dispatch',expression]);if(result.stdout.trim()!=='ok')throw Error('Owned compositor focus failed: '+result.stdout);const active=JSON.parse((await executeFile('hyprctl',['-j','activewindow'])).stdout);if(active.address!==address)throw Error('Owned renderer window is not active');}}
+
 import {openBrowser} from '../../../tools/browser-session.js';
 const out=resolve(process.argv[2]??'');if(process.argv.length<3)throw new Error('Usage: renderer-eval.mjs NEW_DIRECTORY [REPEATS=5]');await mkdir(out);
 const repetitions=Number(process.argv[3]??5),runs=[];
@@ -9,7 +11,7 @@ const percentile=(a,p)=>{const sorted=a.filter(v=>Number.isFinite(v)).sort((a,b)
 function stats(a){return{samples:a.length,median:percentile(a,.5),p95:percentile(a,.95),p99:percentile(a,.99),max:a.length?Math.max(...a):null};}
 async function click(b,id){const p=await b.evaluate(`(()=>{const r=document.getElementById(${JSON.stringify(id)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);await b.call('Input.dispatchMouseEvent',{type:'mouseMoved',...p});await b.call('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...p});await b.call('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...p});}
 try{
- for(const backend of ['webgl2','webgpu'])for(let repetition=0;repetition<repetitions;repetition++){
+ for(const backend of(process.env.TACT_RENDERER_BACKENDS?process.env.TACT_RENDERER_BACKENDS.split(','):['webgl2','webgpu']))for(let repetition=0;repetition<repetitions;repetition++){
   const b=await openBrowser(`http://127.0.0.1:8770/spike/?fleet=15&backend=${backend}`,{headless:false,gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
   try{
    await b.call('Page.addScriptToEvaluateOnNewDocument',{source:"globalThis.visibilityLog=[];document.addEventListener('visibilitychange',()=>visibilityLog.push({state:document.visibilityState,time:performance.now()}));"});await b.call('Page.reload');
