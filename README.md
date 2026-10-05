@@ -8,6 +8,13 @@ rules, menus, keyboard and mouse controls, tutorial pages, procedural graphics,
 preferences, and nine extracted sounds. The original demo notices and limits
 remain part of the game.
 
+## 2026 modernization roadmap
+
+The [2026 product and engineering plan](PLAN-2026.md) specifies the proposed
+low-poly edition, its five improvements, architecture and acceptance gates.
+The [MVP tracker](todo.md) lists implementation tasks, dependencies and completion
+criteria. Implementation of this roadmap has not started.
+
 ## Play
 
 ```sh
