@@ -65,7 +65,7 @@ export class NativeBoatMesh {
   const colorAttribute=this.geometry.getAttribute('color') as THREE.BufferAttribute|undefined;
   if(colorAttribute&&colorAttribute.array.length===rgb.length){(colorAttribute.array as Float32Array).set(rgb);colorAttribute.needsUpdate=true;}
   else this.geometry.setAttribute('color',new THREE.Float32BufferAttribute(rgb,3).setUsage(THREE.DynamicDrawUsage));
-  this.interpolate(1);this.geometry.computeVertexNormals();
+  this.interpolate(1);this.geometry.computeVertexNormals();this.geometry.computeBoundingBox();this.geometry.boundingBox!.expandByScalar(.15);
  }
  interpolate(alpha:number,rig?:BoatView,time=0){if(!this.current||!this.before)return;const attribute=this.geometry.getAttribute('position') as THREE.BufferAttribute,a=attribute.array as Float32Array;for(let i=0;i<a.length;i++)a[i]=this.before[i]+(this.current[i]-this.before[i])*alpha;
   if(rig&&this.hasRig){

@@ -12,7 +12,7 @@ export class CourseScene {
   const material=(color:string)=>resource(new THREE.MeshStandardMaterial({color,roughness:.85,flatShading:true}));
   const base=resource(new THREE.CylinderGeometry(1.9,2.3,1.2,8)),top=resource(new THREE.ConeGeometry(1.9,3.4,8)),pole=resource(new THREE.CylinderGeometry(.12,.12,7,6));
   const rim=material('#182f3c'),colors=['#ef882b','#f4ca48','#f4ca48','#ef882b'];
-  const buoy=(color:string,label:string)=>{const g=new THREE.Group(),body=new THREE.Mesh(base,rim),cap=new THREE.Mesh(top,material(color));body.position.y=-.7;cap.position.y=1.6;g.add(body,cap);g.add(this.label(label,resource));return g;};
+  const buoy=(color:string,_label:string)=>{const g=new THREE.Group(),body=new THREE.Mesh(base,rim),cap=new THREE.Mesh(top,material(color));body.position.y=-.7;cap.position.y=1.6;g.add(body,cap);return g;};
   for(let i=0;i<3;i++){const mark=buoy(colors[i],String(i+1));this.marks.push(mark);this.group.add(mark);}
   for(let i=0;i<2;i++){const mark=buoy('#f4ca48',i===0?'Gate L':'Gate R');mark.visible=false;this.gates.push(mark);this.group.add(mark);}
   this.pin=buoy(colors[3],'Pin');this.group.add(this.pin);
@@ -24,15 +24,19 @@ export class CourseScene {
   const glass=new THREE.Mesh(resource(new THREE.BoxGeometry(4.6,1.1,4.6)),material('#286679'));glass.position.set(0,3.5,0);
   const mast=new THREE.Mesh(pole,rim);mast.position.set(0,6.6,3);
   const flag=new THREE.Mesh(resource(new THREE.PlaneGeometry(3,2)),resource(new THREE.MeshBasicMaterial({color:'#edc43c',side:THREE.DoubleSide})));flag.position.set(1.5,9,3);
-  this.committee.add(hull,deck,cabin,glass,mast,flag,this.label('Committee',resource));this.group.add(this.committee);
+  this.committee.add(hull,deck,cabin,glass,mast,flag);this.group.add(this.committee);
   const line=(color:string,dashed=false)=>{const geometry=resource(new THREE.BufferGeometry());geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(6),3).setUsage(THREE.DynamicDrawUsage));
    geometry.setAttribute('lineDistance',new THREE.Float32BufferAttribute(new Float32Array(2),1).setUsage(THREE.DynamicDrawUsage));
    const material=resource(dashed?new THREE.LineDashedMaterial({color,dashSize:8,gapSize:5,depthTest:false}):new THREE.LineBasicMaterial({color,depthTest:false}));const line=new THREE.Line(geometry,material);line.frustumCulled=false;line.renderOrder=2;this.group.add(line);return line;};
   this.start=line('#f5f8fc',true);this.finish=line('#5ce5b3',true);
   for(let i=0;i<20;i++){const guide=line('#243e47');guide.visible=false;this.guides.push(guide);}
  }
- private label(text:string,resource:<T extends {dispose:()=>void}>(item:T)=>T){const canvas=document.createElement('canvas');canvas.width=text.length<3?64:text.length<5?128:256;canvas.height=64;const context=canvas.getContext('2d')!;context.fillStyle='#f4f7f8';context.fillRect(0,0,canvas.width,64);context.fillStyle='#12303d';context.font='600 34px "IBM Plex Sans", sans-serif';context.textAlign='center';context.textBaseline='middle';context.fillText(text,canvas.width/2,32);
-  const texture=resource(new THREE.CanvasTexture(canvas));texture.colorSpace=THREE.SRGBColorSpace;const material=resource(new THREE.SpriteMaterial({map:texture,depthTest:false,sizeAttenuation:false})),sprite=new THREE.Sprite(material);sprite.position.y=15;sprite.scale.set(canvas.width/64*.0325,.0325,1);sprite.renderOrder=3;return sprite;}
+ labelAnchors(course:NativeCourse){
+  const result=this.marks.flatMap((mark,i)=>mark.visible?[{key:'mark-'+i,text:String(i+1),object:mark,height:5,point:course.marks[i],badge:true}]:[]);
+  for(let i=0;i<2;i++)if(this.gates[i].visible)result.push({key:'gate-'+i,text:i?'Gate R':'Gate L',object:this.gates[i],height:5,point:course.gate![i],badge:false});
+  result.push({key:'pin',text:'Pin',object:this.pin,height:5,point:course.finish.b,badge:false},{key:'committee',text:'Committee',object:this.committee,height:10,point:course.committee,badge:false});
+  return result;
+ }
  private line(line:THREE.Line,value:CourseLine,y:number){const p=line.geometry.getAttribute('position') as THREE.BufferAttribute;p.setXYZ(0,value.a.x,y,value.a.y);p.setXYZ(1,value.b.x,y,value.b.y);p.needsUpdate=true;const distance=line.geometry.getAttribute('lineDistance') as THREE.BufferAttribute;distance.setX(1,Math.hypot(value.b.x-value.a.x,value.b.y-value.a.y));distance.needsUpdate=true;}
  update(course:NativeCourse,boat:BoatView,origin:{x:number;y:number},clock:number){
   this.group.position.set(-origin.x,0,-origin.y);

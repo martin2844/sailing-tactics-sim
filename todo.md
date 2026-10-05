@@ -952,7 +952,7 @@ MVP, physical Pixel 11 and replay/export tasks above retain their existing statu
 - [x] **VIS-01 — Restore native guide decisions and heading reference.** Validate
   anchors/bearings and suppression against the full original chart; preserve
   simulation state, gate/finish cases and free-camera ownership.
-- [ ] **VIS-02 — Replace buoy and fleet sprites with one compact label system.**
+- [x] **VIS-02 — Replace buoy and fleet sprites with one compact label system.**
   Bound screen size, anchor outside boats/sails, avoid label/HUD collisions,
   prioritise the active target and nearby/selected boats, and support show-all.
 - [ ] **VIS-03 — Refine guide contrast and navigation indicators; evaluate Chrome.**

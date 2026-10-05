@@ -6,7 +6,7 @@ import {NativeBoatMesh} from './native-boat-mesh';
 import {CourseScene} from './course-scene';
 import {EnvironmentScene} from './environment-scene';
 import type {NativeTerrain} from './native-environment';
-import {FleetLabels} from './fleet-names';
+import {SceneLabels} from './scene-labels';
 import type {NativeModelPacket} from './native-models';
 export type Backend='webgl2'|'webgpu';
 type Renderer=THREE.WebGLRenderer|import('three/webgpu').WebGPURenderer;
@@ -19,15 +19,19 @@ export class SailingScene {
   private queryExtension:any;private pendingQueries:WebGLQuery[]=[];readonly gpuMs:number[]=[];private gl?:WebGL2RenderingContext;
   actualBackend='initializing';adapterInfo:unknown;readonly samples:RenderSample[]=[];private lastWaterPhase=-1;private cameraDirty=true;private origin=new THREE.Vector3();private nativeBoats:NativeBoatLayer;
   private models=new Map<number,NativeBoatMesh>();private modelMaterial:THREE.Material;private modelReceived=0;private modelSpan=40;modelSequence=0;hasModels=false;modelPacket?:NativeModelPacket;readonly modelCosts:number[]=[];readonly modelBytes:number[]=[];readonly modelBuildCosts:number[]=[];
-  private environment=new EnvironmentScene();private course=new CourseScene();private fleetLabels=new FleetLabels();
+  private environment=new EnvironmentScene();private course=new CourseScene();readonly labels:SceneLabels;
   constructor(private canvas:HTMLCanvasElement,boatCanvas:HTMLCanvasElement,private onSample:(sample:RenderSample)=>void,private onFailure:(message:string)=>void){
     this.nativeBoats=new NativeBoatLayer(boatCanvas);
+    this.labels=new SceneLabels(canvas);
     boatCanvas.hidden=true;
     this.modelMaterial=this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,side:THREE.DoubleSide,roughness:.85}));
     this.scene.background=new THREE.Color('#afd8e4');this.scene.fog=new THREE.Fog('#afd8e4',8000,40000);
     this.scene.add(new THREE.HemisphereLight('#fff9eb','#1d627c',2.4));
     const sun=new THREE.DirectionalLight('#fff3dc',2.4);sun.position.set(-250,400,-200);this.scene.add(sun);
     this.controls=new OrbitControls(this.camera,canvas);this.controls.enableDamping=false;this.controls.minDistance=35;this.controls.maxDistance=50000;this.controls.maxPolarAngle=Math.PI*.48;this.controls.enablePan=false;
+    let pointerStart:{x:number;y:number;mode:string}|undefined;
+    canvas.addEventListener('pointerdown',event=>{pointerStart={x:event.clientX,y:event.clientY,mode:this.mode};},{capture:true});
+    canvas.addEventListener('pointerup',event=>{if(pointerStart&&Math.hypot(event.clientX-pointerStart.x,event.clientY-pointerStart.y)<5)this.mode=pointerStart.mode;pointerStart=undefined;},{capture:true});
     this.controls.addEventListener('start',()=>{this.mode='orbit';});this.controls.addEventListener('change',()=>{this.cameraDirty=true;});
     this.camera.position.set(90,70,145);this.controls.target.set(0,12,0);this.controls.update();
     const geo=this.geometry(new THREE.PlaneGeometry(12000,12000,96,96).toNonIndexed());geo.rotateX(-Math.PI/2);
@@ -38,7 +42,6 @@ export class SailingScene {
     this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=-1.5;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
     this.scene.add(this.environment.group);
     this.scene.add(this.course.group);
-    this.scene.add(this.fleetLabels.group);
     this.observer=new ResizeObserver(()=>this.resize());this.observer.observe(canvas);
     canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();this.onFailure('Graphics stopped. Restart to restore the scene.');});
   }
@@ -78,14 +81,13 @@ export class SailingScene {
     for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2]);}
     this.hasModels=true;if(this.modelCosts.length<4000){this.modelCosts.push(p.workMs);this.modelBytes.push(p.positions.byteLength+p.records.byteLength+p.colors.byteLength+p.boats.byteLength);this.modelBuildCosts.push(performance.now()-now);}this.cameraDirty=true;
   }
-  reset(){this.environment.reset();this.fleetLabels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
+  reset(){this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
   render(now:number){
     if(this.disposed||!this.renderer||!this.latest)return;
     if(this.lastDraw&&now-this.lastDraw<1000/60-.6)return;
     const current=this.latest,old=this.previous??current,alpha=this.paused?1:Math.min(1,Math.max(0,(now-this.received)/this.span));
     const poses=current.boats.map((boat,i)=>{const before=old.boats[i]??boat;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
     const player=poses[0];this.origin.set(player.x,0,player.y);
-    this.fleetLabels.update(current.boats,poses,player);
     this.course.group.visible=true;this.course.update(current.course,current.boats[0],{x:player.x,y:player.y},current.clock);
     if(this.mode==='chase'){
       const bearing=player.heading*Math.PI/180;
@@ -112,11 +114,12 @@ export class SailingScene {
     if(this.gl&&this.queryExtension&&this.pendingQueries.length<8){query=this.gl.createQuery();if(query)this.gl.beginQuery(this.queryExtension.TIME_ELAPSED_EXT,query);}
     this.renderer.info.autoReset=false;this.renderer.info.reset();
     this.renderer.render(this.scene,this.camera);
+    this.labels.render(current,this.camera,this.models,this.course,now);
     if(query&&this.gl){this.gl.endQuery(this.queryExtension.TIME_ELAPSED_EXT);this.pendingQueries.push(query);}
     const info=this.renderer.info;const sample={intervalMs:this.lastDraw?now-this.lastDraw:0,cpuMs:performance.now()-start,changed,poseChanged,sequence:current.sequence,alpha,calls:'drawCalls' in info.render?info.render.drawCalls:info.render.calls,triangles:info.render.triangles};
     if(this.samples.length<4000)this.samples.push(sample);this.onSample(sample);this.lastDraw=now;this.lastPose=poseKey;this.cameraDirty=false;this.lastWaterPhase=phase;
   }
   private pollQueries(){if(!this.gl||!this.queryExtension)return;const gl=this.gl;const disjoint=gl.getParameter(this.queryExtension.GPU_DISJOINT_EXT);for(let i=this.pendingQueries.length-1;i>=0;i--){const query=this.pendingQueries[i];if(gl.getQueryParameter(query,gl.QUERY_RESULT_AVAILABLE)){if(!disjoint&&this.gpuMs.length<4000)this.gpuMs.push(gl.getQueryParameter(query,gl.QUERY_RESULT)/1e6);gl.deleteQuery(query);this.pendingQueries.splice(i,1);}else if(disjoint){gl.deleteQuery(query);this.pendingQueries.splice(i,1);}}}
   resetMetrics(){this.samples.length=0;this.gpuMs.length=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.lastDraw=0;}
-  dispose(){this.disposed=true;this.environment.dispose();this.fleetLabels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
+  dispose(){this.disposed=true;this.environment.dispose();this.labels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
 }
