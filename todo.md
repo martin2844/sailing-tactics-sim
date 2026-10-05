@@ -106,11 +106,15 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   Native 1/5/10 and natural foul slowdown measured; default 10 replaces the
   provisional 5. [Compatible timing contract](versions/2026/config/timing.json).
 
-- [ ] **BASE-06 — Freeze supported scenario manifests** · P0 · M · Depends: BASE-03, BASE-05.
+- [x] **BASE-06 — Freeze supported scenario manifests** · P0 · M · Depends: BASE-03, BASE-05.
 
   Done when: 5/15-boat Keelboat/Round Lake/windward-leeward presets, native
   weather/current settings, initial state/seed, pace and assistance are versioned
   and reproduce through verified original setup handlers.
+
+  Completed 2026-10-05; [evaluation](versions/2026/analysis/baseline/BASE-06.md).
+  Both [presets](versions/2026/config/scenarios/) reproduce exact initial image,
+  RNG, retained shoreline and complete original preferences in fresh sessions.
 
 - [x] **BASE-07 — Name target devices and freeze acceptance budgets** · P0 · S · Depends: BASE-01.
 
@@ -836,4 +840,5 @@ retained evidence here.
 | BASE-03 | 2026-10-05 | Atomic `BASE-03` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-03.md) | B03-01 recorded; controlled races do not certify smoothness or all replay state |
 | BASE-04 | 2026-10-05 | Atomic `BASE-04` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-04.md) | Unclassified aliases/branches retained as simulation requirements |
 | BASE-05 | 2026-10-05 | Atomic `BASE-05` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-05.md) | Short host timing runs; modern repeated graphics acceptance remains open |
+| BASE-06 | 2026-10-05 | Atomic `BASE-06` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-06.md) | Initial presets, not replay checkpoints or control-independent weather |
 | — | — | — | — | — |

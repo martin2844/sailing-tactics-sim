@@ -14,7 +14,7 @@ viewport; their actual metadata is retained. These are correctness runs, not
 performance runs or measurements of physical screen latency.
 
 The host seed is `Date.now() = 1546300800000`. Original setup commands are:
-`32799` Round Lake, `32816` Keelboat, `32789` windward–leeward, `32806` five
+`32799` Round Lake, `32816` windward–leeward, `32789` Keelboat, `32806` five
 boats or `32808` fifteen boats, and `32909` speed 10. Trusted Space key events
 start the original race and dismiss its original forecast. The original
 automatic foul-slowdown setting is disabled through menu `32984` when needed.
