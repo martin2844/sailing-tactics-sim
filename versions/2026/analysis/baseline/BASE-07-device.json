@@ -1,0 +1,55 @@
+{
+  "task": "BASE-07",
+  "capturedAt": "2026-10-05T10:21:50.944Z",
+  "scope": "Device identity and WebGL capability only; no 2026 performance or touch pass.",
+  "cpu": {
+    "model": "AMD Ryzen 7 5700G with Radeon Graphics",
+    "logicalProcessors": 16
+  },
+  "os": {
+    "name": "NixOS 26.05 (Yarara)",
+    "architecture": "x86_64"
+  },
+  "chrome": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/152.0.7977.82",
+    "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "jsVersion": "15.2.124.21"
+  },
+  "gpu": [
+    {
+      "vendorId": 4098,
+      "deviceId": 29822,
+      "vendorString": "Google Inc. (AMD)",
+      "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+      "driverVendor": "Mesa",
+      "driverVersion": "26.1.8"
+    }
+  ],
+  "launch": {
+    "headless": false,
+    "gpu": true,
+    "physicalWindow": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 1051,
+      "windowState": "maximized"
+    },
+    "sizing": "matched"
+  },
+  "capabilities": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+    "logicalViewport": {
+      "width": 1280,
+      "height": 1050
+    },
+    "pixelRatio": 1,
+    "visibility": "visible",
+    "webgl2": true,
+    "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)",
+    "timerQuery": true
+  },
+  "passed": true
+}

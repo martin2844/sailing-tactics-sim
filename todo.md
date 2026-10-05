@@ -99,11 +99,17 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   weather/current settings, initial state/seed, pace and assistance are versioned
   and reproduce through verified original setup handlers.
 
-- [ ] **BASE-07 — Name target devices and freeze acceptance budgets** · P0 · S · Depends: BASE-01.
+- [x] **BASE-07 — Name target devices and freeze acceptance budgets** · P0 · S · Depends: BASE-01.
 
   Done when: desktop/browser/viewport/quality and one physical landscape-touch
   device are named; timing, input, download, resource and replay budgets from the
   plan have a recorded reference context and no unmeasured success claim.
+
+  Completed 2026-10-05; atomic commit: `BASE-07: freeze Chrome targets and
+  acceptance budgets`; [evaluation](versions/2026/analysis/baseline/BASE-07.md),
+  [acceptance contract](versions/2026/config/acceptance.json).
+  Accepted: actual Chrome desktop/GPU profile captured; Pixel 11 Chrome named
+  for later physical testing; no 2026 performance or touch pass claimed.
 
 - [ ] **BASE-08 — Finalize the nautical art and interaction brief** · P1 · M · Depends: BASE-06.
 
@@ -659,9 +665,9 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   cadence/resources and graceful degradation; it remains separate from supported
   5/15-boat public presets unless explicitly promoted with its own evidence.
 
-- [ ] **QA-08 — Validate named desktop browsers** · P0 · L · Depends: QA-05, QA-03.
+- [ ] **QA-08 — Validate Chrome desktop** · P0 · L · Depends: QA-05, QA-03.
 
-  Done when: specified Chrome and Firefox versions pass startup, original
+  Done when: the specified Chrome desktop version passes startup, original
   numerical/worker behavior, controls, graphics, replay and real finish checks;
   renderer/asset failure handling and platform-specific limits are documented.
 
@@ -812,4 +818,5 @@ Implementation tasks are intentionally unchecked. Add evidence as work completes
 | --- | --- | --- | --- | --- |
 | BASE-01 | 2026-10-05 | `cb60695` | [Evaluation](versions/2026/analysis/baseline/BASE-01.md) | Integrity baseline only |
 | BASE-02 | 2026-10-05 | Atomic `BASE-02` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-02.md) | Finite checks; real races and modern performance remain open |
+| BASE-07 | 2026-10-05 | Atomic `BASE-07` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-07.md) | Performance unmeasured; Pixel 11 physical validation later |
 | — | — | — | — | — |

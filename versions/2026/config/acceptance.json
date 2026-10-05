@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "frozenAt": "2026-10-05",
+  "decision": "User: Chrome only for now; Pixel 11 touch testing later",
+  "status": "Acceptance contract, not measured 2026 results",
+  "desktop": {
+    "required": true,
+    "os": "Linux x86_64",
+    "cpu": "AMD Ryzen 7 5700G",
+    "gpu": "AMD Radeon RX 7800 XT",
+    "browser": "Chrome",
+    "referenceVersion": "152.0.7977.82",
+    "launch": "headed, hardware GPU enabled, fresh profile, visible owned window",
+    "physicalWindow": {"width": 1280, "height": 1051},
+    "logicalViewport": {"width": 1280, "height": 1050, "devicePixelRatio": 1},
+    "quality": "standard, fixed during the acceptance run",
+    "renderFrequencyTargetHz": 60,
+    "repetitions": 5,
+    "referenceScenario": "Round Lake, 15 Keelboats, windward/leeward, audited native pace, automatic slowdown off",
+    "cadenceMs": {"medianMax": 18, "p95Max": 25, "p99Max": 50},
+    "cameraHudResponseMs": {"p95StrictlyBelow": 100, "aim": 50},
+    "helmTrimHostOverheadMs": {"max": 50, "nativeEligiblePhaseDelayMeasuredSeparately": true},
+    "snapshotBytesMax": 32768,
+    "startupCompressedBytesMax": 8388608,
+    "readyMsMax": 5000,
+    "networkProfile": {"megabitsPerSecond": 20, "rttMs": 50, "retainUnthrottledMeasurement": true},
+    "workingGeometryBudgets": {"drawCallsMax": 200, "visibleTrianglesMax": 150000},
+    "settledMemoryGrowthPercentMax": 10,
+    "replaySeekMs": {"p95StrictlyBelow": 3000, "referenceRecordingMinutes": 10},
+    "replay": {"containerBytesMax": 52428800, "referenceWallTimeMinutes": 30}
+  },
+  "touch": {
+    "device": "User's Pixel 11",
+    "browser": "Chrome",
+    "orientation": "landscape",
+    "validationTiming": "Later physical testing in QA-09",
+    "validationStatus": "not run; user device unavailable to local tools",
+    "osAndBrowserVersions": "Capture from actual device before QA-09",
+    "quality": "low allowed; record actual canvas size and pixel ratio",
+    "changedRenderFpsMin": 30,
+    "cadenceMs": {"p95Max": 50},
+    "uiResponseMs": {"p95StrictlyBelow": 150},
+    "desktopEmulationCountsAsPhysicalPass": false
+  },
+  "deferredBrowsers": ["Firefox", "Safari"],
+  "correctness": {
+    "authoritativeState": "exact bytes, RNG, retained context and events at declared boundaries",
+    "numericTolerance": 0,
+    "presentationSchedulesHz": [30, 60, 120, 240],
+    "minimumIndependentCompleteRaces": 3,
+    "mixedSessionWallTimeMinutes": 30,
+    "renderingMayChangeSimulation": false
+  },
+  "measurementRules": [
+    "Actual completed changed frames, not callback counts alone",
+    "Trusted input observed at a completed rendering opportunity; no physical monitor-latency claim",
+    "Simulation rate and host delay measured independently of display cadence",
+    "Unavailable/disjoint GPU timing is reported as unavailable, never substituted with CPU draw-call duration",
+    "Warm-up and profiling excluded from unprofiled acceptance timing",
+    "Changed browser/device/quality/surface requires a fresh comparison context",
+    "Changing a budget requires a recorded decision and retained old evidence"
+  ]
+}
