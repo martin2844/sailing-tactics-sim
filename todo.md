@@ -435,6 +435,10 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   with semantic HTML controls and no obstruction of the central sailing scene.
 
 - [ ] **UI-03 — Map verified sailing actions to keyboard controls** · P0 · M · Depends: UI-02, ENG-07.
+  - [x] **UI-03b — Show common keys beside the scene** (2026-10-05): collapsible
+    right-hand guide with native-action buttons; build, placement, read-only
+    display and trusted spinnaker/sheet/freeze/help clicks
+    [evaluated](versions/2026/analysis/app/keys-guide1/verification.json).
 
   - [x] **UI-03a — Restore native hotkeys in the isolated app** (user-requested
     compatibility step). Original virtual-key routing, native context-sensitive

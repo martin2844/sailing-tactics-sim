@@ -15,6 +15,7 @@ export function nativeVirtualKey(event:Pick<KeyboardEvent,'code'|'key'>):number|
  return undefined;
 }
 export const nativeCameraKeys=new Set([37,38,39,40,36,12,53,55,57,48,49,50,51,86]);
+export const commonKeys=[['Tack','T',84],['Jibe','J',74],['Spinnaker','P',80],['Close hauled','C',67],['Run','D',68],['Sheet in','I',73],['Sheet out','O',79],['Laylines','L',76],['Freeze','F',70],['All keys','?',191]] as const;
 export const shortcutGroups=[
  ['Steer','Comma / Quote: port · Period / Enter: starboard · C: close hauled · T: tack · H: reach · J: jibe · D: run · − / +: pinch / foot'],
  ['Sheet','A: automatic · S: maximum luff · I / O: in / out 20% · Esc / Backquote: in / out 5%'],
