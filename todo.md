@@ -148,7 +148,7 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   state and presentation-only ranges have a written contract; exclusions have
   evidence and are not broad byte-normalization shortcuts.
 
-- [ ] **ENG-02 — Spike worker execution and required legacy surface** · P0 · L · Depends: BASE-04, BASE-05, APP-01.
+- [x] **ENG-02 — Spike worker execution and required legacy surface** · P0 · L · Depends: BASE-04, BASE-05, APP-01.
 
   Done when: a bounded prototype initializes and steps the reference in a worker,
   preserving required retained/global/Canvas behavior, with state comparisons and
@@ -842,4 +842,5 @@ retained evidence here.
 | BASE-05 | 2026-10-05 | Atomic `BASE-05` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-05.md) | Short host timing runs; modern repeated graphics acceptance remains open |
 | BASE-06 | 2026-10-05 | Atomic `BASE-06` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-06.md) | Initial presets, not replay checkpoints or control-independent weather |
 | APP-01 | 2026-10-05 | Atomic `APP-01` commit; see file history | [Evaluation](versions/2026/analysis/app/APP-01.md) | Scaffold; live worker and renderer are next bounded spikes |
+| ENG-02 | 2026-10-05 | Atomic `ENG-02` commit; see file history | [Evaluation](versions/2026/analysis/app/ENG-02.md) | Full original Canvas retained; finite paired traces, production transport later |
 | — | — | — | — | — |

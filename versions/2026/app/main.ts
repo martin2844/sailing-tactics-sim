@@ -1,5 +1,12 @@
 import '@fontsource/ibm-plex-sans/latin-400.css';
 import '@fontsource/ibm-plex-sans/latin-600.css';
 import './style.css';
+import {EngineClient} from './engine-client';
+import type {Boundary,SceneSnapshot} from './protocol';
 const app=document.querySelector<HTMLDivElement>('#app')!;
-app.innerHTML='<header><strong>Tact <span>2026</span></strong><span>Round Lake</span></header><main><h1>The next sailing scene</h1><p>An isolated development preview of the preserved sailing simulation.</p><a href="./spike/">Open renderer evaluation</a></main>';
+app.innerHTML='<header><strong>Tact <span>2026</span></strong><span>Round Lake</span></header><main><h1>Worker evaluation</h1><p id="status">Loading original sailing simulation…</p><pre id="readout"></pre></main>';
+const status=document.querySelector('#status')!,readout=document.querySelector('#readout')!;
+const query=new URLSearchParams(location.search);let latest:SceneSnapshot|undefined,error:string|undefined,initial:Boundary|undefined;
+const engine=new EngineClient(1,query.get('fleet')==='15'?15:5,query.has('manual'),{ready:v=>{initial=v;status.textContent='Original state verified';},snapshot:v=>{latest=v;readout.textContent=JSON.stringify(v,null,2);},error:e=>{error=e;status.textContent=e;},paused:()=>{}});
+Object.assign(globalThis,{tact2026:{get ready(){return !!initial;},get initial(){return initial;},get latest(){return latest;},get error(){return error;},engine}});
+window.addEventListener('pagehide',()=>engine.dispose());
