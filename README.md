@@ -13,7 +13,7 @@ remain part of the game.
 The [2026 product and engineering plan](PLAN-2026.md) specifies the proposed
 low-poly edition, its five improvements, architecture and acceptance gates.
 The [MVP tracker](todo.md) lists implementation tasks, dependencies and completion
-criteria. Implementation of this roadmap has not started.
+criteria and completion evidence. Implementation progress is recorded there.
 
 ## Play
 

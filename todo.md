@@ -1,6 +1,6 @@
 # Tact 2026 MVP tracker
 
-Implementation status: **not started**. Created 2026-10-05.
+Implementation status: **in progress**. Created 2026-10-05.
 Product and engineering contract: [PLAN-2026.md](PLAN-2026.md).
 Preservation reference: commit `64d5cdf` and its existing 2010 evidence.
 
@@ -52,11 +52,16 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 
 ## BASE: reference, scope and decisions
 
-- [ ] **BASE-01 — Freeze the preservation reference** · P0 · S · Depends: none.
+- [x] **BASE-01 — Freeze the preservation reference** · P0 · S · Depends: none.
 
   Done when: the 2010 source/data/runtime hashes, reference commit and current
   evaluation artifacts are recorded in a 2026 baseline manifest; new work has an
   isolated location and does not overwrite preservation evidence.
+
+  Completed 2026-10-05; atomic commit: `BASE-01: freeze the 2010 preservation
+  reference`; [evaluation and scope](versions/2026/analysis/baseline/BASE-01.md),
+  [verification](versions/2026/analysis/baseline/BASE-01-verification.json).
+  Accepted: 6,471 frozen inputs verified; isolated mutation probes passed.
 
 - [ ] **BASE-02 — Reproduce the existing correctness baseline** · P0 · M · Depends: BASE-01.
 

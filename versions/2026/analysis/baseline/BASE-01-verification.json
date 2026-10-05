@@ -1,0 +1,41 @@
+{
+  "task": "BASE-01",
+  "startedAt": "2026-10-05T09:54:04.962Z",
+  "finishedAt": "2026-10-05T09:56:59.752Z",
+  "passed": true,
+  "referenceCommit": "64d5cdf2d1ce084724a5a87ccc3ec1993176e7c8",
+  "files": 6471,
+  "groups": {
+    "shared-assets": 120,
+    "reference-metadata": 14,
+    "standalone-export": 139,
+    "shared-source": 88,
+    "shared-verification": 141,
+    "latest-confirmation": 34,
+    "2010-assets": 123,
+    "recovered-source": 5287,
+    "native-evidence": 230,
+    "native-runtime-provenance": 3,
+    "2010-source": 71,
+    "2010-verification": 221
+  },
+  "scope": "Hash integrity and isolated mutation probes; no new sailing/correctness/performance claim",
+  "checks": [
+    {
+      "name": "Exact bytes accepted",
+      "passed": true
+    },
+    {
+      "name": "Same-length byte mutation rejected by SHA-256",
+      "passed": true
+    },
+    {
+      "name": "Duplicate input rejected",
+      "passed": true
+    },
+    {
+      "name": "Outside-root input rejected",
+      "passed": true
+    }
+  ]
+}
