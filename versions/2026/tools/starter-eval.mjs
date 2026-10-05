@@ -1,5 +1,5 @@
 import {openBrowser} from '../../../tools/browser-session.js';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 if(process.argv.length!==3)throw Error('Usage: starter-eval.mjs NEW_DIRECTORY');const out=resolve(process.argv[2]);await mkdir(out);
 const b=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true});const checks=[];
@@ -8,7 +8,7 @@ async function click(id){const p=await b.evaluate(`(()=>{const r=document.getEle
 async function key(key,code,windowsVirtualKeyCode){for(const type of ['keyDown','keyUp'])await b.call('Input.dispatchKeyEvent',{type,key,code,windowsVirtualKeyCode});}
 try{
  await b.call('Emulation.setDeviceMetricsOverride',{width:1280,height:1050,deviceScaleFactor:1,mobile:false});await healthy();
- const initial=await b.evaluate('tact2026.engine.request("boundary")');if(initial.memorySha256!=='07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd')throw Error('Default preset changed');
+ const initial=await b.evaluate('tact2026.engine.request("boundary")');if(initial.memorySha256!=='391afc440f591035e003f724a8eb7a24b4d57ee893b6f41fad9991baefe8baf5')throw Error('Default preset changed');
  if(!(await b.evaluate('tact2026.paused&&!document.getElementById("starter").hidden&&document.getElementById("port").disabled&&!document.getElementById("start-race").disabled')))throw Error('Starter ownership failed');
  await b.evaluate('new Promise(r=>setTimeout(r,600))');const held=await b.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(initial)!==JSON.stringify(held))throw Error('Countdown advanced on starter');
  await writeFile(resolve(out,'starter.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));checks.push({name:'default starter holds audited entire initial boundary',initial,held});

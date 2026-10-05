@@ -8,7 +8,7 @@ try{
  await candidate.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);
  // Independent menu IDs from the preserved controller, not the UI helper.
  for(const fleet of [5,15])for(const [course,courseCommand]of [[1,32816],[3,32818],[5,32820]])for(const [wind,windCommand]of [[1,32812],[2,32813],[3,32814]]){
-  const commands=[32799,courseCommand,32789,fleet===5?32806:32808,32909];if(wind!==2)commands.push(windCommand);
+  const commands=[32799,courseCommand,32789,fleet===5?32806:32808,32909];if(wind!==2)commands.push(windCommand);commands.push(32824);
   const ref=await referenceSession({fleet,headless:true,setupCommands:commands});
   try{
    await ref.command(32850);
@@ -21,5 +21,5 @@ try{
    checks.push({fleet,course,wind,commands,configuration,snapshots});console.log(JSON.stringify({passed:true,fleet,course,wind}));
   }finally{await ref.close()}
  }
- await writeFile(resolve(out,'verification.json'),JSON.stringify({passed:true,scope:'All 18 supported 5/15 fleet, three-course, three-wind combinations; initial and eight-paint whole native image/time/RNG/shore matches against original menu handlers',checks},null,2));
+ await writeFile(resolve(out,'verification.json'),JSON.stringify({passed:true,scope:'All 18 standard-race 5/15 fleet, three-course, three-wind combinations; initial and eight-paint whole native image/time/RNG/shore matches against original menu handlers',checks},null,2));
 }catch(e){await writeFile(resolve(out,'failure.txt'),e.stack);throw e}finally{await candidate?.close();await closeReferenceServer()}

@@ -130,8 +130,9 @@ async function initialize(data:any){
   if(memory.readI32(0x4da1dc)!==0){await menu(memory,32984,options);paint();}
   for(const id of scenario.postSetupCommands)await menu(memory,id,options);
   const initial=await boundary(),expected=scenario.initialBoundary;
-  if(settings.course===1&&settings.wind===2&&(initial.frame!==expected.frame||initial.memorySha256!==expected.memorySha256||initial.rngState!==expected.rngState||JSON.stringify(initial.shore)!==JSON.stringify(expected.shore)))throw new Error('Worker initial state differs: '+JSON.stringify(initial));
+  if(settings.course===1&&settings.wind===2&&settings.scoring===undefined&&(initial.frame!==expected.frame||initial.memorySha256!==expected.memorySha256||initial.rngState!==expected.rngState||JSON.stringify(initial.shore)!==JSON.stringify(expected.shore)))throw new Error('Worker initial state differs: '+JSON.stringify(initial));
   if(memory.readI32(0x4da188)!==settings.course||memory.readI32(0x4da154)!==settings.wind||memory.readI32(0x4da194)!==scenario.configuration.fleet||memory.readI32(0x4da144)!==12||memory.readI32(0x4da19c)!==5||memory.readI32(0x4da16c)!==0)throw new Error('Native race configuration differs from selection');
+  if(settings.scoring&&memory.readI32(0x536424)!==(settings.scoring==='single'?1:0))throw new Error('Native scoring mode differs');
   ready=true;send('ready',initial);send('snapshot',snapshot(0));paused=data.manual===true;requestModels();
   if(!paused)schedule(0);
 }
@@ -151,6 +152,14 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='model'){send('reply',{id,value:visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))});}
   else if(type==='lift'){if(!paused)throw new Error('Model diagnostics require pause');const width=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration?.width;if(!width)throw new Error('Missing model calibration');send('reply',{id,value:[0,1,2].map(shear=>modelExtractor.capture(data??1,width,35,shear))});}
   else if(type==='boundary'){if(!paused)throw new Error('Boundary inspection requires pause');send('reply',{id,value:await boundary()});}
+  else if(type==='next-race'){
+    if(!paused||!resultsReady||memory.readI32(0x5363f4)===0)throw new Error('Next race requires completed native results');
+    clearTimeout(timer);scheduleToken++;pending=false;startingLine=undefined;resultsReady=false;
+    key(memory,78,options);paint();key(memory,32,options);paint();
+    if(memory.readI32(0x536444)!==0){key(memory,32,options);paint();}
+    if(memory.readI32(0x5363b0)!==2||memory.readI32(0x5363f4)!==0)throw new Error('Native next race initialization failed');
+    modelDirty=true;send('snapshot',snapshot(0));send('paused',true);requestModels();send('reply',{id,value:await boundary()});
+  }
   else if(type==='finishcase'){
     if(!paused)throw new Error('Finish diagnostics require pause');
     const before=await boundary(),m=new ModelMemory(memory.size,memory.base),random=new ModelRng(rng.state);m.bytes.set(memory.bytes);copyStrings(memory,m);
