@@ -1,0 +1,65 @@
+
+versions/2010-en/runtime/Tactics2010EnglishPreserved.exe:     file format pei-i386
+
+
+Disassembly of section .text:
+
+0048b7e0 <.text+0x8a7e0>:
+  48b7e0:	6a ff                	push   0xffffffff
+  48b7e2:	68 90 5f 4c 00       	push   0x4c5f90
+  48b7e7:	64 a1 00 00 00 00    	mov    eax,fs:0x0
+  48b7ed:	50                   	push   eax
+  48b7ee:	64 89 25 00 00 00 00 	mov    DWORD PTR fs:0x0,esp
+  48b7f5:	51                   	push   ecx
+  48b7f6:	8b 0d a8 e2 4f 00    	mov    ecx,DWORD PTR ds:0x4fe2a8
+  48b7fc:	b8 89 88 88 88       	mov    eax,0x88888889
+  48b801:	f7 e9                	imul   ecx
+  48b803:	03 d1                	add    edx,ecx
+  48b805:	55                   	push   ebp
+  48b806:	c1 fa 04             	sar    edx,0x4
+  48b809:	56                   	push   esi
+  48b80a:	8b 74 24 1c          	mov    esi,DWORD PTR [esp+0x1c]
+  48b80e:	8b c2                	mov    eax,edx
+  48b810:	57                   	push   edi
+  48b811:	8b 3e                	mov    edi,DWORD PTR [esi]
+  48b813:	6a 00                	push   0x0
+  48b815:	c1 e8 1f             	shr    eax,0x1f
+  48b818:	8b ce                	mov    ecx,esi
+  48b81a:	8d 6c 02 28          	lea    ebp,[edx+eax*1+0x28]
+  48b81e:	ff 57 38             	call   DWORD PTR [edi+0x38]
+  48b821:	8b 0d 8c 15 51 00    	mov    ecx,DWORD PTR ds:0x51158c
+  48b827:	8d 54 24 0c          	lea    edx,[esp+0xc]
+  48b82b:	51                   	push   ecx
+  48b82c:	52                   	push   edx
+  48b82d:	e8 3e 04 f9 ff       	call   0x41bc70
+  48b832:	83 c4 08             	add    esp,0x8
+  48b835:	50                   	push   eax
+  48b836:	8d 44 24 24          	lea    eax,[esp+0x24]
+  48b83a:	68 e0 ca 4e 00       	push   0x4ecae0
+  48b83f:	50                   	push   eax
+  48b840:	c7 44 24 24 00 00 00 	mov    DWORD PTR [esp+0x24],0x0
+  48b847:	00
+  48b848:	e8 e2 4f 02 00       	call   0x4b082f
+  48b84d:	8b 00                	mov    eax,DWORD PTR [eax]
+  48b84f:	c6 44 24 18 01       	mov    BYTE PTR [esp+0x18],0x1
+  48b854:	8b 48 f8             	mov    ecx,DWORD PTR [eax-0x8]
+  48b857:	51                   	push   ecx
+  48b858:	50                   	push   eax
+  48b859:	55                   	push   ebp
+  48b85a:	6a 0a                	push   0xa
+  48b85c:	8b ce                	mov    ecx,esi
+  48b85e:	ff 57 64             	call   DWORD PTR [edi+0x64]
+  48b861:	8d 4c 24 20          	lea    ecx,[esp+0x20]
+  48b865:	c6 44 24 18 00       	mov    BYTE PTR [esp+0x18],0x0
+  48b86a:	e8 36 4d 02 00       	call   0x4b05a5
+  48b86f:	8d 4c 24 0c          	lea    ecx,[esp+0xc]
+  48b873:	c7 44 24 18 ff ff ff 	mov    DWORD PTR [esp+0x18],0xffffffff
+  48b87a:	ff
+  48b87b:	e8 25 4d 02 00       	call   0x4b05a5
+  48b880:	8b 4c 24 10          	mov    ecx,DWORD PTR [esp+0x10]
+  48b884:	5f                   	pop    edi
+  48b885:	5e                   	pop    esi
+  48b886:	64 89 0d 00 00 00 00 	mov    DWORD PTR fs:0x0,ecx
+  48b88d:	5d                   	pop    ebp
+  48b88e:	83 c4 10             	add    esp,0x10
+  48b891:	c3                   	ret

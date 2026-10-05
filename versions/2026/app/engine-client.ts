@@ -11,13 +11,14 @@ export class EngineClient {
   private worker:Worker;
   private nextId=1;
   private requests=new Map<number,{resolve:(v:unknown)=>void;reject:(e:Error)=>void;timer:ReturnType<typeof setTimeout>}>();
-  constructor(public generation:number,fleet:number,manual:boolean,callbacks:{ready:(v:Boundary)=>void;snapshot:(v:SceneSnapshot)=>void;models?:(v:{generation:number;sequence:number;packet:NativeModelPacket})=>void;error:(e:string)=>void;paused:(v:boolean)=>void;accepted?:(v:unknown)=>void}){
+  constructor(public generation:number,fleet:number,manual:boolean,callbacks:{ready:(v:Boundary)=>void;snapshot:(v:SceneSnapshot)=>void;models?:(v:{generation:number;sequence:number;packet:NativeModelPacket})=>void;panel?:(v:{sequence:number;title:string;bitmap:ImageBitmap})=>void;error:(e:string)=>void;paused:(v:boolean)=>void;accepted?:(v:{key?:number;command?:number;sequence:number})=>void}){
     this.worker=new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'});
     const failure=(message:string)=>{this.rejectPending(message);callbacks.error(message);};
     this.worker.onerror=e=>failure(e.message);
-    this.worker.onmessage=e=>{if(e.data.generation!==generation)return;const {type,data}=e.data;
+    this.worker.onmessage=e=>{if(e.data.generation!==generation){e.data.data?.bitmap?.close();return;}const {type,data}=e.data;
       if(type==='ready')callbacks.ready(data);else if(type==='snapshot')callbacks.snapshot(data);else if(type==='error')failure(data);else if(type==='paused')callbacks.paused(data);else if(type==='accepted')callbacks.accepted?.(data);
       else if(type==='models')callbacks.models?.(data);
+      else if(type==='panel'){if(callbacks.panel)callbacks.panel(data);else data.bitmap.close();}
       else if(type==='reply'){const request=this.requests.get(data.id);if(request){clearTimeout(request.timer);this.requests.delete(data.id);request.resolve(data.value);}}
     };
     this.worker.postMessage({type:'init',data:{generation,legacyBase:new URL(/* @vite-ignore */ '../legacy/',import.meta.url).href,scenario:fleet===15?fifteen:five,manual}});

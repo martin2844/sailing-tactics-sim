@@ -428,6 +428,12 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 
 - [ ] **UI-03 — Map verified sailing actions to keyboard controls** · P0 · M · Depends: UI-02, ENG-07.
 
+  - [x] **UI-03a — Restore native hotkeys in the isolated app** (user-requested
+    compatibility step). Original virtual-key routing, native context-sensitive
+    actions, 3D view adaptation and legacy information panels are implemented;
+    [evaluation](versions/2026/analysis/app/HOTKEYS.md). Production command
+    recording/replay and the parent prerequisites remain open.
+
   Done when: steer/trim/shape/maneuver/pause/pace shortcuts share the adapter
   command semantics, support documented repeat behavior and do not hijack
   typing, focused controls or dialogs.

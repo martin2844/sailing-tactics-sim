@@ -11,6 +11,7 @@ let modelDraw:any,ModelMemory:any,ModelRng:any,TraceDc:any;
 let modelExtractor:ReturnType<typeof createModelExtractor>;
 let modelWorker:Worker,modelReady=false,modelBusy=false,modelSequence=-1,modelWidth=0;
 let modelMutableBase=0,modelMutableSize=0;
+let modelDirty=false,panelBusy=false;
 let generation=0,frame=0,paused=true,failed=false,ready=false,delay=0,timer:ReturnType<typeof setTimeout>|undefined;
 let front:OffscreenCanvas,back:OffscreenCanvas,frontContext:OffscreenCanvasRenderingContext2D,backContext:OffscreenCanvasRenderingContext2D;
 const queue=new MessageChannel();let pending=false,scheduleToken=0;
@@ -20,10 +21,10 @@ function observeDc(dc:any){const emit=dc.emit;dc.emit=function(event:any){visual
 const allowed=new Set<number>([...Object.values(commands),32872,32876,32909]);
 const send=(type:string,data:any)=>{if(type==='snapshot'){const native=(data as SceneSnapshot).nativeVisuals;self.postMessage({type,generation,data},{transfer:[native.styles.buffer,native.geometry.buffer,native.boats.buffer]});}else if(type==='models'){const p=data.packet;self.postMessage({type,generation,data},{transfer:[p.positions.buffer,p.records.buffer,p.colors.buffer,p.boats.buffer]});}else self.postMessage({type,generation,data});};
 function requestModels(){
-  if(!ready||!modelReady||modelBusy||failed||modelSequence===frame)return;
+  if(!ready||!modelReady||modelBusy||failed||!modelDirty&&modelSequence===frame)return;
   const calibration=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration;if(calibration)modelWidth=calibration.width;
   if(!modelWidth)throw new Error('Missing native model calibration');
-  const image=memory.readBytes(modelMutableBase,modelMutableSize).buffer;modelBusy=true;modelSequence=frame;
+  const image=memory.readBytes(modelMutableBase,modelMutableSize).buffer;modelBusy=true;modelDirty=false;modelSequence=frame;
   modelWorker.postMessage({type:'frame',data:{generation,sequence:frame,image,rngState:rng.state,width:modelWidth,ids:Array.from({length:memory.readI32(0x4da194)},(_,i)=>i+1)}},{transfer:[image]});
 }
 function fail(error:unknown){failed=true;paused=true;clearTimeout(timer);send('error',error instanceof Error?error.stack:String(error));}
@@ -47,14 +48,34 @@ function paint(){
 function snapshot(workMs:number):SceneSnapshot {
   const i=(a:number)=>memory.readI32(a),d=(a:number)=>memory.readF64(a);
   const boats=Array.from({length:i(0x4da194)},(_,index)=>{const id=index+1;return{id,x:d(0x4f6af8+id*8),y:d(0x4f6c10+id*8),heading:i(0x535740+id*4),speed:i(0x4fdfe8+id*4)/10,leg:i(0x4f8538+id*4),finished:i(0x4fe638+id*4)};});
+  const owner=i(0x4da140),panel=panelTitle();
   return {generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
+    view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
+    panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks:[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),results:i(0x5363f4)!==0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
+}
+function panelTitle():string|null{
+  const i=(a:number)=>memory.readI32(a);
+  if(i(0x5363b0)<2)return 'Race setup';
+  if(i(0x536444))return i(0x536444)===6?'Keyboard controls':i(0x536444)===300?'Coach':'Sailing guide';
+  if(i(0x5363f0))return 'Weather forecast';
+  if(i(0x5233a8))return 'Race course';
+  if(i(0x536434))return 'Wind history';
+  if(i(0x536438))return 'Current history';
+  if(i(0x53644c))return 'Race results';
+  return null;
+}
+function publishPanel(){
+  const title=panelTitle();if(!title||panelBusy)return;
+  panelBusy=true;const sequence=frame;
+  // Copy rather than transferToImageBitmap: never clear the canonical surface.
+  createImageBitmap(front).then(bitmap=>{if(!failed)self.postMessage({type:'panel',generation,data:{sequence,title,bitmap}},{transfer:[bitmap]});else bitmap.close();}).catch(fail).finally(()=>{panelBusy=false;});
 }
 async function boundary():Promise<Boundary>{
   const digest=new Uint8Array(await crypto.subtle.digest('SHA-256',memory.bytes.slice()));
   return {frame,time:memory.readF64(0x5359f0),clock:memory.readI32(0x4f8cd0),rngState:rng.state,memorySha256:[...digest].map(v=>v.toString(16).padStart(2,'0')).join(''),shore:options.shoreStack.snapshot()};
 }
-function tick(){try{const duration=paint();send('snapshot',snapshot(duration));requestModels();if(memory.readI32(0x5363f4)!==0){paused=true;send('paused',true);}else schedule(Math.max(0,delay-duration));}catch(error){fail(error);}}
+function tick(){try{const duration=paint();send('snapshot',snapshot(duration));publishPanel();requestModels();if(memory.readI32(0x5363f4)!==0){paused=true;send('paused',true);}else schedule(Math.max(0,delay-duration));}catch(error){fail(error);}}
 async function initialize(data:any){
   if(ready||memory)throw new Error('Worker cannot initialize twice');
   generation=data.generation;
@@ -104,7 +125,11 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   if(event.data.generation!==generation||!ready||failed)return;
   if(type==='pause'){paused=Boolean(data);if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('paused',paused);}
   else if(type==='command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');await menu(memory,data,options);send('accepted',{command:data,sequence:frame});}
-  else if(type==='step'){if(!paused||!Number.isInteger(data)||data<1||data>200)throw new Error('Diagnostic steps require paused worker and 1..200 paints');let duration=0;for(let n=0;n<data;n++)duration=paint();send('snapshot',snapshot(duration));requestModels();send('reply',{id,value:await boundary()});}
+  else if(type==='key'){
+    if(!Number.isInteger(data)||data<0||data>255)throw new Error('Invalid native virtual key');
+    key(memory,data,options);modelDirty=true;send('snapshot',snapshot(0));send('accepted',{key:data,sequence:frame});requestModels();
+  }
+  else if(type==='step'){if(!paused||!Number.isInteger(data)||data<1||data>200)throw new Error('Diagnostic steps require paused worker and 1..200 paints');let duration=0;for(let n=0;n<data;n++)duration=paint();send('snapshot',snapshot(duration));publishPanel();requestModels();send('reply',{id,value:await boundary()});}
   else if(type==='model'){send('reply',{id,value:visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))});}
   else if(type==='lift'){if(!paused)throw new Error('Model diagnostics require pause');const width=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration?.width;if(!width)throw new Error('Missing model calibration');send('reply',{id,value:[0,1,2].map(shear=>modelExtractor.capture(data??1,width,35,shear))});}
   else if(type==='boundary'){if(!paused)throw new Error('Boundary inspection requires pause');send('reply',{id,value:await boundary()});}

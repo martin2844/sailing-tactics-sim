@@ -15,6 +15,16 @@ await rm(out,{recursive:true,force:true});
 const generated=[];
 for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileURLToPath(new URL('./',target)),{recursive:true});if(f.path==='versions/2010-en/src/render/drawing-functions.js'){
     let observed=bytes.toString('utf8');
+    // Native 0x48b813 pushes COLORREF 0 before CDC::SetTextColor; 0x48b854
+    // pushes the CString length before TextOut. The old decompilation dropped
+    // both arguments and retained fictional CString stack expressions.
+    const labelStart=observed.indexOf('export function originalDrawing0048b7e0('),labelEnd=observed.indexOf('\nexport function originalDrawing0048e730(',labelStart);
+    if(labelStart<0||labelEnd<0)throw new Error('Native wind label boundary changed');
+    observed=observed.slice(0,labelStart)+`export function originalDrawing0048b7e0(memory,dc,rng,options={},...originalArgs){
+      dc.setTextColor(0);
+      dc.textOut(10,Math.trunc(memory.readI32(0x4fe2a8)/30)+40,cString(memory,0x4ecae0)+formatInteger(memory.readI32(0x51158c)));
+    }
+    `+observed.slice(labelEnd);
     // A separate presentation entry operates exclusively on a private image.
     // Two projections recover the depth of the original GDI faces, including
     // sail height and crew detail. The authoritative entry never uses these hooks.
@@ -83,7 +93,7 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
       observed+=wrapper;
     }
     await writeFile(target,observed);
-    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v1',sourceSha256:f.sha256});
+    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'}],sourceSha256:f.sha256});
   }else {await writeFile(target,bytes);generated.push(f);}}
 await writeFile(new URL('manifest.json',out),JSON.stringify({reference:pin.reference.commit,sourceFiles:rows,files:generated},null,2));
 console.log(`Prepared ${rows.length} validated legacy modules/assets; one explicit generated boat adapter`);

@@ -63,6 +63,9 @@ export class SailingScene {
   }
   resize(){if(!this.renderer||this.disposed)return;const rect=this.canvas.getBoundingClientRect();const w=Math.max(1,Math.round(rect.width)),h=Math.max(1,Math.round(rect.height));if(w===this.width&&h===this.height)return;this.width=w;this.height=h;this.camera.aspect=w/h;this.camera.updateProjectionMatrix();this.renderer.setSize(w,h,false);this.cameraDirty=true;}
   setCamera(mode:'chase'|'overview'){this.mode=mode;this.cameraDirty=true;this.controls.target.set(0,8,0);if(mode==='chase')this.camera.position.set(90,70,145);else this.camera.position.set(0,580,480);this.controls.update();}
+  useNativeCamera(){this.mode='native';this.cameraDirty=true;}
+  zoomTactical(ratio:number){if(!Number.isFinite(ratio)||ratio<=0)return;this.mode='orbit';const offset=this.camera.position.clone().sub(this.controls.target);offset.multiplyScalar(ratio);offset.setLength(Math.max(this.controls.minDistance,Math.min(this.controls.maxDistance,offset.length())));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();this.cameraDirty=true;}
+  setTacticalOrientation(value:number){this.setCamera('overview');const bearing=value===2?this.latest?.windDirection??0:this.latest?.boats[0].heading??0,angle=bearing*Math.PI/180;this.camera.position.set(-480*Math.sin(angle),580,480*Math.cos(angle));this.controls.update();}
   setPaused(value:boolean){this.paused=value;this.cameraDirty=true;}
   receive(value:SceneSnapshot){if(this.latest&&value.generation!==this.latest.generation){this.previous=undefined;this.latest=undefined;}const now=performance.now();this.span=this.latest?Math.max(1,now-this.received):40;this.previous=this.latest;this.latest=value;this.received=now;
     this.nativeBoats.receive(value.nativeVisuals);
@@ -78,6 +81,13 @@ export class SailingScene {
     const current=this.latest,old=this.previous??current,alpha=this.paused?1:Math.min(1,Math.max(0,(now-this.received)/this.span));
     const poses=current.boats.map((boat,i)=>{const before=old.boats[i]??boat;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
     const player=poses[0];this.origin.set(player.x,0,player.y);
+    if(this.mode==='native'){
+      const view=current.view;let bearing=player.heading+view.lookDegrees;
+      if(view.lookMode===1)bearing=current.windDirection;else if(view.lookMode===-1)bearing=current.windDirection+180;
+      const target=view.lookMode===100?(poses[current.boats.findIndex(b=>b.id===view.otherBoat)]??poses[1]??player):player;
+      const distance=view.viewpoint===2?300:view.viewpoint===3?180:95,height=view.viewpoint===3?240:view.viewpoint===2?115:52,angle=bearing*Math.PI/180;
+      this.controls.target.set(target.x-player.x,12,target.y-player.y);this.camera.position.copy(this.controls.target).add(new THREE.Vector3(-Math.sin(angle)*distance,height,Math.cos(angle)*distance));this.controls.update();
+    }
     for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)));}}
     // Translate the shore in native world coordinates; water is effectively infinite.
     for(const child of this.scene.children)if(child instanceof THREE.InstancedMesh||child instanceof THREE.Mesh&&child.geometry.type==='RingGeometry'){child.position.x=-player.x;child.position.z=-player.y;}

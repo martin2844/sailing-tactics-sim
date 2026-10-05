@@ -60,8 +60,13 @@ Original root commands and preservation routes are unchanged.
 Use `/` for the WebGL 2 development player, `/spike/?fleet=15&backend=webgpu`
 to inspect the requested alternative, and `?manual` for paused diagnostics.
 Drag the canvas to orbit and scroll to zoom; Follow boat resets the camera.
-Port/Starboard, Tack, Close hauled and Run invoke original controls. Arrow keys
-steer, T tacks and Space pauses. Native pace names retain the audited original
+Port/Starboard, Tack, Close hauled and Run invoke original controls. Comma/period
+steer; arrows look around; T tacks and F freezes. Space retains the original
+slow/resume or panel-dismiss behavior; the Pause button/key suspends the app.
+All original key families route to the preserved handler, including sheet,
+shape, spinnaker, views, pace, forecast, charts, help and setup. See
+[keyboard evaluation](analysis/app/HOTKEYS.md) and the app's keyboard help.
+Native pace names retain the audited original
 levels rather than promising fixed wall-time multipliers.
 
 The geometry foundation and remaining fidelity work are described in
