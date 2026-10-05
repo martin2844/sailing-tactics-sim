@@ -5,6 +5,7 @@ import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
 import {commands} from './protocol';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
+import {validateRaceSettings,raceSetupCommands} from './race-settings';
 let memory:any,rng:any,options:any,objects:any,font:any,paintClock:any;
 let lifecycle:any,gdi:any,resetSurface:any,menu:any,key:any;
 let modelDraw:any,ModelMemory:any,ModelRng:any,TraceDc:any;
@@ -55,6 +56,7 @@ function snapshot(workMs:number):SceneSnapshot {
   const owner=i(0x4da140),panel=panelTitle();
   const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
   return {generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
+    configuration:{course:i(0x4da188),wind:i(0x4da154),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c)},
     view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
@@ -100,7 +102,7 @@ async function initialize(data:any){
   front=new OffscreenCanvas(1024,768);back=new OffscreenCanvas(1024,768);
   frontContext=front.getContext('2d')!;backContext=back.getContext('2d',{willReadFrequently:true})!;
   lifecycle=paintModule.paintLifecycle;gdi=gdiModule.createCanvasGdi;resetSurface=surface.resetBitmapSurface;menu=controller.handleMenuCommand;key=keyboard.handleKeyDown;
-  const scenario=data.scenario;
+  const scenario=data.scenario,settings=validateRaceSettings(data.settings);
   objects=application.initializeApplication(memory,rng,{preferences:null,timeSeed:scenario.seedTimeSeconds,screenHeight:768,integerTrig:tables});
   options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,
     playSound:()=>1,messageBeep:()=>{},beep:()=>{},dialogHandler:()=>{throw new Error('Original dialogs are unsupported in the worker spike');},getTickCount:paintClock.getTickCount,
@@ -112,7 +114,7 @@ async function initialize(data:any){
   modelWorker.postMessage({type:'init',data:{legacyBase:data.legacyBase,objects:[...objects]}});
   mouse.handleMouseMove(memory,0,0,0,options);
   paint();
-  for(const id of scenario.setupCommands){await menu(memory,id,options);paint();}
+  for(const id of raceSetupCommands(scenario.setupCommands,settings)){await menu(memory,id,options);paint();}
   key(memory,32,options);
   for(let attempt=0;memory.readI32(0x5363b0)!==2&&attempt<4;attempt++)paint();
   if(memory.readI32(0x5363b0)!==2)throw new Error('Original race initialization failed');
@@ -120,7 +122,8 @@ async function initialize(data:any){
   if(memory.readI32(0x4da1dc)!==0){await menu(memory,32984,options);paint();}
   for(const id of scenario.postSetupCommands)await menu(memory,id,options);
   const initial=await boundary(),expected=scenario.initialBoundary;
-  if(initial.frame!==expected.frame||initial.memorySha256!==expected.memorySha256||initial.rngState!==expected.rngState||JSON.stringify(initial.shore)!==JSON.stringify(expected.shore))throw new Error('Worker initial state differs: '+JSON.stringify(initial));
+  if(settings.course===1&&settings.wind===2&&(initial.frame!==expected.frame||initial.memorySha256!==expected.memorySha256||initial.rngState!==expected.rngState||JSON.stringify(initial.shore)!==JSON.stringify(expected.shore)))throw new Error('Worker initial state differs: '+JSON.stringify(initial));
+  if(memory.readI32(0x4da188)!==settings.course||memory.readI32(0x4da154)!==settings.wind||memory.readI32(0x4da194)!==scenario.configuration.fleet||memory.readI32(0x4da144)!==12||memory.readI32(0x4da19c)!==5||memory.readI32(0x4da16c)!==0)throw new Error('Native race configuration differs from selection');
   ready=true;send('ready',initial);send('snapshot',snapshot(0));paused=data.manual===true;requestModels();
   if(!paused)schedule(0);
 }

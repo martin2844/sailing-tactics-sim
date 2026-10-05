@@ -241,6 +241,13 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   results and restarts dispose the old run cleanly.
 
 - [ ] **APP-03 — Build setup, forecast and supported-preset selection** · P1 · M · Depends: APP-02, BASE-06.
+  - [x] **APP-03a — Build the modern starter screen** (2026-10-05): held
+    native preview, 5/15 Keelboats on Round Lake, three original course choices
+    and three original wind strengths. Start releases the countdown; New race
+    and N reopen setup. All 18 configurations match original whole-image,
+    clock/RNG/shore boundaries at initialization and after eight paints.
+    [Evaluation](versions/2026/analysis/app/STARTER.md). Current/forecast controls,
+    replay and complete settings remain open.
 
   Done when: 5/15-boat supported scenarios, verified weather/current options and
   explicit pace/assistance settings initialize the expected engine configuration;
@@ -892,4 +899,5 @@ retained evidence here.
 | UI-03b | 2026-10-05 | `9971ecd` | [Common keys](versions/2026/analysis/app/keys-guide1/verification.json) | Desktop guide; complete modern UI remains open |
 | GFX-06a | 2026-10-05 | `b378c4f` | [Sail response](versions/2026/analysis/app/SAIL-WIND.md) | Deterministic visual headwind animation, not physical cloth |
 | GFX-07a | 2026-10-05 | Atomic native course commit; see file history | [Course evaluation](versions/2026/analysis/app/COURSE.md) | Directional laylines; shoreline/scale and polished assets later |
+| APP-03a | 2026-10-05 | Atomic starter commit; see file history | [Starter evaluation](versions/2026/analysis/app/STARTER.md) | Supported native choices; fixed-seed fresh races; complete lifecycle/settings later |
 | — | — | — | — | — |

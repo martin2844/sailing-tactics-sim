@@ -141,10 +141,19 @@ private fixtures, not proof of every naturally occurring race state. The private
 RNG is cloned from each presentation snapshot; luffing is native-derived, but
 its visual phase for boats outside the old viewport need not reproduce the
 old painter's exact draw order. Physical state and authoritative RNG stay exact.
+The unloaded headwind mainsail and boom also receive deterministic presentation
+motion around the recovered mast. This is an illustrative weathercock/luff
+animation, not recovered cloth physics; it freezes with the native clock and
+does not move hull or crew. See [sail evaluation](../analysis/app/SAIL-WIND.md).
+
+Marks, the committee/start boat, pin and start/finish lines now use native
+course coordinates. L shows heading guides derived from native wind and
+close-hauled angle; it does not predict future shifts or correct for current.
+See [course evaluation](../analysis/app/COURSE.md).
 
 Remaining production work includes refined surfaces, editable/GLB exports,
-verified world scale and picking, LOD, all production rig transitions, course
-marks/start line, authoritative shore geometry, wakes and complete camera modes.
+verified world scale and picking, LOD, all production rig transitions,
+authoritative shore geometry, wakes and complete camera modes.
 The spike's lake ring/trees and faceted water are illustrative scenery.
 GFX-02 through GFX-11 remain separately tracked. See
 [GFX-01 evaluation](../analysis/app/GFX-01.md) for actual evidence and limits.

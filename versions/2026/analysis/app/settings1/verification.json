@@ -1,0 +1,2664 @@
+{
+  "passed": true,
+  "scope": "All 18 supported 5/15 fleet, three-course, three-wind combinations; initial and eight-paint whole native image/time/RNG/shore matches against original menu handlers",
+  "checks": [
+    {
+      "fleet": 5,
+      "course": 1,
+      "wind": 1,
+      "commands": [
+        32799,
+        32816,
+        32789,
+        32806,
+        32909,
+        32812
+      ],
+      "configuration": {
+        "course": 1,
+        "wind": 1,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 4088129686,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "79401a19cc05615f0740fc3c597d74684e6ab9ff5a1c64dde5b6167544bf6651",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 4088129686,
+            "memorySha256": "79401a19cc05615f0740fc3c597d74684e6ab9ff5a1c64dde5b6167544bf6651",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3251290688,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "7f3272d0747e8e254a2fe6ac90b139be7eba9635c7cb7bc918214160cf7b4322",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3251290688,
+            "memorySha256": "7f3272d0747e8e254a2fe6ac90b139be7eba9635c7cb7bc918214160cf7b4322",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 1,
+      "wind": 2,
+      "commands": [
+        32799,
+        32816,
+        32789,
+        32806,
+        32909
+      ],
+      "configuration": {
+        "course": 1,
+        "wind": 2,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 713814625,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 713814625,
+            "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 17,
+            "rngState": 1211259853,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "f014ea7ea85ece70b26e638c6dfe8011172c9dd189e15f59ee6bdc99cf1d0a9d",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 1211259853,
+            "memorySha256": "f014ea7ea85ece70b26e638c6dfe8011172c9dd189e15f59ee6bdc99cf1d0a9d",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 1,
+      "wind": 3,
+      "commands": [
+        32799,
+        32816,
+        32789,
+        32806,
+        32909,
+        32814
+      ],
+      "configuration": {
+        "course": 1,
+        "wind": 3,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 2088943324,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "1f4f9ff01d87809ec3c640f9c85d5c00d6967aab5e53a10a4dc103b32debbf10",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 2088943324,
+            "memorySha256": "1f4f9ff01d87809ec3c640f9c85d5c00d6967aab5e53a10a4dc103b32debbf10",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3027578726,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "619d327b61144ebf5058002b6c20dd63aca67bc7cc590b7591e52d69f1c400cb",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3027578726,
+            "memorySha256": "619d327b61144ebf5058002b6c20dd63aca67bc7cc590b7591e52d69f1c400cb",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 3,
+      "wind": 1,
+      "commands": [
+        32799,
+        32818,
+        32789,
+        32806,
+        32909,
+        32812
+      ],
+      "configuration": {
+        "course": 3,
+        "wind": 1,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 4088129686,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "9f6e2996a9692fe145f4141f5b531061bd03c25418996ac94cab898bbd8cf7f3",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 4088129686,
+            "memorySha256": "9f6e2996a9692fe145f4141f5b531061bd03c25418996ac94cab898bbd8cf7f3",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3251290688,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "a206bb3a996ecf7fc22a76dbc985f9b170850ac42a2967f8ee63349935f24be6",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3251290688,
+            "memorySha256": "a206bb3a996ecf7fc22a76dbc985f9b170850ac42a2967f8ee63349935f24be6",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 3,
+      "wind": 2,
+      "commands": [
+        32799,
+        32818,
+        32789,
+        32806,
+        32909
+      ],
+      "configuration": {
+        "course": 3,
+        "wind": 2,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 713814625,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "1a810c190f4aa9fce753f0410c2192871b21c547289b49705ed5ba20b0371cae",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 713814625,
+            "memorySha256": "1a810c190f4aa9fce753f0410c2192871b21c547289b49705ed5ba20b0371cae",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 17,
+            "rngState": 1211259853,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "5b45d17745391c7833ed5b0ef952b6993535b3223cc8f8bbb35873a6d321204b",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 1211259853,
+            "memorySha256": "5b45d17745391c7833ed5b0ef952b6993535b3223cc8f8bbb35873a6d321204b",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 3,
+      "wind": 3,
+      "commands": [
+        32799,
+        32818,
+        32789,
+        32806,
+        32909,
+        32814
+      ],
+      "configuration": {
+        "course": 3,
+        "wind": 3,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 2088943324,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "3dcdfd3e5962823aaead345086a28e450469d148f0d74fbff54db36b1d7952a1",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 2088943324,
+            "memorySha256": "3dcdfd3e5962823aaead345086a28e450469d148f0d74fbff54db36b1d7952a1",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3027578726,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "922e22d46aea5bab5f6a71b2623f2f09cbc2482f40be72c601f867a4b07efe7b",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3027578726,
+            "memorySha256": "922e22d46aea5bab5f6a71b2623f2f09cbc2482f40be72c601f867a4b07efe7b",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 5,
+      "wind": 1,
+      "commands": [
+        32799,
+        32820,
+        32789,
+        32806,
+        32909,
+        32812
+      ],
+      "configuration": {
+        "course": 5,
+        "wind": 1,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 4088129686,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "23179647ac699da82f23c04a22552f57dcc5822b6d7452dcb6a03bdcd693b1f7",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 4088129686,
+            "memorySha256": "23179647ac699da82f23c04a22552f57dcc5822b6d7452dcb6a03bdcd693b1f7",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3251290688,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "b01cbe514fe8d01863dbf1c7797e909390c64291522ba7862f7f2b9335a26235",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3251290688,
+            "memorySha256": "b01cbe514fe8d01863dbf1c7797e909390c64291522ba7862f7f2b9335a26235",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 5,
+      "wind": 2,
+      "commands": [
+        32799,
+        32820,
+        32789,
+        32806,
+        32909
+      ],
+      "configuration": {
+        "course": 5,
+        "wind": 2,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 713814625,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "38f8393921134befd231bb3f265cadbfa42eff92eadb553fdc846508b873b85d",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 713814625,
+            "memorySha256": "38f8393921134befd231bb3f265cadbfa42eff92eadb553fdc846508b873b85d",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 17,
+            "rngState": 1211259853,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "bb8fefa93492e16d0f5eda1cc57363b010742eaf27373eb8c5b30ff87f185c0c",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 1211259853,
+            "memorySha256": "bb8fefa93492e16d0f5eda1cc57363b010742eaf27373eb8c5b30ff87f185c0c",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 5,
+      "course": 5,
+      "wind": 3,
+      "commands": [
+        32799,
+        32820,
+        32789,
+        32806,
+        32909,
+        32814
+      ],
+      "configuration": {
+        "course": 5,
+        "wind": 3,
+        "fleet": 5,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 2088943324,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "db7ed3a5b4135b62f025041b87ae0efb5144589443d3955e40bf86ffdcbbb734",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 2088943324,
+            "memorySha256": "db7ed3a5b4135b62f025041b87ae0efb5144589443d3955e40bf86ffdcbbb734",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3027578726,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "52ac295b3e6d6de6dd60b470dbccdc393956e6d17978091b1158536cc53ad516",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3027578726,
+            "memorySha256": "52ac295b3e6d6de6dd60b470dbccdc393956e6d17978091b1158536cc53ad516",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 1,
+      "wind": 1,
+      "commands": [
+        32799,
+        32816,
+        32789,
+        32808,
+        32909,
+        32812
+      ],
+      "configuration": {
+        "course": 1,
+        "wind": 1,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 2768477893,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "917ee4134cc537d8ba74d378105b043ee7106222e0a629152f8c478066971d1a",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 2768477893,
+            "memorySha256": "917ee4134cc537d8ba74d378105b043ee7106222e0a629152f8c478066971d1a",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 2358645261,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "1bcc582533fc96be853b41eecaf8ca6918b946a4947cb40ca6dad06095e3516b",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 2358645261,
+            "memorySha256": "1bcc582533fc96be853b41eecaf8ca6918b946a4947cb40ca6dad06095e3516b",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 1,
+      "wind": 2,
+      "commands": [
+        32799,
+        32816,
+        32789,
+        32808,
+        32909
+      ],
+      "configuration": {
+        "course": 1,
+        "wind": 2,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 627798547,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "912541bfa64f540ddb09880520a4779df18785081a81a9bb3fe044d96ec66773",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 627798547,
+            "memorySha256": "912541bfa64f540ddb09880520a4779df18785081a81a9bb3fe044d96ec66773",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 17,
+            "rngState": 3605982077,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "916e350b4f5ce0c15b5c0ad3ec5fa9ad116a1956709d403a42b060ae105c5263",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3605982077,
+            "memorySha256": "916e350b4f5ce0c15b5c0ad3ec5fa9ad116a1956709d403a42b060ae105c5263",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 1,
+      "wind": 3,
+      "commands": [
+        32799,
+        32816,
+        32789,
+        32808,
+        32909,
+        32814
+      ],
+      "configuration": {
+        "course": 1,
+        "wind": 3,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 1039831029,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "8d5ad4840a2abdef0cfd9f136af7b47b680ab4ba37db69b87864744542aec455",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 1039831029,
+            "memorySha256": "8d5ad4840a2abdef0cfd9f136af7b47b680ab4ba37db69b87864744542aec455",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3253708567,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "042cc56a1a98a80d3c30dfa33329468736e0c02cf46b72672f77d1ad44737f7b",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3253708567,
+            "memorySha256": "042cc56a1a98a80d3c30dfa33329468736e0c02cf46b72672f77d1ad44737f7b",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 3,
+      "wind": 1,
+      "commands": [
+        32799,
+        32818,
+        32789,
+        32808,
+        32909,
+        32812
+      ],
+      "configuration": {
+        "course": 3,
+        "wind": 1,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 2768477893,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "4770de9da5b29b0c1cd6f2a61529324befa5f947e7d27d9d8a0194b93d85fbb0",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 2768477893,
+            "memorySha256": "4770de9da5b29b0c1cd6f2a61529324befa5f947e7d27d9d8a0194b93d85fbb0",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 2358645261,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "d4717c018a31153ab07fce1e124f88340576a58b58b607af8095e0987722e601",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 2358645261,
+            "memorySha256": "d4717c018a31153ab07fce1e124f88340576a58b58b607af8095e0987722e601",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 3,
+      "wind": 2,
+      "commands": [
+        32799,
+        32818,
+        32789,
+        32808,
+        32909
+      ],
+      "configuration": {
+        "course": 3,
+        "wind": 2,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 627798547,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "174baaf50d150389b885b52c1d81328e4e3e04a5bcd815d4ad954c029912afec",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 627798547,
+            "memorySha256": "174baaf50d150389b885b52c1d81328e4e3e04a5bcd815d4ad954c029912afec",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 17,
+            "rngState": 3605982077,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "7ffc33d95bbd127277b182cf8ee010a1b8d80915f1549ff67b3f2d8365d6f5e3",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3605982077,
+            "memorySha256": "7ffc33d95bbd127277b182cf8ee010a1b8d80915f1549ff67b3f2d8365d6f5e3",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 3,
+      "wind": 3,
+      "commands": [
+        32799,
+        32818,
+        32789,
+        32808,
+        32909,
+        32814
+      ],
+      "configuration": {
+        "course": 3,
+        "wind": 3,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 1039831029,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "c4c99def14df3a9cee43169d28ae766e9cb61b4bead9e7d22f89bbb756872e11",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 1039831029,
+            "memorySha256": "c4c99def14df3a9cee43169d28ae766e9cb61b4bead9e7d22f89bbb756872e11",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3253708567,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "9c9e4605902d4c275f1534191fd73a39e1cd9976062c9046a9af6a2ada105414",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3253708567,
+            "memorySha256": "9c9e4605902d4c275f1534191fd73a39e1cd9976062c9046a9af6a2ada105414",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 5,
+      "wind": 1,
+      "commands": [
+        32799,
+        32820,
+        32789,
+        32808,
+        32909,
+        32812
+      ],
+      "configuration": {
+        "course": 5,
+        "wind": 1,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 2768477893,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "e9343993130829d96443e37bc87fa5bdf94043cdca2e38b35fd950921984ec29",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 2768477893,
+            "memorySha256": "e9343993130829d96443e37bc87fa5bdf94043cdca2e38b35fd950921984ec29",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 2358645261,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "e291554ababbde55a6394d0ae02fa78843df1d6523fe36a41a68fb4103d6d47c",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 2358645261,
+            "memorySha256": "e291554ababbde55a6394d0ae02fa78843df1d6523fe36a41a68fb4103d6d47c",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 5,
+      "wind": 2,
+      "commands": [
+        32799,
+        32820,
+        32789,
+        32808,
+        32909
+      ],
+      "configuration": {
+        "course": 5,
+        "wind": 2,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 627798547,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "6f97441620678e0fa76d0f97dd320f9f80924138ca6fe768bc1c3c07948541dc",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 627798547,
+            "memorySha256": "6f97441620678e0fa76d0f97dd320f9f80924138ca6fe768bc1c3c07948541dc",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 17,
+            "rngState": 3605982077,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "7cdb35248ab63bcaa9c55278b8b374d7761e1f6b7d2edb66016b89a8ec8de2ce",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3605982077,
+            "memorySha256": "7cdb35248ab63bcaa9c55278b8b374d7761e1f6b7d2edb66016b89a8ec8de2ce",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "course": 5,
+      "wind": 3,
+      "commands": [
+        32799,
+        32820,
+        32789,
+        32808,
+        32909,
+        32814
+      ],
+      "configuration": {
+        "course": 5,
+        "wind": 3,
+        "fleet": 15,
+        "selector": 12,
+        "area": 5
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 10,
+            "rngState": 1039831029,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "5235d332e013f7be8f73586b22c55b5dec8fa2c12f2a560e2a9c45632b299765",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 10,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 1039831029,
+            "memorySha256": "5235d332e013f7be8f73586b22c55b5dec8fa2c12f2a560e2a9c45632b299765",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          }
+        },
+        {
+          "label": "eight real paints",
+          "original": {
+            "frame": 18,
+            "rngState": 3253708567,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "7c6838dd02b35b94311aba941d5e7db14fe8ef4ee426f9f8ee4fd21ebb1c4f60",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 18,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3253708567,
+            "memorySha256": "7c6838dd02b35b94311aba941d5e7db14fe8ef4ee426f9f8ee4fd21ebb1c4f60",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

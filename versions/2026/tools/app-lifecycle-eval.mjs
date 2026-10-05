@@ -25,4 +25,4 @@ try{
  await b.evaluate('document.getElementById("restart").click()');await healthy();checks.push({name:'context loss restart recovered',initial:await b.evaluate('tact2026.initial')});
  await b.evaluate('tact2026.engine.request("step",8)');await writeFile(resolve(output,'scene.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
  await writeFile(resolve(output,'verification.json'),JSON.stringify({passed:true,browser:b.metadata,checks},null,2));console.log(JSON.stringify(checks.map(c=>c.name)));
-}catch(error){await writeFile(resolve(output,'failure.txt'),error.stack);throw error;}finally{await b.close();}
+}catch(error){await writeFile(resolve(output,'failure.txt'),error.stack);await writeFile(resolve(output,'failure-checks.json'),JSON.stringify({checks,state:await b.evaluate('({ready:tact2026.ready,error:tact2026.error,paused:tact2026.paused,hidden:document.hidden,sequence:tact2026.latest?.sequence,samples:tact2026.scene.samples.length,last:tact2026.scene.samples.at(-1)})').catch(e=>({inspectionError:String(e)}))},null,2));throw error;}finally{await b.close();}

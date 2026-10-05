@@ -40,6 +40,7 @@ Completed task evaluations:
 - [Solid crew and repeated smoothness checks](analysis/app/CREW.md).
 - [Headwind sail response](analysis/app/SAIL-WIND.md).
 - [Native marks, lines, committee boat and heading guides](analysis/app/COURSE.md).
+- [Starter screen and native race settings](analysis/app/STARTER.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.
@@ -62,7 +63,12 @@ without bundling original code. The generated manifest records source and output
 hashes separately. Generated copies and dist are ignored.
 Original root commands and preservation routes are unchanged.
 
-Use `/` for the WebGL 2 development player, `/spike/?fleet=15&backend=webgpu`
+Use `/` for the WebGL 2 development player and paused starter screen. Choose
+five/fifteen Keelboats, Windward/leeward, Triangle or Gold Cup and Light,
+Moderate or Strong native wind; Start race releases the countdown. New race
+or N returns to setup. Changes rebuild a paused preview using original menu
+commands. Fresh races retain the preset's fixed seed; they do not continue
+the previous race's weather/RNG stream. Use `/spike/?fleet=15&backend=webgpu`
 to inspect the requested alternative, and `?manual` for paused diagnostics.
 Drag the canvas to orbit and scroll to zoom; Follow boat resets the camera.
 Port/Starboard, Tack, Close hauled and Run invoke original controls. Comma/period
