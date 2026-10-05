@@ -6,7 +6,7 @@ import type {NativeCourse,BoatView,CourseLine} from './protocol';
 export class CourseScene {
  readonly group=new THREE.Group();private resources:{dispose:()=>void}[]=[];
  private marks:THREE.Group[]=[];private committee=new THREE.Group();
- private start:THREE.Line;private finish:THREE.Line;private laylines:THREE.Line[]=[];private pin:THREE.Group;
+ private start:THREE.Line;private finish:THREE.Line;private laylines:THREE.Line[]=[];private markLines:THREE.Line[][]=[];private equalLine:THREE.Line;private pin:THREE.Group;
  constructor(){
   const resource=<T extends {dispose:()=>void}>(item:T):T=>{this.resources.push(item);return item;};
   const material=(color:string)=>resource(new THREE.MeshStandardMaterial({color,roughness:.85,flatShading:true}));
@@ -28,6 +28,8 @@ export class CourseScene {
    geometry.setAttribute('lineDistance',new THREE.Float32BufferAttribute(new Float32Array(2),1).setUsage(THREE.DynamicDrawUsage));
    const material=resource(dashed?new THREE.LineDashedMaterial({color,dashSize:8,gapSize:5,depthTest:false}):new THREE.LineBasicMaterial({color,depthTest:false}));const line=new THREE.Line(geometry,material);line.frustumCulled=false;line.renderOrder=2;this.group.add(line);return line;};
   this.start=line('#f5f8fc',true);this.finish=line('#5ce5b3',true);this.laylines=[line('#55c78c',true),line('#f78283',true)];
+  for(let i=0;i<3;i++)this.markLines.push([line('#55c78c',true),line('#f78283',true)]);
+  this.equalLine=line('#c5d6df',true);
  }
  private label(text:string,resource:<T extends {dispose:()=>void}>(item:T)=>T){const canvas=document.createElement('canvas');canvas.width=text.length<3?64:text.length<5?128:256;canvas.height=64;const context=canvas.getContext('2d')!;context.fillStyle='#f4f7f8';context.fillRect(0,0,canvas.width,64);context.fillStyle='#12303d';context.font='600 34px "IBM Plex Sans", sans-serif';context.textAlign='center';context.textBaseline='middle';context.fillText(text,canvas.width/2,32);
   const texture=resource(new THREE.CanvasTexture(canvas));texture.colorSpace=THREE.SRGBColorSpace;const material=resource(new THREE.SpriteMaterial({map:texture,depthTest:false,sizeAttenuation:false})),sprite=new THREE.Sprite(material);sprite.position.y=15;sprite.scale.set(canvas.width/64*.0325,.0325,1);sprite.renderOrder=3;return sprite;}
@@ -40,6 +42,15 @@ export class CourseScene {
   const coincident=course.start.a.x===course.finish.a.x&&course.start.a.y===course.finish.a.y&&course.start.b.x===course.finish.b.x&&course.start.b.y===course.finish.b.y;this.start.visible=!coincident||clock<0;this.finish.visible=!coincident||clock>=0;
   for(let i=0;i<2;i++){const line=this.laylines[i],angle=(boat.windFrom+(i===0?-course.closeAngle:course.closeAngle))*Math.PI/180,length=course.length*1.4;line.visible=course.showLaylines;
    this.line(line,{a:course.target,b:{x:course.target.x-Math.sin(angle)*length,y:course.target.y+Math.cos(angle)*length}},.6);}
+  // Native 0x444890 uses the close-hauled angle on beats and
+  // 180 minus the native downwind angle on runs; the rays extend back from marks.
+  for(let i=0;i<3;i++)for(let side=0;side<2;side++){
+   const line=this.markLines[i][side],point=course.marks[i],upwind=i===0,spread=upwind?course.closeAngle:180-course.downwindAngle,
+    angle=(boat.windFrom+(side===0?-spread:spread))*Math.PI/180,length=course.length*1.4;
+   line.visible=course.showMarkLines&&this.marks[i].visible;this.line(line,{a:point,b:{x:point.x-Math.sin(angle)*length,y:point.y+Math.cos(angle)*length}},.7);
+  }
+  const equalAngle=(boat.windFrom+90)*Math.PI/180,dx=Math.sin(equalAngle)*course.length*.7,dy=-Math.cos(equalAngle)*course.length*.7;
+  this.equalLine.visible=course.showMarkLines;this.line(this.equalLine,{a:{x:boat.x-dx,y:boat.y-dy},b:{x:boat.x+dx,y:boat.y+dy}},.65);
  }
  reset(){this.group.visible=false;}
  dispose(){this.group.removeFromParent();for(const resource of this.resources)resource.dispose();}

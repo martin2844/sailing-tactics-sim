@@ -73,6 +73,7 @@ export class SailingScene {
   zoomTactical(ratio:number){if(!Number.isFinite(ratio)||ratio<=0)return;this.mode='orbit';const offset=this.camera.position.clone().sub(this.controls.target);offset.multiplyScalar(ratio);offset.setLength(Math.max(this.controls.minDistance,Math.min(this.controls.maxDistance,offset.length())));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();this.cameraDirty=true;}
   setTacticalOrientation(value:number){this.setCamera('overview');const bearing=value===2?this.latest?.windDirection??0:this.latest?.boats[0].heading??0,angle=bearing*Math.PI/180,offset=this.camera.position.clone().sub(this.controls.target),distance=Math.hypot(offset.x,offset.z);this.camera.position.copy(this.controls.target).add(new THREE.Vector3(-distance*Math.sin(angle),offset.y,distance*Math.cos(angle)));this.controls.update();}
   setPaused(value:boolean){this.paused=value;this.cameraDirty=true;}
+  get cameraMode(){return this.mode;}
   receive(value:SceneSnapshot){if(this.latest&&value.generation!==this.latest.generation){this.previous=undefined;this.latest=undefined;}const now=performance.now();this.span=this.latest?Math.max(1,now-this.received):40;this.previous=this.latest;this.latest=value;this.received=now;
     this.nativeBoats.receive(value.nativeVisuals);
   }
@@ -88,6 +89,10 @@ export class SailingScene {
     const poses=current.boats.map((boat,i)=>{const before=old.boats[i]??boat;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
     const player=poses[0];this.origin.set(player.x,0,player.y);
     this.course.group.visible=true;this.course.update(current.course,current.boats[0],{x:player.x,y:player.y},current.clock);
+    if(this.mode==='chase'){
+      const bearing=player.heading*Math.PI/180;
+      this.controls.target.set(0,12,0);this.camera.position.set(-Math.sin(bearing)*170,70,Math.cos(bearing)*170);this.controls.update();
+    }
     if(this.mode==='native'){
       const view=current.view;let bearing=player.heading+view.lookDegrees;
       if(view.lookMode===1)bearing=current.windDirection;else if(view.lookMode===-1)bearing=current.windDirection+180;
@@ -99,7 +104,7 @@ export class SailingScene {
     for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)),current.boats[index],visualTime);}}
     // Translate the shore in native world coordinates; water is effectively infinite.
     for(const child of this.scene.children)if(child instanceof THREE.InstancedMesh||child instanceof THREE.Mesh&&child.geometry.type==='RingGeometry'){child.position.x=-player.x;child.position.z=-player.y;}
-    // Chase camera remains north-up in this bounded prototype; orbit never touches the engine.
+    // Camera and water presentation never mutate the native engine.
     const phase=this.paused?this.lastWaterPhase:current.time*.025;
     this.water.position.y=-2.2+(phase>=0?Math.sin(phase)*.12:Math.sin(current.time*.025)*.12);
     const poseKey=poses.map(p=>`${p.x.toFixed(5)},${p.y.toFixed(5)},${p.heading.toFixed(4)}`).join('|');const poseChanged=poseKey!==this.lastPose;

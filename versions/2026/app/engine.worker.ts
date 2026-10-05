@@ -20,7 +20,7 @@ const queue=new MessageChannel();let pending=false,scheduleToken=0;
 queue.port1.onmessage=event=>{if(event.data!==scheduleToken)return;pending=false;if(ready&&!paused&&!failed)tick();};
 const visuals=createNativeVisualObserver();Object.assign(globalThis,{tactNativeVisuals:visuals});
 function observeDc(dc:any){const emit=dc.emit;dc.emit=function(event:any){visuals.observe(event,this);return emit.call(this,event);};return dc;}
-const allowed=new Set<number>([...Object.values(commands),32872,32876,32909]);
+const allowed=new Set<number>([...Object.values(commands),32872,32876,32909,32918]);
 const send=(type:string,data:any)=>{if(type==='snapshot'){const native=(data as SceneSnapshot).nativeVisuals;self.postMessage({type,generation,data},{transfer:[native.styles.buffer,native.geometry.buffer,native.boats.buffer]});}else if(type==='models'){const p=data.packet;self.postMessage({type,generation,data},{transfer:[p.positions.buffer,p.records.buffer,p.colors.buffer,p.boats.buffer]});}else self.postMessage({type,generation,data});};
 function requestModels(){
   if(!ready||!modelReady||modelBusy||failed||!modelDirty&&modelSequence===frame)return;
@@ -60,7 +60,7 @@ function snapshot(workMs:number):SceneSnapshot {
     view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
-    course:{marks:marks.slice(0,3),start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),showLaylines:i(0x536490)!==0,length:i(0x525a9c)},
+    course:{marks:marks.slice(0,3),start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c)},
     results:i(0x5363f4)!==0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
 }
 function panelTitle():string|null{
@@ -134,7 +134,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   if(type==='init'){await initialize(data);return;}
   if(event.data.generation!==generation||!ready||failed)return;
   if(type==='pause'){paused=Boolean(data);if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('paused',paused);}
-  else if(type==='command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');await menu(memory,data,options);send('accepted',{command:data,sequence:frame});}
+  else if(type==='command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');await menu(memory,data,options);send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
   else if(type==='key'){
     if(!Number.isInteger(data)||data<0||data>255)throw new Error('Invalid native virtual key');
     key(memory,data,options);modelDirty=true;send('snapshot',snapshot(0));send('accepted',{key:data,sequence:frame});requestModels();

@@ -901,3 +901,41 @@ retained evidence here.
 | GFX-07a | 2026-10-05 | Atomic native course commit; see file history | [Course evaluation](versions/2026/analysis/app/COURSE.md) | Directional laylines; shoreline/scale and polished assets later |
 | APP-03a | 2026-10-05 | Atomic starter commit; see file history | [Starter evaluation](versions/2026/analysis/app/STARTER.md) | Supported native choices; fixed-seed fresh races; complete lifecycle/settings later |
 | — | — | — | — | — |
+
+## Requested original-feature expansion (2026-10-05)
+
+Implement each task atomically and evaluate it before checking it off. Preserve
+native physics, RNG, weather, scoring and shoreline/depth calculations; modern
+extensions must be identified and must not silently replace original behavior.
+
+- [x] **EXT-01 — Restore mark guides and automatic following camera.** Expose
+  original mark-line toggle separately from L; show buoy laylines/equal-position
+  guides and follow interpolated headings through tacks/jibes. Evaluate geometry,
+  trusted toggles, wrapped-heading motion and read-only camera isolation.
+- [ ] **EXT-02 — Name the fleet and allow editing the player's boat name.**
+  Recover native fleet names; safely support a custom display name and retain
+  identities across results and championship races.
+- [ ] **EXT-03 — Build proper race start, finish and results screens.** Show
+  native finishing position immediately on finish, complete fleet results when
+  available, penalties and clear next-race/new-event actions; prove results are
+  triggered by engine events, not elapsed-time or visual-position guesses.
+- [ ] **EXT-04 — Add standard race / championship selection and event flow.**
+  Preserve original three-race series transitions/scoring, with modern longer
+  events if needed. Show race number, individual finishes, standings, final
+  championship results and a way to continue without accidentally reseeding or
+  discarding the ongoing event. Evaluate complete natural event transitions.
+- [ ] **EXT-05 — Port every native boat class and course option.** Use native
+  menu/controller and geometry rather than substituting generic assets. Cover
+  all rig/hull/crew families, spinnaker differences, gate/fleet restrictions,
+  native area/course compatibility and proper setup labels. Evaluate native
+  boundaries and visual fidelity for every supported choice.
+- [ ] **EXT-06 — Expose native wind/gusts, waves, depth, current and grounding.**
+  Render native shoreline/navigation geometry, readable local gust/current/depth
+  instruments and grounded status, with restrained wave/gust visuals. Port
+  environmental physics already present; any illustrative additions remain
+  presentation-only. Evaluate shallow-water and current cases against the OG.
+- [ ] **EXT-07 — Review and evaluate the complete expanded player journey.**
+  Fix findings; check starter/race/finish/championship/restart/error ownership,
+  selected boats/courses, no demo mode, frozen-reference integrity and repeated
+  Chrome smoothness. Keep incomplete items explicit instead of declaring the
+  whole expansion complete early.
