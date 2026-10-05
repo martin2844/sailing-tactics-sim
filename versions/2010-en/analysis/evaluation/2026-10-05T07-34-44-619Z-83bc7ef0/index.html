@@ -1,0 +1,140 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+  <title>Sailing simulator evaluation</title><style>body{font:16px/1.5 system-ui,sans-serif;max-width:1400px;margin:40px auto;padding:0 24px;color:#182735;background:#f6f8fa}h1{font-size:32px}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;background:white}th,td{padding:8px 10px;border-bottom:1px solid #d9e0e7;text-align:left}th{font-size:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e9eef3;padding:16px}details{margin:12px 0}summary{cursor:pointer;font-weight:600}svg{width:100%;background:white}.scroll{overflow:auto}a{color:#1757b3}.status{font-size:22px;font-weight:650}</style>
+  <h1>Sailing simulator evaluation</h1><p class="status">evaluation incomplete</p>
+  <p>2026-10-05T07:34:44.619Z · source 83bc7ef04a23 · quick · <a href="report.json">JSON report</a></p>
+  <p>Timing runs use a visible browser and the desktop GPU. Completed canvas frames observed at requestAnimationFrame are a response proxy; physical monitor presentation is not measured. Default workloads differ between editions. Profiled runs are excluded from timing comparisons.</p>
+
+  <h2>Checks and remaining coverage</h2><pre>{
+  &quot;checks&quot;: [
+    {
+      &quot;name&quot;: &quot;evaluation-tests&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 1.41,
+      &quot;log&quot;: &quot;evaluation-tests.log&quot;
+    },
+    {
+      &quot;name&quot;: &quot;2010-hud&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 57.114,
+      &quot;log&quot;: &quot;2010-hud.log&quot;
+    },
+    {
+      &quot;name&quot;: &quot;font-atlas&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 1.384,
+      &quot;log&quot;: &quot;font-atlas.log&quot;
+    },
+    {
+      &quot;name&quot;: &quot;canvas-parity&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 42.985,
+      &quot;log&quot;: &quot;canvas-parity.log&quot;
+    }
+  ],
+  &quot;coverage&quot;: {
+    &quot;throughput&quot;: &quot;pending&quot;,
+    &quot;inputResponse&quot;: &quot;pending&quot;,
+    &quot;actualCanvasParity&quot;: &quot;passed: real Canvas exact/smooth engine trace comparison&quot;,
+    &quot;longRaceFinish&quot;: &quot;not evaluated by the quick suite&quot;,
+    &quot;physicalDisplayLatency&quot;: &quot;not measured&quot;,
+    &quot;native2010&quot;: &quot;existing finite reference tests; no new native capture&quot;
+  },
+  &quot;failures&quot;: [
+    &quot;Error: Invalid measured run: matched-round-lake-15-2010-1\n    at file:///home/martin/tact/tools/evaluate.js:156:67&quot;
+  ]
+}</pre>
+  <h2>Measurements</h2><p>Durations and response are milliseconds. FPS counts distinct completed canvas frames seen by the observer; simulation rate is simulated seconds per wall second.</p>
+  <div class="scroll"><table><thead><tr><th>Scenario</th><th>Edition</th><th>Repeat</th><th>Validity</th><th>Paint p95</th><th>Content interval p95</th><th>Content interval p99</th><th>Content FPS</th><th>Simulation rate</th><th>Input response p95</th><th>Evidence</th></tr></thead><tbody><tr><td>matched-round-lake-15</td><td>2002</td><td>1</td>
+      <td>valid</td><td>65.20</td><td>71.60</td>
+      <td>73.20</td><td>15.77</td>
+      <td>4.02</td><td>208.00</td>
+      <td><a href="matched-round-lake-15-2002-1/run.json">raw</a></td></tr><tr><td>matched-round-lake-15</td><td>2010</td><td>1</td>
+      <td>INVALID</td><td>—</td><td>—</td>
+      <td>—</td><td>—</td>
+      <td>—</td><td>99.20</td>
+      <td><a href="matched-round-lake-15-2010-1/run.json">raw</a></td></tr></tbody></table></div>
+  <h2>Comparison against 2002</h2><p>Median of the per-run tail measurements. Target ratio ≤1.10×; lower is better. Variable repeats have a range larger than 20% of their median.</p>
+  <div class="scroll"><table><thead><tr><th>Scenario</th><th>Metric</th><th>2002 (ms)</th><th>2010 (ms)</th><th>Ratio</th><th>Target</th></tr></thead><tbody></tbody></table></div>
+  <details><summary>Comparison evidence and repeat ranges</summary><pre>null</pre></details>
+
+  <h2>Frame traces</h2><details><summary>matched-round-lake-15 · 2002 · repeat 1</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 68.80 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,44.8 7.6,36.3 15.1,44.0 22.7,42.8 30.3,43.4 37.8,27.1 45.4,40.3 52.9,37.1 60.5,38.3 68.1,45.2 75.6,38.1 83.2,43.0 90.8,43.8 98.3,23.6 105.9,34.8 113.4,25.7 121.0,27.7 128.6,26.5 136.1,23.6 143.7,33.4 151.3,34.8 158.8,17.3 166.4,29.7 173.9,18.3 181.5,35.8 189.1,28.1 196.6,30.8 204.2,32.0 211.8,24.4 219.3,28.7 226.9,33.6 234.5,28.5 242.0,31.0 249.6,34.6 257.1,33.4 264.7,26.3 272.3,30.8 279.8,34.8 287.4,34.8 295.0,27.9 302.5,23.6 310.1,26.7 317.6,28.1 325.2,34.0 332.8,10.6 340.3,32.6 347.9,32.0 355.5,31.8 363.0,10.0 370.6,29.7 378.2,35.0 385.7,35.4 393.3,27.9 400.8,33.6 408.4,29.9 416.0,31.0 423.5,16.5 431.1,32.6 438.7,36.3 446.2,35.2 453.8,27.1 461.3,34.0 468.9,31.6 476.5,28.9 484.0,22.6 491.6,35.4 499.2,34.2 506.7,34.2 514.3,23.8 521.8,29.5 529.4,26.9 537.0,17.3 544.5,24.7 552.1,28.3 559.7,34.2 567.2,32.8 574.8,29.5 582.4,35.0 589.9,29.9 597.5,33.6 605.0,12.0 612.6,28.3 620.2,29.1 627.7,32.6 635.3,24.0 642.9,36.7 650.4,32.4 658.0,33.2 665.5,22.2 673.1,29.1 680.7,33.8 688.2,34.8 695.8,20.4 703.4,24.2 710.9,31.2 718.5,30.6 726.1,23.6 733.6,32.4 741.2,31.4 748.7,31.4 756.3,28.5 763.9,18.3 771.4,25.9 779.0,25.5 786.6,28.9 794.1,33.0 801.7,35.0 809.2,14.9 816.8,29.9 824.4,31.2 831.9,21.8 839.5,27.7 847.1,34.2 854.6,28.3 862.2,29.9 869.7,32.6 877.3,26.3 884.9,32.8 892.4,28.9 900.0,23.4" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>matched-round-lake-15 · 2010 · repeat 1</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 50.00 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,83.1 7.6,83.1 15.1,81.7 22.7,87.0 30.3,87.8 37.8,88.7 45.4,75.2 52.9,82.8 60.5,88.1 68.1,78.3 75.6,76.1 83.2,89.5 90.8,86.7 98.3,87.0 105.9,77.5 113.4,88.1 121.0,67.4 128.6,88.1 136.1,71.0 143.7,85.6 151.3,78.0 158.8,90.1 166.4,75.8 173.9,83.9 181.5,83.1 189.1,81.7 196.6,91.2 204.2,94.8 211.8,93.7 219.3,94.6 226.9,90.9 234.5,93.2 242.0,89.0 249.6,82.0 257.1,79.2 264.7,84.2 272.3,74.4 279.8,20.9 287.4,84.8 295.0,87.6 302.5,75.5 310.1,80.0 317.6,87.8 325.2,89.2 332.8,87.0 340.3,86.7 347.9,68.2 355.5,88.4 363.0,89.8 370.6,89.8 378.2,66.8 385.7,85.6 393.3,65.7 400.8,73.6 408.4,65.4 416.0,61.2 423.5,80.0 431.1,82.2 438.7,84.8 446.2,73.3 453.8,60.7 461.3,66.8 468.9,81.7 476.5,66.0 484.0,68.2 491.6,71.9 499.2,82.8 506.7,82.0 514.3,78.9 521.8,67.1 529.4,78.9 537.0,76.1 544.5,44.4 552.1,80.8 559.7,82.2 567.2,69.1 574.8,70.8 582.4,87.8 589.9,80.3 597.5,86.4 605.0,83.6 612.6,87.6 620.2,82.0 627.7,89.0 635.3,83.4 642.9,90.1 650.4,90.1 658.0,91.8 665.5,90.1 673.1,90.6 680.7,89.8 688.2,87.6 695.8,87.0 703.4,88.4 710.9,86.4 718.5,89.2 726.1,88.7 733.6,89.5 741.2,89.5 748.7,92.0 756.3,89.0 763.9,90.1 771.4,89.0 779.0,82.5 786.6,88.1 794.1,90.9 801.7,88.1 809.2,89.2 816.8,90.4 824.4,92.0 831.9,89.8 839.5,92.6 847.1,89.0 854.6,89.8 862.2,89.2 869.7,88.7 877.3,87.8 884.9,88.1 892.4,87.0 900.0,85.9" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><h2>Separate diagnostic profile</h2><pre>&quot;Not run&quot;</pre>
+
+  <h2>Reproduction</h2><pre>{
+  &quot;command&quot;: [
+    &quot;/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node&quot;,
+    &quot;/home/martin/tact/tools/evaluate.js&quot;,
+    &quot;--mode&quot;,
+    &quot;quick&quot;,
+    &quot;--repeats&quot;,
+    &quot;3&quot;,
+    &quot;--frames&quot;,
+    &quot;120&quot;,
+    &quot;--scenarios&quot;,
+    &quot;matched-round-lake-15&quot;,
+    &quot;--note&quot;,
+    &quot;Post-fix controlled speed-10 evaluation. Original menu disables automatic foul slowdown; original physics timestep and sailing rules retained. No concurrent benchmark or build.&quot;
+  ],
+  &quot;environment&quot;: {
+    &quot;node&quot;: &quot;v24.19.0&quot;,
+    &quot;platform&quot;: &quot;linux&quot;,
+    &quot;release&quot;: &quot;6.18.49&quot;,
+    &quot;cpus&quot;: &quot;AMD Ryzen 7 5700G with Radeon Graphics&quot;,
+    &quot;logicalCpus&quot;: 16,
+    &quot;totalMemory&quot;: 67287801856,
+    &quot;display&quot;: &quot;:0&quot;,
+    &quot;waylandDisplay&quot;: &quot;wayland-1&quot;
+  },
+  &quot;source&quot;: {
+    &quot;commit&quot;: &quot;83bc7ef04a23ed206034d7414201eb003b517d9d&quot;,
+    &quot;trackedDiffSha256&quot;: &quot;3c8d51e1706230fa987dacfd42db4918ea651dd759f2a25efe6cca793fa24f97&quot;,
+    &quot;runtimeSha256&quot;: &quot;6ada44b373ac7d265496f7f50c84d9cb025d63a60a254a3530576498549bc9a8&quot;,
+    &quot;harnessSha256&quot;: &quot;5459f14b6a3030c3983a4770d546d3b581ebae1d20aab381cec53d756022cc5c&quot;
+  },
+  &quot;configuration&quot;: {
+    &quot;mode&quot;: &quot;quick&quot;,
+    &quot;repeats&quot;: 3,
+    &quot;frames&quot;: 120,
+    &quot;warmup&quot;: 60,
+    &quot;baseUrl&quot;: &quot;http://127.0.0.1:8765&quot;,
+    &quot;profile&quot;: true,
+    &quot;scenarios&quot;: [
+      {
+        &quot;id&quot;: &quot;matched-round-lake-15&quot;,
+        &quot;label&quot;: &quot;Common menus: 15 Keelboats, Round Lake, Windward / Leeward, speed 10&quot;,
+        &quot;editions&quot;: [
+          &quot;2002&quot;,
+          &quot;2010&quot;
+        ],
+        &quot;controlled&quot;: true,
+        &quot;quick&quot;: true,
+        &quot;phase&quot;: &quot;prestart&quot;,
+        &quot;settings&quot;: {
+          &quot;fleet&quot;: 15,
+          &quot;boatSelector&quot;: 12,
+          &quot;area&quot;: 5,
+          &quot;venue&quot;: 0,
+          &quot;course&quot;: 1,
+          &quot;speed&quot;: 10,
+          &quot;automaticSlowdown&quot;: &quot;off&quot;
+        },
+        &quot;commands&quot;: [
+          32799,
+          32816,
+          32789,
+          32808,
+          32909
+        ],
+        &quot;comparisonScope&quot;: &quot;Matching original menus and fleet; native course length, timestep, initialization and geometry are recorded and may differ between editions.&quot;
+      }
+    ],
+    &quot;note&quot;: &quot;Post-fix controlled speed-10 evaluation. Original menu disables automatic foul slowdown; original physics timestep and sailing rules retained. No concurrent benchmark or build.&quot;
+  }
+}</pre></html>

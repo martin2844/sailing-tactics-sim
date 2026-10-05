@@ -124,11 +124,12 @@ function compare(baseline,candidate){
 try{
   report.source.runtimeSha256=await sourceDigest();report.source.harnessSha256=await harnessDigest();await ensureServer();
   await check('evaluation-tests',['--test','tests/evaluation-metrics.test.js','tests/evaluation-baseline.test.js',
-    'tests/evaluation-reanalysis.test.js','tests/presentation-measurements.test.js','tests/browser-session.test.js']);
+    'tests/evaluation-reanalysis.test.js','tests/presentation-measurements.test.js','tests/browser-session.test.js','tests/evaluation-window-visibility.test.js']);
   if(options.mode==='release'){
     await check('2002-tests',['tools/test-2002.js']);await check('2010-tests',['tools/test-2010.js']);
   }
   await check('2010-hud',['tools/check-2010-hud-browser.js'],{TACT_URL:options.baseUrl,TACT_HUD_REPORT:join(directory,'hud.json')});
+  await check('font-atlas',['tools/evaluation/check-font-atlas.js'],{TACT_URL:options.baseUrl,TACT_FONT_REPORT:join(directory,'font-atlas.json')});
   await check('canvas-parity',['versions/2010-en/tools/diagnostics/check-smooth-graphics-browser.mjs'],{
     TACT_2010_URL:new URL('/versions/2010-en/play.html',options.baseUrl).href,TACT_CANVAS_REPORT_DIR:join(directory,'canvas-parity')});
   report.coverage.actualCanvasParity='passed: real Canvas exact/smooth engine trace comparison';

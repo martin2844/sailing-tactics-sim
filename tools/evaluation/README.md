@@ -6,11 +6,24 @@ Run from the repository root on the desktop used to play the simulator:
 npm run eval:quick
 ```
 
-The runner first checks its metrics, exercises physical 2010 HUD input, and
+The runner first checks its metrics, exercises physical 2010 HUD input,
+compares both font atlas backends against native font pixels in a headed GPU browser, and
 compares exact and smooth rendering through real Canvas engine traces. It then
 opens one visible Chrome window at a time, alternating the editions across five
 repetitions. Do not interact with these windows or run other benchmarks while
 they are being measured. Each window closes automatically.
+
+On Hyprland, the runner verifies that its owned browser window is on a visible,
+powered monitor workspace and focuses that window before measurement when
+necessary. It rechecks visibility after throughput and input probes. Chrome's
+DOM visibility alone does not detect a hidden desktop workspace; switching
+workspaces during measurement can invalidate a run. Other compositors are
+explicitly recorded as lacking this additional visibility check.
+
+The physical test window is 1280×1051 and the logical viewport is 1280×1050.
+The odd window height avoids Chrome/Hyprland rounding an even requested height
+to a neighboring pixel. Window dimensions must still match exactly; references
+collected at the previous 1050-pixel window height need a new comparison run.
 
 The quick suite measures a controlled 15-boat scenario at speed 10, followed by
 each edition's normal default configuration with speed 10 selected. Defaults
@@ -102,3 +115,22 @@ The improvement cycle is: reproduce the same scenario, inspect the separate
 CPU profile, change one measured bottleneck, rerun correctness, then compare
 new timing against the saved baseline. Keep an optimization only when the
 physics/control checks still pass and repeated timings show an improvement.
+
+For final Canvas drawing investigations, run a separate instrumented probe:
+
+```sh
+node tools/evaluation/canvas-diagnostic.js original,front-software,flush-one,pixel-copy,software-atlas
+```
+
+The `original` route uses the current player source, whose hash is saved in the
+report. The alternatives force a software front canvas, flush one source pixel,
+copy all pixels, or force software auxiliary canvases. Pixel copying changes
+alpha composition and is an experiment only. These probes stop at paint
+completion, may have incomplete rAF observations, and cannot qualify as timing
+acceptance evidence. Keep their final-copy timings separate from normal runs.
+
+Animation timestamps may repeat; observations retain the actual callback time
+and completed frame ID. A decrease in either clock still invalidates the run.
+The controlled speed-10 scenario turns off **Control → Slow Simulator if Foul
+Likely** through its original command. Default scenarios retain this feature:
+it can lower speed to 1 and impose the original 80 ms minimum frame duration.

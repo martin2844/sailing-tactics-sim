@@ -182,7 +182,7 @@ async function start(){
   const [memory,tables,extended,stored,menus,dialogs,manifest,renderer,bitmapFont,strings,initialShoreStack]=await Promise.all([
     fetchOriginalData(),json('assets/data/trig-tables.json'),json('assets/data/x87-trig.json'),json('assets/data/x87-stored-trig.json'),
     json('assets/ui/menus.json'),json('assets/ui/dialogs.json'),json('assets/manifest.json'),
-    import('./render/index.js'),fetchGdiBitmapFont(),json('assets/ui/strings.json'),
+    import('./render/index.js'),fetchGdiBitmapFont({softwareAtlas:true}),json('assets/ui/strings.json'),
     json('assets/data/initial-shoreline-stack.json'),
   ]);
   setX87ControlWord(0x027f);

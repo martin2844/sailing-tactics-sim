@@ -8,6 +8,7 @@ import {presentationMeasurementInstrumentation} from '../presentation-measuremen
 import {deterministicPaintSetupInstrumentation,deterministicSetupSnapshotExpression,
   deterministicFinalPaintSnapshotInstrumentation,disableOriginalAutomaticSlowdown} from '../deterministic-paint-setup.js';
 import {getScenario} from './scenarios.js';
+import {evaluationWindowVisibility} from './window-visibility.js';
 
 export const editionAddresses=Object.freeze({
   '2010':Object.freeze({time:0x5359f0,dt:0x523378,speed:0x4da174,paused:0x536444,racing:0x5363b0,
@@ -214,11 +215,12 @@ function validate(report){
 }
 
 /** A fresh headed, GPU-enabled browser per run. Profiled samples are diagnostic only. */
-export async function runScenario({edition,scenario,frames=240,warmup=60,baseUrl,outputDir,profile=false,afterMeasurement}={}){
+export async function runScenario({edition,scenario,frames=240,warmup=60,baseUrl,outputDir,profile=false,afterMeasurement,diagnostic,windowHeight=1051}={}){
   edition=String(edition);const a=editionAddresses[edition];
   scenario=typeof scenario==='string'?getScenario(scenario):scenario;
   if(!a||!scenario?.editions.includes(edition))throw new RangeError('Scenario does not support this edition');
   if(!Number.isSafeInteger(frames)||frames<1||!Number.isSafeInteger(warmup)||warmup<0)throw new RangeError('Invalid evaluation frame counts');
+  if(diagnostic&&(!diagnostic.label||typeof diagnostic.script!=='string'))throw new TypeError('Diagnostic needs a label and a startup script');
   const supplied=new URL(baseUrl??'http://127.0.0.1:8765/');
   const playerPath=edition==='2010'?'/versions/2010-en/play.html':'/play.html';
   const playerUrl=supplied.pathname.endsWith('.html')?supplied:new URL(playerPath,supplied);
@@ -228,22 +230,25 @@ export async function runScenario({edition,scenario,frames=240,warmup=60,baseUrl
   const id=`${edition}-${scenario.id}-${profile?'profile':'timing'}-${randomUUID()}`;
   const report={format:1,id,edition,scenario,url,checkedAt:new Date().toISOString(),
     requested:{frames,warmup,settings:scenario.settings},samples:[],presentation:[],moduleSources:[],exceptions:[],observedErrors:[],
-    metadata:{headless:false,gpu:true,width:1280,height:1050,seedTimeSeconds:1546300800,
-      timingScope:profile?'CPU/stage-profile diagnostic; these timings are ineligible for performance acceptance':'Headed GPU-enabled continuous original scheduler, without CPU/stage profiling',
+    metadata:{headless:false,gpu:true,width:1280,height:windowHeight,seedTimeSeconds:1546300800,
+      timingScope:profile||diagnostic?'CPU/stage-profile or Canvas diagnostic; these timings are ineligible for performance acceptance':'Headed GPU-enabled continuous original scheduler, without CPU/stage profiling',
       presentationScope:'requestAnimationFrame samples are a canvas-content availability proxy, not proof of physical display presentation',
       comparisonScope:scenario.comparisonScope??'Native edition defaults/features are retained; cross-edition full-state equality is not assumed'},
     validation:{passed:false,failures:[]}};
+  if(diagnostic)report.diagnostic={label:diagnostic.label,scriptSha256:createHash('sha256').update(diagnostic.script).digest('hex')};
   let browser,profiling=false,hostBefore,hostAfter,runError;
   try{
     // Install the fixed initialization seed/gate before the game is loaded once.
-    browser=await openBrowser('about:blank',{headless:false,gpu:true,width:1280,height:1050});
+    browser=await openBrowser('about:blank',{headless:false,gpu:true,width:1280,height:windowHeight});
     report.metadata.launch=browser.metadata;
-    if(browser.metadata?.window?.bounds?.width!==1280||browser.metadata?.window?.bounds?.height!==1050)throw new Error('Requested real browser window bounds were not retained');
+    if(browser.metadata?.window?.bounds?.width!==1280||browser.metadata?.window?.bounds?.height!==windowHeight)throw new Error('Requested real browser window bounds were not retained');
     await browser.call('Network.enable',{maxTotalBufferSize:100_000_000,maxResourceBufferSize:30_000_000});
     await browser.call('Emulation.setDeviceMetricsOverride',{width:1280,height:1050,deviceScaleFactor:1,mobile:false});
     await browser.call('Page.addScriptToEvaluateOnNewDocument',{source:measurementInjection(a)});
+    if(diagnostic)await browser.call('Page.addScriptToEvaluateOnNewDocument',{source:diagnostic.script});
     await browser.call('Page.navigate',{url});
     await browser.call('Page.bringToFront');
+    report.metadata.compositorBefore=await evaluationWindowVisibility(browser.metadata,{focus:true});
     await browser.waitFor('globalThis.tact?.state.ready||globalThis.tact?.state.error',60000);
     if(await browser.evaluate('tact.state.error'))throw new Error(await browser.evaluate('tact.state.error'));
     report.setup=await setUp(browser,a,scenario,warmup);
@@ -268,8 +273,10 @@ export async function runScenario({edition,scenario,frames=240,warmup=60,baseUrl
     await browser.evaluate(`startEvaluationWindow(${report.setup.entry.frame+frames})`);
     hostBefore=hostSample();
     await browser.evaluate('paintSetupGate.release()');
-    await browser.waitFor('evaluationPresentationFinished||tact.state.error',Math.max(180000,frames*200));
+    await browser.waitFor(diagnostic?'evaluationFinalReached||tact.state.error':'evaluationPresentationFinished||tact.state.error',Math.max(180000,frames*200));
+    if(diagnostic)report.diagnostic.presentationFence='Paint completion only. Partial animation-frame observations do not establish content cadence.';
     hostAfter=hostSample();
+    report.metadata.compositorAfter=await evaluationWindowVisibility(browser.metadata);
     if(profiling){
       const result=await browser.call('Profiler.stop');profiling=false;
       report.profile.path=join(destination,`${id}.cpuprofile`);
@@ -281,6 +288,7 @@ export async function runScenario({edition,scenario,frames=240,warmup=60,baseUrl
     report.end=await browser.evaluate('paintMeasurementFinalSnapshot');
     report.endActual=await browser.evaluate('evaluationEndActual');
     report.observedErrors=await browser.evaluate('evaluationErrors');
+    if(diagnostic)report.diagnostic.observations=await browser.evaluate('globalThis.canvasDiagnostics');
     report.exceptions=browser.events.filter(event=>event.method==='Runtime.exceptionThrown').map(event=>event.params.exceptionDetails);
     report.moduleSources=await readModules(browser);
     report.host={logicalProcessors:hostBefore.logicalProcessors,loadAverageBefore:hostBefore.loadAverage,loadAverageAfter:hostAfter.loadAverage,
@@ -295,6 +303,7 @@ export async function runScenario({edition,scenario,frames=240,warmup=60,baseUrl
       // Performance data and final image are already fixed; restore natural paints for input probes.
       await browser.evaluate('releaseEvaluationEndFence()');
       report.inputLatency=await afterMeasurement(browser,{edition,addresses:a,scenario});
+      report.metadata.compositorAfterInput=await evaluationWindowVisibility(browser.metadata);
     }
   }catch(error){
     runError=error;report.failure={message:error.message,stack:error.stack};

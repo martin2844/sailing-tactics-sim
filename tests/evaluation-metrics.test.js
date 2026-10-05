@@ -64,6 +64,16 @@ test('independently quantized rAF and observation clocks may have signed negativ
   assert.ok(summarizeRun(input).invariants.errors.some(row=>row.code==='content_clock_backwards'));
 });
 
+test('repeated animation timestamps retain distinct content observations and actual delivery cadence',()=>{
+  const input=raw();input.presentation[2].timestamp=input.presentation[1].timestamp;
+  const summary=summarizeRun(input);
+  assert.equal(summary.valid,true);
+  assert.deepEqual(summary.contentInterval,summarizeRun(raw()).contentInterval);
+  assert.equal(summary.presentation.distinctContentFrames,3);
+  input.presentation[2].timestamp=input.presentation[1].timestamp-.1;
+  assert.ok(summarizeRun(input).invariants.errors.some(row=>row.code==='raf_clock_backwards'));
+});
+
 test('invariants fail closed on missing, short, nonfinite, backwards and gapped observations',()=>{
   assert.equal(summarizeRun().valid,false);
   assert.equal(summarizeRun(null).valid,false);
@@ -158,6 +168,7 @@ test('actual browser/GPU/surface mismatches and inconsistent module hashes fail 
     row=>{delete row.moduleSources;},
     row=>{delete row.metadata.launch;},
     row=>{row.profile={nodes:[]};},
+    row=>{row.metadata.timingScope='CPU/stage-profile or Canvas diagnostic; ineligible for acceptance';},
   ]){
     const baseline=[contextual('2002'),contextual('2002')],candidate=[contextual(),contextual()];
     mutate(candidate[1]);assert.equal(compareRunContexts(baseline,candidate).valid,false);

@@ -96,8 +96,10 @@ export function summarizeRun(input){
     if(previous){
       if(finite(row.sampledAt)&&finite(previous.sampledAt)&&row.sampledAt<previous.sampledAt)
         errors.push(error('content_clock_backwards','Content callback observation time must not decrease.',{index}));
-      if(finite(row.timestamp)&&finite(previous.timestamp)&&row.timestamp<=previous.timestamp)
-        errors.push(error('raf_clock_backwards','rAF timestamps must advance strictly.',{index}));
+      // Chrome can repeat its animation timestamp while callback delivery and
+      // completed content advance. Cadence uses sampledAt, not this timestamp.
+      if(finite(row.timestamp)&&finite(previous.timestamp)&&row.timestamp<previous.timestamp)
+        errors.push(error('raf_clock_backwards','rAF timestamps must not decrease.',{index}));
       if(integer(row.frame)&&integer(previous.frame)&&row.frame<previous.frame)
         errors.push(error('content_frame_backwards','Observed content frame decreased.',{index}));
       if(finite(row.time)&&finite(previous.time)&&row.time<previous.time)

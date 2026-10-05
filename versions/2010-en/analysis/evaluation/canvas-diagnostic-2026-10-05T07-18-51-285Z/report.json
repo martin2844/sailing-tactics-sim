@@ -1,0 +1,338 @@
+{
+  "scope": "Instrumented Canvas investigation; excluded from performance acceptance. pixel-copy replaces alpha rather than compositing and is an experiment only.",
+  "runs": [
+    {
+      "mode": "original",
+      "raw": "/home/martin/tact/versions/2010-en/analysis/evaluation/canvas-diagnostic-2026-10-05T07-18-51-285Z/original/2010-matched-round-lake-15-timing-12318b0c-6efa-43c3-a16e-99c8f2491ff0.json",
+      "validation": {
+        "passed": true,
+        "failures": []
+      },
+      "summary": {
+        "format": 1,
+        "valid": true,
+        "controlled": true,
+        "expected": {
+          "frames": 40,
+          "speed": 10,
+          "dt": 0.17326504443559496,
+          "autoSlow": 0
+        },
+        "invariants": {
+          "passed": true,
+          "errors": []
+        },
+        "sampleCount": 40,
+        "paintDuration": {
+          "count": 40,
+          "mean": 81.105000000447,
+          "p50": 79.3999999910593,
+          "p95": 85.80000001192093,
+          "p99": 90.5,
+          "max": 90.5
+        },
+        "paintInterval": {
+          "count": 39,
+          "mean": 82.05897435889793,
+          "p50": 80.59999999403954,
+          "p95": 89.79999999701977,
+          "p99": 91.5,
+          "max": 91.5
+        },
+        "contentInterval": {
+          "count": 39,
+          "mean": 82.17948717948718,
+          "p50": 81.40000000596046,
+          "p95": 89.70000000298023,
+          "p99": 91.40000000596046,
+          "max": 91.40000000596046
+        },
+        "simulationSecondsPerWallSecond": 2.110744278433073,
+        "sampledContentFramesPerSecond": 12.168486739469579,
+        "observation": {
+          "paintFrames": 40,
+          "firstFrame": 31,
+          "lastFrame": 70,
+          "wallMilliseconds": 3280.7000000029802,
+          "completionWallMilliseconds": 3201.4000000059605,
+          "simulationSeconds": 6.757336732988222,
+          "observedContentFrames": 40,
+          "contentWallMilliseconds": 3205
+        },
+        "settings": {
+          "speed": {
+            "first": 10,
+            "last": 10,
+            "min": 10,
+            "max": 10,
+            "distinctValues": [
+              10
+            ]
+          },
+          "dt": {
+            "first": 0.17326504443559496,
+            "last": 0.17326504443559496,
+            "min": 0.17326504443559496,
+            "max": 0.17326504443559496,
+            "distinctValues": [
+              0.17326504443559496
+            ]
+          },
+          "autoSlow": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0,
+            "distinctValues": [
+              0
+            ]
+          }
+        },
+        "presentation": {
+          "kind": "requestAnimationFrame content observer proxy",
+          "physicalPresentationMeasured": false,
+          "sampleCount": 42,
+          "distinctContentFrames": 40,
+          "heldContentObservations": 0,
+          "skippedPaintFrames": 0,
+          "intervalClock": "sampledAt: actual callback delivery time",
+          "callbackClockOffset": {
+            "count": 42,
+            "mean": 80.03095238073946,
+            "p50": 82.59999999403954,
+            "p95": 90.69999999999982,
+            "p99": 93.8000000059601,
+            "max": 93.8000000059601,
+            "min": 0.10000000298032319,
+            "definition": "Signed sampledAt minus rAF timestamp; diagnostic only, not a delay or ordering assertion."
+          }
+        }
+      },
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          0.7,
+          1.22,
+          1.59
+        ],
+        "loadAverageAfter": [
+          0.8,
+          1.24,
+          1.6
+        ],
+        "cpuBusyFraction": 0.18665811417575373
+      },
+      "contextAttributes": {
+        "front": {
+          "alpha": true,
+          "colorSpace": "srgb",
+          "colorType": "unorm8",
+          "desynchronized": false,
+          "toneMapping": {
+            "mode": "standard"
+          },
+          "willReadFrequently": false
+        },
+        "buffer": {
+          "alpha": true,
+          "colorSpace": "srgb",
+          "colorType": "unorm8",
+          "desynchronized": false,
+          "toneMapping": {
+            "mode": "standard"
+          },
+          "willReadFrequently": true
+        },
+        "actualBuffer": {
+          "alpha": true,
+          "colorSpace": "srgb",
+          "colorType": "unorm8",
+          "desynchronized": false,
+          "toneMapping": {
+            "mode": "standard"
+          },
+          "willReadFrequently": true
+        }
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 723,
+        "cssWidth": 1028,
+        "cssHeight": 725.8125
+      },
+      "stageMedian": {
+        "readMs": 0,
+        "copyMs": 58.80000001192093,
+        "totalMs": 58.80000001192093
+      },
+      "nonOpaquePixels": []
+    },
+    {
+      "mode": "software-atlas",
+      "raw": "/home/martin/tact/versions/2010-en/analysis/evaluation/canvas-diagnostic-2026-10-05T07-18-51-285Z/software-atlas/2010-matched-round-lake-15-timing-2b767ffd-9a39-40e5-8278-11d3da0695f0.json",
+      "validation": {
+        "passed": true,
+        "failures": []
+      },
+      "summary": {
+        "format": 1,
+        "valid": true,
+        "controlled": true,
+        "expected": {
+          "frames": 40,
+          "speed": 10,
+          "dt": 0.17326504443559496,
+          "autoSlow": 0
+        },
+        "invariants": {
+          "passed": true,
+          "errors": []
+        },
+        "sampleCount": 40,
+        "paintDuration": {
+          "count": 40,
+          "mean": 24.64249999970198,
+          "p50": 23.5,
+          "p95": 30.099999994039536,
+          "p99": 30.799999997019768,
+          "max": 30.799999997019768
+        },
+        "paintInterval": {
+          "count": 39,
+          "mean": 25.738461538767208,
+          "p50": 25.200000002980232,
+          "p95": 31.899999991059303,
+          "p99": 32.099999994039536,
+          "max": 32.099999994039536
+        },
+        "contentInterval": {
+          "count": 39,
+          "mean": 25.75641025641026,
+          "p50": 25.299999997019768,
+          "p95": 31.799999997019768,
+          "p99": 31.799999997019768,
+          "max": 31.799999997019768
+        },
+        "simulationSecondsPerWallSecond": 6.749237647790759,
+        "sampledContentFramesPerSecond": 38.825286212045796,
+        "observation": {
+          "paintFrames": 40,
+          "firstFrame": 31,
+          "lastFrame": 70,
+          "wallMilliseconds": 1023.9000000059605,
+          "completionWallMilliseconds": 1001.2000000029802,
+          "simulationSeconds": 6.757336732988222,
+          "observedContentFrames": 40,
+          "contentWallMilliseconds": 1004.5
+        },
+        "settings": {
+          "speed": {
+            "first": 10,
+            "last": 10,
+            "min": 10,
+            "max": 10,
+            "distinctValues": [
+              10
+            ]
+          },
+          "dt": {
+            "first": 0.17326504443559496,
+            "last": 0.17326504443559496,
+            "min": 0.17326504443559496,
+            "max": 0.17326504443559496,
+            "distinctValues": [
+              0.17326504443559496
+            ]
+          },
+          "autoSlow": {
+            "first": 0,
+            "last": 0,
+            "min": 0,
+            "max": 0,
+            "distinctValues": [
+              0
+            ]
+          }
+        },
+        "presentation": {
+          "kind": "requestAnimationFrame content observer proxy",
+          "physicalPresentationMeasured": false,
+          "sampleCount": 42,
+          "distinctContentFrames": 40,
+          "heldContentObservations": 0,
+          "skippedPaintFrames": 0,
+          "intervalClock": "sampledAt: actual callback delivery time",
+          "callbackClockOffset": {
+            "count": 42,
+            "mean": 26.211904762330484,
+            "p50": 27.09999999999991,
+            "p95": 33.19999999701986,
+            "p99": 34.00000000298019,
+            "max": 34.00000000298019,
+            "min": 0.09999999999990905,
+            "definition": "Signed sampledAt minus rAF timestamp; diagnostic only, not a delay or ordering assertion."
+          }
+        }
+      },
+      "host": {
+        "logicalProcessors": 16,
+        "loadAverageBefore": [
+          0.8,
+          1.24,
+          1.6
+        ],
+        "loadAverageAfter": [
+          0.74,
+          1.22,
+          1.59
+        ],
+        "cpuBusyFraction": 0.4010282776349614
+      },
+      "contextAttributes": {
+        "front": {
+          "alpha": true,
+          "colorSpace": "srgb",
+          "colorType": "unorm8",
+          "desynchronized": false,
+          "toneMapping": {
+            "mode": "standard"
+          },
+          "willReadFrequently": false
+        },
+        "buffer": {
+          "alpha": true,
+          "colorSpace": "srgb",
+          "colorType": "unorm8",
+          "desynchronized": false,
+          "toneMapping": {
+            "mode": "standard"
+          },
+          "willReadFrequently": true
+        },
+        "actualBuffer": {
+          "alpha": true,
+          "colorSpace": "srgb",
+          "colorType": "unorm8",
+          "desynchronized": false,
+          "toneMapping": {
+            "mode": "standard"
+          },
+          "willReadFrequently": true
+        }
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 723,
+        "cssWidth": 1028,
+        "cssHeight": 725.8125
+      },
+      "stageMedian": {
+        "readMs": 0,
+        "copyMs": 1,
+        "totalMs": 1
+      },
+      "nonOpaquePixels": []
+    }
+  ],
+  "playerSha256": "7154efde470f5639e36ac136d0683c94ebb67887c0ea4cfbde12d93e4b934ea5"
+}

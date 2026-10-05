@@ -3,7 +3,7 @@ import { colorRefCss } from './gdi.js';
 /** Default GDI System font captured as native glyph masks and character widths.
  * This preserves the measured Wine font; other Windows font versions may differ.
  */
-export function createGdiBitmapFont(atlas,metrics,{createSurface}={}){
+export function createGdiBitmapFont(atlas,metrics,{createSurface,softwareAtlas=false}={}){
   if(metrics.face!=='System'||metrics.advances.length!==256||metrics.kerningPairs!==0)throw new TypeError('Measured default GDI font is required');
   const cellWidth=metrics.cellWidth,cellHeight=metrics.cellHeight,columns=metrics.columns,colors=new Map();
   const surface=createSurface??((width,height)=>{const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;return canvas;});
@@ -11,7 +11,9 @@ export function createGdiBitmapFont(atlas,metrics,{createSurface}={}){
   const measure=text=>Array.from(String(text),character=>metrics.advances[code(character)]).reduce((sum,value)=>sum+value,0);
   const colored=color=>{
     if(colors.has(color))return colors.get(color);
-    const canvas=surface(atlas.width,atlas.height),context=canvas.getContext('2d');
+    // Readback-enabled drawing buffers otherwise pay for GPU atlas downloads
+    // when queued glyph drawing is rasterized at the final frame copy.
+    const canvas=surface(atlas.width,atlas.height),context=canvas.getContext('2d',softwareAtlas?{willReadFrequently:true}:undefined);
     context.fillStyle=colorRefCss(color);context.fillRect(0,0,canvas.width,canvas.height);
     context.globalCompositeOperation='destination-in';context.drawImage(atlas,0,0);context.globalCompositeOperation='source-over';
     colors.set(color,canvas);return canvas;
@@ -30,7 +32,7 @@ export function createGdiBitmapFont(atlas,metrics,{createSurface}={}){
   }});
 }
 
-export async function fetchGdiBitmapFont(){
+export async function fetchGdiBitmapFont(options={}){
   const response=await fetch(new URL('../../assets/data/system-font.json',import.meta.url));
   if(!response.ok)throw new Error('Could not load original System font metrics');
   const metrics=await response.json(),imageResponse=await fetch(new URL(`../../${metrics.atlas}`,import.meta.url));
@@ -38,5 +40,5 @@ export async function fetchGdiBitmapFont(){
   const bytes=await imageResponse.arrayBuffer();
   const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),value=>value.toString(16).padStart(2,'0')).join('');
   if(digest!==metrics.provenance.atlasSha256)throw new Error('Original System font glyph hash differs');
-  return createGdiBitmapFont(await createImageBitmap(new Blob([bytes],{type:'image/png'})),metrics);
+  return createGdiBitmapFont(await createImageBitmap(new Blob([bytes],{type:'image/png'})),metrics,options);
 }
