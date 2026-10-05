@@ -1,5 +1,5 @@
 import type {NativeVisualPacket} from './native-visuals';
-export interface BoatView {id:number;x:number;y:number;heading:number;speed:number;leg:number;finished:number}
+export interface BoatView {id:number;x:number;y:number;heading:number;speed:number;leg:number;finished:number;windFrom:number;windAngle:number;luff:number;boomAngle:number;tack:number}
 export interface NativeView {lookDegrees:number;lookMode:number;viewpoint:number;automatic:boolean;otherBoat:number;tacticalZoom:number;tacticalOrientation:number}
 export interface SceneSnapshot {nativeVisuals:NativeVisualPacket;generation:number;sequence:number;time:number;clock:number;pace:number;windDirection:number;windStrength:number;boats:BoatView[];view:NativeView;panel:string|null;sheet:number;sailShape:number;spinnaker:boolean;frozen:boolean;marks:{x:number;y:number}[];results:boolean;workMs:number;minimumDelayMs:number;sentAt:number}
 export interface Boundary {frame:number;time:number;clock:number;rngState:number;memorySha256:string;shore:{previousX:number;previousTreeY:number;completedCalls:number}}

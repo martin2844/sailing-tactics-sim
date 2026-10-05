@@ -1,0 +1,2158 @@
+{
+  "passed": true,
+  "scope": "32 real paints per 5/15 boats; initial + four exact whole-image/RNG/shore boundaries; native port/starboard/tack commands; worker host Canvas retained",
+  "runs": [
+    {
+      "fleet": 5,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?manual&fleet=5",
+          "headless": true,
+          "gpu": true,
+          "ensureWindowSize": true,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--headless=new",
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-kcFHli",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-kcFHli"
+        },
+        "processId": 2568381,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 65535,
+                "deviceId": 65535,
+                "vendorString": "Google Inc. (Google)",
+                "deviceString": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0)",
+                "driverVendor": "SwANGLE",
+                "driverVersion": "5.0.0"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_SWIFTSHADER",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_base_vertex_base_instance_shader_builtin GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_copy_texture_3d GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_image GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_object_flags GL_ANGLE_memory_size GL_ANGLE_multi_draw GL_ANGLE_pack_reverse_row_order GL_ANGLE_polygon_mode GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_read_only_depth_stencil_feedback_loops GL_ANGLE_relaxed_vertex_attribute_type GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_rgbx_internal_format GL_ANGLE_robust_client_memory GL_ANGLE_robust_fragment_shader_output GL_ANGLE_robust_resource_initialization GL_ANGLE_shader_pixel_local_storage GL_ANGLE_shader_pixel_local_storage_coherent GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_texture_usage GL_ANGLE_translated_shader_source GL_ANGLE_vulkan_image GL_ANGLE_yuv_internal_format GL_APPLE_clip_distance GL_ARM_rgba8 GL_ARM_shader_framebuffer_fetch GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_compressed_texture GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_EGL_image_array GL_EXT_EGL_image_external_wrap_modes GL_EXT_EGL_image_storage GL_EXT_base_instance GL_EXT_blend_minmax GL_EXT_buffer_storage GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_copy_image GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_separate_shader_objects GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_non_constant_global_initializers GL_EXT_shader_texture_lod GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_debug GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_polygon_mode GL_NV_read_depth GL_NV_read_depth_stencil GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_compressed_paletted_texture GL_OES_copy_image GL_OES_depth24 GL_OES_depth32 GL_OES_depth_texture GL_OES_depth_texture_cube_map GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_shading GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object GL_OES_vertex_half_float GL_OES_vertex_type_10_10_10_2 GL_OVR_multiview GL_OVR_multiview2 GL_QCOM_texture_lod_bias ",
+              "glImplementationParts": "(gl=egl-angle,angle=swiftshader)",
+              "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (Google)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_ANGLE_surface_orientation EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_EXT_image_gl_colorspace EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_IMG_context_priority EGL_KHR_create_context_no_error EGL_KHR_reusable_sync EGL_EXT_buffer_age EGL_ANGLE_create_surface_swap_interval EGL_ANGLE_vulkan_image EGL_KHR_partial_update EGL_ANGLE_global_fence_sync EGL_ANGLE_memory_usage_report ",
+              "glWsVendor": "Google Inc. (Google)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.094194,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "4",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "None",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "unavailable_software",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "disabled_software",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "disabled_off",
+              "rasterization": "disabled_software",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "disabled_software",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "unavailable_software",
+              "webgpu": "unavailable_software",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "unavailable_software"
+            },
+            "driverBugWorkarounds": [],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --headless=new --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-kcFHli --window-size=1280,1051 --noerrdialogs --ozone-platform=headless --ozone-override-screen-size=800,600 --use-angle=swiftshader-webgl --flag-switches-begin --flag-switches-end about:blank"
+        },
+        "window": {
+          "windowId": 1967728863,
+          "bounds": {
+            "left": 10,
+            "top": 10,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "normal"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": false
+        }
+      },
+      "boundaries": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 713814625,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 713814625,
+            "memorySha256": "07e7856370efb613e4e73d394f38c8fa3a944d8659460a16484b4a786ee0a9bd",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 8",
+          "original": {
+            "frame": 17,
+            "rngState": 1211259853,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "f014ea7ea85ece70b26e638c6dfe8011172c9dd189e15f59ee6bdc99cf1d0a9d",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 1211259853,
+            "memorySha256": "f014ea7ea85ece70b26e638c6dfe8011172c9dd189e15f59ee6bdc99cf1d0a9d",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 16",
+          "original": {
+            "frame": 25,
+            "rngState": 3115968337,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "2ab2368434e4566a8530ff172a1f208adff392bcd88c0a05644eac4240accc53",
+            "time": -167.38122920015928,
+            "clock": -167,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 18
+            }
+          },
+          "worker": {
+            "frame": 25,
+            "time": -167.38122920015928,
+            "clock": -167,
+            "rngState": 3115968337,
+            "memorySha256": "2ab2368434e4566a8530ff172a1f208adff392bcd88c0a05644eac4240accc53",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 18
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 24",
+          "original": {
+            "frame": 33,
+            "rngState": 2605117617,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "26d0ab1136e5e248dbf0de8dff9a10f2ad6454043d6658dbd0c655f2cbf3a0ea",
+            "time": -165.99510884467452,
+            "clock": -165,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 26
+            }
+          },
+          "worker": {
+            "frame": 33,
+            "time": -165.99510884467452,
+            "clock": -165,
+            "rngState": 2605117617,
+            "memorySha256": "26d0ab1136e5e248dbf0de8dff9a10f2ad6454043d6658dbd0c655f2cbf3a0ea",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 26
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 32",
+          "original": {
+            "frame": 41,
+            "rngState": 3132089999,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "361328eb0982ddd8523220b62e06326b63fab15789dce4248b3a3d9fd1077447",
+            "time": -164.60898848918976,
+            "clock": -164,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 34
+            }
+          },
+          "worker": {
+            "frame": 41,
+            "time": -164.60898848918976,
+            "clock": -164,
+            "rngState": 3132089999,
+            "memorySha256": "361328eb0982ddd8523220b62e06326b63fab15789dce4248b3a3d9fd1077447",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 34
+            }
+          },
+          "matched": true
+        }
+      ],
+      "costs": [
+        {
+          "workMs": 180.59999999403954,
+          "bytes": 7813
+        },
+        {
+          "workMs": 122.7999999821186,
+          "bytes": 7918
+        },
+        {
+          "workMs": 118.7000000178814,
+          "bytes": 7918
+        },
+        {
+          "workMs": 92.90000000596046,
+          "bytes": 7916
+        },
+        {
+          "workMs": 127.80000001192093,
+          "bytes": 7919
+        },
+        {
+          "workMs": 122.19999998807907,
+          "bytes": 7919
+        },
+        {
+          "workMs": 74.19999998807907,
+          "bytes": 7918
+        },
+        {
+          "workMs": 67.90000000596046,
+          "bytes": 7975
+        },
+        {
+          "workMs": 67.59999999403954,
+          "bytes": 8029
+        },
+        {
+          "workMs": 63.69999998807907,
+          "bytes": 8802
+        },
+        {
+          "workMs": 83.09999999403954,
+          "bytes": 8805
+        },
+        {
+          "workMs": 54,
+          "bytes": 8788
+        },
+        {
+          "workMs": 70.40000000596046,
+          "bytes": 8801
+        },
+        {
+          "workMs": 95.10000002384186,
+          "bytes": 8525
+        },
+        {
+          "workMs": 72.2000000178814,
+          "bytes": 8524
+        },
+        {
+          "workMs": 75.90000000596046,
+          "bytes": 8524
+        },
+        {
+          "workMs": 81.7999999821186,
+          "bytes": 8523
+        },
+        {
+          "workMs": 72.60000002384186,
+          "bytes": 8522
+        },
+        {
+          "workMs": 42.70000001788139,
+          "bytes": 8525
+        },
+        {
+          "workMs": 44.5,
+          "bytes": 8357
+        },
+        {
+          "workMs": 47.69999998807907,
+          "bytes": 8373
+        },
+        {
+          "workMs": 50,
+          "bytes": 8356
+        },
+        {
+          "workMs": 41.400000005960464,
+          "bytes": 8376
+        },
+        {
+          "workMs": 50.099999994039536,
+          "bytes": 8372
+        },
+        {
+          "workMs": 58.900000005960464,
+          "bytes": 8371
+        },
+        {
+          "workMs": 38.599999994039536,
+          "bytes": 8373
+        },
+        {
+          "workMs": 61.5,
+          "bytes": 8360
+        },
+        {
+          "workMs": 68.5,
+          "bytes": 8359
+        },
+        {
+          "workMs": 60.19999998807907,
+          "bytes": 8373
+        },
+        {
+          "workMs": 65.19999998807907,
+          "bytes": 8429
+        },
+        {
+          "workMs": 48.599999994039536,
+          "bytes": 8934
+        },
+        {
+          "workMs": 59.30000001192093,
+          "bytes": 7938
+        }
+      ],
+      "referenceModules": [
+        {
+          "path": "versions/2010-en/src/play.js",
+          "sha256": "6b713aeb78d91d840b26ad281756f5c24a2043581b286e08ad72728461de9961",
+          "bytes": 16654,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/runtime/canvas-surface.js",
+          "sha256": "7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019",
+          "bytes": 380,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/runtime/original-data.js",
+          "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2",
+          "bytes": 3041,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/runtime/browser-clock.js",
+          "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23",
+          "bytes": 840,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/float80.js",
+          "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482",
+          "bytes": 26230,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/native-trig.js",
+          "sha256": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181",
+          "bytes": 2586,
+          "matched": true
+        },
+        {
+          "path": "src/engine/integer-core.js",
+          "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633",
+          "bytes": 3073,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/port.js",
+          "sha256": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856",
+          "bytes": 1104,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/application.js",
+          "sha256": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5",
+          "bytes": 14549,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/keyboard.js",
+          "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf",
+          "bytes": 26566,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/mouse.js",
+          "sha256": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b",
+          "bytes": 2515,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/dialogs.js",
+          "sha256": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7",
+          "bytes": 1818,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/gdi.js",
+          "sha256": "2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae",
+          "bytes": 123,
+          "matched": true
+        },
+        {
+          "path": "src/render/bitmap-font.js",
+          "sha256": "4191480a885925ff3803a5b58522ef92ab97cfa14326357f16070b3ddbe206d3",
+          "bytes": 3037,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/paint-lifecycle.js",
+          "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b",
+          "bytes": 9033,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/menu-controller.js",
+          "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717",
+          "bytes": 294172,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/c-types.js",
+          "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322",
+          "bytes": 3251,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/memory.js",
+          "sha256": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117",
+          "bytes": 7730,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/boat-options.js",
+          "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252",
+          "bytes": 9335,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/certified-sqrt.js",
+          "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f",
+          "bytes": 2146,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/index.js",
+          "sha256": "cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72",
+          "bytes": 59,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/initialization.js",
+          "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39",
+          "bytes": 9389,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/course.js",
+          "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97",
+          "bytes": 8631,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/wind-initialization.js",
+          "sha256": "f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c",
+          "bytes": 12514,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/spatial-metrics.js",
+          "sha256": "d545319edd3d190c49caf55c13614ecc805b165da125392cbd497ebc376b93de",
+          "bytes": 10424,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/steering.js",
+          "sha256": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f",
+          "bytes": 10625,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/wind.js",
+          "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8",
+          "bytes": 11101,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/integration.js",
+          "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f",
+          "bytes": 10371,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/movement.js",
+          "sha256": "e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a",
+          "bytes": 833,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/snapshots.js",
+          "sha256": "9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c",
+          "bytes": 2117,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/ai.js",
+          "sha256": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913",
+          "bytes": 2949,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/controller-values.js",
+          "sha256": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0",
+          "bytes": 2550,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/boat-dynamics.js",
+          "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35",
+          "bytes": 17087,
+          "matched": true
+        },
+        {
+          "path": "src/render/gdi.js",
+          "sha256": "e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5",
+          "bytes": 11719,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/movement-history.js",
+          "sha256": "7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c",
+          "bytes": 2828,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/text.js",
+          "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00",
+          "bytes": 2960,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/starting-positions.js",
+          "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2",
+          "bytes": 6130,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/configuration.js",
+          "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5",
+          "bytes": 10595,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/frame.js",
+          "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb",
+          "bytes": 4404,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/transcendentals.js",
+          "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1",
+          "bytes": 14799,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/venue-metric-number.js",
+          "sha256": "fa40423031c18cb179b2c88e228d01694f0a340a6ccfb45a39be64a4396a3ff7",
+          "bytes": 2805,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/waypoints.js",
+          "sha256": "1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa",
+          "bytes": 5175,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/atan.js",
+          "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6",
+          "bytes": 11155,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/current.js",
+          "sha256": "5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117",
+          "bytes": 14328,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/snapshot-maps.js",
+          "sha256": "e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f",
+          "bytes": 11496,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/race-targets.js",
+          "sha256": "f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8",
+          "bytes": 5951,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/apparent-wind.js",
+          "sha256": "bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b",
+          "bytes": 2671,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/penalties.js",
+          "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496",
+          "bytes": 11873,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/venue-geometry.js",
+          "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314",
+          "bytes": 5187,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/terrain.js",
+          "sha256": "da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8",
+          "bytes": 16658,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/custom-venue.js",
+          "sha256": "074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b",
+          "bytes": 10919,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/ai-functions.js",
+          "sha256": "8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829",
+          "bytes": 185351,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/double-double.js",
+          "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff",
+          "bytes": 1359,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/float-values.js",
+          "sha256": "491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5",
+          "bytes": 6879,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/scalar-stack.js",
+          "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90",
+          "bytes": 1532,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/ai-geometry.js",
+          "sha256": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f",
+          "bytes": 6798,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/typed-c.js",
+          "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c",
+          "bytes": 25909,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/smooth-math.js",
+          "sha256": "1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c",
+          "bytes": 1917,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/venue-definitions.js",
+          "sha256": "5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a",
+          "bytes": 239241,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/index.js",
+          "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b",
+          "bytes": 1575,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/scene.js",
+          "sha256": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace",
+          "bytes": 508,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/chart.js",
+          "sha256": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088",
+          "bytes": 320,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/hud.js",
+          "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c",
+          "bytes": 541,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/screens.js",
+          "sha256": "c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d",
+          "bytes": 1665,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/shore-stack.js",
+          "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1",
+          "bytes": 3210,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/host.js",
+          "sha256": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68",
+          "bytes": 2996,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/tutorial-controls.js",
+          "sha256": "39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8",
+          "bytes": 2745,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/scene-depth.js",
+          "sha256": "834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4",
+          "bytes": 1084,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/dependencies.js",
+          "sha256": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74",
+          "bytes": 9444,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/screen-helper-functions.js",
+          "sha256": "601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64",
+          "bytes": 148949,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/render-functions.js",
+          "sha256": "f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26",
+          "bytes": 620049,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/chart-projection-fast.js",
+          "sha256": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf",
+          "bytes": 3673,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/wave-motion.js",
+          "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a",
+          "bytes": 2697,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/projection-output-fast.js",
+          "sha256": "b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845",
+          "bytes": 4820,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/sail-geometry.js",
+          "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281",
+          "bytes": 11601,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/chart-output-fast.js",
+          "sha256": "4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788",
+          "bytes": 4827,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/water-number-slab.js",
+          "sha256": "b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3",
+          "bytes": 29035,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/projection-smooth.js",
+          "sha256": "33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4",
+          "bytes": 2821,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/projection-fast.js",
+          "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152",
+          "bytes": 5856,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/output-interval.js",
+          "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7",
+          "bytes": 6815,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/water-number-domain.js",
+          "sha256": "1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9",
+          "bytes": 2443,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/tutorial-pages.js",
+          "sha256": "fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932",
+          "bytes": 1990689,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/drawing-functions.js",
+          "sha256": "2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e",
+          "bytes": 5912469,
+          "matched": true
+        }
+      ]
+    },
+    {
+      "fleet": 15,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?manual&fleet=15",
+          "headless": true,
+          "gpu": true,
+          "ensureWindowSize": true,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--headless=new",
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-pmdtFO",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-pmdtFO"
+        },
+        "processId": 2569424,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 65535,
+                "deviceId": 65535,
+                "vendorString": "Google Inc. (Google)",
+                "deviceString": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0)",
+                "driverVendor": "SwANGLE",
+                "driverVersion": "5.0.0"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_SWIFTSHADER",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_base_vertex_base_instance_shader_builtin GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_copy_texture_3d GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_image GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_object_flags GL_ANGLE_memory_size GL_ANGLE_multi_draw GL_ANGLE_pack_reverse_row_order GL_ANGLE_polygon_mode GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_read_only_depth_stencil_feedback_loops GL_ANGLE_relaxed_vertex_attribute_type GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_rgbx_internal_format GL_ANGLE_robust_client_memory GL_ANGLE_robust_fragment_shader_output GL_ANGLE_robust_resource_initialization GL_ANGLE_shader_pixel_local_storage GL_ANGLE_shader_pixel_local_storage_coherent GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_texture_usage GL_ANGLE_translated_shader_source GL_ANGLE_vulkan_image GL_ANGLE_yuv_internal_format GL_APPLE_clip_distance GL_ARM_rgba8 GL_ARM_shader_framebuffer_fetch GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_compressed_texture GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_EGL_image_array GL_EXT_EGL_image_external_wrap_modes GL_EXT_EGL_image_storage GL_EXT_base_instance GL_EXT_blend_minmax GL_EXT_buffer_storage GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_copy_image GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_separate_shader_objects GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_non_constant_global_initializers GL_EXT_shader_texture_lod GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_lod_bias GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_debug GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_polygon_mode GL_NV_read_depth GL_NV_read_depth_stencil GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_compressed_paletted_texture GL_OES_copy_image GL_OES_depth24 GL_OES_depth32 GL_OES_depth_texture GL_OES_depth_texture_cube_map GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_shading GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object GL_OES_vertex_half_float GL_OES_vertex_type_10_10_10_2 GL_OVR_multiview GL_OVR_multiview2 GL_QCOM_texture_lod_bias ",
+              "glImplementationParts": "(gl=egl-angle,angle=swiftshader)",
+              "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (Google)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_ANGLE_surface_orientation EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_EXT_image_gl_colorspace EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_IMG_context_priority EGL_KHR_create_context_no_error EGL_KHR_reusable_sync EGL_EXT_buffer_age EGL_ANGLE_create_surface_swap_interval EGL_ANGLE_vulkan_image EGL_KHR_partial_update EGL_ANGLE_global_fence_sync EGL_ANGLE_memory_usage_report ",
+              "glWsVendor": "Google Inc. (Google)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.06701,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "4",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "None",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "unavailable_software",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "disabled_software",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "disabled_off",
+              "rasterization": "disabled_software",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "disabled_software",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "unavailable_software",
+              "webgpu": "unavailable_software",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "unavailable_software"
+            },
+            "driverBugWorkarounds": [],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --headless=new --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-pmdtFO --window-size=1280,1051 --noerrdialogs --ozone-platform=headless --ozone-override-screen-size=800,600 --use-angle=swiftshader-webgl --flag-switches-begin --flag-switches-end about:blank"
+        },
+        "window": {
+          "windowId": 1810662931,
+          "bounds": {
+            "left": 10,
+            "top": 10,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "normal"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": false
+        }
+      },
+      "boundaries": [
+        {
+          "label": "initial",
+          "original": {
+            "frame": 9,
+            "rngState": 627798547,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "912541bfa64f540ddb09880520a4779df18785081a81a9bb3fe044d96ec66773",
+            "time": -170.1534699111288,
+            "clock": -170,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "worker": {
+            "frame": 9,
+            "time": -170.1534699111288,
+            "clock": -170,
+            "rngState": 627798547,
+            "memorySha256": "912541bfa64f540ddb09880520a4779df18785081a81a9bb3fe044d96ec66773",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 2
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 8",
+          "original": {
+            "frame": 17,
+            "rngState": 3605982077,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "916e350b4f5ce0c15b5c0ad3ec5fa9ad116a1956709d403a42b060ae105c5263",
+            "time": -168.76734955564405,
+            "clock": -168,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "worker": {
+            "frame": 17,
+            "time": -168.76734955564405,
+            "clock": -168,
+            "rngState": 3605982077,
+            "memorySha256": "916e350b4f5ce0c15b5c0ad3ec5fa9ad116a1956709d403a42b060ae105c5263",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 10
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 16",
+          "original": {
+            "frame": 25,
+            "rngState": 2514027473,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "9aad93e45e5b7b2500b4a3f4f0641d7aada8b11d0271c14dea0aa3a948c11f73",
+            "time": -167.38122920015928,
+            "clock": -167,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 18
+            }
+          },
+          "worker": {
+            "frame": 25,
+            "time": -167.38122920015928,
+            "clock": -167,
+            "rngState": 2514027473,
+            "memorySha256": "9aad93e45e5b7b2500b4a3f4f0641d7aada8b11d0271c14dea0aa3a948c11f73",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 18
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 24",
+          "original": {
+            "frame": 33,
+            "rngState": 2405291167,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "119cc75deed4516a7bd8c414b81ee92ab31673d1836aabd5b0e591e7f5f53a21",
+            "time": -165.99510884467452,
+            "clock": -165,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 26
+            }
+          },
+          "worker": {
+            "frame": 33,
+            "time": -165.99510884467452,
+            "clock": -165,
+            "rngState": 2405291167,
+            "memorySha256": "119cc75deed4516a7bd8c414b81ee92ab31673d1836aabd5b0e591e7f5f53a21",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 26
+            }
+          },
+          "matched": true
+        },
+        {
+          "label": "step 32",
+          "original": {
+            "frame": 41,
+            "rngState": 1994721285,
+            "memoryBase": 4194304,
+            "memorySize": 2211840,
+            "memorySha256": "7e74b502a3fe8aa2b8fccb40248f9c6a6eceb1b1cbb14910e28c9eddcd193a1f",
+            "time": -164.60898848918976,
+            "clock": -164,
+            "speed": 10,
+            "divisor": 76,
+            "autoSlow": 0,
+            "racing": 2,
+            "mode": 0,
+            "overlays": [
+              {
+                "address": 5465156,
+                "value": 0
+              },
+              {
+                "address": 5465072,
+                "value": 0
+              },
+              {
+                "address": 5387176,
+                "value": 0
+              },
+              {
+                "address": 5465140,
+                "value": 0
+              },
+              {
+                "address": 5465144,
+                "value": 0
+              },
+              {
+                "address": 5465164,
+                "value": 0
+              }
+            ],
+            "queued": 1,
+            "holding": true,
+            "error": null,
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 34
+            }
+          },
+          "worker": {
+            "frame": 41,
+            "time": -164.60898848918976,
+            "clock": -164,
+            "rngState": 1994721285,
+            "memorySha256": "7e74b502a3fe8aa2b8fccb40248f9c6a6eceb1b1cbb14910e28c9eddcd193a1f",
+            "shore": {
+              "previousX": 604045502,
+              "previousTreeY": 0,
+              "completedCalls": 34
+            }
+          },
+          "matched": true
+        }
+      ],
+      "costs": [
+        {
+          "workMs": 112.90000000596046,
+          "bytes": 14808
+        },
+        {
+          "workMs": 155.69999998807907,
+          "bytes": 14736
+        },
+        {
+          "workMs": 97,
+          "bytes": 14722
+        },
+        {
+          "workMs": 71,
+          "bytes": 14717
+        },
+        {
+          "workMs": 76.7000000178814,
+          "bytes": 14736
+        },
+        {
+          "workMs": 65,
+          "bytes": 14718
+        },
+        {
+          "workMs": 51.89999997615814,
+          "bytes": 14740
+        },
+        {
+          "workMs": 54.900000005960464,
+          "bytes": 14868
+        },
+        {
+          "workMs": 56.70000001788139,
+          "bytes": 14866
+        },
+        {
+          "workMs": 48.79999998211861,
+          "bytes": 14870
+        },
+        {
+          "workMs": 45.69999998807907,
+          "bytes": 14873
+        },
+        {
+          "workMs": 45.400000005960464,
+          "bytes": 14877
+        },
+        {
+          "workMs": 66.80000001192093,
+          "bytes": 14869
+        },
+        {
+          "workMs": 58,
+          "bytes": 14864
+        },
+        {
+          "workMs": 49.900000005960464,
+          "bytes": 14872
+        },
+        {
+          "workMs": 56.599999994039536,
+          "bytes": 14883
+        },
+        {
+          "workMs": 44.900000005960464,
+          "bytes": 14873
+        },
+        {
+          "workMs": 51.099999994039536,
+          "bytes": 14861
+        },
+        {
+          "workMs": 49.30000001192093,
+          "bytes": 14859
+        },
+        {
+          "workMs": 51,
+          "bytes": 14776
+        },
+        {
+          "workMs": 46.69999998807907,
+          "bytes": 14781
+        },
+        {
+          "workMs": 44.5,
+          "bytes": 14777
+        },
+        {
+          "workMs": 46.60000002384186,
+          "bytes": 14788
+        },
+        {
+          "workMs": 44.89999997615814,
+          "bytes": 14796
+        },
+        {
+          "workMs": 53.599999994039536,
+          "bytes": 14848
+        },
+        {
+          "workMs": 43.19999998807907,
+          "bytes": 14850
+        },
+        {
+          "workMs": 43.79999998211861,
+          "bytes": 14846
+        },
+        {
+          "workMs": 45.30000001192093,
+          "bytes": 14850
+        },
+        {
+          "workMs": 39.70000001788139,
+          "bytes": 14849
+        },
+        {
+          "workMs": 50.79999998211861,
+          "bytes": 14848
+        },
+        {
+          "workMs": 47.30000001192093,
+          "bytes": 14840
+        },
+        {
+          "workMs": 45.5,
+          "bytes": 14775
+        }
+      ],
+      "referenceModules": [
+        {
+          "path": "versions/2010-en/src/play.js",
+          "sha256": "6b713aeb78d91d840b26ad281756f5c24a2043581b286e08ad72728461de9961",
+          "bytes": 16654,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/runtime/original-data.js",
+          "sha256": "fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2",
+          "bytes": 3041,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/runtime/browser-clock.js",
+          "sha256": "ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23",
+          "bytes": 840,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/runtime/canvas-surface.js",
+          "sha256": "7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019",
+          "bytes": 380,
+          "matched": true
+        },
+        {
+          "path": "src/engine/integer-core.js",
+          "sha256": "0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633",
+          "bytes": 3073,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/native-trig.js",
+          "sha256": "9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181",
+          "bytes": 2586,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/port.js",
+          "sha256": "abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856",
+          "bytes": 1104,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/float80.js",
+          "sha256": "f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482",
+          "bytes": 26230,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/application.js",
+          "sha256": "7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5",
+          "bytes": 14549,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/dialogs.js",
+          "sha256": "ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7",
+          "bytes": 1818,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/mouse.js",
+          "sha256": "cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b",
+          "bytes": 2515,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/gdi.js",
+          "sha256": "2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae",
+          "bytes": 123,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/keyboard.js",
+          "sha256": "fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf",
+          "bytes": 26566,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/paint-lifecycle.js",
+          "sha256": "779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b",
+          "bytes": 9033,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/c-types.js",
+          "sha256": "31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322",
+          "bytes": 3251,
+          "matched": true
+        },
+        {
+          "path": "src/render/bitmap-font.js",
+          "sha256": "4191480a885925ff3803a5b58522ef92ab97cfa14326357f16070b3ddbe206d3",
+          "bytes": 3037,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/menu-controller.js",
+          "sha256": "6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717",
+          "bytes": 294172,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/memory.js",
+          "sha256": "7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117",
+          "bytes": 7730,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/index.js",
+          "sha256": "cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72",
+          "bytes": 59,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/certified-sqrt.js",
+          "sha256": "a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f",
+          "bytes": 2146,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/boat-options.js",
+          "sha256": "8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252",
+          "bytes": 9335,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/course.js",
+          "sha256": "359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97",
+          "bytes": 8631,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/initialization.js",
+          "sha256": "89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39",
+          "bytes": 9389,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/spatial-metrics.js",
+          "sha256": "d545319edd3d190c49caf55c13614ecc805b165da125392cbd497ebc376b93de",
+          "bytes": 10424,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/wind-initialization.js",
+          "sha256": "f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c",
+          "bytes": 12514,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/movement.js",
+          "sha256": "e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a",
+          "bytes": 833,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/snapshots.js",
+          "sha256": "9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c",
+          "bytes": 2117,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/ai.js",
+          "sha256": "085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913",
+          "bytes": 2949,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/integration.js",
+          "sha256": "5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f",
+          "bytes": 10371,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/steering.js",
+          "sha256": "d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f",
+          "bytes": 10625,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/wind.js",
+          "sha256": "a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8",
+          "bytes": 11101,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/movement-history.js",
+          "sha256": "7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c",
+          "bytes": 2828,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/controller-values.js",
+          "sha256": "b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0",
+          "bytes": 2550,
+          "matched": true
+        },
+        {
+          "path": "src/render/gdi.js",
+          "sha256": "e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5",
+          "bytes": 11719,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/boat-dynamics.js",
+          "sha256": "be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35",
+          "bytes": 17087,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/frame.js",
+          "sha256": "0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb",
+          "bytes": 4404,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/configuration.js",
+          "sha256": "41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5",
+          "bytes": 10595,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/starting-positions.js",
+          "sha256": "7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2",
+          "bytes": 6130,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/text.js",
+          "sha256": "3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00",
+          "bytes": 2960,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/venue-metric-number.js",
+          "sha256": "fa40423031c18cb179b2c88e228d01694f0a340a6ccfb45a39be64a4396a3ff7",
+          "bytes": 2805,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/race-targets.js",
+          "sha256": "f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8",
+          "bytes": 5951,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/snapshot-maps.js",
+          "sha256": "e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f",
+          "bytes": 11496,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/transcendentals.js",
+          "sha256": "0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1",
+          "bytes": 14799,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/current.js",
+          "sha256": "5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117",
+          "bytes": 14328,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/waypoints.js",
+          "sha256": "1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa",
+          "bytes": 5175,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/ai-functions.js",
+          "sha256": "8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829",
+          "bytes": 185351,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/apparent-wind.js",
+          "sha256": "bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b",
+          "bytes": 2671,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/atan.js",
+          "sha256": "8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6",
+          "bytes": 11155,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/penalties.js",
+          "sha256": "513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496",
+          "bytes": 11873,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/terrain.js",
+          "sha256": "da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8",
+          "bytes": 16658,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/venue-geometry.js",
+          "sha256": "362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314",
+          "bytes": 5187,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/custom-venue.js",
+          "sha256": "074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b",
+          "bytes": 10919,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/float-values.js",
+          "sha256": "491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5",
+          "bytes": 6879,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/double-double.js",
+          "sha256": "ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff",
+          "bytes": 1359,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/typed-c.js",
+          "sha256": "a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c",
+          "bytes": 25909,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/ai-geometry.js",
+          "sha256": "20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f",
+          "bytes": 6798,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/scalar-stack.js",
+          "sha256": "b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90",
+          "bytes": 1532,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/smooth-math.js",
+          "sha256": "1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c",
+          "bytes": 1917,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/venue-definitions.js",
+          "sha256": "5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a",
+          "bytes": 239241,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/index.js",
+          "sha256": "e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b",
+          "bytes": 1575,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/scene.js",
+          "sha256": "2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace",
+          "bytes": 508,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/hud.js",
+          "sha256": "534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c",
+          "bytes": 541,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/chart.js",
+          "sha256": "953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088",
+          "bytes": 320,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/screens.js",
+          "sha256": "c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d",
+          "bytes": 1665,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/shore-stack.js",
+          "sha256": "070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1",
+          "bytes": 3210,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/host.js",
+          "sha256": "2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68",
+          "bytes": 2996,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/tutorial-controls.js",
+          "sha256": "39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8",
+          "bytes": 2745,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/scene-depth.js",
+          "sha256": "834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4",
+          "bytes": 1084,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/screen-helper-functions.js",
+          "sha256": "601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64",
+          "bytes": 148949,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/dependencies.js",
+          "sha256": "4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74",
+          "bytes": 9444,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/chart-projection-fast.js",
+          "sha256": "f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf",
+          "bytes": 3673,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/projection-output-fast.js",
+          "sha256": "b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845",
+          "bytes": 4820,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/render-functions.js",
+          "sha256": "f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26",
+          "bytes": 620049,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/chart-output-fast.js",
+          "sha256": "4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788",
+          "bytes": 4827,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/water-number-slab.js",
+          "sha256": "b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3",
+          "bytes": 29035,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/engine/wave-motion.js",
+          "sha256": "518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a",
+          "bytes": 2697,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/sail-geometry.js",
+          "sha256": "172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281",
+          "bytes": 11601,
+          "matched": true
+        },
+        {
+          "path": "src/runtime/output-interval.js",
+          "sha256": "7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7",
+          "bytes": 6815,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/projection-fast.js",
+          "sha256": "aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152",
+          "bytes": 5856,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/water-number-domain.js",
+          "sha256": "1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9",
+          "bytes": 2443,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/projection-smooth.js",
+          "sha256": "33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4",
+          "bytes": 2821,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/tutorial-pages.js",
+          "sha256": "fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932",
+          "bytes": 1990689,
+          "matched": true
+        },
+        {
+          "path": "versions/2010-en/src/render/drawing-functions.js",
+          "sha256": "2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e",
+          "bytes": 5912469,
+          "matched": true
+        }
+      ]
+    }
+  ]
+}

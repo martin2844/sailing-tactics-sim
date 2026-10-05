@@ -26,7 +26,7 @@ async function captureCase(kind){
   const start=at,op=p.records[at++],part=p.records[at++],fill=p.colors[p.records[at++]],stroke=p.colors[p.records[at++]],flags=p.records[at++],radius=p.records[at++],count=p.records[at++];
   at+=count+(op===3?2:0);records.push({op,part,fill,stroke,flags,radius,count,start});
  }
- const mainRecord=records.find(r=>r.op===1&&r.part===3&&r.count===9);
+ const mainRecord=records.find(r=>r.op===1&&r.part===5&&r.count===9);
  if(!main||mainRecord.fill!==main.brush.color)throw new Error('Native main colour lost');
  if(maxAffineErrorPixels>4||maxPolygonScaleErrorPixels>2||horizontalChanges)throw new Error('Recovered native geometry differs beyond reviewed rounding tolerance');
  if(records.filter(r=>r.op===3&&r.part===2).length!==3)throw new Error('Native three-person crew lost');

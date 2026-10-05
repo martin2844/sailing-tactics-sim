@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {MODEL_QUANTUM,type NativeModelPacket} from './native-models';
 import {drawOpenDeck,type MeshPrimitive} from './boat-deck';
 import {drawCrew} from './boat-crew';
+import type {BoatView} from './protocol';
 const primitiveSphere=new THREE.SphereGeometry(1,8,6).toNonIndexed();
 const spherePoints=primitiveSphere.getAttribute('position');
 const rodAngles=Array.from({length:5},(_,i)=>({cos:Math.cos(i/5*Math.PI*2),sin:Math.sin(i/5*Math.PI*2)}));
@@ -10,10 +11,11 @@ function nativeColor(value:number){let color=colors.get(value);if(!color){color=
 export class NativeBoatMesh {
  readonly group=new THREE.Group();readonly geometry=new THREE.BufferGeometry();readonly mesh:THREE.Mesh;
  private before?:Float32Array;private current?:Float32Array;private topology='';
+ private motion=Uint8Array.from([]);private pivot=new THREE.Vector3();private mast=new THREE.Vector3(0,1,0);private sailHeight=1;private nativeBoomBearing=0;
  constructor(material:THREE.Material){this.mesh=new THREE.Mesh(this.geometry,material);this.mesh.frustumCulled=false;this.group.add(this.mesh);this.group.scale.setScalar(4);}
  update(packet:NativeModelPacket,start:number,end:number){
-  const positions:number[]=[],rgb:number[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
-  const put=(v:THREE.Vector3,color:THREE.Color)=>{positions.push(v.x,v.y,v.z);rgb.push(color.r,color.g,color.b);};
+  const positions:number[]=[],rgb:number[]=[],motion:number[]=[];let movingPart=0,movingEnds:THREE.Vector3[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
+  const put=(v:THREE.Vector3,color:THREE.Color)=>{positions.push(v.x,v.y,v.z);rgb.push(color.r,color.g,color.b);motion.push(movingPart===1?1:movingPart===2&&movingEnds.some(p=>p.distanceToSquared(v)<.0064)?2:0);};
   const triangle=(a:THREE.Vector3,b:THREE.Vector3,c:THREE.Vector3,color:THREE.Color)=>{put(a,color);put(b,color);put(c,color);};
   const axis=new THREE.Vector3(),u=new THREE.Vector3(),v=new THREE.Vector3(),reference=new THREE.Vector3(),ring=Array.from({length:10},()=>new THREE.Vector3());
   const rod=(a:THREE.Vector3,b:THREE.Vector3,color:THREE.Color,radius=.008)=>{
@@ -26,10 +28,15 @@ export class NativeBoatMesh {
   const primitives:MeshPrimitive[]=[];
   for(let at=start;at<end;){const op=packet.records[at++],part=packet.records[at++],fill=nativeColor(packet.colors[packet.records[at++]]),stroke=nativeColor(packet.colors[packet.records[at++]]),flags=packet.records[at++],radius=packet.records[at++]/MODEL_QUANTUM,count=packet.records[at++];const points=Array.from(packet.records.slice(at,at+count),point);at+=count;const p:MeshPrimitive={op,part,fill,stroke,flags,radius,points};if(op===3){p.rx=packet.records[at++]/MODEL_QUANTUM;p.ry=packet.records[at++]/MODEL_QUANTUM;}primitives.push(p);}
   const deck=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===11),cockpit=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===4);
+  const main=primitives.find(p=>p.part===5&&p.op===1),boom=primitives.filter(p=>p.part===6&&p.op===2)[5];
+  if(main&&boom){this.pivot.copy(boom.points[0]);const tip=main.points.reduce((a,b)=>a.y>b.y?a:b);this.mast.copy(tip).sub(this.pivot);this.sailHeight=this.mast.length();this.mast.normalize();const direction=boom.points[1].clone().sub(this.pivot);this.nativeBoomBearing=Math.atan2(direction.x,direction.z);}
   const dressed=new Set<MeshPrimitive>();let crew:MeshPrimitive[]=[];
   for(const p of primitives){if(p.part!==2)continue;crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod))for(const piece of crew)dressed.add(piece);crew=[];}}
   const topology:number[]=[];
   for(const p of primitives){const {op,part,fill,stroke,flags,radius,points}=p;topology.push(op,part,points.length);
+   movingPart=part===5?1:0;movingEnds=[];
+   if(boom&&p.op===2&&p!==boom&&part!==2&&part!==1&&part!==4){movingEnds=points.filter(v=>v.distanceToSquared(boom.points[1])<.0004);if(movingEnds.length)movingPart=2;}
+   if(p===boom){movingPart=2;movingEnds=points;}
    if(dressed.has(p)){topology.push(2026);continue;}
    if(deck&&cockpit){if(p===cockpit)continue;if(p===deck){topology.push(...drawOpenDeck(deck,cockpit,triangle,rod));continue;}}
    if(op===1){
@@ -45,6 +52,7 @@ export class NativeBoatMesh {
    }else throw new Error('Unreviewed native mesh operation '+op);
   }
   const key=topology.join(',');const next=Float32Array.from(positions);
+  this.motion=Uint8Array.from(motion);
   this.before=this.current&&this.current.length===next.length&&this.topology===key?this.current:next;this.current=next;this.topology=key;
   const attribute=this.geometry.getAttribute('position') as THREE.BufferAttribute|undefined;
   if(!attribute||attribute.array.length!==next.length){
@@ -58,6 +66,21 @@ export class NativeBoatMesh {
   else this.geometry.setAttribute('color',new THREE.Float32BufferAttribute(rgb,3).setUsage(THREE.DynamicDrawUsage));
   this.interpolate(1);this.geometry.computeVertexNormals();
  }
- interpolate(alpha:number){if(!this.current||!this.before)return;const attribute=this.geometry.getAttribute('position') as THREE.BufferAttribute,a=attribute.array as Float32Array;for(let i=0;i<a.length;i++)a[i]=this.before[i]+(this.current[i]-this.before[i])*alpha;attribute.needsUpdate=true;}
+ interpolate(alpha:number,rig?:BoatView,time=0){if(!this.current||!this.before)return;const attribute=this.geometry.getAttribute('position') as THREE.BufferAttribute,a=attribute.array as Float32Array;for(let i=0;i<a.length;i++)a[i]=this.before[i]+(this.current[i]-this.before[i])*alpha;
+  if(rig){
+   const relative=((rig.windFrom-rig.heading+540)%360)-180,released=Math.max(0,Math.min(1,(35-Math.abs(relative))/30));
+   if(released>0){
+    const target=-relative*Math.PI/180,difference=Math.atan2(Math.sin(target-this.nativeBoomBearing),Math.cos(target-this.nativeBoomBearing)),swing=released*(difference+Math.sin(time*3.1+rig.id)*.12);
+    const cos=Math.cos(swing),sin=Math.sin(swing),axis=this.mast,pivot=this.pivot;
+    for(let vertex=0;vertex<this.motion.length;vertex++){const kind=this.motion[vertex];if(!kind)continue;const i=vertex*3,x=a[i]-pivot.x,y=a[i+1]-pivot.y,z=a[i+2]-pivot.z,dot=x*axis.x+y*axis.y+z*axis.z;
+     const radial=Math.hypot(x-dot*axis.x,y-dot*axis.y,z-dot*axis.z);if(radial<.025)continue;
+     a[i]=pivot.x+x*cos+(axis.y*z-axis.z*y)*sin+axis.x*dot*(1-cos);
+     a[i+1]=pivot.y+y*cos+(axis.z*x-axis.x*z)*sin+axis.y*dot*(1-cos);
+     a[i+2]=pivot.z+z*cos+(axis.x*y-axis.y*x)*sin+axis.z*dot*(1-cos);
+     if(kind===1)a[i]+=released*Math.min(1,radial/.6)*Math.sin(Math.PI*Math.max(0,Math.min(1,dot/this.sailHeight)))*(.04+.06*Math.min(1,Math.max(0,rig.luff)/90))*Math.sin(time*9.3+dot*2.4+rig.id);
+    }
+   }
+  }
+  attribute.needsUpdate=true;}
  dispose(){this.geometry.dispose();this.group.removeFromParent();}
 }

@@ -88,7 +88,8 @@ export class SailingScene {
       const distance=view.viewpoint===2?300:view.viewpoint===3?180:95,height=view.viewpoint===3?240:view.viewpoint===2?115:52,angle=bearing*Math.PI/180;
       this.controls.target.set(target.x-player.x,12,target.y-player.y);this.camera.position.copy(this.controls.target).add(new THREE.Vector3(-Math.sin(angle)*distance,height,Math.cos(angle)*distance));this.controls.update();
     }
-    for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)));}}
+    const visualTime=old.time+(current.time-old.time)*alpha;
+    for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)),current.boats[index],visualTime);}}
     // Translate the shore in native world coordinates; water is effectively infinite.
     for(const child of this.scene.children)if(child instanceof THREE.InstancedMesh||child instanceof THREE.Mesh&&child.geometry.type==='RingGeometry'){child.position.x=-player.x;child.position.z=-player.y;}
     // Chase camera remains north-up in this bounded prototype; orbit never touches the engine.

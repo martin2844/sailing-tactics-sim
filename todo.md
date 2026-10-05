@@ -330,6 +330,10 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   and renderer code cannot mutate simulation state.
 
 - [ ] **GFX-06 — Animate sails, boom, heel and simple crew** · P1 · L · Depends: GFX-03, GFX-05.
+  - [x] **GFX-06a — Make the unloaded headwind rig visibly respond**
+    (2026-10-05): local native wind/luff telemetry drives deterministic visual
+    flutter and boom response; loaded native shapes, hull/crew and mast anchors
+    preserved; [evaluated](versions/2026/analysis/app/SAIL-WIND.md).
 
   Done when: verified tack/trim/luff/heel data visibly drives the rig with bounded
   geometry updates, including the original boom response and black penalty sail;

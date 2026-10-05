@@ -46,7 +46,7 @@ export function createModelExtractor(context:ModelContext){
      if(angle===35&&hullParts.has(p.part)&&p.op==='polygon'&&hullColor===undefined)hullColor=p.brush.color;
      // The opposite view supplies the hidden sides; the deck is already present.
      if(angle!==35&&(p.op!=='polygon'||p.brush.color!==hullColor||p.points!.length>=9))continue;
-     const part=p.part===0x419ce0?4:hullParts.has(p.part)?1:crewParts.has(p.part)?2:3;
+     const part=p.part===0x41ce80?5:p.part===0x41fe70?6:p.part===0x419ce0?4:hullParts.has(p.part)?1:crewParts.has(p.part)?2:3;
      const flags=Number(!!p.pen.null)|Number(!!p.brush.null)<<1;
      const fill=color(p.brush.color??0),stroke=color(p.pen.color??0);
      let op:number,indices:number[],extra:number[]=[];
