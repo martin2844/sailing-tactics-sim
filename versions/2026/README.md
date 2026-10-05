@@ -41,6 +41,7 @@ Completed task evaluations:
 - [Headwind sail response](analysis/app/SAIL-WIND.md).
 - [Native marks, lines, committee boat and heading guides](analysis/app/COURSE.md).
 - [Starter screen and native race settings](analysis/app/STARTER.md).
+- [All native boats, courses, venues and fleets](analysis/app/CATALOG.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.

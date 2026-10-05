@@ -1,10 +1,10 @@
 import type {NativePrimitive} from './native-visuals';
 import {createNativeVisualObserver} from './native-visuals';
 export const MODEL_QUANTUM=2048;
-const hullParts=new Set([0x41e3c0,0x41e750,0x41eaf0]);
+const hullParts=new Set([0x41e3c0,0x41e750,0x41eaf0,0x421630,0x4223c0,0x421ab0,0x4214e0,0x421f10]);
 const crewParts=new Set([0x4225b0,0x423c30]);
-const modelParts=new Set([...hullParts,...crewParts,0x419ce0,0x4235a0,0x41ce80,0x41fe70,0x41f520,0x425670,0x4243b0]);
-export interface NativeModelPacket {positions:Int16Array;records:Int16Array;colors:Uint32Array;boats:Int16Array;workMs:number}
+const modelParts=new Set([...hullParts,...crewParts,0x419ce0,0x4235a0,0x41ce80,0x41fe70,0x41f520,0x425670,0x4243b0,0x48e730]);
+export interface NativeModelPacket {positions:Int16Array;records:Int16Array;colors:Uint32Array;boats:Uint32Array;workMs:number}
 export interface ModelProjection {width:number;factor:number;angle:number;shear:number;part?:number;metadata?:{scale:number;angle:number;points:{i:number;x:number;z:number}[]}}
 export interface ModelCapture {projection:ModelProjection;primitives:NativePrimitive[]}
 export interface ModelContext {memory:any;rng:any;options:any;objects:any;ModelMemory:any;ModelRng:any;TraceDc:any;modelDraw:any}
@@ -27,7 +27,7 @@ export function createModelExtractor(context:ModelContext){
  function extract(ids:number[],width:number):NativeModelPacket {
   const start=performance.now(),positions:number[]=[],records:number[]=[],boats:number[]=[],colors:number[]=[],vertices=new Map<string,number>(),palette=new Map<number,number>();
   const color=(value:number)=>{let index=palette.get(value);if(index===undefined){index=colors.length;colors.push(value);palette.set(value,index);}return index;};
-  const vertex=(value:number[])=>{const v=value.map(n=>Math.round(n*MODEL_QUANTUM));if(v.some(n=>!Number.isFinite(n)||n<-32768||n>32767))throw new Error('Native model exceeds reviewed coordinate range');const key=v.join(',');let index=vertices.get(key);if(index===undefined){index=positions.length/3;positions.push(...v);vertices.set(key,index);}return index;};
+  const vertex=(value:number[])=>{const v=value.map(n=>Math.round(n*MODEL_QUANTUM));if(v.some(n=>!Number.isFinite(n)||n<-32768||n>32767))throw new Error('Native model exceeds reviewed coordinate range: '+value.join(','));const key=v.join(',');let index=vertices.get(key);if(index===undefined){index=positions.length/3;positions.push(...v);vertices.set(key,index);}return index;};
   for(const id of ids){const begin=records.length;
    let hullColor:number|undefined;
    for(const angle of [35,-145]){
@@ -40,8 +40,10 @@ export function createModelExtractor(context:ModelContext){
      if(p.op!==q.op||p.part!==q.part||p.brush.color!==q.brush.color||p.pen.color!==q.pen.color)throw new Error('Native model projection changes drawing topology/style');
      // World projection/wake/tutorial label calls are not boat-local geometry.
      if(p.part===undefined||!modelParts.has(p.part))continue;
-     // The red line in 0x41fe70 is the screen-space wind pointer, not a stay.
-     if(p.part===0x41fe70&&p.op==='lineTo'&&p.pen.color===0xff)continue;
+     // The red/green human-player wind pointers are screen-space indicators,
+     // not stays. A two-boat fleet enables the original second player's green
+     // pointer, which otherwise becomes a giant line in private 3D extraction.
+     if(p.part===0x41fe70&&p.op==='lineTo'&&(p.pen.color===0xff||p.pen.color===0xff00))continue;
      if(angle!==35&&!hullParts.has(p.part))continue;
      if(angle===35&&hullParts.has(p.part)&&p.op==='polygon'&&hullColor===undefined)hullColor=p.brush.color;
      // The opposite view supplies the hidden sides; the deck is already present.
@@ -55,6 +57,19 @@ export function createModelExtractor(context:ModelContext){
      else if(p.op==='ellipse'){
       op=3;indices=[vertex(lift({x:(p.left!+p.right!)/2,y:(p.top!+p.bottom!)/2},{x:(q.left!+q.right!)/2,y:(q.top!+q.bottom!)/2}))];
       extra=[Math.round(Math.abs(p.right!-p.left!)/scale/2*MODEL_QUANTUM),Math.round(Math.abs(p.bottom!-p.top!)/scale/2*MODEL_QUANTUM)];
+     }else if(p.op==='arc'){
+      // GDI arcs are pen contours. Equal radial endpoints request a full
+      // ellipse (the offshore crew's head outline). Lift both projections
+      // at matching ellipse parameters, retaining their native depth shear.
+      const cx=(p.left!+p.right!)/2,cy=(p.top!+p.bottom!)/2,rx=(p.right!-p.left!)/2,ry=(p.bottom!-p.top!)/2;
+      if(!rx||!ry)continue;
+      const begin=Math.atan2((p.startY!-cy)/ry,(p.startX!-cx)/rx),finish=Math.atan2((p.endY!-cy)/ry,(p.endX!-cx)/rx);
+      let sweep=((begin-finish)%(Math.PI*2)+Math.PI*2)%(Math.PI*2);if(sweep<1e-8)sweep=Math.PI*2;
+      const steps=Math.max(4,Math.ceil(sweep/(Math.PI/12))),qc=(q.top!+q.bottom!)/2,qr=(q.bottom!-q.top!)/2;
+      const curve=Array.from({length:steps+1},(_,i)=>{const t=begin-sweep*i/steps,x=cx+rx*Math.cos(t);return vertex(lift({x,y:cy+ry*Math.sin(t)},{x,y:qc+qr*Math.sin(t)}));});
+      const radius=Math.round(Math.max(.003,Math.min(.075,p.pen.width/scale/2))*MODEL_QUANTUM);
+      for(let j=1;j<curve.length;j++)records.push(2,part,fill,stroke,flags,radius,2,curve[j-1],curve[j]);
+      continue;
      }else throw new Error('Unreviewed native 3D primitive '+p.op);
      const radius=Math.round(Math.max(part===2?.003:.008,Math.min(.075,p.pen.width/scale/2))*MODEL_QUANTUM);
      records.push(op,part,fill,stroke,flags,radius,indices.length,...indices,...extra);
@@ -62,8 +77,8 @@ export function createModelExtractor(context:ModelContext){
    }
    boats.push(id,begin,records.length);
   }
-  if(positions.length/3>32767||records.length>32767)throw new Error('Native model packet exceeds reviewed index range');
-  return {positions:Int16Array.from(positions),records:Int16Array.from(records),colors:Uint32Array.from(colors),boats:Int16Array.from(boats),workMs:performance.now()-start};
+  if(positions.length/3>32767||records.length>1000000)throw new Error('Native model packet exceeds reviewed index range');
+  return {positions:Int16Array.from(positions),records:Int16Array.from(records),colors:Uint32Array.from(colors),boats:Uint32Array.from(boats),workMs:performance.now()-start};
  }
  return {capture,extract};
 }

@@ -5,7 +5,7 @@ import type {NativeCourse,BoatView,CourseLine} from './protocol';
  */
 export class CourseScene {
  readonly group=new THREE.Group();private resources:{dispose:()=>void}[]=[];
- private marks:THREE.Group[]=[];private committee=new THREE.Group();
+ private marks:THREE.Group[]=[];private gates:THREE.Group[]=[];private committee=new THREE.Group();
  private start:THREE.Line;private finish:THREE.Line;private laylines:THREE.Line[]=[];private markLines:THREE.Line[][]=[];private equalLine:THREE.Line;private pin:THREE.Group;
  constructor(){
   const resource=<T extends {dispose:()=>void}>(item:T):T=>{this.resources.push(item);return item;};
@@ -14,6 +14,7 @@ export class CourseScene {
   const rim=material('#182f3c'),colors=['#ef882b','#f4ca48','#f4ca48','#ef882b'];
   const buoy=(color:string,label:string)=>{const g=new THREE.Group(),body=new THREE.Mesh(base,rim),cap=new THREE.Mesh(top,material(color));body.position.y=-.7;cap.position.y=1.6;g.add(body,cap);g.add(this.label(label,resource));return g;};
   for(let i=0;i<3;i++){const mark=buoy(colors[i],String(i+1));this.marks.push(mark);this.group.add(mark);}
+  for(let i=0;i<2;i++){const mark=buoy('#f4ca48',i===0?'Gate L':'Gate R');mark.visible=false;this.gates.push(mark);this.group.add(mark);}
   this.pin=buoy(colors[3],'Pin');this.group.add(this.pin);
   const hullShape=new THREE.Shape();hullShape.moveTo(-3,7);hullShape.lineTo(3,7);hullShape.lineTo(3,-4);hullShape.lineTo(0,-8);hullShape.lineTo(-3,-4);hullShape.closePath();
   const hullGeometry=resource(new THREE.ExtrudeGeometry(hullShape,{depth:2.3,bevelEnabled:false}));hullGeometry.rotateX(Math.PI/2);
@@ -37,6 +38,8 @@ export class CourseScene {
  update(course:NativeCourse,boat:BoatView,origin:{x:number;y:number},clock:number){
   this.group.position.set(-origin.x,0,-origin.y);
   for(let i=0;i<this.marks.length;i++){const p=course.marks[i],mark=this.marks[i];mark.position.set(p.x,0,p.y);mark.visible=!course.marks.slice(0,i).some(q=>q.x===p.x&&q.y===p.y);}
+  for(let i=0;i<2;i++){const p=course.gate?.[i];this.gates[i].visible=!!p;if(p)this.gates[i].position.set(p.x,0,p.y);}
+  if(course.gate?.length)this.marks[2].visible=false;
   this.pin.position.set(course.finish.b.x,0,course.finish.b.y);this.committee.position.set(course.committee.x,0,course.committee.y);this.committee.rotation.y=-course.committee.heading*Math.PI/180;
   this.line(this.start,course.start,.3);this.line(this.finish,course.finish,.4);
   const coincident=course.start.a.x===course.finish.a.x&&course.start.a.y===course.finish.a.y&&course.start.b.x===course.finish.b.x&&course.start.b.y===course.finish.b.y;this.start.visible=!coincident||clock<0;this.finish.visible=!coincident||clock>=0;

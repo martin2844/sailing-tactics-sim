@@ -924,7 +924,7 @@ extensions must be identified and must not silently replace original behavior.
   events if needed. Show race number, individual finishes, standings, final
   championship results and a way to continue without accidentally reseeding or
   discarding the ongoing event. Evaluate complete natural event transitions.
-- [ ] **EXT-05 — Port every native boat class and course option.** Use native
+- [x] **EXT-05 — Port every native boat class and course option.** Use native
   menu/controller and geometry rather than substituting generic assets. Cover
   all rig/hull/crew families, spinnaker differences, gate/fleet restrictions,
   native area/course compatibility and proper setup labels. Evaluate native

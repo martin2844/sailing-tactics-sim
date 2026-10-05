@@ -17,7 +17,7 @@ try{
  await click('restart');await healthy();if(!(await b.evaluate('tact2026.paused&&!document.getElementById("starter").hidden')))throw Error('Restart skipped starter');checks.push({name:'restart returns to held starter'});
  await b.evaluate('globalThis.retiredWorkerError=tact2026.engine.worker.onerror');
  // Real browser select input, not a hand-authored game-memory configuration.
- for(const id of ['race-fleet','race-course','race-wind']){await b.evaluate(`document.getElementById('${id}').focus()`);await key('ArrowDown','ArrowDown',40);await key('Enter','Enter',13);await healthy();}
+ for(const id of ['race-fleet','race-course','race-wind']){await b.evaluate(`document.getElementById('${id}').focus()`);await key('ArrowDown','ArrowDown',40);if(id!=='race-wind')await key('ArrowDown','ArrowDown',40);await key('Enter','Enter',13);await healthy();}
  await b.waitFor('tact2026.latest.configuration.fleet===15&&tact2026.latest.configuration.course===3&&tact2026.latest.configuration.wind===3',10000);
  const selected=await b.evaluate('({configuration:tact2026.latest.configuration,boats:tact2026.latest.boats.length,paused:tact2026.paused,models:tact2026.scene.models.size})');if(!selected.paused||selected.models!==15)throw Error('Selected fleet/model readiness mismatch');checks.push({name:'trusted native fifteen/Triangle/Strong selection',selected});
  await b.evaluate('retiredWorkerError({message:"Isolated retired-worker error fixture"})');if(await b.evaluate('Boolean(tact2026.error)||!tact2026.ready'))throw Error('Retired worker error stopped selected race');checks.push({name:'retired worker error callback cannot stop newer generation',scope:'Isolated callback fixture, not an actual worker crash'});

@@ -11,7 +11,7 @@ function nativeColor(value:number){let color=colors.get(value);if(!color){color=
 export class NativeBoatMesh {
  readonly group=new THREE.Group();readonly geometry=new THREE.BufferGeometry();readonly mesh:THREE.Mesh;
  private before?:Float32Array;private current?:Float32Array;private topology='';
- private motion=Uint8Array.from([]);private pivot=new THREE.Vector3();private mast=new THREE.Vector3(0,1,0);private sailHeight=1;private nativeBoomBearing=0;
+ private motion=Uint8Array.from([]);private pivot=new THREE.Vector3();private mast=new THREE.Vector3(0,1,0);private sailHeight=1;private nativeBoomBearing=0;private hasRig=false;
  constructor(material:THREE.Material){this.mesh=new THREE.Mesh(this.geometry,material);this.mesh.frustumCulled=false;this.group.add(this.mesh);this.group.scale.setScalar(4);}
  update(packet:NativeModelPacket,start:number,end:number){
   const positions:number[]=[],rgb:number[]=[],motion:number[]=[];let movingPart=0,movingEnds:THREE.Vector3[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
@@ -28,7 +28,8 @@ export class NativeBoatMesh {
   const primitives:MeshPrimitive[]=[];
   for(let at=start;at<end;){const op=packet.records[at++],part=packet.records[at++],fill=nativeColor(packet.colors[packet.records[at++]]),stroke=nativeColor(packet.colors[packet.records[at++]]),flags=packet.records[at++],radius=packet.records[at++]/MODEL_QUANTUM,count=packet.records[at++];const points=Array.from(packet.records.slice(at,at+count),point);at+=count;const p:MeshPrimitive={op,part,fill,stroke,flags,radius,points};if(op===3){p.rx=packet.records[at++]/MODEL_QUANTUM;p.ry=packet.records[at++]/MODEL_QUANTUM;}primitives.push(p);}
   const deck=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===11),cockpit=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===4);
-  const main=primitives.find(p=>p.part===5&&p.op===1),boom=primitives.filter(p=>p.part===6&&p.op===2)[5];
+  const main=primitives.find(p=>p.part===5&&p.op===1),boom=main?primitives.find(p=>p.part===6&&p.op===2&&p.points[0].distanceToSquared(main.points[0])<.0004&&p.points[1].distanceToSquared(main.points.at(-1)!)<.0004):undefined;
+  this.hasRig=!!main&&!!boom;
   if(main&&boom){this.pivot.copy(boom.points[0]);const tip=main.points.reduce((a,b)=>a.y>b.y?a:b);this.mast.copy(tip).sub(this.pivot);this.sailHeight=this.mast.length();this.mast.normalize();const direction=boom.points[1].clone().sub(this.pivot);this.nativeBoomBearing=Math.atan2(direction.x,direction.z);}
   const dressed=new Set<MeshPrimitive>();let crew:MeshPrimitive[]=[];
   for(const p of primitives){if(p.part!==2)continue;crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod))for(const piece of crew)dressed.add(piece);crew=[];}}
@@ -67,7 +68,7 @@ export class NativeBoatMesh {
   this.interpolate(1);this.geometry.computeVertexNormals();
  }
  interpolate(alpha:number,rig?:BoatView,time=0){if(!this.current||!this.before)return;const attribute=this.geometry.getAttribute('position') as THREE.BufferAttribute,a=attribute.array as Float32Array;for(let i=0;i<a.length;i++)a[i]=this.before[i]+(this.current[i]-this.before[i])*alpha;
-  if(rig){
+  if(rig&&this.hasRig){
    const relative=((rig.windFrom-rig.heading+540)%360)-180,released=Math.max(0,Math.min(1,(35-Math.abs(relative))/30));
    if(released>0){
     const target=-relative*Math.PI/180,difference=Math.atan2(Math.sin(target-this.nativeBoomBearing),Math.cos(target-this.nativeBoomBearing)),swing=released*(difference+Math.sin(time*3.1+rig.id)*.12);

@@ -15,6 +15,36 @@ await rm(out,{recursive:true,force:true});
 const generated=[];
 for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileURLToPath(new URL('./',target)),{recursive:true});if(f.path==='versions/2010-en/src/render/drawing-functions.js'){
     let observed=bytes.toString('utf8');
+    // 0x46cc21 MOV DWORD PTR [esp+0x1c],ecx writes only the low
+    // word of Ghidra's overlapping dStack_24. Its invented CONCAT44 read of
+    // the uninitialized high word crashes the Block Island chart. The actual
+    // subsequent TextOut reads that low coordinate, not a floating value.
+    const chartStores=[
+      'writeLocal(framePointer(localFrame,260),bitsAsF64(cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,260),4),4)),cRawWord(cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),5)),4,4)),8,"float")',
+      'writeLocalFloatNumber(framePointer(localFrame,260),wordsAsF64Number(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,260),4),4)),cRawWord(cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),5))))',
+    ];
+    for(const store of chartStores){if(observed.split(store).length!==2)throw Error('Native chart DWORD store source changed');observed=observed.replace(store,'writeLocal(framePointer(localFrame,260),cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),5),4,"int")');}
+    // The Groton lighthouse (0x46f357) and Edgartown coordinate
+    // (0x46fa22) are also DWORD stores into that overlapping chart local.
+    for(const delta of ['10','cNeg(35)']){const value='cAdd(cI32(readLocal(framePointer(localFrame,0),4,"int"),false),'+delta+')';for(const store of [
+      'writeLocal(framePointer(localFrame,260),bitsAsF64(cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,260),4),4)),cRawWord('+value+'),4,4)),8,"float")',
+      'writeLocalFloatNumber(framePointer(localFrame,260),wordsAsF64Number(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,260),4),4)),cRawWord('+value+')))',
+    ]){if(observed.split(store).length!==2)throw Error('Native lighthouse DWORD store source changed');observed=observed.replace(store,'writeLocal(framePointer(localFrame,260),'+value+',4,"int")');}}
+    // 0x46fe1a stores the TextOut function pointer as a DWORD. The same
+    // overlapping Ghidra double invents another unused upper-word read.
+    for(const store of [
+      'writeLocal(framePointer(localFrame,260),bitsAsF64(cConcat(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,260),4),4)),cRawWord(dcMethod(dc,100,memory)),4,4)),8,"float")',
+      'writeLocalFloatNumber(framePointer(localFrame,260),wordsAsF64Number(cRawWord(readPointer(memory,pointerAdd(framePointer(localFrame,260),4),4)),cRawWord(dcMethod(dc,100,memory))))',
+    ]){if(observed.split(store).length!==2)throw Error('Native chart pointer DWORD source changed');observed=observed.replace(store,'writeLocal(framePointer(localFrame,260),dcMethod(dc,100,memory),4,"int")');}
+    // Native signed IMUL/ADD at 0x465f39..41 can wrap below zero for
+    // distant scenery. Masked FSQRT + __ftol yields integer indefinite:
+    // 0x8000000000000000, whose stored low DWORD is zero. Preserve positive
+    // calculations exactly; this scope does not change the Float80 runtime.
+    const distanceExpressions=[
+      ...['scalarRead(scalarStack0)','readLocal(framePointer(localFrame,0),4,"int")'].map(x=>'cRawWord(cI64(cFloat(cFloat(cAdd(cMul('+x+','+x+'),cMul(iVar3,iVar3)))).sqrt(),false))'),
+      ...['fpScalarRead(scalarStack0)','readLocal(framePointer(localFrame,0),4,"int")'].map(x=>'cRawWord(fpI64(fpBox(fpFromInteger(cAdd(cMul('+x+','+x+'),cMul(iVar3,iVar3)))).sqrt(),false))'),
+    ];
+    for(const expression of distanceExpressions){if(observed.split(expression).length!==2)throw Error('Native distance invalid-conversion source changed');const argument=expression.match(/cAdd\(cMul\((.*),\1\),cMul\(iVar3,iVar3\)\)/)?.[1];if(!argument)throw Error('Distance argument recovery failed');observed=observed.replace(expression,'(cAdd(cMul('+argument+','+argument+'),cMul(iVar3,iVar3))<0?0:'+expression+')');}
     // Native 0x48b813 pushes COLORREF 0 before CDC::SetTextColor; 0x48b854
     // pushes the CString length before TextOut. The old decompilation dropped
     // both arguments and retained fictional CString stack expressions.
@@ -93,7 +123,7 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
       observed+=wrapper;
     }
     await writeFile(target,observed);
-    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'}],sourceSha256:f.sha256});
+    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
   }else {await writeFile(target,bytes);generated.push(f);}}
 await writeFile(new URL('manifest.json',out),JSON.stringify({reference:pin.reference.commit,sourceFiles:rows,files:generated},null,2));
 console.log(`Prepared ${rows.length} validated legacy modules/assets; one explicit generated boat adapter`);

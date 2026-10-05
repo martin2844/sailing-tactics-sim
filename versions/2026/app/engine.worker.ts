@@ -5,7 +5,8 @@ import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
 import {commands} from './protocol';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
-import {validateRaceSettings,raceSetupCommands} from './race-settings';
+import {validateRaceSettings,raceSetupCommands,isAuditedPreset} from './race-settings';
+import {areaChoices,fleetChoices} from './native-catalog';
 let memory:any,rng:any,options:any,objects:any,font:any,paintClock:any;
 let lifecycle:any,gdi:any,resetSurface:any,menu:any,key:any,readCString:any;
 let advanceTarget:any,drawResults:any,copyStrings:any;
@@ -60,11 +61,11 @@ function snapshot(workMs:number):SceneSnapshot {
   const owner=i(0x4da140),panel=panelTitle();
   const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
   return {generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
-    configuration:{course:i(0x4da188),wind:i(0x4da154),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c)},
+    configuration:{course:i(0x4da188),wind:i(0x4da154),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c),venue:i(0x4da1f8),mode:i(0x4da16c),gate:i(0x4da1e8)!==0,short:i(0x53640c)!==0},
     view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
-    course:{marks:marks.slice(0,3),start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c)},
+    course:{marks:marks.slice(0,3),gate:i(0x4da1e8)?[{x:i(0x4f4a68),y:i(0x4f6d34)},{x:i(0x523248),y:i(0x52359c)}]:[],start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c)},
     results:i(0x5363f4)!==0,resultsReady,completedRaces:i(0x5363fc),seriesScoring:i(0x536424)===0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
 }
 function panelTitle():string|null{
@@ -111,10 +112,16 @@ async function initialize(data:any){
   frontContext=front.getContext('2d')!;backContext=back.getContext('2d',{willReadFrequently:true})!;
   lifecycle=paintModule.paintLifecycle;gdi=gdiModule.createCanvasGdi;resetSurface=surface.resetBitmapSurface;menu=controller.handleMenuCommand;key=keyboard.handleKeyDown;
   const scenario=data.scenario,settings=validateRaceSettings(data.settings);
+  const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
+  if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
   objects=application.initializeApplication(memory,rng,{preferences:null,timeSeed:scenario.seedTimeSeconds,screenHeight:768,integerTrig:tables});
   options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,
     playSound:()=>1,messageBeep:()=>{},beep:()=>{},dialogHandler:()=>{throw new Error('Original dialogs are unsupported in the worker spike');},getTickCount:paintClock.getTickCount,
     getCursorPos:()=>({x:0,y:0}),invalidateRect:()=>{},enforceMinimumPaintDuration:(duration:number)=>{delay=duration;},closeWindow:()=>{paused=true;},contextHelp:()=>{}};
+  // The Block Island chart's recovered overlap needs an exact drawing profile.
+  // Preserve the native geometry scratch values while its DWORD store repair
+  // replaces the fictitious upper-word read. Modern 3D remains independent.
+  if([33017,33018,33029,33031,33032].includes(settings.area??0)){options.numberRendering=false;options.smoothGraphics=false;}
   modelExtractor=createModelExtractor({memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,modelDraw});
   modelWorker=new Worker(new URL('./models.worker.ts',import.meta.url),{type:'module'});
   modelWorker.onerror=event=>fail(event.message);
@@ -122,7 +129,8 @@ async function initialize(data:any){
   modelWorker.postMessage({type:'init',data:{legacyBase:data.legacyBase,objects:[...objects]}});
   mouse.handleMouseMove(memory,0,0,0,options);
   paint();
-  for(const id of raceSetupCommands(scenario.setupCommands,settings)){await menu(memory,id,options);paint();}
+  for(const id of raceSetupCommands(scenario.setupCommands,settings,fleet)){await menu(memory,id,options);paint();}
+  if(settings.gate!==undefined&&Boolean(memory.readI32(0x4da1e8))!==settings.gate){await menu(memory,32994,options);paint();}
   key(memory,32,options);
   for(let attempt=0;memory.readI32(0x5363b0)!==2&&attempt<4;attempt++)paint();
   if(memory.readI32(0x5363b0)!==2)throw new Error('Original race initialization failed');
@@ -130,8 +138,9 @@ async function initialize(data:any){
   if(memory.readI32(0x4da1dc)!==0){await menu(memory,32984,options);paint();}
   for(const id of scenario.postSetupCommands)await menu(memory,id,options);
   const initial=await boundary(),expected=scenario.initialBoundary;
-  if(settings.course===1&&settings.wind===2&&settings.scoring===undefined&&(initial.frame!==expected.frame||initial.memorySha256!==expected.memorySha256||initial.rngState!==expected.rngState||JSON.stringify(initial.shore)!==JSON.stringify(expected.shore)))throw new Error('Worker initial state differs: '+JSON.stringify(initial));
-  if(memory.readI32(0x4da188)!==settings.course||memory.readI32(0x4da154)!==settings.wind||memory.readI32(0x4da194)!==scenario.configuration.fleet||memory.readI32(0x4da144)!==12||memory.readI32(0x4da19c)!==5||memory.readI32(0x4da16c)!==0)throw new Error('Native race configuration differs from selection');
+  if(isAuditedPreset(settings,fleet)&&(initial.frame!==expected.frame||initial.memorySha256!==expected.memorySha256||initial.rngState!==expected.rngState||JSON.stringify(initial.shore)!==JSON.stringify(expected.shore)))throw new Error('Worker initial state differs: '+JSON.stringify(initial));
+  const area=areaChoices.find(a=>a.command===(settings.area??32799))!;
+  if(memory.readI32(0x4da154)!==settings.wind||memory.readI32(0x4da194)!==fleet||memory.readI32(0x4da144)!==(settings.boat??12)||memory.readI32(0x4da1f8)!==area.venue||memory.readI32(0x4da19c)!==area.area||memory.readI32(0x4da188)!==settings.course||memory.readI32(0x4da16c)!==0)throw new Error('Native race configuration differs from selection');
   if(settings.scoring&&memory.readI32(0x536424)!==(settings.scoring==='single'?1:0))throw new Error('Native scoring mode differs');
   ready=true;send('ready',initial);send('snapshot',snapshot(0));paused=data.manual===true;requestModels();
   if(!paused)schedule(0);
@@ -152,6 +161,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='model'){send('reply',{id,value:visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))});}
   else if(type==='lift'){if(!paused)throw new Error('Model diagnostics require pause');const width=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration?.width;if(!width)throw new Error('Missing model calibration');send('reply',{id,value:[0,1,2].map(shear=>modelExtractor.capture(data??1,width,35,shear))});}
   else if(type==='boundary'){if(!paused)throw new Error('Boundary inspection requires pause');send('reply',{id,value:await boundary()});}
+  else if(type==='image'){if(!paused)throw Error('Image diagnostics require pause');const bytes=memory.bytes.slice();self.postMessage({type:'reply',generation,data:{id,value:bytes}},{transfer:[bytes.buffer]});}
   else if(type==='next-race'){
     if(!paused||!resultsReady||memory.readI32(0x5363f4)===0)throw new Error('Next race requires completed native results');
     clearTimeout(timer);scheduleToken++;pending=false;startingLine=undefined;resultsReady=false;
