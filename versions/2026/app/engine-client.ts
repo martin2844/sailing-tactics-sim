@@ -5,6 +5,7 @@ import type {NativeModelPacket,ModelCapture} from './native-models';
 import type {NativeBoatFrame} from './native-visuals';
 import {defaultRaceSettings,type RaceSettings} from './race-settings';
 interface DiagnosticReplies {
+  finishcase:{before:Boundary;after:Boundary;boats:{id:number;name:string;finished:number;points:number[]}[];order:number[];results:boolean;completedRaces:number;scope:string};
   step:Boundary;boundary:Boundary;model:NativeBoatFrame;lift:ModelCapture[];geometry:NativeModelPacket;
   modelcase:{kind:string;packet:NativeModelPacket;projections:ModelCapture[];unscaled:ModelCapture};
 }

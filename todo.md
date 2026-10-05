@@ -915,7 +915,7 @@ extensions must be identified and must not silently replace original behavior.
 - [x] **EXT-02 — Name the fleet and allow editing the player's boat name.**
   Recover native fleet names; safely support a custom display name and retain
   identities across results and championship races.
-- [ ] **EXT-03 — Build proper race start, finish and results screens.** Show
+- [x] **EXT-03 — Build proper race start, finish and results screens.** Show
   native finishing position immediately on finish, complete fleet results when
   available, penalties and clear next-race/new-event actions; prove results are
   triggered by engine events, not elapsed-time or visual-position guesses.
