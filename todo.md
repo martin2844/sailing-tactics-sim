@@ -228,7 +228,7 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 
 ## APP: modern application foundation
 
-- [ ] **APP-01 — Create an isolated modern development scaffold** · P0 · M · Depends: BASE-01, BASE-07.
+- [x] **APP-01 — Create an isolated modern development scaffold** · P0 · M · Depends: BASE-01, BASE-07.
 
   Done when: `versions/2026` has a minimal TypeScript/Vite setup, pinned dependencies,
   a development page and a bounded spike route; the original no-install player
@@ -841,4 +841,5 @@ retained evidence here.
 | BASE-04 | 2026-10-05 | Atomic `BASE-04` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-04.md) | Unclassified aliases/branches retained as simulation requirements |
 | BASE-05 | 2026-10-05 | Atomic `BASE-05` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-05.md) | Short host timing runs; modern repeated graphics acceptance remains open |
 | BASE-06 | 2026-10-05 | Atomic `BASE-06` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-06.md) | Initial presets, not replay checkpoints or control-independent weather |
+| APP-01 | 2026-10-05 | Atomic `APP-01` commit; see file history | [Evaluation](versions/2026/analysis/app/APP-01.md) | Scaffold; live worker and renderer are next bounded spikes |
 | — | — | — | — | — |

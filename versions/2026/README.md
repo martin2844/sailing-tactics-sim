@@ -2,8 +2,8 @@
 
 This directory contains the modern edition's implementation and verification
 work. Product scope is defined in [PLAN-2026.md](../../PLAN-2026.md); execution
-is tracked in [todo.md](../../todo.md). A playable modern edition does not exist
-yet. Preservation players remain under their original routes.
+is tracked in [todo.md](../../todo.md). The isolated development scaffold is available; worker and renderer
+are being evaluated as bounded prototypes. Preservation players remain under their original routes.
 
 The 2010 reference is commit `64d5cdf`. Its exact source, assets, native runtime,
 shared numerical/drawing support, comparison archives and existing evaluation
@@ -34,3 +34,19 @@ Completed task evaluations:
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.
+
+Development (Node >=22.12 or supported Node 20.19):
+
+```sh
+cd versions/2026
+npm ci
+npm run dev
+# / development player; /spike/ bounded renderer route
+npm run build
+npm run preview
+```
+
+Dependencies are exact versions in this directory only. prepare:legacy checks
+pinned source/asset hashes and generates byte-exact public runtime copies,
+without bundling original code. Generated copies and dist are ignored.
+Original root commands and preservation routes are unchanged.

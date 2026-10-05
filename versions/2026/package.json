@@ -1,0 +1,14 @@
+{
+  "name": "tact-2026", "version": "0.1.0", "private": true, "type": "module",
+  "scripts": {
+    "prepare:legacy": "node tools/prepare-legacy.mjs",
+    "predev": "npm run prepare:legacy",
+    "dev": "vite --host 127.0.0.1",
+    "check": "tsc --noEmit",
+    "prebuild": "npm run prepare:legacy",
+    "build": "npm run check && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {"three": "0.186.1", "@fontsource/ibm-plex-sans": "5.3.0"},
+  "devDependencies": {"@types/three": "0.186.0", "typescript": "7.0.2", "vite": "8.3.2"}
+}
