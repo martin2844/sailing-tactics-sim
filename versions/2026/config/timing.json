@@ -1,0 +1,19 @@
+{
+  "format": 1,
+  "profile": "posey-2010-declared-unit-tick",
+  "logicalTickStart": 0,
+  "tickAdvancePerRead": 1,
+  "nativeSurface": {"width": 1024, "height": 768, "bitsPixel": 24},
+  "step": "Full original paint, including numerical prefix, state-changing composition, timing reads and cleanup",
+  "schedule": "Yield after each step; next due after max(0, native minimum host delay minus step CPU time). No skipped steps or accumulated wall-time catch-up.",
+  "display": "Independent RAF snapshots; camera and GPU drawing consume no native RNG or logical ticks",
+  "defaultNativePace": 10,
+  "paceLabels": {"1": "Precision", "5": "Study", "10": "Sailing"},
+  "paceDivisors": {"1": 2919, "5": 577, "10": 76},
+  "minimumFrameDurationMs": {"1": 80, "5": 60, "10": 0},
+  "automaticFoulSlowdownDefault": false,
+  "automaticFoulSlowdown": "Original toggle may change native pace to 1; preserve previous pace/divisor and original four-simulation-second grace after Space resume",
+  "ratioLabelsAllowed": false,
+  "snapshotBoundary": "After complete paint and finishFrame cleanup",
+  "qualification": "Compatible with the preserved browser host; not a new claim about every original Windows timer configuration"
+}

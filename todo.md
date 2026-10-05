@@ -96,11 +96,15 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   Five raw observer comparisons pass with declared host inputs. Preserve the
   full canonical paint/surface/RNG/retained context until extraction is proven.
 
-- [ ] **BASE-05 — Audit native clock, timestep and pace semantics** · P0 · L · Depends: BASE-03, BASE-04.
+- [x] **BASE-05 — Audit native clock, timestep and pace semantics** · P0 · L · Depends: BASE-03, BASE-04.
 
   Done when: original levels 1/5/10, timer host, variable timestep and automatic
   foul slowdown are measured; a compatible logical timing profile and honest
   modern pace labels/default are documented without invented wall-time ratios.
+
+  Completed 2026-10-05; [evaluation](versions/2026/analysis/baseline/BASE-05.md).
+  Native 1/5/10 and natural foul slowdown measured; default 10 replaces the
+  provisional 5. [Compatible timing contract](versions/2026/config/timing.json).
 
 - [ ] **BASE-06 — Freeze supported scenario manifests** · P0 · M · Depends: BASE-03, BASE-05.
 
@@ -831,4 +835,5 @@ retained evidence here.
 | BASE-07 | 2026-10-05 | Atomic `BASE-07` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-07.md) | Performance unmeasured; Pixel 11 physical validation later |
 | BASE-03 | 2026-10-05 | Atomic `BASE-03` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-03.md) | B03-01 recorded; controlled races do not certify smoothness or all replay state |
 | BASE-04 | 2026-10-05 | Atomic `BASE-04` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-04.md) | Unclassified aliases/branches retained as simulation requirements |
+| BASE-05 | 2026-10-05 | Atomic `BASE-05` commit; see file history | [Evaluation](versions/2026/analysis/baseline/BASE-05.md) | Short host timing runs; modern repeated graphics acceptance remains open |
 | — | — | — | — | — |
