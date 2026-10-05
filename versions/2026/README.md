@@ -35,6 +35,9 @@ Completed task evaluations:
 - [BASE-07: Chrome desktop targets and budgets](analysis/baseline/BASE-07.md).
 - [ENG-02: compatible original paint worker](analysis/app/ENG-02.md).
 - [GFX-01: faithful 3D renderer and backend evaluation](analysis/app/GFX-01.md).
+- [Native keyboard compatibility](analysis/app/HOTKEYS.md).
+- [Cockpit overlap correction](analysis/app/COCKPIT.md).
+- [Solid crew and repeated smoothness checks](analysis/app/CREW.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.

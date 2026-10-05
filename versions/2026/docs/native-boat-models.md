@@ -19,7 +19,10 @@ adapts only an ignored copy of drawing-functions.js. Its original boat entry
 points gain read-only begin/end/calibration observation; arguments, results,
 GDI calls and the real drawing sink are forwarded. Frozen preservation files
 are never edited. The manifest records both source hashes and actual prepared
-hashes, with adapter name `native-boat-observer-and-private-model-v1`.
+hashes, with adapter name `native-boat-observer-and-private-model-v2`. The v2
+adapter also restores the true-wind label's lost native GDI/CString arguments;
+its disassembly and separate drawing contract are in the
+[hotkey evaluation](../analysis/app/HOTKEYS.md).
 
 A separate exported nativeModelDrawBoatNumber copies the original numeric boat
 routine with private projection hooks. This entry only runs on copied memory
@@ -90,10 +93,26 @@ view at -145 degrees supplies hidden hull sides. Native component mapping:
 
 The red line in 0x41fe70 is a screen-space wind pointer, so it is excluded from
 boat-local rig geometry. World wakes, projection helpers and tutorial labels
-are also excluded. Native pen widths become small five-sided rods, including
-the blue/green crew bodies. Native ellipse heads become low-poly ellipsoids.
+are also excluded. Native pen widths become small five-sided rods for the rig.
+The first spike used rods for crew outlines and ellipsoids for ellipse heads.
+The current refinement builds closed solid torsos from those same native
+shoulder/hip anchors, with bent legs, boots, sleeves, forearms, hands and faceted
+heads. Shirt colors keep the native blue/green palette; skin, dark trousers,
+boots and hair are new presentation choices. Head centers gain a small offset
+along the native torso's up direction. Foot anchors, hiking side and heel stay
+native; the source-visible arm retains its hand anchor. On the opposite tack
+the painter omits the hidden arm, which is reconstructed from hip/foot anchors.
+Unreviewed primitive layouts keep their source geometry. The helmsman's native
+tiller/sheet line remains separate. Crew are merged into each boat's existing
+mesh and shared material, adding no scene objects or draw calls.
 The original three-person Keelboat crew remains present; sails can occlude it
 from the opposite side, as expected with real 3D depth.
+
+The cream deck now has a hole at the original gray cockpit footprint, with a
+recessed floor and coaming. This removes intersecting faces left by translating
+the original overlapping 2D polygons directly. The opening and exterior hull
+contour retain their source positions. See the [cockpit evaluation](../analysis/app/COCKPIT.md)
+and [crew evaluation](../analysis/app/CREW.md).
 
 Palette values come directly from native drawing choices. The main turns black
 when the original penalty branch chooses black; the jib keeps its original
@@ -113,6 +132,8 @@ frames per second. Changed topology installs a new mesh state. Colors switch
 immediately, so a penalty does not fade through gray. GPU position/color buffers
 are reused for ordinary animation; topology changes release old buffers and
 resize normals. Models and shared scene resources are disposed on reset/loss.
+Triangulation indices are included in topology matching to avoid interpolating
+between triangles whose vertex correspondence changed.
 OrbitControls changes only the camera, including while simulation is paused.
 
 Keelboat/Round Lake 5/15 fleets are the tested scope. Rig cases are deliberate

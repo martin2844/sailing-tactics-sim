@@ -303,6 +303,11 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   - [x] **GFX-03a — Remove deck/cockpit overlap** (2026-10-05): native cockpit
     footprint cut from the deck, recessed floor/coaming and safe triangulation
     changes during interpolation; [evaluated](versions/2026/analysis/app/COCKPIT.md).
+  - [x] **GFX-03b — Refine the native crew into solid low-poly figures**
+    (2026-10-05): native hiking/heel/foot anchors, source shirt colors and the
+    helmsman's tiller retained; solid coverage on both tacks, close views,
+    simulation isolation and ten repeated 15-boat Chrome runs
+    [evaluated](versions/2026/analysis/app/CREW.md).
 
   Done when: hull/deck/mast/boom/sails/simple crew have a readable silhouette,
   original 2010 proportions, sail contours and usable articulation, fit the asset budget, and ship
@@ -868,4 +873,7 @@ retained evidence here.
 | APP-01 | 2026-10-05 | Atomic `APP-01` commit; see file history | [Evaluation](versions/2026/analysis/app/APP-01.md) | Scaffold; live worker and renderer are next bounded spikes |
 | ENG-02 | 2026-10-05 | Atomic `ENG-02` commit; see file history | [Evaluation](versions/2026/analysis/app/ENG-02.md) | Full original Canvas retained; finite paired traces, production transport later |
 | GFX-01 | 2026-10-05 | Atomic `GFX-01` commit; see file history | [Evaluation](versions/2026/analysis/app/GFX-01.md) | Faithful native-derived 3D spike; native WebGPU unmeasured; production assets/world scale and Pixel 11 later |
+| UI-03a | 2026-10-05 | `d5fc4af` | [Keyboard evaluation](versions/2026/analysis/app/HOTKEYS.md) | Native compatibility panels; modern overlays and production replay still open |
+| GFX-03a | 2026-10-05 | `46f40bf` | [Cockpit evaluation](versions/2026/analysis/app/COCKPIT.md) | Reviewed Keelboat surfaces; scale/export work still open |
+| GFX-03b | 2026-10-05 | Atomic crew refinement commit; see file history | [Crew evaluation](versions/2026/analysis/app/CREW.md) | Desktop Chrome and current Keelboat; other boats, Pixel 11 and production assets later |
 | — | — | — | — | — |

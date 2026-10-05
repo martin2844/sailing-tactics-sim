@@ -1,8 +1,10 @@
 import * as THREE from 'three';
 import {MODEL_QUANTUM,type NativeModelPacket} from './native-models';
 import {drawOpenDeck,type MeshPrimitive} from './boat-deck';
+import {drawCrew} from './boat-crew';
 const primitiveSphere=new THREE.SphereGeometry(1,8,6).toNonIndexed();
 const spherePoints=primitiveSphere.getAttribute('position');
+const rodAngles=Array.from({length:5},(_,i)=>({cos:Math.cos(i/5*Math.PI*2),sin:Math.sin(i/5*Math.PI*2)}));
 const colors=new Map<number,THREE.Color>();
 function nativeColor(value:number){let color=colors.get(value);if(!color){color=new THREE.Color().setRGB((value&255)/255,((value>>>8)&255)/255,((value>>>16)&255)/255,THREE.SRGBColorSpace);colors.set(value,color);}return color;}
 export class NativeBoatMesh {
@@ -13,15 +15,22 @@ export class NativeBoatMesh {
   const positions:number[]=[],rgb:number[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
   const put=(v:THREE.Vector3,color:THREE.Color)=>{positions.push(v.x,v.y,v.z);rgb.push(color.r,color.g,color.b);};
   const triangle=(a:THREE.Vector3,b:THREE.Vector3,c:THREE.Vector3,color:THREE.Color)=>{put(a,color);put(b,color);put(c,color);};
+  const axis=new THREE.Vector3(),u=new THREE.Vector3(),v=new THREE.Vector3(),reference=new THREE.Vector3(),ring=Array.from({length:10},()=>new THREE.Vector3());
   const rod=(a:THREE.Vector3,b:THREE.Vector3,color:THREE.Color,radius=.008)=>{
-   const axis=b.clone().sub(a);if(axis.lengthSq()<.000001)return;axis.normalize();const u=new THREE.Vector3().crossVectors(axis,Math.abs(axis.y)>.9?new THREE.Vector3(1,0,0):new THREE.Vector3(0,1,0)).normalize().multiplyScalar(radius),v=new THREE.Vector3().crossVectors(axis,u);
-   for(let i=0;i<5;i++){const t=i/5*Math.PI*2,next=(i+1)/5*Math.PI*2;const e=u.clone().multiplyScalar(Math.cos(t)).addScaledVector(v,Math.sin(t)),f=u.clone().multiplyScalar(Math.cos(next)).addScaledVector(v,Math.sin(next));triangle(a.clone().add(e),b.clone().add(e),b.clone().add(f),color);triangle(a.clone().add(e),b.clone().add(f),a.clone().add(f),color);}
+   axis.copy(b).sub(a);if(axis.lengthSq()<.000001)return;axis.normalize();reference.set(Math.abs(axis.y)>.9?1:0,Math.abs(axis.y)>.9?0:1,0);u.crossVectors(axis,reference).normalize().multiplyScalar(radius);v.crossVectors(axis,u);
+   // Reuse one ring's scratch vectors for every native pen/limb. Emission
+   // copies coordinates, so no reference to these vectors escapes this call.
+   for(let i=0;i<5;i++){const {cos,sin}=rodAngles[i],x=u.x*cos+v.x*sin,y=u.y*cos+v.y*sin,z=u.z*cos+v.z*sin;ring[i].set(a.x+x,a.y+y,a.z+z);ring[i+5].set(b.x+x,b.y+y,b.z+z);}
+   for(let i=0;i<5;i++){const next=(i+1)%5;triangle(ring[i],ring[i+5],ring[next+5],color);triangle(ring[i],ring[next+5],ring[next],color);}
   };
   const primitives:MeshPrimitive[]=[];
   for(let at=start;at<end;){const op=packet.records[at++],part=packet.records[at++],fill=nativeColor(packet.colors[packet.records[at++]]),stroke=nativeColor(packet.colors[packet.records[at++]]),flags=packet.records[at++],radius=packet.records[at++]/MODEL_QUANTUM,count=packet.records[at++];const points=Array.from(packet.records.slice(at,at+count),point);at+=count;const p:MeshPrimitive={op,part,fill,stroke,flags,radius,points};if(op===3){p.rx=packet.records[at++]/MODEL_QUANTUM;p.ry=packet.records[at++]/MODEL_QUANTUM;}primitives.push(p);}
   const deck=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===11),cockpit=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===4);
+  const dressed=new Set<MeshPrimitive>();let crew:MeshPrimitive[]=[];
+  for(const p of primitives){if(p.part!==2)continue;crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod))for(const piece of crew)dressed.add(piece);crew=[];}}
   const topology:number[]=[];
   for(const p of primitives){const {op,part,fill,stroke,flags,radius,points}=p;topology.push(op,part,points.length);
+   if(dressed.has(p)){topology.push(2026);continue;}
    if(deck&&cockpit){if(p===cockpit)continue;if(p===deck){topology.push(...drawOpenDeck(deck,cockpit,triangle,rod));continue;}}
    if(op===1){
     // The same recovered polygon contour determines its triangulation. Curved
