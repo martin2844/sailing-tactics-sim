@@ -1,0 +1,522 @@
+{
+  "report": "/tmp/tact-2010-gpu-diagnostic/2010-matched-round-lake-15-profile-9034273e-815b-4161-8ffc-5f944b87d1b3.json",
+  "profile": "/tmp/tact-2010-gpu-diagnostic/2010-matched-round-lake-15-profile-9034273e-815b-4161-8ffc-5f944b87d1b3.cpuprofile",
+  "scope": "60-frame headed GPU CPU/stage diagnostic, not release timing evidence. Other user applications remained untouched. CPU sampling can attribute wall waiting to a native Canvas call and does not alone distinguish GPU wait from software work.",
+  "host": {
+    "logicalProcessors": 16,
+    "loadAverageBefore": [
+      8.29,
+      5.89,
+      4.66
+    ],
+    "loadAverageAfter": [
+      8.2,
+      6.06,
+      4.75
+    ],
+    "cpuBusyFraction": 0.626725309304155
+  },
+  "paintMeanMs": 380.42833333412807,
+  "bitBltSampledMsPerPaint": 350.33956666665114,
+  "stages": [
+    {
+      "name": "updateGlobalWind",
+      "calls": 60,
+      "totalMs": 3.599999964237213,
+      "msPerPaint": 0.05999999940395355
+    },
+    {
+      "name": "updateBoatWindAndAI",
+      "calls": 900,
+      "totalMs": 68.69999997317791,
+      "msPerPaint": 1.1449999995529652
+    },
+    {
+      "name": "updatePlayer1Steering",
+      "calls": 60,
+      "totalMs": 1.300000011920929,
+      "msPerPaint": 0.021666666865348815
+    },
+    {
+      "name": "updateBoatDynamics",
+      "calls": 900,
+      "totalMs": 27.600000008940697,
+      "msPerPaint": 0.4600000001490116
+    },
+    {
+      "name": "integratePositions",
+      "calls": 60,
+      "totalMs": 40.799999967217445,
+      "msPerPaint": 0.6799999994536241
+    },
+    {
+      "name": "advanceFrame",
+      "calls": 60,
+      "totalMs": 144.29999995231628,
+      "msPerPaint": 2.4049999992052715
+    },
+    {
+      "name": "drawScene",
+      "calls": 60,
+      "totalMs": 1483.0000000149012,
+      "msPerPaint": 24.71666666691502
+    },
+    {
+      "name": "drawChart",
+      "calls": 60,
+      "totalMs": 54.200000047683716,
+      "msPerPaint": 0.9033333341280619
+    },
+    {
+      "name": "drawSailingHud",
+      "calls": 60,
+      "totalMs": 65.29999995231628,
+      "msPerPaint": 1.0883333325386046
+    }
+  ],
+  "topSelf": [
+    {
+      "id": 259,
+      "ms": 20636.12599999907,
+      "msPerPaint": 343.9354333333178,
+      "functionName": "drawImage",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 138,
+      "ms": 384.2479999999998,
+      "msPerPaint": 6.404133333333331,
+      "functionName": "drawImage",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 2,
+      "ms": 257.3279999999999,
+      "msPerPaint": 4.288799999999998,
+      "functionName": "(program)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 193,
+      "ms": 130.29,
+      "msPerPaint": 2.1715,
+      "functionName": "getImageData",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 318,
+      "ms": 71.49800000000003,
+      "msPerPaint": 1.191633333333334,
+      "functionName": "getImageData",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 168,
+      "ms": 66.40300000000002,
+      "msPerPaint": 1.106716666666667,
+      "functionName": "originalDrawing00466330Number",
+      "scriptId": "78",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js",
+      "lineNumber": 31740,
+      "columnNumber": 38
+    },
+    {
+      "id": 169,
+      "ms": 56.20000000000002,
+      "msPerPaint": 0.936666666666667,
+      "functionName": "callNumberDrawingDependencyImpl",
+      "scriptId": "79",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/dependencies.js",
+      "lineNumber": 72,
+      "columnNumber": 40
+    },
+    {
+      "id": 176,
+      "ms": 47.84700000000001,
+      "msPerPaint": 0.7974500000000001,
+      "functionName": "tryProjectScenePointSmooth",
+      "scriptId": "88",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/projection-smooth.js",
+      "lineNumber": 6,
+      "columnNumber": 42
+    },
+    {
+      "id": 155,
+      "ms": 42.81000000000002,
+      "msPerPaint": 0.7135000000000002,
+      "functionName": "(garbage collector)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 260,
+      "ms": 39.54099999999998,
+      "msPerPaint": 0.6590166666666664,
+      "functionName": "selectBitmap",
+      "scriptId": "7",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/play.js",
+      "lineNumber": 141,
+      "columnNumber": 18
+    },
+    {
+      "id": 3,
+      "ms": 35.616,
+      "msPerPaint": 0.5936,
+      "functionName": "(idle)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 172,
+      "ms": 32.604000000000006,
+      "msPerPaint": 0.5434000000000001,
+      "functionName": "tryProjectionGeometry",
+      "scriptId": "87",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/projection-fast.js",
+      "lineNumber": 27,
+      "columnNumber": 37
+    },
+    {
+      "id": 171,
+      "ms": 28.997999999999994,
+      "msPerPaint": 0.4832999999999999,
+      "functionName": "tryProjectScenePointOutputFast",
+      "scriptId": "80",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/projection-output-fast.js",
+      "lineNumber": 10,
+      "columnNumber": 46
+    },
+    {
+      "id": 208,
+      "ms": 28.030999999999995,
+      "msPerPaint": 0.46718333333333323,
+      "functionName": "originalDrawBoatNumber",
+      "scriptId": "78",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js",
+      "lineNumber": 9279,
+      "columnNumber": 31
+    },
+    {
+      "id": 272,
+      "ms": 22.287,
+      "msPerPaint": 0.37145,
+      "functionName": "sink",
+      "scriptId": "40",
+      "url": "http://127.0.0.1:8765/src/render/gdi.js",
+      "lineNumber": 169,
+      "columnNumber": 51
+    },
+    {
+      "id": 173,
+      "ms": 17.82,
+      "msPerPaint": 0.297,
+      "functionName": "readF64",
+      "scriptId": "23",
+      "url": "http://127.0.0.1:8765/src/runtime/memory.js",
+      "lineNumber": 52,
+      "columnNumber": 9
+    },
+    {
+      "id": 185,
+      "ms": 17.336,
+      "msPerPaint": 0.2889333333333333,
+      "functionName": "originalPoints",
+      "scriptId": "62",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/typed-c.js",
+      "lineNumber": 355,
+      "columnNumber": 30
+    },
+    {
+      "id": 270,
+      "ms": 15.220999999999998,
+      "msPerPaint": 0.2536833333333333,
+      "functionName": "cAdd",
+      "scriptId": "62",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/typed-c.js",
+      "lineNumber": 197,
+      "columnNumber": 20
+    },
+    {
+      "id": 495,
+      "ms": 14.368,
+      "msPerPaint": 0.23946666666666666,
+      "functionName": "fill",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 207,
+      "ms": 13.514,
+      "msPerPaint": 0.2252333333333333,
+      "functionName": "callNumberDrawingDependencyImpl",
+      "scriptId": "79",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/dependencies.js",
+      "lineNumber": 72,
+      "columnNumber": 40
+    },
+    {
+      "id": 177,
+      "ms": 12.855999999999998,
+      "msPerPaint": 0.21426666666666663,
+      "functionName": "tryWaterNumberSlab",
+      "scriptId": "83",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/water-number-slab.js",
+      "lineNumber": 5,
+      "columnNumber": 34
+    },
+    {
+      "id": 286,
+      "ms": 12.834000000000001,
+      "msPerPaint": 0.21390000000000003,
+      "functionName": "certifiedSqrtNumber",
+      "scriptId": "26",
+      "url": "http://127.0.0.1:8765/src/runtime/certified-sqrt.js",
+      "lineNumber": 5,
+      "columnNumber": 35
+    }
+  ],
+  "topInclusive": [
+    {
+      "id": 1,
+      "ms": 23130.621999998937,
+      "msPerPaint": 385.51036666664896,
+      "functionName": "(root)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 143,
+      "ms": 22348.953999998936,
+      "msPerPaint": 372.48256666664895,
+      "functionName": "runPaint",
+      "scriptId": "5",
+      "url": "",
+      "lineNumber": 38,
+      "columnNumber": 23
+    },
+    {
+      "id": 142,
+      "ms": 22348.953999998936,
+      "msPerPaint": 372.48256666664895,
+      "functionName": "accept",
+      "scriptId": "5",
+      "url": "",
+      "lineNumber": 8,
+      "columnNumber": 14
+    },
+    {
+      "id": 141,
+      "ms": 22348.953999998936,
+      "msPerPaint": 372.48256666664895,
+      "functionName": "paintSetupGate.accept",
+      "scriptId": "5",
+      "url": "",
+      "lineNumber": 24,
+      "columnNumber": 26
+    },
+    {
+      "id": 140,
+      "ms": 22348.953999998936,
+      "msPerPaint": 372.48256666664895,
+      "functionName": "",
+      "scriptId": "5",
+      "url": "",
+      "lineNumber": 37,
+      "columnNumber": 60
+    },
+    {
+      "id": 144,
+      "ms": 22344.894999998935,
+      "msPerPaint": 372.41491666664894,
+      "functionName": "paint",
+      "scriptId": "7",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/play.js",
+      "lineNumber": 129,
+      "columnNumber": 14
+    },
+    {
+      "id": 145,
+      "ms": 22341.843999998935,
+      "msPerPaint": 372.3640666666489,
+      "functionName": "paintLifecycle",
+      "scriptId": "20",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/paint-lifecycle.js",
+      "lineNumber": 133,
+      "columnNumber": 30
+    },
+    {
+      "id": 259,
+      "ms": 20636.12599999907,
+      "msPerPaint": 343.9354333333178,
+      "functionName": "drawImage",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "id": 258,
+      "ms": 20636.12599999907,
+      "msPerPaint": 343.9354333333178,
+      "functionName": "bitBlt",
+      "scriptId": "7",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/play.js",
+      "lineNumber": 142,
+      "columnNumber": 12
+    },
+    {
+      "id": 146,
+      "ms": 1664.1389999999978,
+      "msPerPaint": 27.735649999999964,
+      "functionName": "drawPaintContent",
+      "scriptId": "20",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/paint-lifecycle.js",
+      "lineNumber": 100,
+      "columnNumber": 32
+    },
+    {
+      "id": 147,
+      "ms": 1663.116999999998,
+      "msPerPaint": 27.71861666666663,
+      "functionName": "drawSimulationFrame",
+      "scriptId": "20",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/paint-lifecycle.js",
+      "lineNumber": 84,
+      "columnNumber": 35
+    },
+    {
+      "id": 159,
+      "ms": 1524.798999999998,
+      "msPerPaint": 25.41331666666663,
+      "functionName": "composeRaceFrame",
+      "scriptId": "20",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/paint-lifecycle.js",
+      "lineNumber": 38,
+      "columnNumber": 32
+    },
+    {
+      "id": 160,
+      "ms": 1408.9309999999982,
+      "msPerPaint": 23.482183333333303,
+      "functionName": "scene",
+      "scriptId": "20",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/paint-lifecycle.js",
+      "lineNumber": 42,
+      "columnNumber": 14
+    },
+    {
+      "id": 162,
+      "ms": 1407.9229999999982,
+      "msPerPaint": 23.465383333333303,
+      "functionName": "",
+      "scriptId": "66",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/index.js",
+      "lineNumber": 18,
+      "columnNumber": 9
+    },
+    {
+      "id": 161,
+      "ms": 1407.9229999999982,
+      "msPerPaint": 23.465383333333303,
+      "functionName": "",
+      "scriptId": "116",
+      "url": "",
+      "lineNumber": 6,
+      "columnNumber": 40
+    },
+    {
+      "id": 163,
+      "ms": 1405.9159999999981,
+      "msPerPaint": 23.4319333333333,
+      "functionName": "drawScene",
+      "scriptId": "67",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/scene.js",
+      "lineNumber": 4,
+      "columnNumber": 25
+    },
+    {
+      "id": 164,
+      "ms": 1404.899999999998,
+      "msPerPaint": 23.414999999999967,
+      "functionName": "originalDrawScene",
+      "scriptId": "78",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js",
+      "lineNumber": 19,
+      "columnNumber": 33
+    },
+    {
+      "id": 165,
+      "ms": 1402.8699999999983,
+      "msPerPaint": 23.381166666666637,
+      "functionName": "originalDrawSceneNumber",
+      "scriptId": "78",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js",
+      "lineNumber": 363,
+      "columnNumber": 32
+    },
+    {
+      "id": 166,
+      "ms": 1386.9149999999981,
+      "msPerPaint": 23.115249999999968,
+      "functionName": "callNumberDrawingDependencyOwned",
+      "scriptId": "79",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/dependencies.js",
+      "lineNumber": 67,
+      "columnNumber": 48
+    },
+    {
+      "id": 167,
+      "ms": 1384.877999999998,
+      "msPerPaint": 23.081299999999967,
+      "functionName": "callNumberDrawingDependencyImpl",
+      "scriptId": "79",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/dependencies.js",
+      "lineNumber": 72,
+      "columnNumber": 40
+    },
+    {
+      "id": 168,
+      "ms": 722.177,
+      "msPerPaint": 12.036283333333333,
+      "functionName": "originalDrawing00466330Number",
+      "scriptId": "78",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js",
+      "lineNumber": 31740,
+      "columnNumber": 38
+    },
+    {
+      "id": 8,
+      "ms": 439.8019999999998,
+      "msPerPaint": 7.33003333333333,
+      "functionName": "paintLifecycle",
+      "scriptId": "20",
+      "url": "http://127.0.0.1:8765/versions/2010-en/src/render/paint-lifecycle.js",
+      "lineNumber": 133,
+      "columnNumber": 30
+    }
+  ],
+  "nextExperiment": "Diagnostic-only Canvas context/presentation investigation using same entry state; separate final blit measurement and Chromium GPU/Canvas trace. Current callbacks total about29ms/paint, so optimizing engine/render math cannot resolve the ~350ms visible presentation delay."
+}

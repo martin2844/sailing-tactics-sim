@@ -148,6 +148,12 @@ separate from the portable browser player.
 
 ## Measured limits
 
+For repeatable desktop smoothness comparisons between the 2002 and 2010 ports,
+run `npm run eval:quick`. The [evaluation guide](tools/evaluation/README.md)
+describes scenarios, saved reports, correctness gates and measurement limits.
+The [first desktop evaluation](versions/2010-en/analysis/evaluation/README.md)
+records the current diagnostic results and remaining performance work.
+
 The tested finite inputs match the original state and ordered GDI calls without
 a numerical tolerance. The measured System font also passes 80 exact browser
 pixel comparisons. Canvas rasterization of lines and curved shapes can differ

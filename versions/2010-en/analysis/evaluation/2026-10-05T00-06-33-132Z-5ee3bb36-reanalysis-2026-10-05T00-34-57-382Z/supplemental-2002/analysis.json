@@ -1,0 +1,185 @@
+{
+  "report": "/tmp/tact-2002-gpu-diagnostic/2002-matched-round-lake-15-profile-806bf1d3-1357-47d6-99c9-dcf1c7b26e77.json",
+  "profile": "/tmp/tact-2002-gpu-diagnostic/2002-matched-round-lake-15-profile-806bf1d3-1357-47d6-99c9-dcf1c7b26e77.cpuprofile",
+  "scope": "60-frame headed GPU CPU/stage diagnostic, not release timing evidence; other user applications remained untouched. CPU sampling can attribute wall waiting to a native Canvas call and does not by itself distinguish GPU wait from software work.",
+  "host": {
+    "logicalProcessors": 16,
+    "loadAverageBefore": [
+      6.06,
+      5.39,
+      4
+    ],
+    "loadAverageAfter": [
+      6.23,
+      5.45,
+      4.04
+    ],
+    "cpuBusyFraction": 0.5180474105889155
+  },
+  "paintMeanMs": 171.8249999995033,
+  "bitBltSampledMsPerPaint": 155.91586666666862,
+  "stages": [
+    {
+      "name": "advanceFrame",
+      "calls": 60,
+      "totalMs": 97.29999996721745,
+      "msPerPaint": 1.6216666661202908
+    },
+    {
+      "name": "drawScene",
+      "calls": 60,
+      "totalMs": 680.9000000208616,
+      "msPerPaint": 11.348333333681028
+    },
+    {
+      "name": "drawChart",
+      "calls": 120,
+      "totalMs": 98.29999996721745,
+      "msPerPaint": 1.6383333327869574
+    },
+    {
+      "name": "drawSailingHud",
+      "calls": 60,
+      "totalMs": 42.99999998509884,
+      "msPerPaint": 0.716666666418314
+    }
+  ],
+  "topSelf": [
+    {
+      "ms": 9217.971000000118,
+      "msPerPaint": 153.63285000000195,
+      "functionName": "drawImage",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 168.39,
+      "msPerPaint": 2.8064999999999998,
+      "functionName": "(idle)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 136.98100000000005,
+      "msPerPaint": 2.2830166666666676,
+      "functionName": "drawImage",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 116.51300000000003,
+      "msPerPaint": 1.9418833333333338,
+      "functionName": "(program)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 109.11800000000001,
+      "msPerPaint": 1.8186333333333335,
+      "functionName": "(garbage collector)",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 102.27600000000001,
+      "msPerPaint": 1.7046000000000001,
+      "functionName": "save",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 69.54100000000003,
+      "msPerPaint": 1.159016666666667,
+      "functionName": "getImageData",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 38.60800000000002,
+      "msPerPaint": 0.643466666666667,
+      "functionName": "getImageData",
+      "scriptId": "0",
+      "url": "",
+      "lineNumber": -1,
+      "columnNumber": -1
+    },
+    {
+      "ms": 24.35,
+      "msPerPaint": 0.4058333333333334,
+      "functionName": "atan2Extended",
+      "scriptId": "68",
+      "url": "http://127.0.0.1:8765/src/runtime/atan.js",
+      "lineNumber": 120,
+      "columnNumber": 29
+    },
+    {
+      "ms": 14.194999999999997,
+      "msPerPaint": 0.23658333333333328,
+      "functionName": "drawBoat",
+      "scriptId": "66",
+      "url": "http://127.0.0.1:8765/src/render/boat.js",
+      "lineNumber": 39,
+      "columnNumber": 24
+    },
+    {
+      "ms": 12.181,
+      "msPerPaint": 0.20301666666666665,
+      "functionName": "mixedBinary64Product",
+      "scriptId": "9",
+      "url": "http://127.0.0.1:8765/src/runtime/float80.js",
+      "lineNumber": 128,
+      "columnNumber": 29
+    },
+    {
+      "ms": 11.244999999999997,
+      "msPerPaint": 0.18741666666666662,
+      "functionName": "",
+      "scriptId": "35",
+      "url": "http://127.0.0.1:8765/src/engine/hull-geometry.js",
+      "lineNumber": 7,
+      "columnNumber": 9
+    },
+    {
+      "ms": 10.153,
+      "msPerPaint": 0.16921666666666668,
+      "functionName": "sinCosX87",
+      "scriptId": "69",
+      "url": "http://127.0.0.1:8765/src/runtime/transcendentals.js",
+      "lineNumber": 214,
+      "columnNumber": 25
+    },
+    {
+      "ms": 9.167999999999997,
+      "msPerPaint": 0.15279999999999996,
+      "functionName": "drawSceneObjects",
+      "scriptId": "48",
+      "url": "http://127.0.0.1:8765/src/render/scene-objects.js",
+      "lineNumber": 85,
+      "columnNumber": 32
+    },
+    {
+      "ms": 9.137,
+      "msPerPaint": 0.15228333333333335,
+      "functionName": "project",
+      "scriptId": "66",
+      "url": "http://127.0.0.1:8765/src/render/boat.js",
+      "lineNumber": 137,
+      "columnNumber": 18
+    }
+  ],
+  "nextExperiment": "Diagnostic-only visible #race 2D context without willReadFrequently, as the current2010 player already does. Preserve owned buffer/readPixel/engine math, compare original entry/end state and actual pixels, and measure final blit separately."
+}

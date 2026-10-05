@@ -1,0 +1,2916 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+  <title>Sailing simulator evaluation</title><style>body{font:16px/1.5 system-ui,sans-serif;max-width:1400px;margin:40px auto;padding:0 24px;color:#182735;background:#f6f8fa}h1{font-size:32px}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;background:white}th,td{padding:8px 10px;border-bottom:1px solid #d9e0e7;text-align:left}th{font-size:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e9eef3;padding:16px}details{margin:12px 0}summary{cursor:pointer;font-weight:600}svg{width:100%;background:white}.scroll{overflow:auto}a{color:#1757b3}.status{font-size:22px;font-weight:650}</style>
+  <h1>Sailing simulator evaluation</h1><p class="status">evaluation incomplete</p>
+  <p>2026-10-05T00:06:33.132Z · source 5ee3bb368410 · quick · <a href="report.json">JSON report</a></p>
+  <p>Timing runs use a visible browser and the desktop GPU. Completed canvas frames observed at requestAnimationFrame are a response proxy; physical monitor presentation is not measured. Default workloads differ between editions. Profiled runs are excluded from timing comparisons.</p>
+  <h2>Checks and remaining coverage</h2><pre>{
+  &quot;checks&quot;: [
+    {
+      &quot;name&quot;: &quot;evaluation-tests&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 0.325,
+      &quot;log&quot;: &quot;evaluation-tests.log&quot;
+    },
+    {
+      &quot;name&quot;: &quot;2010-hud&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 61.987,
+      &quot;log&quot;: &quot;2010-hud.log&quot;
+    },
+    {
+      &quot;name&quot;: &quot;canvas-parity&quot;,
+      &quot;passed&quot;: true,
+      &quot;exitCode&quot;: 0,
+      &quot;durationSeconds&quot;: 48.229,
+      &quot;log&quot;: &quot;canvas-parity.log&quot;
+    }
+  ],
+  &quot;coverage&quot;: {
+    &quot;throughput&quot;: &quot;8 sequential headed runs&quot;,
+    &quot;inputResponse&quot;: &quot;12 trusted camera clicks per run; changed completed canvas frame observed at rAF&quot;,
+    &quot;actualCanvasParity&quot;: &quot;passed: real Canvas exact/smooth engine trace comparison&quot;,
+    &quot;longRaceFinish&quot;: &quot;not evaluated by the quick suite&quot;,
+    &quot;physicalDisplayLatency&quot;: &quot;not measured&quot;,
+    &quot;native2010&quot;: &quot;existing finite reference tests; no new native capture&quot;
+  },
+  &quot;failures&quot;: [
+    &quot;Error: Comparison is invalid; see comparison evidence\n    at file:///home/martin/tact/tools/evaluate.js:174:62&quot;
+  ]
+}</pre>
+  <h2>Measurements</h2><p>Durations and response are milliseconds. FPS counts distinct completed canvas frames seen by the observer; simulation rate is simulated seconds per wall second.</p>
+  <div class="scroll"><table><thead><tr><th>Scenario</th><th>Edition</th><th>Repeat</th><th>Validity</th><th>Paint p95</th><th>Content interval p95</th><th>Content interval p99</th><th>Content FPS</th><th>Simulation rate</th><th>Input response p95</th><th>Evidence</th></tr></thead><tbody><tr><td>matched-round-lake-15</td><td>2002</td><td>1</td>
+      <td>valid</td><td>298.80</td><td>315.00</td>
+      <td>374.80</td><td>4.31</td>
+      <td>1.10</td><td>514.50</td>
+      <td><a href="matched-round-lake-15-2002-1/run.json">raw</a></td></tr><tr><td>matched-round-lake-15</td><td>2010</td><td>1</td>
+      <td>valid</td><td>357.60</td><td>360.60</td>
+      <td>381.30</td><td>4.35</td>
+      <td>0.75</td><td>1368.00</td>
+      <td><a href="matched-round-lake-15-2010-1/run.json">raw</a></td></tr><tr><td>matched-round-lake-15</td><td>2010</td><td>2</td>
+      <td>valid</td><td>186.10</td><td>188.40</td>
+      <td>196.10</td><td>5.81</td>
+      <td>1.01</td><td>570.70</td>
+      <td><a href="matched-round-lake-15-2010-2/run.json">raw</a></td></tr><tr><td>matched-round-lake-15</td><td>2002</td><td>2</td>
+      <td>valid</td><td>256.00</td><td>263.80</td>
+      <td>306.80</td><td>5.70</td>
+      <td>1.45</td><td>2222.60</td>
+      <td><a href="matched-round-lake-15-2002-2/run.json">raw</a></td></tr><tr><td>default-speed-10</td><td>2002</td><td>1</td>
+      <td>valid</td><td>147.60</td><td>151.80</td>
+      <td>154.80</td><td>7.04</td>
+      <td>1.79</td><td>438.00</td>
+      <td><a href="default-speed-10-2002-1/run.json">raw</a></td></tr><tr><td>default-speed-10</td><td>2010</td><td>1</td>
+      <td>valid</td><td>185.40</td><td>187.10</td>
+      <td>193.60</td><td>5.71</td>
+      <td>0.75</td><td>582.00</td>
+      <td><a href="default-speed-10-2010-1/run.json">raw</a></td></tr><tr><td>default-speed-10</td><td>2010</td><td>2</td>
+      <td>valid</td><td>190.20</td><td>191.40</td>
+      <td>200.40</td><td>5.67</td>
+      <td>0.75</td><td>609.10</td>
+      <td><a href="default-speed-10-2010-2/run.json">raw</a></td></tr><tr><td>default-speed-10</td><td>2002</td><td>2</td>
+      <td>valid</td><td>145.70</td><td>152.60</td>
+      <td>166.20</td><td>7.06</td>
+      <td>1.80</td><td>474.70</td>
+      <td><a href="default-speed-10-2002-2/run.json">raw</a></td></tr></tbody></table></div>
+  <h2>Comparison against 2002</h2><p>Median of the per-run tail measurements. Target ratio ≤1.10×; lower is better. Variable repeats have a range larger than 20% of their median.</p>
+  <div class="scroll"><table><thead><tr><th>Scenario</th><th>Metric</th><th>2002 (ms)</th><th>2010 (ms)</th><th>Ratio</th><th>Target</th></tr></thead><tbody><tr><td>matched-round-lake-15</td><td>paintDuration.p95</td><td>277.40</td><td>271.85</td><td>0.98×</td><td>met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>paintDuration.p99</td><td>336.35</td><td>287.20</td><td>0.85×</td><td>met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>paintInterval.p95</td><td>289.50</td><td>273.55</td><td>0.94×</td><td>met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>paintInterval.p99</td><td>340.45</td><td>288.45</td><td>0.85×</td><td>met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>contentInterval.p95</td><td>289.40</td><td>274.50</td><td>0.95×</td><td>met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>contentInterval.p99</td><td>340.80</td><td>288.70</td><td>0.85×</td><td>met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>inputLatency.p95</td><td>1368.55</td><td>969.35</td><td>0.71×</td><td>not_met · variable repeats</td></tr><tr><td>matched-round-lake-15</td><td>inputLatency.p99</td><td>1368.55</td><td>969.35</td><td>0.71×</td><td>met · variable repeats</td></tr><tr><td>default-speed-10</td><td>paintDuration.p95</td><td>146.65</td><td>187.80</td><td>1.28×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>paintDuration.p99</td><td>155.50</td><td>195.90</td><td>1.26×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>paintInterval.p95</td><td>153.85</td><td>189.70</td><td>1.23×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>paintInterval.p99</td><td>159.85</td><td>196.95</td><td>1.23×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>contentInterval.p95</td><td>152.20</td><td>189.25</td><td>1.24×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>contentInterval.p99</td><td>160.50</td><td>197.00</td><td>1.23×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>inputLatency.p95</td><td>456.35</td><td>595.55</td><td>1.31×</td><td>not_met</td></tr><tr><td>default-speed-10</td><td>inputLatency.p99</td><td>456.35</td><td>595.55</td><td>1.31×</td><td>not_met</td></tr></tbody></table></div>
+  <details><summary>Comparison evidence and repeat ranges</summary><pre>{
+  &quot;format&quot;: 1,
+  &quot;verdict&quot;: &quot;invalid&quot;,
+  &quot;provisional&quot;: true,
+  &quot;maxRatio&quot;: 1.1,
+  &quot;scope&quot;: &quot;Measured comparable p95/p99 timing metrics only; no complete-goal or physical-presentation claim.&quot;,
+  &quot;aggregation&quot;: &quot;Median of per-run quantiles; empirical repeat range is not a confidence interval.&quot;,
+  &quot;physicalPresentationMeasured&quot;: false,
+  &quot;errors&quot;: [],
+  &quot;groups&quot;: [
+    {
+      &quot;scenario&quot;: &quot;matched-round-lake-15&quot;,
+      &quot;baselineEdition&quot;: &quot;2002&quot;,
+      &quot;candidateEdition&quot;: &quot;2010&quot;,
+      &quot;verdict&quot;: &quot;not_met&quot;,
+      &quot;provisional&quot;: true,
+      &quot;errors&quot;: [],
+      &quot;metrics&quot;: [
+        {
+          &quot;metric&quot;: &quot;paintDuration.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 277.3999999985099,
+            &quot;min&quot;: 256,
+            &quot;max&quot;: 298.79999999701977,
+            &quot;values&quot;: [
+              298.79999999701977,
+              256
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 271.8500000089407,
+            &quot;min&quot;: 186.1000000089407,
+            &quot;max&quot;: 357.6000000089407,
+            &quot;values&quot;: [
+              357.6000000089407,
+              186.1000000089407
+            ]
+          },
+          &quot;ratio&quot;: 0.9799927902321593,
+          &quot;conservativeRatio&quot;: 1.3968750000349246,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.6228246318969105,
+            &quot;max&quot;: 1.3968750000349246
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.15428983416456266,
+            &quot;candidate&quot;: 0.6308626080351651
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;paintDuration.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 336.34999999403954,
+            &quot;min&quot;: 301.79999999701977,
+            &quot;max&quot;: 370.8999999910593,
+            &quot;values&quot;: [
+              370.8999999910593,
+              301.79999999701977
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 287.19999999552965,
+            &quot;min&quot;: 195,
+            &quot;max&quot;: 379.3999999910593,
+            &quot;values&quot;: [
+              379.3999999910593,
+              195
+            ]
+          },
+          &quot;ratio&quot;: 0.8538724542905282,
+          &quot;conservativeRatio&quot;: 1.2571239231106885,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.5257481801151269,
+            &quot;max&quot;: 1.2571239231106885
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.20544076109785658,
+            &quot;candidate&quot;: 0.6420612813159107
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;paintInterval.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 289.5,
+            &quot;min&quot;: 263.70000000298023,
+            &quot;max&quot;: 315.29999999701977,
+            &quot;values&quot;: [
+              315.29999999701977,
+              263.70000000298023
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 273.55000000447035,
+            &quot;min&quot;: 188.40000000596046,
+            &quot;max&quot;: 358.70000000298023,
+            &quot;values&quot;: [
+              358.70000000298023,
+              188.40000000596046
+            ]
+          },
+          &quot;ratio&quot;: 0.9449050086510202,
+          &quot;conservativeRatio&quot;: 1.3602578687862206,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.5975261655811647,
+            &quot;max&quot;: 1.3602578687862206
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.17823834194832308,
+            &quot;candidate&quot;: 0.6225552915161277
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;paintInterval.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 340.44999999552965,
+            &quot;min&quot;: 306,
+            &quot;max&quot;: 374.8999999910593,
+            &quot;values&quot;: [
+              374.8999999910593,
+              306
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 288.44999999552965,
+            &quot;min&quot;: 196,
+            &quot;max&quot;: 380.8999999910593,
+            &quot;values&quot;: [
+              380.8999999910593,
+              196
+            ]
+          },
+          &quot;ratio&quot;: 0.8472609781151923,
+          &quot;conservativeRatio&quot;: 1.2447712418008474,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.5228060816342338,
+            &quot;max&quot;: 1.2447712418008474
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.20237920397110884,
+            &quot;candidate&quot;: 0.6410123071378917
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;contentInterval.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 289.3999999985099,
+            &quot;min&quot;: 263.79999999701977,
+            &quot;max&quot;: 315,
+            &quot;values&quot;: [
+              315,
+              263.79999999701977
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 274.5,
+            &quot;min&quot;: 188.40000000596046,
+            &quot;max&quot;: 360.59999999403954,
+            &quot;values&quot;: [
+              360.59999999403954,
+              188.40000000596046
+            ]
+          },
+          &quot;ratio&quot;: 0.9485141672474547,
+          &quot;conservativeRatio&quot;: 1.3669446550345463,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.5980952381141602,
+            &quot;max&quot;: 1.3669446550345463
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.17691776089579772,
+            &quot;candidate&quot;: 0.6273224043281569
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;contentInterval.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 340.79999999701977,
+            &quot;min&quot;: 306.79999999701977,
+            &quot;max&quot;: 374.79999999701977,
+            &quot;values&quot;: [
+              374.79999999701977,
+              306.79999999701977
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 288.69999999552965,
+            &quot;min&quot;: 196.09999999403954,
+            &quot;max&quot;: 381.29999999701977,
+            &quot;values&quot;: [
+              381.29999999701977,
+              196.09999999403954
+            ]
+          },
+          &quot;ratio&quot;: 0.8471244131398307,
+          &quot;conservativeRatio&quot;: 1.2428292046959704,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.5232123799242231,
+            &quot;max&quot;: 1.2428292046959704
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.19953051643366973,
+            &quot;candidate&quot;: 0.6414963630268373
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;inputLatency.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 1368.5500000044703,
+            &quot;min&quot;: 514.5,
+            &quot;max&quot;: 2222.6000000089407,
+            &quot;values&quot;: [
+              514.5,
+              2222.6000000089407
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 969.3500000014901,
+            &quot;min&quot;: 570.7000000029802,
+            &quot;max&quot;: 1368,
+            &quot;values&quot;: [
+              1368,
+              570.7000000029802
+            ]
+          },
+          &quot;ratio&quot;: 0.7083044097755462,
+          &quot;conservativeRatio&quot;: 2.6588921282798834,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.25677134887099995,
+            &quot;max&quot;: 2.6588921282798834
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 1.2481093127787521,
+            &quot;candidate&quot;: 0.822509929329751
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: 100,
+          &quot;absoluteVerdict&quot;: &quot;not_met&quot;,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: true
+        },
+        {
+          &quot;metric&quot;: &quot;inputLatency.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 1368.5500000044703,
+            &quot;min&quot;: 514.5,
+            &quot;max&quot;: 2222.6000000089407,
+            &quot;values&quot;: [
+              514.5,
+              2222.6000000089407
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 969.3500000014901,
+            &quot;min&quot;: 570.7000000029802,
+            &quot;max&quot;: 1368,
+            &quot;values&quot;: [
+              1368,
+              570.7000000029802
+            ]
+          },
+          &quot;ratio&quot;: 0.7083044097755462,
+          &quot;conservativeRatio&quot;: 2.6588921282798834,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 0.25677134887099995,
+            &quot;max&quot;: 2.6588921282798834
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 1.2481093127787521,
+            &quot;candidate&quot;: 0.822509929329751
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;met&quot;,
+          &quot;provisional&quot;: true
+        }
+      ],
+      &quot;latency&quot;: {
+        &quot;availability&quot;: &quot;available&quot;,
+        &quot;kind&quot;: &quot;trusted pointer event to changed completed canvas frame observed at rAF&quot;,
+        &quot;physicalPresentationMeasured&quot;: false
+      },
+      &quot;nativeDt&quot;: {
+        &quot;baseline&quot;: 0.25480153593469845,
+        &quot;candidate&quot;: 0.17326504443559496,
+        &quot;baselinePerRun&quot;: [
+          0.25480153593469845,
+          0.25480153593469845
+        ],
+        &quot;candidatePerRun&quot;: [
+          0.17326504443559496,
+          0.17326504443559496
+        ]
+      }
+    },
+    {
+      &quot;scenario&quot;: &quot;default-speed-10&quot;,
+      &quot;baselineEdition&quot;: &quot;2002&quot;,
+      &quot;candidateEdition&quot;: &quot;2010&quot;,
+      &quot;verdict&quot;: &quot;not_met&quot;,
+      &quot;provisional&quot;: false,
+      &quot;errors&quot;: [],
+      &quot;metrics&quot;: [
+        {
+          &quot;metric&quot;: &quot;paintDuration.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 146.65000000596046,
+            &quot;min&quot;: 145.70000000298023,
+            &quot;max&quot;: 147.6000000089407,
+            &quot;values&quot;: [
+              147.6000000089407,
+              145.70000000298023
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 187.80000000447035,
+            &quot;min&quot;: 185.40000000596046,
+            &quot;max&quot;: 190.20000000298023,
+            &quot;values&quot;: [
+              185.40000000596046,
+              190.20000000298023
+            ]
+          },
+          &quot;ratio&quot;: 1.2806000681680012,
+          &quot;conservativeRatio&quot;: 1.3054221001996553,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.2560975609399057,
+            &quot;max&quot;: 1.3054221001996553
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.012956017769404983,
+            &quot;candidate&quot;: 0.02555910541483232
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;paintDuration.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 155.5,
+            &quot;min&quot;: 152.20000000298023,
+            &quot;max&quot;: 158.79999999701977,
+            &quot;values&quot;: [
+              152.20000000298023,
+              158.79999999701977
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 195.89999999850988,
+            &quot;min&quot;: 192.6000000089407,
+            &quot;max&quot;: 199.19999998807907,
+            &quot;values&quot;: [
+              192.6000000089407,
+              199.19999998807907
+            ]
+          },
+          &quot;ratio&quot;: 1.2598070739454013,
+          &quot;conservativeRatio&quot;: 1.308804204889478,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.2128463476861162,
+            &quot;max&quot;: 1.308804204889478
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.04244372986520602,
+            &quot;candidate&quot;: 0.033690658392999374
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;paintInterval.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 153.85000000149012,
+            &quot;min&quot;: 153.29999999701977,
+            &quot;max&quot;: 154.40000000596046,
+            &quot;values&quot;: [
+              154.40000000596046,
+              153.29999999701977
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 189.69999999552965,
+            &quot;min&quot;: 186.79999999701977,
+            &quot;max&quot;: 192.59999999403954,
+            &quot;values&quot;: [
+              186.79999999701977,
+              192.59999999403954
+            ]
+          },
+          &quot;ratio&quot;: 1.233019174479638,
+          &quot;conservativeRatio&quot;: 1.2563600782634297,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.2098445595194853,
+            &quot;max&quot;: 1.2563600782634297
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.0071498213125124645,
+            &quot;candidate&quot;: 0.03057459144521058
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;paintInterval.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 159.85000000149012,
+            &quot;min&quot;: 156.1000000089407,
+            &quot;max&quot;: 163.59999999403954,
+            &quot;values&quot;: [
+              156.1000000089407,
+              163.59999999403954
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 196.94999999552965,
+            &quot;min&quot;: 193.70000000298023,
+            &quot;max&quot;: 200.19999998807907,
+            &quot;values&quot;: [
+              193.70000000298023,
+              200.19999998807907
+            ]
+          },
+          &quot;ratio&quot;: 1.2320925867606738,
+          &quot;conservativeRatio&quot;: 1.2825112106125083,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.1839853301347025,
+            &quot;max&quot;: 1.2825112106125083
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.04691898645623349,
+            &quot;candidate&quot;: 0.03300330025512249
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;contentInterval.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 152.20000000298023,
+            &quot;min&quot;: 151.80000001192093,
+            &quot;max&quot;: 152.59999999403954,
+            &quot;values&quot;: [
+              151.80000001192093,
+              152.59999999403954
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 189.25,
+            &quot;min&quot;: 187.09999999403954,
+            &quot;max&quot;: 191.40000000596046,
+            &quot;values&quot;: [
+              187.09999999403954,
+              191.40000000596046
+            ]
+          },
+          &quot;ratio&quot;: 1.2434296977417496,
+          &quot;conservativeRatio&quot;: 1.2608695651576398,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.2260812582001805,
+            &quot;max&quot;: 1.2608695651576398
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.005256241669533126,
+            &quot;candidate&quot;: 0.02272126822679487
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;contentInterval.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 160.50000000745058,
+            &quot;min&quot;: 154.80000001192093,
+            &quot;max&quot;: 166.20000000298023,
+            &quot;values&quot;: [
+              154.80000001192093,
+              166.20000000298023
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 197,
+            &quot;min&quot;: 193.6000000089407,
+            &quot;max&quot;: 200.3999999910593,
+            &quot;values&quot;: [
+              193.6000000089407,
+              200.3999999910593
+            ]
+          },
+          &quot;ratio&quot;: 1.2274143301610907,
+          &quot;conservativeRatio&quot;: 1.294573643253403,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.1648616125479492,
+            &quot;max&quot;: 1.294573643253403
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.07102803732417509,
+            &quot;candidate&quot;: 0.034517766406693434
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;inputLatency.p95&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 456.3500000014901,
+            &quot;min&quot;: 438,
+            &quot;max&quot;: 474.70000000298023,
+            &quot;values&quot;: [
+              438,
+              474.70000000298023
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 595.5500000044703,
+            &quot;min&quot;: 582,
+            &quot;max&quot;: 609.1000000089407,
+            &quot;values&quot;: [
+              582,
+              609.1000000089407
+            ]
+          },
+          &quot;ratio&quot;: 1.305029034737648,
+          &quot;conservativeRatio&quot;: 1.3906392694268053,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.2260374973590606,
+            &quot;max&quot;: 1.3906392694268053
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.08042072970934676,
+            &quot;candidate&quot;: 0.04550415583702003
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: 100,
+          &quot;absoluteVerdict&quot;: &quot;not_met&quot;,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        },
+        {
+          &quot;metric&quot;: &quot;inputLatency.p99&quot;,
+          &quot;unit&quot;: &quot;milliseconds&quot;,
+          &quot;baseline&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 456.3500000014901,
+            &quot;min&quot;: 438,
+            &quot;max&quot;: 474.70000000298023,
+            &quot;values&quot;: [
+              438,
+              474.70000000298023
+            ]
+          },
+          &quot;candidate&quot;: {
+            &quot;runCount&quot;: 2,
+            &quot;median&quot;: 595.5500000044703,
+            &quot;min&quot;: 582,
+            &quot;max&quot;: 609.1000000089407,
+            &quot;values&quot;: [
+              582,
+              609.1000000089407
+            ]
+          },
+          &quot;ratio&quot;: 1.305029034737648,
+          &quot;conservativeRatio&quot;: 1.3906392694268053,
+          &quot;observedRatioRange&quot;: {
+            &quot;min&quot;: 1.2260374973590606,
+            &quot;max&quot;: 1.3906392694268053
+          },
+          &quot;repeatSpread&quot;: {
+            &quot;baseline&quot;: 0.08042072970934676,
+            &quot;candidate&quot;: 0.04550415583702003
+          },
+          &quot;maxRatio&quot;: 1.1,
+          &quot;relativeVerdict&quot;: &quot;not_met&quot;,
+          &quot;absoluteThresholdMs&quot;: null,
+          &quot;absoluteVerdict&quot;: null,
+          &quot;verdict&quot;: &quot;not_met&quot;,
+          &quot;provisional&quot;: false
+        }
+      ],
+      &quot;latency&quot;: {
+        &quot;availability&quot;: &quot;available&quot;,
+        &quot;kind&quot;: &quot;trusted pointer event to changed completed canvas frame observed at rAF&quot;,
+        &quot;physicalPresentationMeasured&quot;: false
+      },
+      &quot;nativeDt&quot;: {
+        &quot;baseline&quot;: 0.25480153593469845,
+        &quot;candidate&quot;: 0.20384122874775878,
+        &quot;baselinePerRun&quot;: [
+          0.25480153593469845,
+          0.25480153593469845
+        ],
+        &quot;candidatePerRun&quot;: [
+          0.20384122874775878,
+          0.20384122874775878
+        ]
+      }
+    }
+  ],
+  &quot;context&quot;: {
+    &quot;valid&quot;: false,
+    &quot;errors&quot;: [
+      {
+        &quot;code&quot;: &quot;context_mismatch&quot;,
+        &quot;message&quot;: &quot;Actual browser, GPU, window, viewport, canvas or simulator dimensions differ.&quot;,
+        &quot;arm&quot;: &quot;candidate&quot;,
+        &quot;index&quot;: 0,
+        &quot;scenario&quot;: &quot;matched-round-lake-15&quot;
+      },
+      {
+        &quot;code&quot;: &quot;context_mismatch&quot;,
+        &quot;message&quot;: &quot;Actual browser, GPU, window, viewport, canvas or simulator dimensions differ.&quot;,
+        &quot;arm&quot;: &quot;candidate&quot;,
+        &quot;index&quot;: 1,
+        &quot;scenario&quot;: &quot;matched-round-lake-15&quot;
+      },
+      {
+        &quot;code&quot;: &quot;context_mismatch&quot;,
+        &quot;message&quot;: &quot;Actual browser, GPU, window, viewport, canvas or simulator dimensions differ.&quot;,
+        &quot;arm&quot;: &quot;candidate&quot;,
+        &quot;index&quot;: 2,
+        &quot;scenario&quot;: &quot;default-speed-10&quot;
+      },
+      {
+        &quot;code&quot;: &quot;context_mismatch&quot;,
+        &quot;message&quot;: &quot;Actual browser, GPU, window, viewport, canvas or simulator dimensions differ.&quot;,
+        &quot;arm&quot;: &quot;candidate&quot;,
+        &quot;index&quot;: 3,
+        &quot;scenario&quot;: &quot;default-speed-10&quot;
+      }
+    ],
+    &quot;contexts&quot;: [
+      {
+        &quot;scenario&quot;: &quot;matched-round-lake-15&quot;,
+        &quot;browser&quot;: {
+          &quot;product&quot;: &quot;Chrome/152.0.7977.82&quot;,
+          &quot;revision&quot;: &quot;@d04cdb24d67b081f6cf80200ffc5233f44b61109&quot;,
+          &quot;jsVersion&quot;: &quot;15.2.124.21&quot;,
+          &quot;protocolVersion&quot;: &quot;1.3&quot;
+        },
+        &quot;gpu&quot;: {
+          &quot;devices&quot;: [
+            {
+              &quot;vendorId&quot;: 4098,
+              &quot;deviceId&quot;: 29822,
+              &quot;vendorString&quot;: &quot;Google Inc. (AMD)&quot;,
+              &quot;deviceString&quot;: &quot;ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)&quot;,
+              &quot;driverVendor&quot;: &quot;Mesa&quot;,
+              &quot;driverVersion&quot;: &quot;26.1.8&quot;
+            }
+          ],
+          &quot;featureStatus&quot;: {
+            &quot;2d_canvas&quot;: &quot;enabled&quot;,
+            &quot;direct_rendering_display_compositor&quot;: &quot;disabled_off_ok&quot;,
+            &quot;gpu_compositing&quot;: &quot;enabled&quot;,
+            &quot;multiple_raster_threads&quot;: &quot;enabled_on&quot;,
+            &quot;opengl&quot;: &quot;enabled_on&quot;,
+            &quot;rasterization&quot;: &quot;enabled&quot;,
+            &quot;raw_draw&quot;: &quot;disabled_off_ok&quot;,
+            &quot;skia_graphite&quot;: &quot;disabled_off&quot;,
+            &quot;trees_in_viz&quot;: &quot;disabled_off&quot;,
+            &quot;video_decode&quot;: &quot;enabled&quot;,
+            &quot;video_encode&quot;: &quot;disabled_software&quot;,
+            &quot;vulkan&quot;: &quot;disabled_off&quot;,
+            &quot;webgl&quot;: &quot;enabled&quot;,
+            &quot;webgpu&quot;: &quot;enabled&quot;,
+            &quot;webgpu_on_vk_via_gl_interop&quot;: &quot;disabled_off&quot;,
+            &quot;webnn&quot;: &quot;disabled_off&quot;
+          },
+          &quot;auxiliary&quot;: {
+            &quot;glRenderer&quot;: &quot;ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)&quot;,
+            &quot;glVendor&quot;: &quot;Google Inc. (AMD)&quot;,
+            &quot;glVersion&quot;: &quot;OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)&quot;,
+            &quot;glImplementationParts&quot;: &quot;(gl=egl-angle,angle=opengl)&quot;,
+            &quot;displayType&quot;: &quot;ANGLE_OPENGL&quot;,
+            &quot;inProcessGpu&quot;: false,
+            &quot;passthroughCmdDecoder&quot;: true
+          }
+        },
+        &quot;window&quot;: {
+          &quot;width&quot;: 1280,
+          &quot;height&quot;: 1050
+        },
+        &quot;viewport&quot;: {
+          &quot;width&quot;: 1280,
+          &quot;height&quot;: 1050,
+          &quot;outerWidth&quot;: 1280,
+          &quot;outerHeight&quot;: 1050,
+          &quot;devicePixelRatio&quot;: 1
+        },
+        &quot;canvas&quot;: {
+          &quot;width&quot;: 1024,
+          &quot;height&quot;: 730,
+          &quot;cssWidth&quot;: 1028,
+          &quot;cssHeight&quot;: 732.84375
+        },
+        &quot;dimensions&quot;: {
+          &quot;width&quot;: 1024,
+          &quot;height&quot;: 768,
+          &quot;bitsPixel&quot;: 24
+        }
+      },
+      {
+        &quot;scenario&quot;: &quot;default-speed-10&quot;,
+        &quot;browser&quot;: {
+          &quot;product&quot;: &quot;Chrome/152.0.7977.82&quot;,
+          &quot;revision&quot;: &quot;@d04cdb24d67b081f6cf80200ffc5233f44b61109&quot;,
+          &quot;jsVersion&quot;: &quot;15.2.124.21&quot;,
+          &quot;protocolVersion&quot;: &quot;1.3&quot;
+        },
+        &quot;gpu&quot;: {
+          &quot;devices&quot;: [
+            {
+              &quot;vendorId&quot;: 4098,
+              &quot;deviceId&quot;: 29822,
+              &quot;vendorString&quot;: &quot;Google Inc. (AMD)&quot;,
+              &quot;deviceString&quot;: &quot;ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)&quot;,
+              &quot;driverVendor&quot;: &quot;Mesa&quot;,
+              &quot;driverVersion&quot;: &quot;26.1.8&quot;
+            }
+          ],
+          &quot;featureStatus&quot;: {
+            &quot;2d_canvas&quot;: &quot;enabled&quot;,
+            &quot;direct_rendering_display_compositor&quot;: &quot;disabled_off_ok&quot;,
+            &quot;gpu_compositing&quot;: &quot;enabled&quot;,
+            &quot;multiple_raster_threads&quot;: &quot;enabled_on&quot;,
+            &quot;opengl&quot;: &quot;enabled_on&quot;,
+            &quot;rasterization&quot;: &quot;enabled&quot;,
+            &quot;raw_draw&quot;: &quot;disabled_off_ok&quot;,
+            &quot;skia_graphite&quot;: &quot;disabled_off&quot;,
+            &quot;trees_in_viz&quot;: &quot;disabled_off&quot;,
+            &quot;video_decode&quot;: &quot;enabled&quot;,
+            &quot;video_encode&quot;: &quot;disabled_software&quot;,
+            &quot;vulkan&quot;: &quot;disabled_off&quot;,
+            &quot;webgl&quot;: &quot;enabled&quot;,
+            &quot;webgpu&quot;: &quot;enabled&quot;,
+            &quot;webgpu_on_vk_via_gl_interop&quot;: &quot;disabled_off&quot;,
+            &quot;webnn&quot;: &quot;disabled_off&quot;
+          },
+          &quot;auxiliary&quot;: {
+            &quot;glRenderer&quot;: &quot;ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)&quot;,
+            &quot;glVendor&quot;: &quot;Google Inc. (AMD)&quot;,
+            &quot;glVersion&quot;: &quot;OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)&quot;,
+            &quot;glImplementationParts&quot;: &quot;(gl=egl-angle,angle=opengl)&quot;,
+            &quot;displayType&quot;: &quot;ANGLE_OPENGL&quot;,
+            &quot;inProcessGpu&quot;: false,
+            &quot;passthroughCmdDecoder&quot;: true
+          }
+        },
+        &quot;window&quot;: {
+          &quot;width&quot;: 1280,
+          &quot;height&quot;: 1050
+        },
+        &quot;viewport&quot;: {
+          &quot;width&quot;: 1280,
+          &quot;height&quot;: 1050,
+          &quot;outerWidth&quot;: 1280,
+          &quot;outerHeight&quot;: 1050,
+          &quot;devicePixelRatio&quot;: 1
+        },
+        &quot;canvas&quot;: {
+          &quot;width&quot;: 1024,
+          &quot;height&quot;: 730,
+          &quot;cssWidth&quot;: 1028,
+          &quot;cssHeight&quot;: 732.84375
+        },
+        &quot;dimensions&quot;: {
+          &quot;width&quot;: 1024,
+          &quot;height&quot;: 768,
+          &quot;bitsPixel&quot;: 24
+        }
+      }
+    ],
+    &quot;moduleSets&quot;: [
+      {
+        &quot;arm&quot;: &quot;baseline&quot;,
+        &quot;edition&quot;: &quot;2002&quot;,
+        &quot;scenario&quot;: &quot;matched-round-lake-15&quot;,
+        &quot;modules&quot;: [
+          {
+            &quot;path&quot;: &quot;/src/engine/ai-tactics.js&quot;,
+            &quot;bytes&quot;: 11734,
+            &quot;sha256&quot;: &quot;503f7ac40c07a5773ab9091a2217e274809a54564488aad89b823ee6f1555b8a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/ai.js&quot;,
+            &quot;bytes&quot;: 11406,
+            &quot;sha256&quot;: &quot;f1e8907402b02456e4b04e331b1fcb909a5228b5e145551e9f3efe2b358d5161&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/angles.js&quot;,
+            &quot;bytes&quot;: 1235,
+            &quot;sha256&quot;: &quot;389f29fb3bb74729d5acb8717c556eca2c765d2ed230f111560ad52a1e199612&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/apparent-wind.js&quot;,
+            &quot;bytes&quot;: 3250,
+            &quot;sha256&quot;: &quot;2724bc885e084a665b78196c86f0138c576f154bef6209d5c55dd9d5b6df8bdd&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/application.js&quot;,
+            &quot;bytes&quot;: 3709,
+            &quot;sha256&quot;: &quot;7bbef48167f8d7586453754c15fca2e4f89892bf0f10270d68238d314c215d00&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/avoidance.js&quot;,
+            &quot;bytes&quot;: 10693,
+            &quot;sha256&quot;: &quot;760e14accc316c8df0c2e8a58eeb5c5949850eecbd7fd51f276e8fa79c7357ad&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/boat-dynamics.js&quot;,
+            &quot;bytes&quot;: 20207,
+            &quot;sha256&quot;: &quot;3582edad20d4549ae2c1a37cb95177fc1dc71c58821068a196353983fc57265d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/boat-options.js&quot;,
+            &quot;bytes&quot;: 7019,
+            &quot;sha256&quot;: &quot;404f97776d9fc9b4310f638fc6f71f6ffef80dd89ab6ecff0f321029a677752c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/boat-sway.js&quot;,
+            &quot;bytes&quot;: 1091,
+            &quot;sha256&quot;: &quot;0c43bd19564e09fad2d366caac92ebbfc040a187c74e11798ea51add6e1fd8f7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/course.js&quot;,
+            &quot;bytes&quot;: 9113,
+            &quot;sha256&quot;: &quot;46c05aee10c506bee8fe12d886125163999af46eb3c509a29040462bf024d249&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/current.js&quot;,
+            &quot;bytes&quot;: 15785,
+            &quot;sha256&quot;: &quot;e0b2c66c1b9948679464e474720023605684848170ac539cffa5243d30548777&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/dialogs.js&quot;,
+            &quot;bytes&quot;: 1531,
+            &quot;sha256&quot;: &quot;ba338295fdd6f021423592eb45f8d3d8485a9d9b1f927afb0c237d117d78aa5b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/encounter-geometry.js&quot;,
+            &quot;bytes&quot;: 3328,
+            &quot;sha256&quot;: &quot;36e2e9cf5fe58776dec87006502e223605c209878568e78b206b590c41e43b04&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/frame.js&quot;,
+            &quot;bytes&quot;: 3005,
+            &quot;sha256&quot;: &quot;76914cf894b82a8d98d68c8e5fe3bd57a690bd6ff4a657c19d1ad0d9185ab472&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/helpers.js&quot;,
+            &quot;bytes&quot;: 4993,
+            &quot;sha256&quot;: &quot;c2384785ed0c7c398de322c9e9bc95c15ec50fc300230953950c6d8097f7c438&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/hud-state.js&quot;,
+            &quot;bytes&quot;: 3603,
+            &quot;sha256&quot;: &quot;10f985271fcbdaf09e9296279548ff7ca26cfe08ba12256760b80758437021a7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/hull-geometry.js&quot;,
+            &quot;bytes&quot;: 4633,
+            &quot;sha256&quot;: &quot;9e118f92cda0cb0257afb97e5cc35f9aa3f54d49a382b6fe255def1278a27454&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/initialization.js&quot;,
+            &quot;bytes&quot;: 14706,
+            &quot;sha256&quot;: &quot;020a8af83da5e59b678e64b15d49a224d8a571724b193e6905a70207553dea5c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/integer-core.js&quot;,
+            &quot;bytes&quot;: 3073,
+            &quot;sha256&quot;: &quot;0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/integration.js&quot;,
+            &quot;bytes&quot;: 14345,
+            &quot;sha256&quot;: &quot;5511b9457ea9914a26ad688f01e0d80722e8181c3d2bd272db9344800929ab8b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/interference.js&quot;,
+            &quot;bytes&quot;: 4580,
+            &quot;sha256&quot;: &quot;7c22bfe461e78af83590c07c4d96a3afcd713140a1c9f8b0072fce859d141f8f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/keyboard.js&quot;,
+            &quot;bytes&quot;: 8855,
+            &quot;sha256&quot;: &quot;ea523d7fdfa2a619d61964b052cd1ac0d0e1291c88971574e9c016fadaeca279&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/menu-controller.js&quot;,
+            &quot;bytes&quot;: 96543,
+            &quot;sha256&quot;: &quot;ff04cdf8660d775a290d24c9e5410de7c3bca79b48db965f84761ea744974335&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/mouse.js&quot;,
+            &quot;bytes&quot;: 1791,
+            &quot;sha256&quot;: &quot;b943d9b71fc0e6ee82619406bb1cca511b260e9c820f30d65d06a50d27043732&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/movement-helpers.js&quot;,
+            &quot;bytes&quot;: 3824,
+            &quot;sha256&quot;: &quot;06d1cfe40c92ff6258782f954c668177874e17021d96a4987e62df17d1c08697&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/native-trig.js&quot;,
+            &quot;bytes&quot;: 4036,
+            &quot;sha256&quot;: &quot;f2dd25e6bb21aa16148f0913268cc7293a35b3e6401ed92c48a159df24c24054&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/penalties.js&quot;,
+            &quot;bytes&quot;: 12316,
+            &quot;sha256&quot;: &quot;7bba8dfe1ba94019f31a7ed7ffd695dc722c38b2ca32b899f31c0bf8bb752717&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/race-targets.js&quot;,
+            &quot;bytes&quot;: 6606,
+            &quot;sha256&quot;: &quot;44cc88a6aa4b238c04b1571344e57157b57545b833e53fa4c78620d52fa57c7c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/snapshot-maps.js&quot;,
+            &quot;bytes&quot;: 11506,
+            &quot;sha256&quot;: &quot;e596af411059fe29ff899dad7ee6dba4d09b27707bd4d5158a7e8e1b0e87f63e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/snapshots.js&quot;,
+            &quot;bytes&quot;: 1525,
+            &quot;sha256&quot;: &quot;ac72cd98399f3eec7478acb147989fadf0087d31ddfb6b342910a90cd1f4bb45&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/spatial-wind.js&quot;,
+            &quot;bytes&quot;: 7918,
+            &quot;sha256&quot;: &quot;c0fbd00243f428a6413d6088925937b83c26d4a0e4280010150bb369ce67fd74&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/steering.js&quot;,
+            &quot;bytes&quot;: 10441,
+            &quot;sha256&quot;: &quot;aec4d9a14ff7641b3ff8deda128d3968b6d647cc32fba1e4bcb592ee77a71216&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/target-bearing.js&quot;,
+            &quot;bytes&quot;: 2322,
+            &quot;sha256&quot;: &quot;a786c02298c81828c46e2ce1684a774fb7ea3e1a4f4bb76049e12656fe0071fc&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/terrain.js&quot;,
+            &quot;bytes&quot;: 16727,
+            &quot;sha256&quot;: &quot;de9fbf81abc94df5298a97b6c1be2c81de681b83bd448199b367e85f04f585a0&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/trails.js&quot;,
+            &quot;bytes&quot;: 1647,
+            &quot;sha256&quot;: &quot;8d6adc3faec257feacf70d5fe7fa86309598dcd307adfa5795996a8f0e14d288&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/upwind-tactics.js&quot;,
+            &quot;bytes&quot;: 16477,
+            &quot;sha256&quot;: &quot;170f25fad82ac72946f7a9c80306ce642366c3006e64c7f32fb1bd41b3352c3c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/wind-initialization.js&quot;,
+            &quot;bytes&quot;: 6413,
+            &quot;sha256&quot;: &quot;8c86b25014263a85061a6d8a14abb0400c094fdacc787188a8fba1df3651985d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/wind.js&quot;,
+            &quot;bytes&quot;: 10436,
+            &quot;sha256&quot;: &quot;20888195418ef4517516ecb5b22a92079ce995549216825d416b9580e0a9d674&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/play.js&quot;,
+            &quot;bytes&quot;: 14632,
+            &quot;sha256&quot;: &quot;a9d5fd4fd5fa1e2a7f812aa629d3301a152129cd46b785817ddb74c91340a1ce&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/bitmap-font.js&quot;,
+            &quot;bytes&quot;: 2799,
+            &quot;sha256&quot;: &quot;d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-details.js&quot;,
+            &quot;bytes&quot;: 15712,
+            &quot;sha256&quot;: &quot;1ac83ae8bbd3c46351aa34c1551bef3a2ad5518a39015cb0bfbbf0c4eca58e94&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-panels.js&quot;,
+            &quot;bytes&quot;: 16410,
+            &quot;sha256&quot;: &quot;47beffd07591895e1281574096e09b78326bd7b5b8e66609fffd5db89c1d37c6&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-primitives.js&quot;,
+            &quot;bytes&quot;: 7005,
+            &quot;sha256&quot;: &quot;8a5e29e957e25a84a8802c6af35da1fbc3220969c8a170781e2fa60825573afe&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-rigging.js&quot;,
+            &quot;bytes&quot;: 9254,
+            &quot;sha256&quot;: &quot;1b9c974586343cc45c4e656fab0513da6cae24d80af5236035224075200b982b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat.js&quot;,
+            &quot;bytes&quot;: 15981,
+            &quot;sha256&quot;: &quot;f120e3fb2d2dbe9ceee3809224014c3202a2b7a422e7e98db3c937b4055695b8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-boat.js&quot;,
+            &quot;bytes&quot;: 9687,
+            &quot;sha256&quot;: &quot;9adbf5bc5ee79af0bfbbd70f3145424db5a8ad886fd07d7b44243d77d175aaef&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-details.js&quot;,
+            &quot;bytes&quot;: 9123,
+            &quot;sha256&quot;: &quot;f16f7ed60cc019f123f80f2c9ec15bd803071f2c73982e5ffcdc79b16ebfa52d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-labels.js&quot;,
+            &quot;bytes&quot;: 4308,
+            &quot;sha256&quot;: &quot;4d3dbc8a24f13b5bf7ba36508e73b1cf96668f9b0fe8733157962a7e49d62cad&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-overlays.js&quot;,
+            &quot;bytes&quot;: 6453,
+            &quot;sha256&quot;: &quot;a1ad0f889fb894b794b15a81b732c4af02949da12475ba9ca20ddb6dbda0e96f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-symbols.js&quot;,
+            &quot;bytes&quot;: 3757,
+            &quot;sha256&quot;: &quot;998b23f53790fb0c5fe87d84ae5a47bd920e726312e8396e2f960f35aecfae97&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-terrain.js&quot;,
+            &quot;bytes&quot;: 5773,
+            &quot;sha256&quot;: &quot;5cddc624eda543c39af917a2a3dd246ff81847db8cf7ab31d020b8fa65e40219&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart.js&quot;,
+            &quot;bytes&quot;: 5388,
+            &quot;sha256&quot;: &quot;dcd47dc4b945dc0eb0f1eb76cf6b060bdbaa807e310f9ec996f5ffc0d8722c2e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/crew-drawing.js&quot;,
+            &quot;bytes&quot;: 5041,
+            &quot;sha256&quot;: &quot;cd296dab673c074cbf8595de9ae51c9beedfc3c974694469a4837ef80bf4f56a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/crew-geometry.js&quot;,
+            &quot;bytes&quot;: 9202,
+            &quot;sha256&quot;: &quot;aa8412e664985ddfff67054aa9d65874b11e2d79df13c9830a1b290aad7d9ddf&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/gdi-objects.js&quot;,
+            &quot;bytes&quot;: 6292,
+            &quot;sha256&quot;: &quot;153aa996c32052347a4c9f1e20ac8f176e8d71008e07a0d970e6dc711b1f51a3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/gdi.js&quot;,
+            &quot;bytes&quot;: 11719,
+            &quot;sha256&quot;: &quot;e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/headsails.js&quot;,
+            &quot;bytes&quot;: 7523,
+            &quot;sha256&quot;: &quot;e2d04d7ee00de7fd03dd6b52759bd69f6acdc50f13e5c8152581299a314f70c1&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/hud.js&quot;,
+            &quot;bytes&quot;: 39721,
+            &quot;sha256&quot;: &quot;fd557ff793727f582eec8366fd4ded08ef8d226e87fc16a8e17c0f2902706250&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/paint-lifecycle.js&quot;,
+            &quot;bytes&quot;: 9376,
+            &quot;sha256&quot;: &quot;0322085f7343502cff3c47e609e553bb007ff0c206a21b592ba7517aa4022905&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/projection.js&quot;,
+            &quot;bytes&quot;: 7386,
+            &quot;sha256&quot;: &quot;2df72c858e98745c771a943b599d87ec2fd693e6f8783932e7dd9fb98d8f8822&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/sail-geometry.js&quot;,
+            &quot;bytes&quot;: 10040,
+            &quot;sha256&quot;: &quot;a80ef9f7b2d5f9da4b67c9de09656e8792a8cb295b99759db36078b319ceb61b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/scene-objects.js&quot;,
+            &quot;bytes&quot;: 7625,
+            &quot;sha256&quot;: &quot;379737b102e37c11bc2da72678c7f7636ce309807f2a980c1a4eeb4e73c21fec&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/scene-wind.js&quot;,
+            &quot;bytes&quot;: 2931,
+            &quot;sha256&quot;: &quot;c77c9c371c6f02ebdb745ca30b0692ec957544bd36c95978426cdae58d5c5fcd&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/scene.js&quot;,
+            &quot;bytes&quot;: 9430,
+            &quot;sha256&quot;: &quot;6d53f987449828b7200d4db3667320a5e1ad881386c22d661f318b75b2f29980&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/screens.js&quot;,
+            &quot;bytes&quot;: 22716,
+            &quot;sha256&quot;: &quot;f38b7c23067a4f31c9fab3e825cbba1157441a201a779278095a505589cdf141&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/shore-stack.js&quot;,
+            &quot;bytes&quot;: 656,
+            &quot;sha256&quot;: &quot;9ac426f85d71da8242cb82cfa70a9b2b5ce212a51e35ae2c18d01d1e129b6f9f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/shore.js&quot;,
+            &quot;bytes&quot;: 25810,
+            &quot;sha256&quot;: &quot;f0533c2480c0ec0882c2f488b46eb38169adc11ea9d1e2885d72f80ce36ca30e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/sky.js&quot;,
+            &quot;bytes&quot;: 2378,
+            &quot;sha256&quot;: &quot;0adff077a05846fc114cf7350e70f83618806270d4628efee1cf4b0f7c91b177&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-basics.js&quot;,
+            &quot;bytes&quot;: 30098,
+            &quot;sha256&quot;: &quot;b2405f3545e6aed4480506faf81eea8423ecbce3ef681460eb98475e583ef3ee&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-controls.js&quot;,
+            &quot;bytes&quot;: 2363,
+            &quot;sha256&quot;: &quot;a18147428d70e2912e16fcd1a1f481459d42ebca4d8199253bfe59ac71fdef1b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-pages.js&quot;,
+            &quot;bytes&quot;: 513159,
+            &quot;sha256&quot;: &quot;316a59dd1ec7a288ccf6452fc6a738f9ba795f8b800713b85d4e8af78e56023b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-source.js&quot;,
+            &quot;bytes&quot;: 6591,
+            &quot;sha256&quot;: &quot;0c7341cd8bd38c763b12a87ef33bcdee9a3065639a9cab673e1bd9a241a69893&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorials.js&quot;,
+            &quot;bytes&quot;: 991,
+            &quot;sha256&quot;: &quot;7af5f0f2ba2b7dafedec719bff432127e80ccc72e4aef5f8d94c9a0538d3d0df&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/water.js&quot;,
+            &quot;bytes&quot;: 6990,
+            &quot;sha256&quot;: &quot;caf619bdef4a0562384de7d8db4307a19ebd77963209659d30780766bedd7087&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/atan.js&quot;,
+            &quot;bytes&quot;: 11155,
+            &quot;sha256&quot;: &quot;8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/c-types.js&quot;,
+            &quot;bytes&quot;: 3251,
+            &quot;sha256&quot;: &quot;31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/certified-sqrt.js&quot;,
+            &quot;bytes&quot;: 2146,
+            &quot;sha256&quot;: &quot;a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/double-double.js&quot;,
+            &quot;bytes&quot;: 1359,
+            &quot;sha256&quot;: &quot;ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/float80.js&quot;,
+            &quot;bytes&quot;: 26230,
+            &quot;sha256&quot;: &quot;f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/index.js&quot;,
+            &quot;bytes&quot;: 59,
+            &quot;sha256&quot;: &quot;cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/memory.js&quot;,
+            &quot;bytes&quot;: 7730,
+            &quot;sha256&quot;: &quot;7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/original-data.js&quot;,
+            &quot;bytes&quot;: 1995,
+            &quot;sha256&quot;: &quot;e01adcb3fff46e27d840edbc88b028594b50cd7862d7bfafe22ea94610b0410c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/transcendentals.js&quot;,
+            &quot;bytes&quot;: 14799,
+            &quot;sha256&quot;: &quot;0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1&quot;
+          }
+        ]
+      },
+      {
+        &quot;arm&quot;: &quot;baseline&quot;,
+        &quot;edition&quot;: &quot;2002&quot;,
+        &quot;scenario&quot;: &quot;default-speed-10&quot;,
+        &quot;modules&quot;: [
+          {
+            &quot;path&quot;: &quot;/src/engine/ai-tactics.js&quot;,
+            &quot;bytes&quot;: 11734,
+            &quot;sha256&quot;: &quot;503f7ac40c07a5773ab9091a2217e274809a54564488aad89b823ee6f1555b8a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/ai.js&quot;,
+            &quot;bytes&quot;: 11406,
+            &quot;sha256&quot;: &quot;f1e8907402b02456e4b04e331b1fcb909a5228b5e145551e9f3efe2b358d5161&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/angles.js&quot;,
+            &quot;bytes&quot;: 1235,
+            &quot;sha256&quot;: &quot;389f29fb3bb74729d5acb8717c556eca2c765d2ed230f111560ad52a1e199612&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/apparent-wind.js&quot;,
+            &quot;bytes&quot;: 3250,
+            &quot;sha256&quot;: &quot;2724bc885e084a665b78196c86f0138c576f154bef6209d5c55dd9d5b6df8bdd&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/application.js&quot;,
+            &quot;bytes&quot;: 3709,
+            &quot;sha256&quot;: &quot;7bbef48167f8d7586453754c15fca2e4f89892bf0f10270d68238d314c215d00&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/avoidance.js&quot;,
+            &quot;bytes&quot;: 10693,
+            &quot;sha256&quot;: &quot;760e14accc316c8df0c2e8a58eeb5c5949850eecbd7fd51f276e8fa79c7357ad&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/boat-dynamics.js&quot;,
+            &quot;bytes&quot;: 20207,
+            &quot;sha256&quot;: &quot;3582edad20d4549ae2c1a37cb95177fc1dc71c58821068a196353983fc57265d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/boat-options.js&quot;,
+            &quot;bytes&quot;: 7019,
+            &quot;sha256&quot;: &quot;404f97776d9fc9b4310f638fc6f71f6ffef80dd89ab6ecff0f321029a677752c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/boat-sway.js&quot;,
+            &quot;bytes&quot;: 1091,
+            &quot;sha256&quot;: &quot;0c43bd19564e09fad2d366caac92ebbfc040a187c74e11798ea51add6e1fd8f7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/course.js&quot;,
+            &quot;bytes&quot;: 9113,
+            &quot;sha256&quot;: &quot;46c05aee10c506bee8fe12d886125163999af46eb3c509a29040462bf024d249&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/current.js&quot;,
+            &quot;bytes&quot;: 15785,
+            &quot;sha256&quot;: &quot;e0b2c66c1b9948679464e474720023605684848170ac539cffa5243d30548777&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/dialogs.js&quot;,
+            &quot;bytes&quot;: 1531,
+            &quot;sha256&quot;: &quot;ba338295fdd6f021423592eb45f8d3d8485a9d9b1f927afb0c237d117d78aa5b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/encounter-geometry.js&quot;,
+            &quot;bytes&quot;: 3328,
+            &quot;sha256&quot;: &quot;36e2e9cf5fe58776dec87006502e223605c209878568e78b206b590c41e43b04&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/frame.js&quot;,
+            &quot;bytes&quot;: 3005,
+            &quot;sha256&quot;: &quot;76914cf894b82a8d98d68c8e5fe3bd57a690bd6ff4a657c19d1ad0d9185ab472&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/helpers.js&quot;,
+            &quot;bytes&quot;: 4993,
+            &quot;sha256&quot;: &quot;c2384785ed0c7c398de322c9e9bc95c15ec50fc300230953950c6d8097f7c438&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/hud-state.js&quot;,
+            &quot;bytes&quot;: 3603,
+            &quot;sha256&quot;: &quot;10f985271fcbdaf09e9296279548ff7ca26cfe08ba12256760b80758437021a7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/hull-geometry.js&quot;,
+            &quot;bytes&quot;: 4633,
+            &quot;sha256&quot;: &quot;9e118f92cda0cb0257afb97e5cc35f9aa3f54d49a382b6fe255def1278a27454&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/initialization.js&quot;,
+            &quot;bytes&quot;: 14706,
+            &quot;sha256&quot;: &quot;020a8af83da5e59b678e64b15d49a224d8a571724b193e6905a70207553dea5c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/integer-core.js&quot;,
+            &quot;bytes&quot;: 3073,
+            &quot;sha256&quot;: &quot;0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/integration.js&quot;,
+            &quot;bytes&quot;: 14345,
+            &quot;sha256&quot;: &quot;5511b9457ea9914a26ad688f01e0d80722e8181c3d2bd272db9344800929ab8b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/interference.js&quot;,
+            &quot;bytes&quot;: 4580,
+            &quot;sha256&quot;: &quot;7c22bfe461e78af83590c07c4d96a3afcd713140a1c9f8b0072fce859d141f8f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/keyboard.js&quot;,
+            &quot;bytes&quot;: 8855,
+            &quot;sha256&quot;: &quot;ea523d7fdfa2a619d61964b052cd1ac0d0e1291c88971574e9c016fadaeca279&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/menu-controller.js&quot;,
+            &quot;bytes&quot;: 96543,
+            &quot;sha256&quot;: &quot;ff04cdf8660d775a290d24c9e5410de7c3bca79b48db965f84761ea744974335&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/mouse.js&quot;,
+            &quot;bytes&quot;: 1791,
+            &quot;sha256&quot;: &quot;b943d9b71fc0e6ee82619406bb1cca511b260e9c820f30d65d06a50d27043732&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/movement-helpers.js&quot;,
+            &quot;bytes&quot;: 3824,
+            &quot;sha256&quot;: &quot;06d1cfe40c92ff6258782f954c668177874e17021d96a4987e62df17d1c08697&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/native-trig.js&quot;,
+            &quot;bytes&quot;: 4036,
+            &quot;sha256&quot;: &quot;f2dd25e6bb21aa16148f0913268cc7293a35b3e6401ed92c48a159df24c24054&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/penalties.js&quot;,
+            &quot;bytes&quot;: 12316,
+            &quot;sha256&quot;: &quot;7bba8dfe1ba94019f31a7ed7ffd695dc722c38b2ca32b899f31c0bf8bb752717&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/race-targets.js&quot;,
+            &quot;bytes&quot;: 6606,
+            &quot;sha256&quot;: &quot;44cc88a6aa4b238c04b1571344e57157b57545b833e53fa4c78620d52fa57c7c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/snapshot-maps.js&quot;,
+            &quot;bytes&quot;: 11506,
+            &quot;sha256&quot;: &quot;e596af411059fe29ff899dad7ee6dba4d09b27707bd4d5158a7e8e1b0e87f63e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/snapshots.js&quot;,
+            &quot;bytes&quot;: 1525,
+            &quot;sha256&quot;: &quot;ac72cd98399f3eec7478acb147989fadf0087d31ddfb6b342910a90cd1f4bb45&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/spatial-wind.js&quot;,
+            &quot;bytes&quot;: 7918,
+            &quot;sha256&quot;: &quot;c0fbd00243f428a6413d6088925937b83c26d4a0e4280010150bb369ce67fd74&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/steering.js&quot;,
+            &quot;bytes&quot;: 10441,
+            &quot;sha256&quot;: &quot;aec4d9a14ff7641b3ff8deda128d3968b6d647cc32fba1e4bcb592ee77a71216&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/target-bearing.js&quot;,
+            &quot;bytes&quot;: 2322,
+            &quot;sha256&quot;: &quot;a786c02298c81828c46e2ce1684a774fb7ea3e1a4f4bb76049e12656fe0071fc&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/terrain.js&quot;,
+            &quot;bytes&quot;: 16727,
+            &quot;sha256&quot;: &quot;de9fbf81abc94df5298a97b6c1be2c81de681b83bd448199b367e85f04f585a0&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/trails.js&quot;,
+            &quot;bytes&quot;: 1647,
+            &quot;sha256&quot;: &quot;8d6adc3faec257feacf70d5fe7fa86309598dcd307adfa5795996a8f0e14d288&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/upwind-tactics.js&quot;,
+            &quot;bytes&quot;: 16477,
+            &quot;sha256&quot;: &quot;170f25fad82ac72946f7a9c80306ce642366c3006e64c7f32fb1bd41b3352c3c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/wind-initialization.js&quot;,
+            &quot;bytes&quot;: 6413,
+            &quot;sha256&quot;: &quot;8c86b25014263a85061a6d8a14abb0400c094fdacc787188a8fba1df3651985d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/engine/wind.js&quot;,
+            &quot;bytes&quot;: 10436,
+            &quot;sha256&quot;: &quot;20888195418ef4517516ecb5b22a92079ce995549216825d416b9580e0a9d674&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/play.js&quot;,
+            &quot;bytes&quot;: 14632,
+            &quot;sha256&quot;: &quot;a9d5fd4fd5fa1e2a7f812aa629d3301a152129cd46b785817ddb74c91340a1ce&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/bitmap-font.js&quot;,
+            &quot;bytes&quot;: 2799,
+            &quot;sha256&quot;: &quot;d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-details.js&quot;,
+            &quot;bytes&quot;: 15712,
+            &quot;sha256&quot;: &quot;1ac83ae8bbd3c46351aa34c1551bef3a2ad5518a39015cb0bfbbf0c4eca58e94&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-panels.js&quot;,
+            &quot;bytes&quot;: 16410,
+            &quot;sha256&quot;: &quot;47beffd07591895e1281574096e09b78326bd7b5b8e66609fffd5db89c1d37c6&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-primitives.js&quot;,
+            &quot;bytes&quot;: 7005,
+            &quot;sha256&quot;: &quot;8a5e29e957e25a84a8802c6af35da1fbc3220969c8a170781e2fa60825573afe&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat-rigging.js&quot;,
+            &quot;bytes&quot;: 9254,
+            &quot;sha256&quot;: &quot;1b9c974586343cc45c4e656fab0513da6cae24d80af5236035224075200b982b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/boat.js&quot;,
+            &quot;bytes&quot;: 15981,
+            &quot;sha256&quot;: &quot;f120e3fb2d2dbe9ceee3809224014c3202a2b7a422e7e98db3c937b4055695b8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-boat.js&quot;,
+            &quot;bytes&quot;: 9687,
+            &quot;sha256&quot;: &quot;9adbf5bc5ee79af0bfbbd70f3145424db5a8ad886fd07d7b44243d77d175aaef&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-details.js&quot;,
+            &quot;bytes&quot;: 9123,
+            &quot;sha256&quot;: &quot;f16f7ed60cc019f123f80f2c9ec15bd803071f2c73982e5ffcdc79b16ebfa52d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-labels.js&quot;,
+            &quot;bytes&quot;: 4308,
+            &quot;sha256&quot;: &quot;4d3dbc8a24f13b5bf7ba36508e73b1cf96668f9b0fe8733157962a7e49d62cad&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-overlays.js&quot;,
+            &quot;bytes&quot;: 6453,
+            &quot;sha256&quot;: &quot;a1ad0f889fb894b794b15a81b732c4af02949da12475ba9ca20ddb6dbda0e96f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-symbols.js&quot;,
+            &quot;bytes&quot;: 3757,
+            &quot;sha256&quot;: &quot;998b23f53790fb0c5fe87d84ae5a47bd920e726312e8396e2f960f35aecfae97&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart-terrain.js&quot;,
+            &quot;bytes&quot;: 5773,
+            &quot;sha256&quot;: &quot;5cddc624eda543c39af917a2a3dd246ff81847db8cf7ab31d020b8fa65e40219&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/chart.js&quot;,
+            &quot;bytes&quot;: 5388,
+            &quot;sha256&quot;: &quot;dcd47dc4b945dc0eb0f1eb76cf6b060bdbaa807e310f9ec996f5ffc0d8722c2e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/crew-drawing.js&quot;,
+            &quot;bytes&quot;: 5041,
+            &quot;sha256&quot;: &quot;cd296dab673c074cbf8595de9ae51c9beedfc3c974694469a4837ef80bf4f56a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/crew-geometry.js&quot;,
+            &quot;bytes&quot;: 9202,
+            &quot;sha256&quot;: &quot;aa8412e664985ddfff67054aa9d65874b11e2d79df13c9830a1b290aad7d9ddf&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/gdi-objects.js&quot;,
+            &quot;bytes&quot;: 6292,
+            &quot;sha256&quot;: &quot;153aa996c32052347a4c9f1e20ac8f176e8d71008e07a0d970e6dc711b1f51a3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/gdi.js&quot;,
+            &quot;bytes&quot;: 11719,
+            &quot;sha256&quot;: &quot;e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/headsails.js&quot;,
+            &quot;bytes&quot;: 7523,
+            &quot;sha256&quot;: &quot;e2d04d7ee00de7fd03dd6b52759bd69f6acdc50f13e5c8152581299a314f70c1&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/hud.js&quot;,
+            &quot;bytes&quot;: 39721,
+            &quot;sha256&quot;: &quot;fd557ff793727f582eec8366fd4ded08ef8d226e87fc16a8e17c0f2902706250&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/paint-lifecycle.js&quot;,
+            &quot;bytes&quot;: 9376,
+            &quot;sha256&quot;: &quot;0322085f7343502cff3c47e609e553bb007ff0c206a21b592ba7517aa4022905&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/projection.js&quot;,
+            &quot;bytes&quot;: 7386,
+            &quot;sha256&quot;: &quot;2df72c858e98745c771a943b599d87ec2fd693e6f8783932e7dd9fb98d8f8822&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/sail-geometry.js&quot;,
+            &quot;bytes&quot;: 10040,
+            &quot;sha256&quot;: &quot;a80ef9f7b2d5f9da4b67c9de09656e8792a8cb295b99759db36078b319ceb61b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/scene-objects.js&quot;,
+            &quot;bytes&quot;: 7625,
+            &quot;sha256&quot;: &quot;379737b102e37c11bc2da72678c7f7636ce309807f2a980c1a4eeb4e73c21fec&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/scene-wind.js&quot;,
+            &quot;bytes&quot;: 2931,
+            &quot;sha256&quot;: &quot;c77c9c371c6f02ebdb745ca30b0692ec957544bd36c95978426cdae58d5c5fcd&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/scene.js&quot;,
+            &quot;bytes&quot;: 9430,
+            &quot;sha256&quot;: &quot;6d53f987449828b7200d4db3667320a5e1ad881386c22d661f318b75b2f29980&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/screens.js&quot;,
+            &quot;bytes&quot;: 22716,
+            &quot;sha256&quot;: &quot;f38b7c23067a4f31c9fab3e825cbba1157441a201a779278095a505589cdf141&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/shore-stack.js&quot;,
+            &quot;bytes&quot;: 656,
+            &quot;sha256&quot;: &quot;9ac426f85d71da8242cb82cfa70a9b2b5ce212a51e35ae2c18d01d1e129b6f9f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/shore.js&quot;,
+            &quot;bytes&quot;: 25810,
+            &quot;sha256&quot;: &quot;f0533c2480c0ec0882c2f488b46eb38169adc11ea9d1e2885d72f80ce36ca30e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/sky.js&quot;,
+            &quot;bytes&quot;: 2378,
+            &quot;sha256&quot;: &quot;0adff077a05846fc114cf7350e70f83618806270d4628efee1cf4b0f7c91b177&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-basics.js&quot;,
+            &quot;bytes&quot;: 30098,
+            &quot;sha256&quot;: &quot;b2405f3545e6aed4480506faf81eea8423ecbce3ef681460eb98475e583ef3ee&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-controls.js&quot;,
+            &quot;bytes&quot;: 2363,
+            &quot;sha256&quot;: &quot;a18147428d70e2912e16fcd1a1f481459d42ebca4d8199253bfe59ac71fdef1b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-pages.js&quot;,
+            &quot;bytes&quot;: 513159,
+            &quot;sha256&quot;: &quot;316a59dd1ec7a288ccf6452fc6a738f9ba795f8b800713b85d4e8af78e56023b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorial-source.js&quot;,
+            &quot;bytes&quot;: 6591,
+            &quot;sha256&quot;: &quot;0c7341cd8bd38c763b12a87ef33bcdee9a3065639a9cab673e1bd9a241a69893&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/tutorials.js&quot;,
+            &quot;bytes&quot;: 991,
+            &quot;sha256&quot;: &quot;7af5f0f2ba2b7dafedec719bff432127e80ccc72e4aef5f8d94c9a0538d3d0df&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/water.js&quot;,
+            &quot;bytes&quot;: 6990,
+            &quot;sha256&quot;: &quot;caf619bdef4a0562384de7d8db4307a19ebd77963209659d30780766bedd7087&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/atan.js&quot;,
+            &quot;bytes&quot;: 11155,
+            &quot;sha256&quot;: &quot;8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/c-types.js&quot;,
+            &quot;bytes&quot;: 3251,
+            &quot;sha256&quot;: &quot;31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/certified-sqrt.js&quot;,
+            &quot;bytes&quot;: 2146,
+            &quot;sha256&quot;: &quot;a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/double-double.js&quot;,
+            &quot;bytes&quot;: 1359,
+            &quot;sha256&quot;: &quot;ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/float80.js&quot;,
+            &quot;bytes&quot;: 26230,
+            &quot;sha256&quot;: &quot;f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/index.js&quot;,
+            &quot;bytes&quot;: 59,
+            &quot;sha256&quot;: &quot;cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/memory.js&quot;,
+            &quot;bytes&quot;: 7730,
+            &quot;sha256&quot;: &quot;7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/original-data.js&quot;,
+            &quot;bytes&quot;: 1995,
+            &quot;sha256&quot;: &quot;e01adcb3fff46e27d840edbc88b028594b50cd7862d7bfafe22ea94610b0410c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/transcendentals.js&quot;,
+            &quot;bytes&quot;: 14799,
+            &quot;sha256&quot;: &quot;0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1&quot;
+          }
+        ]
+      },
+      {
+        &quot;arm&quot;: &quot;candidate&quot;,
+        &quot;edition&quot;: &quot;2010&quot;,
+        &quot;scenario&quot;: &quot;matched-round-lake-15&quot;,
+        &quot;modules&quot;: [
+          {
+            &quot;path&quot;: &quot;/src/engine/integer-core.js&quot;,
+            &quot;bytes&quot;: 3073,
+            &quot;sha256&quot;: &quot;0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/bitmap-font.js&quot;,
+            &quot;bytes&quot;: 2799,
+            &quot;sha256&quot;: &quot;d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/gdi.js&quot;,
+            &quot;bytes&quot;: 11719,
+            &quot;sha256&quot;: &quot;e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/atan.js&quot;,
+            &quot;bytes&quot;: 11155,
+            &quot;sha256&quot;: &quot;8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/c-types.js&quot;,
+            &quot;bytes&quot;: 3251,
+            &quot;sha256&quot;: &quot;31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/certified-sqrt.js&quot;,
+            &quot;bytes&quot;: 2146,
+            &quot;sha256&quot;: &quot;a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/double-double.js&quot;,
+            &quot;bytes&quot;: 1359,
+            &quot;sha256&quot;: &quot;ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/float80.js&quot;,
+            &quot;bytes&quot;: 26230,
+            &quot;sha256&quot;: &quot;f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/index.js&quot;,
+            &quot;bytes&quot;: 59,
+            &quot;sha256&quot;: &quot;cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/memory.js&quot;,
+            &quot;bytes&quot;: 7730,
+            &quot;sha256&quot;: &quot;7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/output-interval.js&quot;,
+            &quot;bytes&quot;: 6815,
+            &quot;sha256&quot;: &quot;7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/transcendentals.js&quot;,
+            &quot;bytes&quot;: 14799,
+            &quot;sha256&quot;: &quot;0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/ai-functions.js&quot;,
+            &quot;bytes&quot;: 185351,
+            &quot;sha256&quot;: &quot;8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/ai-geometry.js&quot;,
+            &quot;bytes&quot;: 6798,
+            &quot;sha256&quot;: &quot;20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/ai.js&quot;,
+            &quot;bytes&quot;: 2949,
+            &quot;sha256&quot;: &quot;085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/apparent-wind.js&quot;,
+            &quot;bytes&quot;: 2671,
+            &quot;sha256&quot;: &quot;bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/application.js&quot;,
+            &quot;bytes&quot;: 14549,
+            &quot;sha256&quot;: &quot;7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/boat-dynamics.js&quot;,
+            &quot;bytes&quot;: 17087,
+            &quot;sha256&quot;: &quot;be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/boat-options.js&quot;,
+            &quot;bytes&quot;: 9335,
+            &quot;sha256&quot;: &quot;8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/configuration.js&quot;,
+            &quot;bytes&quot;: 10595,
+            &quot;sha256&quot;: &quot;41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/controller-values.js&quot;,
+            &quot;bytes&quot;: 2550,
+            &quot;sha256&quot;: &quot;b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/course.js&quot;,
+            &quot;bytes&quot;: 8631,
+            &quot;sha256&quot;: &quot;359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/current.js&quot;,
+            &quot;bytes&quot;: 14328,
+            &quot;sha256&quot;: &quot;5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/custom-venue.js&quot;,
+            &quot;bytes&quot;: 10919,
+            &quot;sha256&quot;: &quot;074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/dialogs.js&quot;,
+            &quot;bytes&quot;: 1818,
+            &quot;sha256&quot;: &quot;ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/frame.js&quot;,
+            &quot;bytes&quot;: 4404,
+            &quot;sha256&quot;: &quot;0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/initialization.js&quot;,
+            &quot;bytes&quot;: 9389,
+            &quot;sha256&quot;: &quot;89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/integration.js&quot;,
+            &quot;bytes&quot;: 10371,
+            &quot;sha256&quot;: &quot;5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/keyboard.js&quot;,
+            &quot;bytes&quot;: 26566,
+            &quot;sha256&quot;: &quot;fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/menu-controller.js&quot;,
+            &quot;bytes&quot;: 294172,
+            &quot;sha256&quot;: &quot;6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/mouse.js&quot;,
+            &quot;bytes&quot;: 2515,
+            &quot;sha256&quot;: &quot;cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/movement-history.js&quot;,
+            &quot;bytes&quot;: 2828,
+            &quot;sha256&quot;: &quot;7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/movement.js&quot;,
+            &quot;bytes&quot;: 833,
+            &quot;sha256&quot;: &quot;e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/native-trig.js&quot;,
+            &quot;bytes&quot;: 2586,
+            &quot;sha256&quot;: &quot;9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/penalties.js&quot;,
+            &quot;bytes&quot;: 11873,
+            &quot;sha256&quot;: &quot;513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/port.js&quot;,
+            &quot;bytes&quot;: 1104,
+            &quot;sha256&quot;: &quot;abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/race-targets.js&quot;,
+            &quot;bytes&quot;: 5951,
+            &quot;sha256&quot;: &quot;f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/snapshot-maps.js&quot;,
+            &quot;bytes&quot;: 11496,
+            &quot;sha256&quot;: &quot;e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/snapshots.js&quot;,
+            &quot;bytes&quot;: 2117,
+            &quot;sha256&quot;: &quot;9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/spatial-metrics.js&quot;,
+            &quot;bytes&quot;: 10424,
+            &quot;sha256&quot;: &quot;d545319edd3d190c49caf55c13614ecc805b165da125392cbd497ebc376b93de&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/starting-positions.js&quot;,
+            &quot;bytes&quot;: 6130,
+            &quot;sha256&quot;: &quot;7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/steering.js&quot;,
+            &quot;bytes&quot;: 10625,
+            &quot;sha256&quot;: &quot;d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/terrain.js&quot;,
+            &quot;bytes&quot;: 16658,
+            &quot;sha256&quot;: &quot;da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/venue-definitions.js&quot;,
+            &quot;bytes&quot;: 239241,
+            &quot;sha256&quot;: &quot;5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/venue-geometry.js&quot;,
+            &quot;bytes&quot;: 5187,
+            &quot;sha256&quot;: &quot;362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/venue-metric-number.js&quot;,
+            &quot;bytes&quot;: 2805,
+            &quot;sha256&quot;: &quot;fa40423031c18cb179b2c88e228d01694f0a340a6ccfb45a39be64a4396a3ff7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/wave-motion.js&quot;,
+            &quot;bytes&quot;: 2697,
+            &quot;sha256&quot;: &quot;518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/waypoints.js&quot;,
+            &quot;bytes&quot;: 5175,
+            &quot;sha256&quot;: &quot;1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/wind-initialization.js&quot;,
+            &quot;bytes&quot;: 12514,
+            &quot;sha256&quot;: &quot;f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/wind.js&quot;,
+            &quot;bytes&quot;: 11101,
+            &quot;sha256&quot;: &quot;a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/play.js&quot;,
+            &quot;bytes&quot;: 16634,
+            &quot;sha256&quot;: &quot;7154efde470f5639e36ac136d0683c94ebb67887c0ea4cfbde12d93e4b934ea5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/chart-output-fast.js&quot;,
+            &quot;bytes&quot;: 4827,
+            &quot;sha256&quot;: &quot;4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/chart-projection-fast.js&quot;,
+            &quot;bytes&quot;: 3673,
+            &quot;sha256&quot;: &quot;f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/chart.js&quot;,
+            &quot;bytes&quot;: 320,
+            &quot;sha256&quot;: &quot;953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/dependencies.js&quot;,
+            &quot;bytes&quot;: 9444,
+            &quot;sha256&quot;: &quot;4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/drawing-functions.js&quot;,
+            &quot;bytes&quot;: 5912469,
+            &quot;sha256&quot;: &quot;2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/float-values.js&quot;,
+            &quot;bytes&quot;: 6879,
+            &quot;sha256&quot;: &quot;491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/gdi.js&quot;,
+            &quot;bytes&quot;: 123,
+            &quot;sha256&quot;: &quot;2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/host.js&quot;,
+            &quot;bytes&quot;: 2996,
+            &quot;sha256&quot;: &quot;2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/hud.js&quot;,
+            &quot;bytes&quot;: 541,
+            &quot;sha256&quot;: &quot;534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/index.js&quot;,
+            &quot;bytes&quot;: 1575,
+            &quot;sha256&quot;: &quot;e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/paint-lifecycle.js&quot;,
+            &quot;bytes&quot;: 9033,
+            &quot;sha256&quot;: &quot;779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/projection-fast.js&quot;,
+            &quot;bytes&quot;: 5856,
+            &quot;sha256&quot;: &quot;aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/projection-output-fast.js&quot;,
+            &quot;bytes&quot;: 4820,
+            &quot;sha256&quot;: &quot;b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/projection-smooth.js&quot;,
+            &quot;bytes&quot;: 2821,
+            &quot;sha256&quot;: &quot;33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/render-functions.js&quot;,
+            &quot;bytes&quot;: 620049,
+            &quot;sha256&quot;: &quot;f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/sail-geometry.js&quot;,
+            &quot;bytes&quot;: 11601,
+            &quot;sha256&quot;: &quot;172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/scalar-stack.js&quot;,
+            &quot;bytes&quot;: 1532,
+            &quot;sha256&quot;: &quot;b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/scene-depth.js&quot;,
+            &quot;bytes&quot;: 1084,
+            &quot;sha256&quot;: &quot;834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/scene.js&quot;,
+            &quot;bytes&quot;: 508,
+            &quot;sha256&quot;: &quot;2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/screen-helper-functions.js&quot;,
+            &quot;bytes&quot;: 148949,
+            &quot;sha256&quot;: &quot;601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/screens.js&quot;,
+            &quot;bytes&quot;: 1665,
+            &quot;sha256&quot;: &quot;c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/shore-stack.js&quot;,
+            &quot;bytes&quot;: 3210,
+            &quot;sha256&quot;: &quot;070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/smooth-math.js&quot;,
+            &quot;bytes&quot;: 1917,
+            &quot;sha256&quot;: &quot;1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/text.js&quot;,
+            &quot;bytes&quot;: 2960,
+            &quot;sha256&quot;: &quot;3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/tutorial-controls.js&quot;,
+            &quot;bytes&quot;: 2745,
+            &quot;sha256&quot;: &quot;39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/tutorial-pages.js&quot;,
+            &quot;bytes&quot;: 1990689,
+            &quot;sha256&quot;: &quot;fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/typed-c.js&quot;,
+            &quot;bytes&quot;: 25909,
+            &quot;sha256&quot;: &quot;a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/water-number-domain.js&quot;,
+            &quot;bytes&quot;: 2443,
+            &quot;sha256&quot;: &quot;1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/water-number-slab.js&quot;,
+            &quot;bytes&quot;: 29035,
+            &quot;sha256&quot;: &quot;b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/runtime/browser-clock.js&quot;,
+            &quot;bytes&quot;: 840,
+            &quot;sha256&quot;: &quot;ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/runtime/canvas-surface.js&quot;,
+            &quot;bytes&quot;: 380,
+            &quot;sha256&quot;: &quot;7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/runtime/original-data.js&quot;,
+            &quot;bytes&quot;: 3041,
+            &quot;sha256&quot;: &quot;fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2&quot;
+          }
+        ]
+      },
+      {
+        &quot;arm&quot;: &quot;candidate&quot;,
+        &quot;edition&quot;: &quot;2010&quot;,
+        &quot;scenario&quot;: &quot;default-speed-10&quot;,
+        &quot;modules&quot;: [
+          {
+            &quot;path&quot;: &quot;/src/engine/integer-core.js&quot;,
+            &quot;bytes&quot;: 3073,
+            &quot;sha256&quot;: &quot;0d8f292bf7e4855f26ed8c6ee854943bdd4e51872ae88a63f8eafd6c00a85633&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/bitmap-font.js&quot;,
+            &quot;bytes&quot;: 2799,
+            &quot;sha256&quot;: &quot;d43cbd6143d92249dd38be882ce873741661131bdc286b88c0990aa488aa97e3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/render/gdi.js&quot;,
+            &quot;bytes&quot;: 11719,
+            &quot;sha256&quot;: &quot;e7ff062141a1f56555b6ef573557223e2aa850590f7ee2940a8e7ff059400af5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/atan.js&quot;,
+            &quot;bytes&quot;: 11155,
+            &quot;sha256&quot;: &quot;8dbac30c17414a1ecc842408b04f44f5369d162839cffbca6f70c718230e36f6&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/c-types.js&quot;,
+            &quot;bytes&quot;: 3251,
+            &quot;sha256&quot;: &quot;31cecab80023f401273e6066fc8051a09f4e19539ba35f7a135eb632cafb2322&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/certified-sqrt.js&quot;,
+            &quot;bytes&quot;: 2146,
+            &quot;sha256&quot;: &quot;a67ae282dafa6a2e1976a34271bf58c3158ff000bb3da1657fc9b60f9e99d37f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/double-double.js&quot;,
+            &quot;bytes&quot;: 1359,
+            &quot;sha256&quot;: &quot;ce1f6a19eff9129c4e278dc276c54521fa5eb8aded6acde8c49b68251e4f3cff&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/float80.js&quot;,
+            &quot;bytes&quot;: 26230,
+            &quot;sha256&quot;: &quot;f2cf6f92611cc4a6ac6583f65e43beaee14d54f510129d7f8286a60e7dac2482&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/index.js&quot;,
+            &quot;bytes&quot;: 59,
+            &quot;sha256&quot;: &quot;cb07406f105f1b54f2be8803306fb76cc2b3af7bfe5b6fc8ee9e8b19ddf44a72&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/memory.js&quot;,
+            &quot;bytes&quot;: 7730,
+            &quot;sha256&quot;: &quot;7af425d0d1f8b758aaa064df24cbd0ef986f7814f9b5794ba9152431b1e75117&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/output-interval.js&quot;,
+            &quot;bytes&quot;: 6815,
+            &quot;sha256&quot;: &quot;7e0eed68a87109b443f5dbbac1abc94213935d3653ebc9ba1647961ee09bedf7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/src/runtime/transcendentals.js&quot;,
+            &quot;bytes&quot;: 14799,
+            &quot;sha256&quot;: &quot;0410c8742ea517266a21c9284abb6817a383a8aad3e5abf81f665f1631d1e5a1&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/ai-functions.js&quot;,
+            &quot;bytes&quot;: 185351,
+            &quot;sha256&quot;: &quot;8b9f5643b6f6db05c102b083bdeccd1a2871d39fdc765e2aabbdb953b2dfc829&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/ai-geometry.js&quot;,
+            &quot;bytes&quot;: 6798,
+            &quot;sha256&quot;: &quot;20f728bc4bd4ef9fda4ceb4e21477df7843270e3f001a94a90ea20d11b44720f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/ai.js&quot;,
+            &quot;bytes&quot;: 2949,
+            &quot;sha256&quot;: &quot;085002bb9a56c747d07aebd3af208858ab0112df94caab58c5402321ab404913&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/apparent-wind.js&quot;,
+            &quot;bytes&quot;: 2671,
+            &quot;sha256&quot;: &quot;bdf97f3a7bbd59494a6bdb76c7f3b8138f995d455bffe645395f888169690d8b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/application.js&quot;,
+            &quot;bytes&quot;: 14549,
+            &quot;sha256&quot;: &quot;7ad2b0013704059824c876c4a76f26a390063951479581fc7152a7219e40c3f5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/boat-dynamics.js&quot;,
+            &quot;bytes&quot;: 17087,
+            &quot;sha256&quot;: &quot;be23d57528a5560450ac8165924ce9db0623b341e8c482376e55425906741f35&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/boat-options.js&quot;,
+            &quot;bytes&quot;: 9335,
+            &quot;sha256&quot;: &quot;8d9387d186690a0bda7c84df8899a3a845e72c8153c7b7a23f92273b33cae252&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/configuration.js&quot;,
+            &quot;bytes&quot;: 10595,
+            &quot;sha256&quot;: &quot;41b453c4eaed93165e3bc035cbadf35d42f63dc6746945fc7726474db9d628c5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/controller-values.js&quot;,
+            &quot;bytes&quot;: 2550,
+            &quot;sha256&quot;: &quot;b2cd4b95e6444ce9cd2db92e8fc4cf023ed35b614d2a66c97365a6d898488bb0&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/course.js&quot;,
+            &quot;bytes&quot;: 8631,
+            &quot;sha256&quot;: &quot;359cfe52faba63deb205729a3eea573bbe8ddc22631736f8b6179d4460535d97&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/current.js&quot;,
+            &quot;bytes&quot;: 14328,
+            &quot;sha256&quot;: &quot;5e85270dd63600eacb55e634847535fba22f2152dacad28edf909e898be84117&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/custom-venue.js&quot;,
+            &quot;bytes&quot;: 10919,
+            &quot;sha256&quot;: &quot;074027ebf95e9632d5edbb17faa8cc8e5a70c4364aa39b04fed8ebd41ab1d68b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/dialogs.js&quot;,
+            &quot;bytes&quot;: 1818,
+            &quot;sha256&quot;: &quot;ac1367d1699e4b5246d99d740b8d74bfc77c2fa1f2fa3e993d18b9aa475353a7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/frame.js&quot;,
+            &quot;bytes&quot;: 4404,
+            &quot;sha256&quot;: &quot;0caf7524bfd85929378fe4a36bfa14cb04f800af6482bd1aa95904cf7823fefb&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/initialization.js&quot;,
+            &quot;bytes&quot;: 9389,
+            &quot;sha256&quot;: &quot;89057444e34c0a7051d5c16797a99e6441982d5902e7daee616cdf545f893f39&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/integration.js&quot;,
+            &quot;bytes&quot;: 10371,
+            &quot;sha256&quot;: &quot;5861b2024f399eb9a8b7a3110eb0c4e23fb8d0fcefc82c11bf3adfdd687cce1f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/keyboard.js&quot;,
+            &quot;bytes&quot;: 26566,
+            &quot;sha256&quot;: &quot;fd46cf8aa61e69a69a8dbca4b3ad5f73019a03b91e542db8074a1eee043854bf&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/menu-controller.js&quot;,
+            &quot;bytes&quot;: 294172,
+            &quot;sha256&quot;: &quot;6239341c3563d647d8e26d2ffd7a1a794ba1f00c92027819a472536abf153717&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/mouse.js&quot;,
+            &quot;bytes&quot;: 2515,
+            &quot;sha256&quot;: &quot;cb4367017fedba0f28d5eb7afccaf4a60fdc6fb9db9b2af121aca4597e7be21b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/movement-history.js&quot;,
+            &quot;bytes&quot;: 2828,
+            &quot;sha256&quot;: &quot;7b40a3643fea7b4640f392f428d43ac9bdb43d26f0d9c1ee87b37b17650f575c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/movement.js&quot;,
+            &quot;bytes&quot;: 833,
+            &quot;sha256&quot;: &quot;e852b640396edfc87ca0bd00bf8736d3bf96ebf07e9c5de765fbe5f2890d1c0a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/native-trig.js&quot;,
+            &quot;bytes&quot;: 2586,
+            &quot;sha256&quot;: &quot;9e758de5d0a676be08bf340b175e4948bf252e51557dd23d03284f4be691e181&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/penalties.js&quot;,
+            &quot;bytes&quot;: 11873,
+            &quot;sha256&quot;: &quot;513f7c07c5d5d74b757ffabf56a03cc017afae0b7fcaca4e16c3b9f861da1496&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/port.js&quot;,
+            &quot;bytes&quot;: 1104,
+            &quot;sha256&quot;: &quot;abf7e6c3f32c1de184ecc396823d4daaa882412b72757a933af30a081c6a0856&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/race-targets.js&quot;,
+            &quot;bytes&quot;: 5951,
+            &quot;sha256&quot;: &quot;f2db0683d9848469a5811e14d9deae628c5e155f038c8d6708cf3969f26727a8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/snapshot-maps.js&quot;,
+            &quot;bytes&quot;: 11496,
+            &quot;sha256&quot;: &quot;e5a691315211977dea514a5ef452970032f60dcbb99ebb0bc4a59cc5b5c2377f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/snapshots.js&quot;,
+            &quot;bytes&quot;: 2117,
+            &quot;sha256&quot;: &quot;9a4d081de80f6fd3cdd3afe7e51cbf82829af79552945ed9a486471806a6029c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/spatial-metrics.js&quot;,
+            &quot;bytes&quot;: 10424,
+            &quot;sha256&quot;: &quot;d545319edd3d190c49caf55c13614ecc805b165da125392cbd497ebc376b93de&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/starting-positions.js&quot;,
+            &quot;bytes&quot;: 6130,
+            &quot;sha256&quot;: &quot;7c2ac25bfaf343b7c28df14854bfa6a9cead360991db20066efcd6a9876577b2&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/steering.js&quot;,
+            &quot;bytes&quot;: 10625,
+            &quot;sha256&quot;: &quot;d1220b26a52f9755004b9cf34997fe8d8740d0a49f98323d5fc30a5b857ee37f&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/terrain.js&quot;,
+            &quot;bytes&quot;: 16658,
+            &quot;sha256&quot;: &quot;da26afb6c6f9117e54c197d7cab405452dbfcd43ff974eaeca29b4a1c12594f8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/venue-definitions.js&quot;,
+            &quot;bytes&quot;: 239241,
+            &quot;sha256&quot;: &quot;5191d203ad1c2e572616825bd337ae230146aa97aa2d7539345ae3d7405c6c3a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/venue-geometry.js&quot;,
+            &quot;bytes&quot;: 5187,
+            &quot;sha256&quot;: &quot;362bf01aecf5695309206d38a1f7cde16638b55e5dff907fd1b8532939d80314&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/venue-metric-number.js&quot;,
+            &quot;bytes&quot;: 2805,
+            &quot;sha256&quot;: &quot;fa40423031c18cb179b2c88e228d01694f0a340a6ccfb45a39be64a4396a3ff7&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/wave-motion.js&quot;,
+            &quot;bytes&quot;: 2697,
+            &quot;sha256&quot;: &quot;518284b8080597534166a4d76c460822a6cdd36887e66dfe65d7e958c259f96a&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/waypoints.js&quot;,
+            &quot;bytes&quot;: 5175,
+            &quot;sha256&quot;: &quot;1c47a2de04d0c45dd8b0d30d2e9f8fee685e4ed818a760e3349952badd90f6fa&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/wind-initialization.js&quot;,
+            &quot;bytes&quot;: 12514,
+            &quot;sha256&quot;: &quot;f1b8a9de898d7910c841e98c3b6a4e9b14e9e103ef6de3b8f6612f908272b84c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/engine/wind.js&quot;,
+            &quot;bytes&quot;: 11101,
+            &quot;sha256&quot;: &quot;a0fcfa12f7ca2f8af36bd0b54854f89cb3b2e1be8efe954310da0510c034ffd8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/play.js&quot;,
+            &quot;bytes&quot;: 16634,
+            &quot;sha256&quot;: &quot;7154efde470f5639e36ac136d0683c94ebb67887c0ea4cfbde12d93e4b934ea5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/chart-output-fast.js&quot;,
+            &quot;bytes&quot;: 4827,
+            &quot;sha256&quot;: &quot;4b566914a2f659a4f96a49a1c15cdb457edf29a222bba318a3cf342a6af4f788&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/chart-projection-fast.js&quot;,
+            &quot;bytes&quot;: 3673,
+            &quot;sha256&quot;: &quot;f1fad764589e4111250d180b6fedc4ab68b039e0ae87acb8504526ce2ee90ddf&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/chart.js&quot;,
+            &quot;bytes&quot;: 320,
+            &quot;sha256&quot;: &quot;953219cfddb59bf70f6d2ee86913acf95b64dd650f9ef4f3885a2a79516d0088&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/dependencies.js&quot;,
+            &quot;bytes&quot;: 9444,
+            &quot;sha256&quot;: &quot;4357628d052e4d0c899c0c1eae61dfd2f6304f2f4621517f0ebd2ca963fcff74&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/drawing-functions.js&quot;,
+            &quot;bytes&quot;: 5912469,
+            &quot;sha256&quot;: &quot;2f55c0bfa1c54bd8a504501051acc54d74f655c196939075f58b821b38d2df3e&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/float-values.js&quot;,
+            &quot;bytes&quot;: 6879,
+            &quot;sha256&quot;: &quot;491d19ef831754f129a48424ce9001e6a89b4720651b78c64cb9e052d21724f5&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/gdi.js&quot;,
+            &quot;bytes&quot;: 123,
+            &quot;sha256&quot;: &quot;2ae6d602c17f92371fcfac16726ecd21738b9ca41ca1ada3fd578b5a8029edae&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/host.js&quot;,
+            &quot;bytes&quot;: 2996,
+            &quot;sha256&quot;: &quot;2fa347ee931999198f49c184c059de234c87873355580e3f3804a0dad9e0da68&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/hud.js&quot;,
+            &quot;bytes&quot;: 541,
+            &quot;sha256&quot;: &quot;534883cd0970b040abb95cd08f44ac148fe85c3c62a8e83a58c71b72b456d80c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/index.js&quot;,
+            &quot;bytes&quot;: 1575,
+            &quot;sha256&quot;: &quot;e5e74e213f7d32bbe284d8bb331032c1c1cf1dc3d007f2148b72da66137c890b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/paint-lifecycle.js&quot;,
+            &quot;bytes&quot;: 9033,
+            &quot;sha256&quot;: &quot;779751338cd3935cc083ee90d7386d1c146b17806fbcc02b1125ac5c7b6bea4b&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/projection-fast.js&quot;,
+            &quot;bytes&quot;: 5856,
+            &quot;sha256&quot;: &quot;aa3bb5520b862878bc5080ad1903785e84fa94188a8790e224d24cfbdc9fc152&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/projection-output-fast.js&quot;,
+            &quot;bytes&quot;: 4820,
+            &quot;sha256&quot;: &quot;b38658021d702ee6675ff3d63557e7c7b0e50e43baaaceca12f2e330f9a0c845&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/projection-smooth.js&quot;,
+            &quot;bytes&quot;: 2821,
+            &quot;sha256&quot;: &quot;33f932324f111cc3d22b23adb4b41e09c841cfad9d2e294c95a9f1252ecd6fb4&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/render-functions.js&quot;,
+            &quot;bytes&quot;: 620049,
+            &quot;sha256&quot;: &quot;f03318a7b74b027edede420c69f6546db244bdad0a223f7c1f9a69715f55dd26&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/sail-geometry.js&quot;,
+            &quot;bytes&quot;: 11601,
+            &quot;sha256&quot;: &quot;172f4a9ec835865c02820db0fcde2b8881d457126bede50f9cb8e7a374dd0281&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/scalar-stack.js&quot;,
+            &quot;bytes&quot;: 1532,
+            &quot;sha256&quot;: &quot;b147ff0870c3079f105408975dd98a74b7aa9e9af381cf20200eae0a027f2a90&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/scene-depth.js&quot;,
+            &quot;bytes&quot;: 1084,
+            &quot;sha256&quot;: &quot;834a27173175e2bf34b5ebcdca19d44629ada44528003a59dc5729e36bf1e1c4&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/scene.js&quot;,
+            &quot;bytes&quot;: 508,
+            &quot;sha256&quot;: &quot;2b1233ed186117d9d55348fbe4b4600e720d7de5242b6e4327cf166a35183ace&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/screen-helper-functions.js&quot;,
+            &quot;bytes&quot;: 148949,
+            &quot;sha256&quot;: &quot;601125f41b5dfceeea8626c352f73a05a9dc14016298d4fc2ecb2380ce1c6c64&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/screens.js&quot;,
+            &quot;bytes&quot;: 1665,
+            &quot;sha256&quot;: &quot;c347e358d59cf8ca5f7568303e3ed95c16bd2e71302d83064eea9ab1863de30d&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/shore-stack.js&quot;,
+            &quot;bytes&quot;: 3210,
+            &quot;sha256&quot;: &quot;070de29f62e435cb721a44f5def33bf16b318ab1edabef557668ad003b2e37e1&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/smooth-math.js&quot;,
+            &quot;bytes&quot;: 1917,
+            &quot;sha256&quot;: &quot;1586761365b44f7c587684dc8bbdbfc4e7810aff95abd1727591daff70b0275c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/text.js&quot;,
+            &quot;bytes&quot;: 2960,
+            &quot;sha256&quot;: &quot;3f2b86b521a04a5b486d3fc5cbde7159687aedeba9ca165c65125dc76902ba00&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/tutorial-controls.js&quot;,
+            &quot;bytes&quot;: 2745,
+            &quot;sha256&quot;: &quot;39c3012de7aabe6df6ab54d90550c7996d6063bd85a2fce10ad316850c4fecb8&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/tutorial-pages.js&quot;,
+            &quot;bytes&quot;: 1990689,
+            &quot;sha256&quot;: &quot;fad85cc6cb159c80526c3c40fc37d9e002b16864cfd9ae4aead10c53f26db932&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/typed-c.js&quot;,
+            &quot;bytes&quot;: 25909,
+            &quot;sha256&quot;: &quot;a9827ad90c0827010947ee68c3e8ca46fc76d95ab46bbf2db4f8aa2ed1c1340c&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/water-number-domain.js&quot;,
+            &quot;bytes&quot;: 2443,
+            &quot;sha256&quot;: &quot;1296a2904d6e6513b1f25e319dcf26dea56cbdc8e5c8958b54915794b062efb9&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/render/water-number-slab.js&quot;,
+            &quot;bytes&quot;: 29035,
+            &quot;sha256&quot;: &quot;b2d439c7633137d5303b6db8599878e86d924f6b8285375c68c2d9dc2eb147a3&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/runtime/browser-clock.js&quot;,
+            &quot;bytes&quot;: 840,
+            &quot;sha256&quot;: &quot;ebe933251e5e4a6b6a1913c8b546e508bedfde62c5d0542d87cc536b62262f23&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/runtime/canvas-surface.js&quot;,
+            &quot;bytes&quot;: 380,
+            &quot;sha256&quot;: &quot;7c4e7260edbf1c954299b153a44b394b5fd15a4534e71e64f7cb36819704e019&quot;
+          },
+          {
+            &quot;path&quot;: &quot;/versions/2010-en/src/runtime/original-data.js&quot;,
+            &quot;bytes&quot;: 3041,
+            &quot;sha256&quot;: &quot;fab5c30f4b4111499be797a0066e71afde506f734c9421d64dc7dc9a7d3762c2&quot;
+          }
+        ]
+      }
+    ]
+  }
+}</pre></details>
+  
+  <h2>Frame traces</h2><details><summary>matched-round-lake-15 · 2002 · repeat 1</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 405.30 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,72.9 7.6,74.8 15.1,72.2 22.7,68.5 30.3,70.2 37.8,73.1 45.4,71.6 52.9,69.8 60.5,71.7 68.1,70.5 75.6,66.7 83.2,71.4 90.8,79.2 98.3,73.5 105.9,69.7 113.4,60.1 121.0,60.5 128.6,60.3 136.1,64.9 143.7,60.6 151.3,64.0 158.8,97.8 166.4,51.4 173.9,54.1 181.5,53.8 189.1,60.1 196.6,61.5 204.2,60.4 211.8,59.9 219.3,58.1 226.9,54.0 234.5,61.1 242.0,59.4 249.6,55.1 257.1,57.8 264.7,55.9 272.3,54.8 279.8,46.8 287.4,57.3 295.0,54.1 302.5,53.6 310.1,56.9 317.6,41.1 325.2,42.5 332.8,49.6 340.3,46.9 347.9,52.9 355.5,52.8 363.0,51.3 370.6,39.8 378.2,58.0 385.7,61.3 393.3,61.5 400.8,55.0 408.4,56.9 416.0,60.0 423.5,57.0 431.1,67.6 438.7,63.9 446.2,60.7 453.8,58.6 461.3,54.0 468.9,53.2 476.5,53.3 484.0,52.7 491.6,50.7 499.2,53.0 506.7,57.2 514.3,54.6 521.8,48.5 529.4,21.9 537.0,10.0 544.5,38.0 552.1,91.5 559.7,89.2 567.2,80.9 574.8,89.6 582.4,94.6 589.9,93.0 597.5,96.7 605.0,98.8 612.6,95.5 620.2,91.5 627.7,86.9 635.3,91.2 642.9,87.1 650.4,88.8 658.0,91.9 665.5,92.0 673.1,95.4 680.7,93.0 688.2,90.3 695.8,91.1 703.4,93.5 710.9,89.9 718.5,93.8 726.1,90.9 733.6,92.6 741.2,93.7 748.7,87.8 756.3,86.8 763.9,86.1 771.4,86.9 779.0,93.8 786.6,92.7 794.1,90.9 801.7,91.5 809.2,94.0 816.8,91.1 824.4,95.6 831.9,90.1 839.5,88.4 847.1,91.1 854.6,93.6 862.2,94.5 869.7,97.1 877.3,98.2 884.9,95.0 892.4,93.8 900.0,94.3" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>matched-round-lake-15 · 2010 · repeat 1</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 420.20 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,97.7 7.6,97.8 15.1,95.6 22.7,98.6 30.3,97.7 37.8,98.7 45.4,95.2 52.9,99.2 60.5,98.1 68.1,98.2 75.6,94.6 83.2,96.4 90.8,91.9 98.3,96.7 105.9,98.1 113.4,98.6 121.0,97.2 128.6,97.6 136.1,95.9 143.7,96.2 151.3,95.3 158.8,97.1 166.4,94.6 173.9,92.9 181.5,96.2 189.1,96.3 196.6,93.9 204.2,95.4 211.8,95.0 219.3,94.7 226.9,95.4 234.5,95.1 242.0,95.5 249.6,93.1 257.1,91.2 264.7,91.8 272.3,93.8 279.8,87.4 287.4,93.3 295.0,95.1 302.5,96.6 310.1,98.7 317.6,98.7 325.2,94.4 332.8,93.2 340.3,92.3 347.9,90.4 355.5,94.3 363.0,98.1 370.6,97.3 378.2,96.8 385.7,98.2 393.3,88.3 400.8,89.0 408.4,91.1 416.0,88.3 423.5,88.6 431.1,91.3 438.7,89.7 446.2,89.7 453.8,88.9 461.3,87.4 468.9,86.2 476.5,82.0 484.0,90.3 491.6,91.0 499.2,82.7 506.7,77.3 514.3,74.7 521.8,88.9 529.4,89.4 537.0,78.8 544.5,84.4 552.1,83.4 559.7,85.0 567.2,89.7 574.8,91.5 582.4,90.7 589.9,88.3 597.5,88.6 605.0,48.6 612.6,24.4 620.2,10.0 627.7,30.4 635.3,37.7 642.9,40.4 650.4,39.8 658.0,44.2 665.5,42.9 673.1,44.7 680.7,42.1 688.2,39.7 695.8,42.6 703.4,35.2 710.9,23.6 718.5,30.9 726.1,34.7 733.6,39.6 741.2,33.0 748.7,35.4 756.3,43.2 763.9,37.7 771.4,43.7 779.0,41.0 786.6,39.2 794.1,33.1 801.7,28.1 809.2,37.0 816.8,34.0 824.4,40.0 831.9,40.8 839.5,41.0 847.1,39.2 854.6,39.3 862.2,35.0 869.7,41.3 877.3,39.8 884.9,43.5 892.4,40.3 900.0,24.8" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>matched-round-lake-15 · 2010 · repeat 2</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 214.10 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,36.6 7.6,44.2 15.1,10.0 22.7,38.9 30.3,40.2 37.8,40.1 45.4,38.8 52.9,45.1 60.5,46.8 68.1,46.9 75.6,37.8 83.2,41.1 90.8,40.7 98.3,46.3 105.9,44.5 113.4,46.1 121.0,43.0 128.6,48.8 136.1,47.2 143.7,44.5 151.3,44.0 158.8,48.4 166.4,46.9 173.9,45.7 181.5,42.8 189.1,43.0 196.6,43.0 204.2,46.2 211.8,44.5 219.3,48.2 226.9,43.0 234.5,43.0 242.0,44.6 249.6,43.2 257.1,44.8 264.7,44.3 272.3,43.7 279.8,42.7 287.4,48.1 295.0,45.2 302.5,43.6 310.1,40.9 317.6,45.3 325.2,45.6 332.8,46.7 340.3,47.1 347.9,44.3 355.5,46.9 363.0,45.6 370.6,47.1 378.2,47.3 385.7,49.0 393.3,33.2 400.8,28.4 408.4,32.4 416.0,33.8 423.5,36.7 431.1,32.3 438.7,32.1 446.2,38.1 453.8,34.3 461.3,30.7 468.9,22.5 476.5,39.0 484.0,37.9 491.6,36.7 499.2,37.1 506.7,41.3 514.3,36.2 521.8,36.0 529.4,27.5 537.0,28.8 544.5,25.2 552.1,31.5 559.7,33.1 567.2,32.1 574.8,32.0 582.4,28.3 589.9,27.3 597.5,38.1 605.0,24.6 612.6,31.3 620.2,36.4 627.7,32.4 635.3,34.2 642.9,31.1 650.4,28.8 658.0,37.3 665.5,38.0 673.1,37.6 680.7,38.6 688.2,43.5 695.8,35.9 703.4,39.5 710.9,32.7 718.5,38.0 726.1,37.8 733.6,34.7 741.2,39.4 748.7,38.2 756.3,41.9 763.9,39.0 771.4,36.5 779.0,37.4 786.6,31.7 794.1,29.4 801.7,30.6 809.2,32.9 816.8,33.9 824.4,34.0 831.9,29.6 839.5,30.4 847.1,30.8 854.6,33.4 862.2,32.8 869.7,34.3 877.3,33.7 884.9,34.2 892.4,29.3 900.0,35.2" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>matched-round-lake-15 · 2002 · repeat 2</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 371.90 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,100.8 7.6,97.4 15.1,99.0 22.7,99.1 30.3,100.0 37.8,100.6 45.4,100.7 52.9,99.9 60.5,99.1 68.1,102.3 75.6,102.3 83.2,99.9 90.8,97.9 98.3,99.7 105.9,101.4 113.4,93.1 121.0,93.3 128.6,93.4 136.1,96.1 143.7,92.0 151.3,94.1 158.8,95.8 166.4,94.2 173.9,94.6 181.5,96.7 189.1,97.1 196.6,93.5 204.2,93.6 211.8,96.3 219.3,94.9 226.9,94.0 234.5,94.9 242.0,92.7 249.6,93.4 257.1,94.5 264.7,92.4 272.3,95.7 279.8,95.1 287.4,95.9 295.0,93.3 302.5,96.5 310.1,95.2 317.6,96.2 325.2,92.6 332.8,88.7 340.3,94.4 347.9,95.8 355.5,93.3 363.0,94.3 370.6,93.9 378.2,95.2 385.7,90.1 393.3,93.6 400.8,92.9 408.4,93.4 416.0,93.9 423.5,92.1 431.1,90.7 438.7,87.8 446.2,83.8 453.8,83.3 461.3,89.9 468.9,87.2 476.5,79.0 484.0,83.0 491.6,84.3 499.2,83.7 506.7,87.1 514.3,88.7 521.8,86.3 529.4,86.8 537.0,87.2 544.5,90.6 552.1,91.7 559.7,88.3 567.2,90.6 574.8,87.0 582.4,90.3 589.9,87.8 597.5,89.1 605.0,87.7 612.6,90.6 620.2,86.5 627.7,85.7 635.3,82.8 642.9,82.7 650.4,77.9 658.0,76.5 665.5,75.5 673.1,74.5 680.7,79.2 688.2,80.1 695.8,79.0 703.4,75.7 710.9,79.8 718.5,78.3 726.1,83.4 733.6,82.9 741.2,74.8 748.7,64.4 756.3,64.4 763.9,74.3 771.4,61.1 779.0,44.3 786.6,36.4 794.1,50.9 801.7,59.5 809.2,10.0 816.8,37.6 824.4,53.6 831.9,52.2 839.5,76.9 847.1,68.8 854.6,75.2 862.2,85.0 869.7,82.8 877.3,73.8 884.9,71.1 892.4,81.5 900.0,84.3" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>default-speed-10 · 2002 · repeat 1</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 152.70 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,25.2 7.6,15.5 15.1,10.5 22.7,14.5 30.3,16.3 37.8,19.3 45.4,11.3 52.9,22.8 60.5,23.9 68.1,17.0 75.6,12.2 83.2,23.4 90.8,21.0 98.3,19.4 105.9,15.0 113.4,19.4 121.0,19.8 128.6,27.4 136.1,14.7 143.7,21.2 151.3,20.9 158.8,25.4 166.4,20.5 173.9,20.5 181.5,19.2 189.1,21.0 196.6,24.9 204.2,18.8 211.8,15.9 219.3,26.7 226.9,14.7 234.5,22.7 242.0,25.1 249.6,23.1 257.1,14.9 264.7,23.6 272.3,22.9 279.8,23.2 287.4,14.8 295.0,21.1 302.5,22.0 310.1,23.0 317.6,15.3 325.2,21.6 332.8,24.2 340.3,22.0 347.9,14.5 355.5,21.6 363.0,27.1 370.6,26.6 378.2,17.3 385.7,26.5 393.3,26.2 400.8,29.7 408.4,24.7 416.0,27.3 423.5,27.4 431.1,29.6 438.7,29.0 446.2,31.7 453.8,27.2 461.3,27.5 468.9,23.8 476.5,27.9 484.0,27.0 491.6,30.7 499.2,25.9 506.7,28.2 514.3,30.9 521.8,33.6 529.4,21.2 537.0,26.7 544.5,30.6 552.1,25.8 559.7,20.5 567.2,25.2 574.8,25.5 582.4,21.1 589.9,28.1 597.5,25.8 605.0,26.2 612.6,30.4 620.2,20.9 627.7,25.2 635.3,24.3 642.9,26.2 650.4,28.1 658.0,28.9 665.5,27.5 673.1,32.9 680.7,29.7 688.2,27.6 695.8,27.3 703.4,25.1 710.9,29.5 718.5,28.0 726.1,27.9 733.6,30.4 741.2,23.8 748.7,10.0 756.3,22.0 763.9,22.5 771.4,24.6 779.0,27.4 786.6,30.2 794.1,22.0 801.7,29.4 809.2,31.0 816.8,23.6 824.4,33.9 831.9,27.1 839.5,24.4 847.1,24.9 854.6,26.5 862.2,26.4 869.7,23.8 877.3,29.4 884.9,27.1 892.4,26.7 900.0,27.9" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>default-speed-10 · 2010 · repeat 1</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 193.40 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,13.4 7.6,16.0 15.1,22.8 22.7,24.5 30.3,22.3 37.8,26.6 45.4,21.4 52.9,20.5 60.5,18.8 68.1,29.1 75.6,18.4 83.2,19.5 90.8,21.9 98.3,13.5 105.9,19.3 113.4,21.4 121.0,22.9 128.6,22.2 136.1,20.3 143.7,23.0 151.3,21.9 158.8,15.8 166.4,25.8 173.9,14.1 181.5,21.3 189.1,23.4 196.6,17.9 204.2,16.6 211.8,25.9 219.3,29.2 226.9,16.6 234.5,26.0 242.0,31.7 249.6,25.0 257.1,21.7 264.7,15.6 272.3,16.7 279.8,25.2 287.4,10.6 295.0,19.7 302.5,20.5 310.1,24.8 317.6,19.6 325.2,23.5 332.8,29.5 340.3,26.6 347.9,25.7 355.5,26.1 363.0,21.1 370.6,28.9 378.2,26.4 385.7,25.6 393.3,23.7 400.8,26.4 408.4,24.0 416.0,29.0 423.5,25.6 431.1,24.3 438.7,23.0 446.2,28.9 453.8,17.5 461.3,20.2 468.9,21.7 476.5,21.9 484.0,24.3 491.6,29.6 499.2,27.2 506.7,30.2 514.3,28.4 521.8,29.3 529.4,19.3 537.0,24.6 544.5,21.8 552.1,25.9 559.7,30.7 567.2,28.2 574.8,22.4 582.4,25.8 589.9,24.9 597.5,24.2 605.0,30.3 612.6,30.0 620.2,27.1 627.7,27.2 635.3,21.8 642.9,22.9 650.4,27.2 658.0,22.2 665.5,20.9 673.1,24.1 680.7,29.5 688.2,18.9 695.8,32.3 703.4,26.9 710.9,26.4 718.5,29.1 726.1,25.9 733.6,21.4 741.2,30.3 748.7,27.1 756.3,31.1 763.9,27.3 771.4,22.3 779.0,28.8 786.6,28.9 794.1,26.5 801.7,26.1 809.2,28.9 816.8,22.2 824.4,31.9 831.9,23.0 839.5,30.2 847.1,22.1 854.6,21.9 862.2,10.0 869.7,21.7 877.3,27.4 884.9,28.9 892.4,28.2 900.0,32.6" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>default-speed-10 · 2010 · repeat 2</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 200.30 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,12.6 7.6,12.2 15.1,21.8 22.7,28.5 30.3,20.3 37.8,23.7 45.4,23.5 52.9,23.6 60.5,26.7 68.1,27.8 75.6,27.3 83.2,26.9 90.8,16.1 98.3,26.5 105.9,27.1 113.4,17.1 121.0,20.0 128.6,21.2 136.1,19.1 143.7,24.0 151.3,28.0 158.8,14.7 166.4,27.8 173.9,24.3 181.5,22.8 189.1,25.7 196.6,19.9 204.2,28.0 211.8,24.3 219.3,28.2 226.9,26.8 234.5,31.2 242.0,28.8 249.6,27.1 257.1,28.7 264.7,33.9 272.3,32.2 279.8,29.6 287.4,29.2 295.0,33.2 302.5,35.0 310.1,27.6 317.6,26.0 325.2,33.8 332.8,28.8 340.3,32.4 347.9,31.2 355.5,26.6 363.0,22.9 370.6,33.4 378.2,27.8 385.7,34.7 393.3,32.2 400.8,36.0 408.4,31.2 416.0,33.1 423.5,32.7 431.1,31.5 438.7,31.0 446.2,28.1 453.8,10.0 461.3,24.5 468.9,27.8 476.5,32.1 484.0,31.5 491.6,30.8 499.2,28.9 506.7,30.8 514.3,31.7 521.8,32.0 529.4,28.2 537.0,25.5 544.5,27.9 552.1,30.3 559.7,31.2 567.2,31.0 574.8,32.9 582.4,31.2 589.9,27.1 597.5,23.2 605.0,32.1 612.6,31.5 620.2,27.9 627.7,30.8 635.3,27.8 642.9,31.9 650.4,27.4 658.0,23.4 665.5,32.9 673.1,34.7 680.7,26.8 688.2,26.6 695.8,32.3 703.4,32.1 710.9,24.6 718.5,26.6 726.1,27.5 733.6,28.5 741.2,33.3 748.7,33.6 756.3,32.5 763.9,30.0 771.4,18.7 779.0,20.1 786.6,29.9 794.1,28.1 801.7,29.9 809.2,17.1 816.8,10.8 824.4,26.7 831.9,26.6 839.5,29.9 847.1,26.7 854.6,34.7 862.2,26.4 869.7,27.4 877.3,28.1 884.9,25.6 892.4,30.9 900.0,23.9" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><details><summary>default-speed-10 · 2002 · repeat 2</summary>
+      <p>Paint work in milliseconds, by frame. Chart maximum 159.60 ms.</p>
+      <svg viewBox="0 0 900 160" role="img" aria-label="Paint duration per frame"><line x1="0" y1="150" x2="900" y2="150" stroke="#adb7c5"/><polyline points="0.0,22.7 7.6,27.1 15.1,21.2 22.7,23.5 30.3,23.0 37.8,22.2 45.4,28.9 52.9,26.9 60.5,10.7 68.1,34.3 75.6,26.9 83.2,28.6 90.8,24.4 98.3,27.7 105.9,29.6 113.4,26.4 121.0,28.1 128.6,29.3 136.1,27.5 143.7,26.5 151.3,19.1 158.8,31.6 166.4,24.2 173.9,28.2 181.5,28.5 189.1,24.4 196.6,31.8 204.2,25.2 211.8,24.7 219.3,25.0 226.9,31.1 234.5,33.5 242.0,22.8 249.6,27.7 257.1,24.2 264.7,31.8 272.3,10.0 279.8,30.4 287.4,27.6 295.0,23.1 302.5,12.2 310.1,27.4 317.6,29.3 325.2,11.5 332.8,23.6 340.3,28.0 347.9,29.9 355.5,24.6 363.0,28.9 370.6,31.6 378.2,35.3 385.7,29.3 393.3,26.9 400.8,28.2 408.4,26.4 416.0,28.0 423.5,28.2 431.1,30.6 438.7,31.2 446.2,33.4 453.8,34.6 461.3,39.5 468.9,31.1 476.5,28.0 484.0,37.7 491.6,30.9 499.2,30.2 506.7,31.6 514.3,33.9 521.8,36.4 529.4,29.3 537.0,31.8 544.5,37.8 552.1,30.8 559.7,31.5 567.2,32.2 574.8,31.7 582.4,34.2 589.9,31.1 597.5,33.8 605.0,33.1 612.6,30.7 620.2,32.3 627.7,28.9 635.3,34.7 642.9,31.6 650.4,24.1 658.0,32.3 665.5,34.8 673.1,36.2 680.7,29.4 688.2,32.8 695.8,37.0 703.4,33.3 710.9,34.3 718.5,35.4 726.1,35.8 733.6,32.2 741.2,31.8 748.7,27.5 756.3,35.4 763.9,36.8 771.4,30.2 779.0,35.4 786.6,36.9 794.1,34.8 801.7,31.5 809.2,34.2 816.8,40.6 824.4,37.5 831.9,31.1 839.5,33.7 847.1,29.1 854.6,37.6 862.2,29.5 869.7,35.2 877.3,30.7 884.9,29.4 892.4,26.7 900.0,24.2" fill="none" stroke="#2563eb" stroke-width="1.5"/></svg></details><h2>Separate diagnostic profile</h2><pre>{
+  &quot;scenario&quot;: &quot;matched-round-lake-15&quot;,
+  &quot;scope&quot;: &quot;Diagnostic only; excluded from performance comparisons. Nested stage times overlap.&quot;,
+  &quot;report&quot;: &quot;diagnostic-profile/run.json&quot;,
+  &quot;stageCoverage&quot;: {
+    &quot;installed&quot;: [
+      &quot;advanceFrame&quot;,
+      &quot;drawScene&quot;,
+      &quot;drawChart&quot;,
+      &quot;drawSailingHud&quot;,
+      &quot;updateGlobalWind&quot;,
+      &quot;respawnWindPatch&quot;,
+      &quot;updateBoatWindAndAI&quot;,
+      &quot;updatePlayer1Steering&quot;,
+      &quot;updatePlayer2Steering&quot;,
+      &quot;updateBoatDynamics&quot;,
+      &quot;integratePositions&quot;
+    ],
+    &quot;scope&quot;: &quot;Diagnostic option callbacks preserve receiver, arguments, returns and exceptions. Nested stage durations overlap. 2002 internal engine children have no option callback boundary; only aggregate advanceFrame is timed.&quot;
+  },
+  &quot;stages&quot;: [
+    {
+      &quot;name&quot;: &quot;drawScene&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 2694.299999937415,
+      &quot;msPerPaint&quot;: 22.45249999947846
+    },
+    {
+      &quot;name&quot;: &quot;advanceFrame&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 251.5,
+      &quot;msPerPaint&quot;: 2.095833333333333
+    },
+    {
+      &quot;name&quot;: &quot;updateBoatWindAndAI&quot;,
+      &quot;calls&quot;: 1800,
+      &quot;totalMs&quot;: 121.90000002086163,
+      &quot;msPerPaint&quot;: 1.0158333335071803
+    },
+    {
+      &quot;name&quot;: &quot;drawSailingHud&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 109.00000005960464,
+      &quot;msPerPaint&quot;: 0.9083333338300387
+    },
+    {
+      &quot;name&quot;: &quot;drawChart&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 77.50000001490116,
+      &quot;msPerPaint&quot;: 0.6458333334575097
+    },
+    {
+      &quot;name&quot;: &quot;integratePositions&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 65.9999999254942,
+      &quot;msPerPaint&quot;: 0.5499999993791183
+    },
+    {
+      &quot;name&quot;: &quot;updateBoatDynamics&quot;,
+      &quot;calls&quot;: 1800,
+      &quot;totalMs&quot;: 48.90000003576279,
+      &quot;msPerPaint&quot;: 0.40750000029802325
+    },
+    {
+      &quot;name&quot;: &quot;updateGlobalWind&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 7.299999982118607,
+      &quot;msPerPaint&quot;: 0.06083333318432172
+    },
+    {
+      &quot;name&quot;: &quot;updatePlayer1Steering&quot;,
+      &quot;calls&quot;: 120,
+      &quot;totalMs&quot;: 2.7000000029802322,
+      &quot;msPerPaint&quot;: 0.02250000002483527
+    }
+  ],
+  &quot;path&quot;: &quot;diagnostic-profile/2010-matched-round-lake-15-profile-7424ec75-c89a-4224-8b65-9baccc66c85b.cpuprofile&quot;,
+  &quot;hottestSelfFrames&quot;: [
+    {
+      &quot;frame&quot;: &quot;drawImage @ :0&quot;,
+      &quot;selfPercent&quot;: 86.54034878675807
+    },
+    {
+      &quot;frame&quot;: &quot;getImageData @ :0&quot;,
+      &quot;selfPercent&quot;: 1.4637488972490111
+    },
+    {
+      &quot;frame&quot;: &quot;(program) @ :0&quot;,
+      &quot;selfPercent&quot;: 0.9475464511530686
+    },
+    {
+      &quot;frame&quot;: &quot;callNumberDrawingDependencyImpl @ http://127.0.0.1:8765/versions/2010-en/src/render/dependencies.js:73&quot;,
+      &quot;selfPercent&quot;: 0.8451501914949487
+    },
+    {
+      &quot;frame&quot;: &quot;originalDrawing00466330Number @ http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js:31741&quot;,
+      &quot;selfPercent&quot;: 0.4926633395108526
+    },
+    {
+      &quot;frame&quot;: &quot;tryProjectScenePointSmooth @ http://127.0.0.1:8765/versions/2010-en/src/render/projection-smooth.js:7&quot;,
+      &quot;selfPercent&quot;: 0.4877316636586373
+    },
+    {
+      &quot;frame&quot;: &quot;originalDrawBoatNumber @ http://127.0.0.1:8765/versions/2010-en/src/render/drawing-functions.js:9280&quot;,
+      &quot;selfPercent&quot;: 0.3343149061831755
+    },
+    {
+      &quot;frame&quot;: &quot;binary64Value @ http://127.0.0.1:8765/src/runtime/float80.js:154&quot;,
+      &quot;selfPercent&quot;: 0.3342881658803362
+    },
+    {
+      &quot;frame&quot;: &quot;tryProjectionGeometry @ http://127.0.0.1:8765/versions/2010-en/src/render/projection-fast.js:28&quot;,
+      &quot;selfPercent&quot;: 0.3240542699794184
+    },
+    {
+      &quot;frame&quot;: &quot;(idle) @ :0&quot;,
+      &quot;selfPercent&quot;: 0.2948538592789271
+    },
+    {
+      &quot;frame&quot;: &quot;(garbage collector) @ :0&quot;,
+      &quot;selfPercent&quot;: 0.2484976342854078
+    },
+    {
+      &quot;frame&quot;: &quot;sink @ http://127.0.0.1:8765/src/render/gdi.js:170&quot;,
+      &quot;selfPercent&quot;: 0.2445744498545595
+    },
+    {
+      &quot;frame&quot;: &quot;selectBitmap @ http://127.0.0.1:8765/versions/2010-en/src/play.js:142&quot;,
+      &quot;selfPercent&quot;: 0.21673779459887138
+    },
+    {
+      &quot;frame&quot;: &quot;readI32 @ http://127.0.0.1:8765/src/runtime/memory.js:51&quot;,
+      &quot;selfPercent&quot;: 0.21537021911080548
+    },
+    {
+      &quot;frame&quot;: &quot;readPointer @ http://127.0.0.1:8765/versions/2010-en/src/render/typed-c.js:281&quot;,
+      &quot;selfPercent&quot;: 0.21425858652134408
+    },
+    {
+      &quot;frame&quot;: &quot;readF64 @ http://127.0.0.1:8765/src/runtime/memory.js:53&quot;,
+      &quot;selfPercent&quot;: 0.20513632320988762
+    },
+    {
+      &quot;frame&quot;: &quot;tryProjectScenePointOutputFast @ http://127.0.0.1:8765/versions/2010-en/src/render/projection-output-fast.js:11&quot;,
+      &quot;selfPercent&quot;: 0.19927255680156028
+    },
+    {
+      &quot;frame&quot;: &quot;cAdd @ http://127.0.0.1:8765/versions/2010-en/src/render/typed-c.js:198&quot;,
+      &quot;selfPercent&quot;: 0.19359979255637066
+    },
+    {
+      &quot;frame&quot;: &quot;writeLocalValue @ http://127.0.0.1:8765/versions/2010-en/src/render/typed-c.js:167&quot;,
+      &quot;selfPercent&quot;: 0.17079795432099226
+    },
+    {
+      &quot;frame&quot;: &quot;scalarStoreI32 @ http://127.0.0.1:8765/versions/2010-en/src/render/scalar-stack.js:19&quot;,
+      &quot;selfPercent&quot;: 0.17074829375857647
+    }
+  ]
+}</pre>
+  <h2>Reproduction</h2><pre>{
+  &quot;command&quot;: [
+    &quot;/nix/store/i1rgc6zsrxbxgfz97vbczz7cxcg71p5s-nodejs-slim-24.19.0/bin/node&quot;,
+    &quot;/home/martin/tact/tools/evaluate.js&quot;,
+    &quot;--mode&quot;,
+    &quot;quick&quot;,
+    &quot;--repeats&quot;,
+    &quot;2&quot;,
+    &quot;--frames&quot;,
+    &quot;120&quot;,
+    &quot;--diagnostic&quot;,
+    &quot;--note&quot;,
+    &quot;Other Unity game/editor and video Playwright tests were observed using the desktop during initial evaluation; treat timings as loaded-system diagnostics.&quot;
+  ],
+  &quot;environment&quot;: {
+    &quot;node&quot;: &quot;v24.19.0&quot;,
+    &quot;platform&quot;: &quot;linux&quot;,
+    &quot;release&quot;: &quot;6.18.49&quot;,
+    &quot;cpus&quot;: &quot;AMD Ryzen 7 5700G with Radeon Graphics&quot;,
+    &quot;logicalCpus&quot;: 16,
+    &quot;totalMemory&quot;: 67287801856,
+    &quot;display&quot;: &quot;:0&quot;,
+    &quot;waylandDisplay&quot;: &quot;wayland-1&quot;
+  },
+  &quot;source&quot;: {
+    &quot;commit&quot;: &quot;5ee3bb368410effc5ea2900039d098c08d57f0cb&quot;,
+    &quot;trackedDiffSha256&quot;: &quot;422b100f8e2880768b302dcd86001340e796a488d00f9d713e83ef43dd6d7333&quot;,
+    &quot;runtimeSha256&quot;: &quot;6a84ebf793175ba0230a3a694c9446489a5799cc2afeb225c3eb3b59b921a4a9&quot;,
+    &quot;harnessSha256&quot;: &quot;3afa130d869e15b1353d841f5efa7ecab909614ddd6a54767b3043fb72c535de&quot;,
+    &quot;finalRuntimeSha256&quot;: &quot;6a84ebf793175ba0230a3a694c9446489a5799cc2afeb225c3eb3b59b921a4a9&quot;,
+    &quot;finalHarnessSha256&quot;: &quot;3afa130d869e15b1353d841f5efa7ecab909614ddd6a54767b3043fb72c535de&quot;
+  },
+  &quot;configuration&quot;: {
+    &quot;mode&quot;: &quot;quick&quot;,
+    &quot;repeats&quot;: 2,
+    &quot;frames&quot;: 120,
+    &quot;warmup&quot;: 60,
+    &quot;baseUrl&quot;: &quot;http://127.0.0.1:8765&quot;,
+    &quot;profile&quot;: true,
+    &quot;diagnostic&quot;: true,
+    &quot;note&quot;: &quot;Other Unity game/editor and video Playwright tests were observed using the desktop during initial evaluation; treat timings as loaded-system diagnostics.&quot;,
+    &quot;scenarios&quot;: [
+      {
+        &quot;id&quot;: &quot;matched-round-lake-15&quot;,
+        &quot;label&quot;: &quot;Common menus: 15 Keelboats, Round Lake, Windward / Leeward, speed 10&quot;,
+        &quot;editions&quot;: [
+          &quot;2002&quot;,
+          &quot;2010&quot;
+        ],
+        &quot;controlled&quot;: true,
+        &quot;quick&quot;: true,
+        &quot;phase&quot;: &quot;prestart&quot;,
+        &quot;settings&quot;: {
+          &quot;fleet&quot;: 15,
+          &quot;boatSelector&quot;: 12,
+          &quot;area&quot;: 5,
+          &quot;venue&quot;: 0,
+          &quot;course&quot;: 1,
+          &quot;speed&quot;: 10,
+          &quot;automaticSlowdown&quot;: &quot;off&quot;
+        },
+        &quot;commands&quot;: [
+          32799,
+          32816,
+          32789,
+          32808,
+          32909
+        ],
+        &quot;comparisonScope&quot;: &quot;Matching original menus and fleet; native course length, timestep, initialization and geometry are recorded and may differ between editions.&quot;
+      },
+      {
+        &quot;id&quot;: &quot;default-speed-10&quot;,
+        &quot;label&quot;: &quot;Original defaults, speed 10, native automatic slowdown&quot;,
+        &quot;editions&quot;: [
+          &quot;2002&quot;,
+          &quot;2010&quot;
+        ],
+        &quot;controlled&quot;: false,
+        &quot;quick&quot;: true,
+        &quot;phase&quot;: &quot;prestart&quot;,
+        &quot;settings&quot;: {
+          &quot;speed&quot;: 10,
+          &quot;automaticSlowdown&quot;: &quot;native&quot;
+        },
+        &quot;commands&quot;: [
+          32909
+        ]
+      }
+    ]
+  }
+}</pre></html>

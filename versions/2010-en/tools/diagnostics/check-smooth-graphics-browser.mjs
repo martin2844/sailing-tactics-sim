@@ -3,13 +3,18 @@
 // original memory methods so its normal fast paths and pixel feedback run.
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {writeFile} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
 import {openBrowser} from '../../../../tools/browser-session.js';
 import {paintMeasurementInstrumentation} from '../../../../tools/paint-measurements.js';
 import {deterministicPaintSetupInstrumentation,runDeterministicPaintSetup} from '../../../../tools/deterministic-paint-setup.js';
 
 const base=process.env.TACT_2010_URL??'http://127.0.0.1:8765/versions/2010-en/play.html';
-const output=new URL('../../analysis/browser-performance/',import.meta.url);
+const output=process.env.TACT_CANVAS_REPORT_DIR
+  ?pathToFileURL(resolve(process.env.TACT_CANVAS_REPORT_DIR)+'/')
+  :new URL('../../analysis/browser-performance/',import.meta.url);
+await mkdir(output,{recursive:true});
 const addresses={time:0x5359f0,dt:0x523378,speed:0x4da174,racing:0x5363b0,mode:0x4da16c,
   notice:0x53648c,divisor:0x4da178,clock:0x4f8cd0,autoSlow:0x4da1dc,
   overlays:[0x536444,0x5363f0,0x5233a8,0x536434,0x536438,0x53644c]};

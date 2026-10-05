@@ -1,0 +1,23 @@
+✔ default launch stays headless/GPU-disabled and reports actual browser-scoped metadata (94.930215ms)
+✔ headed GPU request records flags without assuming hardware, and close rejects pending calls (55.042936ms)
+✔ invalid dimensions and timeouts reject before launching a child (5.808126ms)
+✔ irregular cadence measures paint tails and changed-content rAF delivery, excluding held frames (3.810474ms)
+✔ native slowdown remains visible while a controlled setting drift invalidates the run (0.678257ms)
+✔ clock-quantized consecutive rAF observations may share sampledAt while timestamp advances (0.513196ms)
+✔ independently quantized rAF and observation clocks may have signed negative offsets (0.433526ms)
+✔ invariants fail closed on missing, short, nonfinite, backwards and gapped observations (0.661134ms)
+✔ repeat comparisons allow different editions, report missing latency and reject invalid or incomplete evidence (3.658679ms)
+✔ actual context validation ignores ephemeral IDs and allows candidate source changes across arms (2.602059ms)
+✔ actual browser/GPU/surface mismatches and inconsistent module hashes fail closed (6.391744ms)
+✔ measured input latency requires both reference parity and strict p95 below 100 ms (2.326119ms)
+✔ native dt changes across repeats are observations; controlled dt changes invalidate comparability (0.912959ms)
+✔ presentation sampling observes completed frame ids without advancing or scheduling a paint (3.192771ms)
+✔ presentation summary distinguishes repeated opportunities and unobserved completed updates (0.605981ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 272.525663

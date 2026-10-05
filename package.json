@@ -22,6 +22,9 @@
     "check:play:2010": "node tools/check-2010-browser.js && node tools/check-2010-hud-browser.js",
     "check:hud:2010": "node tools/check-2010-hud-browser.js",
     "check:font": "node tools/check-system-font-browser.js",
+    "eval:quick": "node tools/evaluate.js --mode quick",
+    "eval:release": "node tools/evaluate.js --mode release",
+    "eval:reanalyze": "node tools/evaluation/reanalyze.js",
     "status:2002": "node tools/report-2002-status.js"
   }
 }
