@@ -4,6 +4,7 @@ import {drawOpenDeck,type MeshPrimitive} from './boat-deck';
 import {drawCrew} from './boat-crew';
 import {triangulateSail} from './sail-triangulation';
 import type {BoatView} from './protocol';
+import {BOAT_MODEL_SCALE} from './world-objects';
 const primitiveSphere=new THREE.SphereGeometry(1,8,6).toNonIndexed();
 const spherePoints=primitiveSphere.getAttribute('position');
 const rodAngles=Array.from({length:5},(_,i)=>({cos:Math.cos(i/5*Math.PI*2),sin:Math.sin(i/5*Math.PI*2)}));
@@ -13,7 +14,7 @@ export class NativeBoatMesh {
  readonly group=new THREE.Group();readonly geometry=new THREE.BufferGeometry();readonly mesh:THREE.Mesh;
  private before?:Float32Array;private current?:Float32Array;private topology='';
  private motion=Uint8Array.from([]);private pivot=new THREE.Vector3();private mast=new THREE.Vector3(0,1,0);private sailHeight=1;private nativeBoomBearing=0;private hasRig=false;
- constructor(material:THREE.Material){this.mesh=new THREE.Mesh(this.geometry,material);this.mesh.frustumCulled=false;this.group.add(this.mesh);this.group.scale.setScalar(4);}
+ constructor(material:THREE.Material){this.mesh=new THREE.Mesh(this.geometry,material);this.mesh.frustumCulled=false;this.group.add(this.mesh);this.group.scale.setScalar(BOAT_MODEL_SCALE);}
  update(packet:NativeModelPacket,start:number,end:number){
   const positions:number[]=[],rgb:number[]=[],motion:number[]=[];let movingPart=0,movingEnds:THREE.Vector3[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
   const put=(v:THREE.Vector3,color:THREE.Color)=>{positions.push(v.x,v.y,v.z);rgb.push(color.r,color.g,color.b);motion.push(movingPart===1?1:movingPart===2&&movingEnds.some(p=>p.distanceToSquared(v)<.0064)?2:0);};

@@ -1006,3 +1006,24 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Evidence: [pause and information tools](versions/2026/analysis/app/PAUSE-INFORMATION.md).
 - [x] **UI-06 — Expose native wind/forecast/current charts and coach comments in the modern interface.**
   Extract from private copies; preserve the sailing state while inspecting them.
+
+## Hull contacts and game polish
+
+- [x] **CONTACT-01 — Derive rigid contact shapes for all 27 boats and share course-object dimensions with graphics.**
+  Compound catamaran hulls/platform; exclude sails, crew and labels. Add a contact
+  overlay and verify real model alignment before enabling physical changes.
+  Evaluated: all 27 live initial hull packets fit; held image/RNG/shore unchanged.
+  Catamaran heel shifts required a measured 0.35-unit rounded reserve. See
+  `versions/2026/analysis/app/contact-shapes-reviewed-2026-10-06/verification.json`.
+- [ ] **CONTACT-02 — Add continuous polygon/circle detection and stable physical response.**
+  Evaluate bow/side/stern, rotations, grazing, thin-object sweeps, compound gaps,
+  resting/sliding contacts and initial penetration. No rendering dependency.
+- [ ] **CONTACT-03 — Integrate contacts and original foul decisions in the authoritative worker.**
+  Preserve frozen sources via declared adapters. Separate solid contact from foul
+  eligibility; use in-place native penalty codes/speed loss instead of large
+  relocation jumps. Cover all marks/gates/committee throughout racing; prevent
+  teleports/replays from generating false sweeps; validate controls, scoring and
+  diagnostic isolation.
+- [ ] **CONTACT-04 — Match AI clearance, evaluate complete races and performance, then review and fix findings.**
+  Check crowded starts, rounding/gates/island, all shape families, race results,
+  championship reset, pause and the overlay. Keep Chrome desktop cadence smooth.

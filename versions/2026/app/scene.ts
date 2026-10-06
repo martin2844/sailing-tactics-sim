@@ -9,10 +9,12 @@ import type {NativeTerrain} from './native-environment';
 import {SceneLabels} from './scene-labels';
 import {Minimap} from './minimap';
 import type {NativeModelPacket} from './native-models';
+import {ContactOverlay} from './contact-overlay';
 export type Backend='webgl2'|'webgpu';
 type Renderer=THREE.WebGLRenderer|import('three/webgpu').WebGPURenderer;
 export interface RenderSample {intervalMs:number;cpuMs:number;changed:boolean;poseChanged:boolean;sequence:number;alpha:number;calls:number;triangles:number}
 export class SailingScene {
+ readonly contactOverlay=new ContactOverlay();
   readonly scene=new THREE.Scene();readonly camera=new THREE.PerspectiveCamera(45,1,1,70000);
   private renderer!:Renderer;private controls:OrbitControls;private water:THREE.Mesh;
   private previous?:SceneSnapshot;private latest?:SceneSnapshot;private received=0;private span=40;private lastDraw=0;private lastPose='';private mode='chase';private paused=false;private disposed=false;private width=0;private height=0;
@@ -43,6 +45,7 @@ export class SailingScene {
     this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=-1.5;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
     this.scene.add(this.environment.group);
     this.scene.add(this.course.group);
+    this.scene.add(this.contactOverlay.group);
     this.observer=new ResizeObserver(()=>this.resize());this.observer.observe(canvas);
     canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();this.onFailure('Graphics stopped. Restart to restore the scene.');});
   }
@@ -89,6 +92,7 @@ export class SailingScene {
     const current=this.latest,old=this.previous??current,alpha=this.paused?1:Math.min(1,Math.max(0,(now-this.received)/this.span));
     const poses=current.boats.map((boat,i)=>{const before=old.boats[i]??boat;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
     const player=poses[0];this.origin.set(player.x,0,player.y);
+    this.contactOverlay.update(current,player,poses);
     this.course.group.visible=true;this.course.update(current.course,current.boats[0],{x:player.x,y:player.y},current.clock);
     if(this.mode==='chase'){
       const bearing=player.heading*Math.PI/180;
@@ -124,5 +128,5 @@ export class SailingScene {
   }
   private pollQueries(){if(!this.gl||!this.queryExtension)return;const gl=this.gl;const disjoint=gl.getParameter(this.queryExtension.GPU_DISJOINT_EXT);for(let i=this.pendingQueries.length-1;i>=0;i--){const query=this.pendingQueries[i];if(gl.getQueryParameter(query,gl.QUERY_RESULT_AVAILABLE)){if(!disjoint&&this.gpuMs.length<4000)this.gpuMs.push(gl.getQueryParameter(query,gl.QUERY_RESULT)/1e6);gl.deleteQuery(query);this.pendingQueries.splice(i,1);}else if(disjoint){gl.deleteQuery(query);this.pendingQueries.splice(i,1);}}}
   resetMetrics(){this.samples.length=0;this.gpuMs.length=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.lastDraw=0;}
-  dispose(){this.disposed=true;this.environment.dispose();this.minimap.dispose();this.labels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
+  dispose(){this.disposed=true;this.contactOverlay.dispose();this.environment.dispose();this.minimap.dispose();this.labels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
 }

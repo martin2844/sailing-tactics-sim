@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {navigationTarget} from './navigation';
 import {ScreenCourseLine} from './screen-course-line';
 import type {NativeCourse,BoatView,CourseLine} from './protocol';
+import {BUOY_RADIUS,COMMITTEE_OUTLINE} from './world-objects';
 /** Presentation objects at native coordinates. Their shapes are modern artwork;
  * line endpoints, marks, target and close-hauled heading come from the engine.
  */
@@ -12,13 +13,13 @@ export class CourseScene {
  constructor(){
   const resource=<T extends {dispose:()=>void}>(item:T):T=>{this.resources.push(item);return item;};
   const material=(color:string)=>resource(new THREE.MeshStandardMaterial({color,roughness:.85,flatShading:true}));
-  const base=resource(new THREE.CylinderGeometry(1.9,2.3,1.2,8)),top=resource(new THREE.ConeGeometry(1.9,3.4,8)),pole=resource(new THREE.CylinderGeometry(.12,.12,7,6));
+  const base=resource(new THREE.CylinderGeometry(1.9,BUOY_RADIUS,1.2,8)),top=resource(new THREE.ConeGeometry(1.9,3.4,8)),pole=resource(new THREE.CylinderGeometry(.12,.12,7,6));
   const rim=material('#182f3c'),colors=['#ef882b','#f4ca48','#f4ca48','#ef882b'];
   const buoy=(color:string,_label:string)=>{const g=new THREE.Group(),body=new THREE.Mesh(base,rim),cap=new THREE.Mesh(top,material(color));body.position.y=-.7;cap.position.y=1.6;g.add(body,cap);return g;};
   for(let i=0;i<3;i++){const mark=buoy(colors[i],String(i+1));this.marks.push(mark);this.group.add(mark);}
   for(let i=0;i<2;i++){const mark=buoy('#f4ca48',i===0?'Gate L':'Gate R');mark.visible=false;this.gates.push(mark);this.group.add(mark);}
   this.pin=buoy(colors[3],'Pin');this.group.add(this.pin);
-  const hullShape=new THREE.Shape();hullShape.moveTo(-3,7);hullShape.lineTo(3,7);hullShape.lineTo(3,-4);hullShape.lineTo(0,-8);hullShape.lineTo(-3,-4);hullShape.closePath();
+  const hullShape=new THREE.Shape();COMMITTEE_OUTLINE.forEach((p,i)=>i?hullShape.lineTo(p.x,p.y):hullShape.moveTo(p.x,p.y));hullShape.closePath();
   const hullGeometry=resource(new THREE.ExtrudeGeometry(hullShape,{depth:2.3,bevelEnabled:false}));hullGeometry.rotateX(Math.PI/2);
   const hull=new THREE.Mesh(hullGeometry,material('#e9eeee'));hull.position.y=1.2;
   const deck=new THREE.Mesh(resource(new THREE.BoxGeometry(5.5,.5,10)),material('#364f5b'));deck.position.y=1.3;
