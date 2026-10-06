@@ -964,3 +964,13 @@ MVP, physical Pixel 11 and replay/export tasks above retain their existing statu
   Evidence: [sail surface repair](versions/2026/analysis/app/OPTIMIST-SAIL.md).
 
 Evidence: [guide and label refinement](versions/2026/analysis/app/GUIDE-LABEL-REFINEMENT.md).
+
+## Player fixes (2026-10-06)
+
+- [x] **FIX-01 — Make Pause/Space work after toolbar interactions and native freeze.**
+- [x] **FIX-02 — Show boat-specific shallow-water warnings before grounding.**
+- [ ] **FIX-03 — Close races 20 game minutes after the first finisher; score DNFs.**
+- [ ] **FIX-04 — Repair island mark placement and prevent AI shore traps.**
+- [ ] **FIX-05 — Add coastal elevations, shore detail and navigational landmarks.**
+
+Evidence: [player fixes](versions/2026/analysis/app/PLAYER-FIXES.md).
