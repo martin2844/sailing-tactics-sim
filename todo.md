@@ -1021,12 +1021,17 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Evaluated: 143 solver cases, including all 27 hulls in five orientations and
   dense fifteen-boat placement. Conservative translation/rotation sweeps, no
   bounce, tangential sliding and separate non-foul spawn correction.
-- [ ] **CONTACT-03 — Integrate contacts and original foul decisions in the authoritative worker.**
+- [x] **CONTACT-03 — Integrate contacts and original foul decisions in the authoritative worker.**
   Preserve frozen sources via declared adapters. Separate solid contact from foul
   eligibility; use in-place native penalty codes/speed loss instead of large
   relocation jumps. Cover all marks/gates/committee throughout racing; prevent
   teleports/replays from generating false sweeps; validate controls, scoring and
   diagnostic isolation.
+  Evaluated: 12 real native-rule/world fixtures, 14 control checks, nine information
+  checks and 600 real fifteen-boat paints. Initial reference image unchanged;
+  rendering does not feed physics. Private rule copies yield one-sided port/
+  starboard, windward and clear-astern decisions. A contact HUD explains sanctions.
+  Dense-neighbor cost was found and remains a CONTACT-04 performance target.
 - [ ] **CONTACT-04 — Match AI clearance, evaluate complete races and performance, then review and fix findings.**
   Check crowded starts, rounding/gates/island, all shape families, race results,
   championship reset, pause and the overlay. Keep Chrome desktop cadence smooth.

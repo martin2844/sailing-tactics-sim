@@ -1,11 +1,11 @@
-import catalog from './generated/contact-shapes.json';
+import catalog from './generated/contact-shapes.json' with {type:'json'};
 import {BUOY_RADIUS,COMMITTEE_OUTLINE} from './world-objects.ts';
 import type {NativeCourse,SceneSnapshot} from './protocol';
 import type {Shape,Body,Pose} from './contact-geometry.ts';
 export const boatShapes=(selector:number)=>(catalog.boats as unknown as Record<string,Shape[]>)[selector]??(()=>{throw Error('Missing contact hull '+selector);})();
 export const radius=(parts:Shape[])=>Math.max(...parts.map(p=>p.kind==='circle'?p.radius:Math.max(...p.points.map(v=>Math.hypot(v.x,v.y)))));
 export interface Obstacle extends Body {type:'mark'|'committee';name:string}
-export function obstacles(course:NativeCourse):Obstacle[]{
+export function obstacles(course:Pick<NativeCourse,'marks'|'gate'|'finish'|'committee'>):Obstacle[]{
  const result:Obstacle[]=[];
  const add=(key:string,name:string,p:Pose,parts:Shape[],type:Obstacle['type']='mark')=>{if(result.some(b=>Math.hypot(b.pose.x-p.x,b.pose.y-p.y)<.01))return;result.push({key,name,type,pose:p,parts,radius:radius(parts)});};
  add('committee','Committee boat',{...course.committee,heading:course.committee.heading},[{kind:'polygon',points:COMMITTEE_OUTLINE}],'committee');

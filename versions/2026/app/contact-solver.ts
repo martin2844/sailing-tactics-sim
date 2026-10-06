@@ -2,7 +2,16 @@ import {CONTACT_SKIN,shapeSeparation,separation,interpolate,angleDelta,distance,
 export interface Motion extends Body {to:Pose;human?:boolean;fixed?:boolean}
 export interface Contact {a:string;b:string;time:number;normal:Point;initial:boolean;poseA:Pose;poseB:Pose}
 export interface SweptContact {time:number;normal:Point}
-function bounds(m:Motion){return {minX:Math.min(m.pose.x,m.to.x)-m.radius,maxX:Math.max(m.pose.x,m.to.x)+m.radius,minY:Math.min(m.pose.y,m.to.y)-m.radius,maxY:Math.max(m.pose.y,m.to.y)+m.radius};}
+const localBounds=new WeakMap<Body['parts'],{minX:number;maxX:number;minY:number;maxY:number}>();
+function bounds(m:Motion){
+ let local=localBounds.get(m.parts);if(!local){const points=m.parts.flatMap(s=>s.kind==='circle'?[{x:-s.radius,y:-s.radius},{x:s.radius,y:s.radius}]:s.points);local={minX:Math.min(...points.map(p=>p.x)),maxX:Math.max(...points.map(p=>p.x)),minY:Math.min(...points.map(p=>p.y)),maxY:Math.max(...points.map(p=>p.y))};localBounds.set(m.parts,local);}
+ let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+ for(const pose of[m.pose,m.to]){const angle=pose.heading*Math.PI/180,c=Math.cos(angle),s=Math.sin(angle);for(const x of[local.minX,local.maxX])for(const y of[local.minY,local.maxY]){const px=pose.x+x*c-y*s,py=pose.y+x*s+y*c;minX=Math.min(minX,px);maxX=Math.max(maxX,px);minY=Math.min(minY,py);maxY=Math.max(maxY,py);}}
+ // Every intermediate rotated vertex lies within half the swept angular arc
+ // of an endpoint. This bound is conservative for translation plus rotation.
+ const padding=m.radius*Math.abs(angleDelta(m.to.heading,m.pose.heading))*Math.PI/360;
+ return {minX:minX-padding,maxX:maxX+padding,minY:minY-padding,maxY:maxY+padding};
+}
 export function sweep(a:Motion,b:Motion):SweptContact|null{
  const ab=bounds(a),bb=bounds(b);if(ab.maxX+CONTACT_SKIN<bb.minX||bb.maxX+CONTACT_SKIN<ab.minX||ab.maxY+CONTACT_SKIN<bb.minY||bb.maxY+CONTACT_SKIN<ab.minY)return null;
  const da={x:a.to.x-a.pose.x,y:a.to.y-a.pose.y},db={x:b.to.x-b.pose.x,y:b.to.y-b.pose.y},rotationA=angleDelta(a.to.heading,a.pose.heading)*Math.PI/180,rotationB=angleDelta(b.to.heading,b.pose.heading)*Math.PI/180;

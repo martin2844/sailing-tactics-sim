@@ -1,0 +1,267 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "key": "mark-0",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 3.7954710000000205,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "Windward mark",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      },
+      "pos": {
+        "id": 1,
+        "x": 999.7006270706303,
+        "y": 1014.7426766584604,
+        "heading": 0,
+        "finished": false
+      }
+    },
+    {
+      "key": "pin",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 1.337966999999992,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "Start pin",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      },
+      "pos": {
+        "id": 1,
+        "x": 1799.7006270706304,
+        "y": 1014.7426766584604,
+        "heading": 0,
+        "finished": false
+      }
+    },
+    {
+      "key": "committee",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 0.5107360000000085,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "Committee boat",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      },
+      "pos": {
+        "id": 1,
+        "x": 1600,
+        "y": 1019.4447319053729,
+        "heading": 0,
+        "finished": false
+      }
+    },
+    {
+      "key": "gate-0",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 1.54402300000001,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "Gate left",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      },
+      "pos": {
+        "id": 1,
+        "x": 1899.7006270706304,
+        "y": 1014.7426766584604,
+        "heading": 0,
+        "finished": false
+      }
+    },
+    {
+      "key": "gate-1",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 1.3965670000000046,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "Gate right",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      },
+      "pos": {
+        "id": 1,
+        "x": 2099.70062707063,
+        "y": 1014.7426766584604,
+        "heading": 0,
+        "finished": false
+      }
+    },
+    {
+      "name": "Committee solid independent of old endpoint time gate",
+      "clock": -120,
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 0.9658100000000047,
+        "latest": {
+          "clock": -120,
+          "a": 1,
+          "other": "Committee boat",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Committee solid independent of old endpoint time gate",
+      "clock": 11,
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 1.010672999999997,
+        "latest": {
+          "clock": 11,
+          "a": 1,
+          "other": "Committee boat",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Committee solid independent of old endpoint time gate",
+      "clock": 1000,
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 0.389049,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "Committee boat",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Port/starboard native foul, even inside former 50-second immunity",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 7.284577999999982,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "boat-2",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Clear-astern boat gets foul; ahead boat is not also windward-fouled",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 2.840030999999982,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "boat-2",
+          "penalties": [
+            {
+              "boat": 1,
+              "code": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Same-tack side contact produces one native windward foul",
+      "summary": {
+        "count": 1,
+        "fouls": 1,
+        "held": 0,
+        "workMs": 13.221912000000003,
+        "latest": {
+          "clock": 1000,
+          "a": 1,
+          "other": "boat-2",
+          "penalties": [
+            {
+              "boat": 2,
+              "code": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "No-contact step leaves complete native image and RNG identical"
+    }
+  ],
+  "scope": "Actual prepared native foul classifier plus authoritative ContactWorld on disposable images: all object types, temporal gates, continuous paths, in-place penalties, port/starboard/clear-astern/windward and former grace period. Not naturally sailed impacts."
+}
