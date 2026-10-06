@@ -1,0 +1,196 @@
+{
+  "passed": true,
+  "geometryChecks": [
+    {
+      "landInside": true,
+      "area": 301854,
+      "expected": 301854,
+      "min": -5,
+      "max": 64.77921295166016,
+      "sites": 27
+    },
+    {
+      "landInside": false,
+      "area": 3599698145.999999,
+      "expected": 3599698146,
+      "min": -5,
+      "max": 65.52222442626953,
+      "sites": 66
+    }
+  ],
+  "rows": [
+    {
+      "area": 32799,
+      "boat": 12,
+      "state": {
+        "coasts": 1,
+        "native": 1,
+        "maxHeight": 65.52222442626953,
+        "trees": [
+          66,
+          40
+        ],
+        "lighthouse": [
+          0,
+          1,
+          -1992
+        ],
+        "resources": 12
+      },
+      "before": {
+        "frame": 11,
+        "time": -169.9802048666932,
+        "clock": -169,
+        "rngState": 4172416474,
+        "memorySha256": "c6524965713ec94448e33c69740a6fd437ef87563eabf403c5da45985b0ece6b",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 3
+        }
+      },
+      "after": {
+        "frame": 11,
+        "time": -169.9802048666932,
+        "clock": -169,
+        "rngState": 4172416474,
+        "memorySha256": "c6524965713ec94448e33c69740a6fd437ef87563eabf403c5da45985b0ece6b",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 3
+        }
+      }
+    },
+    {
+      "area": 32801,
+      "boat": 1,
+      "state": {
+        "coasts": 1,
+        "native": 1,
+        "maxHeight": 65.07655334472656,
+        "trees": [
+          28,
+          28
+        ],
+        "lighthouse": [
+          500,
+          60.95655161939509,
+          200
+        ],
+        "resources": 12
+      },
+      "before": {
+        "frame": 10,
+        "time": -169.92244985188137,
+        "clock": -169,
+        "rngState": 1129144100,
+        "memorySha256": "6640e44984887ff0f363cca682f59c6f232369edc92dc72555de0681dbe4585d",
+        "shore": {
+          "previousX": 1043,
+          "previousTreeY": 0,
+          "completedCalls": 2
+        }
+      },
+      "after": {
+        "frame": 10,
+        "time": -169.92244985188137,
+        "clock": -169,
+        "rngState": 1129144100,
+        "memorySha256": "6640e44984887ff0f363cca682f59c6f232369edc92dc72555de0681dbe4585d",
+        "shore": {
+          "previousX": 1043,
+          "previousTreeY": 0,
+          "completedCalls": 2
+        }
+      }
+    },
+    {
+      "area": 32964,
+      "boat": 14,
+      "state": {
+        "coasts": 1,
+        "native": 1,
+        "maxHeight": 62.78971862792969,
+        "trees": [
+          79,
+          40
+        ],
+        "lighthouse": [
+          700,
+          49.782733118954106,
+          450
+        ],
+        "resources": 12
+      },
+      "before": {
+        "frame": 11,
+        "time": -170.09712339756857,
+        "clock": -170,
+        "rngState": 1817025768,
+        "memorySha256": "850c71ff5c162733929c8ab64bf857b6f79c5274885512d91d4472518179d856",
+        "shore": {
+          "previousX": 1884,
+          "previousTreeY": 0,
+          "completedCalls": 2
+        }
+      },
+      "after": {
+        "frame": 11,
+        "time": -170.09712339756857,
+        "clock": -170,
+        "rngState": 1817025768,
+        "memorySha256": "850c71ff5c162733929c8ab64bf857b6f79c5274885512d91d4472518179d856",
+        "shore": {
+          "previousX": 1884,
+          "previousTreeY": 0,
+          "completedCalls": 2
+        }
+      }
+    },
+    {
+      "area": 33018,
+      "boat": 14,
+      "state": {
+        "coasts": 8,
+        "native": 8,
+        "maxHeight": 66.80548095703125,
+        "trees": [
+          111,
+          40
+        ],
+        "lighthouse": [
+          5618.478790152797,
+          25.88836768974322,
+          4456.042334843214
+        ],
+        "resources": 19
+      },
+      "before": {
+        "frame": 10,
+        "time": -170.09712339756857,
+        "clock": -170,
+        "rngState": 2044226260,
+        "memorySha256": "43693ffd3b207912ad2c7cf7976813680cc0c731522348bd666e184da5b8bcb8",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "after": {
+        "frame": 10,
+        "time": -170.09712339756857,
+        "clock": -170,
+        "rngState": 2044226260,
+        "memorySha256": "43693ffd3b207912ad2c7cf7976813680cc0c731522348bd666e184da5b8bcb8",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    }
+  ],
+  "scope": "Independent projected native footprint area and elevated interior checks, real meshes/props on lake, island, distance island and Block Island, close/overview Chrome views; entire paused simulation state unchanged by scenery/camera. Heights/trees/rocks/lighthouse models are presentation artwork."
+}

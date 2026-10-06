@@ -29,3 +29,9 @@ claim. Coastal chart adapters and original-oracle declarations are documented in
 
 Physical Pixel 11 validation is deferred as requested. Default desktop Chrome
 performance and full player-journey review are recorded separately in EXT-07.
+
+2026-10-06: the [player fixes](PLAYER-FIXES.md) replace the flat cap with native-outline
+faceted relief, beaches, trees, rocks and a lighthouse. Background venue sampling
+features are no longer extruded as additional land when excluded by the native
+depth sampler. Island course spacing and AI shore routing now intentionally improve
+the inherited unsafe layouts; the original shoreline/physics sources stay frozen.

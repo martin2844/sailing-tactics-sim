@@ -84,3 +84,49 @@ must save the pace fields just as the original human-finish routine does.
 This is now retained for results and next-race initialization. Model extraction
 also stops after race completion and holds the last valid meshes. The corrected
 standard/championship transitions and a dedicated pace-retention test pass.
+
+## Coastal presentation and final checks
+
+Land retains its native coast outline and water holes. Interior sample vertices
+add deterministic faceted hills, with sand near the edge and grass/stone inland.
+Interior diagonal relaxation removes long thin triangulation stripes while
+keeping coast/hole edges constrained. Instanced low-poly trees and rocks add
+scale; a lighthouse uses a native landmark location where possible and an inland
+location otherwise. Props sit on the actual interpolated terrain surface.
+Heights and props add no collision forces or simulation RNG draws. Restart/loss
+disposes terrain resources; shared prop geometry is retained until scene disposal.
+
+[Coastal geometry/Chrome views](coastal-land-final2/verification.json) verify
+projected native footprint area, lake water holes, elevated interiors, dry prop
+sites, actual scene meshes/landmark instances on four coast families, close and
+overview views, and unchanged paused native boundaries. These are modern low-poly
+art assets; the shoreline remains the navigation reference.
+
+![Island terrain and lighthouse](coastal-land-final2/coast-32801.png)
+
+[Final control/depth checks](player-controls-final/verification.json),
+[cutoff/native-score/UI checks](player-cutoff-final/verification.json), seven
+small geometry/policy regression tests, production build/type checking and
+[6,471 frozen-file integrity checks](player-reference-final.json) pass.
+[Functional Chrome lifecycle](player-lifecycle-final/verification.json) also
+passes changing rendered pixels, held native state during pause, three scheduler
+cycles, 15-boat restart and context-loss recovery with one annotation canvas.
+That lifecycle run is headless; the performance measurements below are headed.
+
+[Four supplemental Chrome measurements](player-performance-summary.json) pass
+unchanged budgets: two default 15-Keelboat runs and two live 15-Optimist island
+runs near the second mark, one per requested backend in each workload. Fast
+native Page Up warm-up is excluded; island measurement returns to Sailing pace.
+Median changed-frame intervals are 16.7ms, worst P95 16.8ms and worst P99 20.8ms.
+Worst camera-response P95 is 20.6ms; maximum presentation packet is 28072 bytes,
+57 draw calls and 42224 visible triangles. WebGPU requests used WebGL2 fallback.
+These are supplemental checks rather than a five-repeat acceptance series or
+physical Pixel 11 validation.
+
+Earlier island benchmark attempts are excluded: one lost focus and reached race
+completion before collecting enough frames; another received external gameplay
+keys that rewound the clock/opened a native panel. The temporary evaluation
+window now blocks those keys without changing production controls. A separate
+single-paint helm assertion also assumed the reference boat's rudder eligibility;
+it now records up to four actual native paint opportunities separately from
+render/camera latency. Frame, response and transport budgets remain unchanged.

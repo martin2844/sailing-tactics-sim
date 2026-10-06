@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "datasets": [
+    "analysis/app/player-render-standard/verification.json",
+    "analysis/app/player-render-island-owned/verification.json"
+  ],
+  "scope": "Four supplemental headed Chrome measurements: two default 15 Keelboats and two live 15 Optimists near the second island mark, one per requested backend each. Native Page Up fast warm-up excluded; Sailing pace used for measurement. Linux/hardware GPU/reference viewport, WebGPU requests used WebGL2 fallback. Not five repeats or physical Pixel 11.",
+  "median": [
+    16.699999999999818,
+    16.699999999999818,
+    16.69999999999709,
+    16.700000000000728
+  ],
+  "worstP95": 16.800000000000182,
+  "worstP99": 20.800000000000182,
+  "worstCameraP95": 20.599999994039536,
+  "maxBytes": 28072,
+  "maxCalls": 57,
+  "maxTriangles": 42224
+}

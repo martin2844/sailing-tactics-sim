@@ -52,19 +52,27 @@ try{
    await b.call('Page.addScriptToEvaluateOnNewDocument',{source:"globalThis.visibilityLog=[];document.addEventListener('visibilitychange',()=>visibilityLog.push({state:document.visibilityState,time:performance.now()}));"});await b.call('Page.reload');
    await b.call('Emulation.setDeviceMetricsOverride',{width:1280,height:1050,deviceScaleFactor:1,mobile:false});
    await b.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);const err=await b.evaluate('tact2026.error');if(err)throw new Error(err);
+   if(process.env.TACT_RENDERER_ISLAND==='1'){
+    await b.evaluate('document.getElementById("race-area").value="32801";document.getElementById("race-boat").value="1";document.getElementById("race-course").value="3";document.getElementById("race-wind").dispatchEvent(new Event("change"))');
+    await b.waitFor('tact2026.ready&&tact2026.latest.configuration.selector===1||tact2026.error',60000);if(await b.evaluate('tact2026.error'))throw Error(await b.evaluate('tact2026.error'));
+    await b.evaluate('(()=>{for(let n=0;n<6;n++)tact2026.engine.send("key",33);tact2026.engine.send("pause",true);return tact2026.engine.request("boundary")})()');
+   }
    await focus(b);
    await b.evaluate('document.title="Tact automated evaluation · temporary 15-boat window";document.getElementById("fleet").disabled=true;document.getElementById("restart").disabled=true;');
+   await b.evaluate('globalThis.benchmarkBlockedKeys=0;document.addEventListener("keydown",event=>{benchmarkBlockedKeys++;event.preventDefault();event.stopImmediatePropagation();},true);');
    let raceWarmup;
    if(process.env.TACT_RENDERER_LIVE_RACE==='1'){
     await b.evaluate('tact2026.engine.send("pause",true)');await b.waitFor('tact2026.paused');
     raceWarmup=[];
-    while(await b.evaluate('tact2026.latest.clock<5')){
+    const warmClock=process.env.TACT_RENDERER_ISLAND==='1'?1600:5;
+    while(await b.evaluate('tact2026.latest.clock<'+warmClock)){
      if(raceWarmup.length>=12)throw Error('Native countdown did not progress');
      raceWarmup.push(await b.evaluate('tact2026.engine.request("step",200)'));
     }
     await b.waitFor('tact2026.scene.modelSequence>=tact2026.latest.sequence||tact2026.error',60000);
     const target=await b.evaluate('({clock:tact2026.latest.clock,point:tact2026.latest.course.navigationTarget?.point,guides:tact2026.latest.course.guides.length})');
     if(target.clock<0||target.point!==3||!target.guides)throw Error('Live native race target/guides unavailable');
+    if(process.env.TACT_RENDERER_ISLAND==='1')await b.evaluate('tact2026.engine.send("command",32909);tact2026.engine.request("boundary")');
     await b.evaluate('tact2026.engine.send("pause",false)');await b.waitFor('!tact2026.paused');
    }
    let guideFixture;
@@ -98,16 +106,18 @@ try{
    if(JSON.stringify(before)!==JSON.stringify(after))throw new Error('Camera changed paused authoritative state');
    await writeFile(resolve(out,`${backend}-${repetition}.png`),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
    // Original steering handler through the modern button, followed by one real paint.
-   const oldHeading=await b.evaluate('tact2026.latest.boats[0].heading');await click(b,'port');await b.evaluate('tact2026.engine.request("step",1)');
-   const newHeading=await b.evaluate('tact2026.latest.boats[0].heading');
+   const oldHeading=await b.evaluate('tact2026.latest.boats[0].heading');await click(b,'port');let helmPaints=0,newHeading=oldHeading;
+   // Native rudder updates have class/paint eligibility; keep that separate
+   // from completed-frame cadence and host camera-response measurements.
+   while(newHeading===oldHeading&&helmPaints<4){await b.evaluate('tact2026.engine.request("step",1)');helmPaints++;newHeading=await b.evaluate('tact2026.latest.boats[0].heading');}
    if(oldHeading===newHeading)throw new Error('Trusted Port button did not change original heading');
    const badRequests=b.events.filter(e=>e.method==='Network.requestWillBeSent'&&/\.(exe|zip|cpuprofile)(\?|$)|\/analysis\/|\/fixtures\/|\/decompiled\//.test(e.params.request.url));if(badRequests.length)throw new Error('Runtime fetched evidence or executable');
    const completed=metrics.samples.filter(s=>s.intervalMs>0);let changedGap=0;const changed=[];for(const sample of completed){changedGap+=sample.intervalMs;if(sample.changed){changed.push(changedGap);changedGap=0;}}
-   const summary={scenario:guideFixture?'Source-checked upwind guide presentation fixture plus all names; real native worker in prestart':raceWarmup?'Real native countdown-to-race; original AI, physical target and guides':'Real native prestart course and automatic nearby names',raceWarmup,guideCount:guideFixture?.length??await b.evaluate('tact2026.latest.course.guides.length'),requestedBackend:backend,actualBackend:metrics.backend,repetition,browser:b.metadata,adapter:metrics.adapterInfo,readyMs:metrics.readyMs,visibility,
-    completedCadenceMs:stats(completed.map(s=>s.intervalMs)),changedCadenceMs:stats(changed),poseChangedFrames:metrics.samples.filter(s=>s.poseChanged).length,changedFrames:changed.length,
+   const summary={scenario:process.env.TACT_RENDERER_ISLAND==='1'?'Fifteen Optimists on the corrected island, native Page Up warm-up then Sailing pace for measurement, live racing near second mark; modern shore routing and coastal props':guideFixture?'Source-checked upwind guide presentation fixture plus all names; real native worker in prestart':raceWarmup?'Real native countdown-to-race; original AI, physical target and guides':'Real native prestart course and automatic nearby names',raceWarmup,guideCount:guideFixture?.length??await b.evaluate('tact2026.latest.course.guides.length'),requestedBackend:backend,actualBackend:metrics.backend,repetition,browser:b.metadata,adapter:metrics.adapterInfo,readyMs:metrics.readyMs,visibility,
+    completedCadenceMs:stats(completed.map(s=>s.intervalMs)),changedCadenceMs:stats(changed),poseChangedFrames:metrics.samples.filter(s=>s.poseChanged).length,changedFrames:changed.length,blockedExternalKeyCount:await b.evaluate('benchmarkBlockedKeys'),
     cpuSubmitMs:stats(metrics.samples.map(s=>s.cpuMs)),gpuMs:metrics.gpuMs.length?stats(metrics.gpuMs):'unavailable',workerPaintMs:stats(metrics.workerCosts),snapshotMaxBytes:Math.max(...metrics.snapshotBytes),
     modelExtractionMs:stats(metrics.modelCosts),modelBuildMs:stats(metrics.modelBuildCosts),modelMaxBytes:Math.max(...metrics.modelBytes),combinedPresentationMaxBytes:Math.max(...metrics.snapshotBytes)+Math.max(...metrics.modelBytes),surface,scenarioStart,scenarioEnd,
-    drawCallsMax:Math.max(...metrics.samples.map(s=>s.calls)),trianglesMax:Math.max(...metrics.samples.map(s=>s.triangles)),simulation:{start,end,simSecondsPerWallSecond:(end.time-start.time)/((end.now-start.now)/1000)},trustedCameraResponseMs:stats(responses.filter(s=>s.trusted).map(s=>s.ms)),pausedCameraStateUnchanged:true,trustedPort:{oldHeading,newHeading},prohibitedRequests:badRequests.length};
+    drawCallsMax:Math.max(...metrics.samples.map(s=>s.calls)),trianglesMax:Math.max(...metrics.samples.map(s=>s.triangles)),simulation:{start,end,simSecondsPerWallSecond:(end.time-start.time)/((end.now-start.now)/1000)},trustedCameraResponseMs:stats(responses.filter(s=>s.trusted).map(s=>s.ms)),pausedCameraStateUnchanged:true,trustedPort:{oldHeading,newHeading,helmPaints},prohibitedRequests:badRequests.length};
    summary.checks={changedCadence:summary.changedCadenceMs.median<=acceptance.cadenceMs.medianMax&&summary.changedCadenceMs.p95<=acceptance.cadenceMs.p95Max&&summary.changedCadenceMs.p99<=acceptance.cadenceMs.p99Max,
     trustedCamera:summary.trustedCameraResponseMs.samples===6&&summary.trustedCameraResponseMs.p95<acceptance.cameraHudResponseMs.p95StrictlyBelow,
     presentation:summary.modelExtractionMs.samples>0&&summary.combinedPresentationMaxBytes<=acceptance.snapshotBytesMax,

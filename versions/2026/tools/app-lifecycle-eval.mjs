@@ -2,7 +2,7 @@ import {openBrowser} from '../../../tools/browser-session.js';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 const output=resolve(process.argv[2]??'');if(process.argv.length!==3)throw new Error('Usage: app-lifecycle-eval.mjs NEW_DIRECTORY');await mkdir(output);
-const b=await openBrowser('http://127.0.0.1:8770/?manual&fleet=5',{headless:false,gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
+const b=await openBrowser('http://127.0.0.1:8770/?manual&fleet=5',{headless:process.env.TACT_LIFECYCLE_HEADLESS==='1',gpu:true,width:1280,height:1051,requestTimeoutMs:60000});
 const checks=[];
 const healthy=async()=>{await b.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);const error=await b.evaluate('tact2026.error');if(error)throw new Error(error);};
 try{

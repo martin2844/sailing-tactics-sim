@@ -971,6 +971,6 @@ Evidence: [guide and label refinement](versions/2026/analysis/app/GUIDE-LABEL-RE
 - [x] **FIX-02 — Show boat-specific shallow-water warnings before grounding.**
 - [x] **FIX-03 — Close races 20 game minutes after the first finisher; score DNFs.**
 - [x] **FIX-04 — Repair island mark placement and prevent AI shore traps.**
-- [ ] **FIX-05 — Add coastal elevations, shore detail and navigational landmarks.**
+- [x] **FIX-05 — Add coastal elevations, shore detail and navigational landmarks.**
 
 Evidence: [player fixes](versions/2026/analysis/app/PLAYER-FIXES.md).
