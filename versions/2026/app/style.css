@@ -42,3 +42,5 @@
 #starter .race-fields:has(#series-length-field:not([hidden])) label[for=race-course]{grid-column:auto}
 
 #starter{scrollbar-gutter:stable both-edges}
+
+.wind-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}#starter .wind-settings label{font-size:13px}#starter .wind-settings select{font-size:14px;padding-left:8px;padding-right:6px}@media(max-width:560px){.wind-settings{grid-column:1/-1}#starter .wind-settings label{font-size:15px}}

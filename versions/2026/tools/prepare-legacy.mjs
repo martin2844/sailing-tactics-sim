@@ -157,6 +157,28 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     }
     await writeFile(target,observed);
     generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/configuration.js'){
+    let prepared=bytes.toString('utf8');
+    for(const [anchor,replacement]of[
+      ['for(const address of[0x4da168,0x5363f8,0x53640c,0x4da1e8,0x53527c])w(address,0);','for(const address of(options.islandCoursesEnabled?[0x53640c,0x4da1e8]:[0x4da168,0x5363f8,0x53640c,0x4da1e8,0x53527c]))w(address,0);'],
+      ["if(read('boatClass')<3||read('boatClass')>4)write('boatClass',3);","if(!options.islandCoursesEnabled&&(read('boatClass')<3||read('boatClass')>4))write('boatClass',3);"],
+    ]){if(prepared.split(anchor).length!==2)throw Error('Native island course restriction changed');prepared=prepared.replace(anchor,replacement);}
+    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'island-course-choices-v1',sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/initialization.js'){
+    const source=bytes.toString('utf8'),anchor='initializeWind(memory,rng);initializeTide(memory,rng);';
+    if(source.split(anchor).length!==2)throw Error('Native wind initialization call changed');
+    const prepared=source.replace(anchor,'initializeWind(memory,rng,options);initializeTide(memory,rng);');
+    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'wind-direction-options-v1',sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/wind-initialization.js'){
+    let prepared=bytes.toString('utf8'),anchor="  w('shiftSide',r('venue')===0?";
+    if(prepared.split(anchor).length!==2)throw Error('Native wind sector configuration changed');
+    prepared=prepared.replace('export function initializeWind(memory,rng) {','export function initializeWind(memory,rng,options={}) {').replace(anchor,'  options.configureWindDirection?.(memory);\n'+anchor);
+    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'prevailing-wind-sector-v1',sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/wind.js'){
+    const source=bytes.toString('utf8'),anchor="  const bearing=wrapDegreesOnce(add32(vectorBearing,drift));";
+    if(source.split(anchor).length!==2)throw Error('Native wind bearing branch changed');
+    const prepared=source.replace(anchor,"  const nativeBearing=wrapDegreesOnce(add32(vectorBearing,drift));\n  const bearing=options.adjustWindBearing?options.adjustWindBearing(memory,nativeBearing):nativeBearing;");
+    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'prevailing-wind-bearing-v1',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/course.js'){
     let prepared=bytes.toString('utf8');
     for(const [flag,value]of[['0x5363cc','imul32(idiv32(r(0x525a9c),10),7)'],['0x5364c8','idiv32(r(0x525a9c),2)']]){
@@ -190,4 +212,4 @@ export function advanceRaceTarget(memory,boat,options={}){
     await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'full-fleet-finish-window-v1',sourceSha256:f.sha256});
   }else {await writeFile(target,bytes);generated.push(f);}}
 await writeFile(new URL('manifest.json',out),JSON.stringify({reference:pin.reference.commit,sourceFiles:rows,files:generated},null,2));
-console.log(`Prepared ${rows.length} validated legacy modules/assets; explicit 2026 drawing, race and island adapters`);
+console.log(`Prepared ${rows.length} validated legacy modules/assets; explicit 2026 drawing, race, island and wind adapters`);

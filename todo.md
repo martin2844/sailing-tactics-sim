@@ -988,3 +988,10 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Remove Reload fleet; cache native boat/venue samples; preserve held simulation
   state, apply the final settings once, and retain championship continuation.
   Evidence: [deferred setup](versions/2026/analysis/app/STAGED-SETUP.md).
+
+- [x] **UI-04 — Enable Island course layouts and compass wind selection.**
+  Apply on Start; retain native weather variation and Auto reference behavior.
+- [x] **UI-05 — Keep course-preview marks, lines, routes and labels off land.**
+  Evaluate every supported course/venue/direction/short/gate combination, fix
+  routing gaps, check actual Chrome text bounds, and avoid slow selection handlers.
+  Evidence: [island, wind and preview refinement](versions/2026/analysis/app/ISLAND-WIND-PREVIEWS.md).

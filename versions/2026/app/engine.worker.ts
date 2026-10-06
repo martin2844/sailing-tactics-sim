@@ -2,6 +2,7 @@
 // explicit drawing and race-policy adapters are generated for the 2026 app.
 // No authoritative image, RNG, ticks or retained locals are owned by the UI.
 import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
+import {createWindDirectionHooks} from './wind-direction';
 import {commands} from './protocol';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
@@ -84,7 +85,7 @@ function snapshot(workMs:number):SceneSnapshot {
   const owner=i(0x4da140),panel=panelTitle();
   const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
   return {environment:{waves:i(0x535e44),currentEffect:i(0x522fd8),gusts:Array.from({length:5},(_,index)=>{const n=index+1;return {x:d(0x535460+n*8),y:d(0x4f4b08+n*8),width:i(0x4f7ea0+n*4),strength:i(0x4f71d8+n*4)}})},generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
-    configuration:{course:i(0x4da188),wind:i(0x4da154),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c),venue:i(0x4da1f8),mode:i(0x4da16c),gate:i(0x4da1e8)!==0,short:i(0x53640c)!==0},
+    configuration:{course:i(0x4da188),wind:i(0x4da154),...(options.windDirection!==undefined?{windDirection:options.windDirection}:{}),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c),venue:i(0x4da1f8),mode:i(0x4da16c),gate:i(0x4da1e8)!==0,short:i(0x53640c)!==0},
     view:{lookDegrees:i(0x4f49a0+owner*4),lookMode:i(0x512d60+owner*4),viewpoint:i(0x4f71c0+owner*4),automatic:i(0x523a58+owner*4)!==0,otherBoat:i(0x5233a4),tacticalZoom:i(0x50f6d0+owner*4),tacticalOrientation:i(0x525a78+owner*4)},
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
@@ -140,7 +141,7 @@ async function initialize(data:any){
   const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
   if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
   objects=application.initializeApplication(memory,rng,{preferences:null,timeSeed:scenario.seedTimeSeconds,screenHeight:768,integerTrig:tables});
-  options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,finishWindowEnabled:true,islandNavigationEnabled:true,
+  options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,finishWindowEnabled:true,islandNavigationEnabled:true,islandCoursesEnabled:true,windDirection:settings.windDirection,...createWindDirectionHooks(settings.windDirection),
     playSound:()=>1,messageBeep:()=>{},beep:()=>{},dialogHandler:()=>{throw new Error('Original dialogs are unsupported in the worker spike');},getTickCount:paintClock.getTickCount,
     getCursorPos:()=>({x:0,y:0}),invalidateRect:()=>{},enforceMinimumPaintDuration:(duration:number)=>{delay=duration;},closeWindow:()=>{paused=true;},contextHelp:()=>{}};
   // The Block Island chart's recovered overlap needs an exact drawing profile.
