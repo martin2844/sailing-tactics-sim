@@ -1015,9 +1015,12 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Evaluated: all 27 live initial hull packets fit; held image/RNG/shore unchanged.
   Catamaran heel shifts required a measured 0.35-unit rounded reserve. See
   `versions/2026/analysis/app/contact-shapes-reviewed-2026-10-06/verification.json`.
-- [ ] **CONTACT-02 — Add continuous polygon/circle detection and stable physical response.**
+- [x] **CONTACT-02 — Add continuous polygon/circle detection and stable physical response.**
   Evaluate bow/side/stern, rotations, grazing, thin-object sweeps, compound gaps,
   resting/sliding contacts and initial penetration. No rendering dependency.
+  Evaluated: 143 solver cases, including all 27 hulls in five orientations and
+  dense fifteen-boat placement. Conservative translation/rotation sweeps, no
+  bounce, tangential sliding and separate non-foul spawn correction.
 - [ ] **CONTACT-03 — Integrate contacts and original foul decisions in the authoritative worker.**
   Preserve frozen sources via declared adapters. Separate solid contact from foul
   eligibility; use in-place native penalty codes/speed loss instead of large
