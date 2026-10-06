@@ -79,7 +79,11 @@ original pixels. This preserves recognizable contours and articulation, but
 does not promise pixel-identical 3D rendering at arbitrary camera angles.
 
 The original main has nine edge vertices in the tested Keelboat state; these
-are retained and triangulated rather than replaced by a triangle. A second
+are retained and triangulated rather than replaced by a triangle. Its fill now
+uses cloth coordinates from the native tack, clew and head: a fixed painter
+projection can overlap a curved/luffing contour and omit panels, as reproduced
+on Optimist. See the [sail surface repair](../analysis/app/OPTIMIST-SAIL.md).
+A second
 view at -145 degrees supplies hidden hull sides. Native component mapping:
 
 | Original routine | Mesh contribution |

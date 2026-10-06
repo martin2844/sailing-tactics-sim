@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {MODEL_QUANTUM,type NativeModelPacket} from './native-models';
 import {drawOpenDeck,type MeshPrimitive} from './boat-deck';
 import {drawCrew} from './boat-crew';
+import {triangulateSail} from './sail-triangulation';
 import type {BoatView} from './protocol';
 const primitiveSphere=new THREE.SphereGeometry(1,8,6).toNonIndexed();
 const spherePoints=primitiveSphere.getAttribute('position');
@@ -43,8 +44,7 @@ export class NativeBoatMesh {
    if(op===1){
     // The same recovered polygon contour determines its triangulation. Curved
     // sails keep all native edge vertices rather than becoming one triangle.
-    const plane=points.map(p=>new THREE.Vector2(p.x*Math.cos(-.6108735491753208)+p.z*Math.sin(-.6108735491753208),p.y-.3*(-p.x*Math.sin(-.6108735491753208)+p.z*Math.cos(-.6108735491753208))));
-    const faces=THREE.ShapeUtils.triangulateShape(plane,[]);topology.push(...faces.flat());
+    const faces=part===5?triangulateSail(points):THREE.ShapeUtils.triangulateShape(points.map(p=>new THREE.Vector2(p.x*Math.cos(-.6108735491753208)+p.z*Math.sin(-.6108735491753208),p.y-.3*(-p.x*Math.sin(-.6108735491753208)+p.z*Math.cos(-.6108735491753208)))),[]);topology.push(...faces.flat());
     if(!(flags&2))for(const face of faces)triangle(points[face[0]],points[face[1]],points[face[2]],fill);
     if(!(flags&1))for(let i=0;i<points.length;i++)rod(points[i],points[(i+1)%points.length],stroke,radius);
    }else if(op===2){if(!(flags&1)){rod(points[0],points[1],stroke,radius);}}

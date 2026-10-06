@@ -958,5 +958,9 @@ MVP, physical Pixel 11 and replay/export tasks above retain their existing statu
 - [x] **VIS-03 — Refine guide contrast and navigation indicators; evaluate Chrome.**
   Check crowded fleets, close/follow/overview cameras, native conditions,
   lifecycle/restart and repeated smoothness. Record limits and fix findings.
+- [x] **VIS-04 — Repair Optimist sail panels lost at some rig angles.** Use
+  native cloth coordinates for the main fill; evaluate luffing, trim, both
+  sides, native colours, shared boat classes and preserved simulation state.
+  Evidence: [sail surface repair](versions/2026/analysis/app/OPTIMIST-SAIL.md).
 
 Evidence: [guide and label refinement](versions/2026/analysis/app/GUIDE-LABEL-REFINEMENT.md).
