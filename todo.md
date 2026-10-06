@@ -202,6 +202,14 @@ production engine; preserved players remain comparison references.
   frozen 2010 boundaries. See `versions/2026/analysis/app/ENG-03b-2.md`.
   Calling-phase extraction and remaining scene/pixel dependencies stay open.
 
+- [x] **ENG-03b.3 — Extract the two compatibility camera-state writers.**
+
+  Pure typed phase/ports preserve automatic time/near-mark gates, signed offsets,
+  tack/wind modes and asymmetric player-two target behavior. Evaluated: 2,048
+  recovered public/numeric full-state comparisons, fourteen distant-mark gate
+  cases, 65 exact 2026 boundaries and ten frozen 2010 boundaries. See
+  `versions/2026/analysis/app/ENG-03b-3.md`. World invocation/pixels remain open.
+
 - [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
 
   Replace required visibility/pixel decisions with deterministic calculations;

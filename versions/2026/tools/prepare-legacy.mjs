@@ -186,8 +186,17 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
       if(observed.split(signature).length!==2)throw Error('Native waypoint entry changed');
       observed=observed.replace(signature,signature+'\n  if(options.respawnWaypoint)return options.respawnWaypoint(memory,'+index+',rng,options);');
     }
+    for(const [signature,boat]of[
+      ['export function originalDrawing0041e0a0(memory, dc, rng, options = {}, ...originalArgs) {',1],
+      ['function originalDrawing0041e0a0Number(memory, dc, rng, options, numberArgumentImages) {',1],
+      ['export function originalDrawing0041e220(memory, dc, rng, options = {}, ...originalArgs) {',2],
+      ['function originalDrawing0041e220Number(memory, dc, rng, options, numberArgumentImages) {',2],
+    ]){
+      if(observed.split(signature).length!==2)throw Error('Native camera entry changed');
+      observed=observed.replace(signature,signature+'\n  if(options.updateCompatibilityCamera)return options.updateCompatibilityCamera(memory,'+boat+');');
+    }
     await writeFile(target,observed);
-    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-private-model-and-waypoint-kernel-v3',repairs:[{address:'0x440fd0',reason:'Masked zero-width shore FDIV/FMUL/__ftol low DWORD recovery'},{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
+    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-observer-private-model-and-semantic-kernels-v4',repairs:[{address:'0x440fd0',reason:'Masked zero-width shore FDIV/FMUL/__ftol low DWORD recovery'},{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/render/paint-lifecycle.js'){
     const source=bytes.toString('utf8');
     const anchor='export function drawPaintContent(memory,dc,rng,options={}) {';

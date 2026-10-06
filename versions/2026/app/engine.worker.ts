@@ -17,6 +17,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {updateCompatibilityCamera} from './engine/view/camera-state';
+import {createCameraStatePort} from './engine/compatibility/camera-state-port';
 import {respawnWaypoint} from './engine/waypoints/respawn';
 import {createWaypointPort,type WaypointMemory} from './engine/compatibility/waypoint-port';
 import {dispatchRacePhases,type RacePhaseMemory} from './engine/race-phase-controller';
@@ -203,6 +205,17 @@ async function initialize(data:any){
       random:span=>integer.scaledRandom(span,random),
       nearest:(x,y,excluded)=>waypoints.nearestWaypointDistance(image,x,y,excluded),
     }),index);
+  };
+  options.updateCompatibilityCamera=(image:WaypointMemory&RacePhaseMemory,boat:1|2)=>{
+    const low32=(value:{truncI64():bigint})=>Number(BigInt.asIntN(32,value.truncI64()));
+    updateCompatibilityCamera(createCameraStatePort(image,{
+      coordinateLow32:value=>low32(float.Float80.fromNumber(value)),
+      bearingToOtherBoat:player=>{
+        const other=3-player;
+        const angle=geometry.targetRelativeBearing(image,image.readF64(0x4f6af8+other*8),image.readF64(0x4f6c10+other*8),0,player);
+        return low32(angle.multiply(float.Float80.fromNumber(image.readF64(0x4cc3e8))));
+      },
+    }),boat);
   };
   options.dispatchEnginePhases=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
     dispatchRacePhases(image,createCompatibilityActions(image,dc,random,bindings,paintModule.drawSimulationFrame));
