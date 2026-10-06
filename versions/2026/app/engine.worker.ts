@@ -5,6 +5,7 @@ import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
 import {createWindDirectionHooks} from './wind-direction';
 import {commands} from './protocol';
 import {nativeCameraKeys} from './hotkeys';
+import {captureInformation} from './native-information';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
 import {RaceWindow} from './race-window';
@@ -16,6 +17,7 @@ import {areaChoices,fleetChoices} from './native-catalog';
 import {createGuideExtractor} from './native-guides';
 import {evaluateGuideCases} from './native-guide-cases';
 let extractGuides:ReturnType<typeof createGuideExtractor>;
+let informationContext:any;
 let guideContext:any;
 let memory:any,rng:any,options:any,objects:any,font:any,paintClock:any;
 let lifecycle:any,gdi:any,resetSurface:any,menu:any,key:any,readCString:any;
@@ -151,6 +153,7 @@ async function initialize(data:any){
   if([33017,33018,33029,33031,33032].includes(settings.area??0)){options.numberRendering=false;options.smoothGraphics=false;}
   const originalAI=options.updateBoatWindAndAI;
   options.updateBoatWindAndAI=(image:any,boat:number,random:any,o:any)=>{const result=originalAI(image,boat,random,o);if(image===memory)islandNavigator?.steer(image,boat);return result;};
+  informationContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,copyStrings,renderer,key};
   modelExtractor=createModelExtractor({memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,modelDraw});
   guideContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,guideDraw:modelModule.nativeCourseGuideSelector,originalGuideChart:modelModule.originalDrawing00431ab0,originalTargetDraw:modelModule.originalDrawing00440350};
   extractGuides=createGuideExtractor(guideContext);
@@ -194,6 +197,10 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='model'){send('reply',{id,value:visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))});}
   else if(type==='lift'){if(!paused)throw new Error('Model diagnostics require pause');const width=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration?.width;if(!width)throw new Error('Missing model calibration');send('reply',{id,value:[0,1,2].map(shear=>modelExtractor.capture(data??1,width,35,shear))});}
   else if(type==='boundary'){if(!paused)throw new Error('Boundary inspection requires pause');send('reply',{id,value:await boundary()});}
+  else if(type==='information'){
+    try{send('reply',{id,value:captureInformation(informationContext,data)});}
+    catch(error){send('reply',{id,value:{kind:data?.kind,title:'Information unavailable',clock:memory.readI32(0x4f8cd0),paragraphs:[],primitives:[],error:error instanceof Error?error.stack:String(error)}});}
+  }
   else if(type==='guidecase'){if(!paused)throw Error('Guide diagnostics require pause');const before=await boundary(),cases=evaluateGuideCases(guideContext),after=await boundary();send('reply',{id,value:{before,cases,after}});}
   else if(type==='image'){if(!paused)throw Error('Image diagnostics require pause');const bytes=memory.bytes.slice();self.postMessage({type:'reply',generation,data:{id,value:bytes}},{transfer:[bytes.buffer]});}
   else if(type==='next-race'){

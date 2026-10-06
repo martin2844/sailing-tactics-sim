@@ -6,7 +6,9 @@ import type {NativeModelPacket,ModelCapture} from './native-models';
 import type {NativeBoatFrame} from './native-visuals';
 import {defaultRaceSettings,type RaceSettings} from './race-settings';
 import {fleetChoices} from './native-catalog';
+import type {InformationRequest,InformationContent} from './native-information';
 interface DiagnosticReplies {
+  information:InformationContent;
   islandcase:{before:Boundary;after:Boundary;marks:unknown[];paths:unknown[];nodes:number;active:number[]};
   cutoffcase:{before:Boundary;after:Boundary;cases:unknown[];scope:string};
   guidecase:{before:Boundary;after:Boundary;cases:unknown[]};
@@ -36,7 +38,7 @@ export class EngineClient {
     this.worker.postMessage({type:'init',data:{generation,fleet,legacyBase:new URL(/* @vite-ignore */ '../legacy/',import.meta.url).href,scenario:fleet===15?fifteen:five,settings,manual}});
   }
   send(type:string,data?:unknown){this.worker.postMessage({generation:this.generation,type,data});}
-  request<T extends keyof DiagnosticReplies>(type:T,data?:number|string):Promise<DiagnosticReplies[T]>{const id=this.nextId++;return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.requests.delete(id);reject(new Error('Worker request timed out'));},60000);this.requests.set(id,{resolve:value=>resolve(value as DiagnosticReplies[T]),reject,timer});this.worker.postMessage({generation:this.generation,type,data,id});});}
+  request<T extends keyof DiagnosticReplies>(type:T,data?:number|string|InformationRequest):Promise<DiagnosticReplies[T]>{const id=this.nextId++;return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.requests.delete(id);reject(new Error('Worker request timed out'));},60000);this.requests.set(id,{resolve:value=>resolve(value as DiagnosticReplies[T]),reject,timer});this.worker.postMessage({generation:this.generation,type,data,id});});}
   private rejectPending(message:string){for(const request of this.requests.values()){clearTimeout(request.timer);request.reject(new Error(message));}this.requests.clear();}
   dispose(){this.rejectPending('Worker disposed');this.worker.terminate();}
 }
