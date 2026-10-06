@@ -16,6 +16,7 @@ import {validateRaceSettings,raceSetupCommands,isAuditedPreset} from './race-set
 import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
+import {PhaseTracer} from './engine/diagnostics/phase-trace';
 import {createGuideExtractor} from './native-guides';
 import {evaluateGuideCases} from './native-guide-cases';
 let extractGuides:ReturnType<typeof createGuideExtractor>;
@@ -24,6 +25,7 @@ let contactWorld:ContactWorld,contactContext:any;
 let contactNavigator:ContactNavigator;
 let guideContext:any;
 let memory:any,rng:any,options:any,objects:any,font:any,paintClock:any;
+let phaseTracer:PhaseTracer|undefined;
 let lifecycle:any,gdi:any,resetSurface:any,menu:any,key:any,readCString:any;
 let advanceTarget:any,drawResults:any,copyStrings:any,updateDynamics:any,sampleCurrent:any,sampleVenueCurrent:any;
 let modelDraw:any,ModelMemory:any,ModelRng:any,TraceDc:any;
@@ -40,7 +42,27 @@ let front:OffscreenCanvas,back:OffscreenCanvas,frontContext:OffscreenCanvasRende
 const queue=new MessageChannel();let pending=false,scheduleToken=0;
 queue.port1.onmessage=event=>{if(event.data!==scheduleToken)return;pending=false;if(ready&&!paused&&!failed)tick();};
 const visuals=createNativeVisualObserver();Object.assign(globalThis,{tactNativeVisuals:visuals});
-function observeDc(dc:any){const emit=dc.emit;dc.emit=function(event:any){visuals.observe(event,this);return emit.call(this,event);};return dc;}
+interface ObservedDrawingContext {
+  getPixel(x:number,y:number):number;
+  emit(event:unknown):unknown;
+}
+function observeDc<T extends ObservedDrawingContext>(dc:T):T {
+  if(phaseTracer){
+    const getPixel=dc.getPixel;
+    dc.getPixel=function(this:T,x:number,y:number){
+      const result=getPixel.call(this,x,y);
+      phaseTracer?.pixel(x,y,result);
+      return result;
+    };
+  }
+  const emit=dc.emit;
+  dc.emit=function(this:T,event:unknown){
+    visuals.observe(event,this);
+    return emit.call(this,event);
+  };
+  return dc;
+}
+
 const allowed=new Set<number>([...Object.values(commands),32872,32876,32909,32918]);
 const send=(type:string,data:any)=>{if(type==='snapshot'){const native=(data as SceneSnapshot).nativeVisuals;self.postMessage({type,generation,data},{transfer:[native.styles.buffer,native.geometry.buffer,native.boats.buffer]});}else if(type==='models'){const p=data.packet;self.postMessage({type,generation,data},{transfer:[p.positions.buffer,p.records.buffer,p.colors.buffer,p.boats.buffer]});}else self.postMessage({type,generation,data});};
 function requestModels(){
@@ -61,6 +83,9 @@ function schedule(wait:number){
   else queue.port2.postMessage(token);
 }
 function paint(){
+  return phaseTracer ? phaseTracer.paint(frame,paintCompatibilityFrame) : paintCompatibilityFrame();
+}
+function paintCompatibilityFrame(){
   delay=0;visuals.clear();paintClock.beginPaint();const start=performance.now();
   const phase=memory.readI32(0x5363b0);
   const drawingResults=memory.readI32(0x5363f4)>0&&memory.readI32(0x5233a8)===0;
@@ -167,6 +192,10 @@ async function initialize(data:any){
     if(image!==memory||!o.geometryContacts||image.readI32(0x53642c)!==0||image.readI32(0x5363b0)!==2)return nativeIntegrate(image,random,o);
     const before=contactWorld.capture();nativeIntegrate(image,random,o);contactWorld.step(before,contactWorld.capture());
   };
+  if(data.phaseTrace===true){
+    if(data.manual!==true)throw new Error("Phase tracing requires a paused diagnostic worker");
+    phaseTracer=new PhaseTracer(memory,rng);phaseTracer.install(options);
+  }
   modelExtractor=createModelExtractor({memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,modelDraw});
   guideContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,guideDraw:modelModule.nativeCourseGuideSelector,originalGuideChart:modelModule.originalDrawing00431ab0,originalTargetDraw:modelModule.originalDrawing00440350};
   extractGuides=createGuideExtractor(guideContext);
@@ -210,6 +239,8 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='step'){if(!paused||!Number.isInteger(data)||data<1||data>200)throw new Error('Diagnostic steps require paused worker and 1..200 paints');let duration=0;for(let n=0;n<data;n++)duration=paint();send('snapshot',snapshot(duration));publishPanel();requestModels();send('reply',{id,value:await boundary()});}
   else if(type==='model'){send('reply',{id,value:visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))});}
   else if(type==='lift'){if(!paused)throw new Error('Model diagnostics require pause');const width=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration?.width;if(!width)throw new Error('Missing model calibration');send('reply',{id,value:[0,1,2].map(shear=>modelExtractor.capture(data??1,width,35,shear))});}
+  else if(type==='trace-start'){if(!paused||!phaseTracer)throw new Error('Tracing requires an instrumented paused worker');phaseTracer.start();send('reply',{id,value:true});}
+  else if(type==='trace-stop'){if(!paused||!phaseTracer)throw new Error('Tracing requires an instrumented paused worker');send('reply',{id,value:phaseTracer.stop()});}
   else if(type==='boundary'){if(!paused)throw new Error('Boundary inspection requires pause');send('reply',{id,value:await boundary()});}
   else if(type==='information'){
     try{send('reply',{id,value:captureInformation(informationContext,data)});}

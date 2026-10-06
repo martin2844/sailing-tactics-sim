@@ -165,12 +165,17 @@ production engine; preserved players remain comparison references.
   original order without tying it to modern GPU rendering; extracted paths retain
   numeric behavior and have paired reference traces.
 
-- [ ] **ENG-03a — Establish paired cutover traces and the dependency ledger.**
+- [x] **ENG-03a — Establish paired cutover traces and the dependency ledger.**
 
   Compare the current 2026 bridge and candidate with identical inputs/policies,
   and retain a separate frozen 2010 comparison lane. Trace state writes/reads,
   intermediate stores, RNG order, retained state and pixel branches. Instrumented
   execution must match plain execution before the observer is accepted.
+  Evaluated: 33 whole-image/RNG/context boundaries across four 2026 scenarios,
+  with both plain/traced candidates matched to pinned `ce6d9bf`; ten frozen 2010
+  boundaries for five/fifteen boats. Three cases reach real racing. Five observer
+  tests pass. This is bounded ledger coverage; computed aliases/unvisited branches
+  still require classification. See `versions/2026/analysis/app/ENG-03a.md`.
 
 - [ ] **ENG-03b — Extract drawing-owned gameplay phases one callback at a time.**
 
