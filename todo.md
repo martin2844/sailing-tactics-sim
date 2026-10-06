@@ -183,6 +183,16 @@ production engine; preserved players remain comparison references.
   explicit engine functions. Classify camera and host fields. Require paired
   state/RNG and continued future-output evidence for each removed dependency.
 
+- [x] **ENG-03b.1 — Extract race and information-screen state transitions.**
+
+  Independent strict TypeScript controller with injected compatibility actions;
+  no Canvas/GDI/browser imports. Preserve sequential reloads and signed phase
+  counter behavior. Evaluated: 112 dispatcher cases, seven focused tests,
+  65 exact current-2026 paired boundaries including racing/panel transitions,
+  ten frozen 2010 boundaries, 14 controls/depth checks and unchanged preservation
+  inputs. See `versions/2026/analysis/app/ENG-03b-1.md`.
+  The parent extraction and original offscreen rendering remain unfinished.
+
 - [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
 
   Replace required visibility/pixel decisions with deterministic calculations;

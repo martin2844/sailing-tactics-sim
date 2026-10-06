@@ -17,6 +17,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {dispatchRacePhases,type RacePhaseMemory} from './engine/race-phase-controller';
+import {createCompatibilityActions} from './engine/compatibility/race-phase-actions';
 import {createGuideExtractor} from './native-guides';
 import {evaluateGuideCases} from './native-guide-cases';
 let extractGuides:ReturnType<typeof createGuideExtractor>;
@@ -191,6 +193,9 @@ async function initialize(data:any){
   options.integratePositions=(image:any,random:any,o:any)=>{
     if(image!==memory||!o.geometryContacts||image.readI32(0x53642c)!==0||image.readI32(0x5363b0)!==2)return nativeIntegrate(image,random,o);
     const before=contactWorld.capture();nativeIntegrate(image,random,o);contactWorld.step(before,contactWorld.capture());
+  };
+  options.dispatchEnginePhases=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
+    dispatchRacePhases(image,createCompatibilityActions(image,dc,random,bindings,paintModule.drawSimulationFrame));
   };
   if(data.phaseTrace===true){
     if(data.manual!==true)throw new Error("Phase tracing requires a paused diagnostic worker");

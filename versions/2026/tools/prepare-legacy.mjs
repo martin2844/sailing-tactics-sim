@@ -179,6 +179,13 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     }
     await writeFile(target,observed);
     generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x440fd0',reason:'Masked zero-width shore FDIV/FMUL/__ftol low DWORD recovery'},{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/render/paint-lifecycle.js'){
+    const source=bytes.toString('utf8');
+    const anchor='export function drawPaintContent(memory,dc,rng,options={}) {';
+    if(source.split(anchor).length!==2)throw Error('Native screen dispatcher boundary changed');
+    const prepared=source.replace(anchor,anchor+'\n  if(options.dispatchEnginePhases)return options.dispatchEnginePhases(memory,dc,rng,options);');
+    await writeFile(target,prepared);
+    generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'independent-race-phase-dispatch-v1',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/penalties.js'){
     let prepared=bytes.toString('utf8');
     const replace=(a,b,count=1)=>{if(prepared.split(a).length!==count+1)throw Error('Native contact policy source changed: '+a);prepared=prepared.replaceAll(a,b);};

@@ -47,6 +47,9 @@ Completed task evaluations:
 - [Race/championship journey and expansion review](analysis/app/EXPANSION-REVIEW.md).
 - [Restored original penalty response and evaluation](analysis/app/CONTACT-05.md).
 - [OG functionality gaps and current engine architecture](docs/og-functionality-audit.md).
+- [Independent engine cutover](docs/engine-cutover.md) and [implementation standards](docs/engine-standards.md).
+- [Pinned engine pairing and phase tracing](analysis/app/ENG-03a.md).
+- [Extracted race/panel transitions](analysis/app/ENG-03b-1.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.
@@ -63,8 +66,8 @@ npm run preview
 ```
 
 Dependencies are exact versions in this directory only. prepare:legacy checks
-pinned source/asset hashes for all 167 inputs. It copies 158 byte for byte and
-generates nine explicit drawing, collision, race, course and wind adapters,
+pinned source/asset hashes for all 167 inputs. It copies 157 byte for byte and
+generates ten explicit drawing, collision, race, course and wind adapters,
 without bundling original code. The generated manifest records source and output
 hashes separately. Generated copies and dist are ignored.
 Original root commands and preservation routes are unchanged.

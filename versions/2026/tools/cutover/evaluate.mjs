@@ -77,6 +77,15 @@ async function runPair(browser, artifacts, settings, fleet, actualRace) {
     }
     traces.push(trace);
     boundaries.push(await browser.evaluate('compareCutover("traced-two-steps")'));
+    for (const [name,key] of [['forecast',87],['course',82],['coach',89],['keys',191]]) {
+      await browser.evaluate(`cutoverClients.forEach(c=>c.send('key',${key}))`);
+      await browser.evaluate('Promise.all(cutoverClients.map(c=>c.request("step",1)))');
+      boundaries.push(await browser.evaluate(`compareCutover(${JSON.stringify(name+'-open')})`));
+      await browser.evaluate("cutoverClients.forEach(c=>c.send('key',32))");
+      await browser.evaluate('Promise.all(cutoverClients.map(c=>c.request("step",1)))');
+      boundaries.push(await browser.evaluate(`compareCutover(${JSON.stringify(name+'-dismiss')})`));
+    }
+
     const phaseTotals = {};
     for (const record of trace.records) {
       const totals = phaseTotals[record.name] ??= {calls: 0, randomCalls: 0, pixelQueries: 0, observedWrites: 0, changedWords: 0};
