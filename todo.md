@@ -1000,3 +1000,9 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Verify masked x87 behavior, reproduce the crash, compare neighboring drawing
   cases and check Chrome races/default reference states.
   Evidence: [shoreline division repair](versions/2026/analysis/app/SHORE-DIVISION.md).
+
+- [x] **FIX-07 — Unify pause controls and reject paused helm/sail inputs.**
+  Retain displayed values; prevent deferred control changes on resume.
+  Evidence: [pause and information tools](versions/2026/analysis/app/PAUSE-INFORMATION.md).
+- [ ] **UI-06 — Expose native wind/forecast/current charts and coach comments in the modern interface.**
+  Extract from private copies; preserve the sailing state while inspecting them.

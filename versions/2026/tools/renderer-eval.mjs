@@ -107,7 +107,9 @@ try{
    if(JSON.stringify(before)!==JSON.stringify(after))throw new Error('Camera changed paused authoritative state');
    await writeFile(resolve(out,`${backend}-${repetition}.png`),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
    // Original steering handler through the modern button, followed by one real paint.
-   const oldHeading=await b.evaluate('tact2026.latest.boats[0].heading');await click(b,'port');let helmPaints=0,newHeading=oldHeading;
+   await click(b,'pause');await b.waitFor('!tact2026.paused',10000);
+   const oldHeading=await b.evaluate('tact2026.latest.boats[0].heading');await click(b,'port');
+   await click(b,'pause');await b.waitFor('tact2026.paused',10000);let helmPaints=0,newHeading=await b.evaluate('tact2026.latest.boats[0].heading');
    // Native rudder updates have class/paint eligibility; keep that separate
    // from completed-frame cadence and host camera-response measurements.
    while(newHeading===oldHeading&&helmPaints<4){await b.evaluate('tact2026.engine.request("step",1)');helmPaints++;newHeading=await b.evaluate('tact2026.latest.boats[0].heading');}

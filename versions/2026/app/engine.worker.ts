@@ -4,6 +4,7 @@
 import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
 import {createWindDirectionHooks} from './wind-direction';
 import {commands} from './protocol';
+import {nativeCameraKeys} from './hotkeys';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
 import {RaceWindow} from './race-window';
@@ -183,9 +184,10 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   if(type==='init'){await initialize(data);return;}
   if(event.data.generation!==generation||!ready||failed)return;
   if(type==='pause'){paused=Boolean(data);if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('paused',paused);}
-  else if(type==='command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');await menu(memory,data,options);send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
-  else if(type==='key'){
+  else if(type==='command'||type==='control-command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');if(type==='control-command'&&(paused||memory.readI32(0x53642c)!==0)&&data!==32918)return;await menu(memory,data,options);send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
+  else if(type==='key'||type==='control'){
     if(!Number.isInteger(data)||data<0||data>255)throw new Error('Invalid native virtual key');
+    if(type==='control'&&(paused||memory.readI32(0x53642c)!==0)&&!nativeCameraKeys.has(data)&&![32,191].includes(data))return;
     key(memory,data,options);if(memory.readI32(0x5363f4)===0)resultsReady=false;modelDirty=true;send('snapshot',snapshot(0));send('accepted',{key:data,sequence:frame});requestModels();
   }
   else if(type==='step'){if(!paused||!Number.isInteger(data)||data<1||data>200)throw new Error('Diagnostic steps require paused worker and 1..200 paints');let duration=0;for(let n=0;n<data;n++)duration=paint();send('snapshot',snapshot(duration));publishPanel();requestModels();send('reply',{id,value:await boundary()});}

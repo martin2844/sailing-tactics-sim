@@ -14,8 +14,15 @@ try{
   const start=await b.evaluate('tact2026.latest.sequence');await key('Space',' ',32);await b.waitFor('!tact2026.paused&&tact2026.latest.sequence>'+start,10000);
   await key('Space',' ',32);await b.waitFor('tact2026.paused',10000);const before=await b.evaluate('tact2026.engine.request("boundary")');await delay(350);const after=await b.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Space pause advanced state');checks.push({name:'Space after '+id,before,after});
  }
- await click('pause');await b.waitFor('!tact2026.paused');await key('KeyF','f',70);await b.waitFor('tact2026.latest.frozen&&document.getElementById("pause").textContent==="Resume"');
- const frozen=await b.evaluate('tact2026.latest.sequence');await click('pause');await b.waitFor('!tact2026.latest.frozen&&!tact2026.paused&&tact2026.latest.sequence>'+frozen,10000);await click('pause');await b.waitFor('tact2026.paused');checks.push({name:'Pause button resumes native F freeze, then pauses'});
+ await click('pause');await b.waitFor('!tact2026.paused');await key('KeyF','f',70);await b.waitFor('tact2026.paused&&!tact2026.latest.frozen&&document.getElementById("pause").textContent==="Resume"');
+ const frozen=await b.evaluate('tact2026.latest.sequence');await click('pause');await b.waitFor('!tact2026.paused&&tact2026.latest.sequence>'+frozen,10000);await click('pause');await b.waitFor('tact2026.paused');checks.push({name:'F uses the same stable host pause as Space and the button'});
+ const held=await b.evaluate('({boundary:null,state:{boat:tact2026.latest.boats[0],sheet:tact2026.latest.sheet,sailShape:tact2026.latest.sailShape,spinnaker:tact2026.latest.spinnaker}})');held.boundary=await b.evaluate('tact2026.engine.request("boundary")');
+ for(const[code,value,vk]of[['KeyT','t',84],['KeyJ','j',74],['KeyI','i',73],['KeyO','o',79],['KeyP','p',80],['Comma',',',188],['Period','.',190],['F1','F1',112]])await key(code,value,vk);
+ await click('port');await click('tack');
+ await b.evaluate('tact2026.engine.send("control",84);tact2026.engine.send("control-command",32842);tact2026.engine.request("boundary")');
+ const heldAfter=await b.evaluate('tact2026.engine.request("boundary")'),stateAfter=await b.evaluate('({boat:tact2026.latest.boats[0],sheet:tact2026.latest.sheet,sailShape:tact2026.latest.sailShape,spinnaker:tact2026.latest.spinnaker})');
+ if(JSON.stringify(held.boundary)!==JSON.stringify(heldAfter)||JSON.stringify(held.state)!==JSON.stringify(stateAfter))throw Error('Paused sailing inputs changed held state');
+ if(!await b.evaluate('document.getElementById("port").disabled&&document.getElementById("tack").disabled'))throw Error('Paused helm still enabled');checks.push({name:'Paused helm/sail input ignored at UI and worker; telemetry retained',held,heldAfter,stateAfter});
  await click('keyboard');await b.waitFor('tact2026.latest.panel');await key('Space',' ',32);await b.waitFor('!tact2026.latest.panel');if(!await b.evaluate('tact2026.paused'))throw Error('Panel dismissal changed host pause');if(await b.evaluate('tact2026.latest.pace')!==pace)throw Error('Space changed native pace');
  checks.push({name:'Space dismisses panel without changing pace/pause'});
  const beforeDepth=await b.evaluate('tact2026.engine.request("boundary")'),saved=await b.evaluate('({...tact2026.latest.boats[0]})'),depthCases=[];
