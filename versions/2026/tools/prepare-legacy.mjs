@@ -182,15 +182,13 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
   }else if(f.path==='versions/2010-en/src/engine/penalties.js'){
     let prepared=bytes.toString('utf8');
     const replace=(a,b,count=1)=>{if(prepared.split(a).length!==count+1)throw Error('Native contact policy source changed: '+a);prepared=prepared.replaceAll(a,b);};
-    replace('boat=i32(boat);const r=a=>memory.readI32(a),range=idiv32(r(0x523598),6);','if(options.geometryRuleOnly)return;boat=i32(boat);const r=a=>memory.readI32(a),range=idiv32(r(0x523598),6);');
-    replace('boat=i32(boat);const r=a=>memory.readI32(a),rb=a=>r(at(a,boat));\n const tack=', 'if(options.geometryRuleOnly)return;boat=i32(boat);const r=a=>memory.readI32(a),rb=a=>r(at(a,boat));\n const tack=');
-    replace('const penaltyMovement=(memory,boat,rng,options)=>{','const penaltyMovement=(memory,boat,rng,options)=>{if(options.geometryRuleOnly)return;');
+    replace('boat=i32(boat);const r=a=>memory.readI32(a),range=idiv32(r(0x523598),6);','if(options.geometryRuleOnly){options.geometryMovement?.("respawn");return;}boat=i32(boat);const r=a=>memory.readI32(a),range=idiv32(r(0x523598),6);');
+    replace('boat=i32(boat);const r=a=>memory.readI32(a),rb=a=>r(at(a,boat));\n const tack=', 'if(options.geometryRuleOnly){options.geometryMovement?.("shift");return;}boat=i32(boat);const r=a=>memory.readI32(a),rb=a=>r(at(a,boat));\n const tack=');
+    replace('const penaltyMovement=(memory,boat,rng,options)=>{','const penaltyMovement=(memory,boat,rng,options)=>{if(options.geometryRuleOnly){options.geometryMovement?.("phase");return;}');
     replace('if(checkNearRaceMarks(memory,(r(0x4fe624)<901?1:0)+1,boat)===1){','if(!options.geometryContacts&&checkNearRaceMarks(memory,(r(0x4fe624)<901?1:0)+1,boat)===1){');
     replace('if(distance<threshold)collisionPenalty(memory,other,boat,distance,rng,options);','if(!options.geometryContacts&&distance<threshold)collisionPenalty(memory,other,boat,distance,rng,options);');
-    replace('if(rb(0x4fe638)>0||time()<add32(rb(0x535620,other),50))return;','if(rb(0x4fe638)>0||(!options.geometryContact&&time()<add32(rb(0x535620,other),50)))return;');
     replace('blocked=rb(0x4f4208)===1','blocked=options.geometryContact?options.geometryClearAstern===true:rb(0x4f4208)===1');
     replace('if(checkProjection&&same&&','if(checkProjection&&same&&(!options.geometryContact||options.geometryOverlap)&&');
-    replace('if(boat>humans())return;','if(boat>humans()&&!options.geometryContact)return;');
     replace('&&distance<16&&','&&(options.geometryContact||distance<16)&&');
     replace('||distance>15||','||(!options.geometryContact&&distance>15)||');
     replace('&&distance<=add32(r(0x5363b8),5)&&','&&(options.geometryContact||distance<=add32(r(0x5363b8),5))&&');
@@ -201,7 +199,19 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     // Rule-only evaluation must not fall through a room decision after its
     // historical relocation has been suppressed.
     replace('options.geometryDecision?.(3);shiftPenaltyPosition(memory,boat,options);\n  }','options.geometryDecision?.(3);shiftPenaltyPosition(memory,boat,options);if(options.geometryRuleOnly)return;\n  }');
-    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'geometric-contact-native-rule-decisions-v1',sourceSha256:f.sha256});
+    // Reuse native response routines and preserve branch-specific relocation,
+    // human-only status writes, timestamp order and prestart random draws.
+    prepared+=`\nexport function applyGeometryPenalty(memory,boat,decision,rng,options={}){
+ const code=decision.code,clock=memory.readI32(0x4f8cd0),humans=memory.readI32(0x4da140);
+ if(code&&(boat<=humans||code===6))memory.writeI32(at(0x5116e0,boat),code);
+ if(code!==1)memory.writeI32(at(0x535620,boat),clock);
+ const live={...options,geometryRuleOnly:false};
+ if(decision.movement==='shift')shiftPenaltyPosition(memory,boat,live);
+ else if(decision.movement==='respawn'){resetBoat(memory,boat);respawnNearStart(memory,boat,rng,live);}
+ else penaltyMovement(memory,boat,rng,live);
+ if(code===1)memory.writeI32(at(0x535620,boat),clock);
+}\n`;
+    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'geometric-contact-native-response-v2',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/configuration.js'){
     let prepared=bytes.toString('utf8');
     for(const [anchor,replacement]of[

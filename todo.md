@@ -1023,8 +1023,8 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   bounce, tangential sliding and separate non-foul spawn correction.
 - [x] **CONTACT-03 — Integrate contacts and original foul decisions in the authoritative worker.**
   Preserve frozen sources via declared adapters. Separate solid contact from foul
-  eligibility; use in-place native penalty codes/speed loss instead of large
-  relocation jumps. Cover all marks/gates/committee throughout racing; prevent
+  eligibility; retain original penalty relocation, reset, RNG and grace timing.
+  Keep all marks/gates/committee solid; use OG temporal foul gates. Prevent
   teleports/replays from generating false sweeps; validate controls, scoring and
   diagnostic isolation.
   Evaluated: 12 real native-rule/world fixtures, 14 control checks, nine information
@@ -1045,3 +1045,15 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Final fixtures: 152 solver cases and 13 real native-rule/world cases. Independent
   follow-up probes find no missed penetration in 4,371 random hull sweeps and
   1,248 near-skin rotations. Evidence under `versions/2026/analysis/app/contact-*`.
+
+- [x] **CONTACT-05 — Restore the OG penalty response and grace after the hull upgrade.**
+  Reuse original reset/respawn/shift and original RNG draws, preserve human/NPC
+  status policy and the opponent-timestamp 50-second gate. Keep geometry solid
+  while restoring original mark phase/leg/angle eligibility; no invented gate
+  mark-touch rule. Cache/show actual relocation without a false sweep or animated
+  teleport through the fleet.
+  Evaluated: 81 native full-image/RNG and world fixtures, 152 solver checks,
+  14 controls/depth checks, nine information groups and complete Keelboat,
+  Tornado and Island Optimist races with all four AI finishes, DNF/results and
+  championship restart. See `versions/2026/analysis/app/CONTACT-05.md`.
+

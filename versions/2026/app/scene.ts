@@ -90,7 +90,8 @@ export class SailingScene {
     if(this.disposed||!this.renderer||!this.latest)return;
     if(this.lastDraw&&now-this.lastDraw<1000/60-.6)return;
     const current=this.latest,old=this.previous??current,alpha=this.paused?1:Math.min(1,Math.max(0,(now-this.received)/this.span));
-    const poses=current.boats.map((boat,i)=>{const before=old.boats[i]??boat;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
+    // A native penalty relocates immediately; never animate its jump through the fleet.
+    const poses=current.boats.map((boat,i)=>{const prior=old.boats[i]??boat,before=boat.penaltyClock!==prior.penaltyClock?boat:prior;const delta=((boat.heading-before.heading+540)%360)-180;return{x:before.x+(boat.x-before.x)*alpha,y:before.y+(boat.y-before.y)*alpha,heading:before.heading+delta*alpha};});
     const player=poses[0];this.origin.set(player.x,0,player.y);
     this.contactOverlay.update(current,player,poses);
     this.course.group.visible=true;this.course.update(current.course,current.boats[0],{x:player.x,y:player.y},current.clock);

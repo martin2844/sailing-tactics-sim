@@ -1,6 +1,6 @@
 import type {NativeVisualPacket} from './native-visuals';
 import type {ContactSummary} from './contact-world';
-export interface BoatView {id:number;name:string;x:number;y:number;heading:number;speed:number;leg:number;finished:number;dnf?:boolean;status:number;finishTime:number;points:number[];windFrom:number;windAngle:number;luff:number;boomAngle:number;tack:number;depth?:number;groundingDepth?:number;trueWind?:number;currentSpeed?:number;currentDirection?:number;grounded?:boolean}
+export interface BoatView {id:number;name:string;x:number;y:number;heading:number;speed:number;leg:number;finished:number;dnf?:boolean;status:number;penaltyClock?:number;finishTime:number;points:number[];windFrom:number;windAngle:number;luff:number;boomAngle:number;tack:number;depth?:number;groundingDepth?:number;trueWind?:number;currentSpeed?:number;currentDirection?:number;grounded?:boolean}
 export interface NativeView {lookDegrees:number;lookMode:number;viewpoint:number;automatic:boolean;otherBoat:number;tacticalZoom:number;tacticalOrientation:number}
 export interface CoursePoint {x:number;y:number}
 export interface CourseLine {a:CoursePoint;b:CoursePoint}

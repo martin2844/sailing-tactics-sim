@@ -61,14 +61,14 @@ npm run preview
 ```
 
 Dependencies are exact versions in this directory only. prepare:legacy checks
-pinned source/asset hashes for all 167 inputs. It copies 166 byte for byte and
-generates one explicit boat observation/private-model adapter in drawing-functions.js,
+pinned source/asset hashes for all 167 inputs. It copies 158 byte for byte and
+generates nine explicit drawing, collision, race, course and wind adapters,
 without bundling original code. The generated manifest records source and output
 hashes separately. Generated copies and dist are ignored.
 Original root commands and preservation routes are unchanged.
 
 Use `/` for the WebGL 2 development player and paused starter screen. Choose
-five/fifteen Keelboats, Windward/leeward, Triangle or Gold Cup and Light,
+a native boat class, venue, compatible fleet/course and Light,
 Moderate or Strong native wind; Start race releases the countdown. New race
 or N returns to setup. Choices are staged until Start; boat/course previews use
 cached native samples. Fresh races retain the preset's fixed seed; they do not continue
@@ -95,9 +95,12 @@ committee dimensions are shared by physics and rendering. Continuous translation
 and rotation sweeps, tangential sliding and non-foul spawn separation run only
 in the authoritative worker; AI applies local hull clearance around native goals.
 Foul decisions use private original-rule images with contact-time tack/angle,
-geometric overlap/astern and contact episodes. Penalties retain native codes and
-black sails but apply speed loss in place instead of historical position jumps.
-These are intentional 2026 gameplay changes, not exact OG contact behavior.
+geometric overlap/astern. Penalty responses reuse the original reset/respawn/shift
+routines, native codes/black sails, human/NPC status rules, mark phase eligibility
+and the opponent-timestamp 50-game-second grace rule. Episodes only count contacts.
+All visible objects remain solid; gate endpoints have no invented mark-touch foul.
+Hull proximity and physical blocking remain explicit 2026 changes, so encounter
+timing is not identical to the original centre-point detector.
 The audited startup image and frozen preservation inputs remain unchanged.
 Enable **Renderer evaluation → Show contact shapes**, or use `?hitboxes`, to
 inspect contact footprints. See the CONTACT tasks/evidence in root todo.md.
