@@ -86,6 +86,11 @@ async function runPair(browser, artifacts, settings, fleet, actualRace) {
       boundaries.push(await browser.evaluate(`compareCutover(${JSON.stringify(name+'-dismiss')})`));
     }
 
+    await browser.evaluate("cutoverClients.forEach(c=>c.send('key',220))");
+    await browser.evaluate('Promise.all(cutoverClients.map(c=>c.request("step",40)))');
+    boundaries.push(await browser.evaluate('compareCutover("foul-slowdown-armed")'));
+    const slowdownPace=await browser.evaluate('cutoverClients.map(c=>c.last.pace)');
+
     const phaseTotals = {};
     for (const record of trace.records) {
       const totals = phaseTotals[record.name] ??= {calls: 0, randomCalls: 0, pixelQueries: 0, observedWrites: 0, changedWords: 0};
@@ -95,7 +100,7 @@ async function runPair(browser, artifacts, settings, fleet, actualRace) {
       totals.observedWrites += record.writes.reduce((count, access) => count + access.count, 0);
       totals.changedWords += record.netChangedWords.length;
     }
-    return {settings, fleet, actualRace, boundaries, traces, phaseTotals};
+    return {settings, fleet, actualRace, boundaries, traces, phaseTotals, slowdownPace};
   } finally {
     await browser.evaluate('cutoverClients?.forEach(c=>c.dispose())');
   }

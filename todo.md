@@ -210,6 +210,15 @@ production engine; preserved players remain comparison references.
   cases, 65 exact 2026 boundaries and ten frozen 2010 boundaries. See
   `versions/2026/analysis/app/ENG-03b-3.md`. World invocation/pixels remain open.
 
+- [x] **ENG-03b.4 — Extract automatic foul slowdown rules.**
+
+  Named typed state facade and renderer-free rule function preserve rearm,
+  eligibility, saved pace/divisor and cooldown, including pace-one behavior.
+  Evaluated: 576 recovered control-block state combinations, 69 exact 2026
+  boundaries with naturally armed slowdown and ten frozen 2010 boundaries.
+  Independent big-review finds no introduced defect; late warning latch and
+  pixel-controlled traversal remain open. See `versions/2026/analysis/app/ENG-03b-4.md`.
+
 - [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
 
   Replace required visibility/pixel decisions with deterministic calculations;

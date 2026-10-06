@@ -17,6 +17,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {updateFoulSlowdown} from './engine/rules/foul-slowdown';
+import {createFoulSlowdownState} from './engine/compatibility/foul-slowdown-state';
 import {executeSimulationStep} from './engine/simulation-step';
 import {createSimulationStepPhases} from './engine/compatibility/simulation-step-phases';
 import {updateCompatibilityCamera} from './engine/view/camera-state';
@@ -224,6 +226,9 @@ async function initialize(data:any){
     return executeSimulationStep(createSimulationStepPhases(image,dc,random,bindings,{
       advance:frameModule.advanceFrame,compose:paintModule.composeRaceFrame,
     }));
+  };
+  options.updateFoulSlowdown=(image:RacePhaseMemory,boat:number)=>{
+    return updateFoulSlowdown(createFoulSlowdownState(image,boat));
   };
   options.dispatchEnginePhases=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
     dispatchRacePhases(image,createCompatibilityActions(image,dc,random,bindings,paintModule.drawSimulationFrame));
