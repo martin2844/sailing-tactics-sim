@@ -142,6 +142,11 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
 
 ## ENG: reusable 2010 simulation
 
+The production cutover sequence and evaluation gates are specified in
+[engine-cutover.md](versions/2026/docs/engine-cutover.md). The target excludes
+original lifecycle, Canvas/GDI, pixel reads and drawing callbacks from the
+production engine; preserved players remain comparison references.
+
 - [ ] **ENG-01 — Define authoritative state and phase contracts** · P0 · L · Depends: BASE-04, BASE-05.
 
   Done when: adapter operations, command phases, authoritative memory/RNG/host
@@ -159,6 +164,26 @@ decisions before broad implementation. A beautiful scene is not an M1 exit.
   Done when: required state-changing drawing/control work can be invoked in its
   original order without tying it to modern GPU rendering; extracted paths retain
   numeric behavior and have paired reference traces.
+
+- [ ] **ENG-03a — Establish paired cutover traces and the dependency ledger.**
+
+  Compare the current 2026 bridge and candidate with identical inputs/policies,
+  and retain a separate frozen 2010 comparison lane. Trace state writes/reads,
+  intermediate stores, RNG order, retained state and pixel branches. Instrumented
+  execution must match plain execution before the observer is accepted.
+
+- [ ] **ENG-03b — Extract drawing-owned gameplay phases one callback at a time.**
+
+  Move waypoint/course, slowdown, warning, result/score and cleanup behavior into
+  explicit engine functions. Classify camera and host fields. Require paired
+  state/RNG and continued future-output evidence for each removed dependency.
+
+- [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
+
+  Replace required visibility/pixel decisions with deterministic calculations;
+  preserve gameplay-relevant random consumption and branch order. No constant
+  pixel oracle or guessed fixed RNG burn. If a dependency remains unclassified,
+  report it and retain the comparison path; do not claim production independence.
 
 - [ ] **ENG-04 — Implement the compatible simulation driver** · P0 · L · Depends: ENG-03, BASE-05.
 
