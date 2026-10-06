@@ -66,8 +66,8 @@ npm run preview
 ```
 
 Dependencies are exact versions in this directory only. prepare:legacy checks
-pinned source/asset hashes for all 167 inputs. It copies 158 byte for byte and
-generates nine explicit drawing, collision, race, course and wind adapters,
+pinned source/asset hashes for all 167 inputs. It copies 157 byte for byte and
+generates ten explicit drawing, collision, race, course and wind adapters,
 without bundling original code. The generated manifest records source and output
 hashes separately. Generated copies and dist are ignored.
 Original root commands and preservation routes are unchanged.

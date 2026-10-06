@@ -17,6 +17,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {updateWaveMotion} from './engine/environment/wave-motion';
+import {createWaveMotionPort,type WaveMemory} from './engine/compatibility/wave-motion-port';
 import {configureCanonicalProfile,canonicalHostProfile,type CanonicalDimensions} from './engine/compatibility/host-profile';
 import {updateFoulSlowdown} from './engine/rules/foul-slowdown';
 import {createFoulSlowdownState} from './engine/compatibility/foul-slowdown-state';
@@ -236,6 +238,15 @@ async function initialize(data:any){
   options.drawSimulationFrame=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
     return executeSimulationStep(createSimulationStepPhases(image,dc,random,bindings,{
       advance:frameModule.advanceFrame,compose:paintModule.composeRaceFrame,
+    }));
+  };
+  options.updateWaveMotion=(image:WaveMemory,bindings:Record<string,unknown>)=>{
+    const sound=bindings.playSound;
+    updateWaveMotion(createWaveMotionPort(image,{
+      number:float.Float80.fromNumber,integer:float.Float80.fromInteger,
+      sine:phase=>transcendentals.sinCosX87(phase).sine,
+      nearest:(x,y)=>waypoints.nearestWaypointDistance(image,x,y,-1),
+      playSound:typeof sound==='function'?event=>sound.call(bindings,event):undefined,
     }));
   };
   options.updateFoulSlowdown=(image:RacePhaseMemory,boat:number)=>{

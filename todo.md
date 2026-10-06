@@ -219,12 +219,26 @@ production engine; preserved players remain comparison references.
   Independent big-review finds no introduced defect; late warning latch and
   pixel-controlled traversal remain open. See `versions/2026/analysis/app/ENG-03b-4.md`.
 
+- [x] **ENG-03b.5 — Extract wave/heave state and sound selection.**
+
+  Typed renderer-free environment phase preserves proximity/cooldown, raw F64
+  copying, amplitude/phase and ordered cues. Heave affects downwind dynamics.
+  Evaluated: 672 original/new cases, 69 exact 2026 boundaries, ten frozen 2010
+  boundaries with old lifecycle guarded, eighteen tests and 14 controls/depth
+  checks. See `versions/2026/analysis/app/ENG-03b-5.md`.
+  Wave-position regeneration/world traversal and shared-RNG policy remain open.
+
 - [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
 
   Replace required visibility/pixel decisions with deterministic calculations;
   preserve gameplay-relevant random consumption and branch order. No constant
   pixel oracle or guessed fixed RNG burn. If a dependency remains unclassified,
   report it and retain the comparison path; do not claim production independence.
+  Independent review traced three pixel-dependent routines; exact-green
+  compositing can change whether boat drawing consumes shared RNG. The seed
+  equivalence versus independent gameplay-RNG question is pending user input;
+  no trajectory change is authorized by elapsed time. Details:
+  `versions/2026/docs/world-pixel-contract.md`.
 
 - [ ] **ENG-04 — Implement the compatible simulation driver** · P0 · L · Depends: ENG-03, BASE-05.
 
