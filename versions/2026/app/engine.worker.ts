@@ -17,6 +17,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {executeSimulationStep} from './engine/simulation-step';
+import {createSimulationStepPhases} from './engine/compatibility/simulation-step-phases';
 import {updateCompatibilityCamera} from './engine/view/camera-state';
 import {createCameraStatePort} from './engine/compatibility/camera-state-port';
 import {respawnWaypoint} from './engine/waypoints/respawn';
@@ -216,6 +218,12 @@ async function initialize(data:any){
         return low32(angle.multiply(float.Float80.fromNumber(image.readF64(0x4cc3e8))));
       },
     }),boat);
+  };
+  const frameModule=await load(edition+'src/engine/frame.js');
+  options.drawSimulationFrame=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
+    return executeSimulationStep(createSimulationStepPhases(image,dc,random,bindings,{
+      advance:frameModule.advanceFrame,compose:paintModule.composeRaceFrame,
+    }));
   };
   options.dispatchEnginePhases=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
     dispatchRacePhases(image,createCompatibilityActions(image,dc,random,bindings,paintModule.drawSimulationFrame));

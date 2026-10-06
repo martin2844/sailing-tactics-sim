@@ -223,6 +223,14 @@ production engine; preserved players remain comparison references.
   and disposal use original engine behavior through one adapter, with no new boat
   dynamics, injected expected state or hidden demo restriction.
 
+- [x] **ENG-04.1 — Own numerical/world/timing/cleanup step ordering.**
+
+  Renderer-free typed driver preserves native pace delays, unsigned clock wrap,
+  bounded waiting and cleanup after successful phases. The compatibility adapter
+  supplies world composition temporarily. Evaluated: 28 original-driver cases,
+  failure/bound checks, 65 exact 2026 boundaries and ten frozen 2010 boundaries.
+  See `versions/2026/analysis/app/ENG-04-1.md`; the parent driver cutover remains open.
+
 - [ ] **ENG-05 — Preserve canonical host and pixel-read semantics** · P0 · L · Depends: ENG-02, ENG-03.
 
   Done when: required GDI/pixel behavior, legacy surface/camera, retained locals
