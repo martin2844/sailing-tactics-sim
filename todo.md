@@ -979,7 +979,7 @@ Evidence: [player fixes](versions/2026/analysis/app/PLAYER-FIXES.md).
 
 - [x] **UI-01 — Add a toggleable north-up course minimap in sailing cameras.**
   Hide in full Overview; preserve preference and native simulation state.
-- [ ] **UI-02 — Center the starter, preview the selected native boat and provide a large Start race action.**
+- [x] **UI-02 — Center the starter, preview the selected native boat and provide a large Start race action.**
   Preserve setup/championship flow; evaluate layout, controls and performance.
 
 Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
