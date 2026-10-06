@@ -1,0 +1,15 @@
+import{openBrowser}from'../../../tools/browser-session.js';import{mkdir,writeFile}from'node:fs/promises';import{resolve}from'node:path';
+const out=resolve(process.argv[2]);await mkdir(out);const b=await openBrowser('http://127.0.0.1:8770/?manual&fleet=5',{headless:true,gpu:true,requestTimeoutMs:60000});
+try{
+ await b.call('Emulation.setDeviceMetricsOverride',{width:1440,height:1050,deviceScaleFactor:1,mobile:false});await b.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);if(await b.evaluate('tact2026.error'))throw Error(await b.evaluate('tact2026.error'));
+ const native=await b.evaluate('tact2026.engine.request("cutoffcase")');if(JSON.stringify(native.before)!==JSON.stringify(native.after)||native.cases.some(c=>c.completedRaces!==1||c.window.firstFinish!==600||c.window.deadline!==1800||c.boats.filter(b=>b.dnf).length!==3))throw Error('Native cutoff cases');
+ await b.evaluate('document.getElementById("race-mode").value="championship";document.getElementById("race-mode").dispatchEvent(new Event("change"))');await b.waitFor('tact2026.ready&&tact2026.latest.seriesScoring');
+ const before=await b.evaluate('tact2026.engine.request("boundary")'),fixture=native.cases.find(c=>c.scoring===0);
+ // Invoke the real client's snapshot handler with a private result fixture.
+ // The worker image is held; this verifies the DOM and event record only.
+ await b.evaluate(`(()=>{const f=${JSON.stringify(fixture)},s=tact2026.latest,value={...s,clock:f.clock,completedRaces:f.completedRaces,results:true,resultsReady:true,seriesScoring:true,raceWindow:f.window,boats:s.boats.map(b=>({...b,...f.boats.find(v=>v.id===b.id)}))};document.getElementById('starter').hidden=true;tact2026.engine.worker.onmessage({data:{type:'snapshot',generation:s.generation,data:value}});})()`);
+ await b.waitFor('!document.getElementById("race-results").hidden');const ui=await b.evaluate('({heading:document.getElementById("results-heading").textContent,text:document.getElementById("race-results").textContent,event:{races:tact2026.event.races,standings:tact2026.event.standings,canContinue:tact2026.event.canContinue}})');
+ if(!ui.text.includes('DNF')||ui.heading!=='Finished in 2nd place.'||!ui.event.canContinue||ui.event.races.length!==1||ui.event.standings.filter(b=>b.dnfs[0]).length!==3)throw Error('DNF result/event UI');
+ await writeFile(resolve(out,'results.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));const after=await b.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Result fixture changed worker');
+ await writeFile(resolve(out,'verification.json'),JSON.stringify({passed:true,native,ui,before,after,scope:'Actual native finish advancement/AI/score calls on private clock fixtures for single/series, exact 20-minute boundary, real client result/standings UI from that fixture; not natural race arrivals or a played championship.'},null,2));console.log(JSON.stringify({passed:true,cases:native.cases.length,DNFs:3,championshipRecord:true}));
+}catch(e){await writeFile(resolve(out,'failure.txt'),e.stack);throw e;}finally{await b.close();}

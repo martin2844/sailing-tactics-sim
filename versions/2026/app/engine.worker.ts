@@ -1,10 +1,11 @@
 // Bounded compatibility bridge. Frozen source is verified before preparation;
-// one generated drawing adapter observes boats and supports private 3D extraction.
+// explicit drawing and race-policy adapters are generated for the 2026 app.
 // No authoritative image, RNG, ticks or retained locals are owned by the UI.
 import type {SceneSnapshot,Boundary,CourseLine} from './protocol';
 import {commands} from './protocol';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
+import {RaceWindow} from './race-window';
 import {validateRaceSettings,raceSetupCommands,isAuditedPreset} from './race-settings';
 import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
@@ -22,6 +23,7 @@ let modelWorker:Worker,modelReady=false,modelBusy=false,modelSequence=-1,modelWi
 let modelMutableBase=0,modelMutableSize=0;
 let modelDirty=false,panelBusy=false;
 let startingLine:CourseLine|undefined;
+const raceWindow=new RaceWindow();
 let resultsReady=false;
 let generation=0,frame=0,paused=true,failed=false,ready=false,delay=0,timer:ReturnType<typeof setTimeout>|undefined;
 let front:OffscreenCanvas,back:OffscreenCanvas,frontContext:OffscreenCanvasRenderingContext2D,backContext:OffscreenCanvasRenderingContext2D;
@@ -57,6 +59,7 @@ function paint(){
   lifecycle(memory,dc,rng,{...options,host,cursor:{x:0,y:0}});frame++;
   if(drawingResults)resultsReady=true;
   if(phase!==2&&memory.readI32(0x5363b0)===2)startingLine=courseLine();
+  raceWindow.update(memory);
   delay=Math.max(delay,paintClock.minimumDuration());
   return performance.now()-start;
 }
@@ -64,7 +67,7 @@ function courseLine():CourseLine{return {a:{x:memory.readI32(0x536410),y:memory.
 function snapshot(workMs:number):SceneSnapshot {
   const i=(a:number)=>memory.readI32(a),d=(a:number)=>memory.readF64(a);
   const groundingDepth=Math.max(i(0x4da1fc),i(0x5363b8)===1?d(0x4cc728):Math.trunc(i(0x4da190)/2)+3);
-  const boats=Array.from({length:i(0x4da194)},(_,index)=>{const id=index+1;return{id,name:readCString(memory,0x4fec30+id*4),x:d(0x4f6af8+id*8),y:d(0x4f6c10+id*8),heading:i(0x535740+id*4),speed:i(0x4fdfe8+id*4)/10,leg:i(0x4f8538+id*4),finished:i(0x4fe638+id*4),status:i(0x5116e0+id*4),finishTime:i(id===1?0x534d64:0x4f4350+id*4),points:[0,1,2].map(n=>i(0x4fbf24+id*16+n*4)),windFrom:i(0x522b90+id*4),windAngle:i(0x4fecc8+id*4),luff:i(0x512278+id*4),boomAngle:i(0x4fe818+id*4),tack:i(0x522ff0+id*4),depth:d(0x4ffcb8+id*8),groundingDepth,trueWind:i(0x4fb380+id*4),currentSpeed:i(0x535a08+id*4)/10,currentDirection:i(0x522d30+id*4),grounded:i(0x5116e0+id*4)===10};});
+  const boats=Array.from({length:i(0x4da194)},(_,index)=>{const id=index+1;return{id,name:readCString(memory,0x4fec30+id*4),x:d(0x4f6af8+id*8),y:d(0x4f6c10+id*8),heading:i(0x535740+id*4),speed:i(0x4fdfe8+id*4)/10,leg:i(0x4f8538+id*4),finished:i(0x4fe638+id*4),dnf:raceWindow.dnfs.has(id),status:i(0x5116e0+id*4),finishTime:raceWindow.finishes.get(id)??i(id===1?0x534d64:0x4f4350+id*4),points:[0,1,2].map(n=>i(0x4fbf24+id*16+n*4)),windFrom:i(0x522b90+id*4),windAngle:i(0x4fecc8+id*4),luff:i(0x512278+id*4),boomAngle:i(0x4fe818+id*4),tack:i(0x522ff0+id*4),depth:d(0x4ffcb8+id*8),groundingDepth,trueWind:i(0x4fb380+id*4),currentSpeed:i(0x535a08+id*4)/10,currentDirection:i(0x522d30+id*4),grounded:i(0x5116e0+id*4)===10};});
   const owner=i(0x4da140),panel=panelTitle();
   const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
   return {environment:{waves:i(0x535e44),currentEffect:i(0x522fd8),gusts:Array.from({length:5},(_,index)=>{const n=index+1;return {x:d(0x535460+n*8),y:d(0x4f4b08+n*8),width:i(0x4f7ea0+n*4),strength:i(0x4f71d8+n*4)}})},generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
@@ -73,7 +76,7 @@ function snapshot(workMs:number):SceneSnapshot {
     panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
     course:{marks:marks.slice(0,3),gate:i(0x4da1e8)?[{x:i(0x4f4a68),y:i(0x4f6d34)},{x:i(0x523248),y:i(0x52359c)}]:[],start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c),guides:extractGuides(),navigationTarget:extractGuides.navigation,headingReference:(i(0x535740+owner*4)-(i(0x536490)?i(0x522ff0+owner*4)*45:0)+720)%360},
-    results:i(0x5363f4)!==0,resultsReady,completedRaces:i(0x5363fc),seriesScoring:i(0x536424)===0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
+    raceWindow:raceWindow.state(i(0x4f8cd0)),results:i(0x5363f4)!==0,resultsReady,completedRaces:i(0x5363fc),seriesScoring:i(0x536424)===0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
 }
 function panelTitle():string|null{
   const i=(a:number)=>memory.readI32(a);
@@ -123,7 +126,7 @@ async function initialize(data:any){
   const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
   if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
   objects=application.initializeApplication(memory,rng,{preferences:null,timeSeed:scenario.seedTimeSeconds,screenHeight:768,integerTrig:tables});
-  options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,
+  options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,finishWindowEnabled:true,
     playSound:()=>1,messageBeep:()=>{},beep:()=>{},dialogHandler:()=>{throw new Error('Original dialogs are unsupported in the worker spike');},getTickCount:paintClock.getTickCount,
     getCursorPos:()=>({x:0,y:0}),invalidateRect:()=>{},enforceMinimumPaintDuration:(duration:number)=>{delay=duration;},closeWindow:()=>{paused=true;},contextHelp:()=>{}};
   // The Block Island chart's recovered overlap needs an exact drawing profile.
@@ -175,7 +178,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='image'){if(!paused)throw Error('Image diagnostics require pause');const bytes=memory.bytes.slice();self.postMessage({type:'reply',generation,data:{id,value:bytes}},{transfer:[bytes.buffer]});}
   else if(type==='next-race'){
     if(!paused||!resultsReady||memory.readI32(0x5363f4)===0)throw new Error('Next race requires completed native results');
-    clearTimeout(timer);scheduleToken++;pending=false;startingLine=undefined;resultsReady=false;
+    clearTimeout(timer);scheduleToken++;pending=false;startingLine=undefined;resultsReady=false;raceWindow.reset();
     key(memory,78,options);paint();key(memory,32,options);paint();
     for(let attempt=0;attempt<4&&[0x536444,0x5363f0,0x5233a8,0x536434,0x536438,0x53644c].some(a=>memory.readI32(a)!==0);attempt++){key(memory,32,options);paint();}
     // Results draw freezes the native simulator. N retains that flag; dismissing
@@ -196,6 +199,28 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     const boats=Array.from({length:count},(_,n)=>{const b=n+1;return{id:b,name:readCString(m,0x4fec30+b*4),finished:m.readI32(0x4fe638+b*4),points:[0,1,2].map(n=>m.readI32(0x4fbf24+b*16+n*4))};});
     const after=await boundary();if(JSON.stringify(before)!==JSON.stringify(after))throw new Error('Private finish case mutated the master');
     send('reply',{id,value:{before,after,boats,order,results:m.readI32(0x5363f4)!==0,completedRaces:m.readI32(0x5363fc),scope:'Isolated native finish-target transition and original results draw, not a naturally sailed race'}});
+  }
+  else if(type==='cutoffcase'){
+    if(!paused||memory.readI32(0x4da194)<3)throw Error('Cutoff diagnostics require paused fleet of at least three');
+    const before=await boundary(),cases=[];
+    for(const scoring of[0,1]){
+      const m=new ModelMemory(memory.size,memory.base),random=new ModelRng(rng.state),window=new RaceWindow();m.bytes.set(memory.bytes);copyStrings(memory,m);
+      const o={...options,rng:random,closeWindow:()=>{},enforceMinimumPaintDuration:()=>{},invalidateRect:()=>{}},count=m.readI32(0x4da194);
+      m.writeI32(0x5363b0,2);m.writeI32(0x536424,scoring);m.writeI32(0x5363f4,0);m.writeI32(0x5363fc,0);m.writeI32(0x4f6d64,0);m.writeI32(0x4f6a58,0);
+      for(let b=1;b<=count;b++){m.writeI32(0x4fe638+b*4,0);for(let n=0;n<3;n++)m.writeI32(0x4fbf24+b*16+n*4,0);}
+      m.writeI32(0x4f8cd0,600);m.writeF64(0x5359f0,600);m.writeI32(0x4f8538+2*4,m.readI32(0x4da1e4));advanceTarget(m,2,o);window.update(m);
+      m.writeI32(0x4f8cd0,900);m.writeF64(0x5359f0,900);m.writeI32(0x4f853c,m.readI32(0x4da1e4));advanceTarget(m,1,o);window.update(m);
+      if(m.readI32(0x5363f4)!==0||window.firstFinish!==600)throw Error('Race ended at player finish instead of waiting for fleet');
+      m.writeI32(0x4f8cd0,1799);m.writeF64(0x5359f0,1799);m.writeF64(0x4f6af8+3*8,-8000);m.writeF64(0x4f6c10+3*8,-6000);m.writeI32(0x4f8538+3*4,1);
+      options.updateBoatWindAndAI(m,3,random,o);window.update(m);
+      if(m.readI32(0x4fe638+3*4)!==0||m.readI32(0x5363f4)!==0)throw Error('Legacy AI retired before the finishing deadline');
+      m.writeI32(0x4f8cd0,1800);m.writeF64(0x5359f0,1800);if(!window.update(m))throw Error('Cutoff did not close at exactly 20 minutes');
+      const surface=new OffscreenCanvas(1024,768),dc=gdi(surface.getContext('2d')!,{objects:new Map(objects),bitmapFont:font,recordEvents:false});dc.canvas=surface;drawResults(m,dc,random,o);
+      const boats=Array.from({length:count},(_,n)=>{const id=n+1;return{id,name:readCString(m,0x4fec30+id*4),finished:m.readI32(0x4fe638+id*4),dnf:window.dnfs.has(id),points:[0,1,2].map(n=>m.readI32(0x4fbf24+id*16+n*4))};});
+      if(scoring===0&&boats.some(b=>b.dnf&&b.points[0]!==(count+1)*101))throw Error('Original DNF scoring was not retained');
+      cases.push({scoring,clock:1800,boats,window:window.state(1800),completedRaces:m.readI32(0x5363fc)});
+    }
+    const after=await boundary();if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Cutoff diagnostic mutated the master');send('reply',{id,value:{before,after,cases,scope:'Private game-clock boundary fixtures using actual native target advancement, AI and original results scoring; not naturally sailed arrivals'}});
   }
   else if(type==='environmentcase'){
     if(!paused)throw Error('Environment diagnostics require pause');const before=await boundary(),cases=await evaluateEnvironmentCases(memory,rng,options,ModelMemory,ModelRng,updateDynamics,sampleCurrent,sampleVenueCurrent),after=await boundary();if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Environment diagnostic changed master');send('reply',{id,value:{before,after,cases,terrain:readNativeTerrain(memory),scope:'Private controlled depths with original current/dynamics; not naturally sailed grounding'}});

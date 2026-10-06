@@ -20,3 +20,26 @@ exact paused memory/RNG/shore boundaries, native freeze/button resume, panel
 dismissal without pace changes, and isolated depth colour/text fixtures.
 Production build/type checking pass. These UI checks do not claim naturally
 sailed grounding or change the grounding physics.
+
+## Finishing window
+
+The first actual finisher starts a 1,200-second window on the original race
+clock. At the deadline, unfinished boats receive the native fleet-size-plus-one
+rank and a DNF label. Existing finishes and retirements remain intact. A fleet
+that finishes earlier ends normally. Pause/freeze cannot consume this window.
+The HUD shows the remaining allowance; race results and championship records
+retain DNF status.
+
+Two declared adapters in the generated 2026 compatibility copy disable the
+old single-player immediate end and the AI's player-relative automatic
+retirement. Frozen 2010 sources remain untouched. Native results drawing still
+computes championship scores; DNF uses its original 101 × (fleet size + 1)
+score units. The window resets for a new race or a rewound clock.
+
+[Cutoff evaluation](race-cutoff-final/verification.json) uses real native target
+advancement, AI and results calls on private game-clock fixtures. It proves
+that the player's finish does not close the race, AI boats do not retire at the
+old deadline, the exact 20-minute boundary closes once, native DNF scores match,
+and the real client displays results/records correctly without changing the
+held worker. Three small policy regression tests pass. These are controlled
+fixtures, not naturally sailed arrivals or a played championship.
