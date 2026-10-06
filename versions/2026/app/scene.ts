@@ -7,6 +7,7 @@ import {CourseScene} from './course-scene';
 import {EnvironmentScene} from './environment-scene';
 import type {NativeTerrain} from './native-environment';
 import {SceneLabels} from './scene-labels';
+import {Minimap} from './minimap';
 import type {NativeModelPacket} from './native-models';
 export type Backend='webgl2'|'webgpu';
 type Renderer=THREE.WebGLRenderer|import('three/webgpu').WebGPURenderer;
@@ -19,10 +20,10 @@ export class SailingScene {
   private queryExtension:any;private pendingQueries:WebGLQuery[]=[];readonly gpuMs:number[]=[];private gl?:WebGL2RenderingContext;
   actualBackend='initializing';adapterInfo:unknown;readonly samples:RenderSample[]=[];private lastWaterPhase=-1;private cameraDirty=true;private origin=new THREE.Vector3();private nativeBoats:NativeBoatLayer;
   private models=new Map<number,NativeBoatMesh>();private modelMaterial:THREE.Material;private modelReceived=0;private modelSpan=40;modelSequence=0;hasModels=false;modelPacket?:NativeModelPacket;readonly modelCosts:number[]=[];readonly modelBytes:number[]=[];readonly modelBuildCosts:number[]=[];
-  private environment=new EnvironmentScene();private course=new CourseScene();readonly labels:SceneLabels;
+  private environment=new EnvironmentScene();private course=new CourseScene();readonly labels:SceneLabels;readonly minimap:Minimap;
   constructor(private canvas:HTMLCanvasElement,boatCanvas:HTMLCanvasElement,private onSample:(sample:RenderSample)=>void,private onFailure:(message:string)=>void){
     this.nativeBoats=new NativeBoatLayer(boatCanvas);
-    this.labels=new SceneLabels(canvas);
+    this.labels=new SceneLabels(canvas);this.minimap=new Minimap(document.getElementById('minimap-toggle') as HTMLButtonElement);
     boatCanvas.hidden=true;
     this.modelMaterial=this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,side:THREE.DoubleSide,roughness:.85}));
     this.scene.background=new THREE.Color('#afd8e4');this.scene.fog=new THREE.Fog('#afd8e4',8000,40000);
@@ -47,7 +48,7 @@ export class SailingScene {
   }
   private geometry<T extends THREE.BufferGeometry>(g:T):T{this.geometries.add(g);return g;}
   private material<T extends THREE.Material>(m:T):T{this.materials.add(m);return m;}
-  receiveTerrain(data:NativeTerrain){this.environment.setTerrain(data);this.cameraDirty=true;}
+  receiveTerrain(data:NativeTerrain){this.environment.setTerrain(data);this.minimap.receiveTerrain(data);this.cameraDirty=true;}
   async initialize(backend:Backend){
     if(backend==='webgpu'){
       const {WebGPURenderer}=await import('three/webgpu');
@@ -81,7 +82,7 @@ export class SailingScene {
     for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2]);}
     this.hasModels=true;if(this.modelCosts.length<4000){this.modelCosts.push(p.workMs);this.modelBytes.push(p.positions.byteLength+p.records.byteLength+p.colors.byteLength+p.boats.byteLength);this.modelBuildCosts.push(performance.now()-now);}this.cameraDirty=true;
   }
-  reset(){this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
+  reset(){this.minimap.reset();this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
   render(now:number){
     if(this.disposed||!this.renderer||!this.latest)return;
     if(this.lastDraw&&now-this.lastDraw<1000/60-.6)return;
@@ -115,6 +116,7 @@ export class SailingScene {
     this.renderer.info.autoReset=false;this.renderer.info.reset();
     this.camera.updateMatrixWorld();this.course.project(this.camera,{x:player.x,y:player.y},this.width,this.height);
     this.renderer.render(this.scene,this.camera);
+    this.minimap.render(current,poses,this.mode,now);
     this.labels.render(current,this.camera,this.models,this.course,now);
     if(query&&this.gl){this.gl.endQuery(this.queryExtension.TIME_ELAPSED_EXT);this.pendingQueries.push(query);}
     const info=this.renderer.info;const sample={intervalMs:this.lastDraw?now-this.lastDraw:0,cpuMs:performance.now()-start,changed,poseChanged,sequence:current.sequence,alpha,calls:'drawCalls' in info.render?info.render.drawCalls:info.render.calls,triangles:info.render.triangles};
@@ -122,5 +124,5 @@ export class SailingScene {
   }
   private pollQueries(){if(!this.gl||!this.queryExtension)return;const gl=this.gl;const disjoint=gl.getParameter(this.queryExtension.GPU_DISJOINT_EXT);for(let i=this.pendingQueries.length-1;i>=0;i--){const query=this.pendingQueries[i];if(gl.getQueryParameter(query,gl.QUERY_RESULT_AVAILABLE)){if(!disjoint&&this.gpuMs.length<4000)this.gpuMs.push(gl.getQueryParameter(query,gl.QUERY_RESULT)/1e6);gl.deleteQuery(query);this.pendingQueries.splice(i,1);}else if(disjoint){gl.deleteQuery(query);this.pendingQueries.splice(i,1);}}}
   resetMetrics(){this.samples.length=0;this.gpuMs.length=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.lastDraw=0;}
-  dispose(){this.disposed=true;this.environment.dispose();this.labels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
+  dispose(){this.disposed=true;this.environment.dispose();this.minimap.dispose();this.labels.dispose();for(const model of this.models.values())model.dispose();this.course.dispose();this.observer.disconnect();this.controls.dispose();for(const g of this.geometries)g.dispose();for(const m of this.materials)m.dispose();if(this.gl)for(const q of this.pendingQueries)this.gl.deleteQuery(q);this.renderer?.dispose();}
 }

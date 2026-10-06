@@ -49,7 +49,7 @@ export class SceneLabels {
  private reservations(){
   this.reserved.length=0;
   const origin=this.sceneCanvas.getBoundingClientRect();
-  for(const element of document.querySelectorAll<HTMLElement>('.instruments,.cameras,.common-keys,#notice,#starter,#native-panel,#race-results')){
+  for(const element of document.querySelectorAll<HTMLElement>('.instruments,.cameras,.common-keys,#minimap,#notice,#starter,#native-panel,#race-results')){
    if(!element.getClientRects().length)continue;const r=element.getBoundingClientRect();
    this.reserved.push({x:r.left-origin.left,y:r.top-origin.top,w:r.width,h:r.height});
   }
