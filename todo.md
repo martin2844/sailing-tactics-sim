@@ -1057,3 +1057,51 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Tornado and Island Optimist races with all four AI finishes, DNF/results and
   championship restart. See `versions/2026/analysis/app/CONTACT-05.md`.
 
+## Original functionality parity audit
+
+- [x] **PARITY-00 — Audit original features and explain the current architecture.**
+  Inventory all 312 original menu commands, trace UI/worker/renderer routing,
+  inspect missing host services and probe coach flags, native key behavior and
+  leg replay on a disposable client. Distinguish reachable features, backend-only
+  functions, modern replacements and explicit gameplay additions. See
+  `versions/2026/docs/og-functionality-audit.md`; this is an audit, not full parity.
+- [ ] **PARITY-01 — Restore complete dynamic coach advice and sailing-state HUD.**
+  Refresh warning flags on private copies as the OG coach lifecycle does; compare
+  advice under heel/luff/bad-air/penalty cases without changing live state/RNG.
+  Show appropriate luff, trim, shape, rig, clear-air and header/lift information.
+- [ ] **PARITY-02 — Validate leg replay against modern host bookkeeping.**
+  Rewind during prestart, a leg, after a finish and during a championship; reconcile
+  finish window, DNF ledger, contacts and event scoring. Retain the separate
+  existing production replay/timeline tasks.
+- [ ] **PARITY-03 — Restore audio cues.**
+  Replace sound/beep stubs with worker-to-main audio events, original cue identity,
+  mute and browser activation handling. Evaluate countdown, start, recall/foul
+  and paused/restarted sessions; audio must not change simulation pacing.
+- [ ] **PARITY-04 — Complete tactical track and chart interactions.**
+  Transport bounded track samples and render OG-equivalent paths on the modern
+  map; distinguish bad-air/downwind/lap styling. Restore chart point sampling and
+  evaluate large-view zoom/orientation and independent minimap behavior.
+- [ ] **PARITY-05 — Expose original race options and retain preferences.**
+  Add difficulty, prestart/start placement, current enable, hemisphere, rounding
+  direction and assistance controls through original handlers. Add night visuals
+  if night race is exposed. Evaluate combinations before marking each supported;
+  persist validated setup rather than silently resetting all preferences.
+- [ ] **PARITY-06 — Port original learning/help navigation.**
+  Make rules/tactics chapters, glossary, bibliography and relevant explanations
+  reachable in modern panels; check text/layout, pause policy and private state.
+- [ ] **PARITY-07 — Scope and port original advanced interactive modes.**
+  Provide modern design/rig and personal-venue controls with validation/previews;
+  evaluate original steering-zone/wheel interaction and two-player input/display
+  separately. Existing translated handlers and throwing dialog stubs are not a
+  completed feature.
+
+The original offscreen paint dependency remains an engine extraction task under
+ENG-03 onward; it must be removed through paired state/RNG evaluation, not by
+replacing the recovered simulation wholesale.
+- [ ] **PARITY-08 — Repeat controlled headed Chrome smoothness acceptance.**
+  The penalty-restoration recheck has four completed passing sessions, one P99
+  outlier (62.5 ms vs 50 ms), and two frame-collection interruptions with an
+  unfocused owned window and a progressing worker. Investigate/reproduce under a
+  continuously visible benchmark window and record host contention; do not discard
+  failed attempts or claim five-repeat acceptance. See
+  `versions/2026/analysis/app/contact-og-renderer-attempts.json`.

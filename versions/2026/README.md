@@ -45,6 +45,8 @@ Completed task evaluations:
 - [All native boats, courses, venues and fleets](analysis/app/CATALOG.md).
 - [Native environment, shore, depth, currents and grounding](analysis/app/ENVIRONMENT.md).
 - [Race/championship journey and expansion review](analysis/app/EXPANSION-REVIEW.md).
+- [Restored original penalty response and evaluation](analysis/app/CONTACT-05.md).
+- [OG functionality gaps and current engine architecture](docs/og-functionality-audit.md).
 
 The baseline collector and reproduction instructions are documented in BASE-02.
 Its failed first setup attempt is retained alongside the corrected evidence.
