@@ -33,8 +33,8 @@ used by the race renderer. It preserves the recovered rig, hull, crew and native
 colours; no substitute boat asset is introduced. Its first camera faces the cloth
 plane rather than looking along its edge. Drag/zoom affects only that camera.
 Rendering is dirty-driven during setup and stops while sailing; model buffers are
-reset on reload/next race and disposed with the page. A preview-only context loss
-leaves Start and the engine usable; Reload fleet creates a replacement preview.
+reset on new race/next race and disposed with the page. A preview-only context loss
+leaves Start and the engine usable; Changing a selection creates a replacement preview.
 
 All original control IDs, boat/course compatibility rules, custom names and
 championship options remain connected to their original event handlers. The
@@ -75,3 +75,6 @@ TypeScript/Vite build passes. Frozen-reference verification passes all 6471 file
   the island, four AI finishes, player DNF at the game-clock deadline, retained
   championship score and successful second-race/model readiness after the new
   starter is reopened. This uses diagnostic batch pacing, not cadence timing.
+
+The current menu stages all settings until Start and no longer has Reload fleet;
+see [deferred setup and course-choice charts](STAGED-SETUP.md) for the final flow.

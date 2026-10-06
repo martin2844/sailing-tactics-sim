@@ -1,3 +1,4 @@
+// Native diagnostics apply settings immediately in manual mode; player setup is deferred.
 import*as THREE from'three';import{buildCoastalLand}from'../app/coastal-land.ts';import{openBrowser}from'../../../tools/browser-session.js';import{mkdir,writeFile}from'node:fs/promises';import{resolve}from'node:path';
 const out=resolve(process.argv[2]);await mkdir(out);const coast=Array.from({length:36},(_,i)=>({x:Math.round(500+210*Math.cos(i*Math.PI/18)),y:Math.round(460*Math.sin(i*Math.PI/18))})),geometryChecks=[];
 for(const landInside of[true,false]){
@@ -7,7 +8,7 @@ for(const landInside of[true,false]){
  const original=Math.abs(THREE.ShapeUtils.area(coast.map(p=>new THREE.Vector2(p.x,p.y)))),expected=landInside?original:3600000000-original;if(Math.abs(area-expected)>.1||max<20||s.sites.some(p=>!s.contains(p)))throw Error('Native footprint/relief mismatch');
  geometryChecks.push({landInside,area,expected,min,max,sites:s.sites.length});s.geometry.dispose();
 }
-const b=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true,requestTimeoutMs:60000}),rows=[];
+const b=await openBrowser('http://127.0.0.1:8770/?manual',{headless:true,gpu:true,requestTimeoutMs:60000}),rows=[];
 try{
  await b.call('Emulation.setDeviceMetricsOverride',{width:1440,height:1050,deviceScaleFactor:1,mobile:false});await b.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);
  for(const[area,boat]of[[32799,12],[32801,1],[32964,14],[33018,14]]){

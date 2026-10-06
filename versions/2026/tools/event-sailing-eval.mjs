@@ -1,7 +1,7 @@
 import{openBrowser}from'../../../tools/browser-session.js';import{mkdir,writeFile}from'node:fs/promises';import{resolve}from'node:path';
 const out=resolve(process.argv[2]);await mkdir(out);const b=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true,requestTimeoutMs:60000});const log=[];const wrap=a=>((a+540)%360)-180;
 try{
- await b.waitFor('globalThis.tact2026?.ready',60000);await b.evaluate('document.getElementById("race-mode").value="championship";document.getElementById("race-mode").dispatchEvent(new Event("change"))');await b.waitFor('tact2026.ready&&tact2026.latest.seriesScoring',60000);
+ await b.waitFor('globalThis.tact2026?.ready',60000);await b.evaluate('document.getElementById("race-mode").value="championship";document.getElementById("race-mode").dispatchEvent(new Event("change"))');await b.evaluate('document.getElementById("race-form").requestSubmit()');await b.waitFor('tact2026.ready&&tact2026.latest.seriesScoring&&document.getElementById("starter").hidden',60000);
  const initial=await b.evaluate('tact2026.initial');
  for(let race=1;race<=3;race++){
   await b.evaluate('document.getElementById("race-form").requestSubmit();tact2026.engine.send("pause",true)');await b.waitFor('tact2026.paused',10000);

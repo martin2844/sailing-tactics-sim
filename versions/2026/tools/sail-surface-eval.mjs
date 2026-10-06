@@ -1,10 +1,11 @@
+// Native diagnostics apply settings immediately in manual mode; player setup is deferred.
 import * as THREE from 'three';
 import {triangulateSail} from '../app/sail-triangulation.ts';
 import {openBrowser} from '../../../tools/browser-session.js';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 const out=resolve(process.argv[2]);await mkdir(out);const rows=[];
-const b=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true,requestTimeoutMs:60000});
+const b=await openBrowser('http://127.0.0.1:8770/?manual',{headless:true,gpu:true,requestTimeoutMs:60000});
 function coverage(points,faces){
  const across=points.at(-1).clone().sub(points[0]).normalize(),head=points.reduce((a,b)=>a.y>b.y?a:b).clone().sub(points[0]);head.addScaledVector(across,-head.dot(across)).normalize();
  const plane=points.map(p=>new THREE.Vector2(p.clone().sub(points[0]).dot(across),p.clone().sub(points[0]).dot(head)));

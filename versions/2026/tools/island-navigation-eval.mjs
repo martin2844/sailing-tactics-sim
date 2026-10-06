@@ -1,5 +1,6 @@
+// Native diagnostics apply settings immediately in manual mode; player setup is deferred.
 import{openBrowser}from'../../../tools/browser-session.js';import{mkdir,writeFile}from'node:fs/promises';import{resolve}from'node:path';
-const out=resolve(process.argv[2]);await mkdir(out);const rows=[],b=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true,requestTimeoutMs:60000});
+const out=resolve(process.argv[2]);await mkdir(out);const rows=[],b=await openBrowser('http://127.0.0.1:8770/?manual',{headless:true,gpu:true,requestTimeoutMs:60000});
 try{
  await b.call('Emulation.setDeviceMetricsOverride',{width:1440,height:1050,deviceScaleFactor:1,mobile:false});await b.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);
  for(const [area,boat]of[[32801,1],[32801,2],[32801,12],[32964,14],[32964,20],[33018,14]].filter(([area])=>!process.env.TACT_ISLAND_AREA||area===Number(process.env.TACT_ISLAND_AREA)))for(const wind of[1,2,3]){

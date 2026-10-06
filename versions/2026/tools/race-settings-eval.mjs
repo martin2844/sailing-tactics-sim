@@ -1,10 +1,11 @@
+// Native diagnostics apply settings immediately in manual mode; player setup is deferred.
 import {openBrowser} from '../../../tools/browser-session.js';
 import {referenceSession,closeReferenceServer} from './reference-session.mjs';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 if(process.argv.length!==3)throw Error('Usage: race-settings-eval.mjs NEW_DIRECTORY');const out=resolve(process.argv[2]);await mkdir(out);const checks=[];let candidate;
 try{
- candidate=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true,requestTimeoutMs:60000});
+ candidate=await openBrowser('http://127.0.0.1:8770/?manual',{headless:true,gpu:true,requestTimeoutMs:60000});
  await candidate.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);
  // Independent menu IDs from the preserved controller, not the UI helper.
  for(const fleet of [5,15])for(const [course,courseCommand]of [[1,32816],[3,32818],[5,32820]])for(const [wind,windCommand]of [[1,32812],[2,32813],[3,32814]]){

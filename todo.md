@@ -983,3 +983,8 @@ Evidence: [player fixes](versions/2026/analysis/app/PLAYER-FIXES.md).
   Preserve setup/championship flow; evaluate layout, controls and performance.
 
 Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
+
+- [x] **UI-03 — Stage setup changes until Start and restore OG-style course-choice charts.**
+  Remove Reload fleet; cache native boat/venue samples; preserve held simulation
+  state, apply the final settings once, and retain championship continuation.
+  Evidence: [deferred setup](versions/2026/analysis/app/STAGED-SETUP.md).
