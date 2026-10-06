@@ -17,6 +17,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {respawnWaypoint} from './engine/waypoints/respawn';
+import {createWaypointPort,type WaypointMemory} from './engine/compatibility/waypoint-port';
 import {dispatchRacePhases,type RacePhaseMemory} from './engine/race-phase-controller';
 import {createCompatibilityActions} from './engine/compatibility/race-phase-actions';
 import {createGuideExtractor} from './native-guides';
@@ -193,6 +195,14 @@ async function initialize(data:any){
   options.integratePositions=(image:any,random:any,o:any)=>{
     if(image!==memory||!o.geometryContacts||image.readI32(0x53642c)!==0||image.readI32(0x5363b0)!==2)return nativeIntegrate(image,random,o);
     const before=contactWorld.capture();nativeIntegrate(image,random,o);contactWorld.step(before,contactWorld.capture());
+  };
+  const [transcendentals,waypoints]=await Promise.all([load('src/runtime/transcendentals.js'),load(edition+'src/engine/waypoints.js')]);
+  options.respawnWaypoint=(image:WaypointMemory,index:number,random:{rand():number})=>{
+    respawnWaypoint(createWaypointPort(image,{
+      number:float.Float80.fromNumber,integer:float.Float80.fromInteger,sinCos:transcendentals.sinCosX87,
+      random:span=>integer.scaledRandom(span,random),
+      nearest:(x,y,excluded)=>waypoints.nearestWaypointDistance(image,x,y,excluded),
+    }),index);
   };
   options.dispatchEnginePhases=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
     dispatchRacePhases(image,createCompatibilityActions(image,dc,random,bindings,paintModule.drawSimulationFrame));

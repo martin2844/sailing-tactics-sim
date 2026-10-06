@@ -193,6 +193,15 @@ production engine; preserved players remain comparison references.
   inputs. See `versions/2026/analysis/app/ENG-03b-1.md`.
   The parent extraction and original offscreen rendering remain unfinished.
 
+- [x] **ENG-03b.2 — Extract precise waypoint placement from drawing.**
+
+  Renderer-free domain kernel and typed position/numeric/storage ports. Retain
+  anchoring, all retries, exact raw-angle arithmetic, ordered F64 stores and RNG.
+  Evaluated: 336 recovered public/numeric cases, six actual crowded-neighbor
+  comparisons with two/four/six draws, 65 exact 2026 paired boundaries and ten
+  frozen 2010 boundaries. See `versions/2026/analysis/app/ENG-03b-2.md`.
+  Calling-phase extraction and remaining scene/pixel dependencies stay open.
+
 - [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
 
   Replace required visibility/pixel decisions with deterministic calculations;
