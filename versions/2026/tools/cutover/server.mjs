@@ -41,7 +41,17 @@ export async function withCutoverServer(candidate, reference, callback) {
       if (!root) { response.writeHead(404); response.end(); return; }
       const path = resolve(root, ...segments);
       if (!path.startsWith(root + sep)) { response.writeHead(403); response.end(); return; }
-      const bytes = await readFile(path);
+      let bytes = await readFile(path);
+      if (lane === 'candidate' && segments.join('/') === 'legacy/versions/2010-en/src/render/paint-lifecycle.js') {
+        let source = bytes.toString('utf8');
+        for (const name of ['paintLifecycle', 'drawPaintContent', 'drawSimulationFrame']) {
+          const signature = new RegExp('export function ' + name + '\\([^\\n]+\\) \\{');
+          const matches = source.match(signature);
+          if (!matches) throw new Error('Missing guarded lifecycle export: ' + name);
+          source = source.replace(signature, match => match + '\n  throw new Error("Forbidden original lifecycle: ' + name + '");');
+        }
+        bytes = Buffer.from(source);
+      }
       response.writeHead(200, {'Content-Type': types[extname(path)] ?? 'application/octet-stream', 'Cache-Control': 'no-store'});
       response.end(bytes);
     } catch {

@@ -246,6 +246,15 @@ production engine; preserved players remain comparison references.
   and host callbacks match the declared reference; each removed drawing operation
   has evidence that it cannot affect authoritative output.
 
+- [x] **ENG-05.1 — Own canonical host calibration and bypass original lifecycle entries.**
+
+  Typed surface-free calibration retains caps/scales and exact spills. Worker
+  directly dispatches new transitions/step driver. Compatibility raster remains
+  for unclassified pixel/world semantics. Evaluated: eighteen host profiles,
+  69 exact 2026 boundaries and ten frozen 2010 boundaries with original lifecycle,
+  content dispatcher and frame driver guarded to throw for candidates. See
+  `versions/2026/analysis/app/ENG-05-1.md`. This is not full offscreen removal.
+
 - [ ] **ENG-06 — Implement display-independent scheduling** · P0 · L · Depends: ENG-04, ENG-05, BASE-05.
 
   Done when: native steps and pace changes are preserved independently of display

@@ -17,6 +17,7 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {configureCanonicalProfile,canonicalHostProfile,type CanonicalDimensions} from './engine/compatibility/host-profile';
 import {updateFoulSlowdown} from './engine/rules/foul-slowdown';
 import {createFoulSlowdownState} from './engine/compatibility/foul-slowdown-state';
 import {executeSimulationStep} from './engine/simulation-step';
@@ -36,7 +37,8 @@ let contactNavigator:ContactNavigator;
 let guideContext:any;
 let memory:any,rng:any,options:any,objects:any,font:any,paintClock:any;
 let phaseTracer:PhaseTracer|undefined;
-let lifecycle:any,gdi:any,resetSurface:any,menu:any,key:any,readCString:any;
+let applyCanonicalProfile:()=>CanonicalDimensions;
+let gdi:any,resetSurface:any,menu:any,key:any,readCString:any;
 let advanceTarget:any,drawResults:any,copyStrings:any,updateDynamics:any,sampleCurrent:any,sampleVenueCurrent:any;
 let modelDraw:any,ModelMemory:any,ModelRng:any,TraceDc:any;
 let modelExtractor:ReturnType<typeof createModelExtractor>;
@@ -99,12 +101,20 @@ function paintCompatibilityFrame(){
   delay=0;visuals.clear();paintClock.beginPaint();const start=performance.now();
   const phase=memory.readI32(0x5363b0);
   const drawingResults=memory.readI32(0x5363f4)>0&&memory.readI32(0x5233a8)===0;
-  const dc=observeDc(gdi(frontContext,{objects,bitmapFont:font,messageBeep:()=>{},recordEvents:false}));dc.canvas=front;
-  const host={constructBufferedDC(){const buffered=observeDc(gdi(backContext,{objects,bitmapFont:font,messageBeep:()=>{},recordEvents:false,cachePixelReads:true}));buffered.canvas=back;buffered.context=backContext;return buffered;},
-    getDeviceCaps(_dc:any,index:number){return index===12?24:index===8?1024:768;},applicationInstance(){return 1;},createBitmap(descriptor:any){return descriptor;},attachBitmap(){},createCompatibleDC(){return 1;},attachCompatibleDC(){},
-    selectBitmap(buffered:any,bitmap:any){if(bitmap)resetSurface(buffered.canvas,buffered.context,bitmap.width,bitmap.height);return 0;},
-    bitBlt(_front:any,buffered:any,descriptor:any){if(front.width!==descriptor.width||front.height!==descriptor.height){front.width=descriptor.width;front.height=descriptor.height;frontContext.font='13px Arial';}frontContext.drawImage(buffered.canvas,0,0);},deleteBitmap(){},invalidateRect(){},destroyBufferedDC(){}};
-  lifecycle(memory,dc,rng,{...options,host,cursor:{x:0,y:0}});frame++;
+  // Compatibility surfaces remain for unextracted world semantics. Their
+  // allocation/calibration/dispatch are explicit 2026 responsibilities now.
+  const frontDc=observeDc(gdi(frontContext,{objects,bitmapFont:font,messageBeep:()=>{},recordEvents:false}));frontDc.canvas=front;
+  const buffered=observeDc(gdi(backContext,{objects,bitmapFont:font,messageBeep:()=>{},recordEvents:false,cachePixelReads:true}));
+  buffered.canvas=back;buffered.context=backContext;
+  const dimensions=applyCanonicalProfile();
+  resetSurface(back,backContext,dimensions.width,dimensions.height);
+  dispatchRacePhases(memory,createCompatibilityActions(memory,buffered,rng,options,options.drawSimulationFrame));
+  if(front.width!==dimensions.width||front.height!==dimensions.height){
+    front.width=dimensions.width;front.height=dimensions.height;frontContext.font='13px Arial';
+  }
+  frontContext.drawImage(back,0,0);
+  frame++;
+
   if(drawingResults)resultsReady=true;
   if(phase!==2&&memory.readI32(0x5363b0)===2)startingLine=courseLine();
   raceWindow.update(memory);
@@ -178,7 +188,8 @@ async function initialize(data:any){
   font=await bitmap.fetchGdiBitmapFont({softwareAtlas:true,createSurface:(width:number,height:number)=>new OffscreenCanvas(width,height)});
   front=new OffscreenCanvas(1024,768);back=new OffscreenCanvas(1024,768);
   frontContext=front.getContext('2d')!;backContext=back.getContext('2d',{willReadFrequently:true})!;
-  lifecycle=paintModule.paintLifecycle;gdi=gdiModule.createCanvasGdi;resetSurface=surface.resetBitmapSurface;menu=controller.handleMenuCommand;key=keyboard.handleKeyDown;
+  applyCanonicalProfile=()=>configureCanonicalProfile(memory,{integer:float.Float80.fromInteger,number:float.Float80.fromNumber},canonicalHostProfile);
+  gdi=gdiModule.createCanvasGdi;resetSurface=surface.resetBitmapSurface;menu=controller.handleMenuCommand;key=keyboard.handleKeyDown;
   const scenario=data.scenario,settings=validateRaceSettings(data.settings);
   const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
   if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
@@ -230,9 +241,7 @@ async function initialize(data:any){
   options.updateFoulSlowdown=(image:RacePhaseMemory,boat:number)=>{
     return updateFoulSlowdown(createFoulSlowdownState(image,boat));
   };
-  options.dispatchEnginePhases=(image:RacePhaseMemory,dc:unknown,random:unknown,bindings:Record<string,unknown>)=>{
-    dispatchRacePhases(image,createCompatibilityActions(image,dc,random,bindings,paintModule.drawSimulationFrame));
-  };
+
   if(data.phaseTrace===true){
     if(data.manual!==true)throw new Error("Phase tracing requires a paused diagnostic worker");
     phaseTracer=new PhaseTracer(memory,rng);phaseTracer.install(options);
