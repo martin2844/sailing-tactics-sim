@@ -7,6 +7,7 @@ import {commands} from './protocol';
 import {nativeCameraKeys} from './hotkeys';
 import {captureInformation} from './native-information';
 import {ContactWorld,contactCourse} from './contact-world';
+import {ContactNavigator} from './contact-navigation';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
 import {RaceWindow} from './race-window';
@@ -20,6 +21,7 @@ import {evaluateGuideCases} from './native-guide-cases';
 let extractGuides:ReturnType<typeof createGuideExtractor>;
 let informationContext:any;
 let contactWorld:ContactWorld,contactContext:any;
+let contactNavigator:ContactNavigator;
 let guideContext:any;
 let memory:any,rng:any,options:any,objects:any,font:any,paintClock:any;
 let lifecycle:any,gdi:any,resetSurface:any,menu:any,key:any,readCString:any;
@@ -154,10 +156,11 @@ async function initialize(data:any){
   // replaces the fictitious upper-word read. Modern 3D remains independent.
   if([33017,33018,33029,33031,33032].includes(settings.area??0)){options.numberRendering=false;options.smoothGraphics=false;}
   const originalAI=options.updateBoatWindAndAI;
-  options.updateBoatWindAndAI=(image:any,boat:number,random:any,o:any)=>{const result=originalAI(image,boat,random,o);if(image===memory)islandNavigator?.steer(image,boat);return result;};
+  options.updateBoatWindAndAI=(image:any,boat:number,random:any,o:any)=>{const result=originalAI(image,boat,random,o);if(image===memory){islandNavigator?.steer(image,boat);if(o.geometryContacts)contactNavigator.steer(image,boat);}return result;};
   informationContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,copyStrings,renderer,key};
   const penalties=await load(edition+'src/engine/penalties.js'),geometry=await load(edition+'src/engine/ai-geometry.js');
   contactContext={memory,rng,options,ModelMemory,ModelRng,collisionPenalty:penalties.collisionPenalty,updateTack:geometry.updateTack};contactWorld=new ContactWorld(contactContext);
+  contactNavigator=new ContactNavigator((a,b)=>!islandNavigator||islandNavigator.clear(a,b));
   options.geometryContacts=false;
   const nativeIntegrate=options.integratePositions;
   options.integratePositions=(image:any,random:any,o:any)=>{

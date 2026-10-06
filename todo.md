@@ -1032,6 +1032,16 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   rendering does not feed physics. Private rule copies yield one-sided port/
   starboard, windward and clear-astern decisions. A contact HUD explains sanctions.
   Dense-neighbor cost was found and remains a CONTACT-04 performance target.
-- [ ] **CONTACT-04 — Match AI clearance, evaluate complete races and performance, then review and fix findings.**
+- [x] **CONTACT-04 — Match AI clearance, evaluate complete races and performance, then review and fix findings.**
   Check crowded starts, rounding/gates/island, all shape families, race results,
   championship reset, pause and the overlay. Keep Chrome desktop cadence smooth.
+  Evaluated: three complete native races (Keelboat, Tornado, Island Optimist), all
+  four NPCs finish in each; DNF windows/results and natural championship restart
+  pass. Five exclusive headed Chrome runs pass every desktop renderer budget:
+  median 16.7 ms, P95 16.8 ms, P99 at most 20.9 ms, camera P95 under 24 ms.
+  Lifecycle/context recovery passes. Frozen reference: all 6,471 files unchanged.
+  Big-review findings fixed: exhausted grazing/rotation sweeps, within-skin
+  leaving/re-entry, unresolved dense placement and contact-time tack attribution.
+  Final fixtures: 152 solver cases and 13 real native-rule/world cases. Independent
+  follow-up probes find no missed penetration in 4,371 random hull sweeps and
+  1,248 near-skin rotations. Evidence under `versions/2026/analysis/app/contact-*`.

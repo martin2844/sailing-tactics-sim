@@ -1,7 +1,7 @@
 import {CONTACT_SKIN,shapeSeparation,separation,interpolate,angleDelta,distance,dot,type Body,type Pose,type Point} from './contact-geometry.ts';
 export interface Motion extends Body {to:Pose;human?:boolean;fixed?:boolean}
-export interface Contact {a:string;b:string;time:number;normal:Point;initial:boolean;poseA:Pose;poseB:Pose}
-export interface SweptContact {time:number;normal:Point}
+export interface Contact {a:string;b:string;time:number;normal:Point;initial:boolean;uncertain?:boolean;poseA:Pose;poseB:Pose}
+export interface SweptContact {time:number;normal:Point;uncertain?:boolean}
 const localBounds=new WeakMap<Body['parts'],{minX:number;maxX:number;minY:number;maxY:number}>();
 function bounds(m:Motion){
  let local=localBounds.get(m.parts);if(!local){const points=m.parts.flatMap(s=>s.kind==='circle'?[{x:-s.radius,y:-s.radius},{x:s.radius,y:s.radius}]:s.points);local={minX:Math.min(...points.map(p=>p.x)),maxX:Math.max(...points.map(p=>p.x)),minY:Math.min(...points.map(p=>p.y)),maxY:Math.max(...points.map(p=>p.y))};localBounds.set(m.parts,local);}
@@ -15,19 +15,36 @@ function bounds(m:Motion){
 export function sweep(a:Motion,b:Motion):SweptContact|null{
  const ab=bounds(a),bb=bounds(b);if(ab.maxX+CONTACT_SKIN<bb.minX||bb.maxX+CONTACT_SKIN<ab.minX||ab.maxY+CONTACT_SKIN<bb.minY||bb.maxY+CONTACT_SKIN<ab.minY)return null;
  const da={x:a.to.x-a.pose.x,y:a.to.y-a.pose.y},db={x:b.to.x-b.pose.x,y:b.to.y-b.pose.y},rotationA=angleDelta(a.to.heading,a.pose.heading)*Math.PI/180,rotationB=angleDelta(b.to.heading,b.pose.heading)*Math.PI/180;
- const speed=Math.hypot(da.x-db.x,da.y-db.y)+Math.abs(rotationA)*a.radius+Math.abs(rotationB)*b.radius;
+ const translationSpeed=Math.hypot(da.x-db.x,da.y-db.y);
  let best:SweptContact|null=null;
  for(const aa of a.parts)for(const bs of b.parts){
+  const angularSpeed=(aa.kind==='circle'?0:Math.abs(rotationA)*a.radius)+(bs.kind==='circle'?0:Math.abs(rotationB)*b.radius),speed=translationSpeed+angularSpeed;
   const at=(t:number)=>shapeSeparation(aa,interpolate(a.pose,a.to,t),bs,interpolate(b.pose,b.to,t));
-  const initial=at(0);if(initial.gap<=CONTACT_SKIN&&Math.abs(rotationA)+Math.abs(rotationB)<1e-10&&dot({x:da.x-db.x,y:da.y-db.y},initial.normal)<=1e-9)continue;
-  let t=0,leaving=false;
+  const initial=at(0);if(initial.gap<=CONTACT_SKIN&&angularSpeed<1e-10&&dot({x:da.x-db.x,y:da.y-db.y},initial.normal)<=1e-9)continue;
+  let t=0,leaving=false,previousGap=initial.gap;
   if(initial.gap<=CONTACT_SKIN&&speed>0){const probe=at(Math.min(1,.01/speed));leaving=probe.gap>initial.gap+1e-7;}
+  let completed=false;
   for(let n=0;n<128;n++){
    const hit=at(t);
-   if(hit.gap<=CONTACT_SKIN&&!leaving){if(!best||t<best.time)best={time:t,normal:hit.normal};break;}
-   if(speed<1e-10||t>=1||best&&t>=best.time)break;
+   if(leaving&&hit.gap<previousGap-1e-8)leaving=false;
+   previousGap=hit.gap;
+   if(hit.gap<=CONTACT_SKIN&&!leaving){if(!best||t<best.time)best={time:t,normal:hit.normal};completed=true;break;}
+   if(speed<1e-10||t>=1||best&&t>=best.time){completed=true;break;}
    if(leaving&&hit.gap>CONTACT_SKIN)leaving=false;
-   const step=leaving?.05/speed:Math.max(1e-8,(hit.gap-CONTACT_SKIN*.5)*.9/speed);t=Math.min(1,t+step);
+   const closing=Math.max(0,dot({x:da.x-db.x,y:da.y-db.y},hit.normal))+angularSpeed;
+   const step=leaving?.05/speed:closing<1e-10?1:Math.max(1e-8,(hit.gap-CONTACT_SKIN*.5)*.9/closing);t=Math.min(1,t+step);
+  }
+  if(!completed){
+   // A fixed separating plane bounds an entire time interval. Subdivision
+   // finishes difficult grazing/rotation cases without treating a work cap as
+   // clear space. The last unresolved interval holds movement, without a foul.
+   const intervals:[number,number][]=[[t,best?.time??1]];let visited=0;
+   while(intervals.length){const[lo,hi]=intervals.pop()!,mid=(lo+hi)/2,hit=at(mid),axisSpeed=Math.abs(dot({x:da.x-db.x,y:da.y-db.y},hit.normal))+angularSpeed;
+    if(hit.gap>axisSpeed*(hi-lo)/2+CONTACT_SKIN)continue;
+    if((hi-lo)*speed<.005){const candidate={time:lo,normal:hit.normal,uncertain:hit.gap>CONTACT_SKIN&&at(lo).gap>CONTACT_SKIN&&at(hi).gap>CONTACT_SKIN};if(!best||lo<best.time)best=candidate;break;}
+    if(++visited>512){const candidate={time:lo,normal:at(lo).normal,uncertain:true};if(!best||lo<best.time)best=candidate;break;}
+    intervals.push([mid,hi],[lo,mid]);
+   }
   }
  }return best;
 }
@@ -36,8 +53,8 @@ export function sweep(a:Motion,b:Motion):SweptContact|null{
 export function solveMotions(input:Motion[],obstacles:Body[]){
  const bodies=input.map(m=>({...m,pose:{...m.pose},to:{...m.to},velocity:{x:m.fixed?0:m.to.x-m.pose.x,y:m.fixed?0:m.to.y-m.pose.y},angular:m.fixed?0:angleDelta(m.to.heading,m.pose.heading)}));
  const fixed=obstacles.map(b=>({...b,pose:{...b.pose},to:{...b.pose},velocity:{x:0,y:0},angular:0,fixed:true,human:false}));
- const all=[...bodies,...fixed],contacts=new Map<string,Contact>();let initialIterations=0,iterations=0;
- const record=(a:typeof all[number],b:typeof all[number],time:number,normal:Point,initial:boolean)=>{const key=[a.key,b.key].sort().join(':');if(!contacts.has(key))contacts.set(key,{a:a.key,b:b.key,time,normal,initial,poseA:{...a.pose},poseB:{...b.pose}});};
+ const all=[...bodies,...fixed],contacts=new Map<string,Contact>();let initialIterations=0,iterations=0,placementFallback=false,uncertain=false;
+ const record=(a:typeof all[number],b:typeof all[number],time:number,normal:Point,initial:boolean,uncertain=false)=>{const key=[a.key,b.key].sort().join(':');if(!contacts.has(key))contacts.set(key,{a:a.key,b:b.key,time,normal,initial,uncertain,poseA:{...a.pose},poseB:{...b.pose}});};
  const weights=(a:typeof all[number],b:typeof all[number],initial=false)=>{let wa=a.fixed?0:1,wb=b.fixed?0:1;if(initial&&wa&&wb&&a.human!==b.human){if(a.human)wa=0;else wb=0;}const total=wa+wb;return {a:wa/total,b:wb/total};};
  for(let pass=0;pass<48;pass++){
   let changed=false;
@@ -47,6 +64,14 @@ export function solveMotions(input:Motion[],obstacles:Body[]){
    record(a,b,0,hit.normal,true);for(const[m,sign,weight]of[[a,-1,w.a],[b,1,w.b]] as const){const dx=hit.normal.x*amount*weight*sign,dy=hit.normal.y*amount*weight*sign;m.pose.x+=dx;m.pose.y+=dy;m.to.x+=dx;m.to.y+=dy;}
    changed=true;initialIterations++;
   }if(!changed)break;
+ }
+ let residual=false;for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++)if(!(all[i].fixed&&all[j].fixed)&&distance(all[i].pose,all[j].pose)<all[i].radius+all[j].radius&&separation(all[i],all[j]).gap<-.005)residual=true;
+ if(residual){
+  placementFallback=true;const placed=all.filter(b=>b.fixed),ordered=bodies.filter(b=>!b.fixed).slice().sort((a,b)=>Number(!!b.human)-Number(!!a.human));
+  for(const b of ordered){const clear=(p:Pose)=>placed.every(other=>distance(p,other.pose)>b.radius+other.radius+.05||separation({...b,pose:p},other).gap>=.04);let pose:Pose|undefined=clear(b.pose)?b.pose:undefined;
+   for(let ring=2;ring<=512&&!pose;ring+=2)for(let angle=0;angle<360;angle+=15){const candidate={...b.pose,x:b.pose.x+Math.cos(angle*Math.PI/180)*ring,y:b.pose.y+Math.sin(angle*Math.PI/180)*ring};if(clear(candidate)){pose=candidate;break;}}
+   if(!pose){uncertain=true;continue;}const dx=pose.x-b.pose.x,dy=pose.y-b.pose.y;if(dx||dy){contacts.set(b.key+':spawn',{a:b.key,b:'spawn',time:0,normal:{x:0,y:0},initial:true,poseA:{...b.pose},poseB:{...pose}});b.pose={...pose};b.to.x+=dx;b.to.y+=dy;}placed.push(b);
+  }
  }
  let time=0;
  for(;iterations<96&&time<1;iterations++){
@@ -58,7 +83,8 @@ export function solveMotions(input:Motion[],obstacles:Body[]){
    const hit=sweep(a,b);if(hit&&(!next||hit.time<next.hit.time))next={a,b,hit};
   }
   const dt=(next?next.hit.time:1)*(1-time);for(const m of bodies){m.pose.x+=m.velocity.x*dt;m.pose.y+=m.velocity.y*dt;m.pose.heading+=m.angular*dt;}time+=dt;if(!next)break;
-  const {a,b,hit}=next,w=weights(a,b);record(a,b,time,hit.normal,false);
+  const {a,b,hit}=next,w=weights(a,b);record(a,b,time,hit.normal,false,!!hit.uncertain);
+  if(hit.uncertain){a.velocity={x:0,y:0};b.velocity={x:0,y:0};a.angular=0;b.angular=0;uncertain=true;continue;}
   const closing=dot({x:a.velocity.x-b.velocity.x,y:a.velocity.y-b.velocity.y},hit.normal);
   if(closing>0){a.velocity.x-=hit.normal.x*closing*w.a;a.velocity.y-=hit.normal.y*closing*w.a;b.velocity.x+=hit.normal.x*closing*w.b;b.velocity.y+=hit.normal.y*closing*w.b;}
   // Prevent rotation through a hull/mark during the remainder of this step.
@@ -68,5 +94,5 @@ export function solveMotions(input:Motion[],obstacles:Body[]){
  }
  // If a dense corner exhausts the bounded solver, remaining movement stays
  // held rather than advancing unchecked through geometry.
- return {poses:new Map(bodies.map(m=>[m.key,m.pose])),contacts:[...contacts.values()],iterations,initialIterations,held:time<1};
+ return {poses:new Map(bodies.map(m=>[m.key,m.pose])),contacts:[...contacts.values()],iterations,initialIterations,placementFallback,held:time<1||uncertain};
 }

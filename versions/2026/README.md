@@ -2,8 +2,9 @@
 
 This directory contains the modern edition's implementation and verification
 work. Product scope is defined in [PLAN-2026.md](../../PLAN-2026.md); execution
-is tracked in [todo.md](../../todo.md). The isolated app runs the preserved
-simulation in a worker with faithful native-derived 3D boats and free cameras.
+is tracked in [todo.md](../../todo.md). The isolated app runs the recovered
+simulation in a worker with explicit 2026 contact/navigation policies, faithful
+native-derived 3D boats and free cameras.
 Worker and renderer are evaluated bounded prototypes. Preservation players remain
 under their original routes.
 
@@ -69,16 +70,16 @@ Original root commands and preservation routes are unchanged.
 Use `/` for the WebGL 2 development player and paused starter screen. Choose
 five/fifteen Keelboats, Windward/leeward, Triangle or Gold Cup and Light,
 Moderate or Strong native wind; Start race releases the countdown. New race
-or N returns to setup. Changes rebuild a paused preview using original menu
-commands. Fresh races retain the preset's fixed seed; they do not continue
+or N returns to setup. Choices are staged until Start; boat/course previews use
+cached native samples. Fresh races retain the preset's fixed seed; they do not continue
 the previous race's weather/RNG stream. Use `/spike/?fleet=15&backend=webgpu`
 to inspect the requested alternative, and `?manual` for paused diagnostics.
 Drag the canvas to orbit and scroll to zoom; Follow boat resets the camera.
 Port/Starboard, Tack, Close hauled and Run invoke original controls. Comma/period
-steer; arrows look around; T tacks and F freezes. Space retains the original
-slow/resume or panel-dismiss behavior; the Pause button/key suspends the app.
-All original key families route to the preserved handler, including sheet,
-shape, spinnaker, views, pace, forecast, charts, help and setup. See
+steer; arrows look around; T tacks. F, Space and Pause share a host pause that
+retains telemetry and rejects helm/sail inputs. W, [, ], and Y open the modern
+forecast/wind/current/coach desk on private copies; closing restores the previous
+pause policy. Other sailing controls use the original handlers. See
 [keyboard evaluation](analysis/app/HOTKEYS.md) and the app's keyboard help.
 Native pace names retain the audited original
 levels rather than promising fixed wall-time multipliers.
@@ -86,4 +87,17 @@ levels rather than promising fixed wall-time multipliers.
 The geometry foundation and remaining fidelity work are described in
 [native-boat-models.md](docs/native-boat-models.md). The lake scenery and model
 world scale are provisional; the app displays native course objects but does not yet supply
-the complete tactical interface, replay, coaching or production assets.
+the complete tactical interface, production replay or production assets.
+
+Rigid contact shapes derive from all 27 native hull families, with compound
+catamaran hull/platform shapes and a measured 0.35-unit heel reserve. Buoy and
+committee dimensions are shared by physics and rendering. Continuous translation
+and rotation sweeps, tangential sliding and non-foul spawn separation run only
+in the authoritative worker; AI applies local hull clearance around native goals.
+Foul decisions use private original-rule images with contact-time tack/angle,
+geometric overlap/astern and contact episodes. Penalties retain native codes and
+black sails but apply speed loss in place instead of historical position jumps.
+These are intentional 2026 gameplay changes, not exact OG contact behavior.
+The audited startup image and frozen preservation inputs remain unchanged.
+Enable **Renderer evaluation → Show contact shapes**, or use `?hitboxes`, to
+inspect contact footprints. See the CONTACT tasks/evidence in root todo.md.

@@ -22,4 +22,7 @@ for(const clock of[-120,11,1000]){const{m,w}=make(12,clock);place(m,1,1600,1030)
 {
  const{m,w,rng}=make();const held=m.bytes.slice();w.step(w.capture(),w.capture(),course);assert.deepEqual(m.bytes,held);assert.equal(rng.state,123);assert.equal(w.summary.count,0);checks.push({name:'No-contact step leaves complete native image and RNG identical'});
 }
+{
+ const{m,w}=make();place(m,1,6,-10,179);place(m,2,0,0,175);for(const id of[1,2]){m.writeI32(0x522b90+id*4,0);updateTack(m,id);m.writeI32(0x4fecc8+id*4,id===1?179:175);}w.seed();const before=w.capture(),angle=181*Math.PI/180;place(m,1,6+Math.sin(angle)*5,-10-Math.cos(angle)*5,181);updateTack(m,1);m.writeI32(0x4fecc8+4,179);w.step(before,w.capture(),course);assert.equal(m.readI32(0x5116e0+4),5);assert.equal(m.readI32(0x5116e0+8),0);checks.push({name:'Gybe contact uses tack and wind angle at impact, not after the intended turn',summary:{...w.summary}});
+}
 await writeFile(resolve(out,'verification.json'),JSON.stringify({passed:true,checks,scope:'Actual prepared native foul classifier plus authoritative ContactWorld on disposable images: all object types, temporal gates, continuous paths, in-place penalties, port/starboard/clear-astern/windward and former grace period. Not naturally sailed impacts.'},null,2));console.log(JSON.stringify({passed:true,checks:checks.length}));

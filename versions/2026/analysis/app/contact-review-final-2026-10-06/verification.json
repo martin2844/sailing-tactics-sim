@@ -1,0 +1,461 @@
+{
+  "passed": true,
+  "reviewScope": "Contact work since 289c160; big-review intent/context, full-file semantic and caller review, independent read-only finder/verification passes; generated artifacts cleared.",
+  "findingsFixed": [
+    {
+      "title": "Sweep work-cap exhaustion could report clear despite rotation penetration",
+      "proof": "Hull12 at0/0, heading0->30 and buoy2.3 at(-6,-1) ended gap-.166; now150+ fixture set guards conservative fallback."
+    },
+    {
+      "title": "Within-skin departure could rotate back into a buoy without contact",
+      "proof": "Hull12 heading0->10 near buoy at(6,-.5) ended gap-.038; reversal regression added."
+    },
+    {
+      "title": "Dense placement could retain overlap after settling cap",
+      "proof": "Thirty-boats grid and fifteen coincident placements; deterministic bounded placement fallback now preserves nonpenetration."
+    },
+    {
+      "title": "Post-turn tack could assign a foul to the wrong participant",
+      "proof": "179->181 gybe at179.3 impact; contact-time derived tack/angle now yield user windward5 / NPC0."
+    }
+  ],
+  "finalGeometryChecks": 152,
+  "finalWorldChecks": 13,
+  "independentReviewProbes": {
+    "randomHullSweeps": 4371,
+    "nearSkinRotations": 1248,
+    "missedPenetrations": 0,
+    "scope": "Independent read-only reviewer disposable probes, distinct from browser race/performance acceptance"
+  },
+  "races": [
+    {
+      "name": "contact-race-keel-final-2026-10-06",
+      "passed": true,
+      "settings": {
+        "boat": 12,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "last": {
+        "clock": 3552,
+        "boats": [
+          {
+            "id": 1,
+            "leg": 9,
+            "finished": 6,
+            "dnf": true,
+            "depth": 0,
+            "speed": 0.1,
+            "status": 11
+          },
+          {
+            "id": 2,
+            "leg": 9,
+            "finished": 2,
+            "dnf": false,
+            "depth": 193.59605327351548,
+            "speed": 0,
+            "status": 4
+          },
+          {
+            "id": 3,
+            "leg": 9,
+            "finished": 3,
+            "dnf": false,
+            "depth": 193.4351171916754,
+            "speed": 0,
+            "status": 5
+          },
+          {
+            "id": 4,
+            "leg": 9,
+            "finished": 4,
+            "dnf": false,
+            "depth": 195.4413010774405,
+            "speed": 0,
+            "status": 0
+          },
+          {
+            "id": 5,
+            "leg": 9,
+            "finished": 1,
+            "dnf": false,
+            "depth": 195.57792987949583,
+            "speed": 0,
+            "status": 0
+          }
+        ],
+        "contacts": {
+          "count": 5,
+          "fouls": 5,
+          "held": 0,
+          "workMs": 0.09999999403953552
+        },
+        "results": true,
+        "window": {
+          "firstFinish": 2352,
+          "deadline": 3552,
+          "remaining": 0,
+          "closedByCutoff": true
+        },
+        "work": 6.100000023841858
+      }
+    },
+    {
+      "name": "contact-race-cat-final-2026-10-06",
+      "passed": true,
+      "settings": {
+        "boat": 11,
+        "area": 32799,
+        "course": 1,
+        "wind": 3
+      },
+      "last": {
+        "clock": 2769,
+        "boats": [
+          {
+            "id": 1,
+            "leg": 9,
+            "finished": 6,
+            "dnf": true,
+            "depth": 112.27274969475599,
+            "speed": 0,
+            "status": 11
+          },
+          {
+            "id": 2,
+            "leg": 9,
+            "finished": 1,
+            "dnf": false,
+            "depth": 194.50583109645075,
+            "speed": 0,
+            "status": 4
+          },
+          {
+            "id": 3,
+            "leg": 9,
+            "finished": 4,
+            "dnf": false,
+            "depth": 193.79729824507896,
+            "speed": 0,
+            "status": 5
+          },
+          {
+            "id": 4,
+            "leg": 9,
+            "finished": 2,
+            "dnf": false,
+            "depth": 194.20289584024877,
+            "speed": 0,
+            "status": 4
+          },
+          {
+            "id": 5,
+            "leg": 9,
+            "finished": 3,
+            "dnf": false,
+            "depth": 194.55321978107816,
+            "speed": 0,
+            "status": 4
+          }
+        ],
+        "contacts": {
+          "count": 18,
+          "fouls": 20,
+          "held": 0,
+          "workMs": 0.09999999403953552
+        },
+        "results": true,
+        "window": {
+          "firstFinish": 1569,
+          "deadline": 2769,
+          "remaining": 0,
+          "closedByCutoff": true
+        },
+        "work": 4
+      }
+    },
+    {
+      "name": "contact-race-island-champ-final-2026-10-06",
+      "passed": true,
+      "settings": {
+        "boat": 1,
+        "area": 32801,
+        "course": 1,
+        "wind": 2,
+        "windDirection": 270,
+        "scoring": "series"
+      },
+      "last": {
+        "clock": 5439,
+        "boats": [
+          {
+            "id": 1,
+            "leg": 9,
+            "finished": 6,
+            "dnf": true,
+            "depth": 200,
+            "speed": 0,
+            "status": 11
+          },
+          {
+            "id": 2,
+            "leg": 9,
+            "finished": 1,
+            "dnf": false,
+            "depth": 134.95578860205228,
+            "speed": 0,
+            "status": 0
+          },
+          {
+            "id": 3,
+            "leg": 9,
+            "finished": 3,
+            "dnf": false,
+            "depth": 135.41324969517632,
+            "speed": 0,
+            "status": 5
+          },
+          {
+            "id": 4,
+            "leg": 9,
+            "finished": 2,
+            "dnf": false,
+            "depth": 137.352480202682,
+            "speed": 0,
+            "status": 0
+          },
+          {
+            "id": 5,
+            "leg": 9,
+            "finished": 4,
+            "dnf": false,
+            "depth": 136.85117843111775,
+            "speed": 0,
+            "status": 3
+          }
+        ],
+        "contacts": {
+          "count": 10,
+          "fouls": 10,
+          "held": 0,
+          "workMs": 0.19999998807907104
+        },
+        "results": true,
+        "window": {
+          "firstFinish": 4239,
+          "deadline": 5439,
+          "remaining": 0,
+          "closedByCutoff": true
+        },
+        "work": 4.200000017881393
+      },
+      "nextRace": {
+        "boundary": {
+          "frame": 2613,
+          "time": -168.30530943714913,
+          "clock": -168,
+          "rngState": 3269704256,
+          "memorySha256": "0041413f272fc5e2a7e39e44ed72cc16813908f6f1f210d3d8a3dce6bb233315",
+          "shore": {
+            "previousX": 366,
+            "previousTreeY": 0,
+            "completedCalls": 2559
+          }
+        },
+        "state": {
+          "contacts": {
+            "count": 0,
+            "fouls": 0,
+            "held": 0,
+            "workMs": 0
+          },
+          "finished": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "dnfs": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "clock": -168
+        }
+      }
+    }
+  ],
+  "renderer": [
+    {
+      "cadence": {
+        "samples": 361,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.800000000000182,
+        "max": 29.099999999999454
+      },
+      "camera": {
+        "samples": 6,
+        "median": 14.599999994039536,
+        "p95": 15.5,
+        "p99": 15.5,
+        "max": 15.5
+      },
+      "bytes": 27191,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      },
+      "helm": {
+        "oldHeading": 1,
+        "newHeading": 351,
+        "oldTarget": 1,
+        "newTarget": 351,
+        "helmPaints": 4,
+        "constrained": false
+      }
+    },
+    {
+      "cadence": {
+        "samples": 363,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.899999999999636,
+        "max": 33.399999999999636
+      },
+      "camera": {
+        "samples": 6,
+        "median": 16.599999994039536,
+        "p95": 19.799999982118607,
+        "p99": 19.799999982118607,
+        "max": 19.799999982118607
+      },
+      "bytes": 27191,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      },
+      "helm": {
+        "oldHeading": 1,
+        "newHeading": 351,
+        "oldTarget": 1,
+        "newTarget": 351,
+        "helmPaints": 3,
+        "constrained": false
+      }
+    },
+    {
+      "cadence": {
+        "samples": 364,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 16.80000000000109,
+        "max": 25.100000000000364
+      },
+      "camera": {
+        "samples": 6,
+        "median": 12.800000011920929,
+        "p95": 22.200000017881393,
+        "p99": 22.200000017881393,
+        "max": 22.200000017881393
+      },
+      "bytes": 27187,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      },
+      "helm": {
+        "oldHeading": 1,
+        "newHeading": 1,
+        "oldTarget": 1,
+        "newTarget": 351,
+        "helmPaints": 4,
+        "constrained": true
+      }
+    },
+    {
+      "cadence": {
+        "samples": 362,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.899999999999636,
+        "max": 25
+      },
+      "camera": {
+        "samples": 6,
+        "median": 12.700000017881393,
+        "p95": 22,
+        "p99": 22,
+        "max": 22
+      },
+      "bytes": 27191,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      },
+      "helm": {
+        "oldHeading": 1,
+        "newHeading": 0,
+        "oldTarget": 1,
+        "newTarget": 351,
+        "helmPaints": 3,
+        "constrained": false
+      }
+    },
+    {
+      "cadence": {
+        "samples": 360,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.80000000000109,
+        "max": 33.400000000000546
+      },
+      "camera": {
+        "samples": 6,
+        "median": 15.100000023841858,
+        "p95": 23.30000001192093,
+        "p99": 23.30000001192093,
+        "max": 23.30000001192093
+      },
+      "bytes": 27191,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      },
+      "helm": {
+        "oldHeading": 1,
+        "newHeading": 351,
+        "oldTarget": 1,
+        "newTarget": 351,
+        "helmPaints": 3,
+        "constrained": false
+      }
+    }
+  ],
+  "limitations": "Chrome desktop only; solver uses fixed-step continuous sweeps and a conservative heel reserve. Frozen 2010 players retain their original contact behavior; 2026 contacts/clearance/penalty response intentionally differ."
+}
