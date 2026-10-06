@@ -15,6 +15,25 @@ await rm(out,{recursive:true,force:true});
 const generated=[];
 for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileURLToPath(new URL('./',target)),{recursive:true});if(f.path==='versions/2010-en/src/render/drawing-functions.js'){
     let observed=bytes.toString('utf8');
+    // 0x440fd0 FDIV stores a nonfinite slope when projected shore endpoints
+    // share an x coordinate. 0x4410f6 multiplies it by zero; masked __ftol
+    // (0x49b989 FISTP qword) returns 0x8000000000000000. Its EAX low DWORD
+    // is zero. Recover only that conversion, retaining the texture loop,
+    // polygons and every nonzero-span expression in their original order.
+    const shoreStart=observed.indexOf('export function originalDrawing00440b70(');
+    const shoreEnd=observed.indexOf('\nexport function originalDrawing00442270(',shoreStart);
+    if(shoreStart<0||shoreEnd<0)throw Error('Native shore routine boundary changed');
+    let shoreRepairs=0;
+    const shore=observed.slice(shoreStart,shoreEnd).replace(/case 65: \{ \(iVar5 = [^\n]+/g,line=>{
+      const read=line.includes('fpScalarRead(')?offset=>'fpScalarRead(scalarStack'+offset+')'
+        :line.includes('scalarRead(')?offset=>'scalarRead(scalarStack'+offset+')'
+        :offset=>'readLocal(framePointer(localFrame,'+offset+'),4,"int")';
+      if(!line.includes('pc = 64; continue;'))throw Error('Native shore conversion source changed');
+      shoreRepairs++;
+      return line.replace('case 65: {','case 65: { if(cSub('+read(12)+','+read(4)+')===0){iVar5=cSub('+read(8)+',iVar3);pc=64;continue;}');
+    });
+    if(shoreRepairs!==4)throw Error('Expected all four native shore conversion variants');
+    observed=observed.slice(0,shoreStart)+shore+observed.slice(shoreEnd);
     // 0x46cc21 MOV DWORD PTR [esp+0x1c],ecx writes only the low
     // word of Ghidra's overlapping dStack_24. Its invented CONCAT44 read of
     // the uninitialized high word crashes the Block Island chart. The actual
@@ -156,7 +175,7 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
       observed+=wrapper;
     }
     await writeFile(target,observed);
-    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
+    generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x440fd0',reason:'Masked zero-width shore FDIV/FMUL/__ftol low DWORD recovery'},{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/configuration.js'){
     let prepared=bytes.toString('utf8');
     for(const [anchor,replacement]of[

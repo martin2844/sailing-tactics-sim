@@ -1,0 +1,230 @@
+{
+  "passed": true,
+  "hardware": [
+    {
+      "numerator": 0,
+      "denominator": 0,
+      "multiplier": 0,
+      "result": "8000000000000000",
+      "lowDWORD": 0,
+      "status": 1
+    },
+    {
+      "numerator": 40,
+      "denominator": 0,
+      "multiplier": 0,
+      "result": "8000000000000000",
+      "lowDWORD": 0,
+      "status": 5
+    },
+    {
+      "numerator": -40,
+      "denominator": 0,
+      "multiplier": 0,
+      "result": "8000000000000000",
+      "lowDWORD": 0,
+      "status": 5
+    },
+    {
+      "numerator": 40,
+      "denominator": 100,
+      "multiplier": 50,
+      "result": "0000000000000014",
+      "lowDWORD": 20,
+      "status": 32
+    }
+  ],
+  "zeroCases": [
+    {
+      "mode": 0,
+      "x": 0,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 0,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 0,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 300,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 300,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 300,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 1024,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 1024,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 0,
+      "x": 1024,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 0,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 0,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 0,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 300,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 300,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 300,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 1024,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 1024,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 1,
+      "x": 1024,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 0,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 0,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 0,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 300,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 300,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 300,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 1024,
+      "dy": -40,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 1024,
+      "dy": 0,
+      "events": 56,
+      "rng": 123
+    },
+    {
+      "mode": 2,
+      "x": 1024,
+      "dy": 40,
+      "events": 56,
+      "rng": 123
+    }
+  ],
+  "finiteComparisons": 162,
+  "scope": "Actual recovered shore routine: frozen crash reproduction, adapted Number/exact/retained-frame paths, GDI/memory/RNG equality for nonzero spans; native x87 hardware conversion. Not a naturally sailed race."
+}

@@ -995,3 +995,8 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Evaluate every supported course/venue/direction/short/gate combination, fix
   routing gaps, check actual Chrome text bounds, and avoid slow selection handlers.
   Evidence: [island, wind and preview refinement](versions/2026/analysis/app/ISLAND-WIND-PREVIEWS.md).
+
+- [x] **FIX-06 — Recover the original zero-width shoreline conversion without stopping the renderer.**
+  Verify masked x87 behavior, reproduce the crash, compare neighboring drawing
+  cases and check Chrome races/default reference states.
+  Evidence: [shoreline division repair](versions/2026/analysis/app/SHORE-DIVISION.md).
