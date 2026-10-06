@@ -157,6 +157,14 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     }
     await writeFile(target,observed);
     generated.push({path:f.path,bytes:Buffer.byteLength(observed),sha256:createHash('sha256').update(observed).digest('hex'),adapter:'native-boat-observer-and-private-model-v2',repairs:[{address:'0x48b7e0',reason:'Native SetTextColor/CString/TextOut argument recovery'},{address:'0x46f357',reason:'Native Groton lighthouse DWORD coordinate store'},{address:'0x46fa22',reason:'Native Edgartown DWORD coordinate store'},{address:'0x465f49',reason:'Masked invalid FSQRT/__ftol low DWORD recovery for signed distance overflow'},{address:'0x46fe1a',reason:'Native DWORD TextOut pointer store'},{address:'0x46cc21',reason:'Native DWORD label-coordinate store; no fictitious upper double word read'}],sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/course.js'){
+    let prepared=bytes.toString('utf8');
+    for(const [flag,value]of[['0x5363cc','imul32(idiv32(r(0x525a9c),10),7)'],['0x5364c8','idiv32(r(0x525a9c),2)']]){
+      const anchor=`if(r(${flag})===1)w(0x525a9c,${value});`;
+      if(prepared.split(anchor).length!==2)throw Error('Native shortened-course branch changed');
+      prepared=prepared.replace(anchor,`if(!(options.islandNavigationEnabled&&venue===0&&r(0x4f8b78)===1)&&r(${flag})===1)w(0x525a9c,${value});`);
+    }
+    await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'safe-island-course-size-v1',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/ai-functions.js'){
     const source=bytes.toString('utf8'),end=source.indexOf('\nexport function originalChooseDownwindHeading');
     if(end<0)throw Error('Native AI boundary changed');
@@ -182,4 +190,4 @@ export function advanceRaceTarget(memory,boat,options={}){
     await writeFile(target,prepared);generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'full-fleet-finish-window-v1',sourceSha256:f.sha256});
   }else {await writeFile(target,bytes);generated.push(f);}}
 await writeFile(new URL('manifest.json',out),JSON.stringify({reference:pin.reference.commit,sourceFiles:rows,files:generated},null,2));
-console.log(`Prepared ${rows.length} validated legacy modules/assets; explicit boat and finishing-window adapters`);
+console.log(`Prepared ${rows.length} validated legacy modules/assets; explicit 2026 drawing, race and island adapters`);

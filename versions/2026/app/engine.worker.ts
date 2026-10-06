@@ -6,6 +6,7 @@ import {commands} from './protocol';
 import {createNativeVisualObserver,packNativeVisuals} from './native-visuals';
 import {createModelExtractor} from './native-models';
 import {RaceWindow} from './race-window';
+import {IslandNavigator} from './island-navigation';
 import {validateRaceSettings,raceSetupCommands,isAuditedPreset} from './race-settings';
 import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
@@ -24,6 +25,7 @@ let modelMutableBase=0,modelMutableSize=0;
 let modelDirty=false,panelBusy=false;
 let startingLine:CourseLine|undefined;
 const raceWindow=new RaceWindow();
+let islandNavigator:IslandNavigator|undefined,spatialMetric:any;
 let resultsReady=false;
 let generation=0,frame=0,paused=true,failed=false,ready=false,delay=0,timer:ReturnType<typeof setTimeout>|undefined;
 let front:OffscreenCanvas,back:OffscreenCanvas,frontContext:OffscreenCanvasRenderingContext2D,backContext:OffscreenCanvasRenderingContext2D;
@@ -35,6 +37,9 @@ const allowed=new Set<number>([...Object.values(commands),32872,32876,32909,3291
 const send=(type:string,data:any)=>{if(type==='snapshot'){const native=(data as SceneSnapshot).nativeVisuals;self.postMessage({type,generation,data},{transfer:[native.styles.buffer,native.geometry.buffer,native.boats.buffer]});}else if(type==='models'){const p=data.packet;self.postMessage({type,generation,data},{transfer:[p.positions.buffer,p.records.buffer,p.colors.buffer,p.boats.buffer]});}else self.postMessage({type,generation,data});};
 function requestModels(){
   if(!ready||!modelReady||modelBusy||failed||!modelDirty&&modelSequence===frame)return;
+  // Results drawing intentionally zeros the original pace divisor. Retain
+  // the final valid meshes; a private boat draw must not divide by that zero.
+  if(memory.readI32(0x5363f4)!==0)return;
   const calibration=visuals.frame(1024,361).boats.find(b=>b.id===1)?.calibration;if(calibration)modelWidth=calibration.width;
   if(!modelWidth)throw new Error('Missing native model calibration');
   const image=memory.readBytes(modelMutableBase,modelMutableSize).buffer;modelBusy=true;modelDirty=false;modelSequence=frame;
@@ -64,6 +69,14 @@ function paint(){
   return performance.now()-start;
 }
 function courseLine():CourseLine{return {a:{x:memory.readI32(0x536410),y:memory.readI32(0x536414)},b:{x:memory.readI32(0x4fe094),y:memory.readI32(0x4fe2a0)}};}
+function setupIslandNavigation(){
+  islandNavigator=undefined;
+  if(!(memory.readI32(0x4da1f8)===0&&memory.readI32(0x4f8b78)===1||memory.readI32(0x4da1f8)===5))return;
+  const image=new ModelMemory(memory.size,memory.base);image.bytes.set(memory.bytes);
+  const depth=(p:{x:number;y:number})=>spatialMetric(image,Math.round(p.x),Math.round(p.y),1,options).toNumber();
+  const limit=Math.max(memory.readI32(0x4da1fc),memory.readI32(0x5363b8)===1?memory.readF64(0x4cc728):Math.trunc(memory.readI32(0x4da190)/2)+3);
+  islandNavigator=new IslandNavigator(readNativeTerrain(memory),depth,limit);
+}
 function snapshot(workMs:number):SceneSnapshot {
   const i=(a:number)=>memory.readI32(a),d=(a:number)=>memory.readF64(a);
   const groundingDepth=Math.max(i(0x4da1fc),i(0x5363b8)===1?d(0x4cc728):Math.trunc(i(0x4da190)/2)+3);
@@ -111,6 +124,7 @@ async function initialize(data:any){
   copyStrings=(source:any,target:any)=>{for(const {address,text:content}of text.originalCStringContents(source))text.writeCString(target,address,content);};
   updateDynamics=(await load(edition+'src/engine/boat-dynamics.js')).updateBoatDynamics;({sampleCurrent,sampleVenueCurrent}=await load(edition+'src/engine/current.js'));
   advanceTarget=(await load(edition+'src/engine/race-targets.js')).advanceRaceTarget;
+  spatialMetric=(await load(edition+'src/engine/spatial-metrics.js')).sampleSpatialMetric;
   drawResults=(await load(edition+'src/render/screens.js')).drawResultsScreen;
   const [original,clock,surface,float,integer,trig,bindings,application,keyboard,mouse,controller,renderer,paintModule,gdiModule,bitmap,tables,extended,stored,shore]=await Promise.all([
     load(edition+'src/runtime/original-data.js'),load(edition+'src/runtime/browser-clock.js'),load(edition+'src/runtime/canvas-surface.js'),load('src/runtime/float80.js'),load('src/engine/integer-core.js'),load(edition+'src/engine/native-trig.js'),load(edition+'src/engine/port.js'),load(edition+'src/engine/application.js'),load(edition+'src/engine/keyboard.js'),load(edition+'src/engine/mouse.js'),load(edition+'src/engine/menu-controller.js'),load(edition+'src/render/index.js'),load(edition+'src/render/paint-lifecycle.js'),load(edition+'src/render/gdi.js'),load('src/render/bitmap-font.js'),json(edition+'assets/data/trig-tables.json'),json(edition+'assets/data/x87-trig.json'),json(edition+'assets/data/x87-stored-trig.json'),json(edition+'assets/data/initial-shoreline-stack.json')]);
@@ -126,13 +140,15 @@ async function initialize(data:any){
   const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
   if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
   objects=application.initializeApplication(memory,rng,{preferences:null,timeSeed:scenario.seedTimeSeconds,screenHeight:768,integerTrig:tables});
-  options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,finishWindowEnabled:true,
+  options={trig:trig.createCapturedTrig(extended,stored),...bindings.createEngineBindings(),...renderer.createOriginalRenderer({initialShoreStack:shore,smoothGraphics:true}),rng,finishWindowEnabled:true,islandNavigationEnabled:true,
     playSound:()=>1,messageBeep:()=>{},beep:()=>{},dialogHandler:()=>{throw new Error('Original dialogs are unsupported in the worker spike');},getTickCount:paintClock.getTickCount,
     getCursorPos:()=>({x:0,y:0}),invalidateRect:()=>{},enforceMinimumPaintDuration:(duration:number)=>{delay=duration;},closeWindow:()=>{paused=true;},contextHelp:()=>{}};
   // The Block Island chart's recovered overlap needs an exact drawing profile.
   // Preserve the native geometry scratch values while its DWORD store repair
   // replaces the fictitious upper-word read. Modern 3D remains independent.
   if([33017,33018,33029,33031,33032].includes(settings.area??0)){options.numberRendering=false;options.smoothGraphics=false;}
+  const originalAI=options.updateBoatWindAndAI;
+  options.updateBoatWindAndAI=(image:any,boat:number,random:any,o:any)=>{const result=originalAI(image,boat,random,o);if(image===memory)islandNavigator?.steer(image,boat);return result;};
   modelExtractor=createModelExtractor({memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,modelDraw});
   guideContext={memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,guideDraw:modelModule.nativeCourseGuideSelector,originalGuideChart:modelModule.originalDrawing00431ab0,originalTargetDraw:modelModule.originalDrawing00440350};
   extractGuides=createGuideExtractor(guideContext);
@@ -155,6 +171,7 @@ async function initialize(data:any){
   const area=areaChoices.find(a=>a.command===(settings.area??32799))!;
   if(memory.readI32(0x4da154)!==settings.wind||memory.readI32(0x4da194)!==fleet||memory.readI32(0x4da144)!==(settings.boat??12)||memory.readI32(0x4da1f8)!==area.venue||memory.readI32(0x4da19c)!==area.area||memory.readI32(0x4da188)!==settings.course||memory.readI32(0x4da16c)!==0)throw new Error('Native race configuration differs from selection');
   if(settings.scoring&&memory.readI32(0x536424)!==(settings.scoring==='single'?1:0))throw new Error('Native scoring mode differs');
+  setupIslandNavigation();
   ready=true;send('terrain',readNativeTerrain(memory));send('ready',initial);send('snapshot',snapshot(0));paused=data.manual===true;requestModels();
   if(!paused)schedule(0);
 }
@@ -185,7 +202,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     // its series notice consumes Space before the ordinary thaw branch runs.
     if(memory.readI32(0x53642c)!==0)key(memory,70,options);
     if(memory.readI32(0x5363b0)!==2||memory.readI32(0x5363f4)!==0||memory.readI32(0x53642c)!==0)throw new Error('Native next race initialization failed');
-    modelDirty=true;send('terrain',readNativeTerrain(memory));send('snapshot',snapshot(0));send('paused',true);requestModels();send('reply',{id,value:await boundary()});
+    setupIslandNavigation();modelDirty=true;send('terrain',readNativeTerrain(memory));send('snapshot',snapshot(0));send('paused',true);requestModels();send('reply',{id,value:await boundary()});
   }
   else if(type==='finishcase'){
     if(!paused)throw new Error('Finish diagnostics require pause');
@@ -224,6 +241,15 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   }
   else if(type==='environmentcase'){
     if(!paused)throw Error('Environment diagnostics require pause');const before=await boundary(),cases=await evaluateEnvironmentCases(memory,rng,options,ModelMemory,ModelRng,updateDynamics,sampleCurrent,sampleVenueCurrent),after=await boundary();if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Environment diagnostic changed master');send('reply',{id,value:{before,after,cases,terrain:readNativeTerrain(memory),scope:'Private controlled depths with original current/dynamics; not naturally sailed grounding'}});
+  }
+  else if(type==='islandcase'){
+    if(!paused||!islandNavigator)throw Error('Island diagnostics require a paused island course');
+    const before=await boundary(),image=new ModelMemory(memory.size,memory.base);image.bytes.set(memory.bytes);
+    const depth=(p:{x:number;y:number})=>spatialMetric(image,Math.round(p.x),Math.round(p.y),1,options).toNumber();
+    const marks=snapshot(0).course.marks.map(p=>({...p,depth:depth(p),safe:islandNavigator!.safe(p)}));
+    const start=courseLine().a,paths=marks.map(goal=>({start,goal,points:islandNavigator!.route(start,goal)}));
+    for(const path of paths){if(!path.points.length&&!islandNavigator.clear(path.start,path.goal))throw Error('No route around island '+JSON.stringify({start:path.start,goal:path.goal,nodes:islandNavigator.nodes}));let from=path.start;for(const to of path.points){if(!islandNavigator.clear(from,to))throw Error('Route crosses buffered land');from=to;}}
+    const after=await boundary();if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Navigation diagnostic mutated the master');send('reply',{id,value:{before,after,marks,paths,nodes:islandNavigator.nodes.length,active:[...islandNavigator.active]}});
   }
   else if(type==='modelcase'){
     if(!paused)throw new Error('Model diagnostics require pause');

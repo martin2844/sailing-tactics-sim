@@ -15,6 +15,9 @@ export class RaceWindow {
   }
   if(i(0x5363f4)!==0||this.firstFinish===undefined||clock<this.firstFinish+1200)return false;
   for(let id=1;id<=count;id++)if(i(0x4fe638+id*4)===0){
+   // Native human finishes retain the pace used by the results/next-race
+   // routines. The modern DNF transition must retain it as well.
+   if(id<=i(0x4da140)){w(0x522f20,i(0x4da174));w(0x5362f0,i(0x4da178));}
    this.dnfs.add(id);w(0x4fe638+id*4,count+1);w(0x4f8538+id*4,i(0x4da1e4)+1);
    w(0x5116e0+id*4,11);w(id===1?0x534d64:0x4f4350+id*4,30000);
   }

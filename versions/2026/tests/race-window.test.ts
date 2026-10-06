@@ -16,3 +16,6 @@ test('pause does not consume game time, and a new race/replay clears deadline an
 test('a naturally completed fleet is never completed or scored twice',()=>{
  const m=race(),window=new RaceWindow();m.writeI32(0x4f8cd0,400);for(let b=1;b<=5;b++)m.writeI32(0x4fe638+b*4,b);m.writeI32(0x5363f4,1);m.writeI32(0x5363fc,1);window.update(m);m.writeI32(0x4f8cd0,1700);window.update(m);assert.equal(window.dnfs.size,0);assert.equal(m.readI32(0x5363fc),1);
 });
+test('a human DNF retains the native pace for results and the next race',()=>{
+ const m=race(),window=new RaceWindow();m.writeI32(0x4da140,1);m.writeI32(0x4da174,16);m.writeI32(0x4da178,31);m.writeI32(0x4f8cd0,600);m.writeI32(0x4fe638+2*4,1);window.update(m);m.writeI32(0x4f8cd0,1800);window.update(m);assert.equal(m.readI32(0x522f20),16);assert.equal(m.readI32(0x5362f0),31);
+});

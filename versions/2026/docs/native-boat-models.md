@@ -15,8 +15,8 @@ part of authoritative simulation until ENG-03 proves a narrower extraction.
 There are no skipped simulation paints or catch-up ticks.
 
 Preparation validates all 167 frozen runtime inputs. The generated 2026 copy
-adapts drawing-functions.js plus two explicit race-policy modules for the
-user-requested 20-minute finishing window (see [player fixes](../analysis/app/PLAYER-FIXES.md)). Its original boat entry
+adapts drawing-functions.js plus explicit race-policy/island-course modules for
+the user-requested finishing window and repaired navigation (see [player fixes](../analysis/app/PLAYER-FIXES.md)). Its original boat entry
 points gain read-only begin/end/calibration observation; arguments, results,
 GDI calls and the real drawing sink are forwarded. Frozen preservation files
 are never edited. The manifest records both source hashes and actual prepared
