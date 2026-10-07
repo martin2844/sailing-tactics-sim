@@ -45,6 +45,21 @@
 
 .wind-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}#starter .wind-settings label{font-size:13px}#starter .wind-settings select{font-size:14px;padding-left:8px;padding-right:6px}@media(max-width:560px){.wind-settings{grid-column:1/-1}#starter .wind-settings label{font-size:15px}}
 
+/* One authored SVG family decorates native controls; input remains on select. */
+.select-control{position:relative;display:inline-block;vertical-align:middle;color:#082f50;min-width:0}
+.select-control>select{appearance:none;display:block;width:100%;padding-left:42px;padding-right:30px}
+.select-icon,.select-chevron{position:absolute;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center;justify-content:center}
+.select-icon{left:12px;width:22px;height:22px}.select-icon svg{display:block;width:100%;height:100%}
+.select-chevron{right:10px;width:16px;height:16px}.select-chevron svg{display:block;width:100%;height:100%}
+.select-control:has(select:disabled){color:#8296a2}
+#starter .race-fields .select-control{display:block;margin-top:6px}
+#starter .race-fields .select-control>select{margin-top:0;padding-left:44px;padding-right:32px}
+#starter .wind-settings{grid-column:1/-1;gap:18px}#starter .wind-settings label{font-size:15px}#starter .wind-settings select{font-size:16px}
+header .setup .select-control{min-width:94px}footer .select-control{min-width:82px}
+@media(max-width:850px){#starter .wind-settings{gap:10px}#starter .wind-settings select{font-size:14px}}
+@media(max-width:560px){#starter .race-fields .select-control>select{padding-left:36px;padding-right:25px}.select-icon{left:9px;width:20px;height:20px}.select-chevron{right:7px;width:14px;height:14px}}
+@media(forced-colors:active){.select-control>select{appearance:auto}.select-chevron{display:none}.select-control:has(select:disabled){color:GrayText}}
+
 .information-tools{border-top:1px solid #c9dbe1;margin-top:10px;padding-top:6px}.information-tools>p{font-weight:600;margin:4px 6px 6px}.information-tools button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:5px 6px;font-size:14px;border:0;background:transparent}.information-tools button:hover{background:#dfeaf0}
 #information-panel{position:absolute;inset:0;z-index:10;background:#062f5055;display:flex;align-items:center;justify-content:center;padding:24px;overflow:auto}.information-card{width:min(900px,100%);max-height:100%;overflow:auto;background:#fbfaf6;border:1px solid #c9dbe1;border-radius:10px;padding:24px;color:#082f50;box-shadow:0 14px 50px #062e4233}.information-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.information-heading p{margin:0 0 4px;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:#456682}.information-heading h2{font-size:27px;line-height:1.2;margin:0}.information-heading button{background:#062f50;color:#fff;font-size:14px}.information-card nav{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}.information-card nav button{font-size:14px;padding:7px 12px}#information-status{font-size:12px;color:#456682;margin:12px 0}.information-text{border-top:1px solid #c9dbe1;padding-top:8px;max-width:75ch}.information-text p{font-size:16px;line-height:1.65;margin:10px 0}.information-note{font-size:12px;color:#456682;border-top:1px solid #c9dbe1;padding-top:14px;margin-bottom:0}.information-chart-caption{font-size:12px;line-height:1.6;color:#456682}#information-content svg{display:block;width:100%;max-height:55vh;aspect-ratio:1.65;border:1px solid #c9dbe1;border-radius:5px;background:#dcebf0;font:15px 'IBM Plex Sans',sans-serif}#information-time{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px;font-size:13px}#information-time button{font-size:13px;padding:6px 10px}@media(max-width:560px){#information-panel{padding:12px}.information-card{padding:18px}.information-heading{align-items:flex-start}.information-heading h2{font-size:22px}.information-heading button{font-size:12px;padding:8px}.information-card nav button{font-size:12px}.information-tools button{font-size:12px}}
 
