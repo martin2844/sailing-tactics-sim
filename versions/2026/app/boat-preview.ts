@@ -24,9 +24,9 @@ export class BoatPreview {
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();this.lost=true;canvas.dataset.state='unavailable';});
  }
  get unavailable(){return this.lost;}
- receive(packet:NativeModelPacket){
+ receive(packet:NativeModelPacket,classId?:number){
   const at=packet.boats.findIndex((id,index)=>index%3===0&&id===1);if(at<0)return;
-  const fresh=!this.model;if(!this.model){this.model=new NativeBoatMesh(this.material);this.scene.add(this.model.group);}this.model.update(packet,packet.boats[at+1],packet.boats[at+2]);
+  const fresh=!this.model;if(!this.model){this.model=new NativeBoatMesh(this.material);this.scene.add(this.model.group);}this.model.update(packet,packet.boats[at+1],packet.boats[at+2],classId);
   if(fresh){const box=new THREE.Box3().setFromObject(this.model.group),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3()),distance=Math.max(size.y,size.x,size.z)*1.75;this.controls.target.copy(center);this.camera.position.copy(center).add(previewDirection(packet,packet.boats[at+1],packet.boats[at+2]).multiplyScalar(distance));this.controls.minDistance=distance*.55;this.controls.maxDistance=distance*3;this.camera.near=Math.max(.1,distance/1000);this.camera.updateProjectionMatrix();this.controls.update();}
   this.canvas.dataset.state='ready';this.dirty=true;
  }

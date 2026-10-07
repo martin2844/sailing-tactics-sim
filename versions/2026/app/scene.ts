@@ -85,7 +85,7 @@ export class SailingScene {
     this.nativeBoats.receive(value.nativeVisuals);
   }
   receiveModels(value:{generation:number;sequence:number;packet:NativeModelPacket}){if(this.latest&&value.generation!==this.latest.generation)return;const p=value.packet,now=performance.now();this.modelPacket=p;this.modelSpan=this.hasModels?Math.max(1,now-this.modelReceived):40;this.modelReceived=now;this.modelSequence=value.sequence;
-    for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2]);}
+    for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2],this.latest?.configuration.selector);}
     this.hasModels=true;if(this.modelCosts.length<4000){this.modelCosts.push(p.workMs);this.modelBytes.push(p.positions.byteLength+p.records.byteLength+p.colors.byteLength+p.boats.byteLength);this.modelBuildCosts.push(performance.now()-now);}this.cameraDirty=true;
   }
   reset(){this.animationClock.reset();this.minimap.reset();this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
