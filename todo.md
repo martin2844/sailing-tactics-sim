@@ -1198,6 +1198,13 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   high-rate throughput remains limited by numerical processing cost. See
   `versions/2026/docs/real-time-playback.md`.
 
+- [x] **Big review of fleet performance, pacing and models — 2026-10-07.**
+  Review implementations, caller contracts, failure paths and evaluation claims
+  across the recent changes. No additional production findings. Preserve a
+  reproducible27-class/two-state/eight-rate model regression evaluation and
+  record the scope, checks and limitations in
+  `versions/2026/docs/big-review-pacing-rendering-2026-10-07.md`.
+
 - [x] **Boat geometry after fast-forward — 2026-10-07.** Isolate the OG
   drawing speed/detail and divisor from the authoritative simulation preset.
   Compare identical physical states across all eight rates and Space, inspect
