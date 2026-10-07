@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    "Trusted Q follows from overview with toolbar focus; exact paused engine retained",
+    "Trusted Q follows from orbit with toolbar focus; exact paused engine retained",
+    "Trusted Q follows from native with toolbar focus; exact paused engine retained",
+    "Text and modifier guards",
+    "Information modal holds Q",
+    "Trusted R course panel holds Q",
+    "Q follows during live sailing without pausing",
+    "Toolbar, common keys and help advertise Q"
+  ],
+  "before": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.3267349555644,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "e367e123ad8a4d2ec933b9e860dff1be1622f29cf8d362a1b79e43959cac09d1",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "scope": "Actual Chrome trusted Q/F/Y/R keys, follow from overview/orbit/native, focused toolbar, paused whole-state purity, live sailing, text/modifier/modal guards and help. Modified shortcut uses synthetic event to avoid browser navigation. Build/typecheck passed; no new unit tests needed for this presentation-only change."
+}

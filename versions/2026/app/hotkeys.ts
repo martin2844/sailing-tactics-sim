@@ -20,7 +20,7 @@ export const shortcutGroups=[
  ['Steer','Comma / Quote: port · Period / Enter: starboard · C: close hauled · T: tack · H: reach · J: jibe · D: run · − / +: pinch / foot'],
  ['Sheet','A: automatic · S: maximum luff · I / O: in / out 20% · Esc / Backquote: in / out 5%'],
  ['Sails','F1 / F2 / F3: flat / medium / baggy · E: cycle shape · P: spinnaker · G: cycle headsail · U: hide sails'],
- ['Look','Arrows: ahead / left / right / astern · 1 / 2 / 3, V: viewpoint · 5: windward · 7 / Home: leeward · 9: other boat · 0: automatic view'],
+ ['Look','Q: follow boat from behind · Arrows: ahead / left / right / astern · 1 / 2 / 3, V: viewpoint · 5: windward · 7 / Home: leeward · 9: other boat · 0: automatic view'],
  ['Pace','Page Up / Down: faster / slower · Space: toggle speed 1 / selected speed, or dismiss a panel · F: pause/resume · Backslash: automatic foul slowdown · Pause: suspend/resume this app'],
  ['Views','Z / X: tactical zoom · F4 / F5: bow / wind orientation · W: forecast · R: course · [ / ]: wind / current chart · + / −: chart time · L: heading reference'],
  ['Session','N: race setup, then Space to start · Backspace: original leg replay · ?: original key summary · Y: coach · B, P, L, M, S and digits: original context-sensitive setup controls'],
