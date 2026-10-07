@@ -1,0 +1,35 @@
+
+> tact-2026@0.1.0 prebuild
+> npm run prepare:legacy
+
+
+> tact-2026@0.1.0 prepare:legacy
+> node tools/prepare-legacy.mjs
+
+Prepared 167 validated legacy modules/assets; explicit 2026 drawing, race, island and wind adapters
+
+> tact-2026@0.1.0 build
+> npm run check && vite build
+
+
+> tact-2026@0.1.0 check
+> tsc --noEmit
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 61 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                0.34 kB │ gzip:   0.25 kB
+dist/spike/index.html                                          0.37 kB │ gzip:   0.27 kB
+dist/assets/models.worker-BxiAswLU.js                          6.57 kB
+dist/assets/ibm-plex-sans-latin-400-normal-CYLoc0-x.woff      22.10 kB
+dist/assets/ibm-plex-sans-latin-400-normal-CDDApCn2.woff2     22.58 kB
+dist/assets/ibm-plex-sans-latin-600-normal-Cu4Hd6ag.woff      23.87 kB
+dist/assets/ibm-plex-sans-latin-600-normal-CuJfVYMP.woff2     24.25 kB
+dist/assets/engine.worker-DGHjOAoY.js                        129.88 kB
+dist/assets/main-Dolg5vCw.css                                 24.38 kB │ gzip:   5.54 kB
+dist/assets/three.webgpu-x2qerFr2.js                         581.25 kB │ gzip: 162.17 kB
+dist/assets/main-BgJHwMGh.js                               1,533.17 kB │ gzip: 386.63 kB
+
+✓ built in 371ms

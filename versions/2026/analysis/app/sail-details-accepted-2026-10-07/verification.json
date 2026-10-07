@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "kind": "normal",
+      "attachmentVertices": 360,
+      "segments": 12,
+      "checks": 216,
+      "detachedControl": {
+        "distance": 0.5,
+        "rgb": [
+          1,
+          1,
+          1
+        ],
+        "black": false
+      }
+    },
+    {
+      "kind": "trim",
+      "attachmentVertices": 360,
+      "segments": 12,
+      "checks": 216
+    },
+    {
+      "kind": "luff",
+      "attachmentVertices": 330,
+      "segments": 11,
+      "checks": 198
+    },
+    {
+      "kind": "luffNext",
+      "attachmentVertices": 330,
+      "segments": 11,
+      "checks": 198
+    },
+    {
+      "kind": "oppositeTack",
+      "attachmentVertices": 360,
+      "segments": 12,
+      "checks": 216
+    },
+    {
+      "kind": "penalty",
+      "attachmentVertices": 360,
+      "segments": 12,
+      "checks": 216
+    }
+  ],
+  "before": {
+    "contract": "independent-v1",
+    "waveRngState": 3429513004,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.21122492594068,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "ebb0e097c9da55bcef8a1a5a5264aa720e7aa562d589d708f09c682ef2eeb991",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "after": {
+    "contract": "independent-v1",
+    "waveRngState": 3429513004,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.21122492594068,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "ebb0e097c9da55bcef8a1a5a5264aa720e7aa562d589d708f09c682ef2eeb991",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "scope": "Actual Optimist mesh from six private original rig states; independent two-sided first-hit ray/triangle tests across9 interpolation/headwind states per segment, detached-stroke negative control,24 Chrome camera screenshots and exact authoritative-state retention. No disabled depth testing or camera-facing overlays."
+}

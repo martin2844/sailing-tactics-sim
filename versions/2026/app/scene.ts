@@ -1,3 +1,4 @@
+import {WATER_SURFACE_Y} from './world-objects';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {NativeBoatLayer} from './native-boat-layer';
@@ -42,7 +43,7 @@ export class SailingScene {
     const position=geo.attributes.position;const colors=[];
     for(let i=0;i<position.count;i++){const x=position.getX(i),z=position.getZ(i);position.setY(i,0);const color=new THREE.Color('#177f9c');const face=Math.floor(i/3);color.multiplyScalar(.88+.12*(Math.sin(face*12.9898)+1)/2);colors.push(color.r,color.g,color.b);}
     geo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geo.computeVertexNormals();
-    this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=-1.5;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
+    this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=WATER_SURFACE_Y;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
     this.scene.add(this.environment.group);
     this.scene.add(this.course.group);
     this.scene.add(this.contactOverlay.group);
@@ -113,7 +114,7 @@ export class SailingScene {
     for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)),current.boats[index],visualTime);}}
     // Camera and water presentation never mutate the native engine.
     const phase=this.paused?this.lastWaterPhase:current.time*.025;
-    this.water.position.y=-2.2;
+    this.water.position.y=WATER_SURFACE_Y;
     const poseKey=poses.map(p=>`${p.x.toFixed(5)},${p.y.toFixed(5)},${p.heading.toFixed(4)}`).join('|');const poseChanged=poseKey!==this.lastPose;
     const changed=poseChanged||this.cameraDirty||phase!==this.lastWaterPhase;const start=performance.now();
     this.pollQueries();let query:WebGLQuery|null=null;

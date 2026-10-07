@@ -1179,6 +1179,13 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
 
 ## Original functionality parity audit
 
+- [x] **Optimist sail detail review — 2026-10-07.** Attach battens to actual
+  cloth faces through interpolation/luffing, verify both sides, place course
+  guides at water level with hull occlusion, and analyze native pace/clock rates.
+  Evaluated all27 sail classes and independent ray/framebuffer controls. See
+  `versions/2026/docs/optimist-sail-details.md`; the recommended real-time pacing
+  mode is analysis for a future change, not an implemented clock-policy change.
+
 - [x] **PARITY-00 — Audit original features and explain the current architecture.**
   Inventory all 312 original menu commands, trace UI/worker/renderer routing,
   inspect missing host services and probe coach flags, native key behavior and

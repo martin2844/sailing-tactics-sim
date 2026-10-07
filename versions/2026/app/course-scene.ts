@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {navigationTarget} from './navigation';
 import {ScreenCourseLine} from './screen-course-line';
 import type {NativeCourse,BoatView,CourseLine} from './protocol';
-import {BUOY_RADIUS,COMMITTEE_OUTLINE} from './world-objects';
+import {BUOY_RADIUS,COMMITTEE_OUTLINE,WATER_SURFACE_Y} from './world-objects';
 /** Presentation objects at native coordinates. Their shapes are modern artwork;
  * line endpoints, marks, target and close-hauled heading come from the engine.
  */
@@ -47,7 +47,7 @@ export class CourseScene {
   for(let i=0;i<2;i++){const p=course.gate?.[i];this.gates[i].visible=!!p;if(p)this.gates[i].position.set(p.x,0,p.y);}
   if(course.gate?.length)this.marks[2].visible=false;
   this.pin.position.set(course.finish.b.x,0,course.finish.b.y);this.committee.position.set(course.committee.x,0,course.committee.y);this.committee.rotation.y=-course.committee.heading*Math.PI/180;
-  this.start.set(course.start,.6,'#f6f9f4',2.2,10);this.finish.set(course.finish,.7,'#84e6c0',2.2,10);
+  this.start.set(course.start,WATER_SURFACE_Y+.06,'#f6f9f4',2.2,10);this.finish.set(course.finish,WATER_SURFACE_Y+.08,'#84e6c0',2.2,10);
   const coincident=course.start.a.x===course.finish.a.x&&course.start.a.y===course.finish.a.y&&course.start.b.x===course.finish.b.x&&course.start.b.y===course.finish.b.y;const recalling=boat.status===2;this.start.group.visible=!coincident||clock<0||recalling;this.finish.group.visible=!coincident||(clock>=0&&!recalling);
   const rays=course.guides??[],targetKind=navigationTarget(course,boat,clock).kind,target=course.navigationTarget??course.target;
   for(let i=0;i<this.guides.length;i++){
@@ -55,7 +55,7 @@ export class CourseScene {
    if(!ray)continue;
    const angle=ray.bearing*Math.PI/180,length=Math.max(course.length*2,5000);
    const active=Math.hypot(ray.x-target.x,ray.y-target.y)<2||[24,25].includes(ray.type)&&['finish','gate'].includes(targetKind)||[4,5].includes(ray.type)&&targetKind==='start';
-   line.set({a:{x:ray.x,y:ray.y},b:{x:ray.x+Math.sin(angle)*length,y:ray.y-Math.cos(angle)*length}},.8,active?'#efbd52':ray.type===3?'#a9bcc2':'#dbe9e8',active?1.8:1.1);
+   line.set({a:{x:ray.x,y:ray.y},b:{x:ray.x+Math.sin(angle)*length,y:ray.y-Math.cos(angle)*length}},WATER_SURFACE_Y+.1,active?'#efbd52':ray.type===3?'#a9bcc2':'#dbe9e8',active?1.8:1.1);
   }
  }
  reset(){this.group.visible=false;for(const line of [this.start,this.finish,...this.guides])line.group.visible=false;}

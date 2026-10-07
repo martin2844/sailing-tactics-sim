@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "result": {
+    "rows": [
+      {
+        "y": -2.14,
+        "lineOnly": [
+          246,
+          249,
+          244,
+          255
+        ],
+        "withBoat": [
+          146,
+          147,
+          145,
+          255
+        ],
+        "sample": 3,
+        "occluded": true
+      },
+      {
+        "y": 0.8,
+        "lineOnly": [
+          246,
+          249,
+          244,
+          255
+        ],
+        "withBoat": [
+          246,
+          249,
+          244,
+          255
+        ],
+        "sample": 3,
+        "occluded": false
+      }
+    ],
+    "actual": -2.14
+  },
+  "before": {
+    "contract": "independent-v1",
+    "waveRngState": 3429513004,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.21122492594068,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "ebb0e097c9da55bcef8a1a5a5264aa720e7aa562d589d708f09c682ef2eeb991",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "after": {
+    "contract": "independent-v1",
+    "waveRngState": 3429513004,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.21122492594068,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "ebb0e097c9da55bcef8a1a5a5264aa720e7aa562d589d708f09c682ef2eeb991",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "scope": "Actual Chrome/WebGL2 framebuffer pixel under the Optimist hull: current water-level line is occluded by the boat; controlled old+.8 height paints over the deck. Real depth-tested course-line meshes and unchanged authoritative state."
+}
