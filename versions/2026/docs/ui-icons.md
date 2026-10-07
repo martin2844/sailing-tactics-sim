@@ -5,8 +5,8 @@ the same24×24 viewBox, navy `currentColor`,1.2-unit rounded stroke and a shared
 SVG template. Boat icons
 share mast/sail primitives; course icons share mark and route primitives.
 
-There are39 glyphs, including14 boat class marks and the dropdown chevron. The complete rendered set is
-12,304bytes raw and1,386bytes gzip. This measures the SVG markup alone, not the
+There are40 glyphs, including14 boat class marks, the playback clock and the dropdown chevron. The complete rendered set is
+12,561bytes raw and1,398bytes gzip. This measures the SVG markup alone, not the
 application's JavaScript/CSS integration. There are no icon packages, fonts,
 images, filters, network references, IDs or randomized paths.
 

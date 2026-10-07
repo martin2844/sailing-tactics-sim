@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "result": {
+    "sampleTimes": [
+      {
+        "time": -100,
+        "cosmetic": 0.8
+      },
+      {
+        "time": 1000,
+        "cosmetic": 0.8
+      }
+    ],
+    "identical": true,
+    "legacyCoupledDifference": 0.24984920024871826
+  },
+  "before": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.46570795995547,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "94b73025e2bb7339f5cabf8a91d887e28b6b9a5a915714fbbb01cfd65ca921cc",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "after": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.46570795995547,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "94b73025e2bb7339f5cabf8a91d887e28b6b9a5a915714fbbb01cfd65ca921cc",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "scope": "Actual Chrome Scene.render and native mesh: identical0.8s wall elapsed with widely different game-time snapshots gives identical extra-headwind geometry. Explicit old game-time phase negative control changes geometry. Authoritative image/RNG/clock unchanged."
+}

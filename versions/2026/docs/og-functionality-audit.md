@@ -62,7 +62,7 @@ but is insufficient to call the 2026 feature complete.
 | Coach Y | Available during sailing and after results; heel and sheltered-wind warnings retained | Complete advice/HUD scenario coverage remains pending |
 | Original course chart R and key summary ? | Available as owned SVG/text panels | Private original guide extraction remains a compatibility adapter |
 | Original leg replay Backspace | Available while paused or after results; restores checkpoint, contacts and finish window; discards current event receipt | Continue championship/leg replay coverage; no modern timeline/seek/export |
-| Simulator speed 1–15 and Space | Setup/live selectors, Page Up/Down, retained preference; Space toggles 1 and selected speed | Pace is distinct from AI difficulty; F pauses |
+| Simulator speed and Space | Default1× real time, explicit2/4/8×, all15 OG levels retained; setup/live selectors, Page keys, retained preference and Space precision/restore | Pace is distinct from AI difficulty; F pauses; see real-time-playback.md for scheduling limits |
 | Follow camera, free camera and original sailing-view shortcuts | Available | These are modern reconstructions, not the original projection/view distances |
 | Tactical zoom Z/X and orientation F4/F5 | Reconstructed in the large 3D view | Modern minimap remains independently north-up/auto-fit; it does not inherit those settings |
 | Continuous boat tracks | Backend recorder/drawing exists | No track data in modern snapshots or trail renderer in minimap/scene; original chart can still show tracks |

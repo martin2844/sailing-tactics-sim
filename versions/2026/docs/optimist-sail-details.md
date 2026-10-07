@@ -3,6 +3,10 @@
 2026-10-07. This fixes presentation geometry; authoritative sailing calculations,
 race timing, speed presets and rules retain their existing behavior.
 
+The subsequent [real-time playback change](real-time-playback.md) implements the
+timing recommendation below. The measured original-level observations in this
+document remain historical evidence; those modes are still selectable.
+
 ## Battens and seams
 
 The private recovered drawing emits a curved sail outline plus separate pen

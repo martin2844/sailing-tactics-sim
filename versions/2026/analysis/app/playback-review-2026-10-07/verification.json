@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "unitTests": {
+    "passed": 41,
+    "command": "node --test tools/independent/*.test.mjs tools/cutover/*.test.mjs"
+  },
+  "build": {
+    "passed": true,
+    "command": "npm run build"
+  },
+  "preservation": {
+    "unexpectedTrackedChanges": []
+  },
+  "review": {
+    "skill": "big-review",
+    "fixed": [
+      "held-panel Page Up/Down numeric-mode leak",
+      "held-panel cosmetic clock pause",
+      "automatic-assistance rate restoration",
+      "new-race temporary precision reset"
+    ],
+    "remainingVerifiedFindings": 0
+  },
+  "scope": "Source/build and41 unit gates, actual Chrome timing/control/trajectory/clock-isolation receipts linked from docs/real-time-playback.md. Original source trees remain outside this change."
+}

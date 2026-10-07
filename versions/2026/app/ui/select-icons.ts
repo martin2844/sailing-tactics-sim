@@ -19,6 +19,7 @@ function selectionIcon(select:HTMLSelectElement,optionValue=select.value):Select
   case 'race-wind-direction':return {name:'compass',...(optionValue==='auto'?{}:{direction:value})};
   case 'race-course':return {name:courseIcons[value-1]??'windward'};
   case 'series-length':return {name:'series'};
+  case 'race-speed':case 'pace':return {name:optionValue.startsWith('clock:')?'clock':'speed'};
   default:return {name:'speed'};
  }
 }

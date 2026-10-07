@@ -144,18 +144,24 @@ export class EngineRuntime {
     if(speed!==undefined)this.selectedSpeed=speed;
     this.numeric.command(this.memory,command,this.options);
   }
+  /** Continue from precision/foul slowdown without dismissing held panels.
+   * The original Space response grants four game seconds of assistance grace. */
+  restoreSpeed(level=this.selectedSpeed):void {
+    const restoring=this.memory.readI32(0x4da174)===1;
+    this.selectedSpeed=validateSimulatorSpeed(level);
+    this.numeric.command(this.memory,speedCommand(this.selectedSpeed),this.options);
+    if(restoring&&this.memory.readI32(0x4da1dc)===1){
+      this.memory.writeI32(0x4da1dc,2);this.memory.writeI32(0x4da1e0,this.memory.readI32(0x4f8cd0));
+    }
+  }
   key(key: number): void {
     // Space alternates precision speed1 and the selected sailing speed. Setup/panel dismissal keeps its
     // contextual native behavior; pause belongs to the2026 host's F control.
     if (key === 32 && this.memory.readI32(0x5363b0) === 2
       && !panelFlags.some(address => this.memory.readI32(address) !== 0)
       && this.memory.readI32(0x5363f4) === 0) {
-      const level=this.memory.readI32(0x4da174)===1?this.selectedSpeed:1;
-      const restoring=this.memory.readI32(0x4da174)===1;
-      this.numeric.command(this.memory,speedCommand(level),this.options);
-      if(restoring&&this.memory.readI32(0x4da1dc)===1){
-        this.memory.writeI32(0x4da1dc,2);this.memory.writeI32(0x4da1e0,this.memory.readI32(0x4f8cd0));
-      }
+      if(this.memory.readI32(0x4da174)===1)this.restoreSpeed();
+      else this.numeric.command(this.memory,speedCommand(1),this.options);
       return;
     }
     if (key === 8) {

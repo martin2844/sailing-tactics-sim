@@ -1183,8 +1183,12 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   cloth faces through interpolation/luffing, verify both sides, place course
   guides at water level with hull occlusion, and analyze native pace/clock rates.
   Evaluated all27 sail classes and independent ray/framebuffer controls. See
-  `versions/2026/docs/optimist-sail-details.md`; the recommended real-time pacing
-  mode is analysis for a future change, not an implemented clock-policy change.
+  `versions/2026/docs/optimist-sail-details.md`.
+- [x] **Real-time playback — 2026-10-07.** Implement the accepted recommendation:
+  default1×, explicit2/4/8×, original15 levels retained, Space precision toggle,
+  paused wall-time cosmetic flutter, preserved numerical kernels and reviewed
+  hold/replay/new-race/assistance routes. See
+  `versions/2026/docs/real-time-playback.md` for bounded rate/trajectory evidence.
 
 - [x] **PARITY-00 — Audit original features and explain the current architecture.**
   Inventory all 312 original menu commands, trace UI/worker/renderer routing,

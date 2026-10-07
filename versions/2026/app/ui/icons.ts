@@ -44,6 +44,7 @@ export const iconBodies={
  gust:windTwo+'<path d="M13 19h5a2 2 0 1 1-2 2"/>',
  compass:compassRing+compassNeedle,
  speed:'<path d="M5 19a9 9 0 1 1 14 0M12 4v2M5 8l2 1m12-1-2 1M4 15h2m14 0h-2m-6 0 4-5"/><circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
  windward:windwardRoute,
  windwardTwice:windwardRoute+secondLap,
  triangle:triangleRoute,

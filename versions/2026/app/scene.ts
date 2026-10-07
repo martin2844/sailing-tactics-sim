@@ -1,4 +1,5 @@
 import {WATER_SURFACE_Y} from './world-objects';
+import {AnimationClock} from './presentation/animation-clock';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {NativeBoatLayer} from './native-boat-layer';
@@ -15,6 +16,7 @@ export type Backend='webgl2'|'webgpu';
 type Renderer=THREE.WebGLRenderer|import('three/webgpu').WebGPURenderer;
 export interface RenderSample {intervalMs:number;cpuMs:number;changed:boolean;poseChanged:boolean;sequence:number;alpha:number;calls:number;triangles:number}
 export class SailingScene {
+  private readonly animationClock=new AnimationClock();
  readonly contactOverlay=new ContactOverlay();
   readonly scene=new THREE.Scene();readonly camera=new THREE.PerspectiveCamera(45,1,1,70000);
   private renderer!:Renderer;private controls:OrbitControls;private water:THREE.Mesh;
@@ -77,7 +79,7 @@ export class SailingScene {
   useNativeCamera(){this.mode='native';this.cameraDirty=true;}
   zoomTactical(ratio:number){if(!Number.isFinite(ratio)||ratio<=0)return;this.mode='orbit';const offset=this.camera.position.clone().sub(this.controls.target);offset.multiplyScalar(ratio);offset.setLength(Math.max(this.controls.minDistance,Math.min(this.controls.maxDistance,offset.length())));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();this.cameraDirty=true;}
   setTacticalOrientation(value:number){this.setCamera('overview');const bearing=value===2?this.latest?.windDirection??0:this.latest?.boats[0].heading??0,angle=bearing*Math.PI/180,offset=this.camera.position.clone().sub(this.controls.target),distance=Math.hypot(offset.x,offset.z);this.camera.position.copy(this.controls.target).add(new THREE.Vector3(-distance*Math.sin(angle),offset.y,distance*Math.cos(angle)));this.controls.update();}
-  setPaused(value:boolean){this.paused=value;this.cameraDirty=true;}
+  setPaused(value:boolean){this.paused=value;this.animationClock.setPaused(value);this.cameraDirty=true;}
   get cameraMode(){return this.mode;}
   receive(value:SceneSnapshot){if(this.latest&&value.generation!==this.latest.generation){this.previous=undefined;this.latest=undefined;}const now=performance.now();this.span=this.latest?Math.max(1,now-this.received):40;this.previous=this.latest;this.latest=value;this.received=now;
     this.nativeBoats.receive(value.nativeVisuals);
@@ -86,7 +88,7 @@ export class SailingScene {
     for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2]);}
     this.hasModels=true;if(this.modelCosts.length<4000){this.modelCosts.push(p.workMs);this.modelBytes.push(p.positions.byteLength+p.records.byteLength+p.colors.byteLength+p.boats.byteLength);this.modelBuildCosts.push(performance.now()-now);}this.cameraDirty=true;
   }
-  reset(){this.minimap.reset();this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
+  reset(){this.animationClock.reset();this.minimap.reset();this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
   render(now:number){
     if(this.disposed||!this.renderer||!this.latest)return;
     if(this.lastDraw&&now-this.lastDraw<1000/60-.6)return;
@@ -110,8 +112,9 @@ export class SailingScene {
     const cameraDistance=this.camera.position.distanceTo(this.controls.target);this.water.visible=cameraDistance<5000;
     const near=Math.max(1,Math.min(500,cameraDistance/100));if(near!==this.camera.near){this.camera.near=near;this.camera.updateProjectionMatrix();}
     const visualTime=old.time+(current.time-old.time)*alpha;
+    const animationTime=this.animationClock.sample(now);
     this.environment.update(current,{x:player.x,y:player.y},visualTime);
-    for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)),current.boats[index],visualTime);}}
+    for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)),current.boats[index],animationTime);}}
     // Camera and water presentation never mutate the native engine.
     const phase=this.paused?this.lastWaterPhase:current.time*.025;
     this.water.position.y=WATER_SURFACE_Y;

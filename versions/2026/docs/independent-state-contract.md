@@ -1,5 +1,13 @@
 # Independent simulation contract v1
 
+The2026 UI now uses an explicit wall-time playback scheduler and a separate
+cosmetic animation clock. [Real-time playback](real-time-playback.md) defines
+1×/fast-forward/OG modes, assistance exceptions and pause/reset ownership.
+Host scheduling metadata does not enter the numerical checkpoint; given the
+same native preset, ordered controls and step count, numerical state/RNG remains
+the regression contract. Existing reference clients omit playback settings and
+retain original scheduling.
+
 2026-10-07. The user selected independent deterministic gameplay randomness
 instead of reproducing the old painter's seed-specific random consumption.
 Recovered sailing, AI, wind, current and penalty calculations remain the

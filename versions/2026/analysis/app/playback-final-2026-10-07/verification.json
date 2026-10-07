@@ -1,0 +1,221 @@
+{
+  "passed": true,
+  "rates": [
+    {
+      "rate": 1,
+      "actual": 0.9800926029455865,
+      "animationRate": 0.9547356122628691,
+      "run": {
+        "before": {
+          "time": -170.27138639970303,
+          "animation": 0.25
+        },
+        "after": {
+          "contract": "independent-v1",
+          "waveRngState": 1484721386,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 95,
+          "time": -165.07042699294703,
+          "clock": -165,
+          "rngState": 2433690126,
+          "memorySha256": "336aa576043ab834174533b1af589b339d50b6963853702bd24a9363520fae0f",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "animation": 5.316399999999997,
+        "wall": 5.306599999964237
+      }
+    },
+    {
+      "rate": 2,
+      "actual": 1.9496154270783241,
+      "animationRate": 0.954727474972191,
+      "run": {
+        "before": {
+          "time": -165.07042699294703,
+          "animation": 5.316399999999997
+        },
+        "after": {
+          "contract": "independent-v1",
+          "waveRngState": 1484721386,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 279,
+          "time": -154.55420137928655,
+          "clock": -154,
+          "rngState": 2382310799,
+          "memorySha256": "36ebacd44d623f62d0e12a6e1984da3fc9a0844fba419a60b31e75246b069a61",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "animation": 10.466199999999995,
+        "wall": 5.394
+      }
+    },
+    {
+      "rate": 4,
+      "actual": 3.9239284866978767,
+      "animationRate": 0.9540487748185938,
+      "run": {
+        "before": {
+          "time": -154.55420137928655,
+          "animation": 10.466199999999995
+        },
+        "after": {
+          "contract": "independent-v1",
+          "waveRngState": 1484721386,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 634,
+          "time": -134.26474435293073,
+          "clock": -134,
+          "rngState": 1016696760,
+          "memorySha256": "1d53e280558b687c317ddd2e4d9cfd1181117a767175a45465cff7b89adaf6b2",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "animation": 15.399299999999991,
+        "wall": 5.170700000047684
+      }
+    },
+    {
+      "rate": 8,
+      "actual": 7.814046525246833,
+      "animationRate": 0.9541251577140251,
+      "run": {
+        "before": {
+          "time": -134.26474435293073,
+          "animation": 15.399299999999991
+        },
+        "after": {
+          "contract": "independent-v1",
+          "waveRngState": 1484721386,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 1360,
+          "time": -92.77137589903123,
+          "clock": -92,
+          "rngState": 2017665197,
+          "memorySha256": "26114ef2a5fd551f17cd76a0f75af4abf3490d811e8023bc69d3fb938cbb0f9a",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "animation": 20.465799999999984,
+        "wall": 5.310100000023842
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "F holds exact numerical state and cosmetic seconds"
+    },
+    {
+      "name": "Trusted Space1×/selected8× toggle while paused"
+    },
+    {
+      "name": "Race course holds both clocks and meshes; PageUp changes only playback rate",
+      "start": {
+        "time": -92.19984189828881,
+        "clock": -92,
+        "pace": 6,
+        "panel": "Race course",
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 2
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 2
+          }
+        },
+        "animation": 20.615799999999982
+      },
+      "end": {
+        "time": -92.19984189828881,
+        "clock": -92,
+        "pace": 6,
+        "panel": "Race course",
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 4
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 4
+          }
+        },
+        "animation": 20.615799999999982
+      }
+    },
+    {
+      "name": "Keyboard controls holds both clocks and meshes; PageUp changes only playback rate",
+      "start": {
+        "time": -90.65670009628428,
+        "clock": -90,
+        "pace": 6,
+        "panel": "Keyboard controls",
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 2
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 2
+          }
+        },
+        "animation": 20.849099999999975
+      },
+      "end": {
+        "time": -90.65670009628428,
+        "clock": -90,
+        "pace": 6,
+        "panel": "Keyboard controls",
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 4
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 4
+          }
+        },
+        "animation": 20.849099999999975
+      }
+    },
+    {
+      "name": "Coach holds both clocks and resumes prior playback policy"
+    },
+    {
+      "name": "Replay/resume rebases deadlines and retains native preset6"
+    },
+    {
+      "name": "OG level 1 and original Space precision/restoration"
+    },
+    {
+      "name": "OG level 6 and original Space precision/restoration"
+    },
+    {
+      "name": "OG level 10 and original Space precision/restoration"
+    },
+    {
+      "name": "OG level 15 and original Space precision/restoration"
+    },
+    {
+      "name": "Modern PageUp selection persists through reload"
+    }
+  ],
+  "scope": "Actual Chrome5-Optimist clock1/2/4/8 measurements and independent elapsed cosmetic rate; trusted Space/F/Page keys, held R/? meshes and clocks, modern coach hold/resume, replay, original-level precision controls and preference reload. Rate windows are5seconds each on this machine; overloaded hardware may run below the requested target."
+}
