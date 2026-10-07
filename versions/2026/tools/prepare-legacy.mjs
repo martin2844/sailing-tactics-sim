@@ -219,6 +219,21 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     const prepared=source.replace(anchor,'if (address === 0x4432b0) return options.updateWaveMotion ? options.updateWaveMotion(memory,options) : updateWaveMotion(memory,{...options,rng});');
     await writeFile(target,prepared);
     generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'owned-wave-state-v1',sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/keyboard.js'){
+    const source=bytes.toString('utf8'),selection='(iVar3 = cI32(r32(0x4da140)));';
+    if(source.split(selection).length!==16)throw Error('Keyboard player-selection source changed');
+    const prepared=source.replaceAll(selection,'(iVar3 = cI32(options.controlBoat ?? r32(0x4da140)));');
+    await writeFile(target,prepared);
+    generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'explicit-controlled-boat-v1',sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/steering.js'){
+    const source=bytes.toString('utf8');
+    const mouse='const mouseActive = sub32';
+    const buttons="if (lowerButton < idiv32(read('viewportHeight'), 2) || read('uiMode') === 3) {";
+    if(source.split(mouse).length!==2||source.split(buttons).length!==2)throw Error('Legacy screen steering gates changed');
+    const prepared=source.replace(mouse,'const mouseActive = options.legacyScreenSteering !== false && sub32')
+      .replace(buttons,"if (options.legacyScreenSteering !== false && (lowerButton < idiv32(read('viewportHeight'), 2) || read('uiMode') === 3)) {");
+    await writeFile(target,prepared);
+    generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'explicit-screen-steering-policy-v1',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/integration.js'){
     const source=bytes.toString('utf8'),call='respawnWaypoint(memory,index,rng,options)';
     if(source.split(call).length!==2)throw Error('Integration wave reset source changed');

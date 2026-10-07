@@ -63,6 +63,8 @@ export class EngineRuntime {
       ...numeric.bindings(), ...configuration.options,
       rng: this.random.gameplay, trig: configuration.trig,
       finishWindowEnabled: true,
+      legacyScreenSteering: false,
+      controlBoat: 1,
       getTickCount: () => this.ticks++ >>> 0,
       getCursorPos: () => ({x: 0, y: 0}),
       invalidateRect: () => {},
@@ -125,6 +127,14 @@ export class EngineRuntime {
 
   command(command: number): void { this.numeric.command(this.memory,command,this.options); }
   key(key: number): void {
+    // Space is a speed reset during sailing. Setup/panel dismissal keeps its
+    // contextual native behavior; pause belongs to the2026 host's F control.
+    if (key === 32 && this.memory.readI32(0x5363b0) === 2
+      && !panelFlags.some(address => this.memory.readI32(address) !== 0)
+      && this.memory.readI32(0x5363f4) === 0) {
+      this.numeric.command(this.memory,32872,this.options);
+      return;
+    }
     if (key === 8) {
       if (this.replay) this.restoreState(this.replay);
       this.memory.writeI32(0x53642c,1);

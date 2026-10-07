@@ -21,7 +21,7 @@ export function createGuideExtractor(context:any){
   const dc=new TraceDc({objects:new Map(objects),recordEvents:false});
   // A chart of unbounded extent admits guides outside the historical viewport.
   // Native conditions choose their types/sides; the free camera clips them later.
-  const owner=image.readI32(0x4da140),point=selectNavigationPoint(image,owner);
+  const owner=options.controlBoat??image.readI32(0x4da140),point=selectNavigationPoint(image,owner);
   image.writeI32(0x5230b8,point);
   guideDraw(image,dc,random,privateOptions,false,512,384,.05,0,0,1,owner,-1e8,-1e8,1e8,1e8);
   // Physical object selection is independent of the offset AI waypoint.

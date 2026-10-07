@@ -31,7 +31,7 @@ function evaluateIsolatedGuideCases(context:any){
  const rows=[];
  for(const fixture of cases){
   const m=new ModelMemory(memory.size,memory.base);m.bytes.set(memory.bytes);
-  const owner=m.readI32(0x4da140),random=new ModelRng();random.state=rng.state;
+  const owner=options.controlBoat??m.readI32(0x4da140),random=new ModelRng();random.state=rng.state;
   m.writeI32(0x4f8cd0,fixture.clock);m.writeI32(0x4fecc8+owner*4,fixture.angle);
   m.writeI32(0x4fbf10+owner*4,fixture.target);m.writeI32(0x4da184,fixture.off?0:1);
   m.writeI32(0x5363f4,fixture.results?1:0);m.writeI32(0x525a78+owner*4,fixture.orientation??2);

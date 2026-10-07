@@ -1226,3 +1226,10 @@ compatibility adapters remain a separately tracked cleanup.
   independent-chrome-racing-2026-10-07. Prior penalty-restoration outlier/interrupted
   attempts remain preserved in contact-og-renderer-attempts.json; they were not
   discarded or counted as successful repeats. Physical Pixel testing stays deferred.
+
+- [x] **CONTROL-01 — Restore Space speed reset and working tack/jibe controls.**
+  Space sets speed1 without pausing; F owns pause. Disabled legacy screen hit
+  handling that cancelled maneuvers, retained original turning math and routed
+  keyboard controls to the displayed boat.29 focused tests and trusted Chrome
+  tack/jibe/control evaluations pass. See
+  [control regression report](versions/2026/analysis/app/maneuver-controls-2026-10-07.md).
