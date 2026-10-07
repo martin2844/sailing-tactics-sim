@@ -47,6 +47,10 @@ let raceWindow:RaceWindow;
 let islandNavigator:IslandNavigator|undefined,spatialMetric:any;
 let resultsReady=false;
 const pacer=new PlaybackPacer();
+// A high playback rate advances every numerical step but only needs a display
+// snapshot at screen cadence. Controls and pause publish their state immediately.
+let lastSnapshotAt=-Infinity;
+const snapshotIntervalMs=1000/60;
 let generation=0,frame=0,paused=true,failed=false,ready=false,delay=0,timer:ReturnType<typeof setTimeout>|undefined;
 const queue=new MessageChannel();let pending=false,scheduleToken=0;
 queue.port1.onmessage=event=>{if(event.data!==scheduleToken)return;pending=false;if(ready&&!paused&&!failed)tick();};
@@ -143,7 +147,17 @@ async function boundary():Promise<Boundary>{
     frame,time:memory.readF64(0x5359f0),clock:memory.readI32(0x4f8cd0),rngState:rng.state,
     memorySha256:hex(imageDigest),shore:informationContext.options.shoreStack.snapshot()};
 }
-function tick(){try{let duration=stepRuntime();if(memory.readI32(0x5363f4)!==0&&!resultsReady)duration+=stepRuntime();send('snapshot',snapshot(duration));requestModels();if(memory.readI32(0x5363f4)!==0){paused=true;send('paused',true);}else schedule(pacer.delay(performance.now(),memory.readF64(0x5359f0),delay,duration));}catch(error){fail(error);}}
+function tick(){try{
+ let duration=stepRuntime();
+ if(memory.readI32(0x5363f4)!==0&&!resultsReady)duration+=stepRuntime();
+ const completed=memory.readI32(0x5363f4)!==0;
+ if(pacer.mode!=='clock'||completed||performance.now()-lastSnapshotAt>=snapshotIntervalMs){
+  send('snapshot',snapshot(duration));lastSnapshotAt=performance.now();
+ }
+ requestModels();
+ if(completed){paused=true;send('paused',true);}
+ else schedule(pacer.delay(performance.now(),memory.readF64(0x5359f0),delay,duration));
+}catch(error){fail(error);}}
 async function initialize(data:any){
   if(ready||memory)throw new Error('Worker cannot initialize twice');
   generation=data.generation;
@@ -232,7 +246,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   const {type,data,id}=event.data;
   if(type==='init'){await initialize(data);return;}
   if(event.data.generation!==generation||!ready||failed)return;
-  if(type==='pause'){paused=Boolean(data);pacer.reset(performance.now(),memory.readF64(0x5359f0));if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('paused',paused);}
+  if(type==='pause'){paused=Boolean(data);pacer.reset(performance.now(),memory.readF64(0x5359f0));if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('snapshot',snapshot(0));send('paused',paused);}
   else if(type==='playback'){configurePlayback(data);send('snapshot',snapshot(0));}
   else if(type==='command'||type==='control-command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');if(type==='control-command'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&data!==32918&&speedForCommand(data)===undefined)return;await menu(memory,data,options);const nativeSpeed=speedForCommand(data);if(nativeSpeed!==undefined){pacer.configure({mode:'legacy',level:nativeSpeed},performance.now(),memory.readF64(0x5359f0));rebasePlayback();}send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
   else if(type==='key'||type==='control'){
@@ -242,7 +256,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     const clockRateKey=pacer.mode==='clock'&&[33,34].includes(data);
     const clockSpaceKey=pacer.mode==='clock'&&data===32&&previousPhase===2&&panelTitle()===null&&!resultsReady;
     if(clockRateKey||clockSpaceKey){
-      if(clockSpaceKey)pacer.togglePrecision(performance.now(),memory.readF64(0x5359f0));
+      if(clockSpaceKey)pacer.resetRate(performance.now(),memory.readF64(0x5359f0));
       else pacer.adjustRate(data===33?1:-1,performance.now(),memory.readF64(0x5359f0));
       if(memory.readI32(0x4da174)!==clockNativeSpeed)runtime.restoreSpeed(clockNativeSpeed);
       rebasePlayback();

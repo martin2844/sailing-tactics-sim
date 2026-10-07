@@ -1,11 +1,19 @@
-# Real-time playback and cosmetic time
+# Consolidated playback speed and cosmetic time
 
-2026-10-07. The2026 app now defaults to **1× real time**, with explicit2×,4×
-and8× fast-forward choices. The same setup/live dropdown retains all15 original
-levels under “Original pacing.” Saved modern choices survive reload/restart.
-Space alternates1× and the selected rate; original mode keeps its existing
-level1/selected-level behavior. F remains pause. Page Up/Down select adjacent
-choices in the active mode.
+2026-10-07. Both2026 speed selectors now use exactly **1×,2×,4×,8×,16×,24×,28×
+and32×**. There is one public timing system, defaulting to1× real time. Saved
+multiplier choices survive reload/restart; old saved OG-mode preferences migrate
+to1× because native level numbers were not time multipliers. The old native
+speed-preference key no longer influences the2026 app.
+
+Space always sets the selected and active rate to1×, including while paused.
+Repeated presses stay at1×. F remains pause. Page Up/Down traverse the ordered
+list and clamp at1× and32×. Space still dismisses a held original panel in that
+context, and still starts a race after original N/setup.
+
+The same lightweight speedometer SVG appears in both closed controls and every
+open option. Its face stays fixed; the needle progresses from left to right
+across the eight rates. There are no timing groups or clock icons.
 
 ## Numerical and wall-time ownership
 
@@ -22,6 +30,12 @@ timer jitter is accounted for. Large wall-time debt over250ms is discarded;
 an overloaded or stalled host can run below its selected target, without a long
 catch-up burst or skipped sailing state.
 
+Display snapshots are emitted at up to60Hz, independently of numerical step
+frequency. This avoids cloning/extracting/transporting a full display state for
+every high-rate step. Explicit controls, pause/resume, diagnostics and completed
+results publish immediately. Numerical steps are never dropped by this display
+limit; private reference scheduling retains its original per-step publication.
+
 The published clock is the native game clock. Its integer display can lead or
 lag by a fraction of a numerical timestep; fractional wall/game measurements
 are the acceptance metric. Pause, freeze, information/legacy panels, tab hiding,
@@ -30,22 +44,23 @@ temporary1× reduction and starts at the selected rate.
 
 Settings without a `playback` field retain original scheduling at the worker
 API boundary. This preserves numerical diagnostic/reference clients. Actual
-2026 UI settings always provide an explicit choice. Original speed commands
-explicitly select original pacing. Checkpoint/replay still belongs to the
+2026 UI settings always provide an explicit multiplier choice. Original speed
+commands remain a private reference/diagnostic compatibility route; the UI does
+not offer them. Checkpoint/replay still belongs to the
 independent runtime; playback is host scheduling metadata.
 
 ## Assistance and input
 
 Original automatic foul slowdown remains available. It can temporarily select
 the original numerical level1, and clock mode displays an effective1× reduction.
-An explicit Space or Page speed action restores numerical preset6 with the
+An explicit Space reset or Page speed action restores numerical preset6 with the
 original four-game-second assistance grace. The owned `restoreSpeed` operation
 does not dismiss a held panel. Ordinary clock-rate changes never leak into
 original Page Up/Down numerical handlers, including on R/? held screens.
 
 This preserves the original assistance transition as an explicit exception to
 ordinary preset6 operation. No penalty is cleared or boat relocated by a pacing
-change. Legacy levels retain their original delay/divisor and grace behavior.
+change. Private legacy reference clients retain their original delay/divisor and grace behavior.
 
 ## Cosmetic motion
 
@@ -61,7 +76,35 @@ environmental presentation continue to follow numerical game state. Only the
 additional cosmetic flutter phase uses the new clock. No renderer callback
 advances authoritative gameplay or its random streams.
 
-## Evaluation and review
+## Current evaluation
+
+The consolidated-speed evaluation uses every multiplier in actual Chrome,
+verifies both menus and monotonically increasing needles, repeated Space reset,
+F pause with exact boundary equality, held R/? screens, coach, replay, Page-key
+clamping, preference reload/migration and trusted native-picker selection.
+
+[Current receipt](../analysis/app/consolidated-speed-final-2026-10-07/verification.json).
+Rate windows are5 seconds with5 Optimists on this host.1×–16× follow the selected
+target closely. The32× window reached31.57×. The24× and28× windows reached
+10.59× and16.66× respectively in more expensive race states; throughput can
+therefore vary with AI interactions even at a higher selected rate. These are
+requested wall-time rates, not a guarantee that every fleet/venue/hardware can
+execute the recovered numerical kernels fast enough. The test records effective
+playback and native pace separately so an assistance slowdown cannot masquerade
+as a throughput measurement.
+
+[Icon/layout regression](../analysis/app/consolidated-speed-icons-2026-10-07/verification.json)
+checks the shared family, boat/course/compass changes, native keyboard selection,
+setup state isolation and four desktop Chrome viewport widths.
+
+All42 focused numerical/cutover tests pass, including all eight pacing deadlines,
+permanent Space reset, rate traversal/clamping and unchanged numerical/RNG
+trajectories at the same timestep and ordered inputs.
+
+## Earlier evaluation and review
+
+The following receipts describe the preceding implementation, including its
+then-public OG modes and Space toggle. Those UI behaviors are superseded above.
 
 - All41 focused cutover/independent tests pass, including jitter/deadline rates,
   holds/rewind/stalls/precision/reset, original15-level encoding/scheduling,

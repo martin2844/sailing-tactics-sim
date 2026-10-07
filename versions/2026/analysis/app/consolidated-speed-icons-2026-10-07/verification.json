@@ -1,0 +1,934 @@
+{
+  "passed": true,
+  "icons": [
+    {
+      "name": "flag",
+      "bytes": 335
+    },
+    {
+      "name": "trophy",
+      "bytes": 312
+    },
+    {
+      "name": "dinghy",
+      "bytes": 287
+    },
+    {
+      "name": "keelboat",
+      "bytes": 301
+    },
+    {
+      "name": "catamaran",
+      "bytes": 302
+    },
+    {
+      "name": "board",
+      "bytes": 250
+    },
+    {
+      "name": "optimist",
+      "bytes": 260
+    },
+    {
+      "name": "laser",
+      "bytes": 307
+    },
+    {
+      "name": "snipe",
+      "bytes": 318
+    },
+    {
+      "name": "fiveOhFive",
+      "bytes": 305
+    },
+    {
+      "name": "thistle",
+      "bytes": 285
+    },
+    {
+      "name": "lightning",
+      "bytes": 276
+    },
+    {
+      "name": "tornado",
+      "bytes": 296
+    },
+    {
+      "name": "star",
+      "bytes": 257
+    },
+    {
+      "name": "aClass",
+      "bytes": 254
+    },
+    {
+      "name": "etchells",
+      "bytes": 321
+    },
+    {
+      "name": "ideal18",
+      "bytes": 288
+    },
+    {
+      "name": "flyingScot",
+      "bytes": 273
+    },
+    {
+      "name": "jy15",
+      "bytes": 292
+    },
+    {
+      "name": "eScow",
+      "bytes": 244
+    },
+    {
+      "name": "fleet",
+      "bytes": 378
+    },
+    {
+      "name": "pin",
+      "bytes": 294
+    },
+    {
+      "name": "lake",
+      "bytes": 295
+    },
+    {
+      "name": "island",
+      "bytes": 287
+    },
+    {
+      "name": "river",
+      "bytes": 265
+    },
+    {
+      "name": "breeze",
+      "bytes": 244
+    },
+    {
+      "name": "wind",
+      "bytes": 265
+    },
+    {
+      "name": "gust",
+      "bytes": 299
+    },
+    {
+      "name": "compass",
+      "bytes": 341
+    },
+    {
+      "name": "speed",
+      "bytes": 412
+    },
+    {
+      "name": "windward",
+      "bytes": 379
+    },
+    {
+      "name": "windwardTwice",
+      "bytes": 424
+    },
+    {
+      "name": "triangle",
+      "bytes": 437
+    },
+    {
+      "name": "triangleTwice",
+      "bytes": 482
+    },
+    {
+      "name": "gold",
+      "bytes": 469
+    },
+    {
+      "name": "downwind",
+      "bytes": 398
+    },
+    {
+      "name": "downwindTwice",
+      "bytes": 443
+    },
+    {
+      "name": "series",
+      "bytes": 263
+    },
+    {
+      "name": "chevron",
+      "bytes": 228
+    }
+  ],
+  "rawSvgBytes": 12366,
+  "gzipSvgBytes": 1427,
+  "checks": [
+    {
+      "id": "race-boat",
+      "value": 1,
+      "icon": "optimist"
+    },
+    {
+      "id": "race-boat",
+      "value": 3,
+      "icon": "board"
+    },
+    {
+      "id": "race-boat",
+      "value": 11,
+      "icon": "tornado"
+    },
+    {
+      "id": "race-boat",
+      "value": 12,
+      "icon": "keelboat"
+    },
+    {
+      "id": "race-area",
+      "value": 32799,
+      "icon": "lake"
+    },
+    {
+      "id": "race-area",
+      "value": 32801,
+      "icon": "island"
+    },
+    {
+      "id": "race-area",
+      "value": 32803,
+      "icon": "river"
+    },
+    {
+      "id": "race-area",
+      "value": 33016,
+      "icon": "pin"
+    },
+    {
+      "id": "race-course",
+      "value": 1,
+      "icon": "windward"
+    },
+    {
+      "id": "race-course",
+      "value": 2,
+      "icon": "windwardTwice"
+    },
+    {
+      "id": "race-course",
+      "value": 3,
+      "icon": "triangle"
+    },
+    {
+      "id": "race-course",
+      "value": 4,
+      "icon": "triangleTwice"
+    },
+    {
+      "id": "race-course",
+      "value": 5,
+      "icon": "gold"
+    },
+    {
+      "id": "race-course",
+      "value": 6,
+      "icon": "downwind"
+    },
+    {
+      "id": "race-course",
+      "value": 7,
+      "icon": "downwindTwice"
+    },
+    {
+      "id": "race-wind",
+      "value": 1,
+      "icon": "breeze"
+    },
+    {
+      "id": "race-wind",
+      "value": 2,
+      "icon": "wind"
+    },
+    {
+      "id": "race-wind",
+      "value": 3,
+      "icon": "gust"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": "auto",
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 0,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 45,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 90,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 135,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 180,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 225,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 270,
+      "icon": "compass"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": 315,
+      "icon": "compass"
+    },
+    {
+      "id": "race-mode",
+      "value": "championship",
+      "icon": "trophy"
+    },
+    {
+      "id": "series-length",
+      "value": 5,
+      "icon": "series"
+    },
+    {
+      "id": "race-mode",
+      "value": "race",
+      "icon": "flag"
+    },
+    {
+      "id": "race-area",
+      "value": 32799,
+      "icon": "lake"
+    },
+    {
+      "id": "race-course",
+      "value": 1,
+      "icon": "windward"
+    },
+    {
+      "id": "race-wind",
+      "value": 2,
+      "icon": "wind"
+    },
+    {
+      "id": "race-wind-direction",
+      "value": "auto",
+      "icon": "compass"
+    },
+    {
+      "name": "Trusted End/Enter changes native select and its icon"
+    },
+    {
+      "id": "race-wind",
+      "value": 2,
+      "icon": "wind"
+    },
+    {
+      "name": "Trusted race start, decorated live pace, sailing focus and repeated Space1× reset work"
+    }
+  ],
+  "wrappers": [
+    {
+      "id": "fleet",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-boat",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-mode",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-area",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-fleet",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-speed",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-wind",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-wind-direction",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "race-course",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "series-length",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    },
+    {
+      "id": "pace",
+      "count": 1,
+      "decorative": true,
+      "viewboxes": [
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24",
+        "0 0 24 24"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "form": {
+        "top": 62.75,
+        "left": 140,
+        "right": 1300
+      },
+      "selects": [
+        {
+          "id": "race-boat",
+          "width": 283.875,
+          "left": 179,
+          "right": 462.875,
+          "content": 207.875,
+          "iconRight": 213,
+          "arrowLeft": 436.875
+        },
+        {
+          "id": "race-mode",
+          "width": 239,
+          "left": 769,
+          "right": 1008,
+          "content": 163,
+          "iconRight": 803,
+          "arrowLeft": 982
+        },
+        {
+          "id": "race-area",
+          "width": 239,
+          "left": 1022,
+          "right": 1261,
+          "content": 163,
+          "iconRight": 1056,
+          "arrowLeft": 1235
+        },
+        {
+          "id": "race-fleet",
+          "width": 239,
+          "left": 769,
+          "right": 1008,
+          "content": 163,
+          "iconRight": 803,
+          "arrowLeft": 982
+        },
+        {
+          "id": "race-speed",
+          "width": 239,
+          "left": 1022,
+          "right": 1261,
+          "content": 163,
+          "iconRight": 1056,
+          "arrowLeft": 1235
+        },
+        {
+          "id": "race-wind",
+          "width": 237,
+          "left": 769,
+          "right": 1006,
+          "content": 161,
+          "iconRight": 803,
+          "arrowLeft": 980
+        },
+        {
+          "id": "race-wind-direction",
+          "width": 237,
+          "left": 1024,
+          "right": 1261,
+          "content": 161,
+          "iconRight": 1058,
+          "arrowLeft": 1235
+        },
+        {
+          "id": "race-course",
+          "width": 492,
+          "left": 769,
+          "right": 1261,
+          "content": 416,
+          "iconRight": 803,
+          "arrowLeft": 1235
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "form": {
+        "top": 32,
+        "left": 60,
+        "right": 1220
+      },
+      "selects": [
+        {
+          "id": "race-boat",
+          "width": 283.875,
+          "left": 99,
+          "right": 382.875,
+          "content": 207.875,
+          "iconRight": 133,
+          "arrowLeft": 356.875
+        },
+        {
+          "id": "race-mode",
+          "width": 239,
+          "left": 689,
+          "right": 928,
+          "content": 163,
+          "iconRight": 723,
+          "arrowLeft": 902
+        },
+        {
+          "id": "race-area",
+          "width": 239,
+          "left": 942,
+          "right": 1181,
+          "content": 163,
+          "iconRight": 976,
+          "arrowLeft": 1155
+        },
+        {
+          "id": "race-fleet",
+          "width": 239,
+          "left": 689,
+          "right": 928,
+          "content": 163,
+          "iconRight": 723,
+          "arrowLeft": 902
+        },
+        {
+          "id": "race-speed",
+          "width": 239,
+          "left": 942,
+          "right": 1181,
+          "content": 163,
+          "iconRight": 976,
+          "arrowLeft": 1155
+        },
+        {
+          "id": "race-wind",
+          "width": 237,
+          "left": 689,
+          "right": 926,
+          "content": 161,
+          "iconRight": 723,
+          "arrowLeft": 900
+        },
+        {
+          "id": "race-wind-direction",
+          "width": 237,
+          "left": 944,
+          "right": 1181,
+          "content": 161,
+          "iconRight": 978,
+          "arrowLeft": 1155
+        },
+        {
+          "id": "race-course",
+          "width": 492,
+          "left": 689,
+          "right": 1181,
+          "content": 416,
+          "iconRight": 723,
+          "arrowLeft": 1155
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "form": {
+        "top": 20,
+        "left": 35,
+        "right": 733
+      },
+      "selects": [
+        {
+          "id": "race-boat",
+          "width": 314,
+          "left": 60,
+          "right": 374,
+          "content": 238,
+          "iconRight": 94,
+          "arrowLeft": 348
+        },
+        {
+          "id": "race-mode",
+          "width": 293,
+          "left": 415,
+          "right": 708,
+          "content": 217,
+          "iconRight": 449,
+          "arrowLeft": 682
+        },
+        {
+          "id": "race-area",
+          "width": 293,
+          "left": 415,
+          "right": 708,
+          "content": 217,
+          "iconRight": 449,
+          "arrowLeft": 682
+        },
+        {
+          "id": "race-fleet",
+          "width": 293,
+          "left": 415,
+          "right": 708,
+          "content": 217,
+          "iconRight": 449,
+          "arrowLeft": 682
+        },
+        {
+          "id": "race-speed",
+          "width": 293,
+          "left": 415,
+          "right": 708,
+          "content": 217,
+          "iconRight": 449,
+          "arrowLeft": 682
+        },
+        {
+          "id": "race-wind",
+          "width": 141.5,
+          "left": 415,
+          "right": 556.5,
+          "content": 65.5,
+          "iconRight": 449,
+          "arrowLeft": 530.5
+        },
+        {
+          "id": "race-wind-direction",
+          "width": 141.5,
+          "left": 566.5,
+          "right": 708,
+          "content": 65.5,
+          "iconRight": 600.5,
+          "arrowLeft": 682
+        },
+        {
+          "id": "race-course",
+          "width": 293,
+          "left": 415,
+          "right": 708,
+          "content": 217,
+          "iconRight": 449,
+          "arrowLeft": 682
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "form": {
+        "top": 12,
+        "left": 27,
+        "right": 363
+      },
+      "selects": [
+        {
+          "id": "race-boat",
+          "width": 143,
+          "left": 46,
+          "right": 189,
+          "content": 82,
+          "iconRight": 75,
+          "arrowLeft": 168
+        },
+        {
+          "id": "race-mode",
+          "width": 143,
+          "left": 46,
+          "right": 189,
+          "content": 82,
+          "iconRight": 75,
+          "arrowLeft": 168
+        },
+        {
+          "id": "race-area",
+          "width": 143,
+          "left": 201,
+          "right": 344,
+          "content": 82,
+          "iconRight": 230,
+          "arrowLeft": 323
+        },
+        {
+          "id": "race-fleet",
+          "width": 143,
+          "left": 46,
+          "right": 189,
+          "content": 82,
+          "iconRight": 75,
+          "arrowLeft": 168
+        },
+        {
+          "id": "race-speed",
+          "width": 143,
+          "left": 201,
+          "right": 344,
+          "content": 82,
+          "iconRight": 230,
+          "arrowLeft": 323
+        },
+        {
+          "id": "race-wind",
+          "width": 144,
+          "left": 46,
+          "right": 190,
+          "content": 83,
+          "iconRight": 75,
+          "arrowLeft": 169
+        },
+        {
+          "id": "race-wind-direction",
+          "width": 144,
+          "left": 200,
+          "right": 344,
+          "content": 83,
+          "iconRight": 229,
+          "arrowLeft": 323
+        },
+        {
+          "id": "race-course",
+          "width": 298,
+          "left": 46,
+          "right": 344,
+          "content": 237,
+          "iconRight": 75,
+          "arrowLeft": 323
+        }
+      ]
+    }
+  ],
+  "before": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.46570795995547,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "2f93de80511e03306d4b48ea3557abb4f87e90fa1b069e26d9ef8cb038bd3490",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "after": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.46570795995547,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "2f93de80511e03306d4b48ea3557abb4f87e90fa1b069e26d9ef8cb038bd3490",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "scope": "Actual Chrome setup selectors: deterministic authored SVG family, dynamic boat/venue/wind/course/event/compass icons, native keyboard selection, decorative accessibility, responsive bounds and exact authoritative state held through setup changes; trusted race start and live pace/focus/Space regression. Narrow layouts inspected in desktop Chrome, not Pixel acceptance."
+}

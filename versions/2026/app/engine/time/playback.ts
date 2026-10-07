@@ -1,6 +1,6 @@
 import {defaultSimulatorSpeed,speedCommand,speedForCommand,validateSimulatorSpeed} from '../speed.ts';
 
-export const playbackRates=[1,2,4,8] as const;
+export const playbackRates=[1,2,4,8,16,24,28,32] as const;
 export type PlaybackRate=typeof playbackRates[number];
 export type PlaybackChoice={mode:'clock';rate:PlaybackRate}|{mode:'legacy';level:number};
 export interface PlaybackState {selected:PlaybackChoice;active:PlaybackChoice}
@@ -50,9 +50,8 @@ export class PlaybackPacer {
   if(this.selected.mode==='legacy')return {selected:{mode:'legacy',level:nativeSelected},active:{mode:'legacy',level:nativeActive}};
   return {selected:{...this.selected},active:{mode:'clock',rate:this.precision?1:this.selected.rate}};
  }
- togglePrecision(now:number,gameTime:number):void {
-  if(this.selected.mode!=='clock')return;
-  this.precision=this.selected.rate!==1&&!this.precision;this.reset(now,gameTime);
+ resetRate(now:number,gameTime:number):void {
+  this.configure(defaultPlayback,now,gameTime);
  }
  slowForWarning(now:number,gameTime:number):void {
   if(this.selected.mode==='clock'&&!this.precision&&this.selected.rate!==1){this.precision=true;this.reset(now,gameTime);}

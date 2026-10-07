@@ -48,14 +48,14 @@ try{
  const start=await browser.evaluate(`(()=>{const r=document.getElementById('start-race').getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2};})()`);
  for(const type of ['mousePressed','mouseReleased'])await browser.call('Input.dispatchMouseEvent',{type,...start,button:'left',clickCount:1});
  await browser.waitFor('document.getElementById("starter").hidden&&!tact2026.paused&&tact2026.ready',60000);
- await browser.evaluate(`(()=>{const s=document.getElementById('pace');s.focus();s.value='32876';s.dispatchEvent(new Event('change'));})()`);
- await browser.waitFor('tact2026.latest.configuration.speed===5&&document.activeElement.id==="scene"');
+ await browser.evaluate(`(()=>{const s=document.getElementById('pace');s.focus();s.value='clock:4';s.dispatchEvent(new Event('change'));})()`);
+ await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.pace===6&&document.activeElement.id==="scene"');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'Space',key:' ',windowsVirtualKeyCode:32});
- await browser.waitFor('tact2026.latest.pace===1');
+ await browser.waitFor('tact2026.latest.playback.selected.rate===1&&tact2026.latest.playback.active.rate===1');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'Space',key:' ',windowsVirtualKeyCode:32});
- await browser.waitFor('tact2026.latest.pace===5');
+ await browser.waitFor('tact2026.latest.playback.selected.rate===1&&tact2026.latest.playback.active.rate===1');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'KeyF',key:'f',windowsVirtualKeyCode:70});
- await browser.waitFor('tact2026.paused');checks.push({name:'Trusted race start, decorated live pace, sailing focus and Space1/5 toggle still work'});
+ await browser.waitFor('tact2026.paused');checks.push({name:'Trusted race start, decorated live pace, sailing focus and repeated Space1× reset work'});
  await writeFile(resolve(output,'verification.json'),JSON.stringify({passed:true,icons,rawSvgBytes:Buffer.byteLength(svgSet),gzipSvgBytes:gzipSync(svgSet).length,checks,wrappers,layouts,before,after,scope:'Actual Chrome setup selectors: deterministic authored SVG family, dynamic boat/venue/wind/course/event/compass icons, native keyboard selection, decorative accessibility, responsive bounds and exact authoritative state held through setup changes; trusted race start and live pace/focus/Space regression. Narrow layouts inspected in desktop Chrome, not Pixel acceptance.'},null,2));
  console.log(JSON.stringify({passed:true,checks:checks.length,icons:icons.length,rawSvgBytes:Buffer.byteLength(svgSet),gzipSvgBytes:gzipSync(svgSet).length}));
 }catch(error){await shot('failure');await writeFile(resolve(output,'failure.json'),JSON.stringify({error:error.stack,checks},null,2));throw error;}finally{await browser.close();}

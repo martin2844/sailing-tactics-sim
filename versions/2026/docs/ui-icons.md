@@ -5,13 +5,17 @@ the same24×24 viewBox, navy `currentColor`,1.2-unit rounded stroke and a shared
 SVG template. Boat icons
 share mast/sail primitives; course icons share mark and route primitives.
 
-There are40 glyphs, including14 boat class marks, the playback clock and the dropdown chevron. The complete rendered set is
-12,561bytes raw and1,398bytes gzip. This measures the SVG markup alone, not the
+There are39 glyphs, including14 boat class marks, the OG-style speedometer and the dropdown chevron. The complete rendered set is
+12,366bytes raw and1,427bytes gzip. This measures the SVG markup alone, not the
 application's JavaScript/CSS integration. There are no icon packages, fonts,
 images, filters, network references, IDs or randomized paths.
 
 `iconSvg(name)` returns the same SVG for the same name. Compass direction adds
-only a deterministic rotation to its needle; its ring remains north-up. Geometry
+only a deterministic rotation to its needle; its ring remains north-up. The speedometer
+keeps the existing face and thin stroke. Its eight ordered multipliers rotate a
+seven-unit needle from−120° at1× to120° at32×, rounded to whole degrees. Each
+rendered gauge is about410bytes; both the open option and closed selection use
+the same generator. The clock glyph and timing optgroups have been removed. Geometry
 is authored directly in the source on fixed coordinates, so there is no model
 generation or regeneration step.
 
@@ -67,3 +71,8 @@ option clicks/typeahead/dismissal and compatibility-disabled courses. See
 [open-picker evidence](../analysis/app/option-icons-final-2026-10-07/verification.json).
 Screenshots were inspected for the setup at desktop and narrow Chrome widths;
 these are not mobile-device certification.
+
+The consolidated-speed regression is recorded in
+[the current icon/layout receipt](../analysis/app/consolidated-speed-icons-2026-10-07/verification.json).
+The progressive open/closed speed gauges and trusted32× selection are checked in
+[the speed receipt](../analysis/app/consolidated-speed-final-2026-10-07/verification.json).

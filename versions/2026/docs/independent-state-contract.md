@@ -2,7 +2,7 @@
 
 The2026 UI now uses an explicit wall-time playback scheduler and a separate
 cosmetic animation clock. [Real-time playback](real-time-playback.md) defines
-1×/fast-forward/OG modes, assistance exceptions and pause/reset ownership.
+the consolidated1×–32× multipliers and private reference scheduling, assistance exceptions and pause/reset ownership.
 Host scheduling metadata does not enter the numerical checkpoint; given the
 same native preset, ordered controls and step count, numerical state/RNG remains
 the regression contract. Existing reference clients omit playback settings and

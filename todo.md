@@ -1185,10 +1185,18 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Evaluated all27 sail classes and independent ray/framebuffer controls. See
   `versions/2026/docs/optimist-sail-details.md`.
 - [x] **Real-time playback — 2026-10-07.** Implement the accepted recommendation:
-  default1×, explicit2/4/8×, original15 levels retained, Space precision toggle,
+  default1×, explicit fast-forward multipliers, Space reset,
   paused wall-time cosmetic flutter, preserved numerical kernels and reviewed
   hold/replay/new-race/assistance routes. See
   `versions/2026/docs/real-time-playback.md` for bounded rate/trajectory evidence.
+
+- [x] **Consolidated speed controls — 2026-10-07.** Setup and sailing use the same
+  eight multipliers through32×, Space always resets to1×, saved OG mode migrates
+  to1×, and the OG speedometer uses deterministic progressive needles. Display
+  snapshots are capped at60Hz while every numerical step still runs. Evaluated
+  pause/panels/replay/persistence, gauge options and actual rates in Chrome;
+  high-rate throughput remains limited by numerical processing cost. See
+  `versions/2026/docs/real-time-playback.md`.
 
 - [x] **PARITY-00 — Audit original features and explain the current architecture.**
   Inventory all 312 original menu commands, trace UI/worker/renderer routing,
@@ -1223,8 +1231,8 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   direction and assistance controls through original handlers. Add night visuals
   if night race is exposed. Evaluate combinations before marking each supported;
   persist validated setup rather than silently resetting all preferences.
-  2026-10-07: all15 simulator pace levels are exposed and retained. Space toggles
-  precision speed1/selected speed; F pauses; Page Up/Down synchronize preference.
+  2026-10-07: a single1/2/4/8/16/24/28/32× speed list replaces the original
+  pace-level menu. Space always resets to1×; F pauses; Page keys synchronize preference.
   These pace settings do not complete the separate AI/race-option backlog.
 - [ ] **PARITY-06 — Port original learning/help navigation.**
   Make rules/tactics chapters, glossary, bibliography and relevant explanations

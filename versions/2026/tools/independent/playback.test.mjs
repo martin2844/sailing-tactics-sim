@@ -10,8 +10,8 @@ test('clock deadlines retain target rates across timer/work jitter without nativ
   const p=new PlaybackPacer();p.configure({mode:'clock',rate},0,-100);
   let now=0,time=-100;
   for(let n=0;n<200;n++){
-   now+=n%7+1;time+=.06;
-   const delay=p.delay(now,time,80,n%7+1);now+=delay;
+   const work=(n%7+1)/8;now+=work;time+=.06;
+   const delay=p.delay(now,time,80,work);now+=delay;
    assert.ok(Math.abs(now-(time+100)*1000/rate)<1e-7);
   }
  }
@@ -19,16 +19,16 @@ test('clock deadlines retain target rates across timer/work jitter without nativ
 test('hold/resume, checkpoint rewind, long stalls and precision changes rebase clock deadlines',()=>{
  const p=new PlaybackPacer();p.configure({mode:'clock',rate:8},0,100);
  assert.ok(Math.abs(p.delay(1,100.08,30,1)-9)<1e-7);
- p.togglePrecision(10,100.08);assert.equal(p.state(6,6).active.rate,1);
+ p.resetRate(10,100.08);assert.equal(p.state(6,6).active.rate,1);
  assert.ok(Math.abs(p.delay(20,100.16,30,10)-70)<1e-7);
- p.togglePrecision(90,100.16);assert.equal(p.state(6,6).active.rate,8);
+ p.configure({mode:'clock',rate:8},90,100.16);assert.equal(p.state(6,6).active.rate,8);
  p.reset(10000,100.16);assert.ok(p.delay(10001,100.24,30,1)<10);
  assert.equal(p.delay(20000,100.24,30,2),80,'Held step discards elapsed wall debt');
  assert.equal(p.delay(21000,100.32,30,2),0,'Long stall discards debt');
  assert.ok(p.delay(21001,100.4,30,1)<10);
  assert.equal(p.delay(22000,50,30,2),80,'Rewind never waits for discarded future game time');
  p.slowForWarning(22000,50);assert.equal(p.state(6,1).active.rate,1);p.adjustRate(1,22000,50);assert.equal(p.state(6,6).selected.rate,2);
- p.togglePrecision(23000,50);assert.equal(p.state(6,6).active.rate,1);p.beginRace(24000,-170);assert.equal(p.state(6,6).active.rate,2,'New race starts at the selected rate');
+ p.slowForWarning(23000,50);assert.equal(p.state(6,6).active.rate,1);p.beginRace(24000,-170);assert.equal(p.state(6,6).active.rate,2,'New race starts at the selected rate');
 });
 test('legacy scheduling and all15 encoded choices retain the recovered timing contract',()=>{
  const p=new PlaybackPacer();for(let level=1;level<=15;level++){
@@ -37,6 +37,17 @@ test('legacy scheduling and all15 encoded choices retain the recovered timing co
  }
  for(const rate of playbackRates)assert.deepEqual(parsePlaybackValue('clock:'+rate),{mode:'clock',rate});
  for(const bad of [{mode:'clock',rate:3},{mode:'clock',rate:'1'},{mode:'legacy',level:16},null])assert.throws(()=>validatePlayback(bad));
+});
+test('Space permanently resets the selection and Page keys traverse/clamp all eight rates',()=>{
+ const p=new PlaybackPacer();
+ assert.deepEqual(playbackRates,[1,2,4,8,16,24,28,32]);
+ for(const rate of playbackRates){
+  p.configure({mode:'clock',rate},0,100);p.resetRate(1,100);p.resetRate(2,100);
+  assert.deepEqual(p.state(6,6),{selected:{mode:'clock',rate:1},active:{mode:'clock',rate:1}});
+  p.beginRace(3,-170);assert.equal(p.state(6,6).selected.rate,1);
+ }
+ for(const rate of [...playbackRates.slice(1),32]){p.adjustRate(1,4,100);assert.equal(p.state(6,6).active.rate,rate);}
+ for(const rate of [...playbackRates.slice(0,-1).reverse(),1]){p.adjustRate(-1,5,100);assert.equal(p.state(6,6).active.rate,rate);}
 });
 test('elapsed cosmetic time freezes/resumes without debt or rate-dependent input',()=>{
  const c=new AnimationClock();assert.equal(c.sample(0),0);c.setPaused(false);assert.equal(c.sample(100),0);assert.equal(c.sample(900),.8);
@@ -47,7 +58,7 @@ test('host pacing metadata cannot change a fixed numerical input/step trajectory
  const a=makeRuntime({speed:6}),b=makeRuntime({speed:6}),p=new PlaybackPacer();let now=0;
  for(let n=0;n<150;n++){
   if([10,50,90].includes(n)){a.engine.key(84);b.engine.key(84);}
-  p.configure({mode:'clock',rate:playbackRates[n%4]},now,b.memory.readF64(0x5359f0));
+  p.configure({mode:'clock',rate:playbackRates[n%playbackRates.length]},now,b.memory.readF64(0x5359f0));
   a.engine.step();b.engine.step();now+=5+p.delay(now+5,b.memory.readF64(0x5359f0),80,5);
  }
  assert.deepEqual(a.memory.bytes,b.memory.bytes);assert.deepEqual(a.engine.random.snapshot(),b.engine.random.snapshot());

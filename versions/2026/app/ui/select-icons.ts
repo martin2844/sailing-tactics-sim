@@ -1,4 +1,5 @@
 import {areaChoices} from '../native-catalog';
+import {playbackRates} from '../engine/time/playback';
 import {iconSvg,type IconName} from './icons';
 const courseIcons:IconName[]=['windward','windwardTwice','triangle','triangleTwice','gold','downwind','downwindTwice'];
 const catamarans=new Set([10,11,17,23]);
@@ -19,7 +20,7 @@ function selectionIcon(select:HTMLSelectElement,optionValue=select.value):Select
   case 'race-wind-direction':return {name:'compass',...(optionValue==='auto'?{}:{direction:value})};
   case 'race-course':return {name:courseIcons[value-1]??'windward'};
   case 'series-length':return {name:'series'};
-  case 'race-speed':case 'pace':return {name:optionValue.startsWith('clock:')?'clock':'speed'};
+  case 'race-speed':case 'pace':return {name:'speed',direction:Math.round(-120+240*Math.max(0,playbackRates.indexOf(Number(optionValue.slice(6)) as typeof playbackRates[number]))/(playbackRates.length-1))};
   default:return {name:'speed'};
  }
 }

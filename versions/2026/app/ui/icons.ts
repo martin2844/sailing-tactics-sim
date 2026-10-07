@@ -43,8 +43,7 @@ export const iconBodies={
  wind:windTwo,
  gust:windTwo+'<path d="M13 19h5a2 2 0 1 1-2 2"/>',
  compass:compassRing+compassNeedle,
- speed:'<path d="M5 19a9 9 0 1 1 14 0M12 4v2M5 8l2 1m12-1-2 1M4 15h2m14 0h-2m-6 0 4-5"/><circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"/>',
- clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
+ speed:'<path d="M5 19a9 9 0 1 1 14 0M12 4v2M5 8l2 1m12-1-2 1M4 15h2m14 0h-2"/>',
  windward:windwardRoute,
  windwardTwice:windwardRoute+secondLap,
  triangle:triangleRoute,
@@ -58,9 +57,10 @@ export const iconBodies={
 export type IconName=keyof typeof iconBodies;
 
 /** A fixed template keeps geometry/styling identical wherever an icon is used.
- * Compass rotation indicates the selected wind source; its ring stays north-up. */
+ * Compass and speedometer rotate only their needles; their faces stay fixed. */
 export function iconSvg(name:IconName,direction?:number):string {
  const body=name==='compass'&&direction!==undefined
-  ?compassRing+`<g transform="rotate(${direction} 12 12)">${compassNeedle}</g>`:iconBodies[name];
+  ?compassRing+`<g transform="rotate(${direction} 12 12)">${compassNeedle}</g>`
+  :name==='speed'?iconBodies.speed+`<path data-needle="${direction??-120}" d="M12 15v-7" transform="rotate(${direction??-120} 12 15)"/><circle cx="12" cy="15" r="1.3" fill="currentColor" stroke="none"/>`:iconBodies[name];
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
 }
