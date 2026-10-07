@@ -10,6 +10,12 @@ export function captureInformation(context:any,request:InformationRequest):Infor
  const {memory,rng,options,objects,ModelMemory,ModelRng,TraceDc,copyStrings,renderer,key}=context;
  if(!request||!informationKinds.includes(request.kind)||!Number.isInteger(request.offset??0)||(request.offset??0)<0||(request.offset??0)>12||request.zoom!==undefined&&typeof request.zoom!=='boolean')throw Error('Invalid information request');
  const image=new ModelMemory(memory.size,memory.base),random=new ModelRng(rng.state);image.bytes.set(memory.bytes);copyStrings(memory,image);
+ // A course can finish without any upwind samples (or without a sailed tick).
+ // Do not manufacture samples to satisfy the old results coach's divisions.
+ if(request.kind==='coach'&&image.readI32(0x5363f4)!==0&&(image.readI32(0x534e94)===0||image.readI32(0x534ea4)===0))return {
+  kind:'coach',title:titles.coach,clock:memory.readI32(0x4f8cd0),primitives:[],
+  paragraphs:['Race complete. There are not enough upwind sailing samples for a reliable coaching summary.'],
+ };
  let ticks=0;
  const o={...options,...renderer.createOriginalRenderer({initialShoreStack:options.shoreStack.snapshot(),smoothGraphics:true}),rng:random,
   getTickCount:()=>ticks++,invalidateRect:()=>{},enforceMinimumPaintDuration:()=>{},closeWindow:()=>{},playSound:()=>1,messageBeep:()=>{},beep:()=>{}};

@@ -1,0 +1,1752 @@
+{
+  "format": 1,
+  "passed": true,
+  "scope": "Bounded desktop Chrome renderer/backend/worker coexistence evaluation, not complete MVP or physical touch acceptance",
+  "runs": [
+    {
+      "scenario": "Real native prestart course and automatic nearby names",
+      "startedFromModernSetup": false,
+      "minimapEnabled": true,
+      "guideCount": 0,
+      "requestedBackend": "webgl2",
+      "actualBackend": "WebGL 2",
+      "repetition": 0,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?fleet=15&backend=webgl2",
+          "headless": false,
+          "gpu": true,
+          "ensureWindowSize": false,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-bEMf9I",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-bEMf9I"
+        },
+        "processId": 1632485,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 4098,
+                "deviceId": 29822,
+                "vendorString": "Google Inc. (AMD)",
+                "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+                "driverVendor": "Mesa",
+                "driverVersion": "26.1.8"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_OPENGL",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_read_depth GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_draw_buffers_indexed GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object ",
+              "glImplementationParts": "(gl=egl-angle,angle=opengl)",
+              "glRenderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (AMD)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report EGL_ANGLE_create_context_passthrough_shaders ",
+              "glWsVendor": "Google Inc. (AMD)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.096575,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "8",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "GaneshGL",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "enabled",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "enabled",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "enabled_on",
+              "rasterization": "enabled",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "enabled",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "enabled",
+              "webgpu": "enabled",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "disabled_off"
+            },
+            "driverBugWorkarounds": [
+              "disable_software_to_accelerated_canvas_upgrade",
+              "enable_webgl_timer_query_extensions",
+              "exit_on_context_lost",
+              "force_cube_map_positive_x_allocation",
+              "force_int_or_srgb_cube_texture_complete",
+              "disabled_extension_GL_KHR_blend_equation_advanced",
+              "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+            ],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-bEMf9I --window-size=1280,1051 --ozone-platform=wayland --flag-switches-begin --flag-switches-end --render-node-override=/dev/dri/renderD128 about:blank"
+        },
+        "window": {
+          "windowId": 1642459349,
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": true
+        },
+        "windowSizing": {
+          "requested": {
+            "width": 1280,
+            "height": 1051
+          },
+          "before": {
+            "left": 0,
+            "top": 0,
+            "width": 655,
+            "height": 713,
+            "windowState": "normal"
+          },
+          "actions": [
+            {
+              "expression": "hl.dsp.window.float({action=\"set\",window=\"address:0x5ace34ba74a0\"})",
+              "address": "0x5ace34ba74a0",
+              "processId": 1632485
+            },
+            {
+              "expression": "hl.dsp.window.fullscreen_state({action=\"set\",internal=0,client=0,window=\"address:0x5ace34ba74a0\"})",
+              "address": "0x5ace34ba74a0",
+              "processId": 1632485
+            },
+            {
+              "expression": "hl.dsp.window.resize({x=1280,y=1051,relative=false,window=\"address:0x5ace34ba74a0\"})",
+              "address": "0x5ace34ba74a0",
+              "processId": 1632485
+            },
+            {
+              "expression": "hl.dsp.window.move({x=640,y=194,relative=false,window=\"address:0x5ace34ba74a0\"})",
+              "address": "0x5ace34ba74a0",
+              "processId": 1632485
+            },
+            {
+              "expression": "hl.dsp.window.resize({x=1280,y=1051,relative=false,window=\"address:0x5ace34ba74a0\"})",
+              "address": "0x5ace34ba74a0",
+              "processId": 1632485
+            },
+            {
+              "expression": "hl.dsp.window.move({x=640,y=194,relative=false,window=\"address:0x5ace34ba74a0\"})",
+              "address": "0x5ace34ba74a0",
+              "processId": 1632485
+            }
+          ],
+          "status": "matched",
+          "compositor": "Hyprland",
+          "syntax": "lua",
+          "after": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          },
+          "ownedClient": {
+            "address": "0x5ace34ba74a0",
+            "pid": 1632485,
+            "at": [
+              640,
+              194
+            ],
+            "size": [
+              1280,
+              1051
+            ],
+            "monitor": 0
+          }
+        },
+        "browserProcessId": 1632485
+      },
+      "adapter": {
+        "vendor": "Google Inc. (AMD)",
+        "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+      },
+      "readyMs": 1064.8999999761581,
+      "visibility": {
+        "current": "visible",
+        "log": []
+      },
+      "completedCadenceMs": {
+        "samples": 362,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 16.800000000000182,
+        "max": 20.899999999999636
+      },
+      "changedCadenceMs": {
+        "samples": 362,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 16.800000000000182,
+        "max": 20.899999999999636
+      },
+      "poseChangedFrames": 363,
+      "changedFrames": 362,
+      "blockedExternalKeyCount": 0,
+      "cpuSubmitMs": {
+        "samples": 363,
+        "median": 1.600000023841858,
+        "p95": 2.5,
+        "p99": 3.5,
+        "max": 5.199999988079071
+      },
+      "gpuMs": {
+        "samples": 363,
+        "median": 0.16024,
+        "p95": 0.32696,
+        "p99": 0.33376,
+        "max": 0.34344
+      },
+      "workerPaintMs": {
+        "samples": 515,
+        "median": 10.199999988079071,
+        "p95": 17.799999952316284,
+        "p99": 21.900000035762787,
+        "max": 23.5
+      },
+      "snapshotMaxBytes": 7279,
+      "modelExtractionMs": {
+        "samples": 82,
+        "median": 61.10000002384186,
+        "p95": 96.10000002384186,
+        "p99": 108.40000003576279,
+        "max": 108.40000003576279
+      },
+      "modelBuildMs": {
+        "samples": 82,
+        "median": 8.599999964237213,
+        "p95": 13.699999988079071,
+        "p99": 15.900000035762787,
+        "max": 15.900000035762787
+      },
+      "modelMaxBytes": 20714,
+      "combinedPresentationMaxBytes": 27993,
+      "surface": {
+        "cssWidth": 1280,
+        "cssHeight": 640,
+        "bufferWidth": 1280,
+        "bufferHeight": 640,
+        "devicePixelRatio": 1
+      },
+      "scenarioStart": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "scenarioEnd": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "drawCallsMax": 36,
+      "trianglesMax": 42085,
+      "simulation": {
+        "start": {
+          "time": -159.2377721116863,
+          "clock": -159,
+          "now": 2001.5,
+          "sequence": 65
+        },
+        "end": {
+          "time": -70.17953927179025,
+          "clock": -70,
+          "now": 8058,
+          "sequence": 579
+        },
+        "simSecondsPerWallSecond": 14.704570765276323
+      },
+      "trustedCameraResponseMs": {
+        "samples": 6,
+        "median": 14.800000011920929,
+        "p95": 15.099999964237213,
+        "p99": 15.099999964237213,
+        "max": 15.099999964237213
+      },
+      "pausedCameraStateUnchanged": true,
+      "trustedPort": {
+        "oldHeading": 267,
+        "newHeading": 257,
+        "oldTarget": 267,
+        "newTarget": 257,
+        "helmPaints": 1,
+        "constrained": false
+      },
+      "prohibitedRequests": 0,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      }
+    },
+    {
+      "scenario": "Real native prestart course and automatic nearby names",
+      "startedFromModernSetup": false,
+      "minimapEnabled": true,
+      "guideCount": 0,
+      "requestedBackend": "webgl2",
+      "actualBackend": "WebGL 2",
+      "repetition": 1,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?fleet=15&backend=webgl2",
+          "headless": false,
+          "gpu": true,
+          "ensureWindowSize": false,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-5LZzIq",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-5LZzIq"
+        },
+        "processId": 1634063,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 4098,
+                "deviceId": 29822,
+                "vendorString": "Google Inc. (AMD)",
+                "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+                "driverVendor": "Mesa",
+                "driverVersion": "26.1.8"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_OPENGL",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_read_depth GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_draw_buffers_indexed GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object ",
+              "glImplementationParts": "(gl=egl-angle,angle=opengl)",
+              "glRenderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (AMD)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report EGL_ANGLE_create_context_passthrough_shaders ",
+              "glWsVendor": "Google Inc. (AMD)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.104848,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "8",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "GaneshGL",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "enabled",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "enabled",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "enabled_on",
+              "rasterization": "enabled",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "enabled",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "enabled",
+              "webgpu": "enabled",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "disabled_off"
+            },
+            "driverBugWorkarounds": [
+              "disable_software_to_accelerated_canvas_upgrade",
+              "enable_webgl_timer_query_extensions",
+              "exit_on_context_lost",
+              "force_cube_map_positive_x_allocation",
+              "force_int_or_srgb_cube_texture_complete",
+              "disabled_extension_GL_KHR_blend_equation_advanced",
+              "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+            ],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-5LZzIq --window-size=1280,1051 --ozone-platform=wayland --flag-switches-begin --flag-switches-end --render-node-override=/dev/dri/renderD128 about:blank"
+        },
+        "window": {
+          "windowId": 1374361732,
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": true
+        },
+        "windowSizing": {
+          "requested": {
+            "width": 1280,
+            "height": 1051
+          },
+          "before": {
+            "left": 0,
+            "top": 0,
+            "width": 655,
+            "height": 713,
+            "windowState": "normal"
+          },
+          "actions": [
+            {
+              "expression": "hl.dsp.window.float({action=\"set\",window=\"address:0x5ace33a06800\"})",
+              "address": "0x5ace33a06800",
+              "processId": 1634063
+            },
+            {
+              "expression": "hl.dsp.window.fullscreen_state({action=\"set\",internal=0,client=0,window=\"address:0x5ace33a06800\"})",
+              "address": "0x5ace33a06800",
+              "processId": 1634063
+            },
+            {
+              "expression": "hl.dsp.window.resize({x=1280,y=1051,relative=false,window=\"address:0x5ace33a06800\"})",
+              "address": "0x5ace33a06800",
+              "processId": 1634063
+            },
+            {
+              "expression": "hl.dsp.window.move({x=640,y=194,relative=false,window=\"address:0x5ace33a06800\"})",
+              "address": "0x5ace33a06800",
+              "processId": 1634063
+            }
+          ],
+          "status": "matched",
+          "compositor": "Hyprland",
+          "syntax": "lua",
+          "after": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          },
+          "ownedClient": {
+            "address": "0x5ace33a06800",
+            "pid": 1634063,
+            "at": [
+              640,
+              194
+            ],
+            "size": [
+              1280,
+              1051
+            ],
+            "monitor": 0
+          }
+        },
+        "browserProcessId": 1634063
+      },
+      "adapter": {
+        "vendor": "Google Inc. (AMD)",
+        "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+      },
+      "readyMs": 1087.6000000238419,
+      "visibility": {
+        "current": "visible",
+        "log": []
+      },
+      "completedCadenceMs": {
+        "samples": 363,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.900000000000546,
+        "max": 29.100000000000364
+      },
+      "changedCadenceMs": {
+        "samples": 361,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 25,
+        "max": 33.400000000000546
+      },
+      "poseChangedFrames": 362,
+      "changedFrames": 361,
+      "blockedExternalKeyCount": 0,
+      "cpuSubmitMs": {
+        "samples": 364,
+        "median": 1.5,
+        "p95": 2.099999964237213,
+        "p99": 2.399999976158142,
+        "max": 7.400000035762787
+      },
+      "gpuMs": {
+        "samples": 364,
+        "median": 0.15936,
+        "p95": 0.3262,
+        "p99": 0.3336,
+        "max": 0.33808
+      },
+      "workerPaintMs": {
+        "samples": 562,
+        "median": 8.5,
+        "p95": 16.100000023841858,
+        "p99": 21.100000023841858,
+        "max": 27.19999998807907
+      },
+      "snapshotMaxBytes": 7280,
+      "modelExtractionMs": {
+        "samples": 96,
+        "median": 54.799999952316284,
+        "p95": 79,
+        "p99": 94.69999998807907,
+        "max": 94.69999998807907
+      },
+      "modelBuildMs": {
+        "samples": 96,
+        "median": 8.899999976158142,
+        "p95": 13.699999988079071,
+        "p99": 18.599999964237213,
+        "max": 18.599999964237213
+      },
+      "modelMaxBytes": 20858,
+      "combinedPresentationMaxBytes": 28138,
+      "surface": {
+        "cssWidth": 1280,
+        "cssHeight": 640,
+        "bufferWidth": 1280,
+        "bufferHeight": 640,
+        "devicePixelRatio": 1
+      },
+      "scenarioStart": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "scenarioEnd": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "drawCallsMax": 36,
+      "trianglesMax": 42085,
+      "simulation": {
+        "start": {
+          "time": -159.5843022005575,
+          "clock": -159,
+          "now": 1789.800000011921,
+          "sequence": 63
+        },
+        "end": {
+          "time": -62.20934722775286,
+          "clock": -62,
+          "now": 7926.300000011921,
+          "sequence": 625
+        },
+        "simSecondsPerWallSecond": 15.86815855500768
+      },
+      "trustedCameraResponseMs": {
+        "samples": 6,
+        "median": 9,
+        "p95": 14.899999976158142,
+        "p99": 14.899999976158142,
+        "max": 14.899999976158142
+      },
+      "pausedCameraStateUnchanged": true,
+      "trustedPort": {
+        "oldHeading": 267,
+        "newHeading": 257,
+        "oldTarget": 267,
+        "newTarget": 257,
+        "helmPaints": 1,
+        "constrained": false
+      },
+      "prohibitedRequests": 0,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      }
+    },
+    {
+      "scenario": "Real native prestart course and automatic nearby names",
+      "startedFromModernSetup": false,
+      "minimapEnabled": true,
+      "guideCount": 0,
+      "requestedBackend": "webgl2",
+      "actualBackend": "WebGL 2",
+      "repetition": 2,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?fleet=15&backend=webgl2",
+          "headless": false,
+          "gpu": true,
+          "ensureWindowSize": false,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-tbkigf",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-tbkigf"
+        },
+        "processId": 1635595,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 4098,
+                "deviceId": 29822,
+                "vendorString": "Google Inc. (AMD)",
+                "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+                "driverVendor": "Mesa",
+                "driverVersion": "26.1.8"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_OPENGL",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_read_depth GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_draw_buffers_indexed GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object ",
+              "glImplementationParts": "(gl=egl-angle,angle=opengl)",
+              "glRenderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (AMD)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report EGL_ANGLE_create_context_passthrough_shaders ",
+              "glWsVendor": "Google Inc. (AMD)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.098786,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "8",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "GaneshGL",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "enabled",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "enabled",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "enabled_on",
+              "rasterization": "enabled",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "enabled",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "enabled",
+              "webgpu": "enabled",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "disabled_off"
+            },
+            "driverBugWorkarounds": [
+              "disable_software_to_accelerated_canvas_upgrade",
+              "enable_webgl_timer_query_extensions",
+              "exit_on_context_lost",
+              "force_cube_map_positive_x_allocation",
+              "force_int_or_srgb_cube_texture_complete",
+              "disabled_extension_GL_KHR_blend_equation_advanced",
+              "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+            ],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-tbkigf --window-size=1280,1051 --ozone-platform=wayland --flag-switches-begin --flag-switches-end --render-node-override=/dev/dri/renderD128 about:blank"
+        },
+        "window": {
+          "windowId": 1387571253,
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": true
+        },
+        "windowSizing": {
+          "requested": {
+            "width": 1280,
+            "height": 1051
+          },
+          "before": {
+            "left": 0,
+            "top": 0,
+            "width": 655,
+            "height": 713,
+            "windowState": "normal"
+          },
+          "actions": [
+            {
+              "expression": "hl.dsp.window.float({action=\"set\",window=\"address:0x5ace349f4b00\"})",
+              "address": "0x5ace349f4b00",
+              "processId": 1635595
+            },
+            {
+              "expression": "hl.dsp.window.fullscreen_state({action=\"set\",internal=0,client=0,window=\"address:0x5ace349f4b00\"})",
+              "address": "0x5ace349f4b00",
+              "processId": 1635595
+            },
+            {
+              "expression": "hl.dsp.window.resize({x=1280,y=1051,relative=false,window=\"address:0x5ace349f4b00\"})",
+              "address": "0x5ace349f4b00",
+              "processId": 1635595
+            },
+            {
+              "expression": "hl.dsp.window.move({x=640,y=194,relative=false,window=\"address:0x5ace349f4b00\"})",
+              "address": "0x5ace349f4b00",
+              "processId": 1635595
+            }
+          ],
+          "status": "matched",
+          "compositor": "Hyprland",
+          "syntax": "lua",
+          "after": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          },
+          "ownedClient": {
+            "address": "0x5ace349f4b00",
+            "pid": 1635595,
+            "at": [
+              640,
+              194
+            ],
+            "size": [
+              1280,
+              1051
+            ],
+            "monitor": 0
+          }
+        },
+        "browserProcessId": 1635595
+      },
+      "adapter": {
+        "vendor": "Google Inc. (AMD)",
+        "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+      },
+      "readyMs": 963.5,
+      "visibility": {
+        "current": "visible",
+        "log": []
+      },
+      "completedCadenceMs": {
+        "samples": 359,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.800000000000182,
+        "max": 29.300000000000182
+      },
+      "changedCadenceMs": {
+        "samples": 357,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.90000000000009,
+        "max": 33.30000000000018
+      },
+      "poseChangedFrames": 357,
+      "changedFrames": 357,
+      "blockedExternalKeyCount": 0,
+      "cpuSubmitMs": {
+        "samples": 360,
+        "median": 1.5,
+        "p95": 2.199999988079071,
+        "p99": 2.600000023841858,
+        "max": 3.900000035762787
+      },
+      "gpuMs": {
+        "samples": 360,
+        "median": 0.15972,
+        "p95": 0.32692,
+        "p99": 0.33628,
+        "max": 0.34064
+      },
+      "workerPaintMs": {
+        "samples": 541,
+        "median": 8.599999964237213,
+        "p95": 16.69999998807907,
+        "p99": 22.30000001192093,
+        "max": 39.90000003576279
+      },
+      "snapshotMaxBytes": 7280,
+      "modelExtractionMs": {
+        "samples": 88,
+        "median": 59.799999952316284,
+        "p95": 78.79999995231628,
+        "p99": 89.19999998807907,
+        "max": 89.19999998807907
+      },
+      "modelBuildMs": {
+        "samples": 88,
+        "median": 7.600000023841858,
+        "p95": 15,
+        "p99": 19.69999998807907,
+        "max": 19.69999998807907
+      },
+      "modelMaxBytes": 20858,
+      "combinedPresentationMaxBytes": 28138,
+      "surface": {
+        "cssWidth": 1280,
+        "cssHeight": 640,
+        "bufferWidth": 1280,
+        "bufferHeight": 640,
+        "devicePixelRatio": 1
+      },
+      "scenarioStart": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "scenarioEnd": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "drawCallsMax": 36,
+      "trianglesMax": 42085,
+      "simulation": {
+        "start": {
+          "time": -158.54471193394392,
+          "clock": -158,
+          "now": 1892.8999999761581,
+          "sequence": 69
+        },
+        "end": {
+          "time": -64.98158793872238,
+          "clock": -64,
+          "now": 7924.099999964237,
+          "sequence": 609
+        },
+        "simSecondsPerWallSecond": 15.513185434972554
+      },
+      "trustedCameraResponseMs": {
+        "samples": 6,
+        "median": 8.300000011920929,
+        "p95": 20.69999998807907,
+        "p99": 20.69999998807907,
+        "max": 20.69999998807907
+      },
+      "pausedCameraStateUnchanged": true,
+      "trustedPort": {
+        "oldHeading": 267,
+        "newHeading": 257,
+        "oldTarget": 267,
+        "newTarget": 257,
+        "helmPaints": 1,
+        "constrained": false
+      },
+      "prohibitedRequests": 0,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      }
+    },
+    {
+      "scenario": "Real native prestart course and automatic nearby names",
+      "startedFromModernSetup": false,
+      "minimapEnabled": true,
+      "guideCount": 0,
+      "requestedBackend": "webgl2",
+      "actualBackend": "WebGL 2",
+      "repetition": 3,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?fleet=15&backend=webgl2",
+          "headless": false,
+          "gpu": true,
+          "ensureWindowSize": false,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-2u95JT",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-2u95JT"
+        },
+        "processId": 1637067,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 4098,
+                "deviceId": 29822,
+                "vendorString": "Google Inc. (AMD)",
+                "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+                "driverVendor": "Mesa",
+                "driverVersion": "26.1.8"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_OPENGL",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_read_depth GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_draw_buffers_indexed GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object ",
+              "glImplementationParts": "(gl=egl-angle,angle=opengl)",
+              "glRenderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (AMD)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report EGL_ANGLE_create_context_passthrough_shaders ",
+              "glWsVendor": "Google Inc. (AMD)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.124296,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "8",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "GaneshGL",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "enabled",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "enabled",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "enabled_on",
+              "rasterization": "enabled",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "enabled",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "enabled",
+              "webgpu": "enabled",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "disabled_off"
+            },
+            "driverBugWorkarounds": [
+              "disable_software_to_accelerated_canvas_upgrade",
+              "enable_webgl_timer_query_extensions",
+              "exit_on_context_lost",
+              "force_cube_map_positive_x_allocation",
+              "force_int_or_srgb_cube_texture_complete",
+              "disabled_extension_GL_KHR_blend_equation_advanced",
+              "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+            ],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-2u95JT --window-size=1280,1051 --ozone-platform=wayland --flag-switches-begin --flag-switches-end --render-node-override=/dev/dri/renderD128 about:blank"
+        },
+        "window": {
+          "windowId": 1712143503,
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": true
+        },
+        "windowSizing": {
+          "requested": {
+            "width": 1280,
+            "height": 1051
+          },
+          "before": {
+            "left": 0,
+            "top": 0,
+            "width": 655,
+            "height": 713,
+            "windowState": "normal"
+          },
+          "actions": [
+            {
+              "expression": "hl.dsp.window.float({action=\"set\",window=\"address:0x5ace339a4be0\"})",
+              "address": "0x5ace339a4be0",
+              "processId": 1637067
+            },
+            {
+              "expression": "hl.dsp.window.fullscreen_state({action=\"set\",internal=0,client=0,window=\"address:0x5ace339a4be0\"})",
+              "address": "0x5ace339a4be0",
+              "processId": 1637067
+            },
+            {
+              "expression": "hl.dsp.window.resize({x=1280,y=1051,relative=false,window=\"address:0x5ace339a4be0\"})",
+              "address": "0x5ace339a4be0",
+              "processId": 1637067
+            },
+            {
+              "expression": "hl.dsp.window.move({x=640,y=194,relative=false,window=\"address:0x5ace339a4be0\"})",
+              "address": "0x5ace339a4be0",
+              "processId": 1637067
+            }
+          ],
+          "status": "matched",
+          "compositor": "Hyprland",
+          "syntax": "lua",
+          "after": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          },
+          "ownedClient": {
+            "address": "0x5ace339a4be0",
+            "pid": 1637067,
+            "at": [
+              640,
+              194
+            ],
+            "size": [
+              1280,
+              1051
+            ],
+            "monitor": 0
+          }
+        },
+        "browserProcessId": 1637067
+      },
+      "adapter": {
+        "vendor": "Google Inc. (AMD)",
+        "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+      },
+      "readyMs": 1012.6000000238419,
+      "visibility": {
+        "current": "visible",
+        "log": []
+      },
+      "completedCadenceMs": {
+        "samples": 360,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.90000000000009,
+        "max": 29.200000000000728
+      },
+      "changedCadenceMs": {
+        "samples": 359,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.90000000000009,
+        "max": 33.20000000000027
+      },
+      "poseChangedFrames": 360,
+      "changedFrames": 359,
+      "blockedExternalKeyCount": 0,
+      "cpuSubmitMs": {
+        "samples": 361,
+        "median": 1.5,
+        "p95": 2.300000011920929,
+        "p99": 2.800000011920929,
+        "max": 4.599999964237213
+      },
+      "gpuMs": {
+        "samples": 361,
+        "median": 0.1594,
+        "p95": 0.32656,
+        "p99": 0.33584,
+        "max": 0.33684
+      },
+      "workerPaintMs": {
+        "samples": 544,
+        "median": 8.600000023841858,
+        "p95": 17,
+        "p99": 20.19999998807907,
+        "max": 33.89999997615814
+      },
+      "snapshotMaxBytes": 7278,
+      "modelExtractionMs": {
+        "samples": 88,
+        "median": 59.80000001192093,
+        "p95": 77,
+        "p99": 85.19999998807907,
+        "max": 85.19999998807907
+      },
+      "modelBuildMs": {
+        "samples": 88,
+        "median": 8,
+        "p95": 12.199999988079071,
+        "p99": 20.899999976158142,
+        "max": 20.899999976158142
+      },
+      "modelMaxBytes": 20684,
+      "combinedPresentationMaxBytes": 27962,
+      "surface": {
+        "cssWidth": 1280,
+        "cssHeight": 640,
+        "bufferWidth": 1280,
+        "bufferHeight": 640,
+        "devicePixelRatio": 1
+      },
+      "scenarioStart": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "scenarioEnd": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "drawCallsMax": 36,
+      "trianglesMax": 42085,
+      "simulation": {
+        "start": {
+          "time": -158.7179769783795,
+          "clock": -158,
+          "now": 1991.800000011921,
+          "sequence": 68
+        },
+        "end": {
+          "time": -64.28852776098,
+          "clock": -64,
+          "now": 8050.900000035763,
+          "sequence": 613
+        },
+        "simSecondsPerWallSecond": 15.584731926693392
+      },
+      "trustedCameraResponseMs": {
+        "samples": 6,
+        "median": 8.300000011920929,
+        "p95": 22.19999998807907,
+        "p99": 22.19999998807907,
+        "max": 22.19999998807907
+      },
+      "pausedCameraStateUnchanged": true,
+      "trustedPort": {
+        "oldHeading": 267,
+        "newHeading": 257,
+        "oldTarget": 267,
+        "newTarget": 257,
+        "helmPaints": 1,
+        "constrained": false
+      },
+      "prohibitedRequests": 0,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      }
+    },
+    {
+      "scenario": "Real native prestart course and automatic nearby names",
+      "startedFromModernSetup": false,
+      "minimapEnabled": true,
+      "guideCount": 0,
+      "requestedBackend": "webgl2",
+      "actualBackend": "WebGL 2",
+      "repetition": 4,
+      "browser": {
+        "requested": {
+          "url": "http://127.0.0.1:8770/spike/?fleet=15&backend=webgl2",
+          "headless": false,
+          "gpu": true,
+          "ensureWindowSize": false,
+          "width": 1280,
+          "height": 1051,
+          "requestTimeoutMs": 60000,
+          "startupTimeoutMs": 20000,
+          "executable": "/etc/profiles/per-user/martin/bin/google-chrome",
+          "args": [
+            "--no-sandbox",
+            "--remote-debugging-port=0",
+            "--no-first-run",
+            "--user-data-dir=/tmp/tact-browser-qzy5aM",
+            "--window-size=1280,1051",
+            "about:blank"
+          ],
+          "profile": "/tmp/tact-browser-qzy5aM"
+        },
+        "processId": 1638524,
+        "errors": {},
+        "version": {
+          "protocolVersion": "1.3",
+          "product": "Chrome/152.0.7977.82",
+          "revision": "@d04cdb24d67b081f6cf80200ffc5233f44b61109",
+          "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36",
+          "jsVersion": "15.2.124.21"
+        },
+        "systemInfo": {
+          "gpu": {
+            "devices": [
+              {
+                "vendorId": 4098,
+                "deviceId": 29822,
+                "vendorString": "Google Inc. (AMD)",
+                "deviceString": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+                "driverVendor": "Mesa",
+                "driverVersion": "26.1.8"
+              }
+            ],
+            "auxAttributes": {
+              "amdSwitchable": false,
+              "canSupportThreadedTextureMailbox": false,
+              "directRenderingVersion": "",
+              "displayType": "ANGLE_OPENGL",
+              "glExtensions": "GL_AMD_performance_monitor GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_clip_cull_distance GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_renderability_validation GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_shader_pixel_local_storage GL_ANGLE_stencil_texturing GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_multisample GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_copy_texture GL_CHROMIUM_lose_context GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_clip_cull_distance GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_conservative_depth GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_draw_buffers_indexed GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_render_snorm GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_storage GL_EXT_texture_type_2_10_10_10_REV GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_read_depth GL_NV_read_stencil GL_NV_shader_noperspective_interpolation GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_image_external_essl3 GL_OES_EGL_sync GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_draw_buffers_indexed GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_required_internalformat GL_OES_rgb8_rgba8 GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_vertex_array_object ",
+              "glImplementationParts": "(gl=egl-angle,angle=opengl)",
+              "glRenderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2 Mesa 26.1.8)",
+              "glResetNotificationStrategy": 33362,
+              "glVendor": "Google Inc. (AMD)",
+              "glVersion": "OpenGL ES 3.0 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "glWsExtensions": "EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report EGL_ANGLE_create_context_passthrough_shaders ",
+              "glWsVendor": "Google Inc. (AMD)",
+              "glWsVersion": "1.5 (ANGLE 2.1.28468 git hash: 7df613367a1d)",
+              "hardwareSupportsVulkan": false,
+              "inProcessGpu": false,
+              "initializationTime": 0.098658,
+              "isAsan": false,
+              "isClangCoverage": false,
+              "jpegDecodeAcceleratorSupported": false,
+              "maxMsaaSamples": "8",
+              "optimus": false,
+              "passthroughCmdDecoder": true,
+              "pixelShaderVersion": "3.00",
+              "processCrashCount": 0,
+              "sandboxed": false,
+              "skiaBackendType": "GaneshGL",
+              "subpixelFontRendering": true,
+              "targetCpuBits": 64,
+              "vertexShaderVersion": "3.00",
+              "visibilityCallbackCallCount": 0
+            },
+            "featureStatus": {
+              "2d_canvas": "enabled",
+              "direct_rendering_display_compositor": "disabled_off_ok",
+              "gpu_compositing": "enabled",
+              "multiple_raster_threads": "enabled_on",
+              "opengl": "enabled_on",
+              "rasterization": "enabled",
+              "raw_draw": "disabled_off_ok",
+              "skia_graphite": "disabled_off",
+              "trees_in_viz": "disabled_off",
+              "video_decode": "enabled",
+              "video_encode": "disabled_software",
+              "vulkan": "disabled_off",
+              "webgl": "enabled",
+              "webgpu": "enabled",
+              "webgpu_on_vk_via_gl_interop": "disabled_off",
+              "webnn": "disabled_off"
+            },
+            "driverBugWorkarounds": [
+              "disable_software_to_accelerated_canvas_upgrade",
+              "enable_webgl_timer_query_extensions",
+              "exit_on_context_lost",
+              "force_cube_map_positive_x_allocation",
+              "force_int_or_srgb_cube_texture_complete",
+              "disabled_extension_GL_KHR_blend_equation_advanced",
+              "disabled_extension_GL_KHR_blend_equation_advanced_coherent"
+            ],
+            "videoDecoding": [],
+            "videoEncoding": []
+          },
+          "modelName": "",
+          "modelVersion": "",
+          "commandLine": "/nix/store/nd182l5wfbbhyx16b6wsk3yq8582wg4j-google-chrome-152.0.7977.82/share/google/chrome/google-chrome --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true --simulate-outdated-no-au=Tue, 31 Dec 2099 23:59:59 GMT --no-sandbox --remote-debugging-port=0 --no-first-run --user-data-dir=/tmp/tact-browser-qzy5aM --window-size=1280,1051 --ozone-platform=wayland --flag-switches-begin --flag-switches-end --render-node-override=/dev/dri/renderD128 about:blank"
+        },
+        "window": {
+          "windowId": 2145668120,
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          }
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 908,
+          "outerWidth": 1280,
+          "outerHeight": 1051,
+          "devicePixelRatio": 1,
+          "visibilityState": "visible",
+          "focused": true
+        },
+        "windowSizing": {
+          "requested": {
+            "width": 1280,
+            "height": 1051
+          },
+          "before": {
+            "left": 0,
+            "top": 0,
+            "width": 655,
+            "height": 713,
+            "windowState": "normal"
+          },
+          "actions": [
+            {
+              "expression": "hl.dsp.window.float({action=\"set\",window=\"address:0x5ace34c3b140\"})",
+              "address": "0x5ace34c3b140",
+              "processId": 1638524
+            },
+            {
+              "expression": "hl.dsp.window.fullscreen_state({action=\"set\",internal=0,client=0,window=\"address:0x5ace34c3b140\"})",
+              "address": "0x5ace34c3b140",
+              "processId": 1638524
+            },
+            {
+              "expression": "hl.dsp.window.resize({x=1280,y=1051,relative=false,window=\"address:0x5ace34c3b140\"})",
+              "address": "0x5ace34c3b140",
+              "processId": 1638524
+            },
+            {
+              "expression": "hl.dsp.window.move({x=640,y=194,relative=false,window=\"address:0x5ace34c3b140\"})",
+              "address": "0x5ace34c3b140",
+              "processId": 1638524
+            }
+          ],
+          "status": "matched",
+          "compositor": "Hyprland",
+          "syntax": "lua",
+          "after": {
+            "left": 0,
+            "top": 0,
+            "width": 1280,
+            "height": 1051,
+            "windowState": "maximized"
+          },
+          "ownedClient": {
+            "address": "0x5ace34c3b140",
+            "pid": 1638524,
+            "at": [
+              640,
+              194
+            ],
+            "size": [
+              1280,
+              1051
+            ],
+            "monitor": 0
+          }
+        },
+        "browserProcessId": 1638524
+      },
+      "adapter": {
+        "vendor": "Google Inc. (AMD)",
+        "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+      },
+      "readyMs": 950.3000000119209,
+      "visibility": {
+        "current": "visible",
+        "log": []
+      },
+      "completedCadenceMs": {
+        "samples": 360,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.90000000000009,
+        "max": 25.100000000000364
+      },
+      "changedCadenceMs": {
+        "samples": 360,
+        "median": 16.699999999999818,
+        "p95": 16.800000000000182,
+        "p99": 20.90000000000009,
+        "max": 25.100000000000364
+      },
+      "poseChangedFrames": 361,
+      "changedFrames": 360,
+      "blockedExternalKeyCount": 0,
+      "cpuSubmitMs": {
+        "samples": 361,
+        "median": 1.5,
+        "p95": 2.199999988079071,
+        "p99": 3,
+        "max": 6.900000035762787
+      },
+      "gpuMs": {
+        "samples": 361,
+        "median": 0.15948,
+        "p95": 0.32868,
+        "p99": 0.34116,
+        "max": 0.34752
+      },
+      "workerPaintMs": {
+        "samples": 551,
+        "median": 8.100000023841858,
+        "p95": 16.30000001192093,
+        "p99": 19.5,
+        "max": 28.5
+      },
+      "snapshotMaxBytes": 7279,
+      "modelExtractionMs": {
+        "samples": 89,
+        "median": 59.60000002384186,
+        "p95": 77.60000002384186,
+        "p99": 84.5,
+        "max": 84.5
+      },
+      "modelBuildMs": {
+        "samples": 89,
+        "median": 7.899999976158142,
+        "p95": 11.300000011920929,
+        "p99": 20.599999964237213,
+        "max": 20.599999964237213
+      },
+      "modelMaxBytes": 20774,
+      "combinedPresentationMaxBytes": 28053,
+      "surface": {
+        "cssWidth": 1280,
+        "cssHeight": 640,
+        "bufferWidth": 1280,
+        "bufferHeight": 640,
+        "devicePixelRatio": 1
+      },
+      "scenarioStart": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "scenarioEnd": {
+        "generation": 1,
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 15,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": true,
+          "short": false
+        },
+        "fleet": 15,
+        "pace": 10,
+        "names": false,
+        "markLines": true,
+        "headingReference": false
+      },
+      "drawCallsMax": 36,
+      "trianglesMax": 42085,
+      "simulation": {
+        "start": {
+          "time": -158.7179769783795,
+          "clock": -158,
+          "now": 1882.2000000476837,
+          "sequence": 68
+        },
+        "end": {
+          "time": -63.24893749436643,
+          "clock": -63,
+          "now": 7925.900000035763,
+          "sequence": 619
+        },
+        "simSecondsPerWallSecond": 15.796455728146896
+      },
+      "trustedCameraResponseMs": {
+        "samples": 6,
+        "median": 8.699999988079071,
+        "p95": 15.100000023841858,
+        "p99": 15.100000023841858,
+        "max": 15.100000023841858
+      },
+      "pausedCameraStateUnchanged": true,
+      "trustedPort": {
+        "oldHeading": 267,
+        "newHeading": 257,
+        "oldTarget": 267,
+        "newTarget": 257,
+        "helmPaints": 1,
+        "constrained": false
+      },
+      "prohibitedRequests": 0,
+      "checks": {
+        "changedCadence": true,
+        "trustedCamera": true,
+        "presentation": true,
+        "geometry": true,
+        "visible": true,
+        "physicsProgress": true
+      }
+    }
+  ]
+}

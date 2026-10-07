@@ -47,7 +47,7 @@ try{
  await b.waitFor('globalThis.tact2026?.ready||globalThis.tact2026?.error',60000);
  if(await b.evaluate('tact2026.error'))throw new Error(await b.evaluate('tact2026.error'));
  const before=await b.evaluate('tact2026.engine.request("boundary")'),results=[];
- for(const kind of ['normal','penalty','trim','luff','luffNext','oppositeTack','spinnaker']){
+ for(const kind of ['normal','penalty','trim','luff','luffNext',...Array.from({length:7},(_,i)=>'luffNext'+(i+2)),'oppositeTack','spinnaker']){
   const v=await b.evaluate('('+captureCase.toString()+')('+JSON.stringify(kind)+')');
   await b.evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
   await writeFile(resolve(out,kind+'.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
@@ -56,7 +56,7 @@ try{
  if(results.find(v=>v.kind==='penalty').mainColour!==0||results.find(v=>v.kind==='normal').mainColour!==0xffffff)throw new Error('Penalty sail fixture did not switch white to black');
  for(const kind of ['trim','luff','oppositeTack','spinnaker'])if(results.find(v=>v.kind===kind).positionsSha256===results[0].positionsSha256)throw new Error('Rig state did not alter 3D geometry: '+kind);
  for(const kind of ['trim','oppositeTack'])if(JSON.stringify(results.find(v=>v.kind===kind).boom)===JSON.stringify(results[0].boom))throw new Error('Native boom did not move: '+kind);
- if(results.find(v=>v.kind==='luff').positionsSha256===results.find(v=>v.kind==='luffNext').positionsSha256)throw new Error('Native luff flutter did not change vertices');
+ if(new Set(results.filter(v=>v.kind.startsWith('luff')).map(v=>v.positionsSha256)).size<2)throw new Error('Native luff flutter did not change vertices');
  await b.evaluate('('+captureCase.toString()+')("normal")');
  await b.evaluate('tact2026.scene.camera.position.set(72,46,-74);tact2026.scene.controls.target.set(0,17,0);tact2026.scene.controls.update();new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');
  await writeFile(resolve(out,'crew-side.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));

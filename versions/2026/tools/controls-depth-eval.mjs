@@ -25,6 +25,17 @@ try{
  if(!await b.evaluate('document.getElementById("port").disabled&&document.getElementById("tack").disabled'))throw Error('Paused helm still enabled');checks.push({name:'Paused helm/sail input ignored at UI and worker; telemetry retained',held,heldAfter,stateAfter});
  await click('keyboard');await b.waitFor('tact2026.latest.panel');await key('Space',' ',32);await b.waitFor('!tact2026.latest.panel');if(!await b.evaluate('tact2026.paused'))throw Error('Panel dismissal changed host pause');if(await b.evaluate('tact2026.latest.pace')!==pace)throw Error('Space changed native pace');
  checks.push({name:'Space dismisses panel without changing pace/pause'});
+ // Native course/help panels also hold sailing input while the host is playing.
+ await click('pause');await b.waitFor('!tact2026.paused');
+ await key('KeyR','r',82);await b.waitFor('tact2026.latest.panel==="Race course"');
+ const panelBefore=await b.evaluate('tact2026.engine.request("boundary")');
+ await b.evaluate('tact2026.engine.send("control",84);tact2026.engine.send("control",73);tact2026.engine.send("control-command",32842)');
+ const panelAfter=await b.evaluate('tact2026.engine.request("boundary")');
+ const stateOnly=({frame,...state})=>state;
+ if(JSON.stringify(stateOnly(panelBefore))!==JSON.stringify(stateOnly(panelAfter)))throw Error('Native panel accepted sailing input');
+ if(!await b.evaluate('document.getElementById("port").disabled&&document.querySelector("#sailing-panel-content svg")'))throw Error('Owned course panel missing or helm enabled');
+ await key('Space',' ',32);await b.waitFor('!tact2026.latest.panel');await click('pause');await b.waitFor('tact2026.paused');
+ checks.push({name:'Owned course panel holds sailing input in UI and worker',panelBefore,panelAfter});
  const beforeDepth=await b.evaluate('tact2026.engine.request("boundary")'),saved=await b.evaluate('({...tact2026.latest.boats[0]})'),depthCases=[];
  for(const depth of[30,13,10,7]){
   await b.evaluate(`Object.assign(tact2026.latest.boats[0],{depth:${depth},groundingDepth:8,grounded:false})`);await b.waitFor(`document.getElementById('depth').textContent==='${depth.toFixed(1)} ft'`);

@@ -6,9 +6,28 @@ or pixels. The preserved 2010 player remains a separate evaluation reference.
 The recovered numerical JavaScript is reusable; wholesale replacement of AI,
 wind, current and sailing mathematics is unnecessary.
 
-## Existing foundation and actual dependencies
+## Current state —2026-10-07
 
-`app/engine.worker.ts:paint()` currently constructs Canvas DCs and calls the
+Production uses the renderer-free2026 EngineRuntime. It initializes, advances,
+freezes, scores, resets and restores races without the old paint lifecycle,
+world compositor, Canvas/GDI raster surfaces, bitmap fonts or pixel reads.
+The user explicitly selected independent gameplay/wave/cosmetic random streams;
+old seed-specific trajectories are not the new equality contract.
+
+Private presentation still reuses recovered boat, guide and information
+routines on copied state. It uses trace events to produce meshes/vectors and
+cannot advance the authoritative engine. Pure boat-definition/chart rewrites
+remain presentation cleanup, rather than a dependency of simulation progression.
+The2026 transport's existing compatibility boundary still contains broad legacy
+types; new authoritative modules use strict TypeScript ports.
+
+See [independent contractv1](independent-state-contract.md),
+[core review closure](../analysis/app/ENG-04-2.md) and
+[browser cutover](../analysis/app/ENG-13-1.md).
+
+## Historical foundation and discovered dependencies
+
+`app/engine.worker.ts:paint()` formerly constructed Canvas DCs and called the
 original lifecycle. That lifecycle initializes races, dispatches screens,
 advances simulation, composes drawings, runs timing gates and performs cleanup.
 `advanceFrame()` already exposes much of the numerical update in its original
@@ -40,7 +59,7 @@ Sources: [drawing audit](../analysis/baseline/BASE-04.md),
 | 1. Define state and comparison ownership | Classify authoritative state, RNG, commands, timing, retained context, visual scratch and existing 2026 policies. Freeze current working behavior as the immediate cutover reference. | A repeatable paired runner with identical seed, settings and ordered commands; compare old/new phase traces, report first differing field/call. |
 | 2. Expand dependency tracing | Record writes, intermediate/restored writes, reads, RNG calls and pixel queries by original routine. Cover startup, actual racing, finish, reset/replay, chart/coach and alternate options. | Instrumented and plain reference executions agree. Every removed dependency has a reader/use argument, including computed addresses and retained state. A zero net memory delta alone is insufficient. |
 | 3. Extract semantic drawing work | Move required waypoint/course updates, camera-derived compatibility state, slowdown, warning preparation, result/score transitions and cleanup into explicit engine phases. | Replace one callback at a time; compare relevant state, exact RNG state/draw order and future outputs over continued sailing. Unknown branches retain the old path in the development reference until classified. |
-| 4. Remove pixel and drawing-randomness dependencies | Replace required visibility/geometry decisions with deterministic calculations. Preserve the gameplay-relevant sequence of legacy random consumption, including branch-dependent effects. | Pixel-dependent branches have focused fixtures and continued full-state/RNG comparisons. Never return a constant pixel, consume a guessed fixed random count, or split the RNG stream silently. If a query cannot be reproduced without rasterization, report the blocker; do not declare this step complete. |
+| 4. Remove pixel and drawing-randomness dependencies | Replace required visibility/geometry decisions with deterministic calculations. Apply the user-approvedv1 random-stream contract; retain the recovered distributions and numerical formulas. | Pixel-dependent branches have focused fixtures and continued full-state/RNG comparisons. Never return a constant pixel or consume a guessed fixed random count. RNG separation is explicit in the approvedv1 contract. If a query cannot be reproduced without rasterization, report the blocker; do not declare this step complete. |
 | 5. Introduce the independent engine driver | Explicit initialize, apply commands, step, pause, finish, reset, checkpoint/restore and dispose APIs. Retain native arithmetic and variable timestep; keep contacts, navigation and finish-window policies in their declared phases. | Paired races, steering/trim/maneuvers, penalties and grace, rounding/gates, grounding, finish/DNF, championship reset and replay. No double advance, skipped tick or timestep inflation. |
 | 6. Publish presentation data directly | Snapshots/events carry rig/sail/crew pose, colors, air/depth status, course objects/guides, warnings, chart fields, history, score and sound cues. Build geometry from reusable boat definitions and animation inputs; replace old bitmap information panels. | All 27 boat families and rig states checked against preserved samples; all production observation is read-only and leaves state/RNG unchanged. Opening charts, coach or changing cameras cannot change sailing outcomes. |
 | 7. Switch production to the new worker | Remove lifecycle/DC allocation/blits, legacy surface/camera calibration dependencies, bitmap font hosting and runtime drawing-module imports. Keep the old engine accessible only to evaluation tools. | Run the engine with no DOM, Canvas, GDI or WebGL. Guards fail if forbidden drawing/pixel/lifecycle operations are attempted. Same ordered commands yield identical authoritative traces with rendering disabled and at 30/60/120/240 Hz. |

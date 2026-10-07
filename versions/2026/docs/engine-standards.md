@@ -38,7 +38,8 @@ Preservation sources are evaluation inputs, not files to refactor in place.
   in an isolated temporary checkout, record identity, and clean up only owned
   resources. Preserve failed evaluation attempts and qualify bounded coverage.
 
-The first extracted controller owns race/panel transition order. Its injected
-compatibility actions still draw legacy screens; this is an intermediate bridge,
-not a completed renderer-independent engine. Remaining drawing-owned behavior
-is tracked by the cutover plan and ENG-03b/03c tasks.
+The independent runtime now owns simulation/world/result/checkpoint phases.
+Earlier injected drawing actions remain historical extraction fixtures. They
+are not used by production. The transport still hosts bounded read-only
+presentation adapters; replacing those recovered mesh/chart builders with clean
+boat definitions is a separate presentation refactor, with its own fidelity gate.

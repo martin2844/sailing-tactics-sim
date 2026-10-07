@@ -1,4 +1,5 @@
 import {createGuideExtractor} from './native-guides';
+import {selectNavigationPoint} from './engine/compatibility/navigation-state';
 /** Finite private fixtures checked against the full, unchanged original chart
  * and its real GDI guide emissions, including all otherwise unrelated artwork. */
 export function evaluateGuideCases(context:any){
@@ -45,6 +46,11 @@ function evaluateIsolatedGuideCases(context:any){
    const point=m.readI32(0x4da194)+6+side;
    m.writeF64(0x4f8398+point*8,side?90:-90);m.writeF64(0x4fb068+point*8,1000);
   }
+  // The reference chart expects the sailing HUD's physical object and camera
+  // basis. Populate them on this fixture without changing its classified leg.
+  options.updateCompatibilityCamera?.(m,1);
+  if(owner===2)options.updateCompatibilityCamera?.(m,2);
+  m.writeI32(0x5230b8,selectNavigationPoint(m,owner));
   const candidate=createGuideExtractor({...context,memory:m,rng:random})();
   const original:any[]=[];
   const dc=new TraceDc({objects:new Map(objects),recordEvents:false,sink:(event:any,dc:any)=>{

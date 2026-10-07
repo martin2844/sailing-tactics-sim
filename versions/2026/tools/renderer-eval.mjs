@@ -20,7 +20,17 @@ async function sizedBrowser(url,backend,repetition){
   if(!b.metadata.window?.windowId)throw Error('Chrome owned window ID unavailable');
   const info=await b.browserCall('SystemInfo.getProcessInfo'),pid=info.processInfo.find(p=>p.type==='browser')?.id;
   if(!Number.isSafeInteger(pid)||pid<=0)throw Error('Browser PID unavailable for owned sizing');b.metadata.browserProcessId=pid;
-  const own=async()=>{const clients=JSON.parse((await executeFile('hyprctl',['-j','clients'],{timeout:2000})).stdout),found=clients.filter(c=>[pid,b.metadata.processId].includes(c.pid)&&c.mapped!==false);if(found.length!==1||!/^0x[0-9a-f]+$/i.test(found[0].address))throw Error('Owned Chrome window ambiguous');return found[0];};
+  const own=async()=>{
+    for(let attempt=0;attempt<20;attempt++){
+      const clients=JSON.parse((await executeFile('hyprctl',['-j','clients'],{timeout:2000})).stdout);
+      const found=clients.filter(c=>[pid,b.metadata.processId].includes(c.pid)&&c.mapped!==false);
+      if(found.length===1&&/^0x[0-9a-f]+$/i.test(found[0].address))return found[0];
+      if(found.length>1)throw Error('Owned Chrome window ambiguous');
+      // CDP can become ready before the compositor maps this new window.
+      await pause(100);
+    }
+    throw Error('Owned Chrome window did not map');
+  };
   const initial=await own(),address=initial.address;
   const monitors=JSON.parse((await executeFile('hyprctl',['-j','monitors'],{timeout:2000})).stdout),monitor=monitors.find(m=>m.id===initial.monitor);
   if(!monitor||monitor.width/monitor.scale<1280||monitor.height/monitor.scale<1051)throw Error('Owned monitor cannot fit reference window');

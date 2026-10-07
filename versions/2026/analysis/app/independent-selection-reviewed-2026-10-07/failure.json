@@ -1,0 +1,2138 @@
+{
+  "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught (in promise)\",\"lineNumber\":0,\"columnNumber\":0,\"exception\":{\"type\":\"string\",\"value\":\"Error: Native race configuration differs from selection\\n    at rn (http://127.0.0.1:8770/assets/engine.worker-Bbh1se0X.js:5:672)\\n    at async http://127.0.0.1:8770/assets/engine.worker-Bbh1se0X.js:5:1087\"}}\n    at Object.evaluate (file:///home/martin/tact/tools/browser-session.js:183:234)\n    at async file:///home/martin/tact/versions/2026/tools/independent/browser-eval.mjs:44:16",
+  "checks": [
+    {
+      "label": "boat-1",
+      "settings": {
+        "boat": 1,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 1,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.21122492594068,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "e5a64a633104cba3733b1098fa148d57450eab082b05987a8351894506c20211",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -161.5479727041612,
+          "clock": -161,
+          "rngState": 1807432078,
+          "memorySha256": "33a3b85ec025548ab60b5a24db60434b2a762b5ade5c3afcdf6e2e75119d9acd",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 179,
+        "records": 1747,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 1.0999999642372131
+        }
+      }
+    },
+    {
+      "label": "boat-2",
+      "settings": {
+        "boat": 2,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 2,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.1937077803425,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "d5c93a0a781eb6d3d3b6ade58b8cbb25c9bb10926de8794d23ebd7a5732100d1",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -161.00494119061727,
+          "clock": -161,
+          "rngState": 1558594680,
+          "memorySha256": "2a6dde3bc9de4024cbf6f4603480c9bd69ee868e4189c8aa0b6ee09d502dd1b2",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 211,
+        "records": 1937,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.800000011920929,
+          "latest": {
+            "clock": -168,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-3",
+      "settings": {
+        "boat": 3,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 3,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3630219551733,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "55c9e1aab7ec691b50c320fef0bfd0fb5536c43473e1044544702ea0c6c5cbb7",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -166.25368061037258,
+          "clock": -166,
+          "rngState": 1558594680,
+          "memorySha256": "ac8c47c4df1cfe8bece299174e56c1898bcf7613da7bb294f768b433acb2e191",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 187,
+        "records": 2035,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 1.5
+        }
+      }
+    },
+    {
+      "label": "boat-4",
+      "settings": {
+        "boat": 4,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 4,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.1937077803425,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "fb3017eba8ae025eb117fa807f2cc0ecc5d5e5bc55e5593854147db0456fac3f",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -161.00494119061727,
+          "clock": -161,
+          "rngState": 1807432078,
+          "memorySha256": "bf450543cd8a0e9d5ebd6d05affcff216c69d55936db5a7284310348cdf57d5c",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 261,
+        "records": 2438,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 1.199999988079071
+        }
+      }
+    },
+    {
+      "label": "boat-5",
+      "settings": {
+        "boat": 5,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 5,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.1937077803425,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "5d46c44f97b20aba697ae0b3f7434167dec8b1f6b194e34969de6e0716ded2ab",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -161.00494119061727,
+          "clock": -161,
+          "rngState": 2352002738,
+          "memorySha256": "3fb2d7d6be86422eeb1f75937d8ae495a5062bae46bd4ae2149f9789ee05bf14",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 263,
+        "records": 2438,
+        "contacts": {
+          "count": 1,
+          "fouls": 2,
+          "held": 0,
+          "workMs": 0.5999999642372131,
+          "latest": {
+            "clock": -168,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-6",
+      "settings": {
+        "boat": 6,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 6,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.28341869445552,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "faade2daaf73d6f6a8f859b586d0ab526ab525fb65c00dc50bd693cfd272b4a8",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -163.78597952812112,
+          "clock": -163,
+          "rngState": 1558594680,
+          "memorySha256": "a70a8719c80bdf4e0d262e781bbdcd1fb5ff747960f711b6c3329e784c51ba71",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 254,
+        "records": 2348,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.5
+        }
+      }
+    },
+    {
+      "label": "boat-7",
+      "settings": {
+        "boat": 7,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 7,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.32316210453007,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "079db67b9a19e58335703b00e01c0dc6c97f03ee1530ead0d03b3149ecc91409",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.01802524043217,
+          "clock": -165,
+          "rngState": 1558594680,
+          "memorySha256": "518cae30b2befa02008e9e1b34606f6903d2dc393fea24814a0e1a1bb15afda7",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 248,
+        "records": 2698,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.3999999761581421,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-8",
+      "settings": {
+        "boat": 8,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 8,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.22604391034662,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "4810a96c9f2d04054249cf25b4794c4a7ebad1e7c1ef18f0e65e13d028f119d5",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -162.00736122074517,
+          "clock": -162,
+          "rngState": 1558594680,
+          "memorySha256": "d3be5bac5f2488166a8a8ecdd6629e6fe6687154fb03547aaa820d298e673fd5",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 260,
+        "records": 2613,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.800000011920929,
+          "latest": {
+            "clock": -168,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-9",
+      "settings": {
+        "boat": 9,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 9,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.23879311741948,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "9af752031e6e49801717d59e013917fbd7c69024a90ee863289e5f117ebe3bf3",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -162.40258664000376,
+          "clock": -162,
+          "rngState": 1558594680,
+          "memorySha256": "9fd210375409e911093d0f59e61f69af108603405280ac47099a1df01531a22e",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 280,
+        "records": 2722,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 1.2000000476837158,
+          "latest": {
+            "clock": -168,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-10",
+      "settings": {
+        "boat": 10,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 10,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.34183137789248,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "11c1370f870b138df6079c9f4bf7586dc30a4e991ff73ecd907c0daf6bc89e05",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.59677271466674,
+          "clock": -165,
+          "rngState": 1558594680,
+          "memorySha256": "b30979226f1080e4d073b62c525c76cb8dbbe9efc676aebbbac2d96b12075c31",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 260,
+        "records": 2441,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 7.199999988079071,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-11",
+      "settings": {
+        "boat": 11,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 11,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.35561246297033,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "959f9a528bd59183a5b4dec4acbb2944d2678a4e37815cc1814f362ffb4992f4",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -166.02398635208016,
+          "clock": -166,
+          "rngState": 1558594680,
+          "memorySha256": "63a687c8511e31286829c6c9f35b6e626950f0d3e5b8200014b5e25541d5cd2b",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 266,
+        "records": 2491,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 6.300000011920929,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-12",
+      "settings": {
+        "boat": 12,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "74ed2af4165c12867372221d186ca112831c7c9d4ff464ffe4661f9c76faa87a",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 1558594680,
+          "memorySha256": "aea68ab0860b07cac0022fa30463b1fd86e4d81befd86028129976752e2ff641",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 285,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.5,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-13",
+      "settings": {
+        "boat": 13,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 13,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3630219551733,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "987aa31434132126421f1f9821064eedf0fe2bed975197dcd58a7c20ed348816",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -166.25368061037258,
+          "clock": -166,
+          "rngState": 1558594680,
+          "memorySha256": "36f852bbed121ceda8a2a4d0c15a3b2f5bd7af3826d2d16d15e9bb4b3ac34bae",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 343,
+        "records": 3475,
+        "contacts": {
+          "count": 1,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 1.199999988079071
+        }
+      }
+    },
+    {
+      "label": "boat-14",
+      "settings": {
+        "boat": 14,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 14,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3630219551733,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "d8acbaed14c37451931a60b7f04f8b66da851936388bdc2b96d2b1ebbadae855",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -166.25368061037258,
+          "clock": -166,
+          "rngState": 1558594680,
+          "memorySha256": "fdd5029515a937f0915135d058e54619835c035622a058ea5d661600f3afc919",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 414,
+        "records": 4483,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.5,
+          "latest": {
+            "clock": -170,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-15",
+      "settings": {
+        "boat": 15,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 15,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.40868130344887,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "05f83a9efce6ee0b808b3d5bb85917571f57a2ad435708db51f5e9788a0d91f3",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -167.66912040691506,
+          "clock": -167,
+          "rngState": 1558594680,
+          "memorySha256": "5314061d1286cf1ee05f7d89eb0a4c1837ac47244d7f3e2fe63db1885fcb1c8e",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 383,
+        "records": 3965,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.5,
+          "latest": {
+            "clock": -170,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-16",
+      "settings": {
+        "boat": 16,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 16,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.30125136338347,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "0ef46b520fbd59f7b5137924dff0f94fc5c56ecf39c196dd90f820d5487520d2",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -164.33879226488762,
+          "clock": -164,
+          "rngState": 1558594680,
+          "memorySha256": "61b4c015db3707b43d35102f5940ffec20fe2a2d4167774562c40642c6113f49",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 265,
+        "records": 2393,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.800000011920929,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-17",
+      "settings": {
+        "boat": 17,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 17,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.33627992197245,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "4e9ee19ff94c6e30c3eb8911be1897937b5797abb89936f3c4832140500e608a",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.4246775811459,
+          "clock": -165,
+          "rngState": 1558594680,
+          "memorySha256": "4a816175c1858a8b96990cf05474702b002f78744b548994f4522a06bb5341dc",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 223,
+        "records": 2116,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 2.800000011920929,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-18",
+      "settings": {
+        "boat": 18,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 18,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3630219551733,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "fdc934e7d8c73bf4d4c9a3387d5a2e2b6723153f3364976e0d55bac55166a5ae",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -166.25368061037258,
+          "clock": -166,
+          "rngState": 1558594680,
+          "memorySha256": "d27ead80758654facbf4cfc439ff3675e8d277d51859e788c04163ba5baa8f3c",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 288,
+        "records": 2798,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.7000000476837158,
+          "latest": {
+            "clock": -170,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-19",
+      "settings": {
+        "boat": 19,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 19,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3630219551733,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "d33d601303b235965d346d73687eb7ad5aa438eadf81db803450c103aea93ba1",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -166.25368061037258,
+          "clock": -166,
+          "rngState": 1558594680,
+          "memorySha256": "c76b0b772bb9b7ead41a1ac672d8c7d920d08eb368caa79293f30d9627847806",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 360,
+        "records": 3833,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 1.699999988079071,
+          "latest": {
+            "clock": -170,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-20",
+      "settings": {
+        "boat": 20,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 20,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.26846484522065,
+          "clock": -170,
+          "rngState": 612292943,
+          "memorySha256": "9561d274fea1ed73b9ae9d6078ec8589cfb8c48e62bd2a49494fcb4c9baaee8f",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -163.3224102018401,
+          "clock": -163,
+          "rngState": 3775639899,
+          "memorySha256": "b0dd78787fa61908723cd7c94c811fc09b9d00fbd923ddc646be99bb77010004",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 438,
+        "records": 3895,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 0.20000004768371582
+        }
+      }
+    },
+    {
+      "label": "boat-21",
+      "settings": {
+        "boat": 21,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 21,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.28341869445552,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "c8a2511bf809c13bde36e9c355b1436fbfcadcef27c79db9804fab7af64f6663",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -163.78597952812112,
+          "clock": -163,
+          "rngState": 1558594680,
+          "memorySha256": "4b3b2de7ba82133cbd63df74a9d083cc7d694320135ba1667ce344ee53347288",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 306,
+        "records": 2934,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.800000011920929,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-22",
+      "settings": {
+        "boat": 22,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 22,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3109523377581,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "4cc22559d22e20568a637672f22a020f85182e6cd77a0dc6e420997514c2f6cc",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -164.63952247050096,
+          "clock": -164,
+          "rngState": 1558594680,
+          "memorySha256": "951672258e29d44b0d94bcbfe6f94717ee0f58bc86eae1f932c2076164232a2e",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 348,
+        "records": 3484,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.5,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-23",
+      "settings": {
+        "boat": 23,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 23,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.34183137789248,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "fe25d9ba8805d1a1aa349555752a45bd5269947093ba776eb2282085aa1a3828",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.59677271466674,
+          "clock": -165,
+          "rngState": 1558594680,
+          "memorySha256": "42052be430ad57336b3d0462ac406df9e6f1bf2f6b1252052528d20e6260b697",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 453,
+        "records": 4881,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 2.800000011920929,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-24",
+      "settings": {
+        "boat": 24,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 24,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.295805186895,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "82e14e9742a970f4a55cf2ded531629ea2d3a067ac3acff891a4fe3fee2aa2af",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -164.16996079374485,
+          "clock": -164,
+          "rngState": 1558594680,
+          "memorySha256": "8acbd2b55aeda7540660e9f8777b64dc0815ea7160495ee09acb64a26e88ebd5",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 285,
+        "records": 2548,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 1,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-25",
+      "settings": {
+        "boat": 25,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 25,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.31529884203474,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "77c90bab06cf097014b2610b62b734ba5d16a6f16edf502ab2bc0d6a66f893d2",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -164.7742641030768,
+          "clock": -164,
+          "rngState": 1558594680,
+          "memorySha256": "96cedd6cf3bebf71702dc775c0943996afd7eeba0a402be04437267c83f551cf",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 298,
+        "records": 2912,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.800000011920929,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-26",
+      "settings": {
+        "boat": 26,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 26,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3332756332566,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "3309eda797b8078966c3b69ac8805b7c251628fd7a36e4df36f7bcba1927d122",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.3315446309543,
+          "clock": -165,
+          "rngState": 2352002738,
+          "memorySha256": "6e7c621a3b3eba411babc64e3b59ddcf3015b5e2b6ecaf354c4828c9d2aba300",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 300,
+        "records": 2767,
+        "contacts": {
+          "count": 0,
+          "fouls": 2,
+          "held": 0,
+          "workMs": 2.800000011920929,
+          "latest": {
+            "clock": -165,
+            "a": 1,
+            "other": "boat-4",
+            "penalties": []
+          }
+        }
+      }
+    },
+    {
+      "label": "boat-27",
+      "settings": {
+        "boat": 27,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 27,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.22604391034662,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "69489fe424cf7faa70fbd1f2ab8ced2301dcb6ff5f54755ad34fdf758d1c13cd",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -162.00736122074517,
+          "clock": -162,
+          "rngState": 2352002738,
+          "memorySha256": "16c69b8d795ef83e201d945a3af57ae72a8aac1dac755bf1f0d23243d0e08e44",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 283,
+        "records": 2623,
+        "contacts": {
+          "count": 1,
+          "fouls": 2,
+          "held": 0,
+          "workMs": 0.5,
+          "latest": {
+            "clock": -165,
+            "a": 1,
+            "other": "boat-4",
+            "penalties": []
+          }
+        }
+      }
+    },
+    {
+      "label": "venue-32795",
+      "settings": {
+        "boat": 12,
+        "area": 32795,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 1,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 632835531,
+          "memorySha256": "befce1e54035d777ff698ffeb484a7a61ac84870505dd677f3481a7f15c1606b",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 3677693719,
+          "memorySha256": "b96b6680adced769958086632459bd702979f180d3b1dce5fa4f365f702cd889",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 266,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 0.5
+        }
+      }
+    },
+    {
+      "label": "venue-32796",
+      "settings": {
+        "boat": 12,
+        "area": 32796,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 2,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 2845546629,
+          "memorySha256": "3ecd3d01cc934f5ab25c829d568c5a0c0b3b92edb35b16f979a043fdf5cfec1e",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 3413166003,
+          "memorySha256": "a572e9a89e9e2b400f46e2904fe12a15f8e43b1e2ba75b18b8e1816b9bdc418f",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 270,
+        "records": 2677,
+        "contacts": {
+          "count": 1,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.09999996423721313,
+          "latest": {
+            "clock": -167,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "venue-32797",
+      "settings": {
+        "boat": 12,
+        "area": 32797,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 3,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 632835531,
+          "memorySha256": "a3ca95245576c70ed64e181a354015fdf9301b1db742abfc93d142ad0ec43f8c",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 3677693719,
+          "memorySha256": "33fdce0e8c7d548d95b61b67895440246bd98afed151b0991a7a7946b586d2ef",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 272,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 3.900000035762787
+        }
+      }
+    },
+    {
+      "label": "venue-32798",
+      "settings": {
+        "boat": 12,
+        "area": 32798,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 4,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 125321243,
+          "memorySha256": "6a793977a9bbc9ecd8b7f071882a2e06a9e715b89f0f576cf60561ba381d2198",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 417939559,
+          "memorySha256": "720521816d0510e9cec021b7b5746694063909d20da1c8e3d974e5c8b99aa5de",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 285,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 0.19999998807907104
+        }
+      }
+    },
+    {
+      "label": "venue-32799",
+      "settings": {
+        "boat": 12,
+        "area": 32799,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 5,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 2601912946,
+          "memorySha256": "74ed2af4165c12867372221d186ca112831c7c9d4ff464ffe4661f9c76faa87a",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 1558594680,
+          "memorySha256": "aea68ab0860b07cac0022fa30463b1fd86e4d81befd86028129976752e2ff641",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 285,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 1,
+          "held": 0,
+          "workMs": 0.5,
+          "latest": {
+            "clock": -169,
+            "a": 1,
+            "other": "boat-2",
+            "penalties": [
+              {
+                "boat": 1,
+                "code": 4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "label": "venue-32800",
+      "settings": {
+        "boat": 12,
+        "area": 32800,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 6,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 1798742770,
+          "memorySha256": "ce45c8d5373c549074fd258cc9cf12415fd3c00103cd2351e26062622866f068",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 2433690126,
+          "memorySha256": "8551aca74c916e0b7a584357e3b1967673c8611f47ad0635e083d3386b34d42b",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 265,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 0.40000003576278687
+        }
+      }
+    },
+    {
+      "label": "venue-32801",
+      "settings": {
+        "boat": 12,
+        "area": 32801,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 12,
+          "area": 7,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.3267349555644,
+          "clock": -170,
+          "rngState": 981594919,
+          "memorySha256": "dd5c497198cb00eea176bd3c02600cd64b6d796689068cf2a8b3e27233f42250",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -165.12878362249654,
+          "clock": -165,
+          "rngState": 3413166003,
+          "memorySha256": "b1c9db5b57b91137b7cdfee102069e211d4cefb81fb2939bc35ae86da9d78511",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 272,
+        "records": 2677,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 0.5
+        }
+      }
+    },
+    {
+      "label": "venue-32802",
+      "settings": {
+        "boat": 14,
+        "area": 32802,
+        "course": 1,
+        "wind": 2
+      },
+      "result": {
+        "configuration": {
+          "course": 1,
+          "wind": 2,
+          "fleet": 5,
+          "selector": 14,
+          "area": 8,
+          "venue": 0,
+          "mode": 0,
+          "gate": false,
+          "short": false
+        },
+        "before": {
+          "frame": 1,
+          "time": -170.29856169878428,
+          "clock": -170,
+          "rngState": 3645795875,
+          "memorySha256": "d030398f75626ec03b960600aab7fe772281f81ec26c7053c923ee9f2fc7c5f6",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "advanced": {
+          "frame": 31,
+          "time": -164.25541266231278,
+          "clock": -164,
+          "rngState": 368196591,
+          "memorySha256": "ed46383363c04db9fe6524403acd440e27e07dc6952b59f70c927fa2907f7ff7",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "vertices": 250,
+        "records": 4528,
+        "contacts": {
+          "count": 0,
+          "fouls": 0,
+          "held": 0,
+          "workMs": 0.20000004768371582
+        }
+      }
+    }
+  ]
+}

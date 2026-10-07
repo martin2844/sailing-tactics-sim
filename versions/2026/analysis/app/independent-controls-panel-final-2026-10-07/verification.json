@@ -1,0 +1,422 @@
+{
+  "passed": true,
+  "scope": "Trusted Chrome toolbar clicks followed by Space, actual pause/freeze/resume/panel controls, exact paused native state, isolated red-depth HUD fixtures; no naturally sailed grounding claim.",
+  "initial": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.3267349555644,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "74ed2af4165c12867372221d186ca112831c7c9d4ff464ffe4661f9c76faa87a",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "checks": [
+    {
+      "depth": 30,
+      "grounded": false,
+      "expected": "clear",
+      "actual": {
+        "level": "clear",
+        "label": "",
+        "description": "Grounding depth 8.0 ft · clearance 22.0 ft"
+      }
+    },
+    {
+      "depth": 13,
+      "grounded": false,
+      "expected": "caution",
+      "actual": {
+        "level": "caution",
+        "label": "Shoaling",
+        "description": "5.0 ft above the grounding depth"
+      }
+    },
+    {
+      "depth": 10,
+      "grounded": false,
+      "expected": "danger",
+      "actual": {
+        "level": "danger",
+        "label": "Shallow water",
+        "description": "2.0 ft above the grounding depth"
+      }
+    },
+    {
+      "depth": 8,
+      "grounded": false,
+      "expected": "danger",
+      "actual": {
+        "level": "danger",
+        "label": "Shallow water",
+        "description": "0.0 ft above the grounding depth"
+      }
+    },
+    {
+      "depth": 7,
+      "grounded": false,
+      "expected": "danger",
+      "actual": {
+        "level": "danger",
+        "label": "Shallow water",
+        "description": "Below the grounding depth"
+      }
+    },
+    {
+      "depth": 30,
+      "grounded": true,
+      "expected": "grounded",
+      "actual": {
+        "level": "grounded",
+        "label": "Grounded",
+        "description": "Steer toward deeper water"
+      }
+    },
+    {
+      "grounded": false,
+      "expected": "unknown",
+      "actual": {
+        "level": "unknown",
+        "label": "",
+        "description": "Depth unavailable"
+      }
+    },
+    {
+      "name": "Space after chase",
+      "before": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 11,
+        "time": -168.59408451120845,
+        "clock": -168,
+        "rngState": 3908388496,
+        "memorySha256": "d593b433d0d2e2ac3630e80f2d5cd45393f5c9582492d1a42de181276dd5a482",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "after": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 11,
+        "time": -168.59408451120845,
+        "clock": -168,
+        "rngState": 3908388496,
+        "memorySha256": "d593b433d0d2e2ac3630e80f2d5cd45393f5c9582492d1a42de181276dd5a482",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    },
+    {
+      "name": "Space after overview",
+      "before": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 23,
+        "time": -166.5149039779813,
+        "clock": -166,
+        "rngState": 2483761128,
+        "memorySha256": "acebeb1e1087a6ff197646816a069bc188d05265eaa21088b203792fb8c833f3",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "after": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 23,
+        "time": -166.5149039779813,
+        "clock": -166,
+        "rngState": 2483761128,
+        "memorySha256": "acebeb1e1087a6ff197646816a069bc188d05265eaa21088b203792fb8c833f3",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    },
+    {
+      "name": "Space after mark-lines",
+      "before": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 35,
+        "time": -164.43572344475416,
+        "clock": -164,
+        "rngState": 904496704,
+        "memorySha256": "113e7155d180fbd847ae2f9d8566e7abc6ca279a4169fd8a4e3fecdf86359966",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "after": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 35,
+        "time": -164.43572344475416,
+        "clock": -164,
+        "rngState": 904496704,
+        "memorySha256": "113e7155d180fbd847ae2f9d8566e7abc6ca279a4169fd8a4e3fecdf86359966",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    },
+    {
+      "name": "Space after names",
+      "before": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 47,
+        "time": -162.35654291152701,
+        "clock": -162,
+        "rngState": 749185432,
+        "memorySha256": "183190d88fffc97c1fecedafbfc31ffc7c206227acd534723f54b2c816de40a7",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "after": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 47,
+        "time": -162.35654291152701,
+        "clock": -162,
+        "rngState": 749185432,
+        "memorySha256": "183190d88fffc97c1fecedafbfc31ffc7c206227acd534723f54b2c816de40a7",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    },
+    {
+      "name": "F uses the same stable host pause as Space and the button"
+    },
+    {
+      "name": "Paused helm/sail input ignored at UI and worker; telemetry retained",
+      "held": {
+        "boundary": {
+          "contract": "independent-v1",
+          "waveRngState": 583468104,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 82,
+          "time": -156.29226635628117,
+          "clock": -156,
+          "rngState": 3111282268,
+          "memorySha256": "d3b687bedb90572289d79c2ed08fcf7c6daea86b6699705aa7a03b1faf5552eb",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        },
+        "state": {
+          "boat": {
+            "id": 1,
+            "name": "Fire",
+            "x": 111.13739457876144,
+            "y": -161.48374976517567,
+            "heading": 267,
+            "speed": 3.2,
+            "leg": 0,
+            "finished": 0,
+            "dnf": false,
+            "status": 0,
+            "penaltyClock": -169,
+            "finishTime": 30000,
+            "points": [
+              0,
+              0,
+              0
+            ],
+            "windFrom": 223,
+            "windAngle": 44,
+            "luff": 0,
+            "boomAngle": 0,
+            "tack": -1,
+            "depth": 171.8347606514986,
+            "groundingDepth": 6,
+            "trueWind": 12,
+            "currentSpeed": 0,
+            "currentDirection": 0,
+            "grounded": false
+          },
+          "sheet": -1,
+          "sailShape": 1,
+          "spinnaker": false
+        }
+      },
+      "heldAfter": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 82,
+        "time": -156.29226635628117,
+        "clock": -156,
+        "rngState": 3111282268,
+        "memorySha256": "d3b687bedb90572289d79c2ed08fcf7c6daea86b6699705aa7a03b1faf5552eb",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "stateAfter": {
+        "boat": {
+          "id": 1,
+          "name": "Fire",
+          "x": 111.13739457876144,
+          "y": -161.48374976517567,
+          "heading": 267,
+          "speed": 3.2,
+          "leg": 0,
+          "finished": 0,
+          "dnf": false,
+          "status": 0,
+          "penaltyClock": -169,
+          "finishTime": 30000,
+          "points": [
+            0,
+            0,
+            0
+          ],
+          "windFrom": 223,
+          "windAngle": 44,
+          "luff": 0,
+          "boomAngle": 0,
+          "tack": -1,
+          "depth": 171.8347606514986,
+          "groundingDepth": 6,
+          "trueWind": 12,
+          "currentSpeed": 0,
+          "currentDirection": 0,
+          "grounded": false
+        },
+        "sheet": -1,
+        "sailShape": 1,
+        "spinnaker": false
+      }
+    },
+    {
+      "name": "Space dismisses panel without changing pace/pause"
+    },
+    {
+      "name": "Owned course panel holds sailing input in UI and worker",
+      "panelBefore": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 90,
+        "time": -155.4259411341032,
+        "clock": -155,
+        "rngState": 3889211431,
+        "memorySha256": "2b0dca089b57d4d52bdbae9586344b7f83a29c65b3e266245955c28793cad5c9",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "panelAfter": {
+        "contract": "independent-v1",
+        "waveRngState": 583468104,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 92,
+        "time": -155.4259411341032,
+        "clock": -155,
+        "rngState": 3889211431,
+        "memorySha256": "2b0dca089b57d4d52bdbae9586344b7f83a29c65b3e266245955c28793cad5c9",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    }
+  ],
+  "depthCases": [
+    {
+      "depth": 30,
+      "level": "clear",
+      "text": "",
+      "color": "rgb(18, 48, 61)"
+    },
+    {
+      "depth": 13,
+      "level": "caution",
+      "text": "Shoaling",
+      "color": "rgb(152, 100, 26)"
+    },
+    {
+      "depth": 10,
+      "level": "danger",
+      "text": "Shallow water",
+      "color": "rgb(179, 37, 36)"
+    },
+    {
+      "depth": 7,
+      "level": "danger",
+      "text": "Shallow water",
+      "color": "rgb(179, 37, 36)"
+    }
+  ],
+  "beforeDepth": {
+    "contract": "independent-v1",
+    "waveRngState": 583468104,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 117,
+    "time": -151.2675800676489,
+    "clock": -151,
+    "rngState": 3554297251,
+    "memorySha256": "f50e9ac510bddc04f4e946f9b9b661358cf43e0938ac86c2eeafbd3c3fb6d128",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "afterDepth": {
+    "contract": "independent-v1",
+    "waveRngState": 583468104,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 117,
+    "time": -151.2675800676489,
+    "clock": -151,
+    "rngState": 3554297251,
+    "memorySha256": "f50e9ac510bddc04f4e946f9b9b661358cf43e0938ac86c2eeafbd3c3fb6d128",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  }
+}

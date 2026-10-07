@@ -5,8 +5,13 @@ work. Product scope is defined in [PLAN-2026.md](../../PLAN-2026.md); execution
 is tracked in [todo.md](../../todo.md). The isolated app runs the recovered
 simulation in a worker with explicit 2026 contact/navigation policies, faithful
 native-derived 3D boats and free cameras.
-Worker and renderer are evaluated bounded prototypes. Preservation players remain
-under their original routes.
+The2026 driver now advances independently of the old offscreen game lifecycle.
+Its simulation, wave and presentation random streams are separately owned.
+The original numeric JavaScript is reused behind typed ports. Boat meshes and
+information plots still use read-only compatibility adapters on private state;
+no original game loop, raster surface or pixel result drives the race.
+See [the independent runtime contract](docs/independent-state-contract.md).
+Preservation players remain under their original routes.
 
 The 2010 reference is commit `64d5cdf`. Its exact source, assets, native runtime,
 shared numerical/drawing support, comparison archives and existing evaluation

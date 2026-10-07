@@ -228,18 +228,14 @@ production engine; preserved players remain comparison references.
   checks. See `versions/2026/analysis/app/ENG-03b-5.md`.
   Wave-position regeneration/world traversal and shared-RNG policy remain open.
 
-- [ ] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
+- [x] **ENG-03c — Remove raster and shared drawing-randomness dependencies.**
 
-  Replace required visibility/pixel decisions with deterministic calculations;
-  preserve gameplay-relevant random consumption and branch order. No constant
-  pixel oracle or guessed fixed RNG burn. If a dependency remains unclassified,
-  report it and retain the comparison path; do not claim production independence.
-  Independent review traced three pixel-dependent routines; exact-green
-  compositing can change whether boat drawing consumes shared RNG. The seed
-  equivalence versus independent gameplay-RNG choice was answered on2026-10-07:
-  the user selected independent streams. The headless v1 runtime is implemented
-  and evaluated; production browser cutover remains under evaluation. Details:
-  `versions/2026/docs/world-pixel-contract.md`.
+  The user selected independent deterministic streams on2026-10-07. Production
+  advances without world rasterization or pixel reads. Typed physical phases
+  retain recovered formulas; wave density remains398 points, with explicit
+  camera-independent refresh. No constant pixel or guessed RNG burn is used.
+  Historical exact extraction traces remain preserved. See the
+  [v1 contract](versions/2026/docs/independent-state-contract.md).
 
 - [x] **ENG-04.2 — Own renderer-free runtime and independent random streams.**
 
@@ -334,6 +330,15 @@ production engine; preserved players remain comparison references.
   Done when: worker startup, commands, snapshots, errors, pause/resume and disposal
   work with bounded transfer buffers; original arithmetic/host state are isolated
   and generation IDs reject late messages from a previous run.
+
+- [x] **ENG-13.1 — Switch production to the independent runtime.**
+
+  Removed old offscreen surfaces/lifecycle/composition/bitmap panels.131 guarded
+  boat/venue/course cases pass; private observations retain full future state
+  across6000 paired Chrome steps and replay. Natural island results/championship,
+  rig/penalty/luffing fixtures, information, controls and context recovery pass.
+  Five prestart plus five active-racing Chrome/WebGL2 budget repeats pass. Private presentation adapters
+  remain documented and isolated. See [cutover evidence](versions/2026/analysis/app/ENG-13-1.md).
 
 - [ ] **ENG-14 — Prove simulation and presentation independence** · P0 · L · Depends: ENG-12, ENG-13.
 
@@ -1210,13 +1215,14 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   separately. Existing translated handlers and throwing dialog stubs are not a
   completed feature.
 
-The original offscreen paint dependency remains an engine extraction task under
-ENG-03 onward; it must be removed through paired state/RNG evaluation, not by
-replacing the recovered simulation wholesale.
-- [ ] **PARITY-08 — Repeat controlled headed Chrome smoothness acceptance.**
-  The penalty-restoration recheck has four completed passing sessions, one P99
-  outlier (62.5 ms vs 50 ms), and two frame-collection interruptions with an
-  unfocused owned window and a progressing worker. Investigate/reproduce under a
-  continuously visible benchmark window and record host contention; do not discard
-  failed attempts or claim five-repeat acceptance. See
-  `versions/2026/analysis/app/contact-og-renderer-attempts.json`.
+Production no longer uses the original offscreen paint lifecycle. The approved
+v1 runtime owns progression, world updates and replay. Read-only presentation
+compatibility adapters remain a separately tracked cleanup.
+- [x] **PARITY-08 — Repeat controlled headed Chrome smoothness acceptance.**
+  Five prestart and five active-racing Chrome/WebGL2 repeats now pass: median
+  cadence16.7ms, P95≤16.8ms, P99≤29.2ms and camera P95≤22.2ms. Owned windows
+  remain visible, sized and focused; no other application window is modified.
+  Reports: independent-chrome-performance-settled-2026-10-07 and
+  independent-chrome-racing-2026-10-07. Prior penalty-restoration outlier/interrupted
+  attempts remain preserved in contact-og-renderer-attempts.json; they were not
+  discarded or counted as successful repeats. Physical Pixel testing stays deferred.
