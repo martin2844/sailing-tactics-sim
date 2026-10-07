@@ -1,5 +1,6 @@
 import type {NativePrimitive} from './native-visuals';
 import {createNativeVisualObserver} from './native-visuals';
+import {studioDrawingSpeed,studioDrawingDivisor} from './presentation/model-profile';
 export const MODEL_QUANTUM=2048;
 const hullParts=new Set([0x41e3c0,0x41e750,0x41eaf0,0x421630,0x4223c0,0x421ab0,0x4214e0,0x421f10]);
 const crewParts=new Set([0x4225b0,0x423c30]);
@@ -13,6 +14,10 @@ export function createModelExtractor(context:ModelContext){
  const privateMemory=new ModelMemory(memory.size,memory.base),privateRng=new ModelRng();
  function capture(id:number,width:number,angle:number,shear:number,factor=8):ModelCapture {
   privateMemory.bytes.set(memory.bytes);privateRng.state=rng.state;
+  // Speed controls authoritative stepping, not the shape of the hull/rig. The
+  // canonical painter profile is confined to this disposable projection copy.
+  privateMemory.writeI32(0x4da174,studioDrawingSpeed);
+  privateMemory.writeI32(0x4da178,studioDrawingDivisor);
   const projection:ModelProjection={width,factor,angle,shear};
   const captured=createNativeVisualObserver();
   const dc=new TraceDc({objects:new Map(objects),recordEvents:false,sink:(event:any,dc:any)=>captured.observe({...event,part:projection.part},dc),readPixel:()=>{throw new Error('Native model unexpectedly samples a pixel');}});

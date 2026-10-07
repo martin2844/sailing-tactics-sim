@@ -4,3 +4,7 @@
  * Packet normalization retains native hull, rig, crew and articulated boom data.
  */
 export const studioRigWidth=0.3684507552870091;
+/** The OG painter changes geometry/detail at fast numerical presets. Model
+ * extraction always uses the audited detailed profile on its private image. */
+export const studioDrawingSpeed=6;
+export const studioDrawingDivisor=384;
