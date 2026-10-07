@@ -1,0 +1,274 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Space on Start button toggles pace and never clicks Start"
+    },
+    {
+      "name": "Boat-name typing remains isolated from gameplay shortcuts"
+    },
+    {
+      "name": "Focused overview: Space1×/8×, held-key repeat ignored, native defaults suppressed",
+      "first": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "overview",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      },
+      "after": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "scene",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      }
+    },
+    {
+      "name": "Focused pause: Space1×/8×, held-key repeat ignored, native defaults suppressed",
+      "first": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "pause",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      },
+      "after": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "scene",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      }
+    },
+    {
+      "name": "Focused hitboxes: Space1×/8×, held-key repeat ignored, native defaults suppressed",
+      "first": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "hitboxes",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      },
+      "after": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "scene",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      }
+    },
+    {
+      "name": "Focused pace: Space1×/8×, held-key repeat ignored, native defaults suppressed",
+      "first": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "pace",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      },
+      "after": {
+        "playback": {
+          "selected": {
+            "mode": "clock",
+            "rate": 8
+          },
+          "active": {
+            "mode": "clock",
+            "rate": 8
+          }
+        },
+        "paused": true,
+        "focus": "scene",
+        "checkbox": false,
+        "open": false,
+        "scroll": 0,
+        "overview": "chase"
+      }
+    },
+    {
+      "name": "Space captures an open native picker, closes it, retains label/gauge and toggles pace"
+    },
+    {
+      "name": "Every paused focus/Space path retains the exact numerical boundary",
+      "before": {
+        "contract": "independent-v1",
+        "waveRngState": 500071878,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 7,
+        "time": -168.91651462147257,
+        "clock": -168,
+        "rngState": 2878323038,
+        "memorySha256": "2f899b599e53d8290820ccbe0066576bd36d06a0e961932c3c1c20405a25ea6e",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      },
+      "after": {
+        "contract": "independent-v1",
+        "waveRngState": 500071878,
+        "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+        "frame": 7,
+        "time": -168.91651462147257,
+        "clock": -168,
+        "rngState": 2878323038,
+        "memorySha256": "2f899b599e53d8290820ccbe0066576bd36d06a0e961932c3c1c20405a25ea6e",
+        "shore": {
+          "previousX": 604045502,
+          "previousTreeY": 0,
+          "completedCalls": 0
+        }
+      }
+    },
+    {
+      "name": "Page keys override focused select/checkbox defaults and transfer focus"
+    },
+    {
+      "name": "Q follows the boat from a focused select"
+    },
+    {
+      "name": "KeyT executes through the actual game transport from pace",
+      "dispatched": [
+        {
+          "type": "control",
+          "data": 84
+        }
+      ]
+    },
+    {
+      "name": "KeyJ executes through the actual game transport from hitboxes",
+      "dispatched": [
+        {
+          "type": "control",
+          "data": 74
+        }
+      ]
+    },
+    {
+      "name": "KeyI executes through the actual game transport from overview",
+      "dispatched": [
+        {
+          "type": "control",
+          "data": 73
+        }
+      ]
+    },
+    {
+      "name": "KeyO executes through the actual game transport from pause",
+      "dispatched": [
+        {
+          "type": "control",
+          "data": 79
+        }
+      ]
+    },
+    {
+      "name": "Enter executes through the actual game transport from overview",
+      "dispatched": [
+        {
+          "type": "control",
+          "data": 13
+        }
+      ]
+    },
+    {
+      "name": "Space changes pace on held chart; a sailing hotkey returns to the game and executes"
+    },
+    {
+      "name": "Space toggles pace while coach holds; T returns to sailing and executes"
+    },
+    {
+      "name": "Chrome negative control proves direct nested timers are throttled and message-mediated timers avoid the clamp",
+      "scheduling": [
+        {
+          "messages": false,
+          "ms": 391.4000000357628
+        },
+        {
+          "messages": true,
+          "ms": 111.69999998807907
+        }
+      ]
+    }
+  ],
+  "scope": "Actual Chrome trusted key events over buttons, checkbox, closed/open customizable selects, starter and coach/course panels. Real EngineClient dispatch is observed and still executed; paused whole-image/RNG boundary remains exact. A separate worker compares old nested timers with message-mediated timers. Text editing and held-key repeat are tested."
+}

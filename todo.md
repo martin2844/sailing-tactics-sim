@@ -1198,6 +1198,13 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   high-rate throughput remains limited by numerical processing cost. See
   `versions/2026/docs/real-time-playback.md`.
 
+- [x] **32× with30 boats — 2026-10-07.** Map multipliers to recovered OG
+  variable timesteps; retain fine preset6 at1× and the selected fast preset
+  through Space, replay and new races. Assert all eight multipliers within5%
+  in rendered Chrome, evaluate a full30-boat race through results and next race,
+  and recheck maneuvers, swept contacts and focus controls. See
+  `versions/2026/docs/real-time-playback.md` for the policy and receipts.
+
 - [x] **Global gameplay shortcuts and responsive pacing — 2026-10-07.** Retain
   the chosen pace while Space toggles1×; take game shortcuts from buttons,
   selects and checkboxes; dismiss open pickers without changing selection;

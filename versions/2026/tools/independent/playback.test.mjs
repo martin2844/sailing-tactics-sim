@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {PlaybackPacer,playbackRates,parsePlaybackValue,playbackValue,validatePlayback} from '../../app/engine/time/playback.ts';
+import {PlaybackPacer,nativePlaybackSpeed,playbackRates,parsePlaybackValue,playbackValue,validatePlayback} from '../../app/engine/time/playback.ts';
 import {PlaybackRateMeter} from '../../app/engine/time/playback-meter.ts';
 import {AnimationClock} from '../../app/presentation/animation-clock.ts';
 import {makeRuntime} from './fixtures.mjs';
@@ -74,8 +74,8 @@ test('original automatic foul slowdown resumes safely through a modern rate cont
  m.writeI32(0x4f8cd0,100);m.writeI32(0x4da1dc,1);m.writeI32(0x4f7124,4);m.writeI32(0x4faf84,0);m.writeI32(0x4fb9ac,0);
  updateFoulSlowdown(createFoulSlowdownState(m,1));assert.equal(m.readI32(0x4da174),1);p.slowForWarning(0,100);assert.equal(p.state(6,1).active.rate,1);
  // Match the public modern PageUp path, including its numerical restoration.
- e.key(82);assert.equal(m.readI32(0x5233a8),1);p.adjustRate(1,1,100);e.restoreSpeed(6);
- assert.equal(p.state(6,6).active.rate,2);assert.equal(m.readI32(0x4da174),6);assert.equal(m.readI32(0x4da1dc),2);assert.equal(m.readI32(0x4da1e0),100);assert.equal(m.readI32(0x5233a8),1,'Pace restoration keeps held panel open');
+ e.key(82);assert.equal(m.readI32(0x5233a8),1);p.adjustRate(1,1,100);e.restoreSpeed(nativePlaybackSpeed(p.state(6,1).selected));
+ assert.equal(p.state(6,6).active.rate,2);assert.equal(m.readI32(0x4da174),7);assert.equal(m.readI32(0x4da1dc),2);assert.equal(m.readI32(0x4da1e0),100);assert.equal(m.readI32(0x5233a8),1,'Pace restoration keeps held panel open');
 });
 
 test('effective playback measurement follows game/wall progress and reports sustained under-capacity work',()=>{
@@ -94,4 +94,25 @@ test('measurement resets on holds, playback changes and rewind without reporting
  meter.sample(610000,104,2);assert.deepEqual(meter.state(),{});
  meter.sample(612000,108,2);assert.equal(meter.state().actualRate,2);
  meter.sample(613000,-170,2);assert.deepEqual(meter.state(),{});
+});
+
+test('fast-forward uses OG presets and Space retains the selected numerical speed',()=>{
+ const levels=[6,7,9,11,13,14,14,15];
+ for(const [i,rate]of playbackRates.entries()){
+  const a=makeRuntime({speed:levels[i]}),b=makeRuntime({speed:levels[i]}),p=new PlaybackPacer();
+  p.configure({mode:'clock',rate},0,a.memory.readF64(0x5359f0));
+  assert.equal(nativePlaybackSpeed(p.state(levels[i],levels[i]).selected),levels[i]);
+  a.engine.restoreSpeed(levels[i]);b.engine.restoreSpeed(levels[i]);
+  a.engine.temporarySpeed(6);assert.equal(a.engine.selectedSpeed,levels[i]);assert.equal(a.memory.readI32(0x4da174),6);
+  a.engine.restoreSpeed();
+  // Both use the same recovered preset after precision restoration, including
+  // tacks, jibes, penalties, course progress, fractional clock and RNG.
+  for(let n=0;n<30;n++){
+   if(n===5||n===20){const key=n===5?84:74;a.engine.key(key);b.engine.key(key);}
+   a.engine.step();b.engine.step();
+  }
+  assert.deepEqual(a.memory.bytes,b.memory.bytes);assert.deepEqual(a.engine.random.snapshot(),b.engine.random.snapshot());
+  const checkpoint=a.engine.checkpoint();a.engine.temporarySpeed(6);a.engine.restore(checkpoint);
+  assert.equal(a.engine.selectedSpeed,levels[i]);assert.equal(a.memory.readI32(0x4da174),levels[i]);
+ }
 });

@@ -19,7 +19,7 @@ import {PhaseTracer} from './engine/diagnostics/phase-trace';
 import {profileNumericalWork} from './engine/diagnostics/work-profile';
 import {speedForCommand,simulatorSpeeds} from './engine/speed';
 import {prepareFleetSpawns} from './engine/compatibility/spawn-state';
-import {PlaybackPacer,nativePlaybackSpeed,validatePlayback,clockNativeSpeed} from './engine/time/playback';
+import {PlaybackPacer,nativePlaybackSpeed,validatePlayback} from './engine/time/playback';
 import {PlaybackRateMeter} from './engine/time/playback-meter';
 import {speedCommand} from './engine/speed';
 import {EngineRuntime} from './engine/runtime';
@@ -88,8 +88,18 @@ function rebasePlayback(){
 }
 function configurePlayback(value:unknown){
  const choice=validatePlayback(value);
- if(choice.mode==='clock')runtime.restoreSpeed(clockNativeSpeed);else runtime.command(speedCommand(nativePlaybackSpeed(choice)));
- pacer.configure(choice,performance.now(),memory.readF64(0x5359f0));rebasePlayback();
+ pacer.configure(choice,performance.now(),memory.readF64(0x5359f0));
+ if(choice.mode==='clock')syncPlaybackSpeed();else runtime.command(speedCommand(nativePlaybackSpeed(choice)));
+ rebasePlayback();
+}
+/** Only explicit pace/replay/race controls restore presets. A numerical foul
+ * slowdown remains in force until the player resumes it. */
+function syncPlaybackSpeed(){
+ if(pacer.mode!=='clock')return;
+ const state=pacer.state(runtime.selectedSpeed,memory.readI32(0x4da174));
+ const selected=nativePlaybackSpeed(state.selected),active=nativePlaybackSpeed(state.active);
+ if(runtime.selectedSpeed!==selected)runtime.restoreSpeed(selected);
+ if(memory.readI32(0x4da174)!==active)runtime.temporarySpeed(active);
 }
 function stepRuntime(){
   const advance=()=>{
@@ -267,7 +277,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   if(event.data.generation!==generation||!ready||failed)return;
   if(type==='pause'){paused=Boolean(data);pacer.reset(performance.now(),memory.readF64(0x5359f0));playbackMeter.reset(performance.now(),memory.readF64(0x5359f0));if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('snapshot',snapshot(0));send('paused',paused);}
   else if(type==='playback'){configurePlayback(data);send('snapshot',snapshot(0));}
-  else if(type==='toggle-pace'){pacer.togglePrecision(performance.now(),memory.readF64(0x5359f0));if(pacer.mode==='clock'&&memory.readI32(0x4da174)!==clockNativeSpeed)runtime.restoreSpeed(clockNativeSpeed);rebasePlayback();send('snapshot',snapshot(0));}
+  else if(type==='toggle-pace'){pacer.togglePrecision(performance.now(),memory.readF64(0x5359f0));syncPlaybackSpeed();rebasePlayback();send('snapshot',snapshot(0));}
   else if(type==='command'||type==='control-command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');if(type==='control-command'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&data!==32918&&speedForCommand(data)===undefined)return;await menu(memory,data,options);const nativeSpeed=speedForCommand(data);if(nativeSpeed!==undefined){pacer.configure({mode:'legacy',level:nativeSpeed},performance.now(),memory.readF64(0x5359f0));rebasePlayback();}send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
   else if(type==='key'||type==='control'){
     if(!Number.isInteger(data)||data<0||data>255)throw new Error('Invalid native virtual key');
@@ -278,12 +288,12 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     if(clockRateKey||clockSpaceKey){
       if(clockSpaceKey)pacer.togglePrecision(performance.now(),memory.readF64(0x5359f0));
       else pacer.adjustRate(data===33?1:-1,performance.now(),memory.readF64(0x5359f0));
-      if(memory.readI32(0x4da174)!==clockNativeSpeed)runtime.restoreSpeed(clockNativeSpeed);
+      syncPlaybackSpeed();
       rebasePlayback();
     }else key(memory,data,options);
-    if(data===8&&pacer.mode==='clock'&&memory.readI32(0x4da174)!==clockNativeSpeed)runtime.restoreSpeed(clockNativeSpeed);
+    if(data===8)syncPlaybackSpeed();
     if(data===8||previousPhase!==2&&memory.readI32(0x5363b0)===2){
-      if(data!==8){settleStartingFleet();pacer.beginRace(performance.now(),memory.readF64(0x5359f0));startingLine=courseLine();send('terrain',readNativeTerrain(memory));}
+      if(data!==8){settleStartingFleet();pacer.beginRace(performance.now(),memory.readF64(0x5359f0));syncPlaybackSpeed();startingLine=courseLine();send('terrain',readNativeTerrain(memory));}
       contactWorld.reset();contactWorld.seed();setupIslandNavigation();frame++;rebasePlayback();
     }
     if(memory.readI32(0x5363f4)===0)resultsReady=false;if(panelTitle()!==null||[32,33,34,70].includes(data))rebasePlayback();if(!clockRateKey&&!clockSpaceKey)modelDirty=true;send('snapshot',snapshot(0));send('accepted',{key:data,sequence:frame});requestModels();
@@ -307,7 +317,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='next-race'){
     if(!paused||!resultsReady||memory.readI32(0x5363f4)===0)throw new Error('Next race requires completed native results');
     clearTimeout(timer);scheduleToken++;pending=false;resultsReady=false;
-    runtime.nextRace();settleStartingFleet();pacer.beginRace(performance.now(),memory.readF64(0x5359f0));rebasePlayback();frame++;startingLine=courseLine();
+    runtime.nextRace();settleStartingFleet();pacer.beginRace(performance.now(),memory.readF64(0x5359f0));syncPlaybackSpeed();rebasePlayback();frame++;startingLine=courseLine();
     setupIslandNavigation();contactWorld.reset();contactWorld.seed();modelDirty=true;send('terrain',readNativeTerrain(memory));send('snapshot',snapshot(0));send('paused',true);requestModels();send('reply',{id,value:await boundary()});
   }
   else if(type==='finishcase'){

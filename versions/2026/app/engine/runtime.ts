@@ -152,9 +152,13 @@ export class EngineRuntime {
   /** Continue from precision/foul slowdown without dismissing held panels.
    * The original Space response grants four game seconds of assistance grace. */
   restoreSpeed(level=this.selectedSpeed):void {
-    const restoring=this.memory.readI32(0x4da174)===1;
     this.selectedSpeed=validateSimulatorSpeed(level);
-    this.numeric.command(this.memory,speedCommand(this.selectedSpeed),this.options);
+    this.temporarySpeed(this.selectedSpeed);
+  }
+  /** Apply a temporary precision preset without overwriting the selected pace. */
+  temporarySpeed(level:number):void {
+    const restoring=this.memory.readI32(0x4da174)===1;
+    this.numeric.command(this.memory,speedCommand(validateSimulatorSpeed(level)),this.options);
     if(restoring&&this.memory.readI32(0x4da1dc)===1){
       this.memory.writeI32(0x4da1dc,2);this.memory.writeI32(0x4da1e0,this.memory.readI32(0x4f8cd0));
     }

@@ -49,7 +49,7 @@ try{
  for(const type of ['mousePressed','mouseReleased'])await browser.call('Input.dispatchMouseEvent',{type,...start,button:'left',clickCount:1});
  await browser.waitFor('document.getElementById("starter").hidden&&!tact2026.paused&&tact2026.ready',60000);
  await browser.evaluate(`(()=>{const s=document.getElementById('pace');s.focus();s.value='clock:4';s.dispatchEvent(new Event('change'));})()`);
- await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.pace===6&&document.activeElement.id==="scene"');
+ await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.pace===9&&document.activeElement.id==="scene"');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'Space',key:' ',windowsVirtualKeyCode:32});
  await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.playback.active.rate===1');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'Space',key:' ',windowsVirtualKeyCode:32});

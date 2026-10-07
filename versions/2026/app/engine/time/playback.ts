@@ -4,9 +4,9 @@ export const playbackRates=[1,2,4,8,16,24,28,32] as const;
 export type PlaybackRate=typeof playbackRates[number];
 export type PlaybackChoice={mode:'clock';rate:PlaybackRate}|{mode:'legacy';level:number};
 export interface PlaybackState {selected:PlaybackChoice;active:PlaybackChoice;slowdown?:'manual'|'warning';actualRate?:number;limited?:boolean}
-/** Keep the recovered level6 numerical timestep/maneuvers; clock mode changes
- * host deadlines. Numerical steps are neither divided nor skipped. */
-export const clockNativeSpeed=6;
+/** Use the recovered variable timesteps for fast-forward. Wall deadlines still
+ * determine the advertised multiplier; every boat and rule runs on each step. */
+const nativeSpeeds:Record<PlaybackRate,number>={1:6,2:7,4:9,8:11,16:13,24:14,28:14,32:15};
 export const defaultPlayback:PlaybackChoice={mode:'clock',rate:1};
 
 export function validatePlayback(value:unknown):PlaybackChoice {
@@ -27,7 +27,7 @@ export function playbackLabel(choice:PlaybackChoice):string {
  return choice.mode==='clock'?choice.rate+'×':'OG level '+choice.level;
 }
 export function nativePlaybackSpeed(choice:PlaybackChoice):number {
- return choice.mode==='clock'?clockNativeSpeed:choice.level;
+ return choice.mode==='clock'?nativeSpeeds[choice.rate]:choice.level;
 }
 
 /** Worker deadlines are separate from authoritative numerical state. Target

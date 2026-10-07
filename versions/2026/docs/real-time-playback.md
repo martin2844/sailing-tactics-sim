@@ -38,12 +38,28 @@ There are no timing groups or clock icons.
 
 ## Scheduling, workload and numerical ownership
 
-PlaybackPacer owns transport deadlines, not sailing arithmetic. Ordinary clock
-mode uses recovered numerical preset6. AI, wind/current, steering, dynamics,
-course transitions, penalties and finishing-window calculations retain their
-existing numerical routines. No numerical steps are split or skipped to satisfy
-the display. With identical native preset, ordered inputs and step count, the
-numerical image and gameplay RNG remain the regression contract.
+PlaybackPacer owns wall-time deadlines. The multiplier also selects an existing
+OG numerical preset, so fast-forward performs fewer, larger numerical steps:
+
+| Multiplier | OG numerical preset |
+| --- | --- |
+|1×|6|
+|2×|7|
+|4×|9|
+|8×|11|
+|16×|13|
+|24×|14|
+|28×|14|
+|32×|15|
+
+1× retains the fine preset6 timestep. Space temporarily applies that preset
+without changing the retained selected preset, including in checkpoints/replay
+and setup matching. Fast-forward uses the recovered speed-dependent formulas;
+AI, wind/current, steering, dynamics, course progress and penalties all run for
+every boat on every step. Geometric contacts sweep between positions. No boats
+or completed numerical steps are skipped. Different presets intentionally give
+different trajectories; exact image/RNG parity is asserted for identical native
+preset, ordered inputs and step count.
 
 Each completed step schedules against cumulative game-time progress divided by
 the active wall-clock rate. Work and ordinary timer jitter are accounted for;
@@ -77,7 +93,7 @@ and replay belong to EngineRuntime; pacing is separate host metadata.
 
 Original automatic foul slowdown remains available. It can temporarily select
 numerical level1, with an explicit “Foul slowdown” label and active1× in the host.
-Space restores the selected multiplier and native preset6 with the original
+Space restores the selected multiplier and its mapped native preset with the original
 four-game-second assistance grace. No penalty is cleared by a pacing change.
 Private legacy reference clients retain their original delay/divisor behavior.
 
@@ -89,36 +105,28 @@ the held interval. Renderer callbacks never advance authoritative gameplay/RNG.
 
 ## Evaluation
 
-- [Global keyboard/focus receipt](../analysis/app/global-hotkeys-final-build-2026-10-07/verification.json)
-  verifies18 groups with actual Chrome keys over buttons, checkbox, closed/open
-  selectors, starter and coach/course screens. Selected value/gauge, repeat
-  suppression, text entry, Page keys, Q, Enter and T/J/I/O are covered. Paused
-  whole-image/RNG boundaries remain identical.
-- Its separate scheduling negative control compares100 chained1ms ticks with
-  message-mediated ticks. This isolates browser timer throttling from simulation
-  calculations; it is not a full-game throughput measurement.
-- [Playback receipt](../analysis/app/responsive-playback-final-2026-10-07/verification.json)
-  observes all eight multipliers with5 Optimists, checks effective/selected/native
-  rates, visible processing limits, Space/F/Page, held R/? clocks/meshes,
-  coach/replay and preference reload/migration.
-- [Fleet-load receipt](../analysis/app/playback-load-2026-10-07/verification.json)
-  observes30 Keelboats at requested32×, checks the effective-rate readout and
-  unchanged selected pace/native timestep, and verifies exact pause under load.
-- All44 numerical/cutover tests pass, including eight pacing deadlines, Space
-  toggle, warning recovery, measurement/holds/rewind, rate clamping and unchanged
-  numerical/RNG trajectories. Type check and build pass.
+- [30-boat rate sequence](../analysis/app/variable-step-fleet-2026-10-07/verification.json)
+  asserts all eight multipliers within5% in rendered Chrome with geometric
+  contacts enabled. Requested32× achieved31.30× over the short sample.
+- [Full32× race](../analysis/app/fast-forward-race-2026-10-07/verification.json)
+  checks sustained throughput, prestart, natural AI progress/arrivals,
+  DNF/results, championship next race and Space preset restoration.
+- [Playback controls](../analysis/app/variable-step-playback-2026-10-07/verification.json)
+  covers all presets, held charts/coach, pause, replay, Page keys and preferences.
+- [Global focus controls](../analysis/app/variable-step-hotkeys-2026-10-07/verification.json)
+  uses trusted Chrome key events over open/closed selectors, buttons and panels.
+- [Swept contacts](../analysis/app/variable-step-sweeps-2026-10-07/verification.json)
+  checks152 fast crossings, rotating hulls, compound hulls and dense placement.
+- 50 focused numerical/cutover tests pass, including full-image/RNG comparison
+  after precision restoration at every mapped preset, tacks/jibes, checkpoints,
+  warning grace and scheduling. Type check/build pass. Local review of preset
+  selection, temporary pace ownership, warning recovery and lifecycle routes
+  found no remaining findings.
 
-The5-Optimist windows tracked1×–16× closely and reached31.59× at32×. The24×/28×
-windows crossed more expensive states and achieved12.58×/19.33×. High rates can
-still be limited by the available processing budget. The UI reports this instead
-of silently changing selection or skipping physics. These are bounded Chrome
-observations, not every fleet/venue or a mobile-device certification.
+These are Chrome desktop observations on this machine. Achieved rate still
+appears in the HUD if a device cannot meet the target. Pixel evaluation remains
+pending. Earlier fixed-preset6 receipts are historical measurements; their
+high-rate limitations are superseded by this explicit variable-timestep policy.
 
-Earlier receipts remain historical evidence: [prior consolidated controls](../analysis/app/consolidated-speed-final-2026-10-07/verification.json),
-[original playback controls](../analysis/app/playback-final-2026-10-07/verification.json),
-and [cosmetic clock isolation](../analysis/app/cosmetic-clock-2026-10-07/verification.json).
-Their earlier public modes/Space semantics are superseded by this document.
-
-Dense-fleet calculation cost is addressed in the
-[fleet performance follow-up](fleet-performance.md); earlier load observations
-above predate those optimizations.
+See [fleet performance](fleet-performance.md) for the calculation optimizations
+and earlier fixed-step comparison.

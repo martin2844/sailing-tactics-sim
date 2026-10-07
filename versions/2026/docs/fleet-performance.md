@@ -75,3 +75,20 @@ mobile certification. Fixed preset6 requires roughly933 Keelboat steps/sec at
 32×. Using the original game's larger timesteps for high fast-forward speeds is
 a separate numerical policy choice; it changes fixed-step trajectories even
 though the original speed-dependent rules/formulas remain available.
+
+## Variable-timestep fast-forward
+
+The requested32× improvement uses the original game's larger timestep presets
+in addition to the exact calculation optimizations above. The mapping and
+precision/restore contract are documented in [playback](real-time-playback.md).
+For the moderate-wind30-Keelboat case, native15 advances approximately1.32 game
+seconds per step:32× needs about24 steps/sec instead of933 at preset6. Every
+boat, AI decision and continuous hull contact check still runs on each step.
+
+[All eight rates](../analysis/app/variable-step-fleet-2026-10-07/verification.json)
+now stay within5% of target on this Chrome desktop;32× measured31.30×.
+[The full race](../analysis/app/fast-forward-race-2026-10-07/verification.json)
+checks longer windows through arrivals, the finishing deadline/results and a
+new championship race. This is an intentional use of the OG speed-dependent
+numerical policy, so high-rate trajectories differ from fixed preset6.1× keeps
+the existing fine-control preset. Frozen2002/2010 code is unchanged.
