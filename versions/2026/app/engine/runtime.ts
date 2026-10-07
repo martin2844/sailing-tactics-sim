@@ -13,7 +13,7 @@ import {RaceWindow,type RaceWindowCheckpoint} from '../race-window.ts';
 import {finalizeResults} from './results.ts';
 import {updateSailingTelemetry} from './telemetry.ts';
 import type {RandomState} from './random/streams.ts';
-import type {EngineMemory,EngineOptions,NumericalEngine} from './ports.ts';
+import type {EngineMemory,EngineOptions,NumericalEngine,StringCell} from './ports.ts';
 
 export interface RuntimeConfiguration {
   seed: number;
@@ -28,12 +28,16 @@ export interface RuntimeConfiguration {
 /** The authoritative runtime owns clocks, RNG and world phases. It has no
  * dependency on browser globals, Canvas/GDI, drawing callbacks or a renderer.
  */
-export interface EngineCheckpoint {
+export interface EngineState {
   image: Uint8Array;
   random: RandomState;
   raceWindow: RaceWindowCheckpoint;
   ticks: number;
   resultsApplied: boolean;
+  strings: StringCell[];
+}
+export interface EngineCheckpoint extends EngineState {
+  replay?: EngineState;
 }
 const panelFlags = [0x536444,0x5363f0,0x5233a8,0x536434,0x536438,0x53644c];
 
@@ -46,7 +50,7 @@ export class EngineRuntime {
   private ticks = 0;
   private resultsApplied = false;
   private saveRequested = false;
-  private replay?: EngineCheckpoint;
+  private replay?: EngineState;
   minimumDuration = 0;
   private readonly world: WorldStatePort;
   private readonly memory: EngineMemory;
@@ -96,7 +100,7 @@ export class EngineRuntime {
       slowdown: boat => updateFoulSlowdown(createFoulSlowdownState(memory,boat)),
     });
     updateWorldState(this.world);
-    this.replay = this.checkpoint();
+    this.replay = this.captureState();
   }
 
   step(): void {
@@ -116,29 +120,45 @@ export class EngineRuntime {
     this.frame++;
     this.raceWindow.update(memory);
     if (memory.readI32(0x5363f4) !== 0) this.applyResults();
-    if (this.saveRequested) { this.saveRequested = false; this.replay = this.checkpoint(); }
+    if (this.saveRequested) { this.saveRequested = false; this.replay = this.captureState(); }
   }
 
   command(command: number): void { this.numeric.command(this.memory,command,this.options); }
   key(key: number): void {
     if (key === 8) {
-      if (this.replay) this.restore(this.replay);
+      if (this.replay) this.restoreState(this.replay);
       this.memory.writeI32(0x53642c,1);
       this.memory.writeI32(0x5364ac,0);
       return;
     }
     this.numeric.key(this.memory,key,this.options);
+    if(this.memory.readI32(0x5363b0)===1)this.startConfiguredRace();
   }
 
   checkpoint(): EngineCheckpoint {
+    const replay=this.replay;
+    return {...this.captureState(),replay:replay?{...replay,image:replay.image.slice(),strings:replay.strings.map(cell=>({...cell})),random:{...replay.random},
+      raceWindow:{...replay.raceWindow,finishes:replay.raceWindow.finishes.map(pair=>[...pair]),dnfs:[...replay.raceWindow.dnfs]}}:undefined};
+  }
+
+  private captureState(): EngineState {
     return {image:this.memory.bytes.slice(),random:this.random.snapshot(),raceWindow:this.raceWindow.checkpoint(),
-      ticks:this.ticks,resultsApplied:this.resultsApplied};
+      ticks:this.ticks,resultsApplied:this.resultsApplied,strings:this.numeric.captureStrings(this.memory)};
   }
 
   restore(checkpoint: EngineCheckpoint): void {
+    this.restoreState(checkpoint);
+    this.replay=checkpoint.replay?{
+      ...checkpoint.replay,image:checkpoint.replay.image.slice(),strings:checkpoint.replay.strings.map(cell=>({...cell})),random:{...checkpoint.replay.random},
+      raceWindow:{...checkpoint.replay.raceWindow,finishes:checkpoint.replay.raceWindow.finishes.map(pair=>[...pair]),dnfs:[...checkpoint.replay.raceWindow.dnfs]},
+    }:undefined;
+  }
+
+  private restoreState(checkpoint: EngineState): void {
     if (checkpoint.image.length !== this.memory.bytes.length) throw new RangeError('Invalid engine checkpoint size');
     this.random.restore(checkpoint.random);
     this.memory.bytes.set(checkpoint.image);
+    this.numeric.restoreStrings(this.memory,checkpoint.strings);
     this.raceWindow.restore(checkpoint.raceWindow);
     this.ticks=checkpoint.ticks;this.resultsApplied=checkpoint.resultsApplied;this.saveRequested=false;
   }
@@ -149,6 +169,11 @@ export class EngineRuntime {
     const pace=m.readI32(0x522f20),divisor=m.readI32(0x5362f0);
     this.numeric.key(m,78,this.options);
     if (pace>0&&divisor>0) { m.writeI32(0x4da174,pace);m.writeI32(0x4da178,divisor); }
+    this.startConfiguredRace();
+  }
+
+  private startConfiguredRace(): void {
+    const m=this.memory;
     this.numeric.initializeBoatOptions(m,this.options);
     this.numeric.initializeRace(m,this.random.gameplay,this.options);
     m.writeI32(0x5363b0,2);m.writeI32(0x53642c,0);m.writeI32(0x5364ac,0);
@@ -157,7 +182,7 @@ export class EngineRuntime {
     for(let index=0;index<=397;index++)this.spawnWave(index);
     this.raceWindow.reset();this.resultsApplied=false;this.saveRequested=false;
     updateWorldState(this.world);
-    this.replay=this.checkpoint();
+    this.replay=this.captureState();
   }
   private spawnWave(index: number): void {
     const m=this.memory,n=this.numeric;

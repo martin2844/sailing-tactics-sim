@@ -1,39 +1,24 @@
-import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
-import {EngineRuntime} from '../../app/engine/runtime.ts';
-import {loadOriginalData} from '../../public/legacy/versions/2010-en/src/runtime/original-data.js';
-import {initializeApplication} from '../../public/legacy/versions/2010-en/src/engine/application.js';
-import {initializeBoatOptions} from '../../public/legacy/versions/2010-en/src/engine/boat-options.js';
-import {initializeRace} from '../../public/legacy/versions/2010-en/src/engine/initialization.js';
-import {createEngineBindings} from '../../public/legacy/versions/2010-en/src/engine/port.js';
-import {handleMenuCommand} from '../../public/legacy/versions/2010-en/src/engine/menu-controller.js';
-import {handleKeyDown} from '../../public/legacy/versions/2010-en/src/engine/keyboard.js';
-import {createCapturedTrig} from '../../public/legacy/versions/2010-en/src/engine/native-trig.js';
-import {advanceFrame} from '../../public/legacy/versions/2010-en/src/engine/frame.js';
-import {setX87ControlWord,Float80} from '../../public/legacy/src/runtime/float80.js';
-import {sinCosX87} from '../../public/legacy/src/runtime/transcendentals.js';
-import {scaledRandom} from '../../public/legacy/src/engine/integer-core.js';
-import {nearestWaypointDistance} from '../../public/legacy/versions/2010-en/src/engine/waypoints.js';
-import {targetRelativeBearing} from '../../public/legacy/versions/2010-en/src/engine/ai-geometry.js';
-import {distanceToBoat} from '../../public/legacy/versions/2010-en/src/engine/movement.js';
+import {makeRuntime} from './fixtures.mjs';
 const output=resolve(process.argv[2]);await mkdir(output);
-const data=new URL('../../public/legacy/versions/2010-en/assets/data/',import.meta.url),json=async name=>JSON.parse(await readFile(new URL(name,data),'utf8'));
-const manifest=await json('original-memory.json'),segments=new Map(await Promise.all(manifest.segments.map(async s=>[s.file,new Uint8Array(await readFile(new URL(s.file,data)))])));
-setX87ControlWord(0x027f);
-const trig=createCapturedTrig(await json('x87-trig.json'),await json('x87-stored-trig.json')),integerTrig=await json('trig-tables.json');
-const numeric={initializeApplication,initializeBoatOptions,initializeRace,advanceFrame,command:handleMenuCommand,key:handleKeyDown,bindings:createEngineBindings,
- number:Float80.fromNumber,integer:Float80.fromInteger,sinCos:sinCosX87,scaledRandom,nearest:nearestWaypointDistance,bearing:(m,x,y,boat)=>targetRelativeBearing(m,x,y,0,boat),distance:distanceToBoat};
 const hash=m=>createHash('sha256').update(m.bytes).digest('hex');
 const runs=[];
 for(const cosmeticWork of[0,7]){
- const memory=loadOriginalData(manifest,segments),engine=new EngineRuntime(memory,numeric,{seed:1546300800,setupCommands:[32799,32816,32789,32806,32909],postSetupCommands:[32850],integerTrig,trig});
+ const storm=process.env.TACT_EVAL_STORM==='1';
+ const {memory,engine}=makeRuntime(storm?{setupCommands:[32799,32816,32794,32806,32909,32814]}:{});
  const checkpoint=engine.checkpoint();
  for(let n=0;n<20;n++)engine.step();
  const advanced={hash:hash(memory),random:engine.random.snapshot()};
  engine.restore(checkpoint);
  for(let n=0;n<20;n++)engine.step();
  if(hash(memory)!==advanced.hash||JSON.stringify(engine.random.snapshot())!==JSON.stringify(advanced.random))throw Error('Checkpoint does not replay deterministically');
+ engine.restore(checkpoint);
+ // A discarded future save boundary must not survive checkpoint restore.
+ for(let n=0;n<50;n++)engine.step();
+ engine.options.saveRaceState();engine.step();engine.restore(checkpoint);engine.key(8);
+ if(memory.readF64(0x5359f0)!==new DataView(checkpoint.replay.image.buffer).getFloat64(0x5359f0-memory.base,true))throw Error('Replay retained a discarded future boundary');
  engine.restore(checkpoint);
  for(const key of[70,191,82,87,219]){
    engine.key(key);const held=hash(memory),random=engine.random.snapshot();

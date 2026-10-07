@@ -23,4 +23,13 @@ test('navigation selector matches recovered target classification and all image 
   const expected=originalDrawing00440350(a,new GdiTrace(),undefined,options,1),actual=updateNavigationState(b,numeric,1);
   assert.equal(actual,expected);assert.deepEqual(b.bytes,a.bytes);
  }
+ // Deliberately cross bearing-advance and near-mark/island thresholds.
+ for(const bearing of[45,135,225])for(const radius of[1,59,99,100,101,299,600,900])for(const gate of[0,1])for(const rounding of[0,1])for(const venue of[0,5]){
+  const a=image(100,1,gate,rounding,5,venue),b=image(100,1,gate,rounding,5,venue);
+  for(const m of[a,b]){m.writeF64(0x4f6b00,Math.sin(bearing*Math.PI/180)*radius);m.writeF64(0x4f6c18,-Math.cos(bearing*Math.PI/180)*radius);
+   m.writeI32(0x5229c8,Math.round(m.readF64(0x4f6b00)+radius));m.writeI32(0x522ac4,Math.round(m.readF64(0x4f6c18)));
+   m.writeI32(0x5117b0,Math.round(m.readF64(0x4f6b00)));m.writeI32(0x511d30,Math.round(m.readF64(0x4f6c18)));
+  }
+  assert.equal(updateNavigationState(b,numeric,1),originalDrawing00440350(a,new GdiTrace(),undefined,options,1));assert.deepEqual(b.bytes,a.bytes);
+ }
 }));

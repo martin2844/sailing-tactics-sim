@@ -7,7 +7,7 @@ numerical foundation. Identical old seeds need not produce identical races.
 
 `EngineRuntime` owns initialization, ordered numeric controls, phase cadence,
 variable timestep, world updates, coach counters, score finalization, finishing
-window, next-race initialization and complete binary checkpoints. It runs in
+window, next-race initialization and complete binary/host checkpoints. It runs in
 Node without DOM, Canvas, GDI, bitmap fonts or a graphics backend.
 
 The CRT distribution is retained. Gameplay, physical waves and cosmetic
@@ -26,7 +26,8 @@ than once per HUD drawing. Paused/frozen or held information screens do not
 advance authoritative state.
 
 Checkpoints include the entire address image, all three RNG states, simulation
-host ticks and race-window finish/DNF bookkeeping. Leg replay restores the latest
+host ticks, virtual CString host contents, race-window finish/DNF bookkeeping
+and the current leg-replay boundary. Leg replay restores the latest
 native save boundary after its entire world phase and freezes. It does not use
 the old partial memory restore or allow wave respawns to consume gameplay RNG.
 The browser must reset/reseed contact and island-navigation observers on replay.
@@ -51,4 +52,5 @@ Evaluation gates:
 Evidence: `analysis/app/independent-runtime-telemetry-2026-10-07/verification.json`
 (two complete20786-step races, four AI arrivals,20-minute player DNF, identical
 image/gameplay RNG despite cosmetic work; checkpoint, held-panel and next-race
-checks) and the frozen navigation/wave/waypoint/camera/step tests.
+checks; review regressions additionally cover a discarded future replay point,
+virtual strings and N/Space restart) and the frozen navigation/wave/waypoint/camera/step tests.

@@ -12,7 +12,10 @@ export interface EngineOptions extends Record<string, unknown> {
   getTickCount(): number;
   getCursorPos(): {x: number; y: number};
 }
+export interface StringCell {address: number; text: string}
 export interface NumericalEngine {
+  captureStrings(memory: EngineMemory): StringCell[];
+  restoreStrings(memory: EngineMemory, cells: readonly StringCell[]): void;
   initializeApplication(memory: EngineMemory, random: RandomStream, options: Record<string, unknown>): Map<number, unknown>;
   initializeBoatOptions(memory: EngineMemory, options: EngineOptions): void;
   initializeRace(memory: EngineMemory, random: RandomStream, options: EngineOptions): void;

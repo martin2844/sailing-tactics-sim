@@ -14,7 +14,8 @@ export function updateSailingTelemetry(memory: EngineMemory, numeric: NumericalE
   if (r(0x4f8cd0) <= 0) return;
   const increment = (address: number) => memory.writeI32(address, (r(address) + 1) | 0);
   const shift = signedAngle(r(0x522b94) - r(0x4f7f94));
-  const favorable = Math.imul(shift, r(0x522ff4)) >= 0;
+  const shiftOnTack = Math.imul(shift, r(0x522ff4));
+  const favorable = shiftOnTack >= 0;
   const upwind = r(0x4feccc) < 55;
   if (upwind) {
     if (favorable) increment(0x4f6d2c);
@@ -31,10 +32,10 @@ export function updateSailingTelemetry(memory: EngineMemory, numeric: NumericalE
   const bearing=signedAngle((bearingValue.multiply(numeric.number(memory.readF64(0x4cc3e8))).truncI32()-r(0x535744))|0);
   memory.writeI32(0x535ff4,bearing);
   const distance = Math.trunc(memory.readF64(0x4fbb88)), absolute = Math.abs(bearing), downwind = r(0x4fae64);
-  if (upwind && absolute > 45 && Math.abs(shift) > 10 && distance > 300) memory.writeI32(0x4fb234,1);
+  if (shiftOnTack<0 && upwind && absolute > 45 && Math.abs(shift) > 10 && distance > 300) memory.writeI32(0x4fb234,1);
   if (upwind && absolute > 75 && distance > Math.trunc(r(0x525a9c)/3)) memory.writeI32(0x4fb234,2);
   if (upwind && absolute > 90 && r(0x4f853c)>0 && r(0x4f8cd0)>10) memory.writeI32(0x4fb234,3);
-  if (!favorable && r(0x4feccc)>=170-downwind) {
+  if (shiftOnTack>0 && r(0x4feccc)>=170-downwind) {
     if (distance>300 && absolute>downwind) memory.writeI32(0x4fb234,-1);
     if (distance>700 && absolute>Math.trunc(downwind*9/5)) memory.writeI32(0x4fb234,-2);
     if (distance>700 && absolute>downwind*2) memory.writeI32(0x4fb234,-3);

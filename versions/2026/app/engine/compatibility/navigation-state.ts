@@ -31,7 +31,15 @@ export function updateNavigationState(m:EngineMemory,n:NumericalEngine,boat:numb
       if(n.distance(m,boat,r(x),r(y)).compare(n.number(m.readF64(0x4cc490)))<0)w(field,kind);
     }
   }
-  const kind=r(field);let point=kind===0?2:kind===1?3:kind===2?4:kind===3?5:r(0x5230b8);
-  if(r(0x4f8538+boat*4)===r(0x4da1e4)&&kind>2&&r(0x53527c)===1)point=5;
+  const point=selectNavigationPoint(m,boat);
   w(0x5230b8,point);return point;
+}
+
+/** Read-only physical object selection from0x440350, after classification.
+ * Separating these operations prevents presentation from advancing that state. */
+export function selectNavigationPoint(m:Pick<EngineMemory,'readI32'>,boat:number):number {
+  const r=(address:number)=>m.readI32(address),kind=r(0x4fbf10+boat*4);
+  let point=kind===0?2:kind===1?3:kind===2?4:kind===3?5:r(0x5230b8);
+  if(r(0x4f8538+boat*4)===r(0x4da1e4)&&kind>2&&r(0x53527c)===1)point=5;
+  return point;
 }

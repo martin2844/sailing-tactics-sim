@@ -250,6 +250,14 @@ production engine; preserved players remain comparison references.
   Physical wave density remains398 points. Browser cutover follows separately.
   See [v1 contract](versions/2026/docs/independent-state-contract.md).
 
+- [x] **ENG-04.3 — Close independent runtime review findings.**
+
+  Complete checkpoints include virtual CString contents and their leg-replay
+  boundary. Public N/Space restarts explicitly; coach tack gates match360
+  recovered-block fixtures.25 focused tests pass, including592 full-image
+  navigation fixtures and discarded-future replay. Strong-wind Tornado races
+  finish without graphics. See [review closure](versions/2026/analysis/app/ENG-04-2.md).
+
 - [ ] **ENG-04 — Implement the compatible simulation driver** · P0 · L · Depends: ENG-03, BASE-05.
 
   Done when: scenario initialization, tick/phase execution, actual finish events
