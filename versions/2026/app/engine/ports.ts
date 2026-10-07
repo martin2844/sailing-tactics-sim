@@ -13,7 +13,15 @@ export interface EngineOptions extends Record<string, unknown> {
   getCursorPos(): {x: number; y: number};
 }
 export interface StringCell {address: number; text: string}
+export interface CollisionNumerics {
+ supported():boolean;
+ reference(memory:EngineMemory,random:RandomStream,options:EngineOptions,boat:number):void;
+ avoid(memory:EngineMemory,random:RandomStream,options:EngineOptions,distance:number,other:number,boat:number,tack:number):void;
+ warn(memory:EngineMemory,random:RandomStream,options:EngineOptions,distance:number,other:number,boat:number):void;
+ distance(dx:number,dy:number):number;
+}
 export interface NumericalEngine {
+  collision?:CollisionNumerics;
   captureStrings(memory: EngineMemory): StringCell[];
   restoreStrings(memory: EngineMemory, cells: readonly StringCell[]): void;
   initializeApplication(memory: EngineMemory, random: RandomStream, options: Record<string, unknown>): Map<number, unknown>;

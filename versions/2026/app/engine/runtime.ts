@@ -8,6 +8,7 @@ import {updateWaveMotion} from './environment/wave-motion.ts';
 import {createWaveMotionPort} from './compatibility/wave-motion-port.ts';
 import {updateFoulSlowdown} from './rules/foul-slowdown.ts';
 import {createFoulSlowdownState} from './compatibility/foul-slowdown-state.ts';
+import {runCollisionAvoidance} from './compatibility/collision-avoidance-port.ts';
 import {configureCanonicalProfile,canonicalHostProfile} from './compatibility/host-profile.ts';
 import {executeSimulationStep} from './simulation-step.ts';
 import {RaceWindow,type RaceWindowCheckpoint} from '../race-window.ts';
@@ -83,6 +84,10 @@ export class EngineRuntime {
         this.spawnWave(index);
       },
     };
+    const collision=numeric.collision;
+    if(collision&&configuration.options?.optimizedNumerics!==false){
+      this.options.fastCollisionAvoidance=(image:EngineMemory,random:RandomStreams['gameplay'],options:EngineOptions,boat:number)=>runCollisionAvoidance(image,random,options,boat,collision);
+    }
     const integrate=this.options.integratePositions;
     if(typeof integrate!=='function')throw new TypeError('Numerical engine requires position integration');
     this.options.integratePositions=(image:EngineMemory,random:unknown,options:EngineOptions)=>{

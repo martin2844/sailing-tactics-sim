@@ -118,3 +118,7 @@ Earlier receipts remain historical evidence: [prior consolidated controls](../an
 [original playback controls](../analysis/app/playback-final-2026-10-07/verification.json),
 and [cosmetic clock isolation](../analysis/app/cosmetic-clock-2026-10-07/verification.json).
 Their earlier public modes/Space semantics are superseded by this document.
+
+Dense-fleet calculation cost is addressed in the
+[fleet performance follow-up](fleet-performance.md); earlier load observations
+above predate those optimizations.

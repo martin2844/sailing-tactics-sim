@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "reference": "c9bdd70",
+  "checks": [
+    {
+      "name": "Exact geometry and swept time/normal equality across all27 hull classes",
+      "separations": 2350,
+      "sweeps": 7350
+    },
+    {
+      "name": "Complete numerical image, RNG and navigation activity remain exact after every decision/step",
+      "runs": [
+        {
+          "fleet": 5,
+          "steps": 100,
+          "oldMs": 273.95405300000584,
+          "newMs": 202.6020550000003,
+          "speedup": 1.35217805663425
+        },
+        {
+          "fleet": 15,
+          "steps": 100,
+          "oldMs": 558.3109950000062,
+          "newMs": 295.9218080000037,
+          "speedup": 1.886684184492409
+        },
+        {
+          "fleet": 30,
+          "steps": 100,
+          "oldMs": 989.608836999998,
+          "newMs": 382.38567299999613,
+          "speedup": 2.5879861795972885
+        }
+      ]
+    }
+  ],
+  "scope": "Comparison against preserved pre-optimization TypeScript contact geometry/solver/navigator sources at c9bdd70. Query caching uses immutable prediction motions; actual contact resolution remains uncached. Full fixed-step image/RNG comparisons include navigation decisions on5/15/30-Keelboat fleets. Node cost observations are separate from Chrome rates."
+}

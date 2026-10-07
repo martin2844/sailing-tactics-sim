@@ -309,8 +309,19 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     let body=source.slice(0,end);const anchor='case 100: { pc = cTruth(';
     if(body.split(anchor).length!==2)throw Error('Native retirement branch changed');
     body=body.replace(anchor,'case 100: { pc = options.finishWindowEnabled ? 96 : cTruth(');
-    const prepared=body+source.slice(end);await writeFile(target,prepared);
-    generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'full-fleet-retirement-window-v1',sourceSha256:f.sha256});
+    const collisionEntry='export function originalUpdateCollisionAvoidance(memory, rng, options = {}, ...originalArgs) {';
+    const preparedSource=body+source.slice(end);
+    if(preparedSource.split(collisionEntry).length!==2)throw Error('Native collision avoidance entry changed');
+    let prepared=preparedSource.replace(collisionEntry,collisionEntry+'\n  if(typeof options.fastCollisionAvoidance===\'function\')return options.fastCollisionAvoidance(memory,rng,options,originalArgs[0]);');
+    const entries=[...prepared.matchAll(/export function (original\w+)\(memory, rng, options = \{\}, \.\.\.originalArgs\) \{/g)];
+    if(entries.length!==10)throw Error('AI profiling entries changed');
+    for(const entry of entries){
+      const name=entry[1],implementation='kernel'+name;
+      prepared=prepared.replace(entry[0],entry[0].replace('export function '+name,'function '+implementation));
+      prepared+=`\nexport function ${name}(memory,rng,options={},...args){\n const observer=options.aiWorkObserver;\n return typeof observer==='function'?observer('${name}',()=>${implementation}(memory,rng,options,...args)):${implementation}(memory,rng,options,...args);\n}\n`;
+    }
+    await writeFile(target,prepared);
+    generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'full-fleet-window-and-avoidance-port-v2',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/race-targets.js'){
     const source=bytes.toString('utf8'),anchor='export function advanceRaceTarget(memory,boat,options={}){';
     if(source.split(anchor).length!==2)throw Error('Native finish routine boundary changed');

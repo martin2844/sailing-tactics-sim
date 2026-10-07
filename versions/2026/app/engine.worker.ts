@@ -16,6 +16,7 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {profileNumericalWork} from './engine/diagnostics/work-profile';
 import {speedForCommand,simulatorSpeeds} from './engine/speed';
 import {prepareFleetSpawns} from './engine/compatibility/spawn-state';
 import {PlaybackPacer,nativePlaybackSpeed,validatePlayback,clockNativeSpeed} from './engine/time/playback';
@@ -195,9 +196,11 @@ async function initialize(data:any){
   const scenario=data.scenario,settings=validateRaceSettings(data.settings);
   const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
   if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
-  const geometry=await load(edition+'src/engine/ai-geometry.js'),movement=await load(edition+'src/engine/movement.js');
+  const geometry=await load(edition+'src/engine/ai-geometry.js'),movement=await load(edition+'src/engine/movement.js'),ai=await load(edition+'src/engine/ai-functions.js');
   runtime=new EngineRuntime(memory,{
     captureStrings:text.originalCStringContents,
+    collision:{supported:()=>float.getX87ControlWord()===0x027f,reference:ai.originalUpdateCollisionAvoidance,avoid:ai.originalAvoidAiCollision,warn:ai.originalWarnHumanRightOfWay,
+      distance:(dx,dy)=>{const x=float.Float80.fromInteger(dx),y=float.Float80.fromInteger(dy);return y.multiply(y).add(x.multiply(x)).sqrt().truncI32();}},
     restoreStrings:(image,cells)=>{text.resetOriginalCStringContents(image);for(const cell of cells)text.writeCString(image,cell.address,cell.text);},
     initializeApplication:application.initializeApplication,initializeBoatOptions:boatOptions.initializeBoatOptions,
     initializeRace:initialization.initializeRace,advanceFrame:frameModule.advanceFrame,
@@ -286,6 +289,10 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     if(memory.readI32(0x5363f4)===0)resultsReady=false;if(panelTitle()!==null||[32,33,34,70].includes(data))rebasePlayback();if(!clockRateKey&&!clockSpaceKey)modelDirty=true;send('snapshot',snapshot(0));send('accepted',{key:data,sequence:frame});requestModels();
   }
   else if(type==='step'){if(!paused||!Number.isInteger(data)||data<1||data>200)throw new Error('Diagnostic steps require paused worker and 1..200 steps');let duration=0;for(let n=0;n<data;n++)duration=stepRuntime();send('snapshot',snapshot(duration));requestModels();send('reply',{id,value:await boundary()});}
+  else if(type==='profile-steps'){
+    if(!paused||phaseTracer||panelTitle()!==null||memory.readI32(0x53642c)!==0)throw Error('Cost profiling requires a paused, uninstrumented sailing worker');
+    const report=profileNumericalWork(options,stepRuntime,data);send('snapshot',snapshot(report.totalMs));requestModels();send('reply',{id,value:{...report,boundary:await boundary()}});
+  }
   else if(type==='model'){send('reply',{id,value:visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))});}
   else if(type==='lift'){if(!paused)throw new Error('Model diagnostics require pause');const width=modelWidth;if(!width)throw new Error('Missing model calibration');send('reply',{id,value:[0,1,2].map(shear=>modelExtractor.capture(data??1,width,35,shear))});}
   else if(type==='trace-start'){if(!paused||!phaseTracer)throw new Error('Tracing requires an instrumented paused worker');phaseTracer.start();send('reply',{id,value:true});}

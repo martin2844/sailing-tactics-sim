@@ -1,0 +1,227 @@
+{
+  "scope": "200 paused diagnostic numerical steps in each actual Chrome worker; per-phase timer wrappers add overhead but no display frames are used for scheduling.",
+  "rows": [
+    {
+      "fleet": 5,
+      "report": {
+        "steps": 200,
+        "totalMs": 777.2000000476837,
+        "phases": {
+          "updateGlobalWind": {
+            "calls": 200,
+            "totalMs": 7.300000011920929,
+            "maxMs": 1.899999976158142
+          },
+          "updateBoatWindAndAI": {
+            "calls": 1000,
+            "totalMs": 520.3999993801117,
+            "maxMs": 8.200000047683716
+          },
+          "updatePlayer1Steering": {
+            "calls": 200,
+            "totalMs": 3.4999998807907104,
+            "maxMs": 0.19999998807907104
+          },
+          "updatePlayer2Steering": {
+            "calls": 0,
+            "totalMs": 0,
+            "maxMs": 0
+          },
+          "updateBoatDynamics": {
+            "calls": 1000,
+            "totalMs": 40.10000026226044,
+            "maxMs": 2.900000035762787
+          },
+          "integratePositions": {
+            "calls": 200,
+            "totalMs": 171.09999936819077,
+            "maxMs": 5.299999952316284
+          },
+          "originalUpdateBoatWindAndAI": {
+            "calls": 1000,
+            "totalMs": 64.49999904632568,
+            "maxMs": 3.300000011920929
+          },
+          "originalSampleSpatialWind": {
+            "calls": 190,
+            "totalMs": 6.099999725818634,
+            "maxMs": 0.20000004768371582
+          },
+          "originalUpdateCollisionAvoidance": {
+            "calls": 1000,
+            "totalMs": 3.0999999046325684,
+            "maxMs": 0.10000002384185791
+          },
+          "originalChooseDownwindHeading": {
+            "calls": 476,
+            "totalMs": 7.20000022649765,
+            "maxMs": 3.300000011920929
+          }
+        },
+        "boundary": {
+          "contract": "independent-v1",
+          "waveRngState": 500071878,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 238,
+          "time": -162.33849446940098,
+          "clock": -162,
+          "rngState": 2725873482,
+          "memorySha256": "e9daa77d44219ad57e473ed046e77f1f9db031aa4db4dec99ff2e247c2d86673",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        }
+      }
+    },
+    {
+      "fleet": 15,
+      "report": {
+        "steps": 200,
+        "totalMs": 3327.899999976158,
+        "phases": {
+          "updateGlobalWind": {
+            "calls": 200,
+            "totalMs": 6.300000071525574,
+            "maxMs": 0.30000001192092896
+          },
+          "updateBoatWindAndAI": {
+            "calls": 3000,
+            "totalMs": 2977.4999999403954,
+            "maxMs": 26
+          },
+          "updatePlayer1Steering": {
+            "calls": 200,
+            "totalMs": 4.400000333786011,
+            "maxMs": 0.10000002384185791
+          },
+          "updatePlayer2Steering": {
+            "calls": 0,
+            "totalMs": 0,
+            "maxMs": 0
+          },
+          "updateBoatDynamics": {
+            "calls": 3000,
+            "totalMs": 112.80000001192093,
+            "maxMs": 5.800000011920929
+          },
+          "integratePositions": {
+            "calls": 200,
+            "totalMs": 167.99999964237213,
+            "maxMs": 3.899999976158142
+          },
+          "originalUpdateBoatWindAndAI": {
+            "calls": 3000,
+            "totalMs": 181.900000333786,
+            "maxMs": 3.800000011920929
+          },
+          "originalSampleSpatialWind": {
+            "calls": 570,
+            "totalMs": 13.70000010728836,
+            "maxMs": 0.2999999523162842
+          },
+          "originalUpdateCollisionAvoidance": {
+            "calls": 3000,
+            "totalMs": 9.199999809265137,
+            "maxMs": 1.2000000476837158
+          },
+          "originalChooseDownwindHeading": {
+            "calls": 1436,
+            "totalMs": 12.600000441074371,
+            "maxMs": 1.5
+          }
+        },
+        "boundary": {
+          "contract": "independent-v1",
+          "waveRngState": 3534161550,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 238,
+          "time": -162.33849446940098,
+          "clock": -162,
+          "rngState": 3196435548,
+          "memorySha256": "798900512d3fbfd4070650ed7a7ae6dda46a0e9c1c34f102f291ad869f61d7a5",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        }
+      }
+    },
+    {
+      "fleet": 30,
+      "report": {
+        "steps": 200,
+        "totalMs": 3235.400000035763,
+        "phases": {
+          "updateGlobalWind": {
+            "calls": 200,
+            "totalMs": 5.499999821186066,
+            "maxMs": 0.30000001192092896
+          },
+          "updateBoatWindAndAI": {
+            "calls": 6000,
+            "totalMs": 2750.5000004172325,
+            "maxMs": 20.900000035762787
+          },
+          "updatePlayer1Steering": {
+            "calls": 200,
+            "totalMs": 3.8000000715255737,
+            "maxMs": 0.2999999523162842
+          },
+          "updatePlayer2Steering": {
+            "calls": 0,
+            "totalMs": 0,
+            "maxMs": 0
+          },
+          "updateBoatDynamics": {
+            "calls": 6000,
+            "totalMs": 159.3999997973442,
+            "maxMs": 3
+          },
+          "integratePositions": {
+            "calls": 200,
+            "totalMs": 259.40000081062317,
+            "maxMs": 6.5
+          },
+          "originalUpdateBoatWindAndAI": {
+            "calls": 6000,
+            "totalMs": 306.49999862909317,
+            "maxMs": 5.299999952316284
+          },
+          "originalSampleSpatialWind": {
+            "calls": 1230,
+            "totalMs": 46.499999821186066,
+            "maxMs": 5.199999988079071
+          },
+          "originalUpdateCollisionAvoidance": {
+            "calls": 6000,
+            "totalMs": 17.499999940395355,
+            "maxMs": 1.199999988079071
+          },
+          "originalChooseDownwindHeading": {
+            "calls": 3260,
+            "totalMs": 20.700000047683716,
+            "maxMs": 0.6000000238418579
+          }
+        },
+        "boundary": {
+          "contract": "independent-v1",
+          "waveRngState": 3534161550,
+          "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+          "frame": 235,
+          "time": -162.44137058953459,
+          "clock": -162,
+          "rngState": 3149218743,
+          "memorySha256": "c8046b3ec1e41d3dd1e951b8a8db8ad1886f40fa5f1cdb3b1a9f3c44bdb0ce40",
+          "shore": {
+            "previousX": 604045502,
+            "previousTreeY": 0,
+            "completedCalls": 0
+          }
+        }
+      }
+    }
+  ]
+}

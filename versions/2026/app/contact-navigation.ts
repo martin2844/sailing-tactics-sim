@@ -1,14 +1,15 @@
 import{boatShapes,radius,obstacles}from'./contact-shapes.ts';
 import{contactCourse}from'./contact-world.ts';
-import{sweep,type Motion}from'./contact-solver.ts';
+import{createSweepQuery,type Motion}from'./contact-solver.ts';
 import{angleDelta,type Point}from'./contact-geometry.ts';
 const wrap=(angle:number)=>(angle%360+360)%360;
+interface NavigationMemory {readI32(address:number):number;readF64(address:number):number;writeI32(address:number,value:number):void}
 /** A short-range clearance layer. Native AI still chooses tactics and race
  * targets; this only avoids rigid contacts along the intended sailing path. */
 export class ContactNavigator {
  readonly active=new Set<number>();
  constructor(private waterClear?:(a:Point,b:Point)=>boolean){}
- steer(m:any,id:number){
+ steer(m:NavigationMemory,id:number){
   this.active.delete(id);const i=(a:number)=>m.readI32(a),d=(a:number)=>m.readF64(a),w=(a:number,v:number)=>m.writeI32(a,v);
   if(id<=i(0x4da140)||i(0x4fe638+id*4)>0)return;
   const parts=boatShapes(i(0x4da144)),r=radius(parts),start={x:d(0x4f6af8+id*8),y:d(0x4f6c10+id*8)},heading=i(0x535740+id*4),wind=i(0x522b90+id*4),close=Math.max(38,i(0x4f7200));
@@ -16,13 +17,23 @@ export class ContactNavigator {
   const fixed=obstacles(contactCourse(m)).filter(b=>Math.hypot(b.pose.x-start.x,b.pose.y-start.y)<look+r+b.radius+5);
   const neighbors:Motion[]=[];for(let other=1;other<=i(0x4da194);other++){if(other===id)continue;const pose={x:d(0x4f6af8+other*8),y:d(0x4f6c10+other*8),heading:i(0x535740+other*4)};if(Math.hypot(pose.x-start.x,pose.y-start.y)>look*2+r*2)continue;const distance=i(0x4fe638+other*4)>0?0:i(0x4fc230+other*4)/10*.4*horizon,angle=pose.heading*Math.PI/180;neighbors.push({key:'boat-'+other,parts,radius:r,pose,to:{x:pose.x+Math.sin(angle)*distance,y:pose.y-Math.cos(angle)*distance,heading:pose.heading}});}
   if(!fixed.length&&!neighbors.length)return;
+  // Opponent motions remain immutable during this decision. Reuse their
+  // bounds/initial hull geometry across every candidate heading.
+  const nearFirst=(a:Motion,b:Motion)=>(a.pose.x-start.x)**2+(a.pose.y-start.y)**2-((b.pose.x-start.x)**2+(b.pose.y-start.y)**2);
+  const sweep=createSweepQuery(),fixedMotions=fixed.map(b=>({...b,to:b.pose})).sort(nearFirst),risks=new Map<number,{time:number;water:boolean}>();
+  neighbors.sort(nearFirst);
   const risk=(angle:number)=>{
+   const cached=risks.get(angle);if(cached)return cached;
    const radians=angle*Math.PI/180,to={x:start.x+Math.sin(radians)*look,y:start.y-Math.cos(radians)*look,heading:angle};
-   if(this.waterClear&&!this.waterClear(start,to))return {time:0,water:false};
+   if(this.waterClear&&!this.waterClear(start,to)){const blocked={time:0,water:false};risks.set(angle,blocked);return blocked;}
    const candidate:Motion={key:'boat-'+id,parts,radius:r,pose:{...start,heading:angle},to};let time=1;
-   for(const b of fixed){const hit=sweep(candidate,{...b,to:b.pose});if(hit)time=Math.min(time,hit.time);}
-   for(const b of neighbors){const hit=sweep(candidate,b);if(hit)time=Math.min(time,hit.time);}
-   return {time,water:true};
+   for(const bodies of[fixedMotions,neighbors])for(const b of bodies){
+    const hit=sweep(candidate,b);if(hit)time=Math.min(time,hit.time);
+    // Prediction is a pure minimum over contacts. Zero cannot improve, so
+    // nearby blockers may finish the decision without querying the rest.
+    if(time===0){const blocked={time:0,water:true};risks.set(angle,blocked);return blocked;}
+   }
+   const result={time,water:true};risks.set(angle,result);return result;
   };
   const original=risk(heading);if(original.time>.55)return;
   const target={x:i(0x4f4d78+id*4),y:i(0x4fc350+id*4)},bearing=wrap(Math.atan2(target.x-start.x,start.y-target.y)*180/Math.PI);

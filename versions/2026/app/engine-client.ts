@@ -7,7 +7,9 @@ import type {NativeBoatFrame} from './native-visuals';
 import {defaultRaceSettings,type RaceSettings} from './race-settings';
 import {fleetChoices} from './native-catalog';
 import type {InformationRequest,InformationContent} from './native-information';
+import type {WorkProfile} from './engine/diagnostics/work-profile';
 interface DiagnosticReplies {
+  'profile-steps':WorkProfile&{boundary:Boundary};
   information:InformationContent;
   islandcase:{before:Boundary;after:Boundary;marks:unknown[];paths:unknown[];nodes:number;active:number[]};
   cutoffcase:{before:Boundary;after:Boundary;cases:unknown[];scope:string};

@@ -1,4 +1,5 @@
-import {CONTACT_SKIN,shapeSeparation,separation,interpolate,angleDelta,distance,dot,type Body,type Pose,type Point} from './contact-geometry.ts';
+import {CONTACT_SKIN,shapeSeparation,prepareShape,preparedProjection,preparedShapeSeparation,separation,interpolate,angleDelta,distance,dot,type AxisNormalizer,type PreparedShape,type Body,type Pose,type Point} from './contact-geometry.ts';
+import {separatedTranslation,translationProjectionSlack} from './contact-broadphase.ts';
 export interface Motion extends Body {to:Pose;human?:boolean;fixed?:boolean}
 export interface Contact {a:string;b:string;time:number;normal:Point;initial:boolean;uncertain?:boolean;poseA:Pose;poseB:Pose}
 export interface SweptContact {time:number;normal:Point;uncertain?:boolean}
@@ -12,14 +13,76 @@ function bounds(m:Motion){
  const padding=m.radius*Math.abs(angleDelta(m.to.heading,m.pose.heading))*Math.PI/360;
  return {minX:minX-padding,maxX:maxX+padding,minY:minY-padding,maxY:maxY+padding};
 }
-export function sweep(a:Motion,b:Motion):SweptContact|null{
- const ab=bounds(a),bb=bounds(b);if(ab.maxX+CONTACT_SKIN<bb.minX||bb.maxX+CONTACT_SKIN<ab.minX||ab.maxY+CONTACT_SKIN<bb.minY||bb.maxY+CONTACT_SKIN<ab.minY)return null;
+interface PreparedMotion {bounds:ReturnType<typeof bounds>;parts?:PreparedShape[];evaluate?:((t:number)=>PreparedShape)[]}
+/** Reuse iteration scratch without changing any transform/normal arithmetic.
+ * Returned scratch is internal; separation normals are copied before reuse. */
+function shapeEvaluator(m:Motion,index:number,normalize:AxisNormalizer):(t:number)=>PreparedShape {
+ const shape=m.parts[index],pose={...m.pose},points=shape.kind==='polygon'?shape.points.map(()=>({x:0,y:0})):[],directions=points.map(()=>({x:0,y:0}));
+ const result:PreparedShape={shape,pose,points,directions},dx=m.to.x-m.pose.x,dy=m.to.y-m.pose.y,rotation=angleDelta(m.to.heading,m.pose.heading);
+ const heading=interpolate(m.pose,m.to,0).heading,angle=heading*Math.PI/180,c=Math.cos(angle),s=Math.sin(angle);
+ const products=shape.kind==='polygon'&&rotation===0?shape.points.map(p=>({xc:p.x*c,ys:p.y*s,xs:p.x*s,yc:p.y*c})):undefined;
+ return t=>{
+  pose.x=m.pose.x+dx*t;pose.y=m.pose.y+dy*t;pose.heading=m.pose.heading+rotation*t;
+  if(shape.kind==='polygon'){
+   const fixed=products&&Number.isFinite(t),a=pose.heading*Math.PI/180,cos=fixed?c:Math.cos(a),sin=fixed?s:Math.sin(a);
+   for(let n=0;n<points.length;n++){
+    const p=shape.points[n],q=points[n],v=products?.[n];
+    q.x=fixed?pose.x+v!.xc-v!.ys:pose.x+p.x*cos-p.y*sin;
+    q.y=fixed?pose.y+v!.xs+v!.yc:pose.y+p.x*sin+p.y*cos;
+   }
+   for(let n=0;n<points.length;n++){const p=points[n],q=points[(n+1)%points.length];directions[n]=normalize(q.x-p.x,q.y-p.y);}
+  }return result;
+ };
+}
+/** One query scope may reuse motions only while their poses, destinations and
+ * shape arrays stay immutable. Contact resolution continues to use sweep(). */
+export function createSweepQuery(){
+ const cache=new WeakMap<Motion,PreparedMotion>();
+ const axes=new Map<number|string,Map<number|string,Point>>();let entries=0;
+ const key=(value:number):number|string=>value===0?(Object.is(value,-0)?'-0':'+0'):value;
+ const normalize:AxisNormalizer=(dx,dy)=>{
+  const x=key(dx),y=key(dy);let row=axes.get(x),axis=row?.get(y);if(axis)return axis;
+  const n=Math.hypot(dx,dy);axis={x:-dy/n,y:dx/n};
+  // Equal edge vectors produce exactly equal normals. Sharing their identity
+  // also shares cached projections; no quantization/angle rounding is used.
+  if(entries<8192){if(!row){row=new Map();axes.set(x,row);}row.set(y,axis);entries++;}return axis;
+ };
+ return (a:Motion,b:Motion)=>{if(separatedTranslation(a,b))return null;const hit=sweepMotion(a,b,cache,normalize);return hit?{...hit,normal:{...hit.normal}}:null;};
+}
+export function sweep(a:Motion,b:Motion):SweptContact|null{return sweepMotion(a,b);}
+function sweepMotion(a:Motion,b:Motion,cache?:WeakMap<Motion,PreparedMotion>,normalize?:AxisNormalizer):SweptContact|null{
+ const prepare=(m:Motion)=>{let item=cache?.get(m);if(!item){item={bounds:bounds(m)};cache?.set(m,item);}return item;};
+ const am=prepare(a),bm=prepare(b),ab=am.bounds,bb=bm.bounds;if(ab.maxX+CONTACT_SKIN<bb.minX||bb.maxX+CONTACT_SKIN<ab.minX||ab.maxY+CONTACT_SKIN<bb.minY||bb.maxY+CONTACT_SKIN<ab.minY)return null;
+ const initialParts=(m:Motion,item:PreparedMotion)=>item.parts??=(m.parts.map(part=>({...prepareShape(part,interpolate(m.pose,m.to,0),normalize),projections:new WeakMap()})));
+ const atShape=(m:Motion,item:PreparedMotion,index:number,t:number)=>{
+  if(t===0)return initialParts(m,item)[index];
+  item.evaluate??=m.parts.map((_,n)=>shapeEvaluator(m,n,normalize!));return item.evaluate[index](t);
+ };
+ if(cache){
+  const slack=translationProjectionSlack(a,b);
+  if(slack!==undefined){
+   const relative={x:(a.to.x-a.pose.x)-(b.to.x-b.pose.x),y:(a.to.y-a.pose.y)-(b.to.y-b.pose.y)},skin=CONTACT_SKIN+.005+slack;
+   const clear=(aa:PreparedShape,bb:PreparedShape)=>{
+    for(const directions of[aa.directions,bb.directions])for(const axis of directions){
+     const ap=preparedProjection(aa,axis),bp=preparedProjection(bb,axis),along=dot(relative,axis),forward=bp.min-ap.max,backward=ap.min-bp.max;
+     // A common separating plane at both endpoints separates the entire
+     // linear trajectory. Near skin/work-cap uncertainty keeps the solver.
+     if(Math.min(forward,forward-along)>skin||Math.min(backward,backward+along)>skin)return true;
+    }return false;
+   };
+   if(initialParts(a,am).every(aa=>initialParts(b,bm).every(bb=>clear(aa,bb))))return null;
+  }
+ }
  const da={x:a.to.x-a.pose.x,y:a.to.y-a.pose.y},db={x:b.to.x-b.pose.x,y:b.to.y-b.pose.y},rotationA=angleDelta(a.to.heading,a.pose.heading)*Math.PI/180,rotationB=angleDelta(b.to.heading,b.pose.heading)*Math.PI/180;
  const translationSpeed=Math.hypot(da.x-db.x,da.y-db.y);
  let best:SweptContact|null=null;
- for(const aa of a.parts)for(const bs of b.parts){
+ for(let ai=0;ai<a.parts.length;ai++)for(let bi=0;bi<b.parts.length;bi++){
+  const aa=a.parts[ai],bs=b.parts[bi];
   const angularSpeed=(aa.kind==='circle'?0:Math.abs(rotationA)*a.radius)+(bs.kind==='circle'?0:Math.abs(rotationB)*b.radius),speed=translationSpeed+angularSpeed;
-  const at=(t:number)=>shapeSeparation(aa,interpolate(a.pose,a.to,t),bs,interpolate(b.pose,b.to,t));
+  const at=(t:number)=>{
+   if(!cache)return shapeSeparation(aa,interpolate(a.pose,a.to,t),bs,interpolate(b.pose,b.to,t));
+   const result=preparedShapeSeparation(atShape(a,am,ai,t),atShape(b,bm,bi,t));return {gap:result.gap,normal:{...result.normal}};
+  };
   const initial=at(0);if(initial.gap<=CONTACT_SKIN&&angularSpeed<1e-10&&dot({x:da.x-db.x,y:da.y-db.y},initial.normal)<=1e-9)continue;
   let t=0,leaving=false,previousGap=initial.gap;
   if(initial.gap<=CONTACT_SKIN&&speed>0){const probe=at(Math.min(1,.01/speed));leaving=probe.gap>initial.gap+1e-7;}

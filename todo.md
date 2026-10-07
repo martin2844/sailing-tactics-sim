@@ -1270,3 +1270,11 @@ compatibility adapters remain a separately tracked cleanup.
   keyboard controls to the displayed boat.29 focused tests and trusted Chrome
   tack/jibe/control evaluations pass. See
   [control regression report](versions/2026/analysis/app/maneuver-controls-2026-10-07.md).
+
+- [x] **Dense-fleet computation optimization — 2026-10-07.** Profile actual
+  worker phases; accelerate exact original radius screening; reuse immutable
+  predictive hull geometry/projections/axes and iteration scratch; prune only
+  conservative no-contact translations. Preserve all opponents, collision
+  resolution, penalty responses and fixed-step image/RNG. Golden geometry,
+  numerical/solver/rules, full-race and Chrome controls pass. See
+  `versions/2026/docs/fleet-performance.md`.

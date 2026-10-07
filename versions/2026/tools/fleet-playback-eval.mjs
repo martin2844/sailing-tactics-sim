@@ -1,0 +1,14 @@
+import {openBrowser} from '../../../tools/browser-session.js';import {mkdir,writeFile} from 'node:fs/promises';import {resolve} from 'node:path';
+const output=resolve(process.argv[2]);await mkdir(output,{recursive:true});const b=await openBrowser('http://127.0.0.1:8770/',{headless:true,gpu:true,requestTimeoutMs:60000}),rates=[];
+try{
+ await b.call('Emulation.setDeviceMetricsOverride',{width:1440,height:1050,deviceScaleFactor:1,mobile:false});await b.waitFor('globalThis.tact2026?.ready',60000);
+ await b.evaluate('document.getElementById("race-fleet").value="30";document.getElementById("race-fleet").dispatchEvent(new Event("change"));document.getElementById("race-form").requestSubmit()');await b.waitFor('tact2026.ready&&document.getElementById("starter").hidden&&tact2026.latest.boats.length===30',60000);
+ await b.evaluate('tact2026.engine.send("pause",true)');await b.waitFor('tact2026.paused');
+ for(const rate of[1,2,4,8,16,32]){
+  await b.evaluate(`document.getElementById('pace').value='clock:${rate}';document.getElementById('pace').dispatchEvent(new Event('change'))`);await b.waitFor(`tact2026.latest.playback.active.rate===${rate}`);
+  const run=await b.evaluate(`(async()=>{const before=await tact2026.engine.request('boundary'),start=performance.now();tact2026.engine.send('pause',false);await new Promise(r=>setTimeout(r,4000));const live={playback:tact2026.latest.playback,work:tact2026.latest.workMs,clock:tact2026.latest.clock,contacts:tact2026.latest.contacts};tact2026.engine.send('pause',true);const after=await tact2026.engine.request('boundary');return{before,after,live,wall:(performance.now()-start)/1000}})()`);
+  const actual=(run.after.time-run.before.time)/run.wall;if(actual<=0||actual>rate*1.05||rate<=4&&actual<rate*.9)throw Error('Playback regression '+JSON.stringify({rate,actual,run}));rates.push({rate,actual,run});console.log(JSON.stringify({rate,actual,work:run.live.work}));
+ }
+ const before=await b.evaluate('tact2026.engine.request("boundary")');await b.evaluate('tact2026.engine.send("toggle-pace")');await b.waitFor('tact2026.latest.playback.active.rate===1&&tact2026.latest.playback.selected.rate===32');await b.evaluate('tact2026.engine.send("toggle-pace")');await b.waitFor('tact2026.latest.playback.active.rate===32');const after=await b.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Paused pace toggle mutated engine');
+ await writeFile(resolve(output,'verification.json'),JSON.stringify({passed:true,rates,before,after,scope:'Actual30-Keelboat Chrome wall/game rate observations at1/2/4/8/16/32× with geometric contacts enabled. No steps or opponents are skipped.1×–4× accuracy and unchanged pace/pause boundary are asserted; high-rate results disclose processing capacity and are not guaranteed multipliers on every device.'},null,2));
+}finally{await b.close()}
