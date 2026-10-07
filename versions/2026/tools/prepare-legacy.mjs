@@ -219,6 +219,12 @@ for(const {f,bytes}of files){const target=new URL(f.path,out);await mkdir(fileUR
     const prepared=source.replace(anchor,'if (address === 0x4432b0) return options.updateWaveMotion ? options.updateWaveMotion(memory,options) : updateWaveMotion(memory,{...options,rng});');
     await writeFile(target,prepared);
     generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'owned-wave-state-v1',sourceSha256:f.sha256});
+  }else if(f.path==='versions/2010-en/src/engine/integration.js'){
+    const source=bytes.toString('utf8'),call='respawnWaypoint(memory,index,rng,options)';
+    if(source.split(call).length!==2)throw Error('Integration wave reset source changed');
+    const prepared=source.replace(call,'(options.respawnPhysicalWave ?? respawnWaypoint)(memory,index,rng,options)');
+    await writeFile(target,prepared);
+    generated.push({path:f.path,bytes:Buffer.byteLength(prepared),sha256:createHash('sha256').update(prepared).digest('hex'),adapter:'owned-physical-wave-random-v1',sourceSha256:f.sha256});
   }else if(f.path==='versions/2010-en/src/engine/penalties.js'){
     let prepared=bytes.toString('utf8');
     const replace=(a,b,count=1)=>{if(prepared.split(a).length!==count+1)throw Error('Native contact policy source changed: '+a);prepared=prepared.replaceAll(a,b);};

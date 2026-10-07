@@ -236,9 +236,19 @@ production engine; preserved players remain comparison references.
   report it and retain the comparison path; do not claim production independence.
   Independent review traced three pixel-dependent routines; exact-green
   compositing can change whether boat drawing consumes shared RNG. The seed
-  equivalence versus independent gameplay-RNG question is pending user input;
-  no trajectory change is authorized by elapsed time. Details:
+  equivalence versus independent gameplay-RNG choice was answered on2026-10-07:
+  the user selected independent streams. The headless v1 runtime is implemented
+  and evaluated; production browser cutover remains under evaluation. Details:
   `versions/2026/docs/world-pixel-contract.md`.
+
+- [x] **ENG-04.2 — Own renderer-free runtime and independent random streams.**
+
+  Evaluated20786-step Node races with four AI finishes and a natural20-minute
+  DNF cutoff. Identical authoritative image and gameplay RNG despite extra
+  cosmetic draws; full checkpoint continuation, held panels and next-race score
+  retention passed. Frozen navigation selector matched400 full-image fixtures.
+  Physical wave density remains398 points. Browser cutover follows separately.
+  See [v1 contract](versions/2026/docs/independent-state-contract.md).
 
 - [ ] **ENG-04 — Implement the compatible simulation driver** · P0 · L · Depends: ENG-03, BASE-05.
 

@@ -33,5 +33,7 @@ reproduce required canonical visibility/coverage decisions and ordered random
 consumption independent of the Three.js camera. Separating gameplay randomness
 from cosmetic drawing is a cleaner independent engine contract, but changes
 seed-specific future weather/AI trajectories even with identical formulas.
-The user has been asked to choose this material behavior requirement. Existing
-code still preserves the old shared stream pending that answer.
+The user selected independent deterministic gameplay randomness on2026-10-07.
+The new runtime follows [independent contractv1](independent-state-contract.md).
+Historical byte-exact raster extraction evaluations remain preserved; they do
+not certify equality of v1 seed-specific trajectories.

@@ -1,9 +1,15 @@
 /** Modern finishing rule, measured in the original simulation's seconds.
  * Native rank/score stores remain the source for finishes and championships. */
+export interface RaceWindowCheckpoint {
+ firstFinish?:number;previousClock?:number;closedByCutoff:boolean;
+ finishes:[number,number][];dnfs:number[];
+}
 export class RaceWindow {
  firstFinish?:number;readonly finishes=new Map<number,number>();readonly dnfs=new Set<number>();
  private previousClock?:number;closedByCutoff=false;
  reset(){this.firstFinish=undefined;this.finishes.clear();this.dnfs.clear();this.previousClock=undefined;this.closedByCutoff=false;}
+ checkpoint():RaceWindowCheckpoint{return {firstFinish:this.firstFinish,previousClock:this.previousClock,closedByCutoff:this.closedByCutoff,finishes:[...this.finishes],dnfs:[...this.dnfs]};}
+ restore(state:RaceWindowCheckpoint){this.reset();this.firstFinish=state.firstFinish;this.previousClock=state.previousClock;this.closedByCutoff=state.closedByCutoff;for(const [id,time]of state.finishes)this.finishes.set(id,time);for(const id of state.dnfs)this.dnfs.add(id);}
  update(memory:{readI32:(a:number)=>number;writeI32:(a:number,v:number)=>void}){
   const i=(a:number)=>memory.readI32(a),w=(a:number,v:number)=>memory.writeI32(a,v),clock=i(0x4f8cd0),count=i(0x4da194);
   if(this.previousClock!==undefined&&clock<this.previousClock)this.reset();
