@@ -10,6 +10,7 @@ import {BOAT_MODEL_SCALE} from './world-objects';
 const primitiveSphere=new THREE.SphereGeometry(1,8,6).toNonIndexed();
 const spherePoints=primitiveSphere.getAttribute('position');
 const rodAngles=Array.from({length:5},(_,i)=>({cos:Math.cos(i/5*Math.PI*2),sin:Math.sin(i/5*Math.PI*2)}));
+const optiSprit=new THREE.Color('#94a8ad');
 const colors=new Map<number,THREE.Color>();
 function nativeColor(value:number){let color=colors.get(value);if(!color){color=new THREE.Color().setRGB((value&255)/255,((value>>>8)&255)/255,((value>>>16)&255)/255,THREE.SRGBColorSpace);colors.set(value,color);}return color;}
 export class NativeBoatMesh {
@@ -43,7 +44,7 @@ export class NativeBoatMesh {
   this.hasRig=!!main&&!!boom;
   if(main&&boom){this.pivot.copy(boom.points[0]);const tip=main.points.reduce((a,b)=>a.y>b.y?a:b);this.mast.copy(tip).sub(this.pivot);this.sailHeight=this.mast.length();this.mast.normalize();const direction=boom.points[1].clone().sub(this.pivot);this.nativeBoomBearing=Math.atan2(direction.x,direction.z);}
   const dressed=new Set<MeshPrimitive>();let crew:MeshPrimitive[]=[];
-  for(const p of primitives){if(p.part!==2)continue;crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod,modernHull))for(const piece of crew)dressed.add(piece);crew=[];}}
+  for(const p of primitives){if(p.part!==2)continue;crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod,modernHull?classId:undefined))for(const piece of crew)dressed.add(piece);crew=[];}}
   const topology:number[]=[];
   for(const p of primitives){const {op,part,fill,stroke,flags,radius,points}=p;topology.push(op,part,points.length);
    movingPart=part===5?1:0;movingEnds=[];
@@ -62,7 +63,11 @@ export class NativeBoatMesh {
     if(part===5&&cloth&&clothFaces.length){
      const segments=cloth.segments(points[0],points[1]);topology.push(-5,segments.length,...segments.map(segment=>segment[0].face));
      for(const segment of segments){detailAnchors=segment;rod(segment[0].point,segment[1].point,stroke,radius);}detailAnchors=[];
-    }else rod(points[0],points[1],stroke,radius);
+    }else{
+     const sprit=modernHull&&classId===1&&part===6&&main&&
+      points[0].distanceToSquared(main.points[2])<.0004&&points[1].distanceToSquared(main.points[4])<.0004;
+     rod(points[0],points[1],sprit?optiSprit:stroke,sprit ? .026 : radius);
+    }
    }}
    else if(op===3){const rx=p.rx!,ry=p.ry!;const center=points[0];
     if(!(flags&2))for(let i=0;i<spherePoints.count;i++){const p=new THREE.Vector3(spherePoints.getX(i)*rx,spherePoints.getY(i)*ry,spherePoints.getZ(i)*rx).add(center);put(p,fill);}

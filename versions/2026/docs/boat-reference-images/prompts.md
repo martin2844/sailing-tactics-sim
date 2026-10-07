@@ -1,0 +1,15 @@
+# Final OpenAI image-generation prompts
+
+These prompts produced the three saved visual briefs. The reference sources and decisions are listed in [boat-redesign.md](../boat-redesign.md). The images are concept art; class geometry comes from the linked association and manufacturer material.
+
+## Optimist
+
+> Use case: stylized-concept. Asset type: full-vessel shape reference for a browser game artist. Wide landscape studio render with generous empty margin on every side: show the ENTIRE boat including mast tip, sail corners, hull, rudder and daggerboard. One genuine Optimist (Opti) junior racing dinghy, very clearly a short WIDE BOX with a flat square PRAM BOW transom instead of a pointed bow. Single open cockpit and a small junior sailor hiking on the near side wearing a life vest. Distinctive quadrilateral white sprit sail: short mast stands near the flat bow, boom supports the lower edge, separate straight diagonal sprit pole runs from halfway up the mast to the upper aft sail peak. Modern low-poly game art: intentionally large flat polygon facets on hull, sailor, sail; crisp geometry; muted white hull with red lower stripe; neutral pale gray background, clean shadow. Accurate relative proportions, no jib, no keelboat cabin, no extra people, no text or logos.
+
+## Laser / ILCA
+
+> Use case: stylized-concept. Asset type: full-vessel shape reference for browser game artist. Wide landscape studio view, entire boat and full mast and sail visible with 15% empty margin on all four sides. One real Laser / ILCA 7 singlehanded dinghy, sharply pointed long bow to the right, broad shallow stern to the left, white low freeboard rounded-chine hull with narrow blue rubrail, long open cockpit, centreboard slot, hiking strap and transom rudder, one adult hiker in life vest on port gunwale. Tall single white TRIANGULAR sleeve sail on a free-standing mast near the bow, one articulated boom, no jib and no standing rigging. Modern low-poly video-game art with large clean polygon facets on sail, hull and person, accurate sailing geometry, pale neutral studio background and soft light. No brand mark, text, labels or watermark.
+
+## J/24-inspired Keelboat
+
+> Use case: stylized-concept. Asset type: full-vessel shape reference for browser game artist. Wide landscape studio image, entire J/24-style racing keelboat SMALL enough in frame that complete mast tip, both sails, entire hull, fin keel and rudder all have clear margin. Accurate 24-foot J/24 proportions: long pointed bow, broad aft transom, deeper white hull, thin red waterline stripe, low shallow cabin trunk and one hatch just forward of an open aft cockpit, toe rails and slim lifelines. Three small low-poly crew seated or hiking together on windward rail in life vests. Stayed mast with one white mainsail and one triangular white jib on bow forestay; boom with proper clearance. Deliberately modern low-poly 3D with flat facets and precise sailing geometry, pale gray studio background and soft shadow. No giant people, no cruising cabin, no text, logos, labels or watermark.
