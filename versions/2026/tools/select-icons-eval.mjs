@@ -22,7 +22,7 @@ try{
  const wrappers=await browser.evaluate(`Array.from(document.querySelectorAll('.select-control')).map(w=>({id:w.querySelector('select').id,count:w.querySelectorAll('select').length,decorative:Array.from(w.querySelectorAll('svg')).every(s=>s.getAttribute('aria-hidden')==='true'&&s.getAttribute('focusable')==='false'),viewboxes:Array.from(w.querySelectorAll('svg')).map(s=>s.getAttribute('viewBox'))}))`);
  if(wrappers.length!==11||wrappers.some(w=>w.count!==1||!w.decorative||w.viewboxes.some(box=>box!=='0 0 24 24')))throw Error('Select structure changed');
  await shot('starter-default');
- for(const [value,icon]of [[1,'dinghy'],[3,'board'],[11,'catamaran'],[12,'keelboat']])await select('race-boat',value,icon);
+ for(const [value,icon]of [[1,'optimist'],[3,'board'],[11,'tornado'],[12,'keelboat']])await select('race-boat',value,icon);
  for(const [value,icon]of [[32799,'lake'],[32801,'island'],[32803,'river'],[33016,'pin']])await select('race-area',value,icon);
  for(const [index,icon]of ['windward','windwardTwice','triangle','triangleTwice','gold','downwind','downwindTwice'].entries())await select('race-course',index+1,icon);
  for(const [value,icon]of [[1,'breeze'],[2,'wind'],[3,'gust']])await select('race-wind',value,icon);
@@ -34,9 +34,9 @@ try{
  await select('race-mode','race','flag');await select('race-area',32799,'lake');await select('race-course',1,'windward');await select('race-wind',2,'wind');await select('race-wind-direction','auto','compass');
  // Real browser keyboard selection is still handled by the native select.
  await browser.evaluate(`document.getElementById('race-wind').focus()`);
- for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'ArrowDown',key:'ArrowDown',windowsVirtualKeyCode:40});
+ for(const [code,key,vk]of [['Space',' ',32],['End','End',35],['Enter','Enter',13]])for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code,key,windowsVirtualKeyCode:vk,...(type==='keyDown'&&key===' '?{text:' '}:type==='keyDown'&&code==='Enter'?{text:'\r'}:{})});
  await browser.waitFor('document.getElementById("race-wind").value==="3"&&document.querySelector("#race-wind").parentElement.querySelector(".select-icon").dataset.icon==="gust"');
- checks.push({name:'Trusted ArrowDown changes native select and its icon'});await select('race-wind',2,'wind');
+ checks.push({name:'Trusted End/Enter changes native select and its icon'});await select('race-wind',2,'wind');
  const after=await browser.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Decorated setup changed authoritative state');
  const layouts=[];
  for(const [width,height]of [[1440,1050],[1280,900],[768,1024],[390,844]]){
