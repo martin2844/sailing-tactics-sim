@@ -1185,18 +1185,27 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Evaluated all27 sail classes and independent ray/framebuffer controls. See
   `versions/2026/docs/optimist-sail-details.md`.
 - [x] **Real-time playback — 2026-10-07.** Implement the accepted recommendation:
-  default1×, explicit fast-forward multipliers, Space reset,
+  default1×, explicit fast-forward multipliers, Space precision toggle,
   paused wall-time cosmetic flutter, preserved numerical kernels and reviewed
   hold/replay/new-race/assistance routes. See
   `versions/2026/docs/real-time-playback.md` for bounded rate/trajectory evidence.
 
 - [x] **Consolidated speed controls — 2026-10-07.** Setup and sailing use the same
-  eight multipliers through32×, Space always resets to1×, saved OG mode migrates
+  eight multipliers through32×, Space toggles1×/selected pace, saved OG mode migrates
   to1×, and the OG speedometer uses deterministic progressive needles. Display
-  snapshots are capped at60Hz while every numerical step still runs. Evaluated
+  snapshots are capped at60Hz (30Hz at16×+) while every numerical step still runs. Evaluated
   pause/panels/replay/persistence, gauge options and actual rates in Chrome;
   high-rate throughput remains limited by numerical processing cost. See
   `versions/2026/docs/real-time-playback.md`.
+
+- [x] **Global gameplay shortcuts and responsive pacing — 2026-10-07.** Retain
+  the chosen pace while Space toggles1×; take game shortcuts from buttons,
+  selects and checkboxes; dismiss open pickers without changing selection;
+  prevent Space/Enter browser activation. Preserve text editing and paused boat
+  guards. Avoid nested timer clamping, reuse private camera storage, reduce
+  high-rate display transport and report achieved pace separately from the
+  selection and automatic foul slowdown. Evaluated real Chrome controls and
+  exact held boundaries; see `versions/2026/docs/real-time-playback.md`.
 
 - [x] **PARITY-00 — Audit original features and explain the current architecture.**
   Inventory all 312 original menu commands, trace UI/worker/renderer routing,
@@ -1232,7 +1241,7 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   if night race is exposed. Evaluate combinations before marking each supported;
   persist validated setup rather than silently resetting all preferences.
   2026-10-07: a single1/2/4/8/16/24/28/32× speed list replaces the original
-  pace-level menu. Space always resets to1×; F pauses; Page keys synchronize preference.
+  pace-level menu. Space toggles1×/selected pace; F pauses; Page keys synchronize preference.
   These pace settings do not complete the separate AI/race-option backlog.
 - [ ] **PARITY-06 — Port original learning/help navigation.**
   Make rules/tactics chapters, glossary, bibliography and relevant explanations

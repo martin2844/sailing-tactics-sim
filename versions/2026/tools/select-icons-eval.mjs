@@ -34,7 +34,7 @@ try{
  await select('race-mode','race','flag');await select('race-area',32799,'lake');await select('race-course',1,'windward');await select('race-wind',2,'wind');await select('race-wind-direction','auto','compass');
  // Real browser keyboard selection is still handled by the native select.
  await browser.evaluate(`document.getElementById('race-wind').focus()`);
- for(const [code,key,vk]of [['Space',' ',32],['End','End',35],['Enter','Enter',13]])for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code,key,windowsVirtualKeyCode:vk,...(type==='keyDown'&&key===' '?{text:' '}:type==='keyDown'&&code==='Enter'?{text:'\r'}:{})});
+ for(const [code,key,vk]of [['Enter','Enter',13],['End','End',35],['Enter','Enter',13]])for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code,key,windowsVirtualKeyCode:vk,...(type==='keyDown'&&key===' '?{text:' '}:type==='keyDown'&&code==='Enter'?{text:'\r'}:{})});
  await browser.waitFor('document.getElementById("race-wind").value==="3"&&document.querySelector("#race-wind").parentElement.querySelector(".select-icon").dataset.icon==="gust"');
  checks.push({name:'Trusted End/Enter changes native select and its icon'});await select('race-wind',2,'wind');
  const after=await browser.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Decorated setup changed authoritative state');
@@ -51,11 +51,11 @@ try{
  await browser.evaluate(`(()=>{const s=document.getElementById('pace');s.focus();s.value='clock:4';s.dispatchEvent(new Event('change'));})()`);
  await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.pace===6&&document.activeElement.id==="scene"');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'Space',key:' ',windowsVirtualKeyCode:32});
- await browser.waitFor('tact2026.latest.playback.selected.rate===1&&tact2026.latest.playback.active.rate===1');
+ await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.playback.active.rate===1');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'Space',key:' ',windowsVirtualKeyCode:32});
- await browser.waitFor('tact2026.latest.playback.selected.rate===1&&tact2026.latest.playback.active.rate===1');
+ await browser.waitFor('tact2026.latest.playback.selected.rate===4&&tact2026.latest.playback.active.rate===4');
  for(const type of ['keyDown','keyUp'])await browser.call('Input.dispatchKeyEvent',{type,code:'KeyF',key:'f',windowsVirtualKeyCode:70});
- await browser.waitFor('tact2026.paused');checks.push({name:'Trusted race start, decorated live pace, sailing focus and repeated Space1× reset work'});
+ await browser.waitFor('tact2026.paused');checks.push({name:'Trusted race start, decorated live pace, sailing focus and Space1×/selected4× toggle work'});
  await writeFile(resolve(output,'verification.json'),JSON.stringify({passed:true,icons,rawSvgBytes:Buffer.byteLength(svgSet),gzipSvgBytes:gzipSync(svgSet).length,checks,wrappers,layouts,before,after,scope:'Actual Chrome setup selectors: deterministic authored SVG family, dynamic boat/venue/wind/course/event/compass icons, native keyboard selection, decorative accessibility, responsive bounds and exact authoritative state held through setup changes; trusted race start and live pace/focus/Space regression. Narrow layouts inspected in desktop Chrome, not Pixel acceptance.'},null,2));
  console.log(JSON.stringify({passed:true,checks:checks.length,icons:icons.length,rawSvgBytes:Buffer.byteLength(svgSet),gzipSvgBytes:gzipSync(svgSet).length}));
 }catch(error){await shot('failure');await writeFile(resolve(output,'failure.json'),JSON.stringify({error:error.stack,checks},null,2));throw error;}finally{await browser.close();}

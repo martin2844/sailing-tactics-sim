@@ -6,6 +6,14 @@ const catamarans=new Set([10,11,17,23]);
 const keelboats=new Set([12,13,14,15,16,18,19,20,21,22,24,25]);
 const classIcons:Partial<Record<number,IconName>>={1:'optimist',2:'laser',4:'snipe',5:'jy15',6:'fiveOhFive',8:'thistle',9:'lightning',11:'tornado',16:'star',17:'aClass',24:'ideal18',25:'etchells',26:'eScow',27:'flyingScot'};
 interface SelectionIcon {name:IconName;direction?:number}
+/** Chrome's customizable picker stays open on blur and has no close API.
+ * Rebuilding its menu/listbox type closes it without selecting a new option
+ * or firing change. Restore the exact value before gameplay takes focus. */
+export function dismissSelectPicker(select:HTMLSelectElement|null):void {
+ if(!select?.matches(':open')||select.multiple)return;
+ const value=select.value;
+ select.multiple=true;select.multiple=false;select.value=value;
+}
 function selectionIcon(select:HTMLSelectElement,optionValue=select.value):SelectionIcon {
  const value=Number(optionValue);
  switch(select.id){

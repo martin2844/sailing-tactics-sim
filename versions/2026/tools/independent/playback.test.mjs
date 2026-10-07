@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {PlaybackPacer,playbackRates,parsePlaybackValue,playbackValue,validatePlayback} from '../../app/engine/time/playback.ts';
+import {PlaybackRateMeter} from '../../app/engine/time/playback-meter.ts';
 import {AnimationClock} from '../../app/presentation/animation-clock.ts';
 import {makeRuntime} from './fixtures.mjs';
 import {updateFoulSlowdown} from '../../app/engine/rules/foul-slowdown.ts';
@@ -19,9 +20,9 @@ test('clock deadlines retain target rates across timer/work jitter without nativ
 test('hold/resume, checkpoint rewind, long stalls and precision changes rebase clock deadlines',()=>{
  const p=new PlaybackPacer();p.configure({mode:'clock',rate:8},0,100);
  assert.ok(Math.abs(p.delay(1,100.08,30,1)-9)<1e-7);
- p.resetRate(10,100.08);assert.equal(p.state(6,6).active.rate,1);
+ p.togglePrecision(10,100.08);assert.equal(p.state(6,6).active.rate,1);
  assert.ok(Math.abs(p.delay(20,100.16,30,10)-70)<1e-7);
- p.configure({mode:'clock',rate:8},90,100.16);assert.equal(p.state(6,6).active.rate,8);
+ p.togglePrecision(90,100.16);assert.equal(p.state(6,6).active.rate,8);
  p.reset(10000,100.16);assert.ok(p.delay(10001,100.24,30,1)<10);
  assert.equal(p.delay(20000,100.24,30,2),80,'Held step discards elapsed wall debt');
  assert.equal(p.delay(21000,100.32,30,2),0,'Long stall discards debt');
@@ -38,16 +39,21 @@ test('legacy scheduling and all15 encoded choices retain the recovered timing co
  for(const rate of playbackRates)assert.deepEqual(parsePlaybackValue('clock:'+rate),{mode:'clock',rate});
  for(const bad of [{mode:'clock',rate:3},{mode:'clock',rate:'1'},{mode:'legacy',level:16},null])assert.throws(()=>validatePlayback(bad));
 });
-test('Space permanently resets the selection and Page keys traverse/clamp all eight rates',()=>{
- const p=new PlaybackPacer();
- assert.deepEqual(playbackRates,[1,2,4,8,16,24,28,32]);
+test('Space toggles1×/selected pace without overwriting preferences and Page keys clamp all rates',()=>{
+ const p=new PlaybackPacer();assert.deepEqual(playbackRates,[1,2,4,8,16,24,28,32]);
  for(const rate of playbackRates){
-  p.configure({mode:'clock',rate},0,100);p.resetRate(1,100);p.resetRate(2,100);
-  assert.deepEqual(p.state(6,6),{selected:{mode:'clock',rate:1},active:{mode:'clock',rate:1}});
-  p.beginRace(3,-170);assert.equal(p.state(6,6).selected.rate,1);
+  p.configure({mode:'clock',rate},0,100);p.togglePrecision(1,100);
+  assert.equal(p.state(6,6).selected.rate,rate);assert.equal(p.state(6,6).active.rate,1);
+  assert.equal(p.state(6,6).slowdown,rate===1?undefined:'manual');
+  p.togglePrecision(2,100);assert.equal(p.state(6,6).active.rate,rate);
+  p.togglePrecision(3,100);p.beginRace(4,-170);assert.equal(p.state(6,6).active.rate,rate);
  }
+ p.configure({mode:'clock',rate:1},0,100);
  for(const rate of [...playbackRates.slice(1),32]){p.adjustRate(1,4,100);assert.equal(p.state(6,6).active.rate,rate);}
  for(const rate of [...playbackRates.slice(0,-1).reverse(),1]){p.adjustRate(-1,5,100);assert.equal(p.state(6,6).active.rate,rate);}
+ p.configure({mode:'clock',rate:32},0,100);p.slowForWarning(1,100);
+ assert.equal(p.state(6,1).slowdown,'warning');p.togglePrecision(2,100);
+ assert.equal(p.state(6,6).active.rate,32);assert.equal(p.state(6,6).slowdown,undefined);
 });
 test('elapsed cosmetic time freezes/resumes without debt or rate-dependent input',()=>{
  const c=new AnimationClock();assert.equal(c.sample(0),0);c.setPaused(false);assert.equal(c.sample(100),0);assert.equal(c.sample(900),.8);
@@ -70,4 +76,22 @@ test('original automatic foul slowdown resumes safely through a modern rate cont
  // Match the public modern PageUp path, including its numerical restoration.
  e.key(82);assert.equal(m.readI32(0x5233a8),1);p.adjustRate(1,1,100);e.restoreSpeed(6);
  assert.equal(p.state(6,6).active.rate,2);assert.equal(m.readI32(0x4da174),6);assert.equal(m.readI32(0x4da1dc),2);assert.equal(m.readI32(0x4da1e0),100);assert.equal(m.readI32(0x5233a8),1,'Pace restoration keeps held panel open');
+});
+
+test('effective playback measurement follows game/wall progress and reports sustained under-capacity work',()=>{
+ for(const target of playbackRates){const meter=new PlaybackRateMeter();meter.reset(0,-100);
+  for(let n=1;n<=6;n++)meter.sample(n*1000,-100+n*target,target);
+  assert.equal(meter.state().actualRate,target);assert.equal(meter.state().limited,false);
+ }
+ const meter=new PlaybackRateMeter();meter.reset(0,0);meter.sample(2000,16,32);
+ assert.equal(meter.state().actualRate,8);assert.equal(meter.state().limited,true);
+ for(let n=2;n<=8;n++)meter.sample(n*2000,16+(n-1)*64,32);
+ assert.equal(meter.state().limited,false,'Recovery clears calculation-limited status with hysteresis');
+});
+test('measurement resets on holds, playback changes and rewind without reporting zero pace',()=>{
+ const meter=new PlaybackRateMeter();meter.reset(0,100);meter.sample(2000,104,2);assert.equal(meter.state().actualRate,2);
+ meter.reset(600000,104);assert.deepEqual(meter.state(),{});
+ meter.sample(610000,104,2);assert.deepEqual(meter.state(),{});
+ meter.sample(612000,108,2);assert.equal(meter.state().actualRate,2);
+ meter.sample(613000,-170,2);assert.deepEqual(meter.state(),{});
 });

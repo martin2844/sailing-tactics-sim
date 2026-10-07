@@ -1,0 +1,1535 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Every boat option has a thin SVG;14 identifiable classes use dedicated marks",
+      "classes": [
+        {
+          "value": "1",
+          "label": "Optimist",
+          "text": "Optimist",
+          "icon": "optimist",
+          "stroke": "1.2"
+        },
+        {
+          "value": "2",
+          "label": "Laser",
+          "text": "Laser",
+          "icon": "laser",
+          "stroke": "1.2"
+        },
+        {
+          "value": "3",
+          "label": "Board",
+          "text": "Board",
+          "icon": "board",
+          "stroke": "1.2"
+        },
+        {
+          "value": "4",
+          "label": "Snipe",
+          "text": "Snipe",
+          "icon": "snipe",
+          "stroke": "1.2"
+        },
+        {
+          "value": "5",
+          "label": "JY15",
+          "text": "JY15",
+          "icon": "jy15",
+          "stroke": "1.2"
+        },
+        {
+          "value": "6",
+          "label": "505",
+          "text": "505",
+          "icon": "fiveOhFive",
+          "stroke": "1.2"
+        },
+        {
+          "value": "7",
+          "label": "Skiff",
+          "text": "Skiff",
+          "icon": "dinghy",
+          "stroke": "1.2"
+        },
+        {
+          "value": "8",
+          "label": "Thistle",
+          "text": "Thistle",
+          "icon": "thistle",
+          "stroke": "1.2"
+        },
+        {
+          "value": "9",
+          "label": "Lightning",
+          "text": "Lightning",
+          "icon": "lightning",
+          "stroke": "1.2"
+        },
+        {
+          "value": "10",
+          "label": "Non-spinnaker catamaran",
+          "text": "Non-spinnaker catamaran",
+          "icon": "catamaran",
+          "stroke": "1.2"
+        },
+        {
+          "value": "11",
+          "label": "Tornado catamaran",
+          "text": "Tornado catamaran",
+          "icon": "tornado",
+          "stroke": "1.2"
+        },
+        {
+          "value": "12",
+          "label": "Keelboat",
+          "text": "Keelboat",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "13",
+          "label": "Sprit offshore racer",
+          "text": "Sprit offshore racer",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "14",
+          "label": "Offshore racer",
+          "text": "Offshore racer",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "15",
+          "label": "America’s Cup",
+          "text": "America’s Cup",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "16",
+          "label": "Star",
+          "text": "Star",
+          "icon": "star",
+          "stroke": "1.2"
+        },
+        {
+          "value": "17",
+          "label": "A class catamaran",
+          "text": "A class catamaran",
+          "icon": "aClass",
+          "stroke": "1.2"
+        },
+        {
+          "value": "18",
+          "label": "Racer cruiser",
+          "text": "Racer cruiser",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "19",
+          "label": "Cruising canvas",
+          "text": "Cruising canvas",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "20",
+          "label": "Model yacht",
+          "text": "Model yacht",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "21",
+          "label": "25 ft sportboat",
+          "text": "25 ft sportboat",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "22",
+          "label": "35 ft sportboat",
+          "text": "35 ft sportboat",
+          "icon": "keelboat",
+          "stroke": "1.2"
+        },
+        {
+          "value": "23",
+          "label": "Offshore catamaran",
+          "text": "Offshore catamaran",
+          "icon": "catamaran",
+          "stroke": "1.2"
+        },
+        {
+          "value": "24",
+          "label": "Ideal 18",
+          "text": "Ideal 18",
+          "icon": "ideal18",
+          "stroke": "1.2"
+        },
+        {
+          "value": "25",
+          "label": "Etchells",
+          "text": "Etchells",
+          "icon": "etchells",
+          "stroke": "1.2"
+        },
+        {
+          "value": "26",
+          "label": "E Scow",
+          "text": "E Scow",
+          "icon": "eScow",
+          "stroke": "1.2"
+        },
+        {
+          "value": "27",
+          "label": "Flying Scot",
+          "text": "Flying Scot",
+          "icon": "flyingScot",
+          "stroke": "1.2"
+        }
+      ]
+    },
+    {
+      "name": "Trusted option click updates chosen class, preview and closed logo"
+    },
+    {
+      "id": "race-mode",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "race",
+            "label": "Standard race",
+            "text": "Standard race",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 373.75,
+              "width": 22,
+              "height": 22,
+              "top": 373.75,
+              "right": 808,
+              "bottom": 395.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "championship",
+            "label": "Championship",
+            "text": "Championship",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 413.75,
+              "width": 22,
+              "height": 22,
+              "top": 413.75,
+              "right": 808,
+              "bottom": 435.75,
+              "left": 786
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "race-area",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "32795",
+            "label": "North shore",
+            "text": "North shore",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 373.75,
+              "width": 22,
+              "height": 22,
+              "top": 373.75,
+              "right": 1061,
+              "bottom": 395.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32796",
+            "label": "East shore",
+            "text": "East shore",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 413.75,
+              "width": 22,
+              "height": 22,
+              "top": 413.75,
+              "right": 1061,
+              "bottom": 435.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32797",
+            "label": "South shore",
+            "text": "South shore",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 453.75,
+              "width": 22,
+              "height": 22,
+              "top": 453.75,
+              "right": 1061,
+              "bottom": 475.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32798",
+            "label": "West shore",
+            "text": "West shore",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 493.75,
+              "width": 22,
+              "height": 22,
+              "top": 493.75,
+              "right": 1061,
+              "bottom": 515.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32799",
+            "label": "Round Lake",
+            "text": "Round Lake",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 533.75,
+              "width": 22,
+              "height": 22,
+              "top": 533.75,
+              "right": 1061,
+              "bottom": 555.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32800",
+            "label": "Sound",
+            "text": "Sound",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 573.75,
+              "width": 22,
+              "height": 22,
+              "top": 573.75,
+              "right": 1061,
+              "bottom": 595.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32801",
+            "label": "Island",
+            "text": "Island",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 613.75,
+              "width": 22,
+              "height": 22,
+              "top": 613.75,
+              "right": 1061,
+              "bottom": 635.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32802",
+            "label": "Distance along shore",
+            "text": "Distance along shore",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 653.75,
+              "width": 22,
+              "height": 22,
+              "top": 653.75,
+              "right": 1061,
+              "bottom": 675.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32964",
+            "label": "Distance around island",
+            "text": "Distance around island",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 693.75,
+              "width": 22,
+              "height": 22,
+              "top": 693.75,
+              "right": 1061,
+              "bottom": 715.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32803",
+            "label": "North river",
+            "text": "North river",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 733.75,
+              "width": 22,
+              "height": 22,
+              "top": 733.75,
+              "right": 1061,
+              "bottom": 755.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32804",
+            "label": "South river",
+            "text": "South river",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 773.75,
+              "width": 22,
+              "height": 22,
+              "top": 773.75,
+              "right": 1061,
+              "bottom": 795.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32961",
+            "label": "Bay",
+            "text": "Bay",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 813.75,
+              "width": 22,
+              "height": 22,
+              "top": 813.75,
+              "right": 1061,
+              "bottom": 835.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32976",
+            "label": "Banana lakes",
+            "text": "Banana lakes",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 853.75,
+              "width": 22,
+              "height": 22,
+              "top": 853.75,
+              "right": 1061,
+              "bottom": 875.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32977",
+            "label": "Five finger lakes",
+            "text": "Five finger lakes",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 893.75,
+              "width": 22,
+              "height": 22,
+              "top": 893.75,
+              "right": 1061,
+              "bottom": 915.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "32978",
+            "label": "Branching rivers",
+            "text": "Branching rivers",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 933.75,
+              "width": 22,
+              "height": 22,
+              "top": 933.75,
+              "right": 1061,
+              "bottom": 955.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33014",
+            "label": "Northeast Harbor",
+            "text": "Northeast Harbor",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 973.75,
+              "width": 22,
+              "height": 22,
+              "top": 973.75,
+              "right": 1061,
+              "bottom": 995.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33015",
+            "label": "Marblehead",
+            "text": "Marblehead",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1013.75,
+              "width": 22,
+              "height": 22,
+              "top": 1013.75,
+              "right": 1061,
+              "bottom": 1035.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33016",
+            "label": "Newport",
+            "text": "Newport",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1053.75,
+              "width": 22,
+              "height": 22,
+              "top": 1053.75,
+              "right": 1061,
+              "bottom": 1075.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33017",
+            "label": "West Block Island",
+            "text": "West Block Island",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1093.75,
+              "width": 22,
+              "height": 22,
+              "top": 1093.75,
+              "right": 1061,
+              "bottom": 1115.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33018",
+            "label": "Around Block Island",
+            "text": "Around Block Island",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1133.75,
+              "width": 22,
+              "height": 22,
+              "top": 1133.75,
+              "right": 1061,
+              "bottom": 1155.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33019",
+            "label": "Essex",
+            "text": "Essex",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1173.75,
+              "width": 22,
+              "height": 22,
+              "top": 1173.75,
+              "right": 1061,
+              "bottom": 1195.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33020",
+            "label": "Kingston",
+            "text": "Kingston",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1213.75,
+              "width": 22,
+              "height": 22,
+              "top": 1213.75,
+              "right": 1061,
+              "bottom": 1235.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33021",
+            "label": "Annapolis",
+            "text": "Annapolis",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1253.75,
+              "width": 22,
+              "height": 22,
+              "top": 1253.75,
+              "right": 1061,
+              "bottom": 1275.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33022",
+            "label": "Charleston",
+            "text": "Charleston",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1293.75,
+              "width": 22,
+              "height": 22,
+              "top": 1293.75,
+              "right": 1061,
+              "bottom": 1315.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33023",
+            "label": "Biscayne Bay",
+            "text": "Biscayne Bay",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1333.75,
+              "width": 22,
+              "height": 22,
+              "top": 1333.75,
+              "right": 1061,
+              "bottom": 1355.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33024",
+            "label": "Chicago",
+            "text": "Chicago",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1373.75,
+              "width": 22,
+              "height": 22,
+              "top": 1373.75,
+              "right": 1061,
+              "bottom": 1395.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33026",
+            "label": "Thurmond Lake",
+            "text": "Thurmond Lake",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1413.75,
+              "width": 22,
+              "height": 22,
+              "top": 1413.75,
+              "right": 1061,
+              "bottom": 1435.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33027",
+            "label": "Key West",
+            "text": "Key West",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1453.75,
+              "width": 22,
+              "height": 22,
+              "top": 1453.75,
+              "right": 1061,
+              "bottom": 1475.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33028",
+            "label": "St Petersburg",
+            "text": "St Petersburg",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1493.75,
+              "width": 22,
+              "height": 22,
+              "top": 1493.75,
+              "right": 1061,
+              "bottom": 1515.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33029",
+            "label": "Groton",
+            "text": "Groton",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1533.75,
+              "width": 22,
+              "height": 22,
+              "top": 1533.75,
+              "right": 1061,
+              "bottom": 1555.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33030",
+            "label": "Larchmont",
+            "text": "Larchmont",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1573.75,
+              "width": 22,
+              "height": 22,
+              "top": 1573.75,
+              "right": 1061,
+              "bottom": 1595.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33031",
+            "label": "Nassau",
+            "text": "Nassau",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1613.75,
+              "width": 22,
+              "height": 22,
+              "top": 1613.75,
+              "right": 1061,
+              "bottom": 1635.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "33032",
+            "label": "Edgartown",
+            "text": "Edgartown",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 1653.75,
+              "width": 22,
+              "height": 22,
+              "top": 1653.75,
+              "right": 1061,
+              "bottom": 1675.75,
+              "left": 1039
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "race-fleet",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "2",
+            "label": "2 boats",
+            "text": "2 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 448.75,
+              "width": 22,
+              "height": 22,
+              "top": 448.75,
+              "right": 808,
+              "bottom": 470.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "5",
+            "label": "5 boats",
+            "text": "5 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 488.75,
+              "width": 22,
+              "height": 22,
+              "top": 488.75,
+              "right": 808,
+              "bottom": 510.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "10",
+            "label": "10 boats",
+            "text": "10 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 528.75,
+              "width": 22,
+              "height": 22,
+              "top": 528.75,
+              "right": 808,
+              "bottom": 550.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "15",
+            "label": "15 boats",
+            "text": "15 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 568.75,
+              "width": 22,
+              "height": 22,
+              "top": 568.75,
+              "right": 808,
+              "bottom": 590.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "20",
+            "label": "20 boats",
+            "text": "20 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 608.75,
+              "width": 22,
+              "height": 22,
+              "top": 608.75,
+              "right": 808,
+              "bottom": 630.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "25",
+            "label": "25 boats",
+            "text": "25 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 648.75,
+              "width": 22,
+              "height": 22,
+              "top": 648.75,
+              "right": 808,
+              "bottom": 670.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "30",
+            "label": "30 boats",
+            "text": "30 boats",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 688.75,
+              "width": 22,
+              "height": 22,
+              "top": 688.75,
+              "right": 808,
+              "bottom": 710.75,
+              "left": 786
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "race-speed",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "clock:1",
+            "label": "1×",
+            "text": "1×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 448.75,
+              "width": 22,
+              "height": 22,
+              "top": 448.75,
+              "right": 1061,
+              "bottom": 470.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:2",
+            "label": "2×",
+            "text": "2×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 488.75,
+              "width": 22,
+              "height": 22,
+              "top": 488.75,
+              "right": 1061,
+              "bottom": 510.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:4",
+            "label": "4×",
+            "text": "4×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 528.75,
+              "width": 22,
+              "height": 22,
+              "top": 528.75,
+              "right": 1061,
+              "bottom": 550.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:8",
+            "label": "8×",
+            "text": "8×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 568.75,
+              "width": 22,
+              "height": 22,
+              "top": 568.75,
+              "right": 1061,
+              "bottom": 590.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:16",
+            "label": "16×",
+            "text": "16×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 608.75,
+              "width": 22,
+              "height": 22,
+              "top": 608.75,
+              "right": 1061,
+              "bottom": 630.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:24",
+            "label": "24×",
+            "text": "24×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 648.75,
+              "width": 22,
+              "height": 22,
+              "top": 648.75,
+              "right": 1061,
+              "bottom": 670.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:28",
+            "label": "28×",
+            "text": "28×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 688.75,
+              "width": 22,
+              "height": 22,
+              "top": 688.75,
+              "right": 1061,
+              "bottom": 710.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "clock:32",
+            "label": "32×",
+            "text": "32×",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 728.75,
+              "width": 22,
+              "height": 22,
+              "top": 728.75,
+              "right": 1061,
+              "bottom": 750.75,
+              "left": 1039
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "race-wind",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "1",
+            "label": "Light",
+            "text": "Light",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 523.75,
+              "width": 22,
+              "height": 22,
+              "top": 523.75,
+              "right": 808,
+              "bottom": 545.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "2",
+            "label": "Moderate",
+            "text": "Moderate",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 563.75,
+              "width": 22,
+              "height": 22,
+              "top": 563.75,
+              "right": 808,
+              "bottom": 585.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "3",
+            "label": "Strong",
+            "text": "Strong",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 603.75,
+              "width": 22,
+              "height": 22,
+              "top": 603.75,
+              "right": 808,
+              "bottom": 625.75,
+              "left": 786
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "race-wind-direction",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Auto",
+            "text": "Auto",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 523.75,
+              "width": 22,
+              "height": 22,
+              "top": 523.75,
+              "right": 1063,
+              "bottom": 545.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "0",
+            "label": "N · 0°",
+            "text": "N · 0°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 563.75,
+              "width": 22,
+              "height": 22,
+              "top": 563.75,
+              "right": 1063,
+              "bottom": 585.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "45",
+            "label": "NE · 45°",
+            "text": "NE · 45°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 603.75,
+              "width": 22,
+              "height": 22,
+              "top": 603.75,
+              "right": 1063,
+              "bottom": 625.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "90",
+            "label": "E · 90°",
+            "text": "E · 90°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 643.75,
+              "width": 22,
+              "height": 22,
+              "top": 643.75,
+              "right": 1063,
+              "bottom": 665.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "135",
+            "label": "SE · 135°",
+            "text": "SE · 135°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 683.75,
+              "width": 22,
+              "height": 22,
+              "top": 683.75,
+              "right": 1063,
+              "bottom": 705.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "180",
+            "label": "S · 180°",
+            "text": "S · 180°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 723.75,
+              "width": 22,
+              "height": 22,
+              "top": 723.75,
+              "right": 1063,
+              "bottom": 745.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "225",
+            "label": "SW · 225°",
+            "text": "SW · 225°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 763.75,
+              "width": 22,
+              "height": 22,
+              "top": 763.75,
+              "right": 1063,
+              "bottom": 785.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "270",
+            "label": "W · 270°",
+            "text": "W · 270°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 803.75,
+              "width": 22,
+              "height": 22,
+              "top": 803.75,
+              "right": 1063,
+              "bottom": 825.75,
+              "left": 1041
+            }
+          },
+          {
+            "value": "315",
+            "label": "NW · 315°",
+            "text": "NW · 315°",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1041,
+              "y": 843.75,
+              "width": 22,
+              "height": 22,
+              "top": 843.75,
+              "right": 1063,
+              "bottom": 865.75,
+              "left": 1041
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "race-course",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "1",
+            "label": "Windward / leeward",
+            "text": "Windward / leeward",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 256.75,
+              "width": 22,
+              "height": 22,
+              "top": 256.75,
+              "right": 808,
+              "bottom": 278.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "2",
+            "label": "Windward / leeward twice",
+            "text": "Windward / leeward twice",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 296.75,
+              "width": 22,
+              "height": 22,
+              "top": 296.75,
+              "right": 808,
+              "bottom": 318.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "3",
+            "label": "Triangle",
+            "text": "Triangle",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 336.75,
+              "width": 22,
+              "height": 22,
+              "top": 336.75,
+              "right": 808,
+              "bottom": 358.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "4",
+            "label": "Triangle twice",
+            "text": "Triangle twice",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 376.75,
+              "width": 22,
+              "height": 22,
+              "top": 376.75,
+              "right": 808,
+              "bottom": 398.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "5",
+            "label": "Gold Cup",
+            "text": "Gold Cup",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 416.75,
+              "width": 22,
+              "height": 22,
+              "top": 416.75,
+              "right": 808,
+              "bottom": 438.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "6",
+            "label": "Downwind finish W/L",
+            "text": "Downwind finish W/L",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 456.75,
+              "width": 22,
+              "height": 22,
+              "top": 456.75,
+              "right": 808,
+              "bottom": 478.75,
+              "left": 786
+            }
+          },
+          {
+            "value": "7",
+            "label": "Downwind finish W/L twice",
+            "text": "Downwind finish W/L twice",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 786,
+              "y": 496.75,
+              "width": 22,
+              "height": 22,
+              "top": 496.75,
+              "right": 808,
+              "bottom": 518.75,
+              "left": 786
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "series-length",
+      "state": {
+        "appearance": "base-select",
+        "options": [
+          {
+            "value": "3",
+            "label": "3 · Original series",
+            "text": "3 · Original series",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 416.75,
+              "width": 22,
+              "height": 22,
+              "top": 416.75,
+              "right": 1061,
+              "bottom": 438.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "5",
+            "label": "5",
+            "text": "5",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 456.75,
+              "width": 22,
+              "height": 22,
+              "top": 456.75,
+              "right": 1061,
+              "bottom": 478.75,
+              "left": 1039
+            }
+          },
+          {
+            "value": "10",
+            "label": "10",
+            "text": "10",
+            "icon": true,
+            "disabled": false,
+            "rect": {
+              "x": 1039,
+              "y": 496.75,
+              "width": 22,
+              "height": 22,
+              "top": 496.75,
+              "right": 1061,
+              "bottom": 518.75,
+              "left": 1039
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Native typeahead and Enter select Offshore racer; no O sail-trim input leaked"
+    },
+    {
+      "name": "Course compatibility still disables6 options on Block Island",
+      "disabled": [
+        "1",
+        "2",
+        "4",
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "before": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.46570795995547,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "2f93de80511e03306d4b48ea3557abb4f87e90fa1b069e26d9ef8cb038bd3490",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "after": {
+    "contract": "independent-v1",
+    "waveRngState": 3483197190,
+    "stringsSha256": "8b994cc9bad093905c9dcdb329217ba2418f02cb2be7437977108034a4280a09",
+    "frame": 1,
+    "time": -170.46570795995547,
+    "clock": -170,
+    "rngState": 2601912946,
+    "memorySha256": "2f93de80511e03306d4b48ea3557abb4f87e90fa1b069e26d9ef8cb038bd3490",
+    "shore": {
+      "previousX": 604045502,
+      "previousTreeY": 0,
+      "completedCalls": 0
+    }
+  },
+  "scope": "Actual Chrome152 native customizable open pickers; all27 class option labels/values/SVGs,14 dedicated class glyphs, all setup fields, trusted pointer selection, Escape, keyboard typeahead/Enter, compatibility-disabled courses and exact held authoritative state. Popup screenshots captured for visual inspection."
+}

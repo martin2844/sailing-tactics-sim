@@ -19,8 +19,10 @@ import {PhaseTracer} from './engine/diagnostics/phase-trace';
 import {speedForCommand,simulatorSpeeds} from './engine/speed';
 import {prepareFleetSpawns} from './engine/compatibility/spawn-state';
 import {PlaybackPacer,nativePlaybackSpeed,validatePlayback,clockNativeSpeed} from './engine/time/playback';
+import {PlaybackRateMeter} from './engine/time/playback-meter';
 import {speedCommand} from './engine/speed';
 import {EngineRuntime} from './engine/runtime';
+import type {EngineMemory} from './engine/ports';
 import {studioRigWidth} from './presentation/model-profile';
 import {finalizeResults} from './engine/results';
 import {updateCompatibilityCamera} from './engine/view/camera-state';
@@ -38,6 +40,7 @@ let runtime:EngineRuntime;
 let menu:any,key:any,readCString:any;
 let advanceTarget:any,copyStrings:any,updateDynamics:any,sampleCurrent:any,sampleVenueCurrent:any;
 let modelDraw:any,ModelMemory:any,ModelRng:any,TraceDc:any;
+let cameraMemory:EngineMemory;
 let modelExtractor:ReturnType<typeof createModelExtractor>;
 let modelWorker:Worker,modelReady=false,modelBusy=false,modelSequence=-1,modelWidth=0;
 let modelMutableBase=0,modelMutableSize=0;
@@ -47,6 +50,7 @@ let raceWindow:RaceWindow;
 let islandNavigator:IslandNavigator|undefined,spatialMetric:any;
 let resultsReady=false;
 const pacer=new PlaybackPacer();
+const playbackMeter=new PlaybackRateMeter();
 // A high playback rate advances every numerical step but only needs a display
 // snapshot at screen cadence. Controls and pause publish their state immediately.
 let lastSnapshotAt=-Infinity;
@@ -71,11 +75,14 @@ function fail(error:unknown){failed=true;paused=true;clearTimeout(timer);send('e
 function schedule(wait:number){
   if(paused||failed||pending)return;
   pending=true;const token=++scheduleToken;
-  if(wait>0)timer=setTimeout(()=>{if(token!==scheduleToken)return;pending=false;if(!paused&&!failed)tick();},wait);
+  // Always enter the next tick through a message task. Chaining ticks directly
+  // from timers triggers Chrome's4ms nested-timer clamp at high playback rates.
+  if(wait>0)timer=setTimeout(()=>{if(token===scheduleToken)queue.port2.postMessage(token);},wait);
   else queue.port2.postMessage(token);
 }
 function rebasePlayback(){
  pacer.reset(performance.now(),memory.readF64(0x5359f0));
+ playbackMeter.reset(performance.now(),memory.readF64(0x5359f0));
  if(ready&&!paused&&!failed){clearTimeout(timer);scheduleToken++;pending=false;schedule(0);}
 }
 function configurePlayback(value:unknown){
@@ -109,22 +116,25 @@ function setupIslandNavigation(){
   islandNavigator=new IslandNavigator(readNativeTerrain(memory),depth,limit);
 }
 function snapshot(workMs:number):SceneSnapshot {
+  const started=performance.now();
   const i=(a:number)=>memory.readI32(a),d=(a:number)=>memory.readF64(a);
   const groundingDepth=Math.max(i(0x4da1fc),i(0x5363b8)===1?d(0x4cc728):Math.trunc(i(0x4da190)/2)+3);
   const boats=Array.from({length:i(0x4da194)},(_,index)=>{const id=index+1;return{id,name:readCString(memory,0x4fec30+id*4),x:d(0x4f6af8+id*8),y:d(0x4f6c10+id*8),heading:i(0x535740+id*4),speed:i(0x4fdfe8+id*4)/10,leg:i(0x4f8538+id*4),finished:i(0x4fe638+id*4),dnf:raceWindow.dnfs.has(id),status:i(0x5116e0+id*4),penaltyClock:i(0x535620+id*4),finishTime:raceWindow.finishes.get(id)??i(id===1?0x534d64:0x4f4350+id*4),points:[0,1,2].map(n=>i(0x4fbf24+id*16+n*4)),windFrom:i(0x522b90+id*4),windAngle:i(0x4fecc8+id*4),luff:i(0x512278+id*4),boomAngle:i(0x4fe818+id*4),tack:i(0x522ff0+id*4),depth:d(0x4ffcb8+id*8),groundingDepth,trueWind:i(0x4fb380+id*4),currentSpeed:i(0x535a08+id*4)/10,currentDirection:i(0x522d30+id*4),grounded:i(0x5116e0+id*4)===10};});
   const owner=options.controlBoat,panel=panelTitle();
-  const cameraImage=new ModelMemory(memory.size,memory.base);cameraImage.bytes.set(memory.bytes);
+  // Reuse the private camera image; allocating2.2MB for every display snapshot
+  // creates avoidable collection pressure during high-rate playback.
+  const cameraImage=cameraMemory;cameraImage.bytes.set(memory.bytes);
   informationContext.options.updateCompatibilityCamera(cameraImage,1);
   if(owner===2)informationContext.options.updateCompatibilityCamera(cameraImage,2);
   const viewRead=(address:number)=>cameraImage.readI32(address);
   const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
-  return {playback:pacer.state(runtime.selectedSpeed,i(0x4da174)),environment:{waves:i(0x535e44),currentEffect:i(0x522fd8),gusts:Array.from({length:5},(_,index)=>{const n=index+1;return {x:d(0x535460+n*8),y:d(0x4f4b08+n*8),width:i(0x4f7ea0+n*4),strength:i(0x4f71d8+n*4)}})},generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
+  return {playback:{...pacer.state(runtime.selectedSpeed,i(0x4da174)),...playbackMeter.state()},environment:{waves:i(0x535e44),currentEffect:i(0x522fd8),gusts:Array.from({length:5},(_,index)=>{const n=index+1;return {x:d(0x535460+n*8),y:d(0x4f4b08+n*8),width:i(0x4f7ea0+n*4),strength:i(0x4f71d8+n*4)}})},generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
     configuration:{speed:runtime.selectedSpeed,course:i(0x4da188),wind:i(0x4da154),...(options.windDirection!==undefined?{windDirection:options.windDirection}:{}),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c),venue:i(0x4da1f8),mode:i(0x4da16c),gate:i(0x4da1e8)!==0,short:i(0x53640c)!==0},
     view:{lookDegrees:viewRead(0x4f49a0+owner*4),lookMode:viewRead(0x512d60+owner*4),viewpoint:viewRead(0x4f71c0+owner*4),automatic:viewRead(0x523a58+owner*4)!==0,otherBoat:viewRead(0x5233a4),tacticalZoom:viewRead(0x50f6d0+owner*4),tacticalOrientation:viewRead(0x525a78+owner*4)},
     contacts:contactWorld?{...contactWorld.summary}:undefined,panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
     course:{marks:marks.slice(0,3),gate:i(0x4da1e8)?[{x:i(0x4f4a68),y:i(0x4f6d34)},{x:i(0x523248),y:i(0x52359c)}]:[],start:startingLine??finish,finish,committee:{...finish.a,heading:i(0x4f7f94)},target:{x:i(0x4f4d78+owner*4),y:i(0x4fc350+owner*4)},closeAngle:i(0x4f7200)+i(0x5359e0+owner*4),downwindAngle:i(0x4fae60+owner*4),showLaylines:i(0x536490)!==0,showMarkLines:i(0x4da184)!==0,length:i(0x525a9c),guides:extractGuides(),navigationTarget:extractGuides.navigation,headingReference:(i(0x535740+owner*4)-(i(0x536490)?i(0x522ff0+owner*4)*45:0)+720)%360},
-    raceWindow:raceWindow.state(i(0x4f8cd0)),results:i(0x5363f4)!==0,resultsReady,completedRaces:i(0x5363fc),seriesScoring:i(0x536424)===0,workMs,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
+    raceWindow:raceWindow.state(i(0x4f8cd0)),results:i(0x5363f4)!==0,resultsReady,completedRaces:i(0x5363fc),seriesScoring:i(0x536424)===0,workMs,snapshotWorkMs:performance.now()-started,minimumDelayMs:delay,sentAt:performance.timeOrigin+performance.now()};
 }
 function panelTitle():string|null{
   const i=(a:number)=>memory.readI32(a);
@@ -151,7 +161,12 @@ function tick(){try{
  let duration=stepRuntime();
  if(memory.readI32(0x5363f4)!==0&&!resultsReady)duration+=stepRuntime();
  const completed=memory.readI32(0x5363f4)!==0;
- if(pacer.mode!=='clock'||completed||performance.now()-lastSnapshotAt>=snapshotIntervalMs){
+ const active=pacer.state(runtime.selectedSpeed,memory.readI32(0x4da174)).active;
+ if(active.mode==='clock')playbackMeter.sample(performance.now(),memory.readF64(0x5359f0),active.rate);
+ // At16× and above, transmit display state at30Hz. The renderer still draws
+ // and interpolates at display refresh; every authoritative step still runs.
+ const interval=active.mode==='clock'&&active.rate>=16?1000/30:snapshotIntervalMs;
+ if(pacer.mode!=='clock'||completed||performance.now()-lastSnapshotAt>=interval){
   send('snapshot',snapshot(duration));lastSnapshotAt=performance.now();
  }
  requestModels();
@@ -176,6 +191,7 @@ async function initialize(data:any){
   modelMutableBase=original.MUTABLE_BASE;modelMutableSize=original.MUTABLE_SIZE;
   const [modelModule,memoryModule]=await Promise.all([load(edition+'src/render/drawing-functions.js'),load('src/runtime/memory.js')]);
   modelDraw=modelModule.nativeModelDrawBoatNumber;ModelMemory=memoryModule.AddressSpaceMemory;ModelRng=integer.PoseyRng;TraceDc=gdiModule.GdiTrace;
+  cameraMemory=new ModelMemory(memory.size,memory.base);
   const scenario=data.scenario,settings=validateRaceSettings(data.settings);
   const fleet=data.fleet??scenario.configuration.fleet;if(!fleetChoices.some(f=>f.value===fleet))throw Error('Unsupported native fleet');
   if(settings.gate&&fleet<20)throw Error('Native gate requires at least 20 boats');
@@ -246,8 +262,9 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   const {type,data,id}=event.data;
   if(type==='init'){await initialize(data);return;}
   if(event.data.generation!==generation||!ready||failed)return;
-  if(type==='pause'){paused=Boolean(data);pacer.reset(performance.now(),memory.readF64(0x5359f0));if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('snapshot',snapshot(0));send('paused',paused);}
+  if(type==='pause'){paused=Boolean(data);pacer.reset(performance.now(),memory.readF64(0x5359f0));playbackMeter.reset(performance.now(),memory.readF64(0x5359f0));if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('snapshot',snapshot(0));send('paused',paused);}
   else if(type==='playback'){configurePlayback(data);send('snapshot',snapshot(0));}
+  else if(type==='toggle-pace'){pacer.togglePrecision(performance.now(),memory.readF64(0x5359f0));if(pacer.mode==='clock'&&memory.readI32(0x4da174)!==clockNativeSpeed)runtime.restoreSpeed(clockNativeSpeed);rebasePlayback();send('snapshot',snapshot(0));}
   else if(type==='command'||type==='control-command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');if(type==='control-command'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&data!==32918&&speedForCommand(data)===undefined)return;await menu(memory,data,options);const nativeSpeed=speedForCommand(data);if(nativeSpeed!==undefined){pacer.configure({mode:'legacy',level:nativeSpeed},performance.now(),memory.readF64(0x5359f0));rebasePlayback();}send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
   else if(type==='key'||type==='control'){
     if(!Number.isInteger(data)||data<0||data>255)throw new Error('Invalid native virtual key');
@@ -256,7 +273,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
     const clockRateKey=pacer.mode==='clock'&&[33,34].includes(data);
     const clockSpaceKey=pacer.mode==='clock'&&data===32&&previousPhase===2&&panelTitle()===null&&!resultsReady;
     if(clockRateKey||clockSpaceKey){
-      if(clockSpaceKey)pacer.resetRate(performance.now(),memory.readF64(0x5359f0));
+      if(clockSpaceKey)pacer.togglePrecision(performance.now(),memory.readF64(0x5359f0));
       else pacer.adjustRate(data===33?1:-1,performance.now(),memory.readF64(0x5359f0));
       if(memory.readI32(0x4da174)!==clockNativeSpeed)runtime.restoreSpeed(clockNativeSpeed);
       rebasePlayback();

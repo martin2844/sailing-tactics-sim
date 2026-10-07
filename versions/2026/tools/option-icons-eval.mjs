@@ -26,7 +26,7 @@ try{
   if(state.appearance!=='base-select'||state.options.some(o=>!o.icon||o.text!==o.label||o.rect.width!==22))throw Error('Open option icons missing '+id);
   await shot(id);await key('Escape','Escape',27);await browser.waitFor(`!document.getElementById('${id}').matches(':open')`);checks.push({id,state});
  }
- await browser.evaluate(`document.getElementById('race-boat').focus()`);await key('Space',' ',32);await browser.waitFor('document.getElementById("race-boat").matches(":open")');await key('KeyO','o',79);await key('Enter','Enter',13);await browser.waitFor('document.getElementById("race-boat").value==="14"&&!document.getElementById("race-boat").matches(":open")');
+ await browser.evaluate(`document.getElementById('race-boat').focus()`);await key('Enter','Enter',13);await browser.waitFor('document.getElementById("race-boat").matches(":open")');await key('KeyO','o',79);await key('Enter','Enter',13);await browser.waitFor('document.getElementById("race-boat").value==="14"&&!document.getElementById("race-boat").matches(":open")');
  checks.push({name:'Native typeahead and Enter select Offshore racer; no O sail-trim input leaked'});
  await browser.evaluate(`(()=>{const s=document.getElementById('race-area');s.value='33018';s.dispatchEvent(new Event('change'));})()`);
  await browser.waitFor('document.getElementById("race-course").value==="3"');await click('#race-course');await browser.waitFor('document.getElementById("race-course").matches(":open")');
