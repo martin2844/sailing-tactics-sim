@@ -1189,10 +1189,16 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   Refresh warning flags on private copies as the OG coach lifecycle does; compare
   advice under heel/luff/bad-air/penalty cases without changing live state/RNG.
   Show appropriate luff, trim, shape, rig, clear-air and header/lift information.
+  2026-10-07: exact heel and actual sheltered-wind warnings now survive
+  integration; coaching is reachable after results. Remaining advice/HUD cases
+  keep this task open. See `versions/2026/docs/rules-controls-review-2026-10-07.md`.
 - [ ] **PARITY-02 — Validate leg replay against modern host bookkeeping.**
   Rewind during prestart, a leg, after a finish and during a championship; reconcile
   finish window, DNF ledger, contacts and event scoring. Retain the separate
   existing production replay/timeline tasks.
+  2026-10-07: public paused/post-result replay, natural cutoff/DNF rollback and
+  active championship receipt replacement now pass. Earlier receipts remain;
+  fuller leg/championship coverage and timeline work keep this task open.
 - [ ] **PARITY-03 — Restore audio cues.**
   Replace sound/beep stubs with worker-to-main audio events, original cue identity,
   mute and browser activation handling. Evaluate countdown, start, recall/foul
@@ -1206,6 +1212,9 @@ Evidence: [minimap and starter](versions/2026/analysis/app/MINIMAP-STARTER.md).
   direction and assistance controls through original handlers. Add night visuals
   if night race is exposed. Evaluate combinations before marking each supported;
   persist validated setup rather than silently resetting all preferences.
+  2026-10-07: all15 simulator pace levels are exposed and retained. Space toggles
+  precision speed1/selected speed; F pauses; Page Up/Down synchronize preference.
+  These pace settings do not complete the separate AI/race-option backlog.
 - [ ] **PARITY-06 — Port original learning/help navigation.**
   Make rules/tactics chapters, glossary, bibliography and relevant explanations
   reachable in modern panels; check text/layout, pause policy and private state.

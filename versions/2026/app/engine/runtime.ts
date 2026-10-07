@@ -1,3 +1,4 @@
+import {defaultSimulatorSpeed,speedForCommand,speedCommand,validateSimulatorSpeed} from './speed.ts';
 import {RandomStreams} from './random/streams.ts';
 import {updateWorldState,type WorldStatePort} from './world-state.ts';
 import {createWorldStatePort} from './compatibility/world-state-port.ts';
@@ -20,6 +21,7 @@ export interface RuntimeConfiguration {
   setupCommands: readonly number[];
   postSetupCommands: readonly number[];
   gate?: boolean;
+  speed?: number;
   integerTrig: unknown;
   trig: unknown;
   options?: Record<string, unknown>;
@@ -35,6 +37,7 @@ export interface EngineState {
   ticks: number;
   resultsApplied: boolean;
   strings: StringCell[];
+  selectedSpeed: number;
 }
 export interface EngineCheckpoint extends EngineState {
   replay?: EngineState;
@@ -52,6 +55,7 @@ export class EngineRuntime {
   private saveRequested = false;
   private replay?: EngineState;
   minimumDuration = 0;
+  selectedSpeed=defaultSimulatorSpeed;
   private readonly world: WorldStatePort;
   private readonly memory: EngineMemory;
   private readonly numeric: NumericalEngine;
@@ -79,6 +83,13 @@ export class EngineRuntime {
         this.spawnWave(index);
       },
     };
+    const integrate=this.options.integratePositions;
+    if(typeof integrate!=='function')throw new TypeError('Numerical engine requires position integration');
+    this.options.integratePositions=(image:EngineMemory,random:unknown,options:EngineOptions)=>{
+      const sheltered=image.readI32(0x4fb224);
+      integrate(image,random,options);
+      image.writeI32(0x4fb224,sheltered);
+    };
     this.objects = numeric.initializeApplication(memory, this.random.gameplay, {
       preferences: null, timeSeed: configuration.seed, screenHeight: 768, integerTrig: configuration.integerTrig,
     });
@@ -90,6 +101,8 @@ export class EngineRuntime {
     memory.writeI32(0x5363b0, 2); memory.writeI32(0x536444, 0); memory.writeI32(0x5233a8, 0);
     memory.writeI32(0x53642c, 0); memory.writeI32(0x4da1dc, 0); memory.writeI32(0x4da1f4, 397);
     for (const command of configuration.postSetupCommands) numeric.command(memory, command, this.options);
+    this.selectedSpeed=validateSimulatorSpeed(configuration.speed??memory.readI32(0x4da174));
+    numeric.command(memory,speedCommand(this.selectedSpeed),this.options);
     for (let index = 0; index <= memory.readI32(0x4da1f4); index++) this.spawnWave(index);
     this.world = createWorldStatePort(memory, {
       camera: () => {}, // Camera state is presentation only under the v1 contract.
@@ -111,6 +124,7 @@ export class EngineRuntime {
     this.minimumDuration = 80;
     if (memory.readI32(0x53642c) !== 0 || memory.readI32(0x5363b0) !== 2
       || panelFlags.some(address => memory.readI32(address) !== 0)) return;
+    memory.writeI32(0x4fb224,0);
     const cycle = (memory.readI32(0x5364e8) + 1) | 0;
     memory.writeI32(0x5364e8, cycle > 60 ? 1 : cycle);
     this.minimumDuration = executeSimulationStep({
@@ -125,14 +139,23 @@ export class EngineRuntime {
     if (this.saveRequested) { this.saveRequested = false; this.replay = this.captureState(); }
   }
 
-  command(command: number): void { this.numeric.command(this.memory,command,this.options); }
+  command(command: number): void {
+    const speed=speedForCommand(command);
+    if(speed!==undefined)this.selectedSpeed=speed;
+    this.numeric.command(this.memory,command,this.options);
+  }
   key(key: number): void {
-    // Space is a speed reset during sailing. Setup/panel dismissal keeps its
+    // Space alternates precision speed1 and the selected sailing speed. Setup/panel dismissal keeps its
     // contextual native behavior; pause belongs to the2026 host's F control.
     if (key === 32 && this.memory.readI32(0x5363b0) === 2
       && !panelFlags.some(address => this.memory.readI32(address) !== 0)
       && this.memory.readI32(0x5363f4) === 0) {
-      this.numeric.command(this.memory,32872,this.options);
+      const level=this.memory.readI32(0x4da174)===1?this.selectedSpeed:1;
+      const restoring=this.memory.readI32(0x4da174)===1;
+      this.numeric.command(this.memory,speedCommand(level),this.options);
+      if(restoring&&this.memory.readI32(0x4da1dc)===1){
+        this.memory.writeI32(0x4da1dc,2);this.memory.writeI32(0x4da1e0,this.memory.readI32(0x4f8cd0));
+      }
       return;
     }
     if (key === 8) {
@@ -142,8 +165,11 @@ export class EngineRuntime {
       return;
     }
     this.numeric.key(this.memory,key,this.options);
+    if(key===33||key===34)this.selectedSpeed=validateSimulatorSpeed(this.memory.readI32(0x4da174));
     if(this.memory.readI32(0x5363b0)===1)this.startConfiguredRace();
   }
+
+  rebaseReplay():void { this.replay=this.captureState(); }
 
   checkpoint(): EngineCheckpoint {
     const replay=this.replay;
@@ -153,7 +179,7 @@ export class EngineRuntime {
 
   private captureState(): EngineState {
     return {image:this.memory.bytes.slice(),random:this.random.snapshot(),raceWindow:this.raceWindow.checkpoint(),
-      ticks:this.ticks,resultsApplied:this.resultsApplied,strings:this.numeric.captureStrings(this.memory)};
+      ticks:this.ticks,resultsApplied:this.resultsApplied,strings:this.numeric.captureStrings(this.memory),selectedSpeed:this.selectedSpeed};
   }
 
   restore(checkpoint: EngineCheckpoint): void {
@@ -169,6 +195,7 @@ export class EngineRuntime {
     this.random.restore(checkpoint.random);
     this.memory.bytes.set(checkpoint.image);
     this.numeric.restoreStrings(this.memory,checkpoint.strings);
+    this.selectedSpeed=validateSimulatorSpeed(checkpoint.selectedSpeed);
     this.raceWindow.restore(checkpoint.raceWindow);
     this.ticks=checkpoint.ticks;this.resultsApplied=checkpoint.resultsApplied;this.saveRequested=false;
   }
@@ -188,6 +215,7 @@ export class EngineRuntime {
     this.numeric.initializeRace(m,this.random.gameplay,this.options);
     m.writeI32(0x5363b0,2);m.writeI32(0x53642c,0);m.writeI32(0x5364ac,0);
     for(const address of [...panelFlags,0x536448,0x5363b4])m.writeI32(address,0);
+    this.numeric.command(m,speedCommand(this.selectedSpeed),this.options);
     m.writeI32(0x4da1f4,397);
     for(let index=0;index<=397;index++)this.spawnWave(index);
     this.raceWindow.reset();this.resultsApplied=false;this.saveRequested=false;

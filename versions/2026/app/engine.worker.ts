@@ -16,6 +16,8 @@ import {evaluateEnvironmentCases} from './environment-cases';
 import {readNativeTerrain} from './native-environment';
 import {areaChoices,fleetChoices} from './native-catalog';
 import {PhaseTracer} from './engine/diagnostics/phase-trace';
+import {speedForCommand,simulatorSpeeds} from './engine/speed';
+import {prepareFleetSpawns} from './engine/compatibility/spawn-state';
 import {EngineRuntime} from './engine/runtime';
 import {studioRigWidth} from './presentation/model-profile';
 import {finalizeResults} from './engine/results';
@@ -46,7 +48,7 @@ let generation=0,frame=0,paused=true,failed=false,ready=false,delay=0,timer:Retu
 const queue=new MessageChannel();let pending=false,scheduleToken=0;
 queue.port1.onmessage=event=>{if(event.data!==scheduleToken)return;pending=false;if(ready&&!paused&&!failed)tick();};
 const visuals=createNativeVisualObserver();
-const allowed=new Set<number>([...Object.values(commands),32872,32876,32909,32918]);
+const allowed=new Set<number>([...Object.values(commands),...simulatorSpeeds.map(speed=>speed.command),32918]);
 const send=(type:string,data:any)=>{if(type==='snapshot'){const native=(data as SceneSnapshot).nativeVisuals;self.postMessage({type,generation,data},{transfer:[native.styles.buffer,native.geometry.buffer,native.boats.buffer]});}else if(type==='models'){const p=data.packet;self.postMessage({type,generation,data},{transfer:[p.positions.buffer,p.records.buffer,p.colors.buffer,p.boats.buffer]});}else self.postMessage({type,generation,data});};
 function requestModels(){
   if(!ready||!modelReady||modelBusy||failed||!modelDirty&&modelSequence===frame)return;
@@ -76,6 +78,11 @@ function stepRuntime(){
   return phaseTracer?phaseTracer.paint(frame,advance):advance();
 }
 function courseLine():CourseLine{return {a:{x:memory.readI32(0x536410),y:memory.readI32(0x536414)},b:{x:memory.readI32(0x4fe094),y:memory.readI32(0x4fe2a0)}};}
+function settleStartingFleet(){
+ const image=new ModelMemory(memory.size,memory.base);image.bytes.set(memory.bytes);
+ prepareFleetSpawns(memory,{depth:(x,y)=>spatialMetric(image,Math.round(x),Math.round(y),1,options).toNumber()});
+ runtime.rebaseReplay();
+}
 function setupIslandNavigation(){
   islandNavigator=undefined;
   if(!(memory.readI32(0x4da1f8)===0&&memory.readI32(0x4f8b78)===1||memory.readI32(0x4da1f8)===5))return;
@@ -95,7 +102,7 @@ function snapshot(workMs:number):SceneSnapshot {
   const viewRead=(address:number)=>cameraImage.readI32(address);
   const marks=[[0x5229d4,0x522ac8],[0x522acc,0x522ae0],[0x5229c8,0x522ac4],[0x536410,0x536414],[0x4fe094,0x4fe2a0]].map(([x,y])=>({x:i(x),y:i(y)})),finish=courseLine();
   return {environment:{waves:i(0x535e44),currentEffect:i(0x522fd8),gusts:Array.from({length:5},(_,index)=>{const n=index+1;return {x:d(0x535460+n*8),y:d(0x4f4b08+n*8),width:i(0x4f7ea0+n*4),strength:i(0x4f71d8+n*4)}})},generation,sequence:frame,time:d(0x5359f0),clock:i(0x4f8cd0),pace:i(0x4da174),windDirection:i(0x5362d4),windStrength:i(0x522ad0),boats,
-    configuration:{course:i(0x4da188),wind:i(0x4da154),...(options.windDirection!==undefined?{windDirection:options.windDirection}:{}),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c),venue:i(0x4da1f8),mode:i(0x4da16c),gate:i(0x4da1e8)!==0,short:i(0x53640c)!==0},
+    configuration:{speed:runtime.selectedSpeed,course:i(0x4da188),wind:i(0x4da154),...(options.windDirection!==undefined?{windDirection:options.windDirection}:{}),fleet:i(0x4da194),selector:i(0x4da144),area:i(0x4da19c),venue:i(0x4da1f8),mode:i(0x4da16c),gate:i(0x4da1e8)!==0,short:i(0x53640c)!==0},
     view:{lookDegrees:viewRead(0x4f49a0+owner*4),lookMode:viewRead(0x512d60+owner*4),viewpoint:viewRead(0x4f71c0+owner*4),automatic:viewRead(0x523a58+owner*4)!==0,otherBoat:viewRead(0x5233a4),tacticalZoom:viewRead(0x50f6d0+owner*4),tacticalOrientation:viewRead(0x525a78+owner*4)},
     contacts:contactWorld?{...contactWorld.summary}:undefined,panel,sheet:i(0x500380+owner*4),sailShape:i(0x4fe778+owner*4),spinnaker:i(0x4f451c+owner*4)!==0,frozen:i(0x53642c)!==0,
     nativeVisuals:packNativeVisuals(visuals.frame(memory.readI32(0x4fe624),Math.trunc(memory.readI32(0x4fe2a8)/2))),marks,
@@ -156,7 +163,7 @@ async function initialize(data:any){
     scaledRandom:integer.scaledRandom,nearest:waypoints.nearestWaypointDistance,
     bearing:(m,x,y,boat)=>geometry.targetRelativeBearing(m,x,y,0,boat),distance:movement.distanceToBoat,
   },{seed:scenario.seedTimeSeconds,setupCommands:raceSetupCommands(scenario.setupCommands,settings,fleet),
-    postSetupCommands:scenario.postSetupCommands,gate:settings.gate,integerTrig:tables,trig:trig.createCapturedTrig(extended,stored),
+    postSetupCommands:scenario.postSetupCommands,gate:settings.gate,speed:settings.speed,integerTrig:tables,trig:trig.createCapturedTrig(extended,stored),
     options:{islandNavigationEnabled:true,islandCoursesEnabled:true,windDirection:settings.windDirection,...createWindDirectionHooks(settings.windDirection)}});
   options=runtime.options;rng=runtime.random.gameplay;objects=runtime.objects;raceWindow=runtime.raceWindow;
   menu=(_image:unknown,command:number)=>runtime.command(command);
@@ -193,6 +200,7 @@ async function initialize(data:any){
   modelWorker.onerror=event=>fail(event.message);
   modelWorker.onmessage=event=>{if(event.data.type==='error'){fail(event.data.data);return;}if(event.data.type==='ready')modelReady=true;else if(event.data.type==='models'){modelBusy=false;send('models',event.data.data);}try{requestModels();}catch(error){fail(error);}};
   modelWorker.postMessage({type:'init',data:{legacyBase:data.legacyBase,objects:[...objects]}});
+  settleStartingFleet();
   runtime.step();frame++;
   startingLine=courseLine();
   const initial=await boundary();
@@ -211,14 +219,14 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   if(type==='init'){await initialize(data);return;}
   if(event.data.generation!==generation||!ready||failed)return;
   if(type==='pause'){paused=Boolean(data);if(paused){clearTimeout(timer);scheduleToken++;pending=false;}else schedule(0);send('paused',paused);}
-  else if(type==='command'||type==='control-command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');if(type==='control-command'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&data!==32918)return;await menu(memory,data,options);send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
+  else if(type==='command'||type==='control-command'){if(!Number.isInteger(data)||!allowed.has(data))throw new Error('Unsupported native command');if(type==='control-command'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&data!==32918&&speedForCommand(data)===undefined)return;await menu(memory,data,options);send('snapshot',snapshot(0));send('accepted',{command:data,sequence:frame});}
   else if(type==='key'||type==='control'){
     if(!Number.isInteger(data)||data<0||data>255)throw new Error('Invalid native virtual key');
-    if(type==='control'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&!nativeCameraKeys.has(data)&&![32,191].includes(data))return;
+    if(type==='control'&&(paused||memory.readI32(0x53642c)!==0||panelTitle()!==null)&&!nativeCameraKeys.has(data)&&![8,32,33,34,78,191].includes(data))return;
     const previousPhase=memory.readI32(0x5363b0);
     key(memory,data,options);
     if(data===8||previousPhase!==2&&memory.readI32(0x5363b0)===2){
-      if(data!==8){startingLine=courseLine();send('terrain',readNativeTerrain(memory));}
+      if(data!==8){settleStartingFleet();startingLine=courseLine();send('terrain',readNativeTerrain(memory));}
       contactWorld.reset();contactWorld.seed();setupIslandNavigation();frame++;
     }
     if(memory.readI32(0x5363f4)===0)resultsReady=false;modelDirty=true;send('snapshot',snapshot(0));send('accepted',{key:data,sequence:frame});requestModels();
@@ -238,7 +246,7 @@ self.onmessage=(event:MessageEvent)=>{chain=chain.then(async()=>{
   else if(type==='next-race'){
     if(!paused||!resultsReady||memory.readI32(0x5363f4)===0)throw new Error('Next race requires completed native results');
     clearTimeout(timer);scheduleToken++;pending=false;resultsReady=false;
-    runtime.nextRace();frame++;startingLine=courseLine();
+    runtime.nextRace();settleStartingFleet();frame++;startingLine=courseLine();
     setupIslandNavigation();contactWorld.reset();contactWorld.seed();modelDirty=true;send('terrain',readNativeTerrain(memory));send('snapshot',snapshot(0));send('paused',true);requestModels();send('reply',{id,value:await boundary()});
   }
   else if(type==='finishcase'){

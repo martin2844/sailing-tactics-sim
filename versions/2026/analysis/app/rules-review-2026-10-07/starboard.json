@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "clock": -100,
+      "humanTack": "port",
+      "nativeHumanCode": 4,
+      "geometryHumanCode": 4,
+      "penalizedBoat": 1,
+      "event": {
+        "clock": -100,
+        "a": 1,
+        "other": "boat-2",
+        "penalties": [
+          {
+            "boat": 1,
+            "code": 4
+          }
+        ]
+      }
+    },
+    {
+      "clock": -100,
+      "humanTack": "starboard",
+      "nativeHumanCode": 0,
+      "geometryHumanCode": 0,
+      "penalizedBoat": 2,
+      "event": {
+        "clock": -100,
+        "a": 1,
+        "other": "boat-2",
+        "penalties": [
+          {
+            "boat": 2,
+            "code": 4
+          }
+        ]
+      }
+    },
+    {
+      "clock": 1000,
+      "humanTack": "port",
+      "nativeHumanCode": 4,
+      "geometryHumanCode": 4,
+      "penalizedBoat": 1,
+      "event": {
+        "clock": 1000,
+        "a": 1,
+        "other": "boat-2",
+        "penalties": [
+          {
+            "boat": 1,
+            "code": 4
+          }
+        ]
+      }
+    },
+    {
+      "clock": 1000,
+      "humanTack": "starboard",
+      "nativeHumanCode": 0,
+      "geometryHumanCode": 0,
+      "penalizedBoat": 2,
+      "event": {
+        "clock": 1000,
+        "a": 1,
+        "other": "boat-2",
+        "penalties": [
+          {
+            "boat": 2,
+            "code": 4
+          }
+        ]
+      }
+    },
+    {
+      "opponentElapsed": 49,
+      "humanCode": 0
+    },
+    {
+      "opponentElapsed": 50,
+      "humanCode": 4
+    }
+  ],
+  "scope": "Actual swept hull contacts on controlled opposite-tack fixtures, compared with the frozen2010 numerical classifier; prestart/racing and original49/50-second opponent grace."
+}

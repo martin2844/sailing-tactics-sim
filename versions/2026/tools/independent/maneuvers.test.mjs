@@ -9,9 +9,9 @@ import {updatePlayer1Steering as adapted} from '../../public/legacy/versions/201
 const executable=await readFile(new URL('../../../2010-en/runtime/Tactics2010EnglishPreserved.exe',import.meta.url));
 const wait=(engine,condition,limit=600)=>{for(let n=0;n<limit;n++){engine.step();if(condition())return n+1;}assert.fail('Maneuver did not complete');};
 
-test('Space always resets speed1 and preserves freeze; a held panel still dismisses',()=>{
+test('Space toggles speed1 and selected speed while preserving freeze; a held panel still dismisses',()=>{
  const {memory:m,engine:e}=makeRuntime();e.step();e.key(32);assert.equal(m.readI32(0x4da174),1);
- e.key(32);assert.equal(m.readI32(0x4da174),1);
+ e.key(32);assert.equal(m.readI32(0x4da174),10);
  const time=m.readF64(0x5359f0);e.step();assert.ok(m.readF64(0x5359f0)>time);
  e.key(70);e.command(32909);e.key(32);assert.equal(m.readI32(0x4da174),1);assert.equal(m.readI32(0x53642c),1);
  e.key(191);e.key(32);assert.equal(m.readI32(0x536444),0);

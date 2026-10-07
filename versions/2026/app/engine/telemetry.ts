@@ -11,6 +11,9 @@ const signedAngle = (angle: number) => {
  * cases324–345. Sampling now happens once per successful simulation step. */
 export function updateSailingTelemetry(memory: EngineMemory, numeric: NumericalEngine): void {
   const r = (address: number) => memory.readI32(address);
+  // Integration clears the transient advice cells after dynamics. Rebuild the
+  // original heel warning independently of post-start statistical sampling.
+  memory.writeI32(0x4fb21c,r(0x4fc2c4)>((r(0x4f4200)+1)|0)&&r(0x500384)>=0?1:0);
   if (r(0x4f8cd0) <= 0) return;
   const increment = (address: number) => memory.writeI32(address, (r(address) + 1) | 0);
   const shift = signedAngle(r(0x522b94) - r(0x4f7f94));

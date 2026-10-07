@@ -15,10 +15,25 @@ try{
  const last=log.at(-1),arrivals=last.boats.filter(b=>b.id>1&&b.finished>0&&!b.dnf);if(!last.results||arrivals.length<2)throw Error('AI did not navigate island and complete a race');
  if(!last.boats[0].dnf||!last.window.closedByCutoff||last.clock<last.window.deadline)throw Error('Natural leader did not start/close the DNF window');
  await writeFile(resolve(out,'finish.png'),Buffer.from((await b.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
+ let replay;
+ if(process.env.TACT_ISLAND_REPLAY==='1'){
+  const before=await b.evaluate('tact2026.engine.request("boundary")');
+  await b.evaluate('document.getElementById("scene").focus()');
+  for(const type of ['keyDown','keyUp'])await b.call('Input.dispatchKeyEvent',{type,code:'KeyY',key:'y',windowsVirtualKeyCode:89});
+  await b.waitFor('document.getElementById("information-panel").dataset.state==="ready"&&!document.getElementById("information-panel").hidden',20000);
+  const coach=await b.evaluate('document.getElementById("information-content").textContent');if(!coach.trim())throw Error('Completed-race coaching empty');
+  const afterCoach=await b.evaluate('tact2026.engine.request("boundary")');if(JSON.stringify(before)!==JSON.stringify(afterCoach))throw Error('Completed-race coach changed live state');
+  for(const type of ['keyDown','keyUp'])await b.call('Input.dispatchKeyEvent',{type,code:'Escape',key:'Escape',windowsVirtualKeyCode:27});
+  await b.evaluate('document.getElementById("scene").focus()');
+  for(const type of ['keyDown','keyUp'])await b.call('Input.dispatchKeyEvent',{type,code:'Backspace',key:'Backspace',windowsVirtualKeyCode:8});
+  await b.waitFor('tact2026.latest.frozen&&!tact2026.latest.resultsReady&&document.getElementById("race-results").hidden&&tact2026.event.races.length===0',20000);
+  replay={before,afterCoach,coach,restored:await b.evaluate('({clock:tact2026.latest.clock,window:tact2026.latest.raceWindow,event:tact2026.event.races,boats:tact2026.latest.boats})')};
+  if(replay.restored.clock>=last.clock||replay.restored.window.closedByCutoff||replay.restored.boats.some(boat=>boat.dnf))throw Error('Replay retained completed-race cutoff state');
+ }
  let nextRace;
  if(process.env.TACT_ISLAND_CHAMP==='1'){
   const before=await b.evaluate('tact2026.engine.request("boundary")'),standings=await b.evaluate('({races:tact2026.event.races,standings:tact2026.event.standings})');await b.evaluate('tact2026.nextRace()');await b.waitFor('tact2026.ready&&tact2026.event.activeRace===2||tact2026.error',60000);if(await b.evaluate('tact2026.error'))throw Error(await b.evaluate('tact2026.error'));
   if(!await b.evaluate('!document.getElementById("starter").hidden&&document.getElementById("boat-preview").dataset.state==="ready"&&!document.getElementById("start-race").disabled'))throw Error('Next-race starter/preview not ready');const after=await b.evaluate('tact2026.engine.request("step",20)');if(after.frame<=before.frame||after.rngState===initial.boundary.rngState||await b.evaluate('tact2026.latest.raceWindow.deadline!==undefined||tact2026.latest.boats.some(b=>b.dnf||b.finished)'))throw Error('DNF championship transition did not reset the race');nextRace={before,after,standings};
  }
- await writeFile(resolve(out,'verification.json'),JSON.stringify({passed:true,initial,log,nextRace,scope:'Independent2026 numerical steps, unsteered human, five Optimists on moderate-wind island; original Page Up pace controls, actual AI sailing/arrivals and game-clock cutoff. Optional natural DNF championship-to-next-race transition. No position/leg/finish fixtures. Diagnostic batch pacing, not a performance series.'},null,2));
+ await writeFile(resolve(out,'verification.json'),JSON.stringify({passed:true,initial,log,nextRace,replay,scope:'Independent2026 numerical steps, unsteered human, five Optimists on moderate-wind island; original Page Up pace controls, actual AI sailing/arrivals and game-clock cutoff. Optional natural DNF championship-to-next-race transition or trusted end-race Y/Backspace with coach purity and discarded-score/cutoff rollback. No position/leg/finish fixtures. Diagnostic batch pacing, not a performance series.'},null,2));
 }catch(e){await writeFile(resolve(out,'failure.json'),JSON.stringify({error:e.stack,log,state:await b.evaluate('({error:tact2026.error,state:tact2026.latest})').catch(String)},null,2));throw e;}finally{await b.close();}
