@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Optimist · measured model study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif;color:#24313d;background:#e9edef}header{padding:18px 26px;background:#f8f9f9;border-bottom:1px solid #ccd4d8;display:flex;align-items:center;gap:20px}h1{font-size:19px;margin:0}header span{color:#64747d}a{color:#375b72}main{display:grid;grid-template-columns:minmax(0,1fr) 290px;min-height:calc(100vh - 66px)}#viewport{position:relative;min-height:650px}canvas{display:block;width:100%;height:100%}aside{padding:24px;background:#f8f9f9;border-left:1px solid #ccd4d8}h2{font-size:14px;margin:0 0 16px}p{line-height:1.55;color:#61727b}label{display:block;margin:18px 0}input[type=range]{width:100%;accent-color:#375b72}button{background:#fff;border:1px solid #b9c7cd;padding:8px 12px;border-radius:3px;color:inherit;cursor:pointer}.views{display:flex;flex-wrap:wrap;gap:6px}.dimensions{font-variant-numeric:tabular-nums;line-height:1.8;border-top:1px solid #d6dde0;padding-top:15px}.refs a{display:block;padding:5px 0}.note{position:absolute;bottom:20px;left:22px;color:#657780;font-size:12px;pointer-events:none}@media(max-width:750px){main{grid-template-columns:1fr}#viewport{height:65vh;min-height:400px}aside{border:0}header span{display:none}}
+</style></head><body>
+<header><h1>Optimist / geometry study</h1><span>Low-poly racing model · physical proportions</span><a href="http://127.0.0.1:8770/" style="margin-left:auto">Playable game · OG models</a></header>
+<main><div id="viewport"><canvas id="view"></canvas><div class="note">Drag to orbit · Scroll to inspect · Isolated prototype</div></div>
+<aside><h2>View</h2><div class="views"><button data-view="quarter">Quarter</button><button data-view="side">Side</button><button data-view="bow">Bow</button><button data-view="stern">Stern</button><button data-view="top">Top</button></div>
+<label>Sheet angle <output id="trim-value">12°</output><input id="trim" type="range" min="-85" max="85" value="12"></label>
+<label>Heel <output id="heel-value">0°</output><input id="heel" type="range" min="-25" max="25" value="0"></label>
+<label><input id="crew" type="checkbox" checked> Show sailor</label><label><input id="luff" type="checkbox"> Luffing study</label><label><input id="penalty" type="checkbox"> Penalty sail</label>
+<div class="dimensions">Hull <strong>2.36 × 1.12 m</strong><br>Mast <strong>2.26 m</strong><br>Sail luff <strong>1.73 m</strong><br>Planar sail area <strong>3.335 m²</strong></div>
+<p>Modelled after the real boat. Fixed sail proportions; trim and heel change its pose. Interior details remain a visual study.</p>
+<h2>Generated references</h2><div class="refs"><a href="../docs/optimist-study/concepts/a-profile.png" target="_blank">A · Profile and rig</a><a href="../docs/optimist-study/concepts/b-racing.png" target="_blank">B · Racing treatment</a><a href="../docs/optimist-study/concepts/c-cockpit.png" target="_blank">C · Cockpit and sailor</a><a href="../docs/optimist-study/references/north-sails-sprit.png" target="_blank">Real-boat photograph</a></div>
+</aside></main>
+<script type="module">
+import * as THREE from 'three';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';import {OptimistStudy} from '../app/models/optimist-study.ts';import {OPTIMIST} from '../app/models/optimist-spec.ts';
+const canvas=document.getElementById('view'),container=document.getElementById('viewport');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#dce3e7');scene.add(new THREE.HemisphereLight('#edf3f8','#53636b',2));
+const sun=new THREE.DirectionalLight('#fff9ec',2.4);sun.position.set(-3,7,-4);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-4,right:4,top:4,bottom:-4,near:.1,far:20});sun.shadow.bias=-.0004;sun.shadow.normalBias=.005;scene.add(sun);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(100,100),new THREE.MeshStandardMaterial({color:'#bac8ce',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.8;floor.receiveShadow=true;scene.add(floor);
+const model=new OptimistStudy();scene.add(model.group);
+const camera=new THREE.PerspectiveCamera(32,1,.03,100);const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.target.set(0,1.4,0);controls.minDistance=2;controls.maxDistance=14;
+const views={quarter:[-4.5,2.8,5.8],side:[-7.4,1.6,0],bow:[0,2.2,-7.4],stern:[0,2.2,7.4],top:[0,7.5,.001]};
+function setView(name){controls.target.set(0,name==='top'?.5:1.4,0);camera.position.set(...views[name]);controls.update();renderer.render(scene,camera);}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+for(const id of ['trim','heel','crew','luff','penalty'])document.getElementById(id).addEventListener('input',e=>{const v=e.target.type==='range'?Number(e.target.value):e.target.checked;model.update({[id]:id==='luff'?Number(v):v});const out=document.getElementById(id+'-value');if(out)out.value=v+'°';});
+new ResizeObserver(()=>{const {width,height}=container.getBoundingClientRect();renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();}).observe(container);
+setView('quarter');renderer.setAnimationLoop(t=>{if(document.getElementById('luff').checked)model.update({time:t/1000});controls.update();renderer.render(scene,camera);});
+window.optimistStudy={model,renderer,scene,camera,controls,spec:OPTIMIST,setView,setBearing:(degrees)=>{const a=degrees*Math.PI/180;controls.target.set(0,1.4,0);camera.position.set(7.4*Math.sin(a),3.8,-7.4*Math.cos(a));controls.update();renderer.render(scene,camera);},render:()=>renderer.render(scene,camera)};
+window.studyReady=true;
+</script></body></html>

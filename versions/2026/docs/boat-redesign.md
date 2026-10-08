@@ -1,5 +1,7 @@
 # Three-boat low-poly redesign
 
+**Current state:** the three redesigns below were rejected. The playable fleet is restored to the OG models, with all 24 screenshots matching the baseline exactly. New work is confined to the [measured Optimist study](optimist-study/README.md), based on real photographs and generated references. The following sections are historical.
+
 The `boat-redesign` branch starts with a repeatable visual baseline for the Optimist, Laser, and Keelboat. Each boat has eight model-space compass views (N, NE, E, SE, S, SW, W, NW) at the same camera elevation and lighting. The gallery uses the app's saved native boat sample and `NativeBoatMesh`, so its pictures show the actual browser model, not a separate concept render.
 
 | Boat | Baseline example | Redesigned example |
