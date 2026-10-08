@@ -2,9 +2,6 @@ import * as THREE from 'three';
 import {MODEL_QUANTUM,type NativeModelPacket} from './native-models';
 import {drawOpenDeck,type MeshPrimitive} from './boat-deck';
 import {drawCrew} from './boat-crew';
-import {drawModernHull} from './boat-hull';
-import {designRig,OPTIMIST_SAIL_FACES} from './boat-design';
-import {drawSailors} from './boat-sailor';
 import {triangulateSail} from './sail-triangulation';
 import {SailDetailSurface,type SailAnchor} from './sail-detail';
 import type {BoatView} from './protocol';
@@ -20,7 +17,7 @@ export class NativeBoatMesh {
  private motion=Uint8Array.from([]);private pivot=new THREE.Vector3();private mast=new THREE.Vector3(0,1,0);private sailHeight=1;private nativeBoomBearing=0;private hasRig=false;
  private sailAttachments:{vertex:number;faceBase:number;weights:[number,number,number];offset:THREE.Vector3}[]=[];
  constructor(material:THREE.Material){this.mesh=new THREE.Mesh(this.geometry,material);this.mesh.frustumCulled=false;this.group.add(this.mesh);this.group.scale.setScalar(BOAT_MODEL_SCALE);}
- update(packet:NativeModelPacket,start:number,end:number,classId?:number){
+ update(packet:NativeModelPacket,start:number,end:number,_classId?:number){
   const positions:number[]=[],rgb:number[]=[],motion:number[]=[];let movingPart=0,movingEnds:THREE.Vector3[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
   this.sailAttachments=[];let detailAnchors:SailAnchor[]=[];const clothFaces:number[]=[];
   const put=(v:THREE.Vector3,color:THREE.Color)=>{
@@ -36,41 +33,33 @@ export class NativeBoatMesh {
    for(let i=0;i<5;i++){const {cos,sin}=rodAngles[i],x=u.x*cos+v.x*sin,y=u.y*cos+v.y*sin,z=u.z*cos+v.z*sin;ring[i].set(a.x+x,a.y+y,a.z+z);ring[i+5].set(b.x+x,b.y+y,b.z+z);}
    for(let i=0;i<5;i++){const next=(i+1)%5;triangle(ring[i],ring[i+5],ring[next+5],color);triangle(ring[i],ring[next+5],ring[next],color);}
   };
-  let primitives:MeshPrimitive[]=[];
+  const primitives:MeshPrimitive[]=[];
   for(let at=start;at<end;){const op=packet.records[at++],part=packet.records[at++],fill=nativeColor(packet.colors[packet.records[at++]]),stroke=nativeColor(packet.colors[packet.records[at++]]),flags=packet.records[at++],radius=packet.records[at++]/MODEL_QUANTUM,count=packet.records[at++];const points=Array.from(packet.records.slice(at,at+count),point);at+=count;const p:MeshPrimitive={op,part,fill,stroke,flags,radius,points};if(op===3){p.rx=packet.records[at++]/MODEL_QUANTUM;p.ry=packet.records[at++]/MODEL_QUANTUM;}primitives.push(p);}
-  if(classId===1||classId===2||classId===12)primitives=designRig(primitives,classId);
   const deck=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===11),cockpit=primitives.find(p=>p.part===4&&p.op===1&&p.points.length===4);
-  const modernHull=!!deck&&(classId===1||classId===2||classId===12);
   const main=primitives.find(p=>p.part===5&&p.op===1),boom=main?primitives.find(p=>p.part===6&&p.op===2&&p.points[0].distanceToSquared(main.points[0])<.0004&&p.points[1].distanceToSquared(main.points.at(-1)!)<.0004):undefined;
-  const cloth=main?new SailDetailSurface(main.points,modernHull&&classId===1?OPTIMIST_SAIL_FACES:undefined):undefined;
+  const cloth=main?new SailDetailSurface(main.points):undefined;
   this.hasRig=!!main&&!!boom;
-  if(main&&boom){this.pivot.copy(boom.points[0]);const tip=modernHull&&classId===1?main.points[3]:main.points.reduce((a,b)=>a.y>b.y?a:b);this.mast.copy(tip).sub(this.pivot);this.sailHeight=this.mast.length();this.mast.normalize();const direction=boom.points[1].clone().sub(this.pivot);this.nativeBoomBearing=Math.atan2(direction.x,direction.z);}
+  if(main&&boom){this.pivot.copy(boom.points[0]);const tip=main.points.reduce((a,b)=>a.y>b.y?a:b);this.mast.copy(tip).sub(this.pivot);this.sailHeight=this.mast.length();this.mast.normalize();const direction=boom.points[1].clone().sub(this.pivot);this.nativeBoomBearing=Math.atan2(direction.x,direction.z);}
   const dressed=new Set<MeshPrimitive>();let crew:MeshPrimitive[]=[];
-  if(modernHull)drawSailors(deck!,primitives,classId!,triangle,rod);
-  for(const p of primitives){if(p.part!==2)continue;if(modernHull){dressed.add(p);continue;}crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod,modernHull?classId:undefined))for(const piece of crew)dressed.add(piece);crew=[];}}
-  const boomSpan=boom?new THREE.Line3(boom.points[0],boom.points[1]):undefined;
-  const nearestBoom=new THREE.Vector3();
+  for(const p of primitives){if(p.part!==2)continue;crew.push(p);if(p.op===3){if(drawCrew(crew,triangle,rod))for(const piece of crew)dressed.add(piece);crew=[];}}
   const topology:number[]=[];
   for(const p of primitives){const {op,part,fill,stroke,flags,radius,points}=p;topology.push(op,part,points.length);
    movingPart=part===5?1:0;movingEnds=[];
-   if(boom&&p.op===2&&p!==boom&&part!==2&&part!==1&&part!==4){movingEnds=points.filter(v=>boomSpan!.closestPointToPoint(v,true,nearestBoom).distanceToSquared(v)<.0004);if(movingEnds.length)movingPart=2;}
+   if(boom&&p.op===2&&p!==boom&&part!==2&&part!==1&&part!==4){movingEnds=points.filter(v=>v.distanceToSquared(boom.points[1])<.0004);if(movingEnds.length)movingPart=2;}
    if(p===boom){movingPart=2;movingEnds=points;}
    if(dressed.has(p)){topology.push(2026);continue;}
-   if(modernHull){if(part===1||(part===3&&op===2)||p===cockpit)continue;if(p===deck){drawModernHull(classId!,deck,cockpit,primitives.filter(q=>q.part===1),triangle,rod);topology.push(2027);continue;}}
    if(deck&&cockpit){if(p===cockpit)continue;if(p===deck){topology.push(...drawOpenDeck(deck,cockpit,triangle,rod));continue;}}
    if(op===1){
     // The same recovered polygon contour determines its triangulation. Curved
     // sails keep all native edge vertices rather than becoming one triangle.
-    const faces=p===main?cloth!.faces:part===5?triangulateSail(points):THREE.ShapeUtils.triangulateShape(points.map(p=>new THREE.Vector2(p.x*Math.cos(-.6108735491753208)+p.z*Math.sin(-.6108735491753208),p.y-.3*(-p.x*Math.sin(-.6108735491753208)+p.z*Math.cos(-.6108735491753208)))),[]);topology.push(...faces.flat());
-    if(!(flags&2))for(const [index,face] of faces.entries()){if(p===main)clothFaces.push(positions.length/3);const panel=modernHull&&part===5&&fill.getHex()!==0?fill.clone().multiplyScalar([1,.95,.985,.925][index%4]):fill;triangle(points[face[0]],points[face[1]],points[face[2]],panel);}
+    const faces=part===5?triangulateSail(points):THREE.ShapeUtils.triangulateShape(points.map(p=>new THREE.Vector2(p.x*Math.cos(-.6108735491753208)+p.z*Math.sin(-.6108735491753208),p.y-.3*(-p.x*Math.sin(-.6108735491753208)+p.z*Math.cos(-.6108735491753208)))),[]);topology.push(...faces.flat());
+    if(!(flags&2))for(const face of faces){if(p===main)clothFaces.push(positions.length/3);triangle(points[face[0]],points[face[1]],points[face[2]],fill);}
     if(!(flags&1))for(let i=0;i<points.length;i++)rod(points[i],points[(i+1)%points.length],stroke,radius);
    }else if(op===2){if(!(flags&1)){
     if(part===5&&cloth&&clothFaces.length){
      const segments=cloth.segments(points[0],points[1]);topology.push(-5,segments.length,...segments.map(segment=>segment[0].face));
      for(const segment of segments){detailAnchors=segment;rod(segment[0].point,segment[1].point,stroke,radius);}detailAnchors=[];
-    }else{
-     rod(points[0],points[1],stroke,radius);
-    }
+    }else rod(points[0],points[1],stroke,radius);
    }}
    else if(op===3){const rx=p.rx!,ry=p.ry!;const center=points[0];
     if(!(flags&2))for(let i=0;i<spherePoints.count;i++){const p=new THREE.Vector3(spherePoints.getX(i)*rx,spherePoints.getY(i)*ry,spherePoints.getZ(i)*rx).add(center);put(p,fill);}
