@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "geometry": {
+    "rows": [
+      {
+        "trim": -85,
+        "penalty": false,
+        "clothError": 1.1920928955078125e-7
+      },
+      {
+        "trim": -85,
+        "penalty": true,
+        "clothError": 1.1920928955078125e-7
+      },
+      {
+        "trim": -30,
+        "penalty": false,
+        "clothError": 1.1920928955078125e-7
+      },
+      {
+        "trim": -30,
+        "penalty": true,
+        "clothError": 1.1920928955078125e-7
+      },
+      {
+        "trim": 0,
+        "penalty": false,
+        "clothError": 1.1641532182693481e-10
+      },
+      {
+        "trim": 0,
+        "penalty": true,
+        "clothError": 1.1641532182693481e-10
+      },
+      {
+        "trim": 12,
+        "penalty": false,
+        "clothError": 5.960464477539063e-8
+      },
+      {
+        "trim": 12,
+        "penalty": true,
+        "clothError": 5.960464477539063e-8
+      },
+      {
+        "trim": 80,
+        "penalty": false,
+        "clothError": 1.1920928955078125e-7
+      },
+      {
+        "trim": 80,
+        "penalty": true,
+        "clothError": 1.1920928955078125e-7
+      }
+    ],
+    "frozen": true,
+    "flutter": true,
+    "crewStableInHeadwind": true
+  },
+  "live": {
+    "rate": 32.977270829523114,
+    "selected": 32,
+    "boats": 30,
+    "newModels": true,
+    "gpu": {
+      "vendor": "Google Inc. (AMD)",
+      "renderer": "ANGLE (AMD, AMD Radeon RX 7800 XT (radeonsi navi32 ACO), OpenGL ES 3.2)"
+    }
+  },
+  "cases": [
+    {
+      "kind": "normal",
+      "trim": 5.123780120528883,
+      "heel": -3.615723439228453,
+      "penalty": false
+    },
+    {
+      "kind": "trim",
+      "trim": 43.11985249527994,
+      "heel": -3.615723439228453,
+      "penalty": false
+    },
+    {
+      "kind": "oppositeTack",
+      "trim": -4.989809117388141,
+      "heel": 4.385265106705089,
+      "penalty": false
+    },
+    {
+      "kind": "penalty",
+      "trim": 5.123780120528883,
+      "heel": -3.615723439228453,
+      "penalty": true
+    },
+    {
+      "kind": "luff",
+      "trim": 25.2341158532808,
+      "heel": -3.615723439228453,
+      "penalty": false
+    }
+  ],
+  "frames": {
+    "medianMs": 12.5,
+    "p95Ms": 25,
+    "over50ms": 4,
+    "total": 300
+  },
+  "boundaryUnchanged": true
+}

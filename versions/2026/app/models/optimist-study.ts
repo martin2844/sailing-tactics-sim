@@ -1,12 +1,12 @@
 import * as THREE from 'three';
-import {OPTIMIST, DEFAULT_OPTIMIST_POSE, type OptimistPose} from './optimist-spec';
+import {OPTIMIST, OPTIMIST_HULL_STATIONS, DEFAULT_OPTIMIST_POSE, type OptimistPose} from './optimist-spec';
 import {StudyMesh,vector as V} from './study-mesh';
 const C=(hex:string)=>new THREE.Color(hex);
 const white=C('#e5e9e8'),inside=C('#cbd3d3'),rim=C('#eaf0ed'),bag=C('#909da3');
 const spar=C('#4c555b'),rope=C('#526974'),navy=C('#26343f'),jersey=C('#6b7b85'),skin=C('#ac8872'),hair=C('#35312e');
 const U=[0,.1,.2,.4,.6,.8,1],T=[0,.1,.2,.4,.6,.8,1];
 
-/** Isolated visual prototype. No imports into the playable fleet or engine. */
+/** Measured visual model shared by the study viewer and playable Optimist. */
 export class OptimistStudy {
  readonly group=new THREE.Group();
  private material=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.78,flatShading:true,side:THREE.DoubleSide});
@@ -17,6 +17,11 @@ export class OptimistStudy {
  readonly window=new THREE.Mesh(new THREE.BufferGeometry(),this.glassMaterial);
  private pose:OptimistPose={...DEFAULT_OPTIMIST_POSE};
  private tack=1;
+ private fixedRanges:[number,number][]=[];
+ private liveLines:{start:number;a:THREE.Vector3;b:THREE.Vector3;turnA:boolean;turnB:boolean;radius:number}[]=[];
+ private liveBase?:{positions:Float32Array;normals:Float32Array}[];
+ private fixedMask=new Uint8Array();
+ private liveTack=0;private livePenalty=false;private liveTick=-1;private liveLuff=-1;
  constructor(){
   this.group.add(this.hull,this.rig,this.sailor,this.window);
   for(const mesh of [this.hull,this.rig,this.sailor]){mesh.castShadow=true;mesh.receiveShadow=true;}
@@ -28,7 +33,7 @@ export class OptimistStudy {
  private buildHull(){
   const mesh=new StudyMesh();
   // z, sheer half-width, sheer height, chine half-width, chine height.
-  const stations=[[-1.18,.38,.37,.32,.13],[-.65,.515,.335,.445,.025],[0,.56,.32,.48,0],[.65,.535,.325,.455,.025],[1.18,.47,.34,.4,.09]];
+  const stations=OPTIMIST_HULL_STATIONS;
   const contour=[...stations.map(([z,w,y])=>V(w,y,z)),...stations.slice().reverse().map(([z,w,y])=>V(-w,y,z))];
   const chine=[...stations.map(([z,,,w,y])=>V(w,y,z< -1?-1.07:z>1?1.15:z)),...stations.slice().reverse().map(([z,,,w,y])=>V(-w,y,z< -1?-1.07:z>1?1.15:z))];
   const inset=contour.map(p=>V(p.x-Math.sign(p.x)*.023,p.y-.005,p.z+(p.z< -1?.023:p.z>1?-.023:0)));
@@ -78,14 +83,20 @@ export class OptimistStudy {
   mesh.write(this.sailor.geometry);
  }
  update(patch:Partial<OptimistPose>){
+  const animated=!!this.liveBase;this.liveBase=undefined;
   const old=this.pose;this.pose={...old,...patch};const pose=this.pose;
   this.group.rotation.z=THREE.MathUtils.degToRad(pose.heel);
   this.sailor.visible=pose.crew;
   const tack=pose.trim===0?this.tack:Math.sign(pose.trim);
   if(!this.sailor.geometry.getAttribute('position')||tack!==this.tack)this.buildSailor(-tack);
   this.tack=tack;
-  if(this.rig.geometry.getAttribute('position')&&old.trim===pose.trim&&old.luff===pose.luff&&old.penalty===pose.penalty&&(pose.luff===0||old.time===pose.time))return;
+  if(!animated&&this.rig.geometry.getAttribute('position')&&old.trim===pose.trim&&old.luff===pose.luff&&old.penalty===pose.penalty&&(pose.luff===0||old.time===pose.time))return;
   const mesh=new StudyMesh(),glass=new StudyMesh();
+  this.fixedRanges=[];this.liveLines=[];
+  const fixed=(draw:()=>void)=>{const start=mesh.coordinateCount;draw();this.fixedRanges.push([start,mesh.coordinateCount]);};
+  const sheet=(a:THREE.Vector3,b:THREE.Vector3,turnA:boolean,turnB:boolean,radius:number)=>{
+   this.liveLines.push({start:mesh.coordinateCount,a,b,turnA,turnB,radius});mesh.rod(a,b,radius,rope);
+  };
   const trim=THREE.MathUtils.degToRad(pose.trim),origin=V(0,OPTIMIST.tackHeight,OPTIMIST.mastZ);
   const transform=(p:THREE.Vector3)=>p.applyAxisAngle(V(0,1,0),trim).add(origin);
   const raw=(u:number,v:number)=>{
@@ -127,18 +138,57 @@ export class OptimistStudy {
   for(let i=0;i<32;i++){const a=i*Math.PI/16,b=(i+1)*Math.PI/16;mesh.rod(metric(.90+.13*Math.cos(a),1.94+.13*Math.sin(a)),metric(.90+.13*Math.cos(b),1.94+.13*Math.sin(b)),.007,ink);}
   for(let i=0;i<16;i++)mesh.rod(metric(.90,1.965-i*.018),metric(.90,1.965-(i+1)*.018),.007,ink);
   const foot=raw(1,0),peak=raw(1,1),throat=raw(0,1);
-  mesh.rod(V(0,OPTIMIST.mastStep,OPTIMIST.mastZ),V(0,OPTIMIST.mastStep+OPTIMIST.mastLength,OPTIMIST.mastZ),.022,spar);
+  fixed(()=>mesh.rod(V(0,OPTIMIST.mastStep,OPTIMIST.mastZ),V(0,OPTIMIST.mastStep+OPTIMIST.mastLength,OPTIMIST.mastZ),.022,spar));
   mesh.rod(origin,foot,.014,spar);
   mesh.rod(transform(V(0,.5,0)),peak,.012,spar);
-  mesh.rod(V(0,.19,OPTIMIST.mastZ),raw(.2,0),.003,rope);
-  mesh.rod(raw(.53,0),V(0,.26,.13),.003,rope);mesh.rod(V(0,.26,.13),V(-this.tack*.275,.46,.165),.003,rope);
-  mesh.rod(V(0,.405,.35),V(-this.tack*.275,.46,.55),.005,spar);
+  sheet(V(0,.19,OPTIMIST.mastZ),raw(.2,0),false,true,.003);
+  sheet(raw(.53,0),V(0,.26,.13),true,false,.003);fixed(()=>mesh.rod(V(0,.26,.13),V(-this.tack*.275,.46,.165),.003,rope));
+  fixed(()=>mesh.rod(V(0,.405,.35),V(-this.tack*.275,.46,.55),.005,spar));
   for(let i=0;i<=7;i++){
    const p=raw(0,i/7);mesh.rod(p.clone().add(V(-.025,0,0)),p.clone().add(V(.025,0,0)),.002,rope);
    const f=raw(i/7,0);mesh.rod(f.clone().add(V(0,-.018,0)),f.clone().add(V(0,.018,0)),.002,rope);
   }
   const flag=throat.clone().add(V(0,.16,0));mesh.rod(throat,flag,.0018,spar);mesh.triangle(flag,flag.clone().add(V(.1,.014,0)),flag.clone().add(V(.07,.038,0)),C('#964740'));
   mesh.write(this.rig.geometry);glass.write(this.window.geometry);
+ }
+ /** Fast live presentation: rigid trim every frame, cloth sampled at 10 Hz.
+  * Only the sub-centimetre cloth billow is sampled. Boom rotation and heel
+  * remain continuous, and sheets retain their fixed hull attachment points. */
+ animate(pose:OptimistPose, phase=0, sailingTack=pose.trim){
+  // A released sail may flap across the centreline without the sailor tacking.
+  const tack=Math.sign(sailingTack)||this.tack;
+  const tick=pose.luff===0?0:Math.floor((pose.time+phase)*10);
+  if(!this.liveBase||this.liveTack!==tack||this.livePenalty!==pose.penalty||this.liveTick!==tick||this.liveLuff!==pose.luff){
+   this.update({...pose,trim:tack*1e-9});
+   this.liveBase=[this.rig,this.window].map(mesh=>({positions:Float32Array.from(mesh.geometry.getAttribute('position').array),normals:Float32Array.from(mesh.geometry.getAttribute('normal').array)}));
+   this.fixedMask=new Uint8Array(this.liveBase[0].positions.length/3);
+   for(const [start,end]of this.fixedRanges)this.fixedMask.fill(1,start/3,end/3);
+   this.liveTack=tack;this.livePenalty=pose.penalty;this.liveTick=tick;this.liveLuff=pose.luff;
+  }
+  this.group.rotation.z=THREE.MathUtils.degToRad(pose.heel);this.sailor.visible=pose.crew;
+  const angle=THREE.MathUtils.degToRad(pose.trim-tack*1e-9),cos=Math.cos(angle),sin=Math.sin(angle);
+  for(const [index,mesh]of [this.rig,this.window].entries()){
+   const base=this.liveBase[index],position=mesh.geometry.getAttribute('position'),normal=mesh.geometry.getAttribute('normal');
+   const p=position.array,n=normal.array;
+   for(let i=0;i<p.length;i+=3){
+    if(index===0&&this.fixedMask[i/3]){
+     p[i]=base.positions[i];p[i+1]=base.positions[i+1];p[i+2]=base.positions[i+2];
+     n[i]=base.normals[i];n[i+1]=base.normals[i+1];n[i+2]=base.normals[i+2];continue;
+    }
+    const x=base.positions[i],z=base.positions[i+2]-OPTIMIST.mastZ;
+    p[i]=x*cos+z*sin;p[i+1]=base.positions[i+1];p[i+2]=z*cos-x*sin+OPTIMIST.mastZ;
+    n[i]=base.normals[i]*cos+base.normals[i+2]*sin;n[i+1]=base.normals[i+1];n[i+2]=base.normals[i+2]*cos-base.normals[i]*sin;
+   }
+   position.needsUpdate=true;normal.needsUpdate=true;
+  }
+  const turn=(p:THREE.Vector3)=>V(p.x*cos+(p.z-OPTIMIST.mastZ)*sin,p.y,(p.z-OPTIMIST.mastZ)*cos-p.x*sin+OPTIMIST.mastZ);
+  for(const line of this.liveLines){
+   const mesh=new StudyMesh();mesh.rod(line.turnA?turn(line.a):line.a,line.turnB?turn(line.b):line.b,line.radius,rope);
+   mesh.writePositions(this.rig.geometry,line.start);
+  }
+  // The cloth's small deformation and a rotating boom fit this fixed envelope.
+  this.rig.geometry.boundingSphere=new THREE.Sphere(V(0,1.5,OPTIMIST.mastZ),3);
+  this.window.geometry.boundingSphere=this.rig.geometry.boundingSphere;
  }
  dispose(){for(const m of [this.hull,this.rig,this.sailor,this.window])m.geometry.dispose();this.material.dispose();this.glassMaterial.dispose();this.group.removeFromParent();}
 }

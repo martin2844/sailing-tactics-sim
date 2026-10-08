@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-import {NativeBoatMesh} from './native-boat-mesh';
+import {createBoatModel,type BoatModel} from './boat-model';
+import {OptimistWaterMask} from './optimist-water-mask';
 import {MODEL_QUANTUM,type NativeModelPacket} from './native-models';
 function previewDirection(packet:NativeModelPacket,start:number,end:number){
  const normal=new THREE.Vector3(1,0,1);let area=0;const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);
@@ -12,8 +13,9 @@ function previewDirection(packet:NativeModelPacket,start:number,end:number){
 /** Reuses the sailing model, with its own presentation camera. No engine input. */
 export class BoatPreview {
  private renderer:THREE.WebGLRenderer;private scene=new THREE.Scene();private camera=new THREE.PerspectiveCamera(35,1,.1,20000);private controls:OrbitControls;
- private material=new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,side:THREE.DoubleSide,roughness:.85});private model?:NativeBoatMesh;
+ private material=new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,side:THREE.DoubleSide,roughness:.85});private model?:BoatModel;
  private waterGeometry:THREE.BufferGeometry;private waterMaterial=new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88});
+ private waterMask=new OptimistWaterMask(this.waterMaterial);
  private dirty=true;private observer:ResizeObserver;private width=0;private height=0;private lost=false;
  constructor(private canvas:HTMLCanvasElement){
   this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.05;
@@ -26,11 +28,12 @@ export class BoatPreview {
  get unavailable(){return this.lost;}
  receive(packet:NativeModelPacket,classId?:number){
   const at=packet.boats.findIndex((id,index)=>index%3===0&&id===1);if(at<0)return;
-  const fresh=!this.model;if(!this.model){this.model=new NativeBoatMesh(this.material);this.scene.add(this.model.group);}this.model.update(packet,packet.boats[at+1],packet.boats[at+2],classId);
+  const fresh=!this.model;if(!this.model){this.model=createBoatModel(this.material,classId);this.scene.add(this.model.group);}this.model.update(packet,packet.boats[at+1],packet.boats[at+2],classId);this.model.interpolate(1);
   if(fresh){const box=new THREE.Box3().setFromObject(this.model.group),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3()),distance=Math.max(size.y,size.x,size.z)*1.75;this.controls.target.copy(center);this.camera.position.copy(center).add(previewDirection(packet,packet.boats[at+1],packet.boats[at+2]).multiplyScalar(distance));this.controls.minDistance=distance*.55;this.controls.maxDistance=distance*3;this.camera.near=Math.max(.1,distance/1000);this.camera.updateProjectionMatrix();this.controls.update();}
+  this.waterMask.update([this.model]);
   this.canvas.dataset.state='ready';this.dirty=true;
  }
- reset(){this.model?.dispose();this.model=undefined;this.canvas.dataset.state='loading';this.dirty=true;}
+ reset(){this.model?.dispose();this.model=undefined;this.waterMask.update([]);this.canvas.dataset.state='loading';this.dirty=true;}
  render(){if(!this.dirty||this.lost)return;const r=this.canvas.getBoundingClientRect(),w=Math.round(r.width),h=Math.round(r.height);if(!w||!h)return;if(w!==this.width||h!==this.height){this.width=w;this.height=h;this.renderer.setSize(w,h,false);this.camera.aspect=w/h;this.camera.updateProjectionMatrix();}
   // Refit vertically framed rigs on narrow previews without clipping their tips.
   if(this.model){const box=new THREE.Box3().setFromObject(this.model.group),radius=box.getBoundingSphere(new THREE.Sphere()).radius,minDistance=radius/Math.sin(Math.atan(Math.tan(this.camera.fov*Math.PI/360)*Math.min(1,this.camera.aspect)));const offset=this.camera.position.clone().sub(this.controls.target);if(offset.length()<minDistance){this.camera.position.copy(this.controls.target).add(offset.setLength(minDistance*1.02));this.controls.update();}}

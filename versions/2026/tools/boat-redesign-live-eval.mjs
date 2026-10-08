@@ -17,7 +17,7 @@ for(const [name,id] of [['optimist',1],['laser',2],['keelboat',12]]){
   await browser.evaluate('document.getElementById("race-form").requestSubmit()');
   await browser.waitFor(`globalThis.tact2026?.latest?.configuration?.selector===${id}&&tact2026.scene.hasModels&&document.getElementById('starter').hidden||globalThis.tact2026?.error`,60000);
   if(await browser.evaluate('tact2026.error'))throw Error(await browser.evaluate('tact2026.error'));
-  const row=await browser.evaluate(`(()=>{const model=tact2026.scene.models.get(1);return {classId:tact2026.latest.configuration.selector,modelTriangles:model.geometry.getAttribute('position').count/3,modelSequence:tact2026.scene.modelSequence,boats:tact2026.latest.boats.length,renderer:tact2026.scene.actualBackend}})()`);
+  const row=await browser.evaluate(`(()=>{const model=tact2026.scene.models.get(1);let triangles=0;model.group.traverse(o=>{if(o.isMesh)triangles+=o.geometry.getAttribute('position').count/3;});return {modelType:model.constructor.name,classId:tact2026.latest.configuration.selector,modelTriangles:triangles,modelSequence:tact2026.scene.modelSequence,boats:tact2026.latest.boats.length,renderer:tact2026.scene.actualBackend}})()`);
   if(row.classId!==id||row.modelTriangles<100||row.boats<2)throw Error('Incomplete live model '+JSON.stringify(row));
   await writeFile(resolve(output,`${name}-live.png`),Buffer.from((await browser.call('Page.captureScreenshot',{format:'png'})).data,'base64'));
   rows.push({name,...row});

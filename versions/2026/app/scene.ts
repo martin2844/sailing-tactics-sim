@@ -4,7 +4,8 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {NativeBoatLayer} from './native-boat-layer';
 import type {SceneSnapshot} from './protocol';
-import {NativeBoatMesh} from './native-boat-mesh';
+import {createBoatModel,type BoatModel} from './boat-model';
+import {OptimistWaterMask} from './optimist-water-mask';
 import {CourseScene} from './course-scene';
 import {EnvironmentScene} from './environment-scene';
 import type {NativeTerrain} from './native-environment';
@@ -24,7 +25,8 @@ export class SailingScene {
   private geometries=new Set<THREE.BufferGeometry>();private materials=new Set<THREE.Material>();private observer:ResizeObserver;
   private queryExtension:any;private pendingQueries:WebGLQuery[]=[];readonly gpuMs:number[]=[];private gl?:WebGL2RenderingContext;
   actualBackend='initializing';adapterInfo:unknown;readonly samples:RenderSample[]=[];private lastWaterPhase=-1;private cameraDirty=true;private origin=new THREE.Vector3();private nativeBoats:NativeBoatLayer;
-  private models=new Map<number,NativeBoatMesh>();private modelMaterial:THREE.Material;private modelReceived=0;private modelSpan=40;modelSequence=0;hasModels=false;modelPacket?:NativeModelPacket;readonly modelCosts:number[]=[];readonly modelBytes:number[]=[];readonly modelBuildCosts:number[]=[];
+  private waterMask?:OptimistWaterMask;
+  private models=new Map<number,BoatModel>();private modelMaterial:THREE.Material;private modelReceived=0;private modelSpan=40;modelSequence=0;hasModels=false;modelPacket?:NativeModelPacket;readonly modelCosts:number[]=[];readonly modelBytes:number[]=[];readonly modelBuildCosts:number[]=[];
   private environment=new EnvironmentScene();private course=new CourseScene();readonly labels:SceneLabels;readonly minimap:Minimap;
   constructor(private canvas:HTMLCanvasElement,boatCanvas:HTMLCanvasElement,private onSample:(sample:RenderSample)=>void,private onFailure:(message:string)=>void){
     this.nativeBoats=new NativeBoatLayer(boatCanvas);
@@ -45,7 +47,7 @@ export class SailingScene {
     const position=geo.attributes.position;const colors=[];
     for(let i=0;i<position.count;i++){const x=position.getX(i),z=position.getZ(i);position.setY(i,0);const color=new THREE.Color('#177f9c');const face=Math.floor(i/3);color.multiplyScalar(.88+.12*(Math.sin(face*12.9898)+1)/2);colors.push(color.r,color.g,color.b);}
     geo.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geo.computeVertexNormals();
-    this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.water.position.y=WATER_SURFACE_Y;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
+    this.water=new THREE.Mesh(geo,this.material(new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.88,metalness:.05})));this.waterMask=new OptimistWaterMask(this.water.material as THREE.MeshStandardMaterial);this.water.position.y=WATER_SURFACE_Y;this.scene.add(this.water);const distantWater=new THREE.Mesh(this.geometry(new THREE.PlaneGeometry(160000,160000)),this.material(new THREE.MeshStandardMaterial({color:new THREE.Color('#177f9c').multiplyScalar(.9),roughness:.88,metalness:.05})));distantWater.rotation.x=-Math.PI/2;distantWater.position.y=-4.2;this.scene.add(distantWater);
     this.scene.add(this.environment.group);
     this.scene.add(this.course.group);
     this.scene.add(this.contactOverlay.group);
@@ -85,7 +87,7 @@ export class SailingScene {
     this.nativeBoats.receive(value.nativeVisuals);
   }
   receiveModels(value:{generation:number;sequence:number;packet:NativeModelPacket}){if(this.latest&&value.generation!==this.latest.generation)return;const p=value.packet,now=performance.now();this.modelPacket=p;this.modelSpan=this.hasModels?Math.max(1,now-this.modelReceived):40;this.modelReceived=now;this.modelSequence=value.sequence;
-    for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=new NativeBoatMesh(this.modelMaterial);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2],this.latest?.configuration.selector);}
+    for(let at=0;at<p.boats.length;at+=3){const id=p.boats[at];let model=this.models.get(id);if(!model){model=createBoatModel(this.modelMaterial,this.latest?.configuration.selector);this.models.set(id,model);this.scene.add(model.group);}model.update(p,p.boats[at+1],p.boats[at+2],this.latest?.configuration.selector);}
     this.hasModels=true;if(this.modelCosts.length<4000){this.modelCosts.push(p.workMs);this.modelBytes.push(p.positions.byteLength+p.records.byteLength+p.colors.byteLength+p.boats.byteLength);this.modelBuildCosts.push(performance.now()-now);}this.cameraDirty=true;
   }
   reset(){this.animationClock.reset();this.minimap.reset();this.environment.reset();this.labels.reset();for(const model of this.models.values())model.dispose();this.models.clear();this.hasModels=false;this.modelPacket=undefined;this.modelSequence=0;this.modelCosts.length=0;this.modelBytes.length=0;this.modelBuildCosts.length=0;this.nativeBoats.reset();this.course.reset();this.previous=undefined;this.latest=undefined;this.lastPose='';this.lastDraw=0;}
@@ -115,6 +117,7 @@ export class SailingScene {
     const animationTime=this.animationClock.sample(now);
     this.environment.update(current,{x:player.x,y:player.y},visualTime);
     for(let index=0;index<current.boats.length;index++){const model=this.models.get(current.boats[index].id);if(model){const pose=poses[index];model.group.position.set(pose.x-player.x,0,pose.y-player.y);model.group.rotation.y=-pose.heading*Math.PI/180;model.interpolate(this.paused?1:Math.min(1,Math.max(0,(now-this.modelReceived)/this.modelSpan)),current.boats[index],animationTime);}}
+    this.waterMask?.update(this.models.values());
     // Camera and water presentation never mutate the native engine.
     const phase=this.paused?this.lastWaterPhase:current.time*.025;
     this.water.position.y=WATER_SURFACE_Y;

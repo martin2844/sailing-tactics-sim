@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {boatName} from './fleet-names';
 import {navigationTarget} from './navigation';
 import type {SceneSnapshot} from './protocol';
-import type {NativeBoatMesh} from './native-boat-mesh';
+import type {BoatModel} from './boat-model';
 import type {CourseScene} from './course-scene';
 interface Rect {x:number;y:number;w:number;h:number}
 interface Projected {x:number;y:number;depth:number}
@@ -54,7 +54,7 @@ export class SceneLabels {
    this.reserved.push({x:r.left-origin.left,y:r.top-origin.top,w:r.width,h:r.height});
   }
  }
- render(state:SceneSnapshot,camera:THREE.Camera,models:Map<number,NativeBoatMesh>,course:CourseScene,now:number){
+ render(state:SceneSnapshot,camera:THREE.Camera,models:Map<number,BoatModel>,course:CourseScene,now:number){
   const rect=this.sceneCanvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio,2);
   if(rect.width!==this.width||rect.height!==this.height||dpr!==this.dpr){
    this.width=rect.width;this.height=rect.height;this.dpr=dpr;this.canvas.width=Math.round(this.width*dpr);this.canvas.height=Math.round(this.height*dpr);
@@ -65,7 +65,7 @@ export class SceneLabels {
   if(document.body.classList.contains('choosing-race')||document.querySelector('#native-panel:not([hidden]),#race-results:not([hidden])'))return;
   this.reservations();const candidates:Candidate[]=[];
   for(const boat of state.boats){
-   const model=models.get(boat.id),box=model?.geometry.boundingBox;if(!model||!box)continue;
+   const model=models.get(boat.id),box=model?.bounds;if(!model||!box)continue;
    const points:Projected[]=[];
    for(let i=0;i<8;i++){
     this.scratch.set(i&1?box.max.x:box.min.x,i&2?box.max.y:box.min.y,i&4?box.max.z:box.min.z).applyMatrix4(model.group.matrixWorld);

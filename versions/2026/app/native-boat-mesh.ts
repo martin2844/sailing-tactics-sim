@@ -16,6 +16,7 @@ export class NativeBoatMesh {
  private before?:Float32Array;private current?:Float32Array;private topology='';
  private motion=Uint8Array.from([]);private pivot=new THREE.Vector3();private mast=new THREE.Vector3(0,1,0);private sailHeight=1;private nativeBoomBearing=0;private hasRig=false;
  private sailAttachments:{vertex:number;faceBase:number;weights:[number,number,number];offset:THREE.Vector3}[]=[];
+ get bounds(){return this.geometry.boundingBox??new THREE.Box3();}
  constructor(material:THREE.Material){this.mesh=new THREE.Mesh(this.geometry,material);this.mesh.frustumCulled=false;this.group.add(this.mesh);this.group.scale.setScalar(BOAT_MODEL_SCALE);}
  update(packet:NativeModelPacket,start:number,end:number,_classId?:number){
   const positions:number[]=[],rgb:number[]=[],motion:number[]=[];let movingPart=0,movingEnds:THREE.Vector3[]=[];const point=(index:number)=>new THREE.Vector3(packet.positions[index*3]/MODEL_QUANTUM,packet.positions[index*3+1]/MODEL_QUANTUM,packet.positions[index*3+2]/MODEL_QUANTUM);

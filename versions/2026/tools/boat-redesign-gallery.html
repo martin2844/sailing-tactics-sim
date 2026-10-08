@@ -2,7 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Boat design review</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden}canvas{display:block;width:100vw;height:100vh}</style></head>
 <body><canvas id="view"></canvas><script type="module">
 import * as THREE from 'three';
-import {NativeBoatMesh} from '../app/native-boat-mesh.ts';
+import {createBoatModel} from '../app/boat-model.ts';
+import {OptimistWaterMask} from '../app/optimist-water-mask.ts';
 import {boatSample} from '../app/starter-samples.ts';
 const canvas=document.getElementById('view');
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});
@@ -12,11 +13,12 @@ const scene=new THREE.Scene();scene.background=new THREE.Color('#afd8e4');
 scene.add(new THREE.HemisphereLight('#fff9eb','#1d627c',2.4));
 const sun=new THREE.DirectionalLight('#fff3dc',2.4);sun.position.set(-250,400,-200);scene.add(sun);
 const water=new THREE.Mesh(new THREE.PlaneGeometry(1000,1000),new THREE.MeshStandardMaterial({color:'#177f9c',roughness:.88}));water.rotation.x=-Math.PI/2;water.position.y=-2.2;scene.add(water);
+const waterMask=new OptimistWaterMask(water.material);
 const camera=new THREE.PerspectiveCamera(35,720/560,.01,20000);
 const material=new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,side:THREE.DoubleSide,roughness:.85});
 let model;
 window.renderBoat=(boat,bearing)=>{
- model?.dispose();model=new NativeBoatMesh(material);scene.add(model.group);
+ model?.dispose();model=createBoatModel(material,boat);scene.add(model.group);
  const packet=boatSample(boat),at=packet.boats.findIndex((id,index)=>index%3===0&&id===1);
  if(at<0)throw Error('Missing player boat in sample '+boat);
  model.update(packet,packet.boats[at+1],packet.boats[at+2],boat);
@@ -24,7 +26,7 @@ window.renderBoat=(boat,bearing)=>{
  const distance=Math.max(size.x,size.y,size.z)*1.65,azimuth=bearing*Math.PI/180;
  camera.position.copy(center).add(new THREE.Vector3(Math.sin(azimuth)*distance,distance*.67,-Math.cos(azimuth)*distance));
  camera.lookAt(center);camera.near=Math.max(.01,distance/10000);camera.far=distance*100;camera.updateProjectionMatrix();
- renderer.render(scene,camera);return {boat,bearing,center:center.toArray(),size:size.toArray(),vertices:model.geometry.getAttribute('position').count};
+ waterMask.update([model]);renderer.render(scene,camera);return {boat,bearing,center:center.toArray(),size:size.toArray(),vertices:(()=>{let count=0;model.group.traverse(o=>{if(o.isMesh)count+=o.geometry.getAttribute('position').count;});return count;})()};
 };
 window.galleryReady=true;
 </script></body></html>

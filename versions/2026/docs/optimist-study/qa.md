@@ -1,6 +1,6 @@
 # Optimist study QA
 
-Scope: the isolated visual study. The playable fleet remains on the restored OG models.
+Historical scope: the isolated visual study before approval. At that point the playable fleet remained on the restored OG models. The approved Optimist is now integrated; see [live integration](live-integration.md).
 
 ## Findings fixed
 
