@@ -16,6 +16,7 @@ export class OptimistStudy {
  readonly sailor=new THREE.Mesh(new THREE.BufferGeometry(),this.material);
  readonly window=new THREE.Mesh(new THREE.BufferGeometry(),this.glassMaterial);
  private pose:OptimistPose={...DEFAULT_OPTIMIST_POSE};
+ private tack=1;
  constructor(){
   this.group.add(this.hull,this.rig,this.sailor,this.window);
   for(const mesh of [this.hull,this.rig,this.sailor]){mesh.castShadow=true;mesh.receiveShadow=true;}
@@ -45,6 +46,7 @@ export class OptimistStudy {
   mesh.box(V(0,.10,-.3),V(.88,.055,.055),white);
   mesh.box(V(0,-.26,-.15),V(.018,.61,.27),C('#b8b4a0'));
   mesh.box(V(0,-.17,1.30),V(.027,.77,.22),C('#b9a77e'));
+  mesh.box(V(0,.287,1.30),V(.027,.15,.17),C('#b9a77e')); // Rudder head joins blade, upper fitting and tiller.
   for(const y of [.17,.30])mesh.rod(V(-.027,y,1.18),V(-.027,y,1.34),.012,spar);
   mesh.rod(V(0,.36,1.37),V(0,.405,.35),.012,spar);
   mesh.ellipsoid(V(0,.18,-.93),V(.36,.12,.15),bag);
@@ -73,14 +75,16 @@ export class OptimistStudy {
   mesh.ellipsoid(at(.635,.866,.335),V(.075,.104,.074),skin);
   mesh.ellipsoid(at(.646,.920,.341),V(.078,.063,.079),hair);
   mesh.ellipsoid(at(.564,.872,.335),V(.022,.019,.02),skin);
-  mesh.rod(V(0,.405,.35),at(.275,.46,.55),.005,spar);
   mesh.write(this.sailor.geometry);
  }
  update(patch:Partial<OptimistPose>){
   const old=this.pose;this.pose={...old,...patch};const pose=this.pose;
   this.group.rotation.z=THREE.MathUtils.degToRad(pose.heel);
   this.sailor.visible=pose.crew;
-  if(!this.sailor.geometry.getAttribute('position')||Math.sign(old.trim)!==Math.sign(pose.trim))this.buildSailor(pose.trim>=0?-1:1);
+  const tack=pose.trim===0?this.tack:Math.sign(pose.trim);
+  if(!this.sailor.geometry.getAttribute('position')||tack!==this.tack)this.buildSailor(-tack);
+  this.tack=tack;
+  if(this.rig.geometry.getAttribute('position')&&old.trim===pose.trim&&old.luff===pose.luff&&old.penalty===pose.penalty&&(pose.luff===0||old.time===pose.time))return;
   const mesh=new StudyMesh(),glass=new StudyMesh();
   const trim=THREE.MathUtils.degToRad(pose.trim),origin=V(0,OPTIMIST.tackHeight,OPTIMIST.mastZ);
   const transform=(p:THREE.Vector3)=>p.applyAxisAngle(V(0,1,0),trim).add(origin);
@@ -88,7 +92,7 @@ export class OptimistStudy {
    const {tack,throat,peak,clew}=OPTIMIST.sail;
    const width=THREE.MathUtils.lerp(THREE.MathUtils.lerp(tack[0],clew[0],u),THREE.MathUtils.lerp(throat[0],peak[0],u),v);
    const height=THREE.MathUtils.lerp(THREE.MathUtils.lerp(tack[1],clew[1],u),THREE.MathUtils.lerp(throat[1],peak[1],u),v);
-   const billow=(.055*(1-pose.luff)+pose.luff*.016*Math.sin(pose.time*9+v*7))*Math.sin(Math.PI*u)*Math.sin(Math.PI*v);
+   const billow=this.tack*(.055*(1-pose.luff)+pose.luff*.016*Math.sin(pose.time*9+v*7))*Math.sin(Math.PI*u)*Math.sin(Math.PI*v);
    return transform(V(billow,height,width));
   };
   const points=T.map(v=>U.map(u=>raw(u,v)));
@@ -106,16 +110,29 @@ export class OptimistStudy {
   };
   const stroke=(a:number[],b:number[],radius:number,colour:THREE.Color)=>{const steps=24;for(let i=0;i<steps;i++)mesh.rod(surface(a[0]+(b[0]-a[0])*i/steps,a[1]+(b[1]-a[1])*i/steps),surface(a[0]+(b[0]-a[0])*(i+1)/steps,a[1]+(b[1]-a[1])*(i+1)/steps),radius,colour);};
   for(const v of [.3,.65])stroke([.76,v],[1,v],.0035,C('#d1d6d4'));
-  // Thin Optimist class monogram, attached to both sides of the cloth.
+  // Lay the insignia out in metres, not UVs: the tapered sail must not
+  // stretch its circle into an oval or skew the vertical stem.
+  const metric=(width:number,height:number)=>{
+   let u=.5,v=.75;
+   const {throat,peak,clew}=OPTIMIST.sail;
+   for(let n=0;n<8;n++){
+    const wu=clew[0]+(peak[0]-clew[0])*v,wv=(peak[0]-clew[0])*u;
+    const hu=clew[1]+(peak[1]-throat[1]-clew[1])*v,hv=throat[1]+(peak[1]-throat[1]-clew[1])*u;
+    const dw=u*wu-width,dh=clew[1]*u*(1-v)+(throat[1]+(peak[1]-throat[1])*u)*v-height,det=wu*hv-wv*hu;
+    u-=(dw*hv-dh*wv)/det;v-=(wu*dh-hu*dw)/det;
+   }
+   return surface(u,v);
+  };
   const ink=C('#324861');
-  for(let i=0;i<32;i++){const a=i*Math.PI/16,b=(i+1)*Math.PI/16;mesh.rod(surface(.56+.095*Math.cos(a),.79+.06*Math.sin(a)),surface(.56+.095*Math.cos(b),.79+.06*Math.sin(b)),.004,ink);}
-  stroke([.56,.805],[.56,.70],.005,ink);
+  for(let i=0;i<32;i++){const a=i*Math.PI/16,b=(i+1)*Math.PI/16;mesh.rod(metric(.90+.13*Math.cos(a),1.94+.13*Math.sin(a)),metric(.90+.13*Math.cos(b),1.94+.13*Math.sin(b)),.007,ink);}
+  for(let i=0;i<16;i++)mesh.rod(metric(.90,1.965-i*.018),metric(.90,1.965-(i+1)*.018),.007,ink);
   const foot=raw(1,0),peak=raw(1,1),throat=raw(0,1);
   mesh.rod(V(0,OPTIMIST.mastStep,OPTIMIST.mastZ),V(0,OPTIMIST.mastStep+OPTIMIST.mastLength,OPTIMIST.mastZ),.022,spar);
   mesh.rod(origin,foot,.014,spar);
   mesh.rod(transform(V(0,.5,0)),peak,.012,spar);
   mesh.rod(V(0,.19,OPTIMIST.mastZ),raw(.2,0),.003,rope);
-  mesh.rod(raw(.53,0),V(0,.26,.13),.003,rope);mesh.rod(V(0,.26,.13),V(pose.trim>=0?-.275:.275,.46,.165),.003,rope);
+  mesh.rod(raw(.53,0),V(0,.26,.13),.003,rope);mesh.rod(V(0,.26,.13),V(-this.tack*.275,.46,.165),.003,rope);
+  mesh.rod(V(0,.405,.35),V(-this.tack*.275,.46,.55),.005,spar);
   for(let i=0;i<=7;i++){
    const p=raw(0,i/7);mesh.rod(p.clone().add(V(-.025,0,0)),p.clone().add(V(.025,0,0)),.002,rope);
    const f=raw(i/7,0);mesh.rod(f.clone().add(V(0,-.018,0)),f.clone().add(V(0,.018,0)),.002,rope);
