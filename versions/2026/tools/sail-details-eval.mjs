@@ -16,6 +16,10 @@ async function inspect(kind){
   }return {distance:first,rgb,black:rgb?.every(v=>v<.001)??false};
  };
  const anchors=model.sailAttachments;if(!anchors.length)throw Error('No sail detail attachments '+kind);
+ // Detail materials are now pale seams and metal spars. Compare the first
+ // visible surface to the actual emitted detail palette, not hard-coded black.
+ const detailColors=anchors.map(a=>[color.getX(a.vertex),color.getY(a.vertex),color.getZ(a.vertex)]);
+ const hitsDetail=hit=>hit.rgb&&detailColors.some(rgb=>rgb.every((v,i)=>Math.abs(v-hit.rgb[i])<1e-5));
  const groups=new Map();for(const a of anchors){const key=a.faceBase+':'+a.weights.map(v=>v.toFixed(6)).join(',');if(!groups.has(key))groups.set(key,a);}
  // Each rod's two anchor centres share a face. Sample their midpoint, rather
  // than an edge endpoint where both neighbouring panels meet.
@@ -29,7 +33,7 @@ async function inspect(kind){
    const points=[0,1,2].map(i=>new Vector().fromBufferAttribute(position,first.faceBase+i));
    const centre=new Vector();for(let i=0;i<3;i++)centre.addScaledVector(points[i],(first.weights[i]+other.weights[i])/2);
    const normal=new Vector().crossVectors(points[1].clone().sub(points[0]),points[2].clone().sub(points[0])).normalize();if(normal.lengthSq()<.5)continue;
-   for(const side of [-1,1]){const hit=ray(centre.clone().addScaledVector(normal,side*.5),normal.clone().multiplyScalar(-side));if(kind!=='penalty'&&!hit.black)throw Error('Batten hidden behind cloth '+JSON.stringify({kind,alpha,time,side,hit}));checks.push({alpha,time,side,black:hit.black});}
+   for(const side of [-1,1]){const hit=ray(centre.clone().addScaledVector(normal,side*.5),normal.clone().multiplyScalar(-side));if(!hitsDetail(hit))throw Error('Batten hidden behind cloth '+JSON.stringify({kind,alpha,time,side,hit,centre:centre.toArray(),points:points.map(p=>p.toArray()),first,other}));checks.push({alpha,time,side,distance:hit.distance});}
   }
  }
  model.interpolate(1);let detachedControl;
@@ -37,7 +41,7 @@ async function inspect(kind){
   const sample=samples[0],points=[0,1,2].map(i=>new Vector().fromBufferAttribute(position,sample.first.faceBase+i)),normal=new Vector().crossVectors(points[1].clone().sub(points[0]),points[2].clone().sub(points[0])).normalize(),centre=new Vector();for(let i=0;i<3;i++)centre.addScaledVector(points[i],(sample.first.weights[i]+sample.other.weights[i])/2);
   const original=Float32Array.from(position.array);for(const attachment of anchors){const i=attachment.vertex;position.setXYZ(i,position.getX(i)+normal.x*.1,position.getY(i)+normal.y*.1,position.getZ(i)+normal.z*.1);}
   detachedControl=ray(centre.clone().addScaledVector(normal,-.5),normal);position.array.set(original);position.needsUpdate=true;
-  if(detachedControl.black)throw Error('Visibility probe did not reject detached strokes');
+  if(hitsDetail(detachedControl))throw Error('Visibility probe did not reject detached strokes');
  }
  return {kind,attachmentVertices:anchors.length,segments:samples.length,checks:checks.length,detachedControl};
 }

@@ -31,3 +31,20 @@ The hulls now have low-poly sheer, rail, painted topsides, chines, and darker lo
 Only these three classes select the new hull treatment. The remaining classes retain the prior model. Numerical sailing, collisions, AI, race rules, and original model extraction were not changed.
 
 Verification: TypeScript and production build passed. The existing native rig evaluation passed 14 trim/luff/tack/spinnaker/penalty states and six private-model transport checks. All three classes rendered in the live Chrome race, with [screenshots and model counts](../analysis/app/boat-redesign/live/verification.json). A 30-boat Keelboat run at selected 32× measured 32.25× during the short load check and retained the exact paused numerical boundary ([receipt](../analysis/app/boat-redesign/load/verification.json)). The fixed-gallery views assess the saved presentation pose; they do not certify every possible sailing angle or future art direction.
+
+## Rebuilt art pass — October 8
+
+The two earlier passes were rejected visually. They retained too much of the old painter's proportions: tall rigs, shallow hulls and undersized crew. Their technical checks did not establish that the art met the brief.
+
+This pass replaces the three selected classes' hulls and sailors with authored geometry. [Eight views per boat](../analysis/app/boat-redesign/rebuilt/manifest.json) show the actual shared runtime mesh. The older captures above remain historical comparisons.
+
+- **Optimist:** rounded pram corners, white topsides and narrow fleet-colour stripe, a deep open well, mast thwart, daggerboard trunk, hiking straps, rudder and tiller. The new four-sided sail has a distinct sprit and seven deliberately connected panels. Native trim, heel, camber and penalty colour still animate its pose.
+- **Laser/ILCA:** slender bow, recessed cockpit, centreboard slot and hiking strap. Its moving recovered rig is reduced in height to fit the hull, with dimensional spars and pale seams.
+- **Keelboat:** full hull, low cabin and hatch, recessed aft cockpit, lifelines and three sailors. The native moving main and jib remain, with the same proportional correction.
+- **Sailors:** eight-sided life jackets, shoulders, separate bent thighs and calves, boots, forearms, hands and capped heads. Native crew anchors choose tack side and hiking lean; body proportions and seating are authored separately from the old pen strokes.
+
+`boat-design.ts` adapts presentation coordinates, `boat-hull.ts` constructs hulls, and `boat-sailor.ts` constructs crew. They emit triangles into the existing merged boat mesh, without adding a draw call for every body part. The other boat classes continue to use the existing shapes. The numerical engine and collision geometry are unchanged; these are visual models, not a new class physics model.
+
+The sail evaluation now checks the actual seam/spar material instead of assuming every detail is black. It retains the detached-detail negative control and tests both cloth faces under interpolation and headwind deformation. That evaluation initially exposed narrow triangles along the new Optimist leech; fixed panel connections removed those slivers. Boom-mounted sheet endpoints also follow the boom's interior, rather than only its clew.
+
+Verification for the rebuilt pass: production build and TypeScript passed; [six Optimist rig states](../analysis/app/boat-redesign/rebuilt-sails-verified/verification.json) passed 198 two-sided surface checks each, including the detached-detail negative control; [the native rig evaluation](../analysis/app/boat-redesign/rebuilt-rig-verified/verification.json) passed 14 cases and six private-model transport checks. [All three classes entered live races](../analysis/app/boat-redesign/rebuilt-live/verification.json). The [30-boat load check](../analysis/app/boat-redesign/rebuilt-load/verification.json) measured 32.25× with 32× selected and retained the exact paused boundary. These are bounded technical checks; the new screenshots are the evidence for judging the visual direction.

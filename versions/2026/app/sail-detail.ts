@@ -11,8 +11,8 @@ export class SailDetailSurface {
  private readonly plane:Vector2[];
  private readonly across:Vector3;
  private readonly up:Vector3;
- constructor(private readonly points:readonly Vector3[]){
-  this.faces=triangulateSail(points);
+ constructor(private readonly points:readonly Vector3[],faces?:number[][]){
+  this.faces=faces??triangulateSail(points);
   this.across=points.at(-1)!.clone().sub(points[0]).normalize();
   this.up=points.reduce((a,b)=>a.y>b.y?a:b).clone().sub(points[0]);
   this.up.addScaledVector(this.across,-this.up.dot(this.across)).normalize();
